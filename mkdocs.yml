@@ -2,7 +2,7 @@
 site_name: PhilFan's Notebook
 site_author: PhilFan
 site_description: PhilFan的笔记本
-site_url: https://philfan.cn
+site_url: "https://philfan.cn"
 
 # repository information
 repo_name: 'Phil-Fan/Note'
