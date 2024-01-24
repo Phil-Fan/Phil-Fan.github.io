@@ -1,0 +1,252 @@
+# info
+site_name: PhilFan's Notebook
+site_author: PhilFan
+site_description: PhilFan的笔记本
+
+# repository information
+repo_name: 'Phil-Fan/Note'
+repo_url: 'https://github.com/Phil-Fan/Note'
+
+# copyright
+copyright: Copyright <span style="font-family:Arial;">&copy;</span> 2023-2024 <a href="https://github.com/Phil-Fan" target="_blank">PhilFan</a>
+
+# configuration
+theme:
+  name: material
+  # logo: logo.ico
+  # favicon: logo.ico
+  icon:
+    admonition:
+      note: octicons/tag-16
+      abstract: octicons/checklist-16
+      info: octicons/info-16
+      tip: octicons/squirrel-16
+      success: octicons/check-16
+      question: octicons/question-16
+      warning: octicons/alert-16
+      failure: octicons/x-circle-16
+      danger: octicons/zap-16
+      bug: octicons/bug-16
+      example: octicons/beaker-16
+      quote: octicons/quote-16
+     
+  features:
+    # - navigation.instant # This will cause LaTeX render fail at the first try.
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.path # 显示当前路径
+    - navigation.prune # 侧边栏自动折叠
+    # - navigation.tabs.sticky
+    - navigation.indexes
+    - navigation.top
+    - navigation.footer # 底部导航
+    - search.highlight
+    - search.share
+    - search.suggest
+    # - header.autohide
+    - toc.follow # toc 跟随
+    - content.code.annotate # 代码行号
+    - content.code.copy # 代码复制
+  language: 'zh'
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/weather-night
+        name: Switch to light mode
+
+  font:
+    text: Noto Serif SC # Roboto
+    code: JetBrains Mono
+
+# todo: extra & analysis & social 
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/Phil-Fan
+      name: PhilFan's Profile
+
+extra_css:
+  # - style/css/extra.css
+  # source: MinJoker.github.io/docs/stylesheets
+  - style/css/custom.css
+  - style/css/counter.css
+  - style/css/toc.css
+  - style/css/flink.css
+  # source: https://tonycrane.cc/
+  - https://cdn.tonycrane.cc/jbmono/jetbrainsmono.css
+  - https://cdn.tonycrane.cc/lxgw/lxgwscreen.css
+  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css
+
+
+extra_javascript:
+  # - 'style/js/extra.js'
+  # - 'style/js/mathjax.js' # 支持数学公式，ref : https://squidfunk.github.io/mkdocs-material/reference/mathjax
+  # - https://polyfill.io/v3/polyfill.min.js?features=es6
+  # - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  - style/js/toc.js
+  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js  
+  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js
+
+
+
+plugins:
+  # - pdf-export
+  - search:
+      lang:
+        - zh
+        - en
+        - ja
+      separator: '[\s\u200b\-]'
+  
+  # https://github.com/TonyCrane/mkdocs-heti-plugin
+  - heti:
+      disable_serve: false
+  # https://github.com/TonyCrane/mkdocs-statistics-plugin
+  - statistics:
+      words_per_minute: 256
+      codelines_per_minute: 80
+  
+  # https://github.com/timvink/mkdocs-git-revision-date-localized-plugin
+  - git-revision-date-localized:
+      type: datetime
+      timezone: Asia/Shanghai
+      locale: zh
+      enable_creation_date: true
+      exclude:
+        - index.md
+        - link.md
+      strict: false
+
+markdown_extensions:
+  # Python Markdown
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+      toc_depth: 3
+      permalink_title: anchor link to this section for reference
+  
+  # python markdown extensions
+  - pymdownx.details  # 允许在文档中添加可展开的细节块
+  - pymdownx.superfences
+
+  - pymdownx.arithmatex:
+      generic: true  # 支持内联和块级数学公式，使用 MathJax 渲染
+
+  - pymdownx.betterem:
+      # smart_enable: all  # 智能强调语法（已注释掉）
+
+  - pymdownx.caret  # 支持插入符号（^）以表示文字上标
+  - pymdownx.critic  # 支持文本的评论和建议
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji  # 使用 Twemoji 索引
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg  # 使用 SVG 生成 Emoji
+  - pymdownx.highlight  # 提供代码块的语法高亮
+  - pymdownx.inlinehilite  # 允许内联代码的语法高亮
+  - pymdownx.keys  # 支持在文档中表示按键的语法
+  - pymdownx.magiclink:
+      repo_url_shorthand: true  # 使用简写形式的仓库链接
+      user: squidfunk
+      repo: mkdocs-material  # 指定仓库的用户和名称
+
+  - pymdownx.mark  # 提供一些额外的 Markdown 功能
+  - pymdownx.smartsymbols  # 支持一些智能符号的替换
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  
+
+  - pymdownx.tabbed:
+      alternate_style: true  # 使用备用样式的选项卡式文档布局
+
+  - pymdownx.tasklist:
+      custom_checkbox: true  # 允许创建自定义风格的任务列表
+  - pymdownx.tilde  # 支持使用波浪线（~）表示删除线
+
+
+
+
+# navigation
+nav:
+- Home: index.md
+
+# - English:
+# - Class:
+#   - Math:
+
+#   - Physics:
+
+  
+- Robotics:
+  - Robotics/ROS.md
+
+- "Computer Science":
+  - Language:
+    - CS/Language/C.md
+    - CS/Language/C++.md
+    - CS/Language/Python.md
+    - CS/Language/crawler.md
+
+  - "数据结构 | DataStructure":
+    - CS/DataStructure.md
+
+  - "计算机网络 | Computer Network" :
+    - CS/ComputerNetwork-intro.md
+    - CS/ComputerNetwork-ApplicationLayer.md
+    - CS/ComputerNetwork-TransportLayer.md
+    - CS/ComputerNetwork-NetworkLayer.md
+    - CS/ComputerNetwork-LinkLayer.md
+    - CS/ComputerNetwork-PhysicalLayer.md
+    - CS/ComputerNetwork-else.md
+- Explore:
+  - "CV | 计算机视觉":
+    - Explore/CV/OpenCV.md
+  - "ML | 机器学习":
+    - Explore/ML/CNN.md
+
+  - "AI | 人工智能":
+    - "AIGC网站探索":
+      - Explore/AI/AIGC-explore.md
+
+    - "Github 项目复现":
+      - Explore/AI/GitHub-proj.md
+  - Finance:
+      - Explore/Fin/Fintech.md
+
+
+- Tools:
+  - CLI:
+    - Tools/Git.md
+    - Tools/Linux.md
+    # - Tools/gdb.md
+  
+  - FrontEnd:
+    - Tools/Frontend/WeChat.md
+    
+  
+  - Markdown:
+    - https://minjoker.github.io/cs/tools/markdown/
+    - Tools/Mkdocs.md
+
+- "杂谈":
+  - classes_in_zju.md
+
+
+
+
+# - BackEnd:
