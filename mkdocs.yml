@@ -117,15 +117,15 @@ plugins:
       codelines_per_minute: 80
   
   # https://github.com/timvink/mkdocs-git-revision-date-localized-plugin
-  - git-revision-date-localized:
-      type: datetime
-      timezone: Asia/Shanghai
-      locale: zh
-      enable_creation_date: true
-      exclude:
-        - index.md
-        - link.md
-      strict: false
+  # - git-revision-date-localized:
+  #     type: datetime
+  #     timezone: Asia/Shanghai
+  #     locale: zh
+  #     enable_creation_date: true
+  #     exclude:
+  #       - index.md
+  #       - link.md
+  #     strict: false
 
 markdown_extensions:
   # Python Markdown
