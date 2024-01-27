@@ -435,20 +435,47 @@ local isp
 
  延时的原因：输出能力小于到达速率
 
-
-
-节点处理延时
-
-排队延时
-
-传输延时：$T = \frac{L}{R}$,L是分组长度，R是链路带宽
+（用火车过桥来理解）
 
 
 
-传播延时$t = \frac{d}{s}$
+Traceroute检测程序
+
+
+
+#### 节点处理延时
+
+
+
+#### 排队延时
+
+流量强度$I = \frac{La}{R}$
+
+L(bits) a到达平均速率，R链路带宽（bps）
+
+流量强度为1，延时无穷大
+
+
+
+
+
+#### 传输延时：
+
+#### $T = \frac{L}{R}$,L是分组长度，R是链路带宽
+
+
+
+#### 传播延时
+
+#### $t = \frac{d}{s}$
 
 `d`链路长度 `s`媒体传播速度
 
+AB距离很远的话，传播延时不能忽略
+
+信道容量
+
+![image-20240125175620523](https://gitee.com/philfan/my-images/raw/master/image-20240125175620523.png)
 
 
 
@@ -456,6 +483,21 @@ local isp
 
 
 
+分组丢失原因
+
+缓冲区有限
+
+满队列后，分组会丢失
+
+丢失可能重传也可能不重传
+
+
+
+丢失以后，如果链路是可靠的会由上层重传  
+
+
+
+吞吐量 源端和目标端传输速率（有效的
 
 
 
@@ -463,13 +505,73 @@ local isp
 
 ### 协议层次network protocol
 
-对等层的实体peer entity在通信过程中遵守的规则集合
+计算机采取分层的方式，下层实现功能，每一层通过层间接口向上层服务
+
+
+
+
+
+#### 服务 垂直层面
+
+底层实体向上层实体提供通信的能力
+
+
+
+通过原语`primitive` 来操作
+
+提供什么服务 告诉要使用什么服务
+
+
+
+#### 协议 水平层面
+
+对等层的实体`peer entity`在通信过程中遵守的规则集合
 
 报文格式语法、语义、次序、采取的动作
 
-PDU协议数据单元
+本层协议实现需要依靠下层服务，是为了给上层提供更好的服务
 
-协议层次和服务
+
+
+`DU: data unit` 数据单元 
+
+`SAP`服务访问点 区分是哪个上层用户 
+
+`IDU:interface data unit`
+
+`SDU: service data unit`上层传的数据
+
+`PDU: protocol data unit` 协议数据单元 SDU + head
+
+`ICI: interface control information` 
+
+![image-20240125201420011](https://gitee.com/philfan/my-images/raw/master/image-20240125201420011.png)
+
+![image-20240125201113691](https://gitee.com/philfan/my-images/raw/master/image-20240125201113691.png)
+
+套接字
+
+
+
+
+
+![image-20240125202826044](https://gitee.com/philfan/my-images/raw/master/image-20240125202826044.png)
+
+链路层以帧为单位，相邻两点
+
+网络层端到端传输，源主机到目标主机，以分组为单位
+
+传输层，进程到进程区分，把网络层不可靠服务变成可靠的服务
+
+
+
+路由：全局找路
+
+
+
+
+
+![image-20240125202836339](https://gitee.com/philfan/my-images/raw/master/image-20240125202836339.png)
 
 
 
