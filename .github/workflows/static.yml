@@ -24,31 +24,19 @@ concurrency:
 jobs:
   # Single deploy job since we're just deploying
   deploy:
-    
-    runs-on: ubuntu-latest
-    steps:
-      
-      
-      
-
-
-
-jobs:
-  deploy:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0    # for mkdocs-git-revision-date-localized-plugin
-      - name: Checkout
-        uses: actions/checkout@v4
       - run: pip install -r requirements.txt
       - run: mkdocs gh-deploy --force
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-artifact@v3
         with:
           # Upload entire repository
           path: '.'
