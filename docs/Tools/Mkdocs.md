@@ -15,15 +15,6 @@
 * `mkdocs build` - Build the documentation site.
 * `mkdocs -h` - Print help message and exit.
 
-### Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
-
-
-
 ??? note "安装代码" 
 	```language=Shell
     pip install mkdocs
@@ -38,7 +29,7 @@
 
 !!! failure "这是 failure 类型的提示框" 
 
-失败！ 
+	注意`extension`不要拼成`extention`！！
 
 !!! bug "这是 bug 类型的提示框" 
 
@@ -52,9 +43,11 @@
 
 ## 发布
 
+发布也遇到了好几个坑
 
+[GitHub Pages 文档自动化部署 - MkDocs - Arisa | Blog](https://blog.arisa.moe/blog/2022/220407-github-pages/#vcs)
 
 [github pages绑定域名-腾讯云开发者社区-腾讯云 (tencent.com)](https://cloud.tencent.com/developer/article/1454059)
 
-注意`extension`不要拼成`extention`！！
+
 
