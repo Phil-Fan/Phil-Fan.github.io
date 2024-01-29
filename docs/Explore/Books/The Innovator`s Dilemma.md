@@ -1,6 +1,6 @@
 # 创新者的窘境
 
-!!! note +"书目简介"
+???+note "书目简介"
 	书名：The Innovator`s Dilemma
 	作者：[美] 克莱顿·克里斯坦森（Clayton M. Christensen）
 	豆瓣页面：[创新者的窘境](https://book.douban.com/subject/35148452/)

@@ -34,7 +34,7 @@ linux通常在指的是**linux内核**
 
 fedora core 9 、linux kernel
 
-![image-20220914193238844](https://gitee.com/philfan/my-images/raw/master/image-20220914193238844.png)
+![image-20220914193238844](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20220914193238844.png)
 
 - 1984年，**Richard Stallman**  提出GNU Project 与Unix完全兼容
 - 自由软件基金会FSF 指定共用版权协议GPL
@@ -52,7 +52,7 @@ fedora core 9 、linux kernel
 
 - 发行版本
 
-  ![image-20220914202059333](https://gitee.com/philfan/my-images/raw/master/image-20220914202059333.png)
+  ![image-20220914202059333](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20220914202059333.png)
 
 
 
@@ -62,9 +62,9 @@ fedora core 9 、linux kernel
 
 
 
-![image-20220923151034743](https://gitee.com/philfan/my-images/raw/master/image-20220923151034743.png)
+![image-20220923151034743](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20220923151034743.png)
 
-![image-20220928185154283](https://gitee.com/philfan/my-images/raw/master/image-20220928185154283.png)
+![image-20220928185154283](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20220928185154283.png)
 
 - GUI 图形用户界面
 
@@ -357,7 +357,7 @@ convert a.jpg a.png
 
   【-mtime n几天之前的“一天之内】【-mtime +n n天之前】【-mtime -n n天之内】
 
-  ![在这里插入图片描述](https://gitee.com/philfan/my-images/raw/master/0ca63c3736084f4f9d35a949f33413d0.png)
+  ![在这里插入图片描述](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/0ca63c3736084f4f9d35a949f33413d0.png)
 
   [使用 find 命令在 Linux 上查找文件和目录](https://linux.cn/article-14071-1.html)
 
@@ -711,11 +711,11 @@ test 30
 
 - 目录结构
 
-  ![image-20221012190235970](https://gitee.com/philfan/my-images/raw/master/image-20221012190235970.png)
+  ![image-20221012190235970](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20221012190235970.png)
 
 - 主要目录
 
-  ![image-20221012191017659](https://gitee.com/philfan/my-images/raw/master/image-20221012191017659.png)![image-20221012191029196](https://gitee.com/philfan/my-images/raw/master/image-20221012191029196.png)
+  ![image-20221012191017659](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20221012191017659.png)![image-20221012191029196](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20221012191029196.png)
 
 bin 可执行文件
 
@@ -729,7 +729,7 @@ usr 软件安装
 
 `/etc/shadow`用户口令的加密信息
 
-![image-20221012191057288](https://gitee.com/philfan/my-images/raw/master/image-20221012191057288.png)
+![image-20221012191057288](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20221012191057288.png)
 
 *相对路径 绝对路径*
 
@@ -737,7 +737,7 @@ usr 软件安装
 
 ext4默认文件系统
 
-![image-20221012192500040](https://gitee.com/philfan/my-images/raw/master/image-20221012192500040.png)
+![image-20221012192500040](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20221012192500040.png)
 
 # shell 与 shell script
 
@@ -753,7 +753,7 @@ ext4默认文件系统
 
 - 程序头：脚本文件名、Author、Date、Description、
 
-    ![image-20221120191459094](https://gitee.com/philfan/my-images/raw/master/image-20221120191459094.png)![image-20221120191821981](https://gitee.com/philfan/my-images/raw/master/image-20221120191821981.png)
+    ![image-20221120191459094](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20221120191459094.png)![image-20221120191821981](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20221120191821981.png)
     
 - 注释
 
@@ -1119,7 +1119,7 @@ SayHello
   echo ${#array[1]} // 显示长度
   ```
 
-  ![image-20221123204440835](https://gitee.com/philfan/my-images/raw/master/image-20221123204440835.png)
+  ![image-20221123204440835](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20221123204440835.png)
 
   关联数组
 
@@ -1211,7 +1211,7 @@ false ; echo "This will always run"
 
     把set后的命令转换为$变量
 
-    ![image-20221207201248626](https://gitee.com/philfan/my-images/raw/master/image-20221207201248626.png)
+    ![image-20221207201248626](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20221207201248626.png)
 
   expr
 
@@ -1251,15 +1251,15 @@ fi
 
 #### 关系运算符
 
-![image-20221130201408936](https://gitee.com/philfan/my-images/raw/master/image-20221130201408936.png)
+![image-20221130201408936](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20221130201408936.png)
 
 #### 字符串运算符
 
-![image-20221207214305396](https://gitee.com/philfan/my-images/raw/master/image-20221207214305396.png)
+![image-20221207214305396](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20221207214305396.png)
 
-![image-20221207214331351](https://gitee.com/philfan/my-images/raw/master/image-20221207214331351.png)
+![image-20221207214331351](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20221207214331351.png)
 
-![image-20221207214346623](https://gitee.com/philfan/my-images/raw/master/image-20221207214346623.png)
+![image-20221207214346623](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20221207214346623.png)
 
 #### test命令
 
@@ -1348,9 +1348,9 @@ fi
 
 　　test –x File                      文件存在并且可执行
 
-![image-20221130201554312](https://gitee.com/philfan/my-images/raw/master/image-20221130201554312.png)
+![image-20221130201554312](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20221130201554312.png)
 
-![image-20221130213319747](https://gitee.com/philfan/my-images/raw/master/image-20221130213319747.png)
+![image-20221130213319747](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20221130213319747.png)
 
 
 

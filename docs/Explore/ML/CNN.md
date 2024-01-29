@@ -64,15 +64,15 @@ f(x)=max(0,x)
 
 缺点：数值溢出
 
-![image-20230330195944316](https://gitee.com/philfan/my-images/raw/master/image-20230330195944316.png)
+![image-20230330195944316](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20230330195944316.png)
 
-![image-20230330204141660](https://gitee.com/philfan/my-images/raw/master/image-20230330204141660.png)
-
-
+![image-20230330204141660](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20230330204141660.png)
 
 
 
-![image-20230330204232308](https://gitee.com/philfan/my-images/raw/master/image-20230330204232308.png)
+
+
+![image-20230330204232308](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20230330204232308.png)
 
 ## 损失函数
 
@@ -88,13 +88,13 @@ f(x)=max(0,x)
 
 系统的熵
 
-![image-20230330192802815](https://gitee.com/philfan/my-images/raw/master/image-20230330192802815.png)
+![image-20230330192802815](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20230330192802815.png)
 
 KL散度
 
 交叉熵
 
-![image-20230330193007630](https://gitee.com/philfan/my-images/raw/master/image-20230330193007630.png)
+![image-20230330193007630](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20230330193007630.png)
 
 ## 池化层
 

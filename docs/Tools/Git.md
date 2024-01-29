@@ -27,9 +27,9 @@ git config --global user.email "你的邮箱"
 ```
 
 
-![3a2a4da685d8aaa34d486ac6](https://gitee.com/philfan/my-images/raw/master/3a2a4da685d8aaa34d486ac6.png)
+![3a2a4da685d8aaa34d486ac6](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/3a2a4da685d8aaa34d486ac6.png)
 
-![a16f42f5af389230d4b27c7c](https://gitee.com/philfan/my-images/raw/master/a16f42f5af389230d4b27c7c.png)
+![a16f42f5af389230d4b27c7c](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/a16f42f5af389230d4b27c7c.png)
 
 ### `git commit`规范
 

@@ -45,7 +45,7 @@ $$
 
 [重谈主定理（master定理）及其证明 - 这人太菜了 - 洛谷博客 (luogu.com.cn)](https://www.luogu.com.cn/blog/GJY-JURUO/master-theorem)
 
-![数据范围](https://gitee.com/philfan/my-images/raw/master/26845.png)
+![数据范围](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/26845.png)
 
 ![例题](https://img-blog.csdnimg.cn/4afab6cb811245649465647d62c45a31.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzU2MDkxMw==,size_16,color_FFFFFF,t_70#pic_center)
 
@@ -278,9 +278,9 @@ head = 6
 
 从第一个有问题的节点开始，向叶子节点伸展三个节点，把中间数字第二大的节点提升，其他两个节点分列两侧——左边放左边，右边放右边。
 
-![image-20231113142105049](https://gitee.com/philfan/my-images/raw/master/image-20231113142105049.png)
+![image-20231113142105049](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20231113142105049.png)
 
-![image-20231113142031094](https://gitee.com/philfan/my-images/raw/master/image-20231113142031094.png)
+![image-20231113142031094](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20231113142031094.png)
 
 
 
@@ -370,9 +370,9 @@ key-value 文件系统的索引
 
 绝对平衡 每一个节点高度都相同，平衡因子均等于0
 
-![image-20231113153948020](https://gitee.com/philfan/my-images/raw/master/image-20231113153948020.png)
+![image-20231113153948020](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20231113153948020.png)
 
-![image-20231113154712384](https://gitee.com/philfan/my-images/raw/master/image-20231113154712384.png)
+![image-20231113154712384](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20231113154712384.png)
 
 
 
@@ -468,7 +468,7 @@ $E[T] = (1+\Theta(\frac{n}{m})),\alpha := \frac{n}{m}$ 为装载率
 
 #### 乘同余方法
 
-![image-20231120140954994](https://gitee.com/philfan/my-images/raw/master/image-20231120140954994.png)
+![image-20231120140954994](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20231120140954994.png)
 
 ### MT19937
 
@@ -645,7 +645,7 @@ max(dp(i-1,j-1)+1,dp(i,j-1),dp(i-1,j))
 
 
 
-![image-20240116141856812](https://gitee.com/philfan/my-images/raw/master/image-20240116141856812.png)
+![image-20240116141856812](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240116141856812.png)
 
 ### 图
 

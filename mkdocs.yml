@@ -195,6 +195,7 @@ nav:
   
 - Robotics:
   - Robotics/ROS.md
+  - Robotics/Drone.md
 
 - "Computer Science":
   - Language:
@@ -214,6 +215,7 @@ nav:
     - CS/ComputerNetwork-LinkLayer.md
     - CS/ComputerNetwork-PhysicalLayer.md
     - CS/ComputerNetwork-else.md
+    
 - Explore:
   - "CV | 计算机视觉":
     - Explore/CV/OpenCV.md
@@ -227,7 +229,10 @@ nav:
     - "Github 项目复现":
       - Explore/AI/GitHub-proj.md
   - Finance:
-      - Explore/Fin/Fintech.md
+    - Explore/Fin/Fintech.md
+
+  - Books:
+    - Explore\Books\The Innovator`s Dilemma.md 
 
 
 - Tools:
@@ -242,7 +247,10 @@ nav:
   
   - Markdown:
     - https://minjoker.github.io/cs/tools/markdown/
+  - Mkdocs:
     - Tools/Mkdocs.md
+
+  - Tools/sites.md
 
 - "杂谈":
   - classes_in_zju.md

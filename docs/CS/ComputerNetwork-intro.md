@@ -67,7 +67,7 @@
 
 ## 基本概念
 
-![image-20240122233225413](https://gitee.com/philfan/my-images/raw/master/image-20240122233225413.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240122233225413.png">
 
 网络：节点、边的拓扑结构
 
@@ -111,7 +111,7 @@ $传播时延 = \frac{信道长度}{信道传播速率}$
 
 排队论，信道利用率增大，时延就增大
 
-![image-20240122214414552](https://gitee.com/philfan/my-images/raw/master/image-20240122214414552.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240122214414552.png"/>
 
 - 功能和服务
 
@@ -181,7 +181,7 @@ api应用程序接口 socket api
 
 
 
-### 网络边缘 edge
+## 网络边缘 edge
 
 网络应用是网络存在的理由
 
@@ -207,11 +207,11 @@ api应用程序接口 socket api
 
 
 
-### 网络核心 core
+## 网络核心 core
 
 数据交换，类似源主机和目标主机之间接入了开关
 
-#### 电路交换
+### 电路交换
 
 电话网
 
@@ -233,17 +233,15 @@ api应用程序接口 socket api
 
 波分 光纤通讯 WDM wave division multiplexing
 
-![image-20240123105422145](https://gitee.com/philfan/my-images/raw/master/image-20240123105422145.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240123105422145.png" alt="image-20240123105422145" />
 
-![image-20240123105704164](https://gitee.com/philfan/my-images/raw/master/image-20240123105704164.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240123105704164.png" alt="image-20240123105704164" />
 
  每个bit到达接收端都需要有传播延时
 
 
 
-
-
-#### 分组交换
+### 分组交换
 
 分成一个个单位packet，传到相邻路由器hop；
 
@@ -252,6 +250,10 @@ api应用程序接口 socket api
 使用链路全部带宽
 
 资源是按需使用、共享性（支持用户多）
+
+适合通信具有很强突发性
+
+
 
 
 
@@ -271,13 +273,13 @@ api应用程序接口 socket api
 
 没有固定模式 统计多路复用
 
-![image-20240123113304652](https://gitee.com/philfan/my-images/raw/master/image-20240123113304652.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240123113304652.png" alt="image-20240123113304652" />
 
 流量强度的网络不可行，所以是0-9
 
 
 
-##### 分类
+分类
 
 - 数据报网络 datagram - 无连接
 
@@ -295,7 +297,7 @@ api应用程序接口 socket api
 
 
 
-### 网络接入 access
+## 网络接入 access
 
 边缘接到核心上
 
@@ -307,9 +309,9 @@ api应用程序接口 socket api
 
 
 
-#### 住宅接入：
+### 住宅接入：
 
-##### modem
+#### modem
 
 将数据调制在音频信号上、要解调
 
@@ -321,11 +323,11 @@ api应用程序接口 socket api
 
 
 
-##### DSL：digital subscriber line
+#### DSL：digital subscriber line
 
 
 
-##### 有线电视公司
+#### 有线电视公司
 
 双向改造
 
@@ -339,15 +341,15 @@ api应用程序接口 socket api
 
 
 
-##### 电力线可以调制上网
+#### 电力线可以调制上网
 
 
 
-![image-20240123122045769](https://gitee.com/philfan/my-images/raw/master/image-20240123122045769.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240123122045769.png" alt="image-20240123122045769" />
 
-#### 公司
+### 公司
 
-![image-20240123122830511](https://gitee.com/philfan/my-images/raw/master/image-20240123122830511.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240123122830511.png" alt="image-20240123122830511" />
 
 
 
@@ -377,9 +379,9 @@ PAN(Personal Area Network)
 
 导引型媒体
 
-![image-20240123123058357](https://gitee.com/philfan/my-images/raw/master/image-20240123123058357.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240123123058357.png" alt="image-20240123123058357" />
 
-![image-20240123123111306](https://gitee.com/philfan/my-images/raw/master/image-20240123123111306.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240123123111306.png" alt="image-20240123123111306" />
 
 高琨
 
@@ -399,11 +401,11 @@ PAN(Personal Area Network)
 
 强度 平方反比，迅速衰减
 
-![image-20240123123348917](https://gitee.com/philfan/my-images/raw/master/image-20240123123348917.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240123123348917.png" alt="image-20240123123348917" />
 
 
 
-### internet结构和ISP
+## internet结构和ISP
 
 
 
@@ -417,7 +419,7 @@ ICP: internet content provider
 
 数据中心机房 离isp较近
 
-![image-20240123235809673](https://gitee.com/philfan/my-images/raw/master/image-20240123235809673.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240123235809673.png" alt="image-20240123235809673" />
 
 internet结构
 
@@ -431,7 +433,7 @@ local isp
 
 
 
-### 分组延时、丢失和吞吐量
+## 分组延时、丢失和吞吐量
 
  延时的原因：输出能力小于到达速率
 
@@ -443,7 +445,7 @@ Traceroute检测程序
 
 
 
-#### 节点处理延时
+### 节点处理延时
 
 
 
@@ -459,15 +461,15 @@ L(bits) a到达平均速率，R链路带宽（bps）
 
 
 
-#### 传输延时：
+#### 传输延时
 
-#### $T = \frac{L}{R}$,L是分组长度，R是链路带宽
+$T = \frac{L}{R}$,L是分组长度，R是链路带宽
 
 
 
 #### 传播延时
 
-#### $t = \frac{d}{s}$
+$t = \frac{d}{s}$
 
 `d`链路长度 `s`媒体传播速度
 
@@ -475,7 +477,7 @@ AB距离很远的话，传播延时不能忽略
 
 信道容量
 
-![image-20240125175620523](https://gitee.com/philfan/my-images/raw/master/image-20240125175620523.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240125175620523.png" alt="image-20240125175620523" />
 
 
 
@@ -483,7 +485,7 @@ AB距离很远的话，传播延时不能忽略
 
 
 
-分组丢失原因
+### 分组丢失原因
 
 缓冲区有限
 
@@ -503,7 +505,7 @@ AB距离很远的话，传播延时不能忽略
 
 
 
-### 协议层次network protocol
+## 协议层次network protocol
 
 计算机采取分层的方式，下层实现功能，每一层通过层间接口向上层服务
 
@@ -545,9 +547,9 @@ AB距离很远的话，传播延时不能忽略
 
 `ICI: interface control information` 
 
-![image-20240125201420011](https://gitee.com/philfan/my-images/raw/master/image-20240125201420011.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240125201420011.png" alt="image-20240125201420011" />
 
-![image-20240125201113691](https://gitee.com/philfan/my-images/raw/master/image-20240125201113691.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240125201113691.png" alt="image-20240125201113691" />
 
 套接字
 
@@ -555,23 +557,39 @@ AB距离很远的话，传播延时不能忽略
 
 
 
-![image-20240125202826044](https://gitee.com/philfan/my-images/raw/master/image-20240125202826044.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240125202826044.png" alt="image-20240125202826044" />
 
-链路层以帧为单位，相邻两点
+物理层`bit` 就是0101物理信号或者光信号
 
-网络层端到端传输，源主机到目标主机，以分组为单位
+链路层`frame`以帧为单位，**相邻两点**（查询网络层携带的端口信息）
 
-传输层，进程到进程区分，把网络层不可靠服务变成可靠的服务
+网卡：帧的头部形成链路层的帧
+
+网络层
+
+端到端传输，源主机到目标主机，以分组为单位
+
+`packet`有链接
+
+`datagram`无连接
 
 
 
-路由：全局找路
+传输层`segment`，进程到进程区分，把网络层不可靠服务变成可靠的服务
+
+应用层`message`报文
+
+封装与解封装
+
+交换机 决定到哪个端口 两层的解封装
+
+路由：全局找路 三层的解封装
 
 
 
 
 
-![image-20240125202836339](https://gitee.com/philfan/my-images/raw/master/image-20240125202836339.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240125202836339.png" alt="image-20240125202836339" />
 
 
 
@@ -581,9 +599,12 @@ OSI：应用层、表示层、会话层、运输层、数据链路层、物理�
 
 
 
+## 历史
 
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240129003408237.png" alt="image-20240129003408237" />
 
+<img src = "https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240129003507022.png"/><img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240129003519604.png"/>
 
+网景
 
-## 
-
+![image-20240129113040843](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240129113040843.png)
