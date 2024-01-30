@@ -1,137 +1,142 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://phil-fan.github.io/</loc>
+         <loc>https://www.philfan.cn/</loc>
          <lastmod>2024-01-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://phil-fan.github.io/classes_in_zju/</loc>
+         <loc>https://www.philfan.cn/classes_in_zju/</loc>
          <lastmod>2024-01-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://phil-fan.github.io/CS/ComputerNetwork-00-intro/</loc>
+         <loc>https://www.philfan.cn/CS/ComputerNetwork-00-intro/</loc>
          <lastmod>2024-01-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://phil-fan.github.io/CS/ComputerNetwork-01-ApplicationLayer/</loc>
+         <loc>https://www.philfan.cn/CS/ComputerNetwork-01-ApplicationLayer/</loc>
          <lastmod>2024-01-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://phil-fan.github.io/CS/ComputerNetwork-02-TransportLayer/</loc>
+         <loc>https://www.philfan.cn/CS/ComputerNetwork-02-TransportLayer/</loc>
          <lastmod>2024-01-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://phil-fan.github.io/CS/ComputerNetwork-03-NetworkLayer/</loc>
+         <loc>https://www.philfan.cn/CS/ComputerNetwork-03-NetworkLayer/</loc>
          <lastmod>2024-01-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://phil-fan.github.io/CS/ComputerNetwork-04-LinkLayer/</loc>
+         <loc>https://www.philfan.cn/CS/ComputerNetwork-04-LinkLayer/</loc>
          <lastmod>2024-01-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://phil-fan.github.io/CS/ComputerNetwork-05-PhysicalLayer/</loc>
+         <loc>https://www.philfan.cn/CS/ComputerNetwork-05-PhysicalLayer/</loc>
          <lastmod>2024-01-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://phil-fan.github.io/CS/ComputerNetwork-06-else/</loc>
+         <loc>https://www.philfan.cn/CS/ComputerNetwork-06-else/</loc>
          <lastmod>2024-01-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://phil-fan.github.io/CS/DataStructure/</loc>
+         <loc>https://www.philfan.cn/CS/DataStructure/</loc>
          <lastmod>2024-01-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://phil-fan.github.io/CS/Language/C%2B%2B/</loc>
+         <loc>https://www.philfan.cn/CS/Language/C%2B%2B/</loc>
          <lastmod>2024-01-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://phil-fan.github.io/CS/Language/C/</loc>
+         <loc>https://www.philfan.cn/CS/Language/C/</loc>
          <lastmod>2024-01-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://phil-fan.github.io/CS/Language/Python/</loc>
+         <loc>https://www.philfan.cn/CS/Language/Python/</loc>
          <lastmod>2024-01-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://phil-fan.github.io/CS/Language/crawler/</loc>
+         <loc>https://www.philfan.cn/CS/Language/crawler/</loc>
          <lastmod>2024-01-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://phil-fan.github.io/Explore/AI/AIGC-explore/</loc>
+         <loc>https://www.philfan.cn/Explore/AI/AIGC-explore/</loc>
          <lastmod>2024-01-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://phil-fan.github.io/Explore/AI/GitHub-proj/</loc>
+         <loc>https://www.philfan.cn/Explore/AI/GitHub-proj/</loc>
          <lastmod>2024-01-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://phil-fan.github.io/Explore/Books/The%20Innovator%60s%20Dilemma/</loc>
+         <loc>https://www.philfan.cn/Explore/Books/The%20Innovator%60s%20Dilemma/</loc>
          <lastmod>2024-01-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://phil-fan.github.io/Explore/CV/OpenCV/</loc>
+         <loc>https://www.philfan.cn/Explore/CV/OpenCV/</loc>
          <lastmod>2024-01-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://phil-fan.github.io/Explore/Fin/Fintech/</loc>
+         <loc>https://www.philfan.cn/Explore/Fin/Fintech/</loc>
          <lastmod>2024-01-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://phil-fan.github.io/Explore/ML/CNN/</loc>
+         <loc>https://www.philfan.cn/Explore/ML/CNN/</loc>
          <lastmod>2024-01-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://phil-fan.github.io/Robotics/Drone/</loc>
+         <loc>https://www.philfan.cn/Robotics/Drone/</loc>
          <lastmod>2024-01-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://phil-fan.github.io/Robotics/ROS/</loc>
+         <loc>https://www.philfan.cn/Robotics/ROS/</loc>
          <lastmod>2024-01-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://phil-fan.github.io/Tools/Git/</loc>
+         <loc>https://www.philfan.cn/Tools/Git/</loc>
          <lastmod>2024-01-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://phil-fan.github.io/Tools/Linux/</loc>
+         <loc>https://www.philfan.cn/Tools/Linux/</loc>
          <lastmod>2024-01-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://phil-fan.github.io/Tools/Mkdocs/</loc>
+         <loc>https://www.philfan.cn/Tools/Mkdocs/</loc>
          <lastmod>2024-01-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://phil-fan.github.io/Tools/sites/</loc>
+         <loc>https://www.philfan.cn/Tools/obsidian/</loc>
          <lastmod>2024-01-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://phil-fan.github.io/Tools/Frontend/WeChat/</loc>
+         <loc>https://www.philfan.cn/Tools/sites/</loc>
+         <lastmod>2024-01-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/Tools/Frontend/WeChat/</loc>
          <lastmod>2024-01-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
