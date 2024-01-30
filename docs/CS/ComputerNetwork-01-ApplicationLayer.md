@@ -140,6 +140,8 @@ P2P分发mp3音乐
 
 #### 安全性 - SSL
 
+`Secure Sockets Layer` 安全套接层
+
 跑在TCP之上，在应用层实现
 
 私密性、数据完整性、服务器的认证、报文的完整性
@@ -152,7 +154,7 @@ P2P分发mp3音乐
 
 #### UDP
 
-不可靠
+不可靠 无连接
 
 
 
@@ -852,7 +854,7 @@ ISP购买CDN服务
 
 socket: 分布式应用进程之间的门，传输层协议提供的端到端服务接口
 
-### 流程
+### TCP socket
 
 ![SOCKET_API](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/socket_api.png)
 
@@ -878,7 +880,7 @@ socket: 分布式应用进程之间的门，传输层协议提供的端到端服
 
 
 
-### 具体实现
+#### 具体实现
 
 PF `Protocol Family`协议簇
 
@@ -890,8 +892,20 @@ inet = internet
 
 如果本地没有指定端口，就调用隐式的
 
-
+- `socket()`返回的是一个整数
 
 [socket编程（一）：一个服务器服务一个客户端](https://voidint.github.io/post/socket/one_server_one_client/)
 
 [socket编程（二）：每个进程服务一个连接](https://voidint.github.io/post/socket/one_process_per_connection/)
+
+[TCP的socket详解_tcpsocket-CSDN博客](https://blog.csdn.net/weixin_41752434/article/details/116002194)
+
+### UDP socket
+
+建立socket
+
+bind socket
+
+读取socket
+
+![image-20240130143354086](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240130143354086.png)
