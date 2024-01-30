@@ -1,4 +1,4 @@
-# 运输层 `Transport Layer`
+# 传输层 | `Transport Layer`
 
 tcp:传输控制协议 **reliable:不重复、不乱序、不丢失、不出错**
 

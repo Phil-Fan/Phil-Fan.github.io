@@ -4,7 +4,7 @@
 
 Objects = Attributes + Services
 
-![image-20231009210455062](https://gitee.com/philfan/my-images/raw/master/image-20231009210455062.png)
+![image-20231009210455062](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20231009210455062.png)
 
 C语言：面向过程
 
@@ -161,7 +161,7 @@ void render(Shape* p){
 }
 ```
 
-![image-20231023140637072](https://gitee.com/philfan/my-images/raw/master/image-20231023140637072.png)
+![image-20231023140637072](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20231023140637072.png)
 
 复制只是成员变量的复制
 
@@ -668,9 +668,9 @@ class Derived : public List<A>{
 
 ## 运算符的重载
 
-![image-20231030133850764](https://gitee.com/philfan/my-images/raw/master/image-20231030133850764.png)
+![image-20231030133850764](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20231030133850764.png)
 
-![image-20231030133913556](https://gitee.com/philfan/my-images/raw/master/image-20231030133913556.png)
+![image-20231030133913556](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20231030133913556.png)
 
 给运算符一个运算规则
 

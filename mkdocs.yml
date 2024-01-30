@@ -208,13 +208,13 @@ nav:
     - CS/DataStructure.md
 
   - "计算机网络 | Computer Network" :
-    - CS/ComputerNetwork-intro.md
-    - CS/ComputerNetwork-ApplicationLayer.md
-    - CS/ComputerNetwork-TransportLayer.md
-    - CS/ComputerNetwork-NetworkLayer.md
-    - CS/ComputerNetwork-LinkLayer.md
-    - CS/ComputerNetwork-PhysicalLayer.md
-    - CS/ComputerNetwork-else.md
+    - CS/ComputerNetwork-00-intro.md
+    - CS/ComputerNetwork-01-ApplicationLayer.md
+    - CS/ComputerNetwork-02-TransportLayer.md
+    - CS/ComputerNetwork-03-NetworkLayer.md
+    - CS/ComputerNetwork-04-LinkLayer.md
+    - CS/ComputerNetwork-05-PhysicalLayer.md
+    - CS/ComputerNetwork-06-else.md
     
 - Explore:
   - "CV | 计算机视觉":

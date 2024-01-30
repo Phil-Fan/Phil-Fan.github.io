@@ -153,7 +153,7 @@
   + char 1字节
   + **C语言允许对整型变量赋以字符值，也允许对字符变量赋以整型值**
 
-![image-20221229103520570](https://gitee.com/philfan/my-images/raw/master/image-20221229103520570.png)
+![image-20221229103520570](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20221229103520570.png)
 
 [static作用：静态变量的生存周期和作用域 - bigclould - 博客园 (cnblogs.com)](https://www.cnblogs.com/bigclould/p/9322248.html#:~:text=static变量是指静态的变量，不管是在全局还是局部声明的static变量都存放于程序的全局变量区域，所以它的生命周期是从程序开始到程序结束。,但是static变量的作用域并不等同于它的生存周期，它的作用域决定于它被定义的位置。 可以认为static变量的作用域<%3D生存周期。)
 
@@ -204,11 +204,11 @@ D选项：全局变量和静态变量都是存储在静态存储区，所以在�
 
 ### **3.运算符和表达式（优先级很重要）**
 
-![image-20221223172815017](https://gitee.com/philfan/my-images/raw/master/image-20221223172815017.png)
+![image-20221223172815017](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20221223172815017.png)
 
-![image-20221223172846547](https://gitee.com/philfan/my-images/raw/master/image-20221223172846547.png)
+![image-20221223172846547](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20221223172846547.png)
 
-![image-20221223172912591](https://gitee.com/philfan/my-images/raw/master/image-20221223172912591.png)
+![image-20221223172912591](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20221223172912591.png)
 
  *规则：单目 > 双目 > 三目*
 
@@ -388,7 +388,7 @@ x++: ==先参与运算，再进行加1==
 
 注意%前后的数字限制位宽、小数位数、进制等规则
 
-![image-20221223173233886](https://gitee.com/philfan/my-images/raw/master/image-20221223173233886.png)
+![image-20221223173233886](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20221223173233886.png)
 
 
 

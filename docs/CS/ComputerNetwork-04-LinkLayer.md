@@ -1,4 +1,4 @@
-# 链接层 `Link Layer`
+# 连接层 | `Link Layer`
 
 点到点point to point 
 

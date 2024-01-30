@@ -68,7 +68,7 @@ bin(m)将整数m转化为二进制字符串
 oct(m)将整数m转化为八进制字符串
 hex(m)将整数m转化为十六进制字符串
 
-![image-20230405210620174](https://gitee.com/philfan/my-images/raw/master/image-20230405210620174.png)
+![image-20230405210620174](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20230405210620174.png)
 
 - ==变量记得赋初值==
 
@@ -337,7 +337,7 @@ else:
 
 优先级规则not>and>or
 
-![a26c8031eeb36116320ad0f23883c8c](https://gitee.com/philfan/my-images/raw/master/a26c8031eeb36116320ad0f23883c8c.png)
+![a26c8031eeb36116320ad0f23883c8c](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/a26c8031eeb36116320ad0f23883c8c.png)
 
 ### while
 
