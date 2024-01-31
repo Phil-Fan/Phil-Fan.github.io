@@ -6,7 +6,7 @@ site_url: "https://www.philfan.cn"
 
 # repository information
 repo_name: 'Phil-Fan/Note'
-repo_url: 'https://github.com/Phil-Fan/Note'
+repo_url: 'https://github.com/Phil-Fan/Phil-Fan.github.io'
 
 # copyright
 copyright: Copyright <span style="font-family:Arial;">&copy;</span> 2023-2024 <a href="https://github.com/Phil-Fan" target="_blank">PhilFan</a>
@@ -196,7 +196,7 @@ nav:
 - Robotics:
   - Robotics/ROS.md
   - Robotics/Drone.md
-
+  - Robotics/Introduction-to-Robotics.md
 - "Computer Science":
   - Language:
     - CS/Language/C.md
@@ -215,6 +215,8 @@ nav:
     - CS/ComputerNetwork-04-LinkLayer.md
     - CS/ComputerNetwork-05-PhysicalLayer.md
     - CS/ComputerNetwork-06-else.md
+  
+  - CS/OperationalResearch.md
     
 - Explore:
   - "CV | 计算机视觉":
@@ -230,10 +232,15 @@ nav:
       - Explore/AI/GitHub-proj.md
   - Finance:
     - Explore/Fin/Fintech.md
+    - "ITP课程" :
+      - Explore/Fin/ITP-Team-Communication-and-Leadership.md
+      - Explore/Fin/ITP-Management.md
+      - Explore/Fin/ITP-创业战略.md
+      - Explore/Fin/ITP-基于创新的创业.md
 
   - Books:
     - Explore\Books\The Innovator`s Dilemma.md 
-
+    - Explore\Books\Marxist principles.md
 
 - Tools:
   - CLI:

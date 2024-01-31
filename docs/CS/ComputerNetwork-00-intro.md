@@ -35,6 +35,8 @@
     === "计院"
     
         高分刷王道
+        
+        [朋辈辅学 - 计算机网络速成](https://www.bilibili.com/video/BV1Xr4y1r7gM)
     
         [咸鱼喧笔记](https://www.yuque.com/xianyuxuan/coding/gez9yl)
     
