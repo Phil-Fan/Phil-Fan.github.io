@@ -187,8 +187,10 @@ nav:
 - Home: index.md
 
 # - English:
-# - Class:
-#   - Math:
+- Class:
+  - Math:
+    - Class/signal.md
+    - Class/自动控制原理.md
 
 #   - Physics:
 
