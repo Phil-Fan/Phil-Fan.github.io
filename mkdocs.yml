@@ -186,7 +186,10 @@ markdown_extensions:
 nav:
 - Home: index.md
 
-# - English:
+- English:
+  - Oral:
+    - English\Oral-Practice.md
+    - English\Oral-Tips.md
 - Class:
   - Math:
     - Class/signal.md
@@ -199,6 +202,7 @@ nav:
   - Robotics/ROS.md
   - Robotics/Drone.md
   - Robotics/Introduction-to-Robotics.md
+  - Robotics\EmbeddedSystem.md
 - "Computer Science":
   - Language:
     - CS/Language/C.md
@@ -217,7 +221,7 @@ nav:
     - CS/ComputerNetwork-04-LinkLayer.md
     - CS/ComputerNetwork-05-PhysicalLayer.md
     - CS/ComputerNetwork-06-else.md
-  
+    - CS\ComputerNetwork-07-experiment.md
   - CS/OperationalResearch.md
     
 - Explore:
@@ -261,6 +265,7 @@ nav:
 
   - Tools/sites.md
   - Tools/obsidian.md
+  - Tools/tableau.md
 
 - "杂谈":
   - classes_in_zju.md
