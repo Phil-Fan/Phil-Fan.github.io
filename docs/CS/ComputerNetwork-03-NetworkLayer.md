@@ -165,6 +165,24 @@ Banyan（榕树）网络，crossbar(纵横)和其它的互联网络被开发，�
 
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240201141703167.png" alt="image-20240201141703167" style="zoom:50%;" />
 
+### 路由协议
+
+路径选择
+
+最长前缀匹配——最精确
+
+
+
+
+
+IRP
+
+OSPF
+
+BGP
+
+
+
 
 
 ## `Gateway`网关
@@ -427,21 +445,7 @@ DHCP工作概况:
 
 
 
-### 路由协议
 
-路径选择
-
-最长前缀匹配——最精确
-
-
-
-
-
-IRP
-
-OSPF
-
-BGP
 
 ### `NAT`
 
