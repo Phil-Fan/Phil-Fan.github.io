@@ -476,6 +476,13 @@
     </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_5">
+<span class="md-ellipsis">
+      路由协议
+    </span>
+</a>
+</li>
 </ul>
 </nav>
 </li>
@@ -488,7 +495,7 @@
 <nav aria-label="Gateway网关" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_5">
+<a class="md-nav__link" href="#_6">
 <span class="md-ellipsis">
       通俗解释
     </span>
@@ -498,7 +505,7 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_6">
+<a class="md-nav__link" href="#_7">
 <span class="md-ellipsis">
       网络层协议
     </span>
@@ -523,13 +530,6 @@
 <a class="md-nav__link" href="#icmp">
 <span class="md-ellipsis">
       ICMP协议
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_11">
-<span class="md-ellipsis">
-      路由协议
     </span>
 </a>
 </li>
@@ -845,6 +845,13 @@
     </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_5">
+<span class="md-ellipsis">
+      路由协议
+    </span>
+</a>
+</li>
 </ul>
 </nav>
 </li>
@@ -857,7 +864,7 @@
 <nav aria-label="Gateway网关" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_5">
+<a class="md-nav__link" href="#_6">
 <span class="md-ellipsis">
       通俗解释
     </span>
@@ -867,7 +874,7 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_6">
+<a class="md-nav__link" href="#_7">
 <span class="md-ellipsis">
       网络层协议
     </span>
@@ -892,13 +899,6 @@
 <a class="md-nav__link" href="#icmp">
 <span class="md-ellipsis">
       ICMP协议
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_11">
-<span class="md-ellipsis">
-      路由协议
     </span>
 </a>
 </li>
@@ -1064,10 +1064,16 @@
 <p>在一段时间内，每个队列得到的服务时间是：<span class="arithmatex">\(\frac{Wi}{\sigma(Wi)} \times t\)</span>，和权重成正比</p>
 <p>每个类在每一个循环中获得不同权重的服务量</p>
 <p><img alt="image-20240201141703167" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240201141703167.png" style="zoom:50%;"/></p>
+<h3 id="_5">路由协议<a class="headerlink" href="#_5" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>路径选择</p>
+<p>最长前缀匹配——最精确</p>
+<p>IRP</p>
+<p>OSPF</p>
+<p>BGP</p>
 <h2 id="gateway"><code>Gateway</code>网关<a class="headerlink" href="#gateway" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p>网关实质上是<strong>一个网络通向其他网络的<span class="heti-skip"><span class="heti-spacing"> </span>IP<span class="heti-spacing"> </span></span>地址</strong></p>
 <p>在没有路由器的情况下，两个网络之间是不能进行<span class="heti-skip"><span class="heti-spacing"> </span>TCP/IP<span class="heti-spacing"> </span></span>通信的，即使是两个网络连接在同一台交换机<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>或集线器<span class="heti-skip"><span class="heti-spacing"> </span>)<span class="heti-spacing"> </span></span>上，<span>TCP/IP<span class="heti-spacing"> </span></span>协议也会根据子网掩码<span class="heti-skip"><span class="heti-spacing"> </span>(255.255.255.0)<span class="heti-spacing"> </span></span>判定两个网络中的主机处在不同的网络里。而要实现这两个网络之间的通信，则必须通过网关。如果网络<span class="heti-skip"><span class="heti-spacing"> </span>A<span class="heti-spacing"> </span></span>中的主机发现数据包的目的主机不在本地网络中，就把数据包转发给它自己的网关，再由网关转发给网络<span class="heti-skip"><span class="heti-spacing"> </span>B<span class="heti-spacing"> </span></span>的网关，网络<span class="heti-skip"><span class="heti-spacing"> </span>B<span class="heti-spacing"> </span></span>的网关再转发给网络<span class="heti-skip"><span class="heti-spacing"> </span>B<span class="heti-spacing"> </span></span>的某个主机<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>如附图所示<span><span class="heti-spacing"> </span>)</span>。网络<span class="heti-skip"><span class="heti-spacing"> </span>B<span class="heti-spacing"> </span></span>向网络<span class="heti-skip"><span class="heti-spacing"> </span>A<span class="heti-spacing"> </span></span>转发数据包的过程。</p>
-<h3 id="_5">通俗解释<a class="headerlink" href="#_5" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_6">通俗解释<a class="headerlink" href="#_6" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <blockquote>
 <p>节选自<a href="https://www.zhihu.com/people/modugoudaner">魔都狗蛋儿</a>的文章<a href="https://zhuanlan.zhihu.com/p/165142303">什么是网关，网关的作用是什么？ <span>-<span class="heti-spacing"> </span></span>知乎<span><span class="heti-spacing"> </span>(zhihu.com)</span></a></p>
 </blockquote>
@@ -1081,7 +1087,7 @@
 小不点：太好了！李大爷，我想找小明，你再帮我联系一下小明吧。
 李大爷：没问题。（接着李大爷向电话局发出了请求接通小明家电话的请求，最后一关当然是被转接到了小明家那个院子的王大爷那里，然后王大爷把电话给转到小明家）
 就这样你和小明取得了联系。</p>
-<h2 id="_6">网络层协议<a class="headerlink" href="#_6" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_7">网络层协议<a class="headerlink" href="#_7" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <h3 id="ip"><span>IP<span class="heti-spacing"> </span></span>协议<a class="headerlink" href="#ip" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>地址约定</p>
 <p><span>IP<span class="heti-spacing"> </span></span>地址是网络设备和网络接口的标识</p>
@@ -1093,7 +1099,7 @@
 <li><span>IP<span class="heti-spacing"> </span></span>地址和每一个接口关联</li>
 <li>一个<span class="heti-skip"><span class="heti-spacing"> </span>IP<span class="heti-spacing"> </span></span>地址和一个接口相关联</li>
 </ul>
-<h4 id="_7">子网<a class="headerlink" href="#_7" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h4 id="_8">子网<a class="headerlink" href="#_8" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <ul>
 <li>
 <p>子网前缀一样</p>
@@ -1165,13 +1171,13 @@ C类：192.168.0.0 - 192.168.255.255   MASK    255.255.255.0</p>
 </div>
 </div>
 </div>
-<h4 id="_8">子网掩码<a class="headerlink" href="#_8" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h4 id="_9">子网掩码<a class="headerlink" href="#_9" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p>因为<span class="heti-skip"><span class="heti-spacing"> </span>ABC<span class="heti-spacing"> </span></span>这样划分容易导致差距过大，<span>B<span class="heti-spacing"> </span></span>类裕量太多，<span>C<span class="heti-spacing"> </span></span>类又太少，所以采用</p>
 <p>无类</p>
 <p>子网掩码<span class="heti-skip"><span class="heti-spacing"> </span>32<span class="heti-spacing"> </span></span>位</p>
 <p>如果是<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>的话代表是网络号，是<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>则是主机号</p>
 <p><span>IP<span class="heti-spacing"> </span></span>号 与 子网掩码进行与操作，那么就可以得到网络号；主机号全为<span><span class="heti-spacing"> </span>0</span></p>
-<h4 id="_9">数据报格式<a class="headerlink" href="#_9" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h4 id="_10">数据报格式<a class="headerlink" href="#_10" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p><img alt="image-20240201155758709" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240201155758709.png"/></p>
 <p><span>time to live<span class="heti-spacing"> </span></span>每一个路由器中减一</p>
 <p><span>checksum<span class="heti-spacing"> </span></span>头部是否出错</p>
@@ -1181,7 +1187,7 @@ C类：192.168.0.0 - 192.168.255.255   MASK    255.255.255.0</p>
 <p>分组处理约定</p>
 <p>字段头部（head）路过一个路由<span><span class="heti-spacing"> </span>TTL</span><code>time to live</code><span><span class="heti-spacing"> </span>-1</span></p>
 <p>减到<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>的时候，可能路由有问题</p>
-<h4 id="_10">分片<a class="headerlink" href="#_10" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h4 id="_11">分片<a class="headerlink" href="#_11" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <blockquote>
 <p>例子：</p>
 <p><span>4000B<span class="heti-spacing"> </span></span>数据<span class="heti-skip"><span class="heti-spacing"> </span>= 20B<span class="heti-spacing"> </span></span>头部<span class="heti-skip"><span class="heti-spacing"> </span>+ 3980<span class="heti-spacing"> </span></span>数据</p>
@@ -1241,12 +1247,6 @@ Names and Numbers
 <h3 id="icmp"><span>ICMP<span class="heti-spacing"> </span></span>协议<a class="headerlink" href="#icmp" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>报告错误</p>
 <p><code>ping</code>形成<span><span class="heti-spacing"> </span>ICMP</span> </p>
-<h3 id="_11">路由协议<a class="headerlink" href="#_11" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<p>路径选择</p>
-<p>最长前缀匹配——最精确</p>
-<p>IRP</p>
-<p>OSPF</p>
-<p>BGP</p>
 <h3 id="nat"><code>NAT</code><a class="headerlink" href="#nat" title="anchor link to this section for reference">¶</a></h3>
 <p><code>Network Address Translation</code>网络地址转换</p>
 <p>内、外网地址转换</p>
