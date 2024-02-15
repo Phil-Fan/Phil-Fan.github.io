@@ -34,7 +34,13 @@
 
 ## 最短路径算法
 
-### Floyd算法
+>**Dijkstra和Bellman-Ford的区别**
+>
+>Dijkstra开头是D，所以是以点为单位进行操作
+>
+>Bellman-Ford开头是B，所以是以边为单位进行操作
+
+### Floyd
 
 常数小，复杂度高
 
@@ -42,27 +48,91 @@
 
 
 
-### Dji
+### Dijkstra
+
+假设现在要求出从某一点s到其他所有点的最短距离，对于每个点v均维护一个“当前距离”`（dist[v]）`和“是否访问过”`(visited[v])`。首先将`dist[s]`初始化为0，将其他点的距离初始化为无穷，并将所有点初始化为未访问的。记`u->v`的边权为`weight[u->v]`。然后进行以下步骤：
+
+1. 从所有未访问的点中，找出当前距离最小的，设为u，并将其标记为已访问的。
+2. 调整u的所有边（若是有向图则为出边）连接的并且**未被访问过的**点：若`weight[u->v] + dist[u] < dist[v]`, 则将`dist[v]`更新为`dist[u]+weight[u->v]`。
+3. 重复1和2步骤，直到所有点都被标记为已访问的，则`dist[i]`即`s`到`i`的最短距离。如果只想求从s到某一点的最短距离，那么当该点被标记为访问过之后可直接退出。
+4. 补充：如果除了最短距离之外还想求出具体的路径，只需建立一个`pre`数组，在步骤2后添加操作：`pre[v] = u`（前提是`dist[v]`被更新）。
+
+```c++
+void djikstra(const std::vector<std::vector<int>> &graph, int V,int src){
+    std::vector<int> dis(V,INF);
+    std::vector<int> visited(V,0);
+
+    dis[src] = 0;
+
+    for(int covered_node = 0 ; covered_node < V-1; covered_node++){//外层是n-1循环
+        int min = -1;
+        //find the closest node
+        for(int i = 0; i < V ; i++){
+            if(visited[i] != 1 && (min==-1||dis[i] <= dis[min])){
+                min = i;
+            }
+        }
+        visited[min] = 1;
+        for(int v = 0; v < V; v ++){
+            if(visited[v] == 0 && dis[min] != INF && graph[min][v] && dis[min]+graph[min][v] < dis[v]){
+                dis[v] = dis[min] + graph[min][v];
+            }
+        }   
+    }
+}
+```
 
 
 
-单源最短路径一般算法：Dijkstra算法
+### Bellman-Ford
 
-![image-20230102084925781](https://zjushine-picgo.oss-cn-hangzhou.aliyuncs.com/img/image-20230102084925781.png)
+[可视化展示](https://www.bilibili.com/video/BV1j34y1s7d8)
 
-### bellmand ford算法
+它基于一个很基本的事实：**对于一个不包含负权环的V个点的图，任意两点之间的最短路径至多包含V-1条边。**
+
+
 
 Bellman-Ford算法大致可以分成三部分：
 
-1.初始化所有d[s],源点d[s]=0,其他d[s]=INF
+1.初始化所有`d[s]`,源点`d[s]=0`,其他`d[s]=INF`
 
-2.进行n-1次循环，在循环体中遍历所有的边，进行松弛计算（if(d[v]>d[u]+w[u][v]) d[v]=d[u]+w[u][v]）
+2.进行n-1次循环，在循环体中遍历所有的边，进行松弛计算
 
-3.遍历图中所有的边，检验是否出现这种情况：d[v]>d[u]+w[u][v],若出现则返回false,没有最短路
+```c++
+if( d[v] > d[u]+w[u][v] ) 
+	d[v] = d[u] + w[u][v]
+```
+
+3.遍历图中所有的边，检验是否出现这种情况：`d[v]>d[u]+w[u][v]`,若出现则返回`false`,没有最短路
+
+```c
+#define inf 9999999
+
+int s, v, e; // s为源点,v为顶点数,e为边数；
+struct Edge{
+    int from, to, weight;
+};
+Edge edges[1000];
+
+int dist[1000], pre[1000];
+void bellman(){
+    for (int i = 0; i < v; ++i) dist[i] = inf;
+    dist[s] = 0;
+    for (int i = 1; i <= v - 1; ++i){//只需要n-1条边
+        for (int j = 0; j < e; ++j){//循环所有的边进行松弛
+            int u = edges[j].from, v = edges[j].to, w = edges[j].weight;
+            if (dist[u] + w < dist[v]){
+                dist[v] = dist[u] + w;
+                pre[v] = u;
+            }
+        }
+    }
+}
+```
 
 
 
-### SPFA
+### SPFA`Shortest Path Faster Algorithm`
 
 [【洛谷日报#16】SPFA算法教学 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/58727559)
 
