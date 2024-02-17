@@ -7,7 +7,7 @@
 <meta content="PhilFan" name="author"/>
 <link href="https://www.philfan.cn/CS/ComputerNetwork-05-PhysicalLayer/" rel="canonical"/>
 <link href="../ComputerNetwork-04-LinkLayer/" rel="prev"/>
-<link href="../ComputerNetwork-06-else/" rel="next"/>
+<link href="../ComputerNetwork-06-networksecurity/" rel="next"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.5.3, mkdocs-material-9.5.4" name="generator"/>
 <title>物理层 | Physical Layer - PhilFan's Notebook</title>
@@ -419,9 +419,9 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../ComputerNetwork-06-else/">
+<a class="md-nav__link" href="../ComputerNetwork-06-networksecurity/">
 <span class="md-ellipsis">
-    其他内容
+    网络安全
   </span>
 </a>
 </li>
@@ -613,7 +613,7 @@
 <article class="md-content__inner md-typeset">
 <h1 id="physical-layer">物理层<span><span class="heti-spacing"> </span>| Physical Layer</span><a class="headerlink" href="#physical-layer" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>45<span class="heti-spacing"> </span></span>个字 </p>
+<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>163<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>分钟</p>
 </div>
 <p>转换成物理信号</p>
 <p>传统：<span>IP<span class="heti-spacing"> </span></span>协议、路由协议</p>
@@ -621,6 +621,17 @@
 <p>流表的形式下发</p>
 <p>第零层</p>
 <p>media</p>
+<p><span>Manchester<span class="heti-spacing"> </span></span>编码</p>
+<p><img alt="image-20240217170722040" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240217170722040.png" style="zoom:33%;"/></p>
+<p> 在<span class="heti-skip"><span class="heti-spacing"> </span>10BaseT<span class="heti-spacing"> </span></span>中使用
+ 每一个bit的位时中间有一个<strong>信号跳变</strong></p>
+<p>避免一直是一马平川的信号</p>
+<p> 允许在接收方和发送方节点之间进行时钟同步
+ 节点间不需要集中的和全局的时钟
+ 10Mbps，使用20M带宽，效率50%</p>
+<p>每四个<span class="heti-skip"><span class="heti-spacing"> </span>bit<span class="heti-spacing"> </span></span>插入一个跳变用于时钟同步，用五位代替四位</p>
+<p><span>4b5b<span class="heti-spacing"> </span></span>编码</p>
+<p>多出来的编码相当于打节拍</p>
 </article>
 </div>
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
@@ -645,13 +656,13 @@
               </div>
 </div>
 </a>
-<a aria-label="下一页: 其他内容" class="md-footer__link md-footer__link--next" href="../ComputerNetwork-06-else/">
+<a aria-label="下一页: 网络安全" class="md-footer__link md-footer__link--next" href="../ComputerNetwork-06-networksecurity/">
 <div class="md-footer__title">
 <span class="md-footer__direction">
                 下一页
               </span>
 <div class="md-ellipsis">
-                其他内容
+                网络安全
               </div>
 </div>
 <div class="md-footer__button md-icon">
