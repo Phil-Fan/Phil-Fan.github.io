@@ -32,22 +32,30 @@ theme:
       quote: octicons/quote-16
      
   features:
-    # - navigation.instant # This will cause LaTeX render fail at the first try.
-    - navigation.tracking
-    - navigation.tabs
-    - navigation.path # 显示当前路径
-    - navigation.prune # 侧边栏自动折叠
-    # - navigation.tabs.sticky
-    - navigation.indexes
-    - navigation.top
-    - navigation.footer # 底部导航
-    - search.highlight
-    - search.share
-    - search.suggest
-    # - header.autohide
-    - toc.follow # toc 跟随
-    - content.code.annotate # 代码行号
-    - content.code.copy # 代码复制
+    # 导航功能
+    - navigation.tracking  # 跟踪用户在站点中的导航路径
+    - navigation.tabs  # 顶部显示导航标签
+    - navigation.path  # 显示当前页面的路径
+    - navigation.indexes  # 在导航中显示索引页
+    - navigation.top  # 提供回到页面顶部的按钮
+    - navigation.footer  # 在页面底部显示导航链接
+    - navigation.instant  # 启用即时导航，提高页面加载速度
+    
+    # 搜索功能
+    - search.highlight  # 高亮显示搜索结果
+    - search.share  # 允许分享搜索结果
+    - search.suggest  # 提供搜索建议
+    
+    # 内容展示功能
+    - toc.follow  # 目录（TOC）跟随滚动，高亮当前阅读部分
+    - content.code.annotate  # 为代码块添加注释
+    - content.code.copy  # 允许复制代码块
+    - content.tabs.link  # 支持内容中的标签链接
+    
+    # 其他功能
+    - announce.dismiss  # 允许用户关闭公告栏
+
+
   language: 'zh'
   palette:
     - media: "(prefers-color-scheme: light)"
@@ -67,6 +75,82 @@ theme:
     text: Noto Serif SC # Roboto
     code: JetBrains Mono
 
+
+
+
+
+markdown_extensions:
+  # 基础Markdown扩展
+  - abbr  # 支持缩写
+  - admonition  # 支持警告框
+  - attr_list  # 允许为Markdown元素添加HTML属性
+  - def_list  # 支持定义列表
+  - footnotes  # 支持脚注
+  - md_in_html  # 允许在HTML块中使用Markdown
+  - tables  # 支持表格
+
+  # 目录生成
+  - toc:
+      permalink: true  # 为每个标题生成永久链接
+      toc_depth: 3  # 目录深度为3级
+      permalink_title: "anchor link to this section for reference"  # 永久链接标题
+  - markdown.extensions.smarty:
+      smart_quotes: false  # 关闭智能引号
+
+  # 公式渲染
+  - pymdownx.arithmatex:
+      generic: true  # 支持内联和块级数学公式，使用MathJax渲染
+      block_tag: 'pre'  # 使用<pre>标签包裹块级公式
+
+  # 代码高亮与代码相关功能
+  - pymdownx.highlight  # 提供代码块的语法高亮
+  
+  - pymdownx.inlinehilite:
+      custom_inline:
+        - name: math
+          class: arithmatex
+          format: !!python/object/apply:pymdownx.arithmatex.arithmatex_inline_format {kwds: {mode: generic}}
+  - pymdownx.superfences:
+      preserve_tabs: true  # 保留制表符
+      custom_fences:
+        - name: diagram
+          class: diagram
+          format: !!python/name:pymdownx.superfences.fence_code_format  # Mermaid图表
+        # - name: math
+        #   class: arithmatex
+        #   format: !!python/object/apply:pymdownx.arithmatex.arithmatex_fenced_format  # 数学公式
+
+  # 扩展Markdown语法
+  - pymdownx.caret  # 支持插入符号（^）表示上标
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji  # 使用Twemoji索引
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg  # 使用SVG生成Emoji
+  - pymdownx.magiclink:
+      repo_url_shorthand: true  # 使用简写形式的仓库链接
+      repo_url_shortener: true  # 缩短仓库链接
+      social_url_shorthand: true  # 社交链接简写
+      social_url_shortener: true  # 社交链接缩短
+  - pymdownx.mark  # 提供文本高亮功能
+  - pymdownx.smartsymbols  # 自动将特定文本符号转换为对应的智能符号
+  - pymdownx.tasklist:
+      custom_checkbox: true  # 允许创建自定义风格的任务列表
+  - pymdownx.tilde  # 使用波浪线（~）表示删除线
+
+  # 文档布局与样式
+  - pymdownx.details  # 允许添加可展开的详细信息块
+  - pymdownx.tabbed:
+      alternate_style: true  # 使用备用样式的标签式布局
+  - pymdownx.keys  # 支持按键表示
+  - pymdownx.escapeall:
+      hardbreak: True  # 硬换行
+      nbsp: True  # 不断行空格
+
+  # 其他功能
+  - pymdownx.progressbar  # 支持进度条
+  - pymdownx.striphtml  # 去除HTML标签
+  - pymdownx.saneheaders  # 优化标题解析，避免冲突
+
+
 # todo: extra & analysis & social 
 
 extra:
@@ -85,101 +169,14 @@ extra_css:
   # source: https://tonycrane.cc/
   - https://cdn.tonycrane.cc/jbmono/jetbrainsmono.css
   - https://cdn.tonycrane.cc/lxgw/lxgwscreen.css
-  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css
+  # - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css
 
 
 extra_javascript:
-  # - 'style/js/extra.js'
-  # - 'style/js/mathjax.js' # 支持数学公式，ref : https://squidfunk.github.io/mkdocs-material/reference/mathjax
-  # - https://polyfill.io/v3/polyfill.min.js?features=es6
-  # - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
   - style/js/toc.js
-  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js  
-  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js
-
-
-
-plugins:
-  # - pdf-export
-  - search:
-      lang:
-        - zh
-        - en
-        - ja
-      separator: '[\s\u200b\-]'
-  
-  # https://github.com/TonyCrane/mkdocs-heti-plugin
-  - heti:
-      disable_serve: false
-  # https://github.com/TonyCrane/mkdocs-statistics-plugin
-  - statistics:
-      words_per_minute: 256
-      codelines_per_minute: 80
-  
-  # https://github.com/timvink/mkdocs-git-revision-date-localized-plugin
-  # - git-revision-date-localized:
-  #     type: datetime
-  #     timezone: Asia/Shanghai
-  #     locale: zh
-  #     enable_creation_date: true
-  #     exclude:
-  #       - index.md
-  #       - link.md
-  #     strict: false
-
-markdown_extensions:
-  # Python Markdown
-  - abbr
-  - admonition
-  - attr_list
-  - def_list
-  - footnotes
-  - md_in_html
-  - toc:
-      permalink: true
-      toc_depth: 3
-      permalink_title: anchor link to this section for reference
-  
-  # python markdown extensions
-  - pymdownx.details  # 允许在文档中添加可展开的细节块
-  - pymdownx.superfences
-
-  - pymdownx.arithmatex:
-      generic: true  # 支持内联和块级数学公式，使用 MathJax 渲染
-
-  - pymdownx.betterem:
-      # smart_enable: all  # 智能强调语法（已注释掉）
-
-  - pymdownx.caret  # 支持插入符号（^）以表示文字上标
-  - pymdownx.critic  # 支持文本的评论和建议
-  - pymdownx.emoji:
-      emoji_index: !!python/name:material.extensions.emoji.twemoji  # 使用 Twemoji 索引
-      emoji_generator: !!python/name:material.extensions.emoji.to_svg  # 使用 SVG 生成 Emoji
-  - pymdownx.highlight  # 提供代码块的语法高亮
-  - pymdownx.inlinehilite  # 允许内联代码的语法高亮
-  - pymdownx.keys  # 支持在文档中表示按键的语法
-  - pymdownx.magiclink:
-      repo_url_shorthand: true  # 使用简写形式的仓库链接
-      user: squidfunk
-      repo: mkdocs-material  # 指定仓库的用户和名称
-
-  - pymdownx.mark  # 提供一些额外的 Markdown 功能
-  - pymdownx.smartsymbols  # 支持一些智能符号的替换
-  - pymdownx.snippets
-  - pymdownx.tabbed:
-      alternate_style: true
-  - pymdownx.tasklist:
-      custom_checkbox: true
-  
-
-  - pymdownx.tabbed:
-      alternate_style: true  # 使用备用样式的选项卡式文档布局
-
-  - pymdownx.tasklist:
-      custom_checkbox: true  # 允许创建自定义风格的任务列表
-  - pymdownx.tilde  # 支持使用波浪线（~）表示删除线
-
-
+  - style/js/mathjax.js # 支持数学公式，ref : https://squidfunk.github.io/mkdocs-material/reference/mathjax
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
 
 # navigation
@@ -278,5 +275,34 @@ nav:
 
 
 
+plugins:
+  - search:
+      lang:
+        - zh
+        - en
+        - ja
+      separator: '[\s\u200b\-]'
+  
+  # https://github.com/TonyCrane/mkdocs-heti-plugin
+  - heti:
+      disable_serve: false
+  # https://github.com/TonyCrane/mkdocs-statistics-plugin
+  - statistics:
+      words_per_minute: 256
+      codelines_per_minute: 80
+  
+  #这个插件用于压缩HTML输出，减少页面的加载时间和带宽消耗。
+  - minify:
+      minify_html: true
 
-# - BackEnd:
+  # 显示文件的最后修改时间，基于git提交记录
+  # https://github.com/timvink/mkdocs-git-revision-date-localized-plugin
+  - git-revision-date-localized:
+      type: datetime
+      timezone: Asia/Shanghai
+      locale: zh
+      enable_creation_date: true
+      exclude:
+        - index.md
+        - link.md
+      strict: false
