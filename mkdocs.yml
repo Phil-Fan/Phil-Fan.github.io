@@ -104,7 +104,7 @@ markdown_extensions:
 
   # 代码高亮与代码相关功能
   - pymdownx.highlight  # 提供代码块的语法高亮
-  
+
   - pymdownx.inlinehilite:
       custom_inline:
         - name: math
@@ -180,13 +180,14 @@ extra_javascript:
 
 
 # navigation
+# 注意左右下划线的写法
 nav:
 - Home: index.md
 
 - English:
   - Oral:
-    - English\Oral-Practice.md
-    - English\Oral-Tips.md
+    - English/Oral-Practice.md
+    - English/Oral-Tips.md
 - Class:
   - Math:
     - Class/signal.md
@@ -199,7 +200,7 @@ nav:
   - Robotics/ROS.md
   - Robotics/Drone.md
   - Robotics/Introduction-to-Robotics.md
-  - Robotics\EmbeddedSystem.md
+  - Robotics/EmbeddedSystem.md
 - "Computer Science":
   - Language:
     - CS/Language/C.md
@@ -209,11 +210,11 @@ nav:
 
   - "数据结构 | DataStructure":
     - CS/DataStructure.md
-    - CS\DataStructure-Tree.md
-    - CS\DataStructure-Hash.md
-    - CS\DataStructure-Sorting.md
-    - CS\DataStructure-Graph.md
-    - CS\OperationalResearch-DP.md
+    - CS/DataStructure-Tree.md
+    - CS/DataStructure-Hash.md
+    - CS/DataStructure-Sorting.md
+    - CS/DataStructure-Graph.md
+    - CS/OperationalResearch-DP.md
     
 
   - "计算机网络 | Computer Network" :
@@ -224,7 +225,7 @@ nav:
     - CS/ComputerNetwork-04-LinkLayer.md
     - CS/ComputerNetwork-05-PhysicalLayer.md
     - CS/ComputerNetwork-06-networksecurity.md
-    - CS\ComputerNetwork-07-experiment.md
+    - CS/ComputerNetwork-07-experiment.md
   - CS/OperationalResearch.md
     
 - Explore:
@@ -248,8 +249,8 @@ nav:
       - Explore/Fin/ITP-基于创新的创业.md
 
   - Books:
-    - Explore\Books\The Innovator`s Dilemma.md 
-    - Explore\Books\Marxist principles.md
+    - Explore/Books/The Innovator`s Dilemma.md 
+    - Explore/Books/Marxist principles.md
 
 - Tools:
   - CLI:
