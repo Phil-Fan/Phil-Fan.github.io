@@ -610,3 +610,70 @@ OSI：应用层、表示层、会话层、运输层、数据链路层、物理�
 网景
 
 ![image-20240129113040843](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240129113040843.png)
+
+
+
+
+
+## Top-Down的实例
+
+以一个web页面请求的例子:学生在校园启动一台笔记本电脑：请求和接受www.google.com
+
+
+
+### 建立连接
+
+笔记本需要一个IP地址，第一跳路由器的IP地址，DNS的地址: 采用DHCP
+ DHCP 请求被封装在UDP中，封装在IP, 封装在802.3 以太网帧中
+ 以太网的帧在LAN上广播(dest: FFFFFFFFFFFF), 被运行中的DHCP服务器接收到
+ 以太网帧中解封装IP分组，解封装UDP，解封装DHCP
+
+DHCP 服务器生成DHCP；ACK 包括客户端IP地址，第一跳路由器IP地址和DNS名字服务器地址
+
+在DHCP服务器封装, 帧通过LAN转发(交换机学习)在客户端段解封装
+
+客户端接收DHCP ACK应答
+
+客户端有了IP地址，知道了DNS域名服务器的名字和IP地址、第一跳路由器的IP地址
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240217181035891.png" alt="image-20240217181035891" style="zoom:50%;" />
+
+### ARP
+
+在发送HTTP request请求之前,需要知道www.google.com的IP地址：DNS
+ DNS查询被创建，封装在UDP段中，封装在IP数据报中，封装在以太网的帧中. 将帧传递给路由器，但是需要知道路由器的接口：MAC地址：ARP
+ ARP查询广播，被路由器接收，路由器用ARP应答，给出其IP地址某个端口的MAC地址
+ 客户端现在知道第一跳路由器MAC地址，所以可以发送DNS查询帧了
+
+包含了DNS查询的IP数据报通过LAN交换机转发，从客户端到第一跳路由器
+
+### 使用DNS
+
+IP 数据报被转发，从校园到达comcast网络，路由（路由表被RIP，OSPF，IS-IS 和/或BGP协议创建）到DNS服务器
+ 被DNS服务器解封装
+ DNS服务器回复给客户端：www.google.com的IP地址
+
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240217181241937.png" alt="image-20240217181241937" style="zoom:50%;" />
+
+### TCP连接
+
+为了发送HTTP请求，客户端打开到达web服务器的TCP socket
+
+TCP SYN 段(3次握手的第1次握手) 域间路由到web服务器
+
+web 服务器用TCP SYNACK 应答(3次握手的第2次握手)
+
+TCP 连接建立了!
+
+![image-20240217181349495](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240217181349495.png)
+
+### HTTP请求与响应
+
+HTTP 请求发送到TCPsocket中
+
+IP 数据报包含HTTP请求，最终路由到www.google.com
+
+web 服务器用HTTP应答回应(包括请求的页面)
+
+IP 数据报包含HTTP应答最后被路由到客户端
+
+web 页面最后显示出来了

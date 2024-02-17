@@ -274,7 +274,69 @@ KDC是Kerberos认证协议中的核心组件，主要用于认证服务和分配
 - 由根CA签署的给一些机构的数字证书，根信任机构
 - 由于你信任了根，从而能够可靠地拿到根CA签发的证书，可靠地拿到这些机构的公钥
 
-## 攻击
+- 
+
+## 安全场景
+
+### 安全电子邮件
+
+私密性：对称式+非对称式
+
+可认证性和报文完整性：传报文和数字签名（用对称式密钥加密），密钥用对方公钥加密；
+
+​	如果接收方bob算出的报文摘要和传过来的报文摘要是相同的
+
+PGP 电子邮件加密方案
+
+应用层
+
+![image-20240217101521016](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240217101521016.png)
+
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240217101539896.png" alt="image-20240217101539896" style="zoom: 67%;" />
+
+### SSL (secure sockets layer)
+
+为使用SSL服务的、基于TCP的应用提供传输层次的安全性
+
+步骤
+
+- 握手
+- 密钥导出
+- 数据传输
+
+传输层
+
+
+
+### IPsec
+
+网络层
+
+双方要建立通信关系
+
+Authentication Header (AH) 协议
+
+提供源端的可认证性，数据完整性，但是不提供机密性
+
+
+
+ESP 协议
+
+提供机密性，主机的可认证性，数据的完整性
+
+
+
+### 802.11 security
+
+链路层的安全
+
+
+
+
+
+## 运行中的安全性
+
+### 攻击
 
 - 加密算法已知，求密钥
 - 加密算法和密钥均不知道
@@ -283,8 +345,6 @@ KDC是Kerberos认证协议中的核心组件，主要用于认证服务和分配
 - 已经知道部分密文和明文的对应关系
 - 选择明文攻击
 - 攻击者能够选择一段明文，并得到密文
-
-## 实践
 
 ### 防火墙
 
@@ -340,62 +400,81 @@ SYN flooding: 攻击者建立很多伪造TCP链接，对于真正用户而言已
 
 
 
+知道连接后，才不被block掉；防火墙知道是否已经进行连接
+
+防火墙变成了状态维护的设备
+
+
+
 #### ACL `access control list`
 
 最后一条规则，默认规则匹配所有
 
 
 
+根据应用数据的内容来过滤进出的数据报，就像根据IP/TCP/UDP字段来过滤一样
+ 检查的级别：应用层数据
+
+对应用进行深度剖析
+
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240217110805828.png" alt="image-20240217110805828" style="zoom:50%;" />
+
+`IP spoofing`: 路由器不知道数据报是否真的来自于声称的源地址
+
+更改IP的头部字段
+
+对UDP要么全过，要么全不过
 
 
 
+**折中: 与外部通信的自由度，安全的级别**
 
 
 
-### 入侵检测系统
+### 入侵检测系统 IDS intrusion detection system
+
+multiple IDSs: 在不同的地点进行不同类型的检查
+
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240217111255212.png" alt="image-20240217111255212" style="zoom:50%;" />
+
+在所有流量上放置sensor
+
+- 深入分组检查: 检查分组的内容(e.g., 检查分组中的特征串已知攻击数据库的病毒和攻击串
+
+- 检查分组间的相关性，判断是否是有害的分组
+
+  • 端口扫描
+  • 网络映射
+  • DoS 攻击
 
 
 
-### 安全电子邮件
-
-私密性：对称式+非对称式
-
-可认证性和报文完整性：传报文和数字签名（用对称式密钥加密），密钥用对方公钥加密；
-
-​	如果接收方bob算出的报文摘要和传过来的报文摘要是相同的
-
-PGP 电子邮件加密方案
-
-![image-20240217101521016](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240217101521016.png)
-
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240217101539896.png" alt="image-20240217101539896" style="zoom: 67%;" />
-
-### SSL (secure sockets layer)
-
-为使用SSL服务的、基于TCP的应用提供传输层次的安全性
-
-步骤
-
-- 握手
-- 密钥导出
-- 数据传输
+映射:
+ 在攻击之前： “踩点” – 发现在网络上实现了哪些服务
+ 使用ping来判断哪些主机在网络上有地址
+ 端口扫描：试图顺序地在每一个端口上建立TCP连接(看看发生了什么)
 
 
 
-### IPsec
-
-双方要建立通信关系
-
-Authentication Header (AH) 协议
-
-提供源端的可认证性，数据完整性，但是不提供机密性
+分组嗅探: 对策
+ 机构中的所有主机都运行能够监测软件，周期性地检查是否有网卡运行于**混杂模式**
+ 每一个主机一个独立的网段(交换式以太网而不是使用集线器)
 
 
 
-ESP 协议
+IP Spoofing欺骗:
+ 可以有应用进程直接产生“raw” IP分组, 而且可以在IP源地址部分直接放置任何地址
+ 接收端无法判断源地址是不是具有欺骗性的
+ e.g. C 伪装成B
 
-提供机密性，主机的可认证性，数据的完整性
+设置入口过滤，出去的分组源IP应该和这个网段一致
 
 
 
-### IEEE 802.11 security
+Denial of service (DOS): 对策
+ 在到达主机之前过滤掉这些泛洪的分组(e.g., SYN): throw out good with bad
+ 回溯到源主机(most likely an innocent,compromised machine)
+
+
+
+### 
