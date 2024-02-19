@@ -5,7 +5,7 @@ site_description: PhilFan的笔记本
 site_url: "https://www.philfan.cn"
 
 # repository information
-repo_name: 'Phil-Fan/Note'
+repo_name: 'Phil-Fan/Notes'
 repo_url: 'https://github.com/Phil-Fan/Phil-Fan.github.io'
 
 # copyright
@@ -14,8 +14,8 @@ copyright: Copyright <span style="font-family:Arial;">&copy;</span> 2023-2024 <a
 # configuration
 theme:
   name: material
-  # logo: logo.ico
-  # favicon: logo.ico
+  logo: logo.ico
+  favicon: logo.ico
   icon:
     admonition:
       note: octicons/tag-16
@@ -105,11 +105,6 @@ markdown_extensions:
   # 代码高亮与代码相关功能
   - pymdownx.highlight  # 提供代码块的语法高亮
 
-  - pymdownx.inlinehilite:
-      custom_inline:
-        - name: math
-          class: arithmatex
-          format: !!python/object/apply:pymdownx.arithmatex.arithmatex_inline_format {kwds: {mode: generic}}
   - pymdownx.superfences:
       preserve_tabs: true  # 保留制表符
       custom_fences:

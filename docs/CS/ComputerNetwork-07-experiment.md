@@ -4,6 +4,8 @@
 
 ## clash给手机提供代理
 
+[使用Clash For Windows与Windows热点共享让你的所有移动设备科学上网 - CC98论坛](https://www.cc98.org/topic/5667186)
+
 1. 确定电脑可以通过clash进行正常连接，或者能通过SSR连接
 
 2. 打开Clash的`Allow Lan` ，这一步是为了让Clash允许局域网连接（在SSR中，则是允许来自局域网的连接）
