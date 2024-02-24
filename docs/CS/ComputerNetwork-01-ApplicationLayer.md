@@ -158,7 +158,7 @@ P2P分发mp3音乐
 
 
 
-TCP
+#### TCP
 
 可靠、流量控制、拥塞控制、面向连接
 
@@ -178,7 +178,7 @@ URL `Uniform Resource Locator`统一资源定位符
 
 协议名 用户 口令 主机名 路径名 端口
 
-
+![预览大图](https://data.educoder.net/api/attachments/509266)
 
 web页有对象组成，通过URL对每个对象进行引用
 
@@ -188,37 +188,9 @@ web的应用层协议；TCP之上；CS模式
 
 
 
-
-
 S1属于守护进程（waiting socket），监视80端口，客户端有请求时候经过握手建立连接socket
 
 无状态服务器
-
-
-
-#### 持续与非持续HTTP
-
-HTTP1.1
-
-TCP建立连接-》HTTP请求-》连接不关闭可以多次请求
-
-![image-20240129150803208](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240129150803208.png)
-
-#### 响应时间
-
-RTT `round trip time`
-
-一个RTT发起TCP连接
-
-一个2RTT发起and接受HTTP请求
-
-文件传输时间：2RTT+传输文件
-
-
-
-流水线方式，一个请求还没有接受回复就发出下一个请求
-
-同步和异步
 
 #### 报文
 
@@ -226,7 +198,15 @@ RTT `round trip time`
 
 参考文章：[HTTP请求报文和响应报文格式](https://zhuanlan.zhihu.com/p/346408612)
 
-请求行、请求头、空白行、请求体
+请求行、请求头、空白行(`\r\n`)、请求体
+
+![预览大图](https://data.educoder.net/api/attachments/579830)
+
+##### 请求报文
+
+- 请求行
+
+由三部分构成：第一部分说明请求类型为 get 方法请求，第二部分（用/分开）是资源 URL，第三部分说明使用的是 HTTP1.1 版本。
 
 ```http
 GET /somedir/page.html HTTP/1.1
@@ -236,39 +216,50 @@ Connection: close
 Accept-language:fr
 ```
 
-#####请求报文
-
 - 请求方法
 
 `GET`和`POST`是最常见的HTTP方法，除此以外还包括`DELETE`、`HEAD`、`OPTIONS`、`PUT`、`TRACE`
+
+<img src="https://data.educoder.net/api/attachments/510692" alt="预览大图" style="zoom:50%;" />
+
+> get和post的区别
+>
+> 1. get 直接在浏览器输入，post 需要工具发送请求；
+> 2. get 用 url 或者 cookie 传参，post 将数据放在 body 中；
+> 3. get 的 URL 有长度限制，post 数据可以非常大；
+> 4. post 比 get 安全，因为 URL 看不到数据；
+> 5. get 用来获取数据，post 用来发送数据。
 
 - URL地址
 - 协议名称和版本号
 
 ???+abstract "请求报文头"
-    - Client-IP：提供了运行客户端的机器的IP地址
-    - From：提供了客户端用户的E-mail地址
-    - Host：给出了接收请求的服务器的主机名和端口号
-    - Referer：提供了包含当前请求URI的文档的URL
-    - UA-Color：提供了与客户端显示器的显示颜色有关的信息
-    - UA-CPU：给出了客户端CPU的类型或制造商
-    - UA-OS：给出了运行在客户端机器上的操作系统名称及版本
-    - User-Agent：将发起请求的应用程序名称告知服务器
-    - Accept：告诉服务器能够发送哪些媒体类型
-    - Accept-Charset：告诉服务器能够发送哪些字符集
-    - Accept-Encoding：告诉服务器能够发送哪些编码方式
-    - Accept-Language：告诉服务器能够发送哪些语言
-    - Expect：允许客户端列出某请求所要求的服务器行为
-    - Range：如果服务器支持范围请求，就请求资源的指定范围
-    - Cookie：客户端用它向服务器传送数据
-    - Cookie2：用来说明请求端支持的cookie版本
+    - Accept：用于告诉服务器，客户机支持的数据类型 （例如：`Accept:text/html,image/*`）；
+- Accept-Charset：用于告诉服务器，客户机采用的编码格式；
+- Accept-Encoding：用于告诉服务器，客户机支持的数据压缩格式；
+- Accept-Language：客户机语言环境；
+- Host：客户机通过这个头，告诉服务器想访问的主机名；
+- If-Modified-Since：客户机通过这个头告诉服务器，资源的缓存时间；
+- Referer：客户机通过这个头告诉服务器，它（客户端）是从哪个资源来访问服务器的（防盗链）；
+- User-Agent：客户机通过这个头告诉服务器，客户机的软件环境（操作系统，浏览器版本等）；
+- Cookie：客户机通过这个头，将 Coockie 信息带给服务器；
+- Connection：告诉服务器，请求完成后，是否保持连接；
+- Date：告诉服务器，当前请求的时间。
 
 <img src="https://pic3.zhimg.com/80/v2-98df69e7e8fccd46bfe03cc473784766_1440w.webp" alt="img" style="zoom: 50%;" />
 
 ##### 响应报文
 
+一个状态行，若干个消息头，以及实体内容
+
 - 报文协议及版本；
-- [状态码及状态描述](https://mp.weixin.qq.com/s/xxxS5qG244F6L10Y_ZxyGQ)
+- [状态码(status code)及状态描述(status code description)](https://mp.weixin.qq.com/s/xxxS5qG244F6L10Y_ZxyGQ)
+
+!!! bug+"注意"
+	谨记状态码和状态描述的区别
+	状态码(status code)
+	状态描述(status code description)
+
 
 ```HTTP
 description:
@@ -292,18 +283,16 @@ description:
 - 响应报文头
 
 ???+abstract "响应报文头"
-    - Age：(从最初创建开始)响应持续时间
-    - Public：服务器为其资源支持的请求方法列表
-    - Retry-After：如果资源不可用的话，在此日期或时间重试
-    - Server：服务器应用程序软件的名称和版本
-    - Title：对HTML文档来说，就是HTML文档的源端给出的标题
-    - Warning：比原因短语更详细一些的警告报文
-    - Accept-Ranges：对此资源来说，服务器可接受的范围类型
-    - Vary：服务器会根据这些首部的内容挑选出最适合的资源版本发送给客户端
-    - Proxy-Authenticate：来自代理的对客户端的质询列表
-    - Set-Cookie：在客户端设置数据，以便服务器对客户端进行标识
-    - Set-Cookie2：与Set-Cookie类似
-    - WWW-Authenticate：来自服务器的对客户端的质询列表
+    响应头有若干个字段组合（根据具体情况选择），常见字段及其含义如下： 
+
+- `Content-Type`：服务器给客户端传回来的文件格式； 
+- `Content-Length`：这个是返回的实体在压缩之之后的长度为 8 byte； 
+- `Last-Modified`：文档的最后改动时间；
+- `ETag`：这个响应头中有种
+- `Weak Tag`，值为`W/“xxxxx”`。它声明`Tag`是弱匹配的，只能做模糊匹配，在差异达到一定阈值时才起作用； 
+- `Accept-Ranges`：表示该服务器是否支持文件的范文请求； 
+- `Server`：设置服务器名称； 
+- `Date`：当前 GMT 时间，这个就是你请求的东西被服务器创建的时间。
 
 ![img](https://pic2.zhimg.com/80/v2-2f86d3626184a4fc8b8fed6008419055_1440w.webp)
 
@@ -334,17 +323,31 @@ python - request库
 
 隐私问题
 
+
+
 #### `cache` - Web缓存
+
+WEB 缓存一般分为浏览器缓存、代理服务器缓存以及网关缓存。
+
+WEB 缓存就在服务器-客户端之间搞监控，监控请求，并且内容另存一份（统称为副本）；
+
+然后，如果下一个请求是相同的  URL ，则直接请求保存的副本，而不是再次访问资源服务器。
+
+
 
 对用户：快 减小响应时间
 
 服务器：减小web服务器载荷
 
-网络：网络压力更小
+网络：网络压力更小，减小传输成本
+
+<img src="https://data.educoder.net/api/attachments/543498" alt="预览大图" style="zoom:50%;" /><img src="https://data.educoder.net/api/attachments/543499" alt="预览大图" style="zoom:50%;" />
 
 <img src="https://pic2.zhimg.com/v2-d3f67aa0f739d24d75728e7c7e96b79d_r.jpg" alt="计算机网络——应用层 - 知乎" style="zoom:25%;" />
 
-session\token
+
+
+
 
 ![image-20240129160059732](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240129160059732.png)
 
@@ -373,7 +376,7 @@ session\token
 
 ![image-20240129160713797](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240129160713797.png)
 
-- `conditional GET`
+##### `conditional GET`
 
 - 存在问题：如果本地缓存版本落后于远端
 
@@ -382,7 +385,8 @@ session\token
   向主机请求最后修改，如果被修改再发送一遍；没有被修改则就发一个没有修改的头部即可
 
   Server
-  
+
+
 ```http
 HTTP/1.0 304 Not Modified
 ```
@@ -391,7 +395,81 @@ HTTP/1.0 304 Not Modified
 HTTP/1.0 200 Modified
 ```
 
+- 200 请求成功，浏览器会把响应回来的信息显示在浏览器端；
+- 304 第一次访问一个资源后，浏览器会将该资源缓存到本地；第二次再访问该资源时，如果该资源没有发生改变或失效，那么服务器响应给浏览器 304 状态码，告诉浏览器使用本地缓存的资源。
 
+HTTP 响应时，如何判断是该返回 200 还是 304 呢？与之相关的字段是：  
+
+**Last-Modified：** 表示这个响应资源的最后修改时间
+
+**If-Modified-Since**： 当资源过期时（使用 Cache-Control 标识的 max-age），发现资源具有 Last-Modified 声明，则再次向 WEB 服务器请求时，带上 If-Modified-Since，表示请求时间。</br>WEB 服务器收到请求后发现有 If-Modified-Since 则与被请求资源的最后修改时间进行比对。HTTP200说明改动过，重新发送，HTTP304无需报体，直接发送，使用缓存
+
+
+
+
+
+#### 嵌入对象
+
+在网页中嵌入对象，实际上并不会在网页中插入对象，而是通过某种标签链接到指定的对象，标签创建的只是被引用对象的占位符而已。
+
+- 嵌入图像
+
+URL 可以使用完整的位置，如：    `<img src="http://data.educoder.net/images/flower.jpg" alt="flower">` 
+
+也可以使用相对位置如：    `<img src="flower.jpg" alt="flower">`
+
+- 嵌入声音
+- 嵌入flash动画
+
+连接方式
+
+对网页进行请求外，需要对每一个嵌入对象进行请求；可以采用串行或者并行的方式；
+
+<img src="https://data.educoder.net/api/attachments/579896" alt="预览大图" style="zoom:50%;" />
+
+实际上并行不一定更快的。客户端的网络带宽不足时，大部分的时间可能都是用来传送数据的。在这种情况下，一个连接到速度较快服务器上的 HTTP 事务就会很容易地耗尽所有可用的 Modem 带宽。如果并行加载，每个对象可能会去竞争有限的带宽，每个对象都会以较慢的速度按比例加载，这样带来的性能提升就很小，甚至没有提升。
+
+另外，打开大量连接会消耗很多内存资源，从而引发自身的性能问题。复杂的 WEB 页面可能会有数十或数百个内嵌对象。客户端可能可以打开数百个连接，但服务器通常要同时处理很多其他用户的请求，所以很少有 WEB 服务器希望出现这样的情况。这会造成服务器性能的严重下降，对高负荷的代理来说也同样如此。
+
+
+
+#### 响应时间
+
+RTT `round trip time`
+
+一个RTT发起TCP连接
+
+一个2RTT发起and接受HTTP请求
+
+文件传输时间：2RTT+传输文件
+
+
+
+流水线方式，一个请求还没有接受回复就发出下一个请求
+
+同步和异步
+
+
+
+#### 持久连接
+
+HTTP1.1
+
+TCP建立连接-》HTTP请求-》连接不关闭可以多次请求
+
+HTTP/1.1 允许 HTTP 设备在事务处理结束之后将 TCP 连接保持在打开状态，以便为未来的 HTTP 请求重用现存的连接。在事务处理结束之后，仍然保持在打开状态的 TCP 连接被称为持久连接。非持久连接会在每个事务结束之后关闭。持久连接会在不同事务之间保持打开状态，直到客户端或服务器决定将其关闭为止。
+
+重用已对目标服务器打开的空闲持久连接，就可以避开缓慢的链接建立阶段。而且已经打开的链接还可以避免慢启动的拥塞适应阶段，以便更快速地进行数据传输。
+
+
+
+除非特别指明，否则 HTTP/1.1 假定所有连接都是持久的。要在事务处理结束之后将连接关闭，HTTP/1.1 应用程序必须向报文中显示地添加一个 Connection：close 首部。
+
+![image-20240129150803208](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240129150803208.png)
+
+持久连接有两种类型：比较老的 HTTP/1.0+"keep-alive" 连接，以及现代的 HTTP/1.1“persistent” 连接。
+
+<img src="https://data.educoder.net/api/attachments/579897" alt="预览大图" style="zoom:50%;" />
 
 ### FTP
 
@@ -484,6 +562,8 @@ Internet邮件访问协议
 
 IP 标示&寻址
 
+![预览大图](https://data.educoder.net/api/attachments/579702)
+
 #### 作用
 
 - 提供域名到IP地址的转换
@@ -567,6 +647,11 @@ RR格式: (domain_name, ttl, type,class,Value)
 - 一个网络的主机不一定在一个域
 
 ##### 分类
+
+1. 根域名服务器：最高层次的域名服务器，本地域名服务器解析不了的域名就会向其求助；
+2. 顶级域名服务器：负责管理在该顶级域名服务器下注册的二级域名；
+3. 权限域名服务器：负责一个区的域名解析工作；
+4. 本地域名服务器：当一个主机发出 DNS 查询请求时，这个查询请求首先发给本地域名服务器。
 
 **1.权威DNS：**
 
