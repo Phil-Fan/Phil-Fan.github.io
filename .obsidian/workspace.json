@@ -1,0 +1,153 @@
+{
+  "main": {
+    "id": "473d8cf3d676b2eb",
+    "type": "split",
+    "children": [
+      {
+        "id": "8820c094dbae4c4b",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d5ae6fb9c2630442",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "34e2e2b171f2ff26",
+    "type": "split",
+    "children": [
+      {
+        "id": "33ea12a8ca4d2a4d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "b699211d1ae22bfc",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "e692c1dfadb883fa",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "3b3aa46b55cf3eef",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ],
+        "currentTab": 2
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "74a9c7ed5e40a4c1",
+    "type": "split",
+    "children": [
+      {
+        "id": "67f78608415e606d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "5376f7a9fd2fe399",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "25180f4000b7ec3f",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "ec5451e63e23be16",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "7595efb8f50e4416",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false
+    }
+  },
+  "active": "5376f7a9fd2fe399",
+  "lastOpenFiles": [
+    "2024-01-30.md",
+    "未命名.canvas",
+    "docs/CS/ComputerNetwork-02-TransportLayer.md",
+    "docs/CS/ComputerNetwork-03-NetworkLayer.md",
+    "docs/CS/ComputerNetwork-04-LinkLayer.md",
+    "docs/CS/ComputerNetwork-05-PhysicalLayer.md",
+    "docs/CS/ComputerNetwork-00-intro.md",
+    "README.md"
+  ]
+}
