@@ -121,6 +121,26 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://www.philfan.cn/Class/ITP/ITP-Management/</loc>
+         <lastmod>2024-02-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/Class/ITP/ITP-Team-Communication-and-Leadership/</loc>
+         <lastmod>2024-02-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/Class/ITP/ITP-%E5%88%9B%E4%B8%9A%E6%88%98%E7%95%A5/</loc>
+         <lastmod>2024-02-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/Class/ITP/ITP-%E5%9F%BA%E4%BA%8E%E5%88%9B%E6%96%B0%E7%9A%84%E5%88%9B%E4%B8%9A/</loc>
+         <lastmod>2024-02-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://www.philfan.cn/English/Oral-Practice/</loc>
          <lastmod>2024-02-28</lastmod>
          <changefreq>daily</changefreq>
@@ -167,26 +187,6 @@
     </url>
     <url>
          <loc>https://www.philfan.cn/Explore/Fin/Fintech/</loc>
-         <lastmod>2024-02-28</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://www.philfan.cn/Explore/Fin/ITP-Management/</loc>
-         <lastmod>2024-02-28</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://www.philfan.cn/Explore/Fin/ITP-Team-Communication-and-Leadership/</loc>
-         <lastmod>2024-02-28</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://www.philfan.cn/Explore/Fin/ITP-%E5%88%9B%E4%B8%9A%E6%88%98%E7%95%A5/</loc>
-         <lastmod>2024-02-28</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://www.philfan.cn/Explore/Fin/ITP-%E5%9F%BA%E4%BA%8E%E5%88%9B%E6%96%B0%E7%9A%84%E5%88%9B%E4%B8%9A/</loc>
          <lastmod>2024-02-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -252,6 +252,11 @@
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/sites/</loc>
+         <lastmod>2024-02-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/Tools/solidworks/</loc>
          <lastmod>2024-02-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
