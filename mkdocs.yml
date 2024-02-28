@@ -183,8 +183,8 @@ nav:
   - Oral:
     - English/Oral-Practice.md
     - English/Oral-Tips.md
-    - English\TOFEL-speaking-training.md
-    - English\TOFEL-speaking.md
+    - English/TOFEL-speaking-training.md
+    - English/TOFEL-speaking.md
 - Class:
   - Math:
     - Class/signal.md
@@ -197,12 +197,14 @@ nav:
   - Robotics/ROS.md
   - Robotics/Drone.md
   - Robotics/Introduction-to-Robotics.md
-  - Robotics\EmbeddedSystem-8051.md
-  - Robotics\EmbeddedSystem-digitalcircuit.md   
-  - Robotics\EmbeddedSystem-stm32.md
+  - "嵌入式系统 | Embbedded System":
+    - Robotics/EmbeddedSystem-intro.md
+    - Robotics/EmbeddedSystem-digitalcircuit.md
+    - Robotics/EmbeddedSystem-8051.md
+    - Robotics/EmbeddedSystem-stm32.md
 - "Computer Science":
   - Language:
-    - CS\Language\Assembly.md
+    - CS/Language/Assembly.md
     - CS/Language/C.md
     - CS/Language/C++.md
     - CS/Language/Python.md
