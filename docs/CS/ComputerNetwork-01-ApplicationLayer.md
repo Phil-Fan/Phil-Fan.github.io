@@ -235,16 +235,18 @@ Accept-language:fr
 
 ???+abstract "请求报文头"
     - Accept：用于告诉服务器，客户机支持的数据类型 （例如：`Accept:text/html,image/*`）；
-- Accept-Charset：用于告诉服务器，客户机采用的编码格式；
-- Accept-Encoding：用于告诉服务器，客户机支持的数据压缩格式；
-- Accept-Language：客户机语言环境；
-- Host：客户机通过这个头，告诉服务器想访问的主机名；
-- If-Modified-Since：客户机通过这个头告诉服务器，资源的缓存时间；
-- Referer：客户机通过这个头告诉服务器，它（客户端）是从哪个资源来访问服务器的（防盗链）；
-- User-Agent：客户机通过这个头告诉服务器，客户机的软件环境（操作系统，浏览器版本等）；
-- Cookie：客户机通过这个头，将 Coockie 信息带给服务器；
-- Connection：告诉服务器，请求完成后，是否保持连接；
-- Date：告诉服务器，当前请求的时间。
+    - Accept-Charset：用于告诉服务器，客户机采用的编码格式；
+    - Accept-Encoding：用于告诉服务器，客户机支持的数据压缩格式；
+    - Accept-Language：客户机语言环境；
+    - Host：客户机通过这个头，告诉服务器想访问的主机名；
+    - If-Modified-Since：客户机通过这个头告诉服务器，资源的缓存时间；
+    - Referer：客户机通过这个头告诉服务器，它（客户端）是从哪个资源来访问服务器的（防盗链）；
+    - User-Agent：客户机通过这个头告诉服务器，客户机的软件环境（操作系统，浏览器版本等）；
+    - Cookie：客户机通过这个头，将 Coockie 信息带给服务器；
+    - Connection：告诉服务器，请求完成后，是否保持连接；
+    - Date：告诉服务器，当前请求的时间。
+
+
 
 <img src="https://pic3.zhimg.com/80/v2-98df69e7e8fccd46bfe03cc473784766_1440w.webp" alt="img" style="zoom: 50%;" />
 
@@ -255,8 +257,8 @@ Accept-language:fr
 - 报文协议及版本；
 - [状态码(status code)及状态描述(status code description)](https://mp.weixin.qq.com/s/xxxS5qG244F6L10Y_ZxyGQ)
 
-!!! bug+"注意"
-	谨记状态码和状态描述的区别
+???+bug "注意"
+	**谨记状态码和状态描述的区别**
 	状态码(status code)
 	状态描述(status code description)
 
@@ -284,19 +286,18 @@ description:
 
 ???+abstract "响应报文头"
     响应头有若干个字段组合（根据具体情况选择），常见字段及其含义如下： 
-
-- `Content-Type`：服务器给客户端传回来的文件格式； 
-- `Content-Length`：这个是返回的实体在压缩之之后的长度为 8 byte； 
-- `Last-Modified`：文档的最后改动时间；
-- `ETag`：这个响应头中有种
-- `Weak Tag`，值为`W/“xxxxx”`。它声明`Tag`是弱匹配的，只能做模糊匹配，在差异达到一定阈值时才起作用； 
-- `Accept-Ranges`：表示该服务器是否支持文件的范文请求； 
-- `Server`：设置服务器名称； 
-- `Date`：当前 GMT 时间，这个就是你请求的东西被服务器创建的时间。
+    - `Content-Type`：服务器给客户端传回来的文件格式； 
+    - `Content-Length`：这个是返回的实体在压缩之之后的长度为 8 byte； 
+    - `Last-Modified`：文档的最后改动时间；
+    - `ETag`：这个响应头中有种
+    - `Weak Tag`，值为`W/“xxxxx”`。它声明`Tag`是弱匹配的，只能做模糊匹配，在差异达到一定阈值时才起作用； 
+    - `Accept-Ranges`：表示该服务器是否支持文件的范文请求； 
+    - `Server`：设置服务器名称； 
+    - `Date`：当前 GMT 时间，这个就是你请求的东西被服务器创建的时间。
 
 ![img](https://pic2.zhimg.com/80/v2-2f86d3626184a4fc8b8fed6008419055_1440w.webp)
 
-!!!+notice "TCP不维护报文长度，需要HTTP自己去断句"
+!!!+note "TCP不维护报文长度，需要HTTP自己去断句"
 
 
 
@@ -314,10 +315,10 @@ python - request库
 
 大多数门户网站使用
 
-1) 在HTTP响应报文中有一个cookie的首部行
-2) 在HTTP请求报文含有一个cookie的首部行
-3) 在用户端系统中保留有一个cookie文件，由用户的浏览器管理
-4) 在Web站点有一个后端数据库
+1) 在HTTP响应报文中有一个cookie的首部行<br>
+2) 在HTTP请求报文含有一个cookie的首部行<br>
+3) 在用户端系统中保留有一个cookie文件，由用户的浏览器管理<br>
+4) 在Web站点有一个后端数据库<br>
 
 
 
@@ -590,19 +591,19 @@ IP 标示&寻址
 - 分布式数据库、树状关系
 - 运行在UDP:53应用服务
 
-!!!+note "互联网的复杂性"
+???+note "互联网的复杂性"
 	互联网的核心内容建立在互联网边缘的端系统应用之上
 
 
 
 - 资源记录`resource records`
 
-RR格式: (domain_name, ttl, type,class,Value)
-`Domain_name`: 域名
-`Ttl: time to live` : 生存时间(权威，缓冲记录)
-`Class` 类别：对于Internet，值为IN
-`Value` 值：可以是数字，域名或ASCII串
-`Type` 类别：资源记录的类型—见下页
+RR格式: (domain_name, ttl, type,class,Value)<br>
+`Domain_name`: 域名<br>
+`Ttl: time to live` : 生存时间(权威，缓冲记录)<br>
+`Class` 类别：对于Internet，值为IN<br>
+`Value` 值：可以是数字，域名或ASCII串<br>
+`Type` 类别：资源记录的类型—见下页<br>
 
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240129232745663.png" alt="image-20240129232745663" style="zoom:80%;" />
 
@@ -614,7 +615,7 @@ RR格式: (domain_name, ttl, type,class,Value)
 
 ##### 报文
 
-<img src="https://data.educoder.net/api/attachments/554296" alt="预览大图" style="zoom:50%;" />
+<img src="https://data.educoder.net/api/attachments/554296" alt="预览大图" style="zoom: 67%;" />
 
 报文首部
 
@@ -663,7 +664,7 @@ RR格式: (domain_name, ttl, type,class,Value)
 
 **1.权威DNS：**
 
-权威DNS是经过上一级授权对域名进行解析的服务器，同时它可以把解析授权转授给其他人，如COM顶级服务器可以授权[http://dns.com](https://link.zhihu.com/?target=http%3A//dns.com)这个域名的的权威服务器为[http://NS.ABC.COM](https://link.zhihu.com/?target=http%3A//NS.ABC.COM)，同时[http://NS.ABC.COM](https://link.zhihu.com/?target=http%3A//NS.ABC.COM)还可以把授权转授给[http://NS.DDD.COM](https://link.zhihu.com/?target=http%3A//NS.DDD.COM)，这样[http://NS.DDD.COM](https://link.zhihu.com/?target=http%3A//NS.DDD.COM)就成了[http://ABC.COM](https://link.zhihu.com/?target=http%3A//ABC.COM)实际上的权威服务器了。
+权威DNS是经过上一级授权对域名进行解析的服务器，同时它可以把解析授权转授给其他人，如COM顶级服务器可以授权`http://dns.com`这个域名的的权威服务器为`http://NS.ABC.COM`，同时`http://NS.ABC.COM`还可以把授权转授给`http://NS.DDD.COM`，这样`http://NS.DDD.COM`就成了`http://ABC.COM`实际上的权威服务器了。
 
 **2.递归DNS:**
 
@@ -1001,11 +1002,9 @@ socket: 分布式应用进程之间的门，传输层协议提供的端到端服
 
 
 
-电脑打开多个QQ
-
-使用一个IP和端口号
-
-但是每个QQ功能可以独立使用、互不影响
+> 电脑打开多个QQ，使用一个IP和端口号
+>
+> 但是每个QQ功能可以独立使用、互不影响
 
 
 

@@ -1,27 +1,20 @@
 # 嵌入式
 
 ???+note "课程资源"
+    === "历年卷"
+        [2023-2024 嵌入式系统 回忆卷（部分） - CC98论坛](https://www.cc98.org/topic/5804405)<br>
+        [2023春夏嵌入式系统 回忆 - CC98论坛](https://www.cc98.org/topic/5636810)<br>
+        [2021秋冬控制学院《嵌入式系统》考试回忆及有用资料 - CC98论坛](https://www.cc98.org/topic/5026104)<br>
+        [2021-2022春夏 控制学院《嵌入式系统》回忆卷 - CC98论坛](https://www.cc98.org/topic/5352976)<br>
+        [2022-2023 《嵌入式系统》期末卷 - CC98论坛](https://www.cc98.org/topic/5505315)<br>
+        [控院wy老师嵌入式系统半开卷手写a4笔记 赠予有缘人 - CC98论坛](https://www.cc98.org/topic/5695583/1#1)<br>
+        [2023春夏 计科 嵌入式系统 回忆卷 - CC98论坛](https://www.cc98.org/topic/5644583)<br>
+        [计院2022-2023 春夏嵌入式系统回忆卷 - CC98论坛](https://www.cc98.org/topic/5644575)<br>
 
-=== "历年卷"
-    [2023-2024 嵌入式系统 回忆卷（部分） - CC98论坛](https://www.cc98.org/topic/5804405)<br>
-    [2023春夏嵌入式系统 回忆 - CC98论坛](https://www.cc98.org/topic/5636810)<br>
-    [2021秋冬控制学院《嵌入式系统》考试回忆及有用资料 - CC98论坛](https://www.cc98.org/topic/5026104)<br>
-    [2021-2022春夏 控制学院《嵌入式系统》回忆卷 - CC98论坛](https://www.cc98.org/topic/5352976)<br>
-    [2022-2023 《嵌入式系统》期末卷 - CC98论坛](https://www.cc98.org/topic/5505315)<br>
-    [控院wy老师嵌入式系统半开卷手写a4笔记 赠予有缘人 - CC98论坛](https://www.cc98.org/topic/5695583/1#1)<br>
-    [2023春夏 计科 嵌入式系统 回忆卷 - CC98论坛](https://www.cc98.org/topic/5644583)<br>
-    [计院2022-2023 春夏嵌入式系统回忆卷 - CC98论坛](https://www.cc98.org/topic/5644575)<br>
-
-=== "课程Tips"
-	从硬到软
-	从芯片到外设
-
-
-## 领域概述
-
-![img](https://codesheep.oss-cn-hangzhou.aliyuncs.com/blog/qianrushiyasuo.jpg)
-
-[肝了半个月，我整理出了这篇嵌入式开发学习学习路线+知识点梳理）_嵌入式学习路线-CSDN博客](https://blog.csdn.net/wangshuaiwsws95/article/details/107830452)
+    === "课程Tips"
+        从硬到软
+        
+        从芯片到外设
 
 
 
@@ -54,4 +47,16 @@ CPU的寄存器的位宽
 
 
 ## 历史
+
+
+
+## 领域概述
+
+![img](https://codesheep.oss-cn-hangzhou.aliyuncs.com/blog/qianrushiyasuo.jpg)
+
+[肝了半个月，我整理出了这篇嵌入式开发学习学习路线+知识点梳理）_嵌入式学习路线-CSDN博客](https://blog.csdn.net/wangshuaiwsws95/article/details/107830452)
+
+
+
+## 
 

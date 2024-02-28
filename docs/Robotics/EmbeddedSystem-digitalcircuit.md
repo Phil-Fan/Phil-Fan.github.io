@@ -73,14 +73,17 @@ $$
 Y = A' = NOT \quad A
 $$
 
-![image-20240228122022442](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240228122022442.png)
+![非关系](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240228122022442.png)
 
 ### 异或
 
 不进位的加法
+
+
 $$
-Y = A \oplus B 
+Y = A \oplus B
 $$
+
 ![异或关系](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240228122336850.png)
 
 ### 同或

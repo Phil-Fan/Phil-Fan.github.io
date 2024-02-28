@@ -186,12 +186,13 @@ nav:
     - English/TOFEL-speaking-training.md
     - English/TOFEL-speaking.md
 - Class:
-  - Math:
-    - Class/signal.md
-    - Class/自动控制原理.md
-
-#   - Physics:
-
+  - Class/signal.md
+  - Class/自动控制原理.md
+  - "ITP课程" :
+      - Class/ITP/ITP-Team-Communication-and-Leadership.md
+      - Class/ITP/ITP-Management.md
+      - Class/ITP/ITP-创业战略.md
+      - Class/ITP/ITP-基于创新的创业.md
   
 - Robotics:
   - Robotics/ROS.md
@@ -215,9 +216,7 @@ nav:
     - CS/DataStructure-Tree.md
     - CS/DataStructure-Hash.md
     - CS/DataStructure-Sorting.md
-    - CS/DataStructure-Graph.md
-    - CS/OperationalResearch-DP.md
-    
+    - CS/DataStructure-Graph.md  
 
   - "计算机网络 | Computer Network" :
     - CS/ComputerNetwork-00-intro.md
@@ -228,7 +227,10 @@ nav:
     - CS/ComputerNetwork-05-PhysicalLayer.md
     - CS/ComputerNetwork-06-networksecurity.md
     - CS/ComputerNetwork-07-experiment.md
-  - CS/OperationalResearch.md
+  
+  - "运筹学 | Operational Research":
+    - CS/OperationalResearch.md
+    - CS/OperationalResearch-DP.md
     
 - Explore:
   - "CV | 计算机视觉":
@@ -245,11 +247,6 @@ nav:
   
   - Finance:
     - Explore/Fin/Fintech.md
-    - "ITP课程" :
-      - Explore/Fin/ITP-Team-Communication-and-Leadership.md
-      - Explore/Fin/ITP-Management.md
-      - Explore/Fin/ITP-创业战略.md
-      - Explore/Fin/ITP-基于创新的创业.md
 
   - Books:
     - Explore/Books/The Innovator`s Dilemma.md 
@@ -273,6 +270,7 @@ nav:
   - Tools/sites.md
   - Tools/obsidian.md
   - Tools/tableau.md
+  - Tools/solidworks.md
 
 - "杂谈":
   - classes_in_zju.md

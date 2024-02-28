@@ -40,6 +40,8 @@
 >
 >Bellman-Ford开头是B，所以是以边为单位进行操作
 
+![最短路算法比较](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240116141856812.png)
+
 ### Floyd
 
 常数小，复杂度高
