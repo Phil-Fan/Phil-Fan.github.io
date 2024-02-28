@@ -558,6 +558,12 @@ Internet邮件访问协议
 
 [DNS详解，权威DNS，递归DNS，转发DNS，公共DNS_230.10.2.5-CSDN博客](https://blog.csdn.net/yangfanacc/article/details/42099913)
 
+1. 每一个域名（只讨论英文域名）都是一个标号序列（labels），用字母（A-Z，a-z，大小写等价）、数字（0-9）和连接符（-）组成；
+2. 标号序列总长度不能超过 255 个字符，它由点号分割成一个个的标号（label）
+
+baidu: 二级域名，指公司名；
+www: 表示该公司的 WEB 服务器对应的主机
+
 不是给人用的，是给其他应用提供的
 
 IP 标示&寻址
@@ -607,6 +613,8 @@ RR格式: (domain_name, ttl, type,class,Value)
 
 
 ##### 报文
+
+<img src="https://data.educoder.net/api/attachments/554296" alt="预览大图" style="zoom:50%;" />
 
 报文首部
 
@@ -695,13 +703,13 @@ RR格式: (domain_name, ttl, type,class,Value)
 Local Name Server(预先配置好的)
 
 - 目标名字在Local Name Server中
-  情况1：查询的名字在该区域内部
-  情况2：缓存(cashing)
+  - 情况1：查询的名字在该区域内部
+  
+  - 情况2：缓存(cashing)
+  
+- 当与本地名字服务器不能解析名字时，联系根名字服务器顺着根-TLD 一直找到权威名字服务器
 
-- 当与本地名字服务器不能解析
-  名字时，联系根名字服务器
-  顺着根-TLD 一直找到权威名
-  字服务器
+<img src="https://data.educoder.net/api/attachments/579916" alt="预览大图" style="zoom:50%;" />
 
 ##### 递归查询
 
@@ -718,6 +726,42 @@ Local Name Server(预先配置好的)
 ##### 增删改
 
 与树的操作相类似
+
+
+
+#### 命令
+
+网卡绑定的DNS
+
+```shell
+cat /etc/resolv.conf # 查看
+
+vim /etc/resolv.conf # 修改
+
+service networking restart
+```
+
+
+
+##### `ping`
+
+#### `nslookup`
+
+nslookup 是一种网络管理命令行工具，可用于查询 DNS 域名和 IP 地址
+
+```shell
+nslookup domain # 直接查询
+nslookup domain dns-server # 指定域名服务器查询
+nslookup -type=type domain # 指定类型查询
+```
+
+- MX：邮件服务器记录；
+- NS：名字服务器记录；
+- PTR：反向记录。
+
+
+
+
 
 
 
