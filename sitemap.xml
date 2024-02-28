@@ -211,6 +211,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://www.philfan.cn/Robotics/EmbeddedSystem-intro/</loc>
+         <lastmod>2024-02-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://www.philfan.cn/Robotics/EmbeddedSystem-stm32/</loc>
          <lastmod>2024-02-28</lastmod>
          <changefreq>daily</changefreq>
