@@ -270,6 +270,7 @@ description:
 400: Bad Request
 404: Not Found
 505: HTTP Version Not Supported
+502: Bad Gateway
 ```
 
 | 状态码 |           类别            |        原因        |
@@ -922,13 +923,6 @@ over the top 在边缘系统实现
 
 `CBR`: (`constant bitrate`): 以固定速率编码
 `VBR`: (`variable bitrate`): 视频编码速率随时间的变化而变化
-
-例子:
-
-- MPEG 1 (CD-ROM) 1.5Mbps
-- MPEG2 (DVD) 3-6 Mbps
-- MPEG4 (often used in Internet, < 1 Mbps)
-- AVS
 
 #### 流化服务`streaming`
 

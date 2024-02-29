@@ -53,7 +53,7 @@
 
 
 
-![Intro](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/Intro.png)
+![Intro部分思维导图](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/Intro.png)
 
 ## 基本概念
 
@@ -151,9 +151,9 @@ Traceroute检测程序
 
 
 
-##### 排队延时
+##### 排队延时 queueing delay
 
-流量强度$I = \frac{L_a}{R}$
+流量强度$I = \frac{L\cdot a}{R}$
 
 L(bits) a到达平均速率，R链路带宽（bps）
 
@@ -161,15 +161,13 @@ L(bits) a到达平均速率，R链路带宽（bps）
 
 
 
-
-
-##### 传输延时
+##### 传输延时 transmission delay
 
 $T = \frac{L}{R}$,L是分组长度，R是链路带宽
 
 
 
-##### 传播延时
+##### 传播延时 propagation delay
 
 $t = \frac{d}{s}$
 
@@ -181,11 +179,7 @@ AB距离很远的话，传播延时不能忽略
 
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240125175620523.png" alt="image-20240125175620523" />
 
-
-
-
-
-
+> 上面例子只计算了transmission delay 和 propagation delay 
 
 #### 分组丢失原因
 
