@@ -77,33 +77,35 @@ bit rate 性能指标
 
 单位 b/s kb/s Mb/s Gb/s
 
+???+note "存储单位和传输速率单位换算"
 
-
-bandwidth 信号具有的频带宽度
-
-数字信道能传送的最高数据率
-
-bit/s
-
-
-
-delay 时延
-
-$发送时延 = \frac{数据长度}{发送速率}$
-
-$传播时延 = \frac{信道长度}{信道传播速率}$
-
-$总时延 = 发送时延+传播时延+处理时延+排队时延$
+    === "存储单位（基于1024"
+    
+    - **KB (Kilobyte)**: 1 KB = 1024 Bytes 
+    - **MB (Megabyte)**: 1 MB = 1024 KB = 1,048,576 Bytes 
+    - **GB (Gigabyte)**: 1 GB = 1024 MB = 1,073,741,824 Bytes 
+    
+    === "网络传输速率单位（基于1000"
+    注意！！！ 1 Byte = 8 bits
+    注意换算时的基数差异（存储通常基于1024，而网络速率基于1000）
+    
+    - **Kbps (Kilobit per second)**: 1 Kbps = 1000 bits/s 
+    - **Mbps (Megabit per second) = Mb/s (Megabit per second)**: 1 Mbps = 1000 Kbps = 1,000,000 bits/s 
+    - **Gbps (Gigabit per second)**: 1 Gbps = 1000 Mbps = 1,000,000,000 bits/s 
 
 
 
-时延带宽积
+`bandwidth` 带宽：信号具有的频带宽度，数字信道能传送的最高数据率
 
-信道利用率 - 某信道有多少被利用
+> 高速公路的车道有多宽
 
-排队论，信道利用率增大，时延就增大
+`throughput` 吞吐量：单位时间内成功地传送数据的数量
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240122214414552.png"/>
+> 高速上现在的车流量
+
+
+
+
 
 ### Internet内涵
 
@@ -137,19 +139,35 @@ tier1 + tier2 + regional isp + local isp
 
 ### 分组延时、丢失和吞吐量
 
+delay 时延
+
+
+
+
+
+时延带宽积
+
+信道利用率 - 某信道有多少被利用
+
+排队论，信道利用率增大，时延就增大
+
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240122214414552.png"/>
+
+
+
+
+
  延时的原因：输出能力小于到达速率
 
-（用火车过桥来理解）
+>  用火车过桥来理解
 
+#### 延时
 
+$总时延 = 发送时延+传播时延+处理时延+排队时延$
 
-Traceroute检测程序
+##### 节点处理延时
 
-
-
-#### 节点处理延时
-
-
+$发送时延 = \frac{数据长度}{发送速率}$
 
 ##### 排队延时 queueing delay
 
@@ -165,7 +183,7 @@ L(bits) a到达平均速率，R链路带宽（bps）
 
 $T = \frac{L}{R}$,L是分组长度，R是链路带宽
 
-
+$传播时延 = \frac{信道长度}{信道传播速率}$
 
 ##### 传播延时 propagation delay
 
@@ -174,8 +192,6 @@ $t = \frac{d}{s}$
 `d`链路长度 `s`媒体传播速度
 
 AB距离很远的话，传播延时不能忽略
-
-信道容量
 
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240125175620523.png" alt="image-20240125175620523" />
 
