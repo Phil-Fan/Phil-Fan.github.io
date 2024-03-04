@@ -35,7 +35,11 @@
 
 曲线向下的部分显示，随着产量的增加，单位平均成本降低。这一现象说明企业在扩大生产规模时可以获得更高的成本效益，直到达到某一点后，规模经济的效益可能会减弱或转为规模不经济（即单位成本开始上升，但这部分在图中没有显示
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240303104636921.png" alt="规模经济性" style="zoom:50%;" />
+<div style="text-align: center;">
+    <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240303104636921.png" alt="规模经济性" style="width: 50%;">
+    <br>
+    <em>规模经济性</em>
+</div>
 
 ??? note "亚当斯密"
 
@@ -94,7 +98,7 @@
 	**颜色**
     框架页主题颜色：绿色 #42AB82<br>
     详情页主题颜色：紫色 #7F5AF0<br>
-    **使用工具**<br>
+      **使用工具**<br>
     图标网站 	https://www.iconfont.cn/<br>
     配色网站 	https://www.happyhues.co/<br>
         https://nipponcolors.com/<br>

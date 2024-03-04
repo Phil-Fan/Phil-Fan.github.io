@@ -2,6 +2,12 @@
 
 [相干性(coherence )和相关性(correlation) ](https://www.zhihu.com/question/46571581)
 
+- details: the outstanding point; take example to expand your cases
+
+
+
+lyrics
+
 
 
 ## Question1
@@ -35,6 +41,29 @@ TASK 1 是托福口语考试中唯一的一道独立口语题，要求考生针�
 - Take a side
 - Speak clearly your choice 
 - Present at least two reasons
+
+### structure
+
+15'' one sentence for the reading
+
+- one action / what
+- 2 purposes / why 
+
+45''
+
+- yes/no
+- 2 reasons
+
+
+
+stadium have benifit for both the student and neiberhood
+
+- 2m is not enough
+
+- the team if always losing
+- 
+
+
 
 ## Question3
 
