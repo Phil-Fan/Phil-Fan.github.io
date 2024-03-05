@@ -66,3 +66,4 @@ Denote 到达率为$l$，处理速率为$u$，也就是该条链路的带宽，�
 
 [OM | 浅谈排队论 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/99131787)
 
+![课本描述](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/6c176fc1b617d7cb64a6339634b874c.png)

@@ -354,9 +354,11 @@ EDC
 
 ### TCP
 
-传输控制协议 **reliable:不重复、不乱序、不丢失、不出错**
+传输控制协议 **reliable**:不重复、不乱序、不丢失、不出错
 
-runtrip time
+
+
+#### TCP报文
 
 `packet`为单位
 
@@ -367,6 +369,8 @@ runtrip time
 message + 本地port + 对方 port 形成TCP数据报
 
 再加上本地 ip + 对方ip 形成IP数据报文
+
+![预览大图](https://data.educoder.net/api/attachments/581054)
 
 -  复用
 
@@ -380,33 +384,32 @@ message + 本地port + 对方 port 形成TCP数据报
 
 ![image-20240130231052510](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240130231052510.png)
 
-有流量控制和拥塞控制 
-
-如：HTTP、FTP、Telnet、SMTP
-
 #### 超长报文
 
-!!! note
-	看一下IP的报文分片
+??? note "注意"
+	字节流的服务，不提供报文的界限，需要靠应用进程自己维护 
 
-字节流的服务，不提供报文的界限，需要靠应用进程自己维护 
 
-MSS 最大报文段
 
-MTU 最大交换单元
 
-MSS加上TCP头部加上IP的头部不能超过MTU
+
+![MTU 与 MSS](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/1282f9ef4d00f3cf14ccfba9aef7f7c6.png)
 
 ![image-20240131121759203](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240131121759203.png)
 
-在以太网中，最大传输单元（MTU）为 1500 个字节，在一个 IP 包中，去除 IP 包头的 20 个字节，可以传输的最大数据长度为 1480 个字节。在 TCP 包中，去除 20 个 TCP 包头，可以传输的最大数据段为 1460 个字节。因此，当数据超过最大数据长度时，将对该数据进行分片处理，在 IP 包头中会看到有多个片在传输，但标识号是相同的，表示是同一个数据包。 
+
+
+MTU 最大交换单元：一个网络包的最大长度，以太网中一般为 1500 字节；
+
+MSS 最大报文段：除去 IP 和 TCP 头部之后，一个网络包所能容纳的 TCP 数据的最大长度；
+
+
+
+在以太网中，最大传输单元（MTU）为 1500 个字节，在一个 IP 包中，去除 IP 包头的 20 个字节，可以传输的最大数据长度为 1480 个字节。在 TCP 包中，去除 20 个 TCP 包头，**可以传输的最大数据段为 1460 个字节**。因此，当数据超过最大数据长度时，将对该数据进行分片处理，在 IP 包头中会看到有多个片在传输，但标识号是相同的，表示是同一个数据包。 
 
 HTML 文件相当长时，例如： 4861 字节太大，一个 TCP 数据包不能容纳。因此，单个 HTTP 响应消息由 TCP 分成几个部分，每个部分包含在单独的 TCP 报文段中，如下图：长度为 4861 的报文被分为长度分别为 1440，1440，1440，541 的 4 个 TCP 段，编号分别为 8715，8716，8718，8719 。
 
 ![image-20240220112530054](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240220112530054.png)
-
-!!! bug
-	分片是怎么分的
 
 - 序号：数据部分第一个字节在整个字节流的偏移量`offset`进行编号
 
@@ -415,6 +418,68 @@ HTML 文件相当长时，例如： 4861 字节太大，一个 TCP 数据包不�
 > TCP's error-recovery mechanism is probably best categorized as a hybrid of GBN  and SR protocol
 
 乱序报文段处理没有规定
+
+???+note "为什么IP层有分片，TCP还要分段"
+	[动图图解 | TCP/IP到底是怎么分片的？-CSDN博客](https://blog.csdn.net/coderising/article/details/118384130)<br>
+	[TCP的分片](https://blog.csdn.net/nswdiphone6/article/details/115695003)<br>
+	因为 IP 层本身没有超时重传机制，它由传输层的 TCP 来负责超时和重传。<br>
+    当接收方发现 TCP 报文（头部 + 数据）的某一片丢失后，则不会响应 ACK 给对方，那么发送方的 TCP 在超时后，就会重发「整个 TCP 报文（头部 + 数据）」。<br>
+    因此，由 IP 层进行分片传输，是非常没有效率的。<br>
+    所以，为了达到最佳的传输效能 TCP 协议在建立连接的时候通常要协商双方的 MSS 值，当 TCP 层发现数据超过 MSS 时，则就先会进行分片，当然由它形成的 IP 包的长度也就不会大于 MTU ，自然也就不用 IP 分片了。<br>
+    ![握手阶段协商 MSS](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/b30d3cb43b0f1561c93b6e2df7ac561b.png)<br>
+    经过 TCP 层分片后，如果一个 TCP 分片丢失后，进行重发时也是以 MSS 为单位，而不用重传所有的分片，大大增加了重传的效率。<br>
+
+
+
+
+
+#### 连接管理(三次握手)
+
+双方知道和对方通信；要准备一些必要的资源
+
+
+
+- 第一次握手包，探测是否可以进行通信
+	告诉客户端 `seq X`
+
+- 第二次我首保，是接收方返回给发送方的，可以明确一些信息;
+	确认X，告诉服务器`seq Y`；相当于把确认和`seq Y` 捎带发送了
+
+- 第三次握手 确认`seq Y`
+	Y是server维护的滑动窗口的下沿；和数据传递同步进行
+
+
+
+两次握手的问题
+
+半连接；
+
+服务器把老的连接当成新的连接
+
+初始序号的选择；与时钟的第一个32位有关；
+
+![预览大图](https://data.educoder.net/api/attachments/581058)
+
+???+note "标记"
+    - `SYN`：(同步)发起连接的数据包：同步 `SYN=1` 表示这是一个连接请求或连接接受报文。 <br>
+    - `ACK`：(确认)确认收到的数据包：只有当 `ACK=1` 时，确认号字段才有效；当 `ACK=0` 时，确认号无效。 <br>
+    - `RST`：(重置)之前尝试的连接被关闭，(信号差，信号拥挤)：当 `RST=1` 时，表明 TCP 连接中出现严重差错（如由于主机崩溃或其他原因），必须释放连接，然后再重新建立运输连接。<br>
+    - `FIN`：(结束)连接成功，传输完毕之后，连接正在断开：用来释放一个连接，`FIN=1` 表明此报文段的发送端的数据已发送完毕，并要求释放运输连接。<br>
+    - `PSH`：(推送)数据包直接发送给应用，而不是缓存起来：接收 TCP 收到 `PSH=1` 的报文段，就尽快地交付接收应用进程，而不再等到整个缓存都填满了后再向上交付。<br>
+    - `URG`：(紧急)数据包中承载的内容应该立即由 TCP 协议栈立即进行处理：当 `URG=1` 时，表明紧急指针字段有效。它告诉系统此报文段中有紧急数据，应尽快传送(相当于高优先级的数据)。 <br>
+    - `CWR`：(拥塞窗口减小)缓存区已满或者拥挤，通信双方都应该降低传输的速率。<br>
+
+##### 关闭连接
+
+分成两个方向分别拆除；
+
+连接释放是不可靠的
+
+ 启动一个定时器，如果定时器结束之前没有数据传递，那么通信就真正关闭了
+
+![image-20240131191317844](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240131191317844.png)
+
+
 
 
 
@@ -428,9 +493,10 @@ HTML 文件相当长时，例如： 4861 字节太大，一个 TCP 数据包不�
 adam算法一阶动量计算
 
 $EstimatedRTT = (1-\alpha) \times EstimatedRTT + \alpha\times SampleRTT $
- 指数加权移动平均
- 过去样本的影响呈指数衰减
- 推荐值：$\alpha = 0.125$
+
+- 指数加权移动平均
+- 过去样本的影响呈指数衰减
+- 推荐值：$\alpha = 0.125$
 
 
 
@@ -473,49 +539,6 @@ $EstimatedRTT = (1-\alpha) \times EstimatedRTT + \alpha\times SampleRTT $
 $ V = RcvWindow = RcvBuffer-[LastByteRcvd - LastByteRead]$
 
 ![image-20240131180428780](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240131180428780.png)
-
-#### 连接管理(三次握手)
-
-双方知道和对方通信；要准备一些必要的资源
-
-
-
-- 第一次握手包，探测是否可以进行通信
-	告诉客户端 `seq X`
-
-- 第二次我首保，是接收方返回给发送方的，可以明确一些信息;
-	确认X，告诉服务器`seq Y`；相当于把确认和`seq Y` 捎带发送了
-
-- 第三次握手 确认`seq Y`
-	Y是server维护的滑动窗口的下沿；和数据传递同步进行
-
-
-
-两次握手的问题
-
-半连接；
-
-服务器把老的连接当成新的连接
-
-初始序号的选择；与时钟的第一个32位有关；
-
-
-
-
-
-
-
-#### 关闭连接
-
-分成两个方向分别拆除；
-
-连接释放是不可靠的
-
- 启动一个定时器，如果定时器结束之前没有数据传递，那么通信就真正关闭了
-
-![image-20240131191317844](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240131191317844.png)
-
-
 
 #### 拥塞控制
 

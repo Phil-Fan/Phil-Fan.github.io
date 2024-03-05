@@ -1,28 +1,8 @@
 # 应用层 | Application Layer
 
-交换应用报文
+> 应用层协议最多
 
-应用层协议最多
-
-> Everything over IP
-
-![image-20240129142527888](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240129142527888.png)
-
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240129142544296.png" alt="image-20240129142544296" style="zoom:50%;" />
-
-
-
-- 互联网杀手级应用
-
-网络流量占用多且可以吸引用户
-
-![img](https://static-cms.aa-cdn.net/wp-content/uploads/2019/12/Decade_Top_Apps_DL-1024x805.png)
-
-![img](https://static-cms.aa-cdn.net/wp-content/uploads/2019/12/Decade_Top_Apps_Rev-1024x805.png)
-
-
-
-
+![应用层思维导图](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/%E5%BA%94%E7%94%A8%E5%B1%82.png)
 
 ## 原理
 
@@ -36,11 +16,7 @@ SAP
 - 采用的传输层协议 TCP/UDP
 - 端口号 PortNumber（16bit 65536）
 
-HTTP:80
-
-Mail: TCP25
-
-FTP: TCP2
+HTTP:80;Mail: TCP25;FTP: TCP2
 
 
 
@@ -66,7 +42,7 @@ IP交给下方
 
 #### socket(IP:port)套接字
 
-- TCP - `Transmission Control Protocol`
+- TCP - `Transmission Control Protocol`<br>
 
   四元组 我ip+port 对方ip+port
 
@@ -90,8 +66,6 @@ UDP套接字指定了应用所在的端结点（end point）
 
 
 
-如何使用
-
 ### 网络应用体系架构
 
 #### Client-Server
@@ -100,21 +74,118 @@ UDP套接字指定了应用所在的端结点（end point）
 
 服务器是中心，资源在服务器
 
-可扩展性较差，CS模式断崖式下降
+可扩展性较差，CS模式随连接数量断崖式下降
 
 
 
 #### Peer-to-Peer
 
-迅雷
+>  迅雷
 
-又可以充当服务器，又可以充当用户
+每一个节点又可以充当服务器，又可以充当用户
 
 请求节点增加的同时，提供服务的节点也在增加
 
 
 
-管理困难的多
+**缺点**：管理困难的多
+
+
+
+##### 时间
+
+![image-20240130004433432](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240130004433432.png)
+
+线性增加
+
+
+
+![image-20240130004451304](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240130004451304.png)
+
+不是线性增加
+
+
+
+
+
+如何定位所需资源
+如何处理对等方的加入与离开
+
+
+
+##### 非结构化P2P
+
+`overlay` peer节点之间的覆盖网
+
+- 集中化目录
+
+上线时候向集中化目录进行注册，维护peer节点与资源列表
+
+**问题**：单点故障、性能瓶颈、侵犯版权
+
+- 完全分布式 - Gnutella
+
+图式网络
+
+建立`overlay`，泛洪`flooding`查询；BFS+记忆化搜索（TTL）
+
+
+
+向所有邻居发出ping，邻居返回pong
+
+
+
+- 混合体 KaZaA
+
+组内集中式，组长分布式
+
+| 文件 | 描述     | Hash                  |
+| ---- | -------- | --------------------- |
+|      | 匹配描述 | vid，元信息的唯一标识 |
+
+BT
+
+`bitmap`,定期泛洪交换
+
+![image-20240130101612770](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240130101612770.png)
+
+
+
+
+
+- Peer加入torrent:
+
+位图中全是0，随机请求其他节点的块；
+
+4个bit后开始稀缺优先；`tit for tat`原则；可以更有利于网络的维护
+
+扰动churn: peer节点可能会上线或者下线
+
+一旦一个peer拥有整个文件，它会（自私的）离开或者保留（利他主义）在torrent中
+
+
+
+`tracking server` 进行peer列表的维护
+
+有限疏通：两个周期下载带宽大的排在前面（优先队列）；第三个周期在请求中随机选择
+
+作为
+
+##### 结构化 P2P（一致性哈希`consistent hash`）
+
+参考了知乎网友写的[一致性哈希科普](https://zhuanlan.zhihu.com/p/129049724)
+
+把ip地址hash值作为唯一标识
+
+按照hash大小组成一个环；有序拓扑
+
+每个用户维护和上一个id之间的文件
+
+
+
+查询效率高，副本数量少
+
+
 
 #### 混合式
 
@@ -258,9 +329,9 @@ Accept-language:fr
 - [状态码(status code)及状态描述(status code description)](https://mp.weixin.qq.com/s/xxxS5qG244F6L10Y_ZxyGQ)
 
 ???+bug "注意"
-	**谨记状态码和状态描述的区别**
-	状态码(status code)
-	状态描述(status code description)
+	**谨记状态码和状态描述的区别**<br>
+	状态码(status code)<br>
+	状态描述(status code description)<br>
 
 
 ```HTTP
@@ -286,19 +357,20 @@ description:
 - 响应报文头
 
 ???+abstract "响应报文头"
-    响应头有若干个字段组合（根据具体情况选择），常见字段及其含义如下： 
-    - `Content-Type`：服务器给客户端传回来的文件格式； 
-    - `Content-Length`：这个是返回的实体在压缩之之后的长度为 8 byte； 
-    - `Last-Modified`：文档的最后改动时间；
-    - `ETag`：这个响应头中有种
-    - `Weak Tag`，值为`W/“xxxxx”`。它声明`Tag`是弱匹配的，只能做模糊匹配，在差异达到一定阈值时才起作用； 
-    - `Accept-Ranges`：表示该服务器是否支持文件的范文请求； 
-    - `Server`：设置服务器名称； 
-    - `Date`：当前 GMT 时间，这个就是你请求的东西被服务器创建的时间。
+    响应头有若干个字段组合（根据具体情况选择），常见字段及其含义如下：<br> 
+    - `Content-Type`：服务器给客户端传回来的文件格式； <br>
+    - `Content-Length`：这个是返回的实体在压缩之之后的长度为 8 byte； <br>
+    - `Last-Modified`：文档的最后改动时间；<br>
+    - `ETag`：这个响应头中有种<br>
+    - `Weak Tag`，值为`W/“xxxxx”`。它声明`Tag`是弱匹配的，只能做模糊匹配，在差异达到一定阈值时才起作用； <br>
+    - `Accept-Ranges`：表示该服务器是否支持文件的范文请求； <br>
+    - `Server`：设置服务器名称； <br>
+    - `Date`：当前 GMT 时间，这个就是你请求的东西被服务器创建的时间。<br>
 
 ![img](https://pic2.zhimg.com/80/v2-2f86d3626184a4fc8b8fed6008419055_1440w.webp)
 
-!!!+note "TCP不维护报文长度，需要HTTP自己去断句"
+!!! note 
+	TCP不维护报文长度，需要HTTP自己去断句
 
 
 
@@ -560,17 +632,14 @@ Internet邮件访问协议
 
 [DNS详解，权威DNS，递归DNS，转发DNS，公共DNS_230.10.2.5-CSDN博客](https://blog.csdn.net/yangfanacc/article/details/42099913)
 
-1. 每一个域名（只讨论英文域名）都是一个标号序列（labels），用字母（A-Z，a-z，大小写等价）、数字（0-9）和连接符（-）组成；
-2. 标号序列总长度不能超过 255 个字符，它由点号分割成一个个的标号（label）
-
-baidu: 二级域名，指公司名；
-www: 表示该公司的 WEB 服务器对应的主机
-
-不是给人用的，是给其他应用提供的
-
 IP 标示&寻址
 
-![预览大图](https://data.educoder.net/api/attachments/579702)
+- 分层、基于域的命名
+- 分布式数据库、树状关系
+- 运行在UDP:53应用服务
+
+???+note "互联网的复杂性"
+	互联网的核心内容建立在互联网边缘的端系统应用之上
 
 #### 作用
 
@@ -580,78 +649,41 @@ IP 标示&寻址
 - 邮件父母器别名到正规名字转换 `Mail server aliasing`
 - 负载均衡`Load Distribution`
 
+#### 域名
 
+1. 每一个域名（只讨论英文域名）都是一个标号序列（labels），用字母（A-Z，a-z，大小写等价）、数字（0-9）和连接符（-）组成；
+2. 标号序列总长度不能超过 255 个字符，它由点号分割成一个个的标号（label）
 
-一个平面？？
+baidu: 二级域名，指公司名；
+www: 表示该公司的 WEB 服务器对应的主机
 
+> IP不是给人用的，是给其他应用提供的
 
+![预览大图](https://data.educoder.net/api/attachments/579702)
 
-#### 方法
+##### 区域`zone`
 
-- 分层、基于域的命名
-- 分布式数据库、树状关系
-- 运行在UDP:53应用服务
+- 区域的划分有区域管理者自己决定
 
-???+note "互联网的复杂性"
-	互联网的核心内容建立在互联网边缘的端系统应用之上
+- 将DNS名字空间划分为互不相交的区域，每个区域都是
+  树的一部分
 
+  
 
+- 名字服务器：
 
-- 资源记录`resource records`
+  - 每个区域都有一个名字服务器：维护着它所管辖区域的权威信息
+    (authoritative record)
+  - 名字服务器允许被放置在区域之外，以保障可靠性
 
-RR格式: (domain_name, ttl, type,class,Value)<br>
-`Domain_name`: 域名<br>
-`Ttl: time to live` : 生存时间(权威，缓冲记录)<br>
-`Class` 类别：对于Internet，值为IN<br>
-`Value` 值：可以是数字，域名或ASCII串<br>
-`Type` 类别：资源记录的类型—见下页<br>
-
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240129232745663.png" alt="image-20240129232745663" style="zoom:80%;" />
-
-缓存为了性能	TTL（默认2天）
-
-删除为了一致性
-
-
-
-##### 报文
-
-<img src="https://data.educoder.net/api/attachments/554296" alt="预览大图" style="zoom: 67%;" />
-
-报文首部
-
-- 标识符（ID）：16位（订单编号）
-
-- flags:
-
-  - 查询/应答
-
-  - 希望递归
-
-  - 递归可用
-
-  - 应答为权威
-
-#### 结构
-
-层次树状结构
+层次树状结构，全球有13个根服务器
 
 - 顶级域`top lever domain`
 
-.com .edu .gov .net .org .web 
-
-.cn .us .nl .jp
-
 - 子域`subdomain`
 
-树叶就是主机
-
-全球有13个根服务器
-
-
-
 域与物理网络无关
- 域遵从组织界限，而不是物理网络;是逻辑
+域遵从组织界限，而不是物理网络;是逻辑
 
 - 一个域的主机可以不在一个网络
 - 一个网络的主机不一定在一个域
@@ -675,26 +707,48 @@ RR格式: (domain_name, ttl, type,class,Value)<br>
 
 **3.转发DNS:**
 
-负责接受用户查询，并返回结果给用户。但这个结果不是按标准的域名解析过程得到的，而是直接把递归DNS的结果转发给用户。比如我们用的路由器里面的DNS就是这一类，用路由器的朋友可以看下本地电脑的DNS一般都是192.168.1.1。
+负责接受用户查询，并返回结果给用户。但这个结果不是按标准的域名解析过程得到的，而是直接把递归DNS的结果转发给用户。比如我们用的路由器里面的DNS就是这一类，用路由器的朋友可以看下本地电脑的DNS一般都是192.168.1.1
 
-#### 区域`zone`
+#### 报文
 
-- 区域的划分有区域管理者自己决定
+<img src="https://data.educoder.net/api/attachments/554296" alt="预览大图" style="zoom: 67%;" />
 
-- 将DNS名字空间划分为互不相交的区域，每个区域都是
-  树的一部分
+报文首部
 
-  
+- 标识符（ID）：16位（订单编号）
 
--  名字服务器：
+- flags:
 
-  - 每个区域都有一个名字服务器：维护着它所管辖区域的权威信息
-    (authoritative record)
-  -  名字服务器允许被放置在区域之外，以保障可靠性
+  - 查询/应答
+
+  - 希望递归
+
+  - 递归可用
+
+  - 应答为权威
+
+
+
+- 资源记录`resource records`
+
+RR格式: (domain_name, ttl, type,class,Value)<br>
+`Domain_name`: 域名<br>
+`Ttl: time to live` : 生存时间(权威，缓冲记录)<br>
+`Class` 类别：对于Internet，值为IN<br>
+`Value` 值：可以是数字，域名或ASCII串<br>
+`Type` 类别：资源记录的类型—见下页<br>
+
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240129232745663.png" alt="image-20240129232745663" style="zoom:80%;" />
+
+缓存为了性能	TTL（默认2天）
+
+删除缓存为了和源端保持一致性
 
 
 
 #### 工作过程
+
+> DNS 可以使用 UDP/53 ，也可以使用 TCP/53 。当响应报文的长度小于 512B 时，就使用 UDP (因为 UDP 的最大报文长度为 512B )；若响应报文的长度超过 512B ，则选用 TCP 。
 
 - 应用调用解析器(resolver)
 - 解析器作为客户向Name Server发出查询报文
@@ -713,6 +767,14 @@ Local Name Server(预先配置好的)
 
 <img src="https://data.educoder.net/api/attachments/579916" alt="预览大图" style="zoom:50%;" />
 
+??? note "一个例子"
+    （1）DNS 客户机向本地域名服务器发送查询请求，查找域名`www.abx.xyz.com`的 IP 地址。本地域名服务器查询本地的缓存，如果有这个地址，则将地址返回给 DNS 客户机；<br>
+    （2）如果本地域名服务器缓存没有这个地址，则发送查询请求到根域名服务器，询问`www.abx.xyz.com`的地址，根域名服务器会将子域 `com` 的域名服务器的地址返回给本地域名服务器； <br>
+    （3）本地域名服务器再向 `com` 域发送查询请求，`com` 域服务器无法提供地址，但会把下一级的域名服务器 `xyz.com` 的地址发送给本地域名服务器；<br>
+    （4）重复（2）、（3）的过程，最后 `xyz.com` 域名服务器把`abc.xyz.com`域名服务器地址发送给本地域名服务器；<br>
+    （5）本地域名服务器再向`abc.xyz.com`域名服务器发送地址查询请求`abc.xyz.com`，找到了`www.abc.xyz.com`的地址，就将这个地址发送给本地域名服务器； <br>
+    （6）本地域名服务器把地址保存到缓存，同时返回给 DNS 客户机。<br>
+
 ##### 递归查询
 
 根服务器负担太重
@@ -723,7 +785,7 @@ Local Name Server(预先配置好的)
 
 最后由权威名字服务器给出解析结果
 
-“我不知道这个名字，但可以向这个服务器请求”
+> “我不知道这个名字，但可以向这个服务器请求”
 
 ##### 增删改
 
@@ -732,6 +794,8 @@ Local Name Server(预先配置好的)
 
 
 #### 命令
+
+[DNS报文及抓包分析-CSDN博客](https://blog.csdn.net/master_cui/article/details/112868443)
 
 网卡绑定的DNS
 
@@ -747,7 +811,7 @@ service networking restart
 
 ##### `ping`
 
-#### `nslookup`
+##### `nslookup`
 
 nslookup 是一种网络管理命令行工具，可用于查询 DNS 域名和 IP 地址
 
@@ -761,11 +825,7 @@ nslookup -type=type domain # 指定类型查询
 - NS：名字服务器记录；
 - PTR：反向记录。
 
-
-
-
-
-
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/c371a6c6e767ead83d9a55d9cb809f13.png" alt="img" style="zoom:50%;" />
 
 ### 攻击
 
@@ -795,114 +855,13 @@ nslookup -type=type domain # 指定类型查询
   - 伪造某个IP进行查询， 攻击这个目标IP
   - 查询放大
 
-### P2P应用
-
-#### 时间
-
-![image-20240130004433432](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240130004433432.png)
-
-线性增加
-
-
-
-![image-20240130004451304](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240130004451304.png)
-
-不是线性增加
-
-
-
-
-
-如何定位所需资源
-如何处理对等方的加入与离开
-
-
-
-#### 非结构化P2P
-
-`overlay` peer节点之间的覆盖网
-
-- 集中化目录
-
-上线时候向集中化目录进行注册，维护peer节点与资源列表
-
-**问题**：单点故障、性能瓶颈、侵犯版权
-
-- 完全分布式 - Gnutella
-
-图式网络
-
-建立`overlay`，泛洪`flooding`查询；BFS+记忆化搜索（TTL）
-
-
-
-向所有邻居发出ping，邻居返回pong
-
-
-
-- 混合体 KaZaA
-
-组内集中式，组长分布式
-
-| 文件 | 描述     | Hash                  |
-| ---- | -------- | --------------------- |
-|      | 匹配描述 | vid，元信息的唯一标识 |
-
-BT
-
-`bitmap`,定期泛洪交换
-
-![image-20240130101612770](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240130101612770.png)
-
-
-
-
-
-- Peer加入torrent:
-
-位图中全是0，随机请求其他节点的块；
-
-4个bit后开始稀缺优先；`tit for tat`原则；可以更有利于网络的维护
-
-扰动churn: peer节点可能会上线或者下线
-
-一旦一个peer拥有整个文件，它会（自私的）离开或者保留（利他主义）在torrent中
-
-
-
-`tracking server` 进行peer列表的维护
-
-有限疏通：两个周期下载带宽大的排在前面（优先队列）；第三个周期在请求中随机选择
-
-作为
-
-#### 结构化 P2P（一致性哈希`consistent hash`）
-
-参考了知乎网友写的[一致性哈希科普](https://zhuanlan.zhihu.com/p/129049724)
-
-把ip地址hash值作为唯一标识
-
-按照hash大小组成一个环；有序拓扑
-
-每个用户维护和上一个id之间的文件
-
-
-
-查询效率高，副本数量少
-
 
 
 ### `CDN:content distribution network`
 
-如何保证超高数量并发服务
+如何保证超高数量并发服务，内容访问加速，`over the top` 在边缘系统实现
 
-China Cash 中国蓝讯
-
-内容访问加速
-
-over the top 在边缘系统实现
-
-
+> China Cash 中国蓝讯
 
 #### 视频与编码
 
@@ -971,6 +930,10 @@ ISP购买CDN服务
 通过DNS实现选择最优的节点
 
 ![image-20240130123254230](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240130123254230.png)
+
+
+
+
 
 ## Socket API
 

@@ -258,12 +258,6 @@ DV:
 
 
 
-IRP
-
-OSPF
-
-BGP
-
 
 
 
