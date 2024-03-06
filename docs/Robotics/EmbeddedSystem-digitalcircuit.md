@@ -132,12 +132,26 @@ $$
 
 ![img](https://pic2.zhimg.com/80/v2-06ac3268bb0d79aea7786e0d763dc2cd_1440w.webp)
 
+并项法
+$$
+AB + A\bar{B} = A
+$$
+吸收法
+$$
+A + AB = A(1+B)= A\\
+AB + \bar{A}C + BC = AB + \bar{A}C
+$$
 消因子
 $$
 A+\bar{A}B = A+B
 $$
 
-
+配项法
+$$
+A + \bar{A} = 1\\
+A \cdot A = 0
+$$
+![image-20240306113302112](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240306113302112.png)
 
 
 ## 门电路

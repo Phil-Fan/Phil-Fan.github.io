@@ -78,20 +78,17 @@ bit rate 性能指标
 单位 b/s kb/s Mb/s Gb/s
 
 ???+note "存储单位和传输速率单位换算"
-
     === "存储单位（基于1024"
-    
-    - **KB (Kilobyte)**: 1 KB = 1024 Bytes 
-    - **MB (Megabyte)**: 1 MB = 1024 KB = 1,048,576 Bytes 
-    - **GB (Gigabyte)**: 1 GB = 1024 MB = 1,073,741,824 Bytes 
+    - **KB (Kilobyte)**: 1 KB = 1024 Bytes <br>
+    - **MB (Megabyte)**: 1 MB = 1024 KB = 1,048,576 Bytes <br>
+    - **GB (Gigabyte)**: 1 GB = 1024 MB = 1,073,741,824 Bytes <br>
     
     === "网络传输速率单位（基于1000"
-    注意！！！ 1 Byte = 8 bits
-    注意换算时的基数差异（存储通常基于1024，而网络速率基于1000）
-    
-    - **Kbps (Kilobit per second)**: 1 Kbps = 1000 bits/s 
-    - **Mbps (Megabit per second) = Mb/s (Megabit per second)**: 1 Mbps = 1000 Kbps = 1,000,000 bits/s 
-    - **Gbps (Gigabit per second)**: 1 Gbps = 1000 Mbps = 1,000,000,000 bits/s 
+    注意！！！ 1 Byte = 8 bits<br>
+    注意换算时的基数差异（存储通常基于1024，而网络速率基于1000）<br>
+    - **Kbps (Kilobit per second)**: 1 Kbps = 1000 bits/s<br> 
+    - **Mbps (Megabit per second) = Mb/s (Megabit per second)**: 1 Mbps = 1000 Kbps = 1,000,000 bits/s <br>
+    - **Gbps (Gigabit per second)**: 1 Gbps = 1000 Mbps = 1,000,000,000 bits/s <br>
 
 
 
@@ -167,7 +164,8 @@ $总时延 = 发送时延+传播时延+处理时延+排队时延$
 
 ##### 节点处理延时
 
-$发送时延 = \frac{数据长度}{发送速率}$
+The time required to examine the packet’s header and determine where to direct
+the packet is part of the processing delay.
 
 ##### 排队延时 queueing delay
 
@@ -213,9 +211,30 @@ AB距离很远的话，传播延时不能忽略
 
 #### 吞吐量
 
-源端和目标端传输速率（有效的
+源端和目标端传输速率（有效的d
+
+??? note **defination**
+	If the file consists of F bits and the transfer takes T seconds for Host B to receive all F bits, then the average throughput of the file transfer is F/T bits/sec.
 
 
+
+- the throughput is $min\{Rc, Rs\}$​, that is, it is the transmission rate of **the bottleneck link.**
+- Applying the same analysis as for the two-link network, we find that the throughput for a file transfer from server to client is $min\{R_1, R_2,\dots, R_N\}$​
+- Therefore, the constraining factor for throughput in today’s Internet is
+  typically the access network.
+
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240306104410654.png" alt="image-20240306104410654" style="zoom:50%;" />
+
+- 如果共同链路速率很快，那么就是短板效应
+
+$$
+if \quad R>> R_s,R_c\\
+then \quad throughput = min\{R_s,R_c\}
+$$
+
+- 但如果公用链路限制速率的话，吞吐量就是共同链路的速率了
+
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240306105533244.png" alt="image-20240306105533244" style="zoom:33%;" />
 
 ### 历史
 
