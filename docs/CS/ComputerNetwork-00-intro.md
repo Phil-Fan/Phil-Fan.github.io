@@ -134,7 +134,7 @@ tier1 + tier2 + regional isp + local isp
 
 
 
-### 分组延时、丢失和吞吐量
+
 
 delay 时延
 
@@ -154,20 +154,27 @@ delay 时延
 
 
 
- 延时的原因：输出能力小于到达速率
 
->  用火车过桥来理解
 
-#### 延时
+### 延时
 
-$总时延 = 发送时延+传播时延+处理时延+排队时延$
+$总时延 = 发送时延+传播时延+处理时延+排队时延$​
 
-##### 节点处理延时
+在这里要注意理解一下书上这个定义，是以 Node A 作为研究节点的，着重注意一下每种延时的定义和区别
+
+![image-20240307194432836](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240307194432836.png)
+
+
+
+#### 节点处理延时 processing delay
 
 The time required to examine the packet’s header and determine where to direct
 the packet is part of the processing delay.
 
-##### 排队延时 queueing delay
+#### 排队延时 queueing delay
+
+At the queue, the packet experiences a queuing delay as it waits to be transmitted
+onto the link.
 
 流量强度$I = \frac{L\cdot a}{R}$
 
@@ -177,13 +184,22 @@ L(bits) a到达平均速率，R链路带宽（bps）
 
 
 
-##### 传输延时 transmission delay
+ 延时的原因：输出能力小于到达速率
+
+>  用火车过桥来理解
+
+#### 传输延时 transmission delay
+
+This is the amount of time required to transmit all of the packet’s bits into the link.
 
 $T = \frac{L}{R}$,L是分组长度，R是链路带宽
 
 $传播时延 = \frac{信道长度}{信道传播速率}$
 
-##### 传播延时 propagation delay
+#### 传播延时 propagation delay
+
+Once a bit is pushed into the link, it needs to propagate to router B. The time required
+to propagate from the beginning of the link to router B is the propagation delay.
 
 $t = \frac{d}{s}$
 
@@ -434,7 +450,7 @@ PAN(Personal Area Network)
 
 本层协议实现需要依靠下层服务，是为了给上层提供更好的服务
 
-#### 服务 垂直层面
+#### 服务 垂直层面vertical
 
 底层实体向上层实体提供通信的能力
 
@@ -442,7 +458,7 @@ PAN(Personal Area Network)
 
 提供什么服务 告诉要使用什么服务
 
-#### 协议 水平层面
+#### 协议 水平层面horizontal
 
 对等层的实体`peer entity`在通信过程中遵守的规则集合
 
@@ -467,6 +483,14 @@ PAN(Personal Area Network)
 #### Internet
 
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240125202826044.png" alt="image-20240125202826044" />
+
+Transport Layer: Process to Process
+
+Network Layer: Node to Node
+
+Link Layer: adjacent Node
+
+Physical Layer
 
 **封装与解封装**
 

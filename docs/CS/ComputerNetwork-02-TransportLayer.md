@@ -176,7 +176,7 @@ SR 单独发送没有收到的
 
 
 
-### 拥塞控制
+### 拥塞控制 | `congestion control`
 
 太多的数据需要网络传输，超过了网络的处理能力
 
@@ -563,7 +563,7 @@ $EstimatedRTT = (1-\alpha) \times EstimatedRTT + \alpha\times SampleRTT $
 
 ![image-20240131171617244](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240131171617244.png)
 
-#### 流量控制
+#### 流量控制 | Flow control
 
 捎带
 
@@ -587,7 +587,7 @@ $ V = RcvWindow = RcvBuffer-[LastByteRcvd - LastByteRead]$
 
 ![image-20240131180428780](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240131180428780.png)
 
-#### 拥塞控制
+#### 拥塞控制 | Congestion control
 
 TCP/IP 复杂性放在网络边缘
 

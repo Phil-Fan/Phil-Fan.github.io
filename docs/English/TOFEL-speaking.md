@@ -38,6 +38,10 @@ TASK 1 是托福口语考试中唯一的一道独立口语题，要求考生针�
 
 ## Question2
 
+[备考干货丨拿下托福口语Task2，看这篇就够了 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/581129921)
+
+![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/50641671694177.png)
+
 - Take a side
 - Speak clearly your choice 
 - Present at least two reasons
@@ -53,15 +57,6 @@ TASK 1 是托福口语考试中唯一的一道独立口语题，要求考生针�
 
 - yes/no
 - 2 reasons
-
-
-
-stadium have benifit for both the student and neiberhood
-
-- 2m is not enough
-
-- the team if always losing
-- 
 
 
 

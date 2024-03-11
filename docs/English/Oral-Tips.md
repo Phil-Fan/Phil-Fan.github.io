@@ -41,91 +41,25 @@ ikr = I know Right
 let's face it
 i mean it
 
+## Pronunciation
 
+letter
 
-## Vocabulary
+hire
 
-quality
-equality
-redundant
+decision
 
-no one is an island
-in a nutshell 
-in a wise way
-
-synonym
-antonym
-care about the quality
-
-relyability
-avoid doing sth
-prohibit restrict = limit
-question problem topic
-hesitate
-
-### movie
-celebrity
-review ~ comment
--related
-attract more attention
-audience viewer spectators
-genre type 
-pornographic
-
-Vital roles / important role
-
-horror/thriller 
-drama/romance/melodrama
-comedy
-action 
-
-fantasy
-ordinary people
-censorship
-sweat out liquids
+horizon
 
 
 
-charateristic
-show gratitue
-fewer -> people
-tightness of the relationship
-it's the thought that count
+### stress
 
-subjects
+illustrate
 
-nuclear family
-falling apart
-in distant 
-moreover
-in addtion
-logroll = 商业互吹
-product
+Motivated
 
-is more likely
-
-enticing = 迷人的
-kinesthetic =
-whoever + 单三
-
-silence
-accommodation
-
-estate 房地产
-yearly = every  year
-
-i would like to 
+newspaper 重音在前
 
 
 
-
-
-product
-
-freshman
-sophomore - second year
-junior - third year
-senior - last 
-
-Preference. 
-Arrange 

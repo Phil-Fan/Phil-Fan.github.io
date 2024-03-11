@@ -247,6 +247,10 @@ P2P分发mp3音乐
 
 URL `Uniform Resource Locator`统一资源定位符
 
+HTTP stands for `HyperText Transfer Protocol`超文本传输协议
+
+
+
 协议名 用户 口令 主机名 路径名 端口
 
 ![预览大图](https://data.educoder.net/api/attachments/509266)
@@ -262,6 +266,8 @@ web的应用层协议；TCP之上；CS模式
 S1属于守护进程（waiting socket），监视80端口，客户端有请求时候经过握手建立连接socket
 
 无状态服务器
+
+
 
 #### 报文
 
@@ -386,16 +392,28 @@ python - request库
 
 #### `cookies`用户-服务器状态 
 
+[Session、Cookie、Cache、Token分别是什么及区别](https://blog.csdn.net/xuhang1993/article/details/71164596)
+
+`Cookie`就是这样的一种机制。让无状态的HTTP有一定记忆
+
+在`Session`出现之前，基本上所有的网站都采用`Cookie`来跟踪会话。
+
+`Cookie`实际上是一小段的文本信息。客户端请求服务器，如果服务器需要记录该用户状态，就使用response向客户端浏览器颁发一个`Cookie`。客户端浏览器会把`Cookie`保存起来。当浏览器再请求该网站时，浏览器把请求的网址连同该`Cookie`一同提交给服务器。服务器检查该`Cookie`，以此来辨认用户状态。服务器还可以根据需要修改`Cookie`的内容。
+
+作用：自动登录、进行统计
+
+##### 威胁：
+
+第三方`cookie`：泄露隐私；广告营销；
+
+
+
 大多数门户网站使用
 
 1) 在HTTP响应报文中有一个cookie的首部行<br>
 2) 在HTTP请求报文含有一个cookie的首部行<br>
 3) 在用户端系统中保留有一个cookie文件，由用户的浏览器管理<br>
 4) 在Web站点有一个后端数据库<br>
-
-
-
-隐私问题
 
 
 
@@ -541,9 +559,13 @@ HTTP/1.1 允许 HTTP 设备在事务处理结束之后将 TCP 连接保持在打
 
 ![image-20240129150803208](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240129150803208.png)
 
-持久连接有两种类型：比较老的 HTTP/1.0+"keep-alive" 连接，以及现代的 HTTP/1.1“persistent” 连接。
+持久连接有两种类型：比较老的 HTTP/1.0+"keep-alive" 连接，
+
+以及现代的 HTTP/1.1“persistent” 连接。
 
 <img src="https://data.educoder.net/api/attachments/579897" alt="预览大图" style="zoom:50%;" />
+
+
 
 ### FTP
 
