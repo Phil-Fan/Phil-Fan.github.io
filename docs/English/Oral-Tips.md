@@ -51,7 +51,7 @@ decision
 
 horizon
 
-
+adaptation
 
 ### stress
 
@@ -60,6 +60,32 @@ illustrate
 Motivated
 
 newspaper 重音在前
+
+
+
+small vacations
+
+like change 
+
+tied; interval refreshed
+
+
+
+study alone 
+
+
+
+job opportunities
+
+
+
+study by oneself 
+
+class is limited knowledge boundless
+
+themselves
+
+
 
 
 

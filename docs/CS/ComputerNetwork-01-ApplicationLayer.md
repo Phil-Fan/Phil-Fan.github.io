@@ -281,6 +281,8 @@ S1属于守护进程（waiting socket），监视80端口，客户端有请求�
 
 ##### 请求报文
 
+one-to-one,one response for one request
+
 - 请求行
 
 由三部分构成：第一部分说明请求类型为 get 方法请求，第二部分（用/分开）是资源 URL，第三部分说明使用的是 HTTP1.1 版本。
@@ -417,6 +419,34 @@ python - request库
 
 
 
+
+
+#### **`Session`**
+
+会话关系
+
+Session保存在服务器上。客户端浏览器访问服务器的时候，服务器把客户端信息以某种形式记录在服务器上。这就是Session。客户端浏览器再次访问时只需要从该Session中查找该客户的状态就可以了
+
+
+
+**Token**
+
+token就是令牌，比如你授权（登录）一个程序时，他就是个依据，判断你是否已经授权该软件.
+当客户端请求页面时，服务器会生成一个随机数Token，并且将Token放置到session当中，然后将Token发给客户端（一般通过构造hidden表单）。下次客户端提交请求时，Token会随着表单一起提交到服务器端.
+
+
+
+**Session与Cookie的区别**
+Cookie和Session都是为了保存客户端和服务端之间的交互状态
+
+最大的区别就是Cookie是保存在客户端而Session就保存在服务端的。
+
+Cookie是客户端请求服务端时服务器会将信息以键值给客户端，保存在浏览器中<br>用Cookie就可以方便的做一些缓存。
+
+Cookie缺点：是大小和数量都有限制；Cookie是存在客户端的可能被禁用、删除、篡改，是不安全的；Cookie如果很大，影响了传输效率。
+
+Session是基于Cookie来实现的，不同的是Session本身存在于服务端，但是每次传输的时候不会传输数据，只是把代表一个客户端的唯一ID（通常是JSESSIONID）写在客户端的Cookie中传输。Session的优势就是传输数据量小，比较安全。但是Session也有缺点，就是如果Session不做特殊的处理容易失效、过期、丢失或者Session过多导致服务器内存溢出
+
 #### `cache` - Web缓存
 
 WEB 缓存一般分为浏览器缓存、代理服务器缓存以及网关缓存。
@@ -439,7 +469,7 @@ WEB 缓存就在服务器-客户端之间搞监控，监控请求，并且内容
 
 
 
-
+end2end delay with cache
 
 ![image-20240129160059732](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240129160059732.png)
 
@@ -602,16 +632,45 @@ HTTP/1.1 允许 HTTP 设备在事务处理结束之后将 TCP 连接保持在打
 - SMTP服务器使用`CRLF.CRLF`决定报文尾部
 - 可以有多个附件
 
+1. **发送与接收分离**：SMTP专注于发送邮件，而POP和IMAP专注于邮件的接收和管理。这种分离使得邮件系统的设计更加灵活和高效。
+2. **使用端口**：SMTP通常使用TCP端口25进行通信，但为了安全起见，还可能使用端口465（SMTPS）或587（提交邮件用的SMTP）。
+3. **交互模式**：SMTP使用命令/响应模式，其中客户端发送命令，服务器响应状态码和文本消息。这种模式支持灵活的交互和错误处理。
+
 报文
 
 - 首部：`To`,`From`,`Subject`
 - 主体
 
+**常见SMTP命令：**
+
+- `HELO`/`EHLO`：标识客户端开始通信。
+- `MAIL FROM`：指定发件人。
+- `RCPT TO`：指定收件人。
+- `DATA`：后跟邮件内容。
+- `QUIT`：结束会话。
+
+**响应格式：**
+
+- 状态码：3位数字，指示响应类型（如2xx为成功，5xx为失败）。
+- 文本消息：对状态码的文本描述，为人类可读。
+
+??? note "SMTP实例"
+    1. 客户端连接到SMTP服务器并发送`EHLO`命令。<br>
+    2. 服务器响应200系列代码，表示准备就绪。<br>
+    3. 客户端发送`MAIL FROM:<sender@example.com>`命令，指定发件人。<br>
+    4. 服务器响应250，表示命令成功。<br>
+    5. 客户端发送`RCPT TO:<recipient@example.com>`命令，指定收件人。<br>
+    6. 服务器再次响应250。<br>
+    7. 客户端发送`DATA`命令，进入邮件内容输入模式。<br>
+    8. 客户端发送邮件正文，以单独一行`.`结束。<br>
+    9. 服务器响应250，表示邮件接受成功。<br>
+    10. 客户端发送`QUIT`命令，结束会话。<br>
+
 ##### 多媒体扩展 MIME(mitimedia mail extension)
 
 base64编码
 
-​	
+
 
 #### 接收邮件协议
 
@@ -849,7 +908,7 @@ nslookup -type=type domain # 指定类型查询
 
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/c371a6c6e767ead83d9a55d9cb809f13.png" alt="img" style="zoom:50%;" />
 
-### 攻击
+#### 攻击
 
 **DDoS 攻击**
 

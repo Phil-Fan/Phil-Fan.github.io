@@ -68,7 +68,10 @@ TASK 1 是托福口语考试中唯一的一道独立口语题，要求考生针�
 
 ## Question4
 
+A lecture in a biology/anthropology/literature/chemistry/business/psychology...classA specific topic
 
+- 2 aspects of the topic
+- One example for each aspect
 
 
 
