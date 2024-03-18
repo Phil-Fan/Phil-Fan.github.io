@@ -225,12 +225,14 @@ AB距离很远的话，传播延时不能忽略
 
 
 
-#### 吞吐量
+#### 吞吐量 Throughtput
 
 源端和目标端传输速率（有效的d
 
-??? note **defination**
+??? note **definition**
 	If the file consists of F bits and the transfer takes T seconds for Host B to receive all F bits, then the average throughput of the file transfer is F/T bits/sec.
+	the rate at which the sending process can deliver bits to the receiving process.
+
 
 
 

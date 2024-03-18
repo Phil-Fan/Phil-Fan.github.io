@@ -1,20 +1,8 @@
 # 数电
 
-逻辑电平
-
-正逻辑：高电平为`1`，低电平为`0`
-
-负逻辑：高电平为`0`，低电平为`1`
-
-
-
-
+[数字电子技术（余孟尝）思维导图 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/583482398)
 
 ## 数制和码制
-
-数字量：离散的
-
-模拟量：连续的
 
 ### 进制与进制转换
 
@@ -25,6 +13,10 @@
 - 2变16：隔4位合并
 - 16变2：每位拆成4位二进制
 - 其他：通过二进制间接变换
+
+### 其他码值（不同权值）
+
+![f1e944e5e211125aab884b428a733b6](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/f1e944e5e211125aab884b428a733b6.jpg)
 
 ### 运算
 
@@ -75,24 +67,23 @@ $$
 
 ![非关系](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240228122022442.png)
 
-### 异或
+### 异或——杂合子
 
 不同则为1，相同则为0
 
 **不进位的加法**
 
-杂合子
 $$
 Y = A \oplus B = \bar{A}B + A\bar{B}
 $$
 
 ![异或关系](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240228122336850.png)
 
-### 同或
+### 同或——纯合子
 
 **不同则为0，相同则为1;**
 
-纯合子
+
 $$
 Y = A \odot B
 $$
@@ -101,67 +92,45 @@ $$
 
 ### 基本公式
 
-证明方法：推演，真值表
+[B站讲解](https://www.bilibili.com/video/BV1jP411G7Wd)
 
-![image-20240301142946084](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240301142946084.png)
+#### 常量与常量
 
+$$
+1 + 1 = 1\\
+0\cdot0 = 0
+$$
+
+#### 常量与变量
+
+$$
+A \cdot 0 = 0\\
+A+1 = 1\\
+$$
+
+#### 变量和变量
+
+分配律
+$$
+A+BC = (A+B)(A+C)
+$$
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240301144447212.png" alt="公式17的证明" style="zoom: 50%;" />
 
-![image-20240301144528140](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240301144528140.png)
-
-### 逻辑函数
-
-[逻辑函数(表示方法、形式转换、化简、最小项、最大项)](https://blog.csdn.net/qq_44431690/article/details/104587163)
-
-
-
-由真值表写逻辑表达式
-
-第一步：从真值表内找输出端为“1”的各行,把每行的输入变量写成乘积形式;遇到“0”的输入变量上加非号。
-
-第二步：把各乘积项相加,即得逻辑函数的表达式。
-
-- 真值表
-
-- 逻辑式：将输入/输出之间的逻辑关系用与/或/非的运算式表示就得到逻辑式。
-
-- 逻辑图：用逻辑图形符号表示逻辑运算关系，与逻辑电路的实现相对应
-
-  ![逻辑图](https://img-blog.csdnimg.cn/20200301203119397.png)
-
-- 波形图：将输入变量所有取值可能与对应输出按时间顺序排列起来画成时间波形。
-
-  ![波形图](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240301143107960.png)
-
-- 卡诺图
-
-
-
-!!! bug "这里没弄明白"
-
-最简与或：包含的乘积项已经最少，每个乘积项的因子也最少，称为最简的与-或逻辑式
-
-![img](https://pic2.zhimg.com/80/v2-06ac3268bb0d79aea7786e0d763dc2cd_1440w.webp)
-
-
-
-[数字电路-逻辑式化简公式](https://zhuanlan.zhihu.com/p/392457877)
-
-![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-8dc1606574d995edbc843fb019b38fad_1440w.webp)
-
-![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-61355c6b4a7dba5e2e887c17d8e480a8_1440w.webp)
-
-![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-55a64baa868c2fd6676c3369c66ea3ff_r.jpg)
-
-![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-939bf95fd46b11c990a59657ff7bc67f_r.jpg)
-
+同一律
+$$
+A+\bar{A} = 1\\
+A\cdot \bar{A} = 0\\
+\\
+A\cdot A = A\\
+A + A = A
+$$
 反演律（**De Morgan's laws**）
 
-并项法
+**并项法**
 $$
 AB + A\bar{B} = A
 $$
-吸收法（**短项吸收长项**）
+**吸收法**（**短项吸收长项**）
 $$
 A + AB = A(1+B)= A\\
 AB + \bar{A}C + BC = AB + \bar{A}C
@@ -178,6 +147,83 @@ A + \bar{A} = 1\\
 A \cdot A = 0
 $$
 ![image-20240306113302112](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240306113302112.png)
+
+[数字电路-逻辑式化简公式](https://zhuanlan.zhihu.com/p/392457877)
+
+![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-8dc1606574d995edbc843fb019b38fad_1440w.webp)
+
+![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-61355c6b4a7dba5e2e887c17d8e480a8_1440w.webp)
+
+![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-55a64baa868c2fd6676c3369c66ea3ff_r.jpg)
+
+![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-939bf95fd46b11c990a59657ff7bc67f_r.jpg)
+
+
+
+### 逻辑函数化简
+
+[逻辑函数(表示方法、形式转换、化简、最小项、最大项)](https://blog.csdn.net/qq_44431690/article/details/104587163)
+
+逻辑式、逻辑图、波形图
+
+#### 规则
+
+1.反演规则
+
+- 与或互换，01互换
+- 原变量变成反变量，反变量变成原变量
+
+2.对偶规则
+
+- 与或互换，01互换
+
+3.标准与或式
+
+$n$个变量，共有$2^n$种可能
+
+eg.三变量逻辑函数$Y = A+BC$的最小项表示为$\Sigma m(3,4,5,6,7)$
+
+4.与非-与非表达式
+
+- 化成与或式
+- 两次取反
+- 德摩根定律
+
+#### 公式化简
+
+#### 真值表
+
+由真值表写逻辑表达式
+
+第一步：从真值表内找输出端为“1”的各行,把每行的输入变量写成乘积形式;遇到“0”的输入变量上加非号。
+
+第二步：把各乘积项相加,即得逻辑函数的表达式。
+
+#### 卡诺图
+
+用几何相邻表示逻辑相邻（两个最小项只有一个变量不同）
+
+所以顺序是00，01，11，10
+
+化简
+
+- 相邻、相对（偶数个）
+
+**$2^n$个相邻的最小项合并可以消去$n$个因子**
+
+![4c32c787711a908076a7ec169f077d0](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/4c32c787711a908076a7ec169f077d0.jpg)
+
+![c6677b612f12342788a479c941fda79](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/c6677b612f12342788a479c941fda79.jpg)
+
+![dcc7e633252e1c0e39d94c11fa69557](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/dcc7e633252e1c0e39d94c11fa69557.jpg)
+
+最简与或：包含的乘积项已经最少，每个乘积项的因子也最少，称为最简的与-或逻辑式
+
+![img](https://pic2.zhimg.com/80/v2-06ac3268bb0d79aea7786e0d763dc2cd_1440w.webp)
+
+
+
+
 
 
 
@@ -248,7 +294,7 @@ $$
 
 
 
-!!! note "分析清楚基本功能和拓展方法即可"
+!!! note "对每个器件，分析清楚**基本功能**和**扩展方法**"
 
 ### 设计方法
 
@@ -417,39 +463,119 @@ $I_{A=B},I_{A>B},I_{A<B}$称为扩展输入端，为了传递低位的比较结�
 
 ![image-20240301153448177](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240301153448177.png)
 
-#### 优先编码器
+#### 优先编码器 74LS148
 
 > 普通编码器的输入端只能同时存在一个高电平信号，当我们不小心输入了多个高电平信号，比如输入(11111111)，根据电路图普通编码器输出的结果为(111),与正常输入(00000001)的结果相同，但我们从输出端根本无法判断输入了一个错误的信号。
 
 允许同时输入两个以上的编码信号，但只对其中优先权最高的一个进行编码。
 
 ??? note "为什么使用反逻辑"
+	高电平容易受到干扰，所以如果采用高电平有效的方式，那么很容易在低电平上产生高电平噪声；<br>
+	相反，如果采用低电平有效，出现误有效的情况概率就很低了<br>
+	要非常注意低电平有效时候，输出的问题。<br>
+	“对人说人话（真值），对鬼说鬼话（编码）”<br>
 
-高电平容易受到干扰，所以如果采用高电平有效的方式，那么很容易在低电平上产生高电平噪声；
+为了表示输入方式为低电平有效，对于输入变量的书写我们加上一个非号，例如原来的高电平有效的 $I_7$ ，写成 $I_7'$ 来表示低电平有效。
 
-相反，如果采用低电平有效，出现误有效的情况概率就很低了，
+假设一块8线编码器的8个输入分别为$I_{15}' \dots I_8'$，另一块为 $I_{7}' \dots I_0'$，当 $I_{15}' \dots I_8'$输入均为1时，再启用第二块8线编码器。
+
+这里存在两个问题
+
+- 一个是如何让第二块编码器知道被自己启用了：我们对8线编码器增加一个输入开关 $S'$,用以控制编码器的工作状态；$S' = 1$时候，高电平无效，第二块编码器就不启动，输出均为1；
+- 另一个这是如何让第一块编码器传递均是无效输入的信息：我们对8线编码器再增加一个输出端 $Y_s'$，**当输入全为 1 时， $Y_s'$输出为0**，用以开启第二块编码器的开关。即，$Y_s'$​表示第一块都是1（都无效）
+
+??? bug "什么意思"
+
+![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-90c9ea59aea8575f415a26354b6b680e_720w.webp)
+
+在尝试连接过程中，又有一个新问题，16线-4线比起8线-3线多了8个输入端，却只多了一个输出端，这是为什么呢?
+
+4位二进制数正好能表示$0-15$，而后三位足以表示$0-7$，也就是说，当输入结果仅在$0-7$时，靠第二块编码器的3位输出足以表示，只用输入结果在$8$的以上的信号时，才用到第一块编码器，并且这4位二进制数的第一位肯定为1，换言之，只要用到 $I_{15}' \dots I_8'$,第四位肯定为1
+
+因此，我们不妨再添加一位输出位 $Y_{EX}'$，传递是否用到该编码器的信息，当编码器存在有效输入信号时，输出结果为0。这样，新增的这个输出端可以直接用于4线输出端的最高位输出。
+
+![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-31ae6ae4582ec11a81821db895032d57_720w.webp)
+
+注意74LS148输入输出都是低电平有效
+
+
+
+??? note "普通编码器和优先编码器的区别"
+    普通编码器只能有一个请求<br>
+    优先编码器可以有多个请求，但是事先规定了优先级<br>
+
+
 
 ### 译码器
 
-译码：将每个输入的二进制代码译成对应的输出高、低电平信号
+译码：是编码的逆过程。把一些二进制代码所代表的特定含义“翻译”出来的过程叫做译码
 
-•常用的有：二进制译码器，二-十进制译码器，显示译码器等
+将每个输入的二进制代码译成对应的输出高、低电平信号
 
-
+#### 二进制译码器
 
 ![3线-8线译码器](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240313111134365.png)
 
+![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-2a06fa479b24b850cc38ba4ce9f8667d_1440w.webp)
+
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-e1c1f9d3fd7b27226e10ea6da196e1d1_1440w.webp" alt="img" style="zoom:50%;" />
+
 把连续的地址空间变成连续的八片
+
+> 使用负逻辑的原因
+>
+> **注意**：图中没有直接利用原输入信号，而是经过了两个非门，右重新得到了1个一模一样的信号，这样做的目的是**增大电流，即增强信号本身带负载的能力**，即允许电流的大小。
+>
+> 在集成运放部分中曾介绍过电压跟随器，其输入与输出相同，但带载能力更强。在上述电路中**有2个非门，就相当于电压跟随器**，虽然信号电平没有变，但后面与门所需要的电流来自非门的电源，而不是来自输入信号本身，因此可以带更多的负载，例如上述电路中就携带了4个与门。
+>
+> 另外，由于门电路的内部电路自身的特性，在其输出低电平时，可以允许通过更大的电流，即带载能力更强，因此更多的选择低电平作为有效的逻辑电平，即低电平有效。
+
+#### 74LS138
+
+输入高电平，输出低电平。
+
+输入选通控制端
+
+- 芯片正常工作 $S_1 = 1 \ and\  \bar{S_2} + \bar{S_3} = 0$
+- 芯片禁止工作 $S_1 = 0 \ or\  \bar{S_2} + \bar{S_3} = 1$
+
+**注意低电平输出要取反**
+
+#### 显示译码器
+
+
+
+### 数据选择器
+
+并行to串行
+
+
+
+### 数据分配器
+
+串行to并行
+
+
 
 
 
 ## 触发器
 
+![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-3721415154ee5768dafd4d558bec550e_r.jpg)
+
+### 基本触发器
+
+### 同步触发器
+
+### 边沿触发器
+
+
+
 
 
 ## 时序逻辑电路
 
-
+![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-8cc1133693e8c96ae240ffb93923fb29_r.jpg)
 
 
 

@@ -1,6 +1,6 @@
 # 应用层 | Application Layer
 
-> 应用层协议最多
+> Perhaps what appeals the most to users is that the Web operates on demand. Users receive what they want, when they want it.
 
 ![应用层思维导图](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/%E5%BA%94%E7%94%A8%E5%B1%82.png)
 
@@ -76,150 +76,25 @@ UDP套接字指定了应用所在的端结点（end point）
 
 可扩展性较差，CS模式随连接数量断崖式下降
 
-
+> the process that initiates the communication is labeled as the client
+>
+> the process that waits to be contacted to begin the session is the server
 
 #### Peer-to-Peer
 
->  迅雷
 
-每一个节点又可以充当服务器，又可以充当用户
-
-请求节点增加的同时，提供服务的节点也在增加
-
-
-
-**缺点**：管理困难的多
-
-
-
-##### 时间
-
-![image-20240130004433432](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240130004433432.png)
-
-线性增加
-
-
-
-![image-20240130004451304](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240130004451304.png)
-
-不是线性增加
-
-
-
-
-
-如何定位所需资源
-如何处理对等方的加入与离开
-
-
-
-##### 非结构化P2P
-
-`overlay` peer节点之间的覆盖网
-
-- 集中化目录
-
-上线时候向集中化目录进行注册，维护peer节点与资源列表
-
-**问题**：单点故障、性能瓶颈、侵犯版权
-
-- 完全分布式 - Gnutella
-
-图式网络
-
-建立`overlay`，泛洪`flooding`查询；BFS+记忆化搜索（TTL）
-
-
-
-向所有邻居发出ping，邻居返回pong
-
-
-
-- 混合体 KaZaA
-
-组内集中式，组长分布式
-
-| 文件 | 描述     | Hash                  |
-| ---- | -------- | --------------------- |
-|      | 匹配描述 | vid，元信息的唯一标识 |
-
-BT
-
-`bitmap`,定期泛洪交换
-
-![image-20240130101612770](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240130101612770.png)
-
-
-
-
-
-- Peer加入torrent:
-
-位图中全是0，随机请求其他节点的块；
-
-4个bit后开始稀缺优先；`tit for tat`原则；可以更有利于网络的维护
-
-扰动churn: peer节点可能会上线或者下线
-
-一旦一个peer拥有整个文件，它会（自私的）离开或者保留（利他主义）在torrent中
-
-
-
-`tracking server` 进行peer列表的维护
-
-有限疏通：两个周期下载带宽大的排在前面（优先队列）；第三个周期在请求中随机选择
-
-作为
-
-##### 结构化 P2P（一致性哈希`consistent hash`）
-
-参考了知乎网友写的[一致性哈希科普](https://zhuanlan.zhihu.com/p/129049724)
-
-把ip地址hash值作为唯一标识
-
-按照hash大小组成一个环；有序拓扑
-
-每个用户维护和上一个id之间的文件
-
-
-
-查询效率高，副本数量少
-
-
-
-#### 混合式
-
-Napster
-
-P2P分发mp3音乐
-
-
-
-即时通信，服务器相当于做一个指挥
 
 
 
 ### 衡量指标
 
-- 数据丢失率：可靠性的
+- reliable data transfer 可靠性的
 
-- 吞吐
+- throughput
 
-- 延迟：打电话、游戏 
+- timing:打电话、游戏 
 
-- 安全性
-
-#### 安全性 - SSL
-
-`Secure Sockets Layer` 安全套接层
-
-跑在TCP之上，在应用层实现
-
-私密性、数据完整性、服务器的认证、报文的完整性
-
-`https`
-
-
+- security
 
 ### 传输层提供的服务
 
@@ -232,10 +107,6 @@ P2P分发mp3音乐
 #### TCP
 
 可靠、流量控制、拥塞控制、面向连接
-
-
-
-
 
 
 
@@ -323,7 +194,8 @@ Accept-language:fr
     - User-Agent：客户机通过这个头告诉服务器，客户机的软件环境（操作系统，浏览器版本等）；
     - Cookie：客户机通过这个头，将 Coockie 信息带给服务器；
     - Connection：告诉服务器，请求完成后，是否保持连接；
-    - Date：告诉服务器，当前请求的时间。
+   - **Date**：header line indicates the time and date when the HTTP
+     response was created and sent by the server. **Note that this is not the time when the object was created or last modified; it is the time when the server retrieves the object from its file system, inserts the object into the response message, and sends the response message.**
 
 
 
@@ -398,17 +270,21 @@ python - request库
 
 `Cookie`就是这样的一种机制。让无状态的HTTP有一定记忆
 
+
+
 在`Session`出现之前，基本上所有的网站都采用`Cookie`来跟踪会话。
 
 `Cookie`实际上是一小段的文本信息。客户端请求服务器，如果服务器需要记录该用户状态，就使用response向客户端浏览器颁发一个`Cookie`。客户端浏览器会把`Cookie`保存起来。当浏览器再请求该网站时，浏览器把请求的网址连同该`Cookie`一同提交给服务器。服务器检查该`Cookie`，以此来辨认用户状态。服务器还可以根据需要修改`Cookie`的内容。
 
 作用：自动登录、进行统计
 
-##### 威胁：
+
+
+威胁：
 
 第三方`cookie`：泄露隐私；广告营销；
 
-
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240318152447148.png" alt="image-20240318152447148" style="zoom:50%;" />
 
 大多数门户网站使用
 
@@ -465,9 +341,9 @@ WEB 缓存就在服务器-客户端之间搞监控，监控请求，并且内容
 
 <img src="https://data.educoder.net/api/attachments/543498" alt="预览大图" style="zoom:50%;" /><img src="https://data.educoder.net/api/attachments/543499" alt="预览大图" style="zoom:50%;" />
 
-<img src="https://pic2.zhimg.com/v2-d3f67aa0f739d24d75728e7c7e96b79d_r.jpg" alt="计算机网络——应用层 - 知乎" style="zoom:25%;" />
 
 
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240318152538396.png" alt="image-20240318152538396" style="zoom:50%;" />
 
 end2end delay with cache
 
@@ -497,6 +373,8 @@ end2end delay with cache
 ![image-20240129160659497](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240129160659497.png)
 
 ![image-20240129160713797](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240129160713797.png)
+
+互联网上大家看的内容都是相似的，缓存的存在可以缓解流量压力
 
 ##### `conditional GET`
 
@@ -555,37 +433,31 @@ URL 可以使用完整的位置，如：    `<img src="http://data.educoder.net/
 
 
 
-#### 响应时间
-
-RTT `round trip time`
-
-一个RTT发起TCP连接
-
-一个2RTT发起and接受HTTP请求
-
-文件传输时间：2RTT+传输文件
-
-
-
-流水线方式，一个请求还没有接受回复就发出下一个请求
-
-同步和异步
-
-
-
 #### 持久连接
+
+- 非持久
+
+Although HTTP uses persistent connections in its default mode HTTP clients and servers can be configured to use non-persistent connections instead.
+
+HTTP has nothing to do with how a Web page is interpreted by a client.
+
+**Non persistent TCP connection transports exactly one request message and one response message**
+
+
 
 HTTP1.1
 
 TCP建立连接-》HTTP请求-》连接不关闭可以多次请求
 
-HTTP/1.1 允许 HTTP 设备在事务处理结束之后将 TCP 连接保持在打开状态，以便为未来的 HTTP 请求重用现存的连接。在事务处理结束之后，仍然保持在打开状态的 TCP 连接被称为持久连接。非持久连接会在每个事务结束之后关闭。持久连接会在不同事务之间保持打开状态，直到客户端或服务器决定将其关闭为止。
+**An entire Web page can be sent over a single persistent TCP connection.**
+
+Multiple Web pages residing **on the same server** can be sent from the server to the same client over a single persistent TCP connection.只要是在一个web server就可以持久连接
 
 重用已对目标服务器打开的空闲持久连接，就可以避开缓慢的链接建立阶段。而且已经打开的链接还可以避免慢启动的拥塞适应阶段，以便更快速地进行数据传输。
 
 
 
-除非特别指明，否则 HTTP/1.1 假定所有连接都是持久的。要在事务处理结束之后将连接关闭，HTTP/1.1 应用程序必须向报文中显示地添加一个 Connection：close 首部。
+除非特别指明，否则 HTTP/1.1 假定所有连接都是持久的。要在事务处理结束之后将连接关闭，HTTP/1.1 应用程序必须向报文中显示地添加一个 `Connection：close` 首部。
 
 ![image-20240129150803208](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240129150803208.png)
 
@@ -593,7 +465,47 @@ HTTP/1.1 允许 HTTP 设备在事务处理结束之后将 TCP 连接保持在打
 
 以及现代的 HTTP/1.1“persistent” 连接。
 
-<img src="https://data.educoder.net/api/attachments/579897" alt="预览大图" style="zoom:50%;" />
+
+
+#### 时间分析
+
+<img src="https://data.educoder.net/api/attachments/579897" alt="预览大图"  />
+
+RTT `round trip time`
+
+> RTT is the time it takes for a small packet to travel from client to server and then back to the client.
+
+TCP三次握手（前面1个RTT+一个去程）
+
+一个RTT发起TCP连接
+
+一个2RTT发起and接受HTTP请求
+
+文件传输时间：2RTT+传输文件
+
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240318164420937.png" alt="image-20240318164420937" style="zoom:50%;" />
+
+**Pipeline**
+
+流水线方式，一个请求还没有接受回复就发出下一个请求
+
+所以使用时间是 = 1个RTT建立连接 + 发送n个包的时间
+
+
+
+
+
+没有Pipeline：
+
+1个RTT建立连接，n个RTT发送
+
+
+
+#### HTTP/2
+
+- Framing: The ability to break down an HTTP message into **independent frames**, interleave them, and then reassemble them on the other end is the single most important enhancement of HTTP/2.
+
+- it can prioritize the responses it is requesting by assigning a weight between 1 and 256 to each message
 
 
 
@@ -623,7 +535,7 @@ HTTP/1.1 允许 HTTP 设备在事务处理结束之后将 TCP 连接保持在打
 
 传输三阶段：握手、传报文（ASCII码）、关闭
 
-![image-20240129165741501](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240129165741501.png)
+![image-20240318153214952](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240318153214952.png)
 
 特点
 
@@ -688,7 +600,7 @@ base64编码
 
 
 
-##### IMAP `Internet Mail Access
+##### IMAP `Internet Mail Access`
 Protocol`
 
 Internet邮件访问协议
@@ -709,10 +621,6 @@ Internet邮件访问协议
 
 ### DNS | `Domain Name System`
 
-[什么是DNS？ - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/186028919)
-
-[DNS详解，权威DNS，递归DNS，转发DNS，公共DNS_230.10.2.5-CSDN博客](https://blog.csdn.net/yangfanacc/article/details/42099913)
-
 IP 标示&寻址
 
 - 分层、基于域的命名
@@ -725,12 +633,17 @@ IP 标示&寻址
 #### 作用
 
 - 提供域名到IP地址的转换
-
 - 规范名字（主机1-12）到别名的转换 `host aliasing`
 - 邮件父母器别名到正规名字转换 `Mail server aliasing`
-- 负载均衡`Load Distribution`
+- 负载均衡`Load Distribution`: 
+
+> The DNS database contains this set of IP addresses. When clients make a DNS query for a name mapped to a set of addresses, the server responds with the entire set of IP addresses, but rotates the ordering of the addresses within each reply. Because a client typically sends its HTTP request message to the IP address that is listed first in the set, DNS rotation distributes the traffic among the replicated servers.
 
 #### 域名
+
+??? note "域名和主机名"
+   - **域名**是互联网上作为网站地址的一部分的一个易于记忆的名称，它映射到一个IP地址。域名系统（DNS）负责将域名转换为实际的IP地址，使得用户不需要记住复杂的数字序列就能访问网站。例如，`example.com`是一个域名。
+   - **主机名**是网络中某个设备的名称，用于标识网络中的计算机。它是一个标识符，用于在特定的网络环境中区分不同的设备。在很多情况下，主机名是解析为IP地址的一部分，它可以是域名的一部分或者单独存在于一个局部网络中。
 
 1. 每一个域名（只讨论英文域名）都是一个标号序列（labels），用字母（A-Z，a-z，大小写等价）、数字（0-9）和连接符（-）组成；
 2. 标号序列总长度不能超过 255 个字符，它由点号分割成一个个的标号（label）
@@ -771,24 +684,10 @@ www: 表示该公司的 WEB 服务器对应的主机
 
 ##### 分类
 
-1. 根域名服务器：最高层次的域名服务器，本地域名服务器解析不了的域名就会向其求助；
-2. 顶级域名服务器：负责管理在该顶级域名服务器下注册的二级域名；
-3. 权限域名服务器：负责一个区的域名解析工作；
-4. 本地域名服务器：当一个主机发出 DNS 查询请求时，这个查询请求首先发给本地域名服务器。
-
-**1.权威DNS：**
-
-权威DNS是经过上一级授权对域名进行解析的服务器，同时它可以把解析授权转授给其他人，如COM顶级服务器可以授权`http://dns.com`这个域名的的权威服务器为`http://NS.ABC.COM`，同时`http://NS.ABC.COM`还可以把授权转授给`http://NS.DDD.COM`，这样`http://NS.DDD.COM`就成了`http://ABC.COM`实际上的权威服务器了。
-
-**2.递归DNS:**
-
-负责接受用户对任意域名查询，并返回结果给用户。
-
-递归DNS可以缓存结果以避免重复向上查询。我们平时使用最多的就是这类DNS，他对公众开放服务，一般由网络运营商提供，你本地电脑上设置的DNS就是这类DNS。
-
-**3.转发DNS:**
-
-负责接受用户查询，并返回结果给用户。但这个结果不是按标准的域名解析过程得到的，而是直接把递归DNS的结果转发给用户。比如我们用的路由器里面的DNS就是这一类，用路由器的朋友可以看下本地电脑的DNS一般都是192.168.1.1
+1. 根域名服务器`(Root DNS servers)`：最高层次的域名服务器，本地域名服务器解析不了的域名就会向其求助；
+2. 顶级域名服务器`(TLD Top-level domain servers)`：负责管理在该顶级域名服务器下注册的二级域名；
+3. 权限域名服务器`(Authoritative DNS servers)`：负责一个区的域名解析工作；
+4. 本地域名服务器`local DNS servers`：当一个主机发出 DNS 查询请求时，这个查询请求首先发给本地域名服务器。
 
 #### 报文
 
@@ -829,8 +728,6 @@ RR格式: (domain_name, ttl, type,class,Value)<br>
 
 #### 工作过程
 
-> DNS 可以使用 UDP/53 ，也可以使用 TCP/53 。当响应报文的长度小于 512B 时，就使用 UDP (因为 UDP 的最大报文长度为 512B )；若响应报文的长度超过 512B ，则选用 TCP 。
-
 - 应用调用解析器(resolver)
 - 解析器作为客户向Name Server发出查询报文
   （封装在UDP段中）
@@ -848,19 +745,15 @@ Local Name Server(预先配置好的)
 
 <img src="https://data.educoder.net/api/attachments/579916" alt="预览大图" style="zoom:50%;" />
 
-??? note "一个例子"
-    （1）DNS 客户机向本地域名服务器发送查询请求，查找域名`www.abx.xyz.com`的 IP 地址。本地域名服务器查询本地的缓存，如果有这个地址，则将地址返回给 DNS 客户机；<br>
-    （2）如果本地域名服务器缓存没有这个地址，则发送查询请求到根域名服务器，询问`www.abx.xyz.com`的地址，根域名服务器会将子域 `com` 的域名服务器的地址返回给本地域名服务器； <br>
-    （3）本地域名服务器再向 `com` 域发送查询请求，`com` 域服务器无法提供地址，但会把下一级的域名服务器 `xyz.com` 的地址发送给本地域名服务器；<br>
-    （4）重复（2）、（3）的过程，最后 `xyz.com` 域名服务器把`abc.xyz.com`域名服务器地址发送给本地域名服务器；<br>
-    （5）本地域名服务器再向`abc.xyz.com`域名服务器发送地址查询请求`abc.xyz.com`，找到了`www.abc.xyz.com`的地址，就将这个地址发送给本地域名服务器； <br>
-    （6）本地域名服务器把地址保存到缓存，同时返回给 DNS 客户机。<br>
+The query from the requesting host to the local DNS server is recursive, and the remaining queries are iterative.
 
-##### 递归查询
+##### 递归查询`recursive`
 
 根服务器负担太重
 
-##### 迭代查询
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240318153941376.png" alt="image-20240318153941376" style="zoom:50%;" />
+
+##### 迭代查询 `iterative`
 
 根（及各级域名）服务器返回的不是查询结果，而是下一个NS的地址
 
@@ -868,11 +761,7 @@ Local Name Server(预先配置好的)
 
 > “我不知道这个名字，但可以向这个服务器请求”
 
-##### 增删改
-
-与树的操作相类似
-
-
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240318153924403.png" alt="image-20240318153924403" style="zoom:50%;" />
 
 #### 命令
 
@@ -908,33 +797,132 @@ nslookup -type=type domain # 指定类型查询
 
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/c371a6c6e767ead83d9a55d9cb809f13.png" alt="img" style="zoom:50%;" />
 
-#### 攻击
+### P2P
 
-**DDoS 攻击**
+>  迅雷
 
-- 对根服务器进行流量轰炸
-  攻击：发送大量ping
-   没有成功
+每一个节点又可以充当服务器，又可以充当用户
 
-  - 原因１：根目录服务器配置了流量过滤器，防火墙
+请求节点增加的同时，提供服务的节点也在增加
 
-  - 原因２：Local DNS 服务器缓存了TLD服务器的IP地址,因此无需查询根服务器
 
-- 向TLD服务器流量轰炸攻击发送大量查询，可能更危险
 
-  - 效果一般，大部分DNS缓存了TLD
+**缺点**：管理困难的多
 
-重定向攻击
 
-- 中间人攻击
-- 截获查询，伪造回答，从而攻击
-  某个（DNS回答指定的IP）站点
-- DNS中毒：发送伪造的应答给DNS服务器，希望它能够缓存这个虚假的结果
-  技术上较困难：分布式截获和伪造
 
-- 利用DNS基础设施进行DDoS
-  - 伪造某个IP进行查询， 攻击这个目标IP
-  - 查询放大
+#### 时间
+
+![image-20240130004433432](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240130004433432.png)
+
+线性增加
+
+
+
+![image-20240130004451304](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240130004451304.png)
+
+
+
+
+
+
+
+
+
+#### 非结构化P2P
+
+`overlay` peer节点之间的覆盖网
+
+- 集中化目录
+
+上线时候向集中化目录进行注册，维护peer节点与资源列表
+
+**问题**：单点故障、性能瓶颈、侵犯版权
+
+- 完全分布式 - Gnutella
+
+图式网络
+
+建立`overlay`，泛洪`flooding`查询；BFS+记忆化搜索（TTL）
+
+
+
+向所有邻居发出ping，邻居返回pong
+
+
+
+- 混合体 KaZaA
+
+组内集中式，组长分布式
+
+| 文件 | 描述     | Hash                  |
+| ---- | -------- | --------------------- |
+|      | 匹配描述 | vid，元信息的唯一标识 |
+
+如何定位所需资源
+如何处理对等方的加入与离开
+
+#### BitTorrent
+
+`bitmap`,定期泛洪交换
+
+![image-20240130101612770](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240130101612770.png)
+
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240318154406618.png" alt="image-20240318154406618" style="zoom:50%;" />
+
+
+
+- Peer加入torrent:
+
+位图中全是0，随机请求其他节点的块；
+
+4个bit后开始稀缺优先；`tit for tat`原则；可以更有利于网络的维护
+
+扰动churn: peer节点可能会上线或者下线
+
+一旦一个peer拥有整个文件，它会（自私的）离开或者保留（利他主义）在torrent中
+
+
+
+`tracking server` 进行peer列表的维护
+
+有限疏通：
+
+for each of her neighbors, Alice continually measures the rate at which she receives bits and determines **the four peers** that are feeding her bits at the highest rate
+
+每10s计算：两个周期下载带宽大的排在前面（优先队列）；
+
+每30s计算：第三个周期在请求中随机选择(additional)
+
+
+
+#### 结构化 P2P（一致性哈希`consistent hash`）
+
+参考了知乎网友写的[一致性哈希科普](https://zhuanlan.zhihu.com/p/129049724)
+
+把`ip`地址hash值作为唯一标识
+
+按照hash大小组成一个环；有序拓扑
+
+每个用户维护和上一个id之间的文件
+
+
+
+查询效率高，副本数量少
+
+
+
+#### 混合式
+
+Napster
+
+P2P分发mp3音乐
+
+即时通信，服务器相当于做一个指挥
+
+
+
+
 
 
 
@@ -982,12 +970,6 @@ nslookup -type=type domain # 指定类型查询
 - 查询告示文件,在一个时刻请求一个块，HTTP头部指定字节范围
 - 根据带宽和缓冲选择编码块
 
- 选择1: 单个的、大的超级服务中心“megaserver”
-
-- 跳数较多，受限于小带宽
-- 单个视频很多拷贝
-- 单点故障、周围拥塞
-
 `STB:set top box`机顶盒
 
 #### CDN部署
@@ -1012,15 +994,27 @@ ISP购买CDN服务
 
 ![image-20240130123254230](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240130123254230.png)
 
+### `SSL:Secure Sockets Layer`
 
+安全套接层
 
+跑在TCP之上，在应用层实现
 
+私密性、数据完整性、服务器的认证、报文的完整性
+
+`https`
 
 ## Socket API
 
-传输层提供的服务——原语就是SocketAPI
+传输层提供的服务——原语就是`SocketAPI`
 
 socket: 分布式应用进程之间的门，传输层协议提供的端到端服务接口
+
+> A process is analogous to a house and its socket is analogous to its door
+
+
+
+
 
 ### TCP socket
 
