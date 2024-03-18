@@ -170,10 +170,11 @@ show ip ---- 查看配置
 
 一个平平无奇的周日晚上，在上课的PhilFan收到Fufu在群里发的消息
 
-~~"zdty真垃圾，都是明文传"~~顺带传了一张预约好的体测照片，不过这个时间段不是还没有开放咩
+~~"zdty真垃圾，都是明文传"~~
 
-于是PhilFan决定稍微抓抓看，~~看看有多垃圾~~，复习以下刚学到的HTTP抓包技能。
+顺带传了一张预约好的体测照片，不过这个时间段不是还没有开放咩？？
 
+于是PhilFan决定稍微抓抓看，~~看看有多垃圾~~，复习以下刚学到的HTTP抓包技能。~~（世界是一个巨大的草台班子~~
 
 
 另外需要注意的是，现在已经没有必要使用代码进行预约了，因为app预约也不麻烦（就是玩一下hhh
@@ -214,7 +215,9 @@ show ip ---- 查看配置
 >
 > 请求行由三部分构成：第一部分说明请求类型为 get 方法请求，第二部分（用/分开）是资源 URL，第三部分说明使用的是 HTTP1.1 版本。
 
-很奇怪的是，这里我们看到这个GET请求的URL，直接将token和日期什么的进行明文传递了。（朴素认知下，只要嗅探到你的浙大体艺预约报文，就可以获得你的token，~~进而可以取消你的预约~~）
+很奇怪的是，这里我们看到这个GET请求的URL，直接将token和日期什么的进行明文传递了。
+
+（朴素认知下，这是不是意味着只要嗅探到你的浙大体艺预约报文，就可以获得你的token，~~进而可以取消你的预约~~）
 
 ![image-20240318082934711](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240318082934711.png)
 
@@ -238,13 +241,20 @@ show ip ---- 查看配置
 
 其实到找到你的token，知道你要预约的时间段和年份，就可以抓了。
 
-
-
+??? bug "没有搞懂的地方"
+	浙大体艺是用什么框架<br>
+	token,cookie,session,cache的区别
 ### 第三步——使用代码进行报文模拟
 
 这一步其实就没有什么难度了
 
-使用Python的`request`库即可
+相当于你只需要知道这个URL，对这个URL发GET请求就可以了
+
+~~询问gpt就行了~~
+
+- 使用curl命令
+- 使用PowerShell 
+- 使用Python的`request`库即可
 
 注意要将刚才的信息抓下来填好
 
@@ -281,8 +291,22 @@ def schedule_appointment(schedule_id, test_date, time_slot_id, test_point_name="
 schedule_appointment("3322", "2024-04-12", "13:30-14:00")
 ```
 
-结果示例
-
 可以发现，我的体测地点变成了快乐星球（😂
 
 ![d519771d06acb8610067b01d27799f0](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/d519771d06acb8610067b01d27799f0.jpg)
+
+同理，可以抓到取消预约的URL
+
+其中`scheduledId`参数需要获取"我的预约"列表，再抓取响应报文获得
+
+```python
+def cancel_appointment(scheduled_id):
+    url = f"{BASE_URL}/pft/app/schedule/student/my/undo"
+    params = {
+        "scheduledId": scheduled_id,
+        "jToken": JTOKEN
+    }
+    response = requests.get(url, params=params)
+    print(response.status_code)
+```
+
