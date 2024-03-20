@@ -640,7 +640,9 @@ $$
 
 基本RS触发器
 
-$Q^{n+1} = S +\bar{R} \cdot Q^n$
+$Q^{n+1} = S +\bar{R} \cdot Q^n$​
+
+
 
 ### 同步触发器
 
@@ -818,17 +820,46 @@ Y = dafasdf
 
 #### 计数器
 
-功能：对于时钟脉冲CP进行计数
-
 核心：**置数**、**清零**
 
-分类：
+**同步并行置数** 到$S_{N-1}$
+$$
+\overline{CR}= 1,\overline{LD} = 0,CP\uparrow,Q_3\sim Q_0 = D_3 \sim D_0
+$$
+**同步清零**：到$S_{N-1}$
 
-同步清零：计数只能记到进制-1；eg：十进制只能记到9
+计数只能记到进制-1；eg：十进制只能记到9
+$$
+\overline{CR} = 0,Q_3\sim Q_0 = 0000
+$$
+**异步清零**：到$S_{N}$
 
-异步清零：可以一直记到进制；eg：十二进制记录到12
+可以一直记到进制；eg：十二进制记录到12
+
+**保持**：
+$$
+\overline{CR} = \overline{LD} = 1,CT_T \cdot CT_P = 0时\\
+输出Q_3Q_2Q_1Q_0不变
+$$
+**计数**：
+$$
+\overline{CR} = \overline{LD} = CT_T = CT_P = 1
+$$
+CP变化时候，进行计数
+
+
+
+![image-20240320152331311](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240320152331311.png)
 
 ![image-20240320114400991](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240320114400991.png)
+
+
+
+二进制计数器
+
+利用JK触发器
+
+![image-20240320153535062](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240320153535062.png)
 
 n位二进制计数器
 
@@ -836,17 +867,21 @@ n位二进制计数器
 
 **74LS163**——同步置数，同步清零
 
-
+![74LS161真值表](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240320153836181.png)
 
 十进制计数器
 
-74LS160
+使用二-十进制（BCD码）
 
-74LS162
+**74LS160**——同步置数，异步清零
+
+![image-20240320161435233](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240320161435233.png)
+
+**74LS162**——同步置数，同步清零
 
 
 
-n进制计数器
+**n进制计数器**
 
 - 写出状态$S_{N-1}$的二进制代码
 
@@ -856,19 +891,45 @@ n进制计数器
 
 
 
+**大容量N进制计数器**
+
 ![image-20240320122514306](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240320122514306.png)
 
 ![image-20240320122604161](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240320122604161.png)
 
+右侧是十位、左侧是个位
+
 ![image-20240320122626344](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240320122626344.png)
+
+
+
+
+
+
+
+
+
+
 
 #### 寄存器
 
+
+
+移动寄存器——必须是边沿触发器
+
+**右移**：按照$Q_0Q_1Q_2Q_3$的顺序
+
+串行输入、并行输出
+
+![image-20240320164327108](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240320164327108.png)
+
+
+
+![image-20240320164617018](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240320164617018.png)
+
+**左移**：按照$Q_3Q_2Q_1Q_0$的顺序
+
 #### 读写存储器
-
-##### 
-
-
 
 ### 例题
 
