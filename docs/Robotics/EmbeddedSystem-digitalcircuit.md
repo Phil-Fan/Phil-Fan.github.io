@@ -669,7 +669,6 @@ $$
 \right.
 $$
 
-
 **同步D**
 
 把R，S连接成D
@@ -701,6 +700,16 @@ CP = 1，状态跟随
 
 ![image-20240320103159466](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240320103159466.png)
 
+$$
+\left\{
+\begin{aligned}
+边沿D:&Q^{n+1} = D\\
+边沿JK:&Q^{n+1} = J\cdot \overline{Q^n} + \overline{K}\cdot Q^n\\
+边沿T:&Q^{n+1} = T\oplus Q^n\\
+边沿T':&Q^{n+1} = \overline{Q^n}
+\end{aligned}
+\right.
+$$
 ??? note "上升or下降有效？"
 	观察CP端是否有非门
 

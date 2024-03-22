@@ -185,6 +185,7 @@ nav:
     - English/Oral-Tips.md
     - English/TOFEL-speaking-training.md
     - English/TOFEL-speaking.md
+    - English/VocabularyForSpeaking.md
 - Class:
   - Class/signal.md
   - Class/自动控制原理.md
@@ -240,6 +241,8 @@ nav:
     - Explore/ML/CNN.md
 
   - "AI | 人工智能":
+    - Explore/AI/HumanPoseEstimation.md
+    - Explore/AI/LingoInAI.md
     - "AIGC网站探索":
       - Explore/AI/AIGC-explore.md
 
@@ -272,6 +275,7 @@ nav:
   - Tools/obsidian.md
   - Tools/tableau.md
   - Tools/solidworks.md
+  - Tools/settings.md
 
 - "杂谈":
   - classes_in_zju.md

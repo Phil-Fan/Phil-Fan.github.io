@@ -65,6 +65,52 @@ GCNs are generally expected to better exploit the relationship among key points 
 
 ![image-20240318203018496](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240318203018496.png)
 
+
+
+#### 1. AIC (AI Challenger) Dataset
+
+AI Challenger 是一个综合性的数据集，包含多个挑战，其中包括人体关键点检测任务。这个数据集旨在通过提供大量标注数据，推动人工智能在图像识别、语言理解等方面的研究和发展。
+
+#### 2. COCO (Common Objects in Context) Dataset
+
+COCO 数据集是计算机视觉研究领域中最著名的数据集之一，它支持多种任务，包括目标检测、分割和人体关键点检测。COCO 数据集以其大规模和多样性而闻名，提供了大量详细标注的图像，这些图像包含了日常场景中的对象和人体。
+
+#### 3. CrowdPose Dataset
+
+CrowdPose 数据集专注于复杂场景下的人体姿态估计，特别是在人群中。它旨在解决传统数据集忽略的问题：高度拥挤的场景中人体姿态的检测和分析。
+
+#### 4. H36M (Human 3.6 Million) Dataset
+
+H36M 数据集是一个大规模的3D人体姿态数据库，提供了360万个3D人体姿态。这些数据来自于配备了标记的9个参与者执行各种日常活动的视频。H36M 主要用于深度学习和人体姿态估计的研究。
+
+#### 5. JHMDB (Joint-annotated Human Motion Data Base) Dataset
+
+JHMDB 数据集是一个用于人体动作识别和姿态估计的数据集，包含从现实世界视频中提取的21种不同动作类别。每个视频都有相应的人体关键点标注。
+
+#### 6. MHP (Multi-Human Parsing) Dataset
+
+MHP 数据集旨在促进多人体解析的研究，特别是在复杂场景中。它提供了大量的图像，这些图像中的每个人都有详细的像素级标注，用于身体部位的分割。
+
+#### 7. MPII Dataset
+
+MPII Human Pose 数据集是一个大规模数据集，用于2D人体姿态估计。它包含了多种日常活动场景下的图像，每个图像都配有人体关键点的精确位置标注。
+
+#### 8. MPII_TRB Dataset
+
+MPII_TRB 数据集可能是指MPII数据集的一个特定子集或变种，用于特定的研究或比赛任务。这个名称不是非常常见，可能需要在特定文档或资料中查找具体细节。
+
+#### 9. OCHuman Dataset
+
+OCHuman 数据集专注于挑战性的人体姿态估计场景，尤其是高遮挡和人体交互场景。它旨在提供一个难度更高的测试基准，以推动相关技术的进步。
+
+#### 10. PoseTrack18 Dataset
+
+PoseTrack 是一个大规模的人体姿态估计和跟踪数据集，PoseTrack18指的是2018年发布的版本。它专注于视频中的人体姿态估计和跟踪，提供了大量连续帧中人体姿态的标注。
+
+
+
+
+
 ## 2D HPE
 
 ### 单人图像
