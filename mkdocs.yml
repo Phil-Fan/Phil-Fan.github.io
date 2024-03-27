@@ -204,6 +204,8 @@ nav:
     - Robotics/EmbeddedSystem-digitalcircuit.md
     - Robotics/EmbeddedSystem-8051.md
     - Robotics/EmbeddedSystem-stm32.md
+    - Robotics/EmbeddedSystem-experiment.md
+    
 - "Computer Science":
   - Language:
     - CS/Language/Assembly.md
