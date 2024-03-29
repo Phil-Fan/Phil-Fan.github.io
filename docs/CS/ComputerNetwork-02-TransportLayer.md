@@ -202,19 +202,15 @@ SR 单独发送没有收到的
 
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240131191657334.png" alt="image-20240131191657334" style="zoom:50%;" />
 
-- 场景2
-
-有限缓存；
-
-超时重传的比例增加
+- 场景2：有限缓存；超时重传的比例增加
 
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240131191831998.png" alt="image-20240131191831998" style="zoom:50%;" />
 
-- 场景3
+- 场景3：被抛弃的分组在拥塞的时候已经穿过了一个或若干个路由
 
 ![image-20240131192304829](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240131192304829.png)
 
-被抛弃的分组在拥塞的时候已经穿过了一个或若干个路由
+
 
 
 
@@ -472,14 +468,13 @@ HTML 文件相当长时，例如： 4861 字节太大，一个 TCP 数据包不�
 是接收方返回给发送方的，可以明确一些信息;
 确认X，告诉服务器`seq Y`；相当于把确认和`seq Y` 捎带发送了
 
-服务器收到数据包后由标志位`SYN = 1`，知道客户端请求建立连接，服务器将标志位 SYN 和 ACK 都置为 1 ，`ACK = X + 1`，随机产生一个值`SEQ = Y`，并将该数据包发送给客户端以确认连接请求，服务器进入 SYN_RCVD 状态；
+服务器收到数据包后由标志位`SYN = 1`，知道客户端请求建立连接，服务器将标志位 SYN 和 ACK 都置为 1 ，`ACK = X + 1`，随机产生一个值`SEQ = Y`，并将该数据包发送给客户端以确认连接请求，服务器进入 `SYN_RCVD` 状态；
 
 ![预览大图](https://data.educoder.net/api/attachments/581484)
 
-**三次握手** 
+**第三次握手** 
 
-确认`seq Y`
-Y是server维护的滑动窗口的下沿；和数据传递同步进行
+确认`seq Y`，Y是server维护的滑动窗口的下沿；和数据传递同步进行
 
 客户端收到确认后，检查 ACK 是否为`X + 1`，ACK 是否为 1 ，如果正确则将标志位 ACK 置为 1 ，`ACK = Y + 1`，并将该数据包发送给服务器，服务器检查 ACK 是否为`K + 1`，ACK 是否为 1 ，如果正确则连接建立成功，客户端和服务器进入 ESTABLISHED 状态。
 
@@ -505,8 +500,7 @@ Y是server维护的滑动窗口的下沿；和数据传递同步进行
         - `FIN`：释放一个连接。<br>
         - `PSH`：接收方应该尽快将这个报文交给应用层。<br>
         - `URG`：紧急指针（urgent pointer）有效。<br>
-
-- `CWR`：(拥塞窗口减小)缓存区已满或者拥挤，通信双方都应该降低传输的速率。<br>
+        - `CWR`：(拥塞窗口减小)缓存区已满或者拥挤，通信双方都应该降低传输的速率。<br>
 
 
 
@@ -515,6 +509,8 @@ Y是server维护的滑动窗口的下沿；和数据传递同步进行
     比如，在“包1”中，最初的相对序列号的值是0，但是最下方面板中的ASCII码显示真实序列号的值是0xf61c6cbe，转化为10进制为4129057982<br>
 	可以选择Wireshark菜单栏中的 **Edit** -> **Preferences** ->**protocols** ->**TCP**，去掉**Relative sequence number**后面勾选框中的√即可<br>
     ![img](https://img-blog.csdn.net/20140725092301017?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYTE5ODgxMDI5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)<br>
+
+
 
 #### 关闭连接(四次挥手)
 
@@ -537,9 +533,11 @@ Y是server维护的滑动窗口的下沿；和数据传递同步进行
 - 如果比较集中，就可以设置一个具体的数值，例如$\mu + 4\sigma$​处；如局域网
 - 如果数值不确定，那么adaptive动态调整；定期测量往返延时
 
-adam算法一阶动量计算
+`adam`算法一阶动量计算
 
-$EstimatedRTT = (1-\alpha) \times EstimatedRTT + \alpha\times SampleRTT $
+$$
+EstimatedRTT = (1-\alpha) \times EstimatedRTT + \alpha\times SampleRTT 
+$$
 
 - 指数加权移动平均
 - 过去样本的影响呈指数衰减
@@ -565,35 +563,64 @@ $EstimatedRTT = (1-\alpha) \times EstimatedRTT + \alpha\times SampleRTT $
 
 #### 流量控制 | Flow control
 
+!!! note "**遏制发送方的速率**"
+
 捎带
 
 接收方控制发送方，不让发送方发送的太多、太快以至于让接收方的缓冲区溢出
 
+TCP 通过让发送方维护一个称为接收窗口(`receive window`)的变量来提供流量控制
 
 
-`receive window`
+
+
 
 反馈机制
 
 ![image-20240131180153804](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240131180153804.png)
 
-- 接收方在其向发送方的TCP段头部的`rwnd`字段“通告”其空闲`buffer`大小
-- 发送方限制未确认(“inflight”)字节的个数≤接收方发送过来的`rwnd` 值
-- 保证接收方不会被淹没
+**接收方**
+
+接收方在其向发送方的TCP段头部的`rwnd`字段“通告”其空闲`buffer`大小
 
 缓存中的可用的空间
 
-$ V = RcvWindow = RcvBuffer-[LastByteRcvd - LastByteRead]$
-
+$$
+V = RcvWindow = RcvBuffer-[LastByteRcvd - LastByteRead]
+$$
 ![image-20240131180428780](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240131180428780.png)
+
+**发送方**
+
+- 限制未确认(`inflight`)字节的个数≤接收方发送过来的`rwnd` 值
+
+- 保证接收方不会被淹没
+
+$$
+LastByteSent - LastByteAcked \geq rwnd
+$$
+
+
+
+问题：TCP只在有数据发或者确认的时候才发报文，所以当B的`rcvd = 0`时候，A无法知道
+
+为了解决这个问题， TCP 规范中要求:当主机 B 的接收窗口为0 时，主机 A 继续发送只有一个字节数据的报文段。这些报文段将会被接收方确认。最终缓存将开始清空，并且确认报文里将包含一个非0 的`rvnd`值。
+
+
+
+??? note "UDP"
+	UDP没有流量控制，多发的包将丢失
+
+
+
 
 #### 拥塞控制 | Congestion control
 
-TCP/IP 复杂性放在网络边缘
+TCP/IP 复杂性放在网络边缘，靠端系统感知
 
-靠端系统感知
+TCP 拥塞控制常常被称为加性培、乘性减(`Additive-Increase Multiplicative-Decrease , AIMD`)
 
-如何检测拥塞
+##### **如何检测拥塞**
 
 - 某个段超时了（丢失事件）：拥塞
   - 超时时间到，某个段的确认没有来
@@ -606,10 +633,15 @@ TCP/IP 复杂性放在网络边缘
 ##### 控制策略
 
 维持一个拥塞窗口的值：`CongWin`动态的，是感知到的网络拥塞程度的函数
-发送端限制已发送但是未确认的数据量（的上限）:
-$LastByteSent-LastByteAcked \le CongWin$
 
-$rate = \frac{CongWin}{RTT}$
+发送端限制已发送但是未确认的数据量（的上限）:
+$$
+LastByteSent-LastByteAcked \le CongWin
+$$
+
+$$
+rate = \frac{CongWin}{RTT}
+$$
 
  `MSS`最大报文段
 
@@ -627,7 +659,7 @@ $rate = \frac{CongWin}{RTT}$
 
 - 当$CongWin>Threshold$, 发送端处于`CA`, 窗口线性增长.
 
-- 当收到三个重复的ACKs,`Threshold`设置成`CongWin/2`
+- 当收到三个重复的ACKs,`Threshold`设置成`CongWin/2`（快速重传）
 
   $CongWin=Threshold+3$
 
@@ -640,9 +672,14 @@ $rate = \frac{CongWin}{RTT}$
 
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240131220206546.png" alt="image-20240131220206546" style="zoom: 50%;" />
 
-发送端控制发送但是未确认的量同时也不能够超过接收窗口，满足流量控制要求
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240328091444848.png" alt="image-20240328091444848" style="zoom:50%;" />
 
-$SendWin=min\{CongWin, RecvWin\}$,同时满足拥塞控制和流量控制要求
+发送端控制发送但是未确认的量同时也不能够超过接收窗口，满足流量控制要求
+$$
+SendWin=min \{ CongWin, RecvWin \}
+$$
+
+同时满足拥塞控制和流量控制要求
 
 ![image-20240131215546305](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240131215546305.png)
 
@@ -656,8 +693,17 @@ $$
 
 
 
+TCP 连接的吞吐量公式
+$$
+平均吞吐量 = \frac{1.22 \times MSS}{RTT \sqrt{L}}
+$$
+该公式作为丢包率(`L`) 往返时间(`RTT`)和最大报文段长度(`MSS`) 的函数
 
-#### 公平性
+**TCP Cubic**
+
+
+
+##### 公平性
 
 如果K个TCP会话分享一个链路带宽为R的瓶颈，每一个会话的有效带宽为R/K
 
@@ -665,7 +711,7 @@ $$
 
 
 
-
+-
 
 **证明**
 

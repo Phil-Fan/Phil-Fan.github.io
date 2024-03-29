@@ -131,7 +131,7 @@ MAC `media access control`
 - 把信道划分成小片（时间、频率、编码）
 - 分配片给每个节点专用
 
-TDMA:time division multiple access 分时
+TDMA: time division multiple access 分时
 
 FDMA: frequency division multiple access 分频 （类似鲸鱼蝙蝠不同频率
 
