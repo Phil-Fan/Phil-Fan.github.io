@@ -69,6 +69,12 @@
 
 ### **修改和编辑**
 
+#### 参考轴
+
+参考几何体 - 参考轴
+
+
+
 学习如何修改现有的特征，包括编辑尺寸、移动面、替换草图等。
 
 双击空白退出草图
@@ -201,6 +207,18 @@
 
 ## 4. 装配体设计
 
+参考面
+
+[定义地面基准面 - 2021 - SOLIDWORKS 帮助](https://help.solidworks.com/2021/chinese-simplified/SolidWorks/sldworks/t_assy_defining_a_ground_plane.htm)
+
+
+
+等比例缩放
+
+
+
+
+
 ### **零件插入**
 
 学习如何在装配环境中插入和定位零件。
@@ -311,6 +329,16 @@ ctrl 选中多个面 同轴心
 
 
 
+### 动画制作
+
+左下角 - 运动算例
+
+新建算例
+
+速度 键码
+
+![image-20240408225949921](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240408225949921.png)
+
 ## 6. 简单仿真
 
 - **静态应力分析**：学习如何进行基本的结构分析，以评估零件在受力时的变形和应力。
@@ -328,73 +356,7 @@ ctrl 选中多个面 同轴心
 
 
 
-### 实验 1：基础3D零件设计 - 螺丝刀
 
-**目标**：通过设计一个简单的螺丝刀，熟悉SolidWorks的基本操作和3D建模工具。
-
-**步骤**：
-
-1. 绘制螺丝刀头的草图。
-2. 使用拉伸特征创建螺丝刀头的三维形状。
-3. 添加倒角和圆角特征以增加真实感。
-4. 创建螺丝刀手柄的草图，并使用旋转特征形成圆柱形。
-5. 将螺丝刀头和手柄装配在一起。
-
-**参考网站**：
-
-- [SolidWorks官方教程](https://www.solidworks.com/training/)
-- [Instructables - SolidWorks Projects](https://www.instructables.com/howto/SolidWorks/)
-
-### 实验 2：复杂零件建模 - 齿轮泵部件
-
-**目标**：设计一个包含多个零件的齿轮泵，学习装配体设计和工程图生成。
-
-**步骤**：
-
-1. 设计齿轮泵的主要零件，如齿轮、泵体和轴承座。
-2. 使用布尔运算组合零件，创建泵体的复杂形状。
-3. 为齿轮添加螺旋线和齿形特征。
-4. 将所有零件装配在一起，并添加适当的约束。
-5. 从3D模型生成工程图，包括各个视图和必要的尺寸标注。
-
-**参考网站**：
-
-- [SolidProfessor](https://www.solidprofessor.com/)
-- [Engineering.com - SolidWorks Tutorials](https://www.engineering.com/Software/SolidWorks/Tutorials/)
-
-### 实验 3：机械臂设计和运动仿真
-
-**目标**：设计一个简单的机械臂，并进行运动仿真，了解机械系统的动态行为。
-
-**步骤**：
-
-1. 设计机械臂的各个关节和连杆。
-2. 使用装配体设计中的高级约束来模拟关节的运动。
-3. 为机械臂添加伺服电机（或手爪）作为末端执行器。
-4. 使用SolidWorks的Motion Study工具进行运动仿真。
-5. 分析机械臂的运动范围和速度。
-
-**参考网站**：
-
-- [SolidWorks Simulation](https://www.solidworks.com/products/simulation)
-- [YouTube - SolidWorks Motion Analysis](https://www.youtube.com/results?search_query=solidworks+motion+analysis)
-
-### 实验 4：复杂装配体和干涉检查 - 自行车模型
-
-**目标**：设计一个自行车模型，包括车架、轮组、传动系统等，学习复杂装配体的管理和干涉检查。
-
-**步骤**：
-
-1. 分别设计自行车的主要部件，如车架、轮组、链条、齿轮等。
-2. 将所有部件装配在一起，确保传动系统的准确性。
-3. 使用干涉检查工具检查装配体中是否存在冲突。
-4. 优化设计，确保所有部件能够顺畅运动。
-5. 为自行车模型创建爆炸视图和装配动画。
-
-**参考网站**：
-
-- [GrabCAD - SolidWorks Models](https://grabcad.com/library/tag/solidworks)
-- [3D CAD Tips - SolidWorks Assembly](https://www.3dcadtips.com/tutorials/solidworks-assembly-tutorials/)
 
 ## 学习资源
 

@@ -1,5 +1,9 @@
 # 环境配置
 
+## `Vimium`配置
+
+[使用 Vimium 获得更舒适的网页阅读体验 - 少数派 (sspai.com)](https://sspai.com/post/57091#!)
+
 ## `pytorch`
 
 ```shell

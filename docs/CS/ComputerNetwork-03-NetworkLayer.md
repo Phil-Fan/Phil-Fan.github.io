@@ -1,5 +1,7 @@
 # 网络层 | Network Layer
 
+![网络层](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/%E7%BD%91%E7%BB%9C%E5%B1%82.png)
+
 IP地址，子网掩码，默认网关，local name server,MAC地址
 
 ## 原理
