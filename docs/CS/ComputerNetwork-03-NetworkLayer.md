@@ -229,27 +229,19 @@ LS的应用情况
 
 
 
-水平分裂(split horizon)算法
+??? note "对比"
+	===	**消息复杂度（DV胜出）**
+    LS: 有n 节点, E 条链路,发送报文O(nE)个；局部的路由信息；全局传播<br>
+    DV: 只和邻居交换信息；全局的路由信息，局部传播<br>
+    
 
+    === **收敛时间（LS胜出）**
+    LS: O(n2) 算法有可能震荡<br>
+    DV: 收敛较慢；可能存在路由环路；count-to-infinity 问题<br>
+    === 健壮性: 路由器故障会发生什么（LS胜出）
+    LS:节点会通告不正确的链路代价；每个节点只计算自己的路由表；错误信息影响较小，局部，路由较健壮<br>
+    DV:节点可能通告对全网所有节点的不正确路径代价距离矢量；每一个节点的路由表可能被其它节点使用；错误可以扩散到全网<br>
 
-
-
-
-消息复杂度（DV胜出）
- LS: 有n 节点, E 条链路,发送报文O(nE)个；局部的路由信息；全局传播
- DV: 只和邻居交换信息；全局的路由信息，局部传播
-
-收敛时间（LS胜出）
- LS: O(n2) 算法有可能震荡
- DV: 收敛较慢；可能存在路由环路；count-to-infinity 问题
-
-
-
-健壮性: 路由器故障会发生什么（LS胜出）
-LS:节点会通告不正确的链路代价；每个节点只计算自己的路由表；错误信息影响较小，局部，路由较健壮
-
-DV:
-节点可能通告对全网所有节点的不正确路径代价距离矢量；每一个节点的路由表可能被其它节点使用；错误可以扩散到全网
 
 ### 路由协议
 
@@ -331,6 +323,16 @@ RIP 以应用进程的方式实现：route-d (daemon)
 通告报文通过UDP报文传送，周期性重复
 
 
+
+
+
+坏消息传的慢的原因
+
+重复计算路径
+
+
+
+解决方案：在传输路由表的时候，不要传输与经过对方节点的距离（不要套娃）
 
 #### OSPF  Open Shortest Path First
 
@@ -647,21 +649,59 @@ Names and Numbers
 
 ### DHCP 动态主机配置协议
 
+[DHCP协议详解 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/265293856)
+
 目标: 允许主机在加入网络的时候，动态地从服务器那里获得IP地址：
 
 - 可以更新对主机在用IP地址的租用期-租期快到了
 - 重新启动时，允许重新使用以前用过的IP地址
 
-DHCP工作概况:
+DHCP Discover：由客户端发出，用来发现DHCP服务器。
 
--  主机广播“DHCP discover” 报文[可选]
--  DHCP 服务器用“DHCP offer”提供报文响应[可选]
--  主机请求IP地址：发送“DHCP request” 报文
--  DHCP服务器发送地址：“DHCP ack” 报文
+DHCP Offer：由DHCP服务器发出，告诉客户端，我可以提供IP地址。
 
--  支持移动用户加入到该网络（短期在网）
+DHCP Request：由客户端发出，告诉对应的DHCP服务器，我需要IP地址。
+
+DHCP ACK：由DHCP服务器发出，提供客户端响应的IP地址。
+
+![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-52bf53d16bc59ef70312e63a91511246_1440w.webp)
+
+使用UDP进行传输
+
+![image-20240411090326803](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240411090326803.png)
+
+![预览大图](https://data.educoder.net/api/attachments/581836)
+
+- 请求报文：DHCP Discover、DHCP Request、DHCP Release、DHCP Inform 和 DHCP Decline。
+- 应答报文：DHCP Offer、DHCP ACK 和 DHCP NAK。
+
+#### DHCP Discover数据包
+
+![img](https://data.educoder.net/api/attachments/581839) ![img](https://data.educoder.net/api/attachments/570102)
+
+#### DHCP Offer数据包
+
+当 DHCP 服务器收到一条 DHCP Discover 数据包时，用一个 DHCP Offerr 包给予客户端响应： ![img](https://data.educoder.net/api/attachments/570097) 发送 DHCP Offer 消息的 DHCP 服务器 IP 是`172.31.159.254`，如下截图： ![img](https://data.educoder.net/api/attachments/985332)
+
+#### DHCP Request包
+
+当 Client 收到了 DHCP Offer 包以后，确认有可以和它交互的 DHCP 服务器存在，于是 Client 发送 Request 数据包，请求分配 IP。此时的源 IP 和目的 IP 依然是`0.0.0.0`和`255.255.255.255`。
+
+#### DHCP ACK包
+
+服务器用 DHCP ACK 包对 DHCP 请求进行响应： ![img](https://data.educoder.net/api/attachments/570099) 
+
+其中服务器发送给客户端的关于此地址的配置信息： ![img](https://data.educoder.net/api/attachments/581844)
+
+#### DHCP Release包
+
+DHCP释放消息（DHCP Release）的目的是通知DHCP服务器客户端不再需要之前所分配的IP地址，以便DHCP服务器可以释放该IP地址并使其能够被其他客户端使用。这通常发生在客户端永久离开网络或不再需要IP地址时
 
 
+
+没有ACK消息
+
+If the DHCP Release message from the client is lost, the DHCP server would have to wait until the lease period is over for that IP address until it could reuse it for another client.
 
 
 

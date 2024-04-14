@@ -6,9 +6,59 @@
 
 [嘉立创PCB](https://www.jlc.com/)<br>
 
+### 组装
+
+#### 焊接
+
+sbus
+
+![image-20240410224052064](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240410224052064.png)
+
+#### 连线
+
+![image-20240410224422169](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240410224422169.png)
+
+电机驱动不要装反
+
+![image-20240410112212309](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240410112212309.png)
+
+编码器电源的两根线不要连反，连反会烧掉
+
+![image-20240410111731510](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240410111731510.png)
+
+MOS输出不可以接入感性负载：如电机、电磁铁
+
+#### 框架
+
+底板使用M3螺丝
+
+### 代码
+
+`freetros`框架
+
+![image-20240410112718916](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240410112718916.png)
+
+![image-20240410113354807](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240410113354807.png)
+
+`control.c`进行PID调参
 
 
-平衡算法
+
+Set_PWM
+
+![image-20240410113703874](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240410113703874.png)
+
+
+
+电机死区
+
+
+
+
+
+
+
+### 平衡算法
 
 - PID
 

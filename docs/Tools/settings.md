@@ -1,5 +1,11 @@
 # 环境配置
 
+## windows
+
+电脑
+
+[AirPods Pro2蓝牙耳机连接win10电脑有杂音、不稳定问题 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/641213713)
+
 ## `Vimium`配置
 
 [使用 Vimium 获得更舒适的网页阅读体验 - 少数派 (sspai.com)](https://sspai.com/post/57091#!)

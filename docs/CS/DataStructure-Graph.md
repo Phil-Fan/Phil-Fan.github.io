@@ -59,6 +59,15 @@
 3. 重复1和2步骤，直到所有点都被标记为已访问的，则`dist[i]`即`s`到`i`的最短距离。如果只想求从s到某一点的最短距离，那么当该点被标记为访问过之后可直接退出。
 4. 补充：如果除了最短距离之外还想求出具体的路径，只需建立一个`pre`数组，在步骤2后添加操作：`pre[v] = u`（前提是`dist[v]`被更新）。
 
+
+
+复杂度分析
+$$
+正常情况\quad O(n^2)\\
+堆优化下 \quad O(n\log n)
+$$
+
+
 ```c++
 void djikstra(const std::vector<std::vector<int>> &graph, int V,int src){
     std::vector<int> dis(V,INF);
@@ -66,7 +75,7 @@ void djikstra(const std::vector<std::vector<int>> &graph, int V,int src){
 
     dis[src] = 0;
 
-    for(int covered_node = 0 ; covered_node < V-1; covered_node++){//外层是n-1循环
+    for(int covered_node = 0 ; covered_node < n-1; covered_node++){//外层是n-1循环
         int min = -1;
         //find the closest node
         for(int i = 0; i < V ; i++){
