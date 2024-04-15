@@ -1,5 +1,37 @@
 # 环境配置
 
+## 如何复制Phil Fan的工作环境
+
+### 效率软件
+
+- 日程 - 滴答清单
+- Markdown - Typora
+- 图片： HoneyView，PicGo（图床）
+- 视频：QQ影音
+- 思维导图: Xmind
+- 计时：ManicTime
+- 绘图：Draw.io, Geogebra
+- PDF阅读：Adobe Acrobat
+- 云同步：百度网盘、阿里网盘
+- 即时通讯：TIM，WeChat，飞书，腾讯会议，钉钉
+- 压缩：Bandzip
+- 浏览器：Edge
+- 翻译：欧陆词典
+
+### 专业软件
+
+- Coding: VSC, PyCharm, WebStorm
+- 环境：python，R，VMware，anaconda，git
+- 数据：Tableau，excel，origin
+- 文献：Zotero
+- word，小恐龙公文助手
+- latex：overleaf
+
+### 设计软件
+
+- Adobe: AI,PS,PR,剪映
+- powerpoint，okplus，Canva
+
 ## windows
 
 电脑

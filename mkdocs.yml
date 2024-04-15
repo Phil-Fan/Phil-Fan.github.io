@@ -203,6 +203,7 @@ nav:
     - Robotics/EmbeddedSystem-intro.md
     - Robotics/EmbeddedSystem-digitalcircuit.md
     - Robotics/EmbeddedSystem-8051.md
+    - Robotics/EmbeddedSystem-8051-experiment.md
     - Robotics/EmbeddedSystem-stm32.md
     - Robotics/EmbeddedSystem-experiment.md
     
@@ -258,29 +259,32 @@ nav:
     - Explore/Books/The Innovator`s Dilemma.md 
     - Explore/Books/Marxist principles.md
     - Explore/Philosophy.md
+    - Explore/Philosophy-by-topic.md
 
 - Tools:
-  - CLI:
-    - Tools/Git.md
-    - Tools/Linux.md
+  - Tools/Git.md
+  - Tools/Linux.md
     # - Tools/gdb.md
   
   - FrontEnd:
     - Tools/Frontend/WeChat.md
     
-  
-  - Markdown:
-    - https://minjoker.github.io/cs/tools/markdown/
-  - Mkdocs:
+  - "效率":
+    - Markdown:
+      - https://minjoker.github.io/cs/tools/markdown/
     - Tools/Mkdocs.md
-
-  - Tools/sites.md
-  - Tools/obsidian.md
+    - Tools/obsidian.md
+    - Tools/latex.md
+  - "设计":
+    - Tools/powerpoint.md
+    - Tools/design.md
   - Tools/tableau.md
+  - Tools/matlab.md
   - Tools/solidworks.md
+  - Tools/sites.md
   - Tools/settings.md
-  - Tools/powerpoint.md
-  - Tools/design.md
+
+  
 
 - "杂谈":
   - classes_in_zju.md
