@@ -20,7 +20,7 @@
  4、五种旋转变直线的机构
  5、写出3绕组2极无刷直流电机（就课上讲的模型）的联结方式和导通状态图
 
-
+![image-20240416103542259](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416103542259.png)
 
 
 
@@ -36,9 +36,9 @@ GPIO ： general purpose io
 
 二进制乘法： 移位相加 倍增
 
+![image-20240416101254260](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416101254260.png)
 
-
-
+![image-20240416101303336](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416101303336.png)
 
 ![e90541dc83a0c99e8be34aef](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/e90541dc83a0c99e8be34aef.png)
 
@@ -60,41 +60,165 @@ GPIO ： general purpose io
 
 
 
-## 传感器 
+## 传感器
+
+### 定义
+
+![image-20240416115839492](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416115839492.png)
 
 ### 静态特性
 
 - 灵敏度
 - 信噪比（S/N）：传感器输出信号中信号分量与噪声分量的平方平均值之比
 - 线性：输入输出为线性
-- 稳定性
+
+精度
+
+- 稳定性：输入量恒定，输出量向一个方向偏移（温漂、零漂）
 - 准确度：测量值对真值的偏移程度
 - 精密度：测量相同对象，每次得到不同值
 
+### 动态特性
+
+![image-20240416111624968](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416111624968.png)
+
+### 选择
+
+**尺寸、重量、价格、功耗敏感**
+
+![image-20240416111656391](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416111656391.png)
+
+### 常见传感器
+
 ![image-20230907140033593](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20230907140033593.png) 
 
+#### 电位器
+
+![image-20240416111731145](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416111731145.png)
+
+类别
+旋转式:测量角位移
+
+直线式:测量线位移
+
+#### 编码器
+
+根据测量介质分：光电码盘、磁编码器
+
+根据测量结果分
+
+- 增量式
+- 绝对式
+
+![image-20240416112056238](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416112056238.png)
+
+绝对式光电码盘
+
+上电时候可以检测到位置、
+
+![image-20240416112342658](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416112342658.png)
 
 
-方向角传感器
+
+**检测正反转 - 使用两个错位的码道**
+
+![image-20240416112311474](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416112311474.png)
+
+**检测速度**
+
+![image-20240416112459436](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416112459436.png)
+
+![image-20240416112618436](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416112618436.png)
+
+计量周期法和计量频率法
+
+![image-20230907140242381](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20230907140242381.png)
+
+#### 方向角传感器
 
 指南针：霍尔效应
 
-陀螺仪：机械（角动量大转轴不动）、光纤、MEMS（科里奥利力）
-
-距离传感器：光、激光、超声波
-力觉传感器
+易受环境影响
 
 
 
- ![image-20230907140242381](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20230907140242381.png)
+**陀螺仪**：
 
- ## 电机 motor 
+机械（角动量大转轴不动）
+
+光纤：光速不变、光干涉
+
+MEMS（科里奥利力）：体积小、重量轻、成本低；航向角不准
+
+
+
+#### 距离传感器
+
+- 红外光接近觉传感器
+- 回波式接近觉传感器
+
+
+
+??? note "题目"
+	分析超声波/激光传感器的原理及其各自的优缺点
+
+**超声波**
+
+**原理：**
+
+![image-20240416113219037](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416113219037.png)
+
+发出声波，检测发出与回波之间的时间差
+$$
+Length = \frac{v\times T_{total}}{2}
+$$
+
+**问题：**
+
+- 声波速度慢，时间比较好测量，但是降低了感知速率
+- 声波束按照锥形传播，分辨率较差，无法分辨尺寸偏大or偏小；无法分辨角度、方向
+- 光滑反射、吸收
+
+![image-20240416113455608](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416113455608.png)
+
+
+
+
+
+**激光雷达**
+
+光是不会像声波发散
+
+精确检测方位角，检测物体宽度
+
+ 方法：三角法，时飞法，相位偏移测量法
+
+![image-20240416115157833](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416115157833.png)
+
+![image-20240416115210183](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416115210183.png)
+
+#### 力觉传感器
+
+压阻式、压电式、电容式
+
+
+
+## 驱动
+
+电机驱动：将电能转换为旋转或直线运动动能，最常见最普遍，控制简单稳定性好，输出精准，但是力矩小，需要配合减速器使用。
+
+液压驱动：以液压油为传动介质，液压缸作为驱动器，单位重量传输功率大，可以产生很大输出力，响应迅速，但是系统复杂、成本高，体积重量大，输出精度较低。
+
+气压驱动：以压缩空气作为动力源，动作迅速，反应快，结构简单，但是受负载影响大，不适宜精密位置和速度的控制，输出力小。
+其他驱动：压电陶瓷驱动，形状记忆合金驱动（软体机器人）等
+
+### 电机 motor 
 
  \- 速度高、力矩小
  减速器
  $P = \frac{v}{i} \times Ti$
 
-### 分类
+#### 分类
 
 - 电机驱动
 - 气动
@@ -106,22 +230,53 @@ GPIO ： general purpose io
 
 输出力矩、速度
 
-[有刷电机与无刷电机](https://www.bilibili.com/video/BV1ig411S7gX/?spm_id_from=333.337.search-card.all.click&vd_source=c22bb8d123dbc6430c3057dc8d2701b4)
+#### [有刷电机与无刷电机](https://www.bilibili.com/video/BV1ig411S7gX/?spm_id_from=333.337.search-card.all.click&vd_source=c22bb8d123dbc6430c3057dc8d2701b4)
 
 舵机
 控制角度
 
 转动惯量的匹配
-直流电机PWM匹配
 
-占空比
+![image-20240416104119842](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416104119842.png)
 
-![image-20230907135711661](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20230907135711661.png) ![image-20230907140616101](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20230907140616101.png)![image-20230907140621883](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20230907140621883.png)滤波
+转动顺序、导通方式
+
+![image-20240416104143466](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416104143466.png)
+
+换向的过程
+
+
+
+#### 调速
+
+滤波
 
 
  [H桥的基本原理-刹车-正反转-调速](https://www.bilibili.com/video/BV1ZG4y1v7LS/?spm_id_from=333.1007.top_right_bar_window_history.content.click) ![image-20230907140632003](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20230907140632003.png)
 
+
+
+#### 电机控制
+
+> 一个电机由静止到额定转速是怎么实现的
+
+
+
+> 如何控制小车右转
+>
+> 如何控制小车原地右转
+>
+> 如何控制小车以半径1m右转
+
+力矩和转速
+
+等效电路
+
+![image-20240416104333256](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416104333256.png)
+
 ### 舵机
+
+> 控制角度
 
 控制线：电源线、地线、控制线
 
@@ -131,45 +286,117 @@ GPIO ： general purpose io
 
 
 
-## 机器人结构
+
+
+直流电机PWM匹配
+
+占空比
+
+![image-20230907135711661](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20230907135711661.png) ![image-20230907140616101](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20230907140616101.png)![image-20230907140621883](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20230907140621883.png)
+
+### 气动
+
+![image-20240416104446817](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416104446817.png)
+
+方向控制回路
+
+**几位几通**
+
+基本符号
+
+![image-20240416104540736](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416104540736.png)
+
+
+
+## 传动
 
 执行结构：完成操作任务
 
 传动机构：伺服系统 如齿轮
 
-​	转动惯量尽可能小，防止谐振
 
-​	刚度
 
-​	阻尼
+### 参数
 
-- 减速比（传动比：输入速度与输出速度之比
-
-自由度DOF：
+#### 自由度DOF：
 
 ​	手臂：7自由度
+
+减速比（传动比：输入速度与输出速度之比
+
+转动惯量尽可能小，防止谐振
+
+刚度
+
+阻尼
+
+
 
 
 
 支撑、导向系统：轴承和导轨
 
-齿轮传动
+### 齿轮传动
+
+#### 定轴传动
+
+![image-20240416104731762](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416104731762.png)
+
+#### 周转轮系
+
+![image-20240416104742305](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416104742305.png)
 
 渐开线
 
 ![image-20230907144343497](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20230907144343497.png)
 
-连杆传动
+![image-20240416104846198](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416104846198.png)
 
-曲柄机构
+
+
+### 连杆传动
+
+![image-20240416104926218](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416104926218.png)
+
+AB当做输入，CD当做输出，则BC就是一个连杆
+
+#### 曲柄
 
 双曲柄机构
 
+#### 摇杆
 
+
+
+推导过程与分类
+
+![image-20240416105135035](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416105135035.png)
+
+![image-20240416105220455](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416105220455.png)
+
+![image-20240416105229282](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416105229282.png)
+
+矢量方程的思路
+
+![image-20240416105246543](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416105246543.png)
+
+### 滑轮组
+
+### 带传动
+
+### 链传动
+
+### 涡轮-蜗杆传动
+
+### 凸轮机构
+
+### 轴承
+
+使轴系有确定的位置
 
 ## 机器人运动学
 
-正运动学
+正运动学：已知角度求位姿
 
 逆运动学：已知位姿求解角度
 
@@ -178,6 +405,40 @@ GPIO ： general purpose io
 俯仰 `pitch`
 
 偏摆 `yaw`
+
+
+
+公式
+
+
+
+欧拉角
+
+![image-20240416110144598](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416110144598.png)
+
+## 地图与规划
+
+1、导航地图：
+栅格地图（稠密有结构、直接索引查询）
+八叉树地图（稀疏有结构、直接索引查询）
+点云地图（无顺序，因而无法查询）
+ESDF图、沃罗若伊图、自由空间路线图
+
+### 路径规划
+
+精确最优
+
+- 深度优先
+- 广度优先
+
+近似最优
+
+- 启发式搜索 A* D*
+- 模拟退火、进化、蚁群
+
+### 避障规划
+
+### 轨迹规划
 
 
 
