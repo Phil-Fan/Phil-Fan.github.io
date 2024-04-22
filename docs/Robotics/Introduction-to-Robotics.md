@@ -22,7 +22,7 @@
 
 ![image-20240416103542259](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416103542259.png)
 
-
+![image-20240416164110402](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416164110402.png)
 
 
 
@@ -201,7 +201,21 @@ $$
 
 压阻式、压电式、电容式
 
+### 相机
 
+双目视觉
+
+![image-20240416175522810](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416175522810.png)
+
+**功能**
+
+异常检测和图像分析；物体检测和识别；物体分割和识别；扫描测绘；环境理解；
+
+![image-20240416180035101](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416180035101.png)
+
+相机标定， 借助外部已知尺寸的物体，解算出内参
+
+![image-20240416180059493](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416180059493.png)
 
 ## 驱动
 
@@ -214,6 +228,10 @@ $$
 
 ### 电机 motor 
 
+> 输出力矩和速度，如小车的直线运动和转弯
+>
+> 需要驱动芯片以及控制方式
+
  \- 速度高、力矩小
  减速器
  $P = \frac{v}{i} \times Ti$
@@ -224,26 +242,61 @@ $$
 - 气动
 - 液压驱动
 
+
+
+转动惯量的匹配
+
 ![image-20230907140256665](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20230907140256665.png)
-
-直流电机
-
-输出力矩、速度
 
 #### [有刷电机与无刷电机](https://www.bilibili.com/video/BV1ig411S7gX/?spm_id_from=333.337.search-card.all.click&vd_source=c22bb8d123dbc6430c3057dc8d2701b4)
 
-舵机
-控制角度
+![image-20240416164453791](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416164453791.png)
 
-转动惯量的匹配
+![image-20240416164945042](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416164945042.png)
+
+定子不动，改变转子的磁极，就可以完成换向。
+
+中间部分由惯性。
+
+![image-20240416165039391](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416165039391.png)
+
+使用三、五线圈的奇数线圈，就不存在“平衡位置”了。
+
+使用2N1S顺，2S1N逆
+
+![image-20240416165250656](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416165250656.png)
+
+限制：电刷；电刷与换向片接触产生动力损耗。
+
+
+
+![image-20240416165453808](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416165453808.png)
+
+永磁铁作为转子，电磁铁作为定子。
+
+使用霍尔原件感应转子的状态和位置。
 
 ![image-20240416104119842](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416104119842.png)
 
 转动顺序、导通方式
 
+**AB，AC，BC，BA，CA，CB**
+
+后三个是前三个反序
+
 ![image-20240416104143466](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416104143466.png)
 
+![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-dd52b5ed852d7e746c35aad78f4e3851_r.jpg)
+
 换向的过程
+
+![image-20240416164651385](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416164651385.png)
+
+![image-20240416164727698](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416164727698.png)
+
+总体来说且转数提升容易基本只受限于轴承。
+
+缺点是启动功率输出和荷重输出（工作突然加重工作/爬坡能力）类比有刷电机少将近百分之20，控制器贵稳定性成熟度（工业性价比）不如有刷
 
 
 
@@ -260,6 +313,54 @@ $$
 
 > 一个电机由静止到额定转速是怎么实现的
 
+等效电路
+
+![image-20240416171746564](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416171746564.png)
+
+电枢电动势Ea，电磁转矩T，电磁功率P
+
+Ke速度常数，Km力矩常数
+
+I 电枢电流，w角速度
+$$
+\begin{align}
+E_a &= K_e \cdot n\\
+T &= K_m \cdot I\\
+P &= E_a \cdot I = T \cdot \bar{\omega}\\\\
+
+U &= E_a + I \cdot R_a = K_e \cdot n + I \cdot R_a\\
+n &= \frac{U-I\cdot R_a}{K_e}
+\end{align}
+$$
+
+$$
+P = T\cdot W
+$$
+
+
+**力矩与电流大小成正比**
+
+**转速与感应电动势大小成正比**
+$$
+\begin{align}
+电压平衡方程：& u_a(t) = R_ai_a(t) + L_a\frac{di_a(t)}{dt} + E_a(t)\\
+感应电动势方程：&E_a(t) = K_e \omega\\
+电磁转矩方程：&T(t) = K_t i_a(t)\\
+转矩平衡方程：&T(t) = J\frac{d\omega(t)}{dt}+ B\omega(t) + T_d(t) 
+\end{align}
+$$
+![image-20240416174456906](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416174456906.png)
+
+电机烧掉：**电机铜线外绝缘体破坏，电线与电线之间短路**
+
+
+
+检查方法：测量电机绕组的电阻值是否正常进行判断
+
+![image-20240416173535098](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416173535098.png)
+
+白色区域需要注意
+
 
 
 > 如何控制小车右转
@@ -268,15 +369,29 @@ $$
 >
 > 如何控制小车以半径1m右转
 
-力矩和转速
+#### 转动惯量匹配
 
-等效电路
+负载的转动惯量折合到主动轴上时候，从动轴上的转动惯量和阻尼系数都要除以传动比的平方，负载转矩处于传动比
+
+![image-20240416174549458](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416174549458.png)
 
 ![image-20240416104333256](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416104333256.png)
 
+![image-20240416232800538](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416232800538.png)
+
+设一直接高电平时，转速最大是$V_{max}$，占空比为$D= \frac{t_1}{T}$
+
+电机平均速度为
+$$
+V_d = V_{max}\cdot D
+$$
+
+
 ### 舵机
 
-> 控制角度
+> 控制角度，位置伺服，如机械手；
+>
+> 用PWM波控制
 
 控制线：电源线、地线、控制线
 
@@ -417,6 +532,22 @@ AB当做输入，CD当做输出，则BC就是一个连杆
 ![image-20240416110144598](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416110144598.png)
 
 ## 地图与规划
+
+### 里程估计
+
+![image-20240416180412345](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416180412345.png)
+
+![image-20240416180207277](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416180207277.png)
+
+![image-20240416180601934](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416180601934.png)
+
+配准算法：重叠的时候，算对了
+
+定位
+
+
+
+![image-20240416180713589](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416180713589.png)
 
 1、导航地图：
 栅格地图（稠密有结构、直接索引查询）

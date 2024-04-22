@@ -92,11 +92,26 @@ NFC诞生之初，就兼容了索尼公司的**`FeliCaTM`标准**，以及**ISO1
 
 ## 小实践
 
+
+
 ### NFC + 自动化流程&快捷指令 简化流程操作
 
 NFC作为触发器，然后执行打开浙大钉二维码的操作，[快捷指令下载地址](https://www.icloud.com/shortcuts/38a3b78d869447e194c92a13d27eee20)
 
 需要注意的是，浙大钉工作台有响应时间，所以采取先加载工作台界面，然后再打开浙大钉二维码的方式进行。
+
+```url
+# 打开浙大钉工作台
+dingtalk://dingtalkclient/action/switchtab?index=2&reload=true
+# 打开校园卡二维码
+dingtalk://dingtalkclient/page/link?url=https%3A%2F%2Fyqfkgl.zju.edu.cn%2F_web%2F_customizes%2Fykt%2Findex3.jsp
+```
+
+另外，在钉钉的文档里指出，插入的URL需要做`urlencode`
+
+[一文详解 URLEncode - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/557035152)<br>
+
+[UrlEncode编码和UrlDecode解码-在线URL编码解码工具](http://www.urlencode.com.cn/)<br>
 
 ![1c489475f810460c6d9466309484fac](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/1c489475f810460c6d9466309484fac.jpg)
 
@@ -116,4 +131,13 @@ NFC作为触发器，然后执行打开浙大钉二维码的操作，[快捷指�
 
 [x-callback-URL 的使用方法 - InfoCG](https://www.infocg.cn/jishufenxiang/155012.html)<br>
 
-[开放能力 / 获取小程序链接 / 获取 URL Scheme (qq.com)](https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/url-scheme.html)
+[开放能力 / 获取小程序链接 / 获取 URL Scheme (qq.com)](https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/url-scheme.html)<br>
+
+### 把校园卡“变小”
+
+
+
+### 制作自己的NFC卡片
+
+### NFC音乐墙
+
