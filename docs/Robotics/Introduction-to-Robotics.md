@@ -15,9 +15,12 @@
 
 
 1、冯诺依曼结构的硬件结构
- 2、巡线小车的框图和程序设计（据我观察已经考了三四年了这题……不做评价）
+2、巡线小车的框图和程序设计（据我观察已经考了三四年了这题……不做评价）
  3、传感器的定义，根据智能家居机器人写四种传感器or分析超声波/激光传感器的原理及其各自的优缺点
  4、五种旋转变直线的机构
+
+> 螺丝、齿轮齿条、滚珠丝杠、曲柄滑块
+
  5、写出3绕组2极无刷直流电机（就课上讲的模型）的联结方式和导通状态图
 
 ![image-20240416103542259](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416103542259.png)
@@ -26,7 +29,28 @@
 
 
 
-## 微控制器
+机器人具备的主要特征
+
+- 运动
+- 交互
+- 感知
+- 决策
+
+
+
+设计的流程
+
+1. 明确执行机构
+2. 确定传动方式
+3. 设计导向机构
+4. 结构设计
+5. 优化分析
+6. 组装与测试
+7. 
+
+
+
+## 二、微控制器
 
 总线 bus
 
@@ -58,25 +82,129 @@ GPIO ： general purpose io
 
 ![image-20230907135728112](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20230907135728112.png)
 
+### Arduino
+
+#### 主代码
+
+```c
+//所有程序都写在下面两个函数里
+
+/*开机的时候运行一次，各种设定放在setup（）里*/
+Void setup（）
+{
+	Serial.begin（9600）；//设置波特率
+}
+/*不断循环*/
+Void loop()
+{
+	Serial.println("Hello world!");
+	delay(1000);//延迟1s
+}
 
 
-## 传感器
+```
+
+
+
+#### LED灯闪烁
+
+```c++
+#define led 13
+Void setup（）
+{
+	pinMode(led,OUTPUT); //设定led管脚为输出引脚
+}
+Void loop()
+{
+	digitalWrite（led,HIGH); //设置led为高电平，点亮led
+	delay(1000);//延迟1s
+    digitalWrite（led,LOW); //设置led为低电平，熄灭led
+	delay(1000);//延迟1s
+}
+```
+
+
+
+### Question
+
+Q1：如何让LED不闪烁，但亮度只有正常的20%?
+
+
+
+原理：人眨眼的频率有限，当闪烁频率低时，会认为没有闪烁
+
+```C
+#define led 13
+Void setup（）
+{
+	pinMode(led,OUTPUT); //设定led管脚为输出引脚
+}
+Void loop()
+{
+	digitalWrite（led,HIGH); //设置led为高电平，点亮led
+	delay(2);//延迟1s
+    digitalWrite（led,LOW); //设置led为低电平，熄灭led
+	delay(8);//延迟1s
+}
+```
+
+Q2:原理的推广
+
+- 输出电压调节（利用电容滤波）
+
+​		PWM波					
+
+- 电流电机控制
+- 信号传输（舵机控制）
+
+#### 相关知识
+
+- delay()/delayMicroseconds()：用于延时，第一个单位为毫秒，第二个为微秒。  
+
+- analogWrite():模拟 I/O 口输出，一般用于 PWM 输出，如：
+
+  analogWrite(13,127)，为在13 号引脚处输出一个占空比为 50%的 PWM 方波，后一参数 0 表示关， 255 表示全开  
+
+```C++
+void setup()
+{
+    pinMode(13,OUTPUT);//设定13号端口为输出
+}
+
+void loop()
+{
+    digitalWrite(13,HIGH);
+    delayMicroseconds(100);//大约10%占空比的1KHZ方波
+    digitalWrite(13,LOW);
+    delayMicroseconds(900);
+}
+```
+
+
+
+## 三、传感器
 
 ### 定义
+
+用于**定量**感知环境**特定物质属性**的**电子、机械、化学设备**，并能够把各种物理量和化学量等**精确**地变换为**电信号**，再经由电子电路或计算机进行分析与处理，从而对这些量进行检测  
 
 ![image-20240416115839492](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416115839492.png)
 
 ### 静态特性
 
-- 灵敏度
+指检测系统的输入为**不随时间变化**的恒定信号时，系统的输出与输入之间的关系
+
+- 灵敏度（**越高越好**）
 - 信噪比（S/N）：传感器输出信号中信号分量与噪声分量的平方平均值之比
 - 线性：输入输出为线性
 
 精度
 
 - 稳定性：输入量恒定，输出量向一个方向偏移（温漂、零漂）
-- 准确度：测量值对真值的偏移程度
-- 精密度：测量相同对象，每次得到不同值
+- 精度
+  - 准确度：测量值对真值的偏移程度
+  - 精密度：测量相同对象，每次得到不同值
+
 
 ### 动态特性
 
@@ -217,7 +345,7 @@ $$
 
 ![image-20240416180059493](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416180059493.png)
 
-## 驱动
+## 四、驱动
 
 电机驱动：将电能转换为旋转或直线运动动能，最常见最普遍，控制简单稳定性好，输出精准，但是力矩小，需要配合减速器使用。
 
@@ -232,9 +360,12 @@ $$
 >
 > 需要驱动芯片以及控制方式
 
- \- 速度高、力矩小
- 减速器
- $P = \frac{v}{i} \times Ti$
+- 优点：控制调节简单、稳定性较好
+- 缺点：力矩小、刚度低，常常需要配合减速器使用
+
+ $P = \frac{v}{i} \times Ti$​
+
+注意：**力矩 X 转速 = 功率**
 
 #### 分类
 
@@ -274,7 +405,7 @@ $$
 
 永磁铁作为转子，电磁铁作为定子。
 
-使用霍尔原件感应转子的状态和位置。
+如何判断何时改变电流输入：一般在电机的不同位置上装三个霍尔传感器，就可测出转子的位置，使用霍尔原件感应转子的状态和位置。
 
 ![image-20240416104119842](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416104119842.png)
 
@@ -292,7 +423,21 @@ $$
 
 ![image-20240416164651385](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416164651385.png)
 
+
+
+三相9绕组6极（3对极）
+
+转子的NS极与绕组电流产生的NS极有对其的运动趋势，这个惯性使得其能够旋转
+
+注意：每一相是**串联**的
+
 ![image-20240416164727698](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416164727698.png)
+
+采用**9绕组6极**，而不是**6绕组6极**原因：为了防止定子的齿与转子的磁钢相吸而对齐，产生类似步进电机的效果，此情况下转矩会产生很大波动
+
+
+
+
 
 总体来说且转数提升容易基本只受限于轴承。
 
@@ -369,9 +514,69 @@ $$
 >
 > 如何控制小车以半径1m右转
 
+##### **有刷电机（H桥驱动）**
+
+最常用的驱动方式
+
+![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/61EC0040D67F475F87D07883A700D778_735.jpeg)
+
+![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/99F657663FFE42398711F883963F8542_566.jpeg)
+
+上图为电机的正反转
+
+![image-20240414193034701](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240414193034701.png)
+
+为了避免电机的反电动势的危害，仍然需要在三极管两端接二极管，因为电机线圈在电路开闭瞬间产生的反向电动势会高过电源，对晶体管和电路会造成影响，甚至是烧毁元件。
+
+一般用**L298芯片**来控制电机转动，可以驱动两个直流电机
+
+
+
+##### 光电隔离电路
+
+![image-20240414193622133](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240414193622133.png)
+
+可以实现抗干扰
+
+
+
+##### 基本控制方式
+
+###### 开环伺服系统
+
+精度较低， 但稳定性最好。
+
+![image-20240414193757089](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240414193757089.png)
+
+###### 闭环伺服系统
+
+精度较高，但系统的结构较复杂、成本高，还有系统稳定性的问题
+
+![image-20240414193902662](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240414193902662.png)
+
+###### 半闭环伺服系统
+
+反馈电机信息，控制电机
+
+精度比闭环要差一些，稳定性比闭环好，但比开环要差一些
+
+![image-20240414193936717](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240414193936717.png)
+
 #### 转动惯量匹配
 
 负载的转动惯量折合到主动轴上时候，从动轴上的转动惯量和阻尼系数都要除以传动比的平方，负载转矩处于传动比
+
+
+$$
+J_L=J_1+\frac{J_2+J_3}{i_1^2 }+\frac{J_4}{i_1^2 i_2^2 }
+$$
+对于直流电机而言，高动态的伺服系统，一般要求：
+$$
+J_M < (2-3)J_L \\
+电机的转动惯量 J_M、负载的等效转动惯量J_L
+$$
+
+
 
 ![image-20240416174549458](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416174549458.png)
 
@@ -386,8 +591,13 @@ $$
 V_d = V_{max}\cdot D
 $$
 
+$V_d$:电机的平均速度
 
-### 舵机
+$V_{max}$
+
+$D=\frac{t_1}{T}$:占空比
+
+#### 舵机
 
 > 控制角度，位置伺服，如机械手；
 >
@@ -399,9 +609,9 @@ $$
 
 电机 + 减速器
 
+**标准舵机有三条控制线，分别为**电源线、地线和控制线。控制线连接到控制芯片上
 
-
-
+![image-20240422172314384](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240422172314384.png)
 
 直流电机PWM匹配
 
@@ -411,39 +621,166 @@ $$
 
 ### 气动
 
+- 气压驱动以空气压缩为动力源，也是机器人驱动的一种重要形式。
+- 气动式主要有气缸、气阀、管路等元件组成。
+- 优点：气源获得方便、成本低、动作快。
+- 缺点：输出功率小，体积大。一般而言，其工作噪声较大、控制精度较差。
+
+
+
+#### 分类
+
+包括气压发生装置、辅助元件、控制元件和执行元件
+
 ![image-20240416104446817](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416104446817.png)
 
-方向控制回路
+- 气压元件：气源装置，其功能是将原动机**输入的机械能转换成流体的压力能**，为系统**提供动力**
+- 执行元件：**气缸、气马达**，功能是将流体的压力能转换成机械能，输出力和速度或转矩和转速），以带动负载进行直线运动或旋转运动
+- 控制元件：**压力、流量和方向控制阀**，作用是控制和调节系统中流体的压力、流量和流动方向，以保证执行元件达到所要求的输出力（或力矩）、运动速度和运动方向
+- 辅助元件：保证系统正常工作所需要的辅助装置， 包括**管道、管接头、储气罐、过滤器和压力计**
 
-**几位几通**
+#### 气体的特性
 
-基本符号
+- 系统的压力应小于**8**个大气压（即0.8MPa）
+- **不可压缩流体**
+- **1**大气压=0.1013MPa=15psi(磅/平方英寸)
 
-![image-20240416104540736](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416104540736.png)
+
+
+#### **方向控制回路**
+
+##### 单作用气缸换向回路
+
+**几位几通（考！）**
+
+[电磁阀工作原理_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1x8411c7hh/?spm_id_from=333.337.search-card.all.click&vd_source=8b7a5460b512357b2cf80ce1cefc69f5)
+
+[二位五通双电控电磁阀的工作原理](https://www.bilibili.com/video/BV1fz421r7yX/?spm_id_from=333.337.search-card.all.click&vd_source=8b7a5460b512357b2cf80ce1cefc69f5)
+
+几位：看有几种回路可以切换（有几个小格子）
+
+几通：看**每一个回路**（小格子）里面有几个连接处
+
+![image-20240414195847393](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240414195847393.png)
+
+![image-20240422161542854](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240422161542854.png)
+
+![image-20240422161556062](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240422161556062.png)
+
+![image-20240422161610644](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240422161610644.png)
+
+对于a图
+
+在第二位时，P2P3相通，P3出气，右边气缸由于弹簧被压缩，向下运动
+
+在第一位时，P3堵住，P2P1相通，进气导致向上运动
+
+对于b图
+
+在第三位时（蓝色），向上
+
+在第二位时（粉色），不动
+
+在第一位时（黄色），向下
 
 
 
-## 传动
+注：**有几位就有几种状态!**
+
+对于每一种状态，将接线平移到对应的格子上，观察进气口气体的流向，从而判断如何进行换向
+
+
+
+##### 双作用气缸换向回路 
+
+
+
+![image-20240414200332022](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240414200332022.png)
+
+例：
+
+![image-20240414201155714](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240414201155714.png)
+
+不拍按钮时：左移
+
+拍按钮时：右下角的被改变，因此右移
+
+
+
+
+
+### 液压
+
+- **将液体压力转化为机械能**
+- 利用**不可压缩的流体**，将作用于某一点的力传递到另一点，这种流体通常是**工业液压油** 
+- 由液压源、伺服阀、传感器、执行机构等构成
+  - 优点： 重量轻、尺寸小、动作平稳、快速性好、产生的力 力矩非常大 。
+  - 缺点： 易漏油、维护困难；不确定性和非线性因素多，控制和校正不如电气式方便
+
+![image-20240422162943114](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240422162943114.png)
+
+
+
+## 五、传动
 
 执行结构：完成操作任务
 
 传动机构：伺服系统 如齿轮
 
-
+支撑/导向机构：导向机构作用是**支撑和导向**，使运动能安全、准确地完成特定方向的运动。如：轴承和导轨
 
 ### 参数
+
+#### 传动机构的性能要求
+
+- 质量和转动惯量应尽量小。
+- 刚度尽量大：伺服系统动力损失小（变形损失能量小）；
+- 频率要高，超出机构的频带宽度，使之不易产生共振；
+- 闭环系统更加稳定。
+- 阻尼越大，振动的振幅就越小，衰减也越快。但大阻尼会使系统稳态误差增大、精度降低。
+
+
+
+#### 强度与刚度  
+
+- 强度：零件在工作中发生**断裂或残余变形**均属于强度不足。
+- 刚度：零件在工作中所产生的**弹性变形**不超过允许的限度。包括整体刚度和表面刚度两种。
+- 相同的强度，结构不同，刚度不同
+
+
 
 #### 自由度DOF：
 
 ​	手臂：7自由度
 
-减速比（传动比：输入速度与输出速度之比
+定义：刚体本身具有可独立运动方向的数目。
+$$
+F = 6(l - n - 1) + \sum_{i = 1}^{n}f_{i} \\
+l为连杆数（包括基座），n为关节总数，f_i为第i个关节的自由度数
+$$
+注：人的一条胳膊有7个自由度
 
-转动惯量尽可能小，防止谐振
 
-刚度
 
-阻尼
+
+
+#### 减速比
+
+（传动比：输入速度与输出速度之比
+
+减速比，也即传动比。指减速机构输入速度与输出速度之比，用“i”表示。即，*i* =输入速度/输出速度，并使输出力/力矩变为原来的i倍。
+$$
+i = \frac{输入速度}{输出速度} = \frac{输入力矩}{输出力矩}
+$$
+例：电机输入减速箱的速度1000n/min，输出速度10n/min，则减速比 i =1000/10=100
+
+如电机输出力矩为Tin=0.1Nm，则输出力矩为Tout=Tin*i=0.1Nm*100=10Nm
+
+#### 转动惯量
+
+尽可能小，防止谐振
+
+#### 阻尼
 
 
 
@@ -453,21 +790,50 @@ $$
 
 ### 齿轮传动
 
+![image-20230907144343497](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20230907144343497.png)
+
+#### 基本参数的计算公式
+
+$$
+p_i = s_i + e_i a_i = e_i\\
+模数m = \frac{m_i}{\pi}\\
+国标压力角的标准值为20°\\
+分度圆直径 d =mz (欲使两齿轮正确啮合，两轮的模数必须相等
+)\\
+定常传动比i_12 = \frac{\omega_1}{\omega_2} = \frac{O_2P}{O_1P} (P为节点)
+$$
+
+齿数要尽量大于17
+
+
+
 #### 定轴传动
+
+定轴轮系：所有转动轴可以是平行的或者交错的；每个轴上可以有多个齿轮。
 
 ![image-20240416104731762](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416104731762.png)
 
 #### 周转轮系
 
+周转轮系：至少有一个齿轮的轴线不固定 ，而是绕另一个齿轮的轴线转动的轮系。
+
 ![image-20240416104742305](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416104742305.png)
 
-渐开线
 
-![image-20230907144343497](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20230907144343497.png)
 
 ![image-20240416104846198](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416104846198.png)
 
+![image-20240416215257877](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416215257877.png)
 
+#### 减速比计算（重点）
+
+![image-20240416215432743](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416215432743.png)
+
+#### 方向关系
+
+![image-20240422185707338](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240422185707338.png)
+
+![image-20240422192109099](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240422192109099.png)
 
 ### 连杆传动
 
@@ -475,57 +841,263 @@ $$
 
 AB当做输入，CD当做输出，则BC就是一个连杆
 
-#### 曲柄
+#### 优缺点（重点）
 
-双曲柄机构
+优点：
 
-#### 摇杆
+- 连杆机构中的运动副一般均为低副（连杆机构也称低副机构）低副元素之间为面接触，压强较小，承载能力较大；
+- 可改变各构件的 长度使得从动件得到不同的运动规律；
+- **可以设计出各种曲线轨迹**。
+
+缺点：
+
+- 需要经过中间构件传递运动，传递路线较长，易产生较大的误差，同时，**使得机械效率降低**
+- 质心在作变速运动，所产生的惯性力难于用一般平衡方法加以消除，易增加机构的动载荷， **不适宜高速运动（相对于齿轮而言）**
+
+#### 分类
+
+[5分钟搞懂四杆机构运动规律](https://zhuanlan.zhihu.com/p/541849290)
+
+分类方法：看哪一根杆最短
+
+**基本形式一：曲柄摇杆机构**
+
+斜边最短的时候，是曲柄摇杆机构
+
+![动图](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-2b39fc71abcddb619afb965cb02acedc_b.webp)
 
 
 
-推导过程与分类
+**基本形式二：双曲柄机构**
+
+最短杆为机架时候
+
+![动图](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-03d65aeed7c393ce21f4de19533c46f0_b.webp)
+
+**基本形式三：双摇杆机构**
+
+最短杆为连杆
+
+![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-2c969a21e62d70333d3c939c9586c189_b.webp)
+
+证明方法：三角形两边之和大于第三边
 
 ![image-20240416105135035](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416105135035.png)
 
-![image-20240416105220455](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416105220455.png)
+曲柄滑块
+
+![动图](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-961dc510e2e17588e10de4e6fc78b2d8_b.webp)
+
+对心曲柄滑块机构
+
+![动图](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-f4160d9cf92145412fd189df02a4dbd7_b.webp)
 
 ![image-20240416105229282](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416105229282.png)
 
-矢量方程的思路
+曲柄摇杆机构的条件
 
-![image-20240416105246543](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416105246543.png)
+- 曲柄摇杆机构：两个连架杆中有一个为曲柄，另一个为摇杆：最短杆为连架杆 1 时
+- 双曲柄机构：两个连架杆均为曲柄：最短杆为机架 4 时
+- 双摇杆机构：两个连架杆均为摇杆：最短杆为连杆 2 时
+
+![image-20240416220706207](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416220706207.png)
+
+#### 矢量方程法
+
+##### 步骤
+
+![image-20240417032040907](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240417032040907.png)
+
+- 总的来说就是列写矢量方程
+- 再按照实部和虚部相等列写两个方程求解
+- 速度与加速度对位移方程求导即可
+
+##### 曲柄滑块机构
+
+位移分析
+
+![image-20240417032129498](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240417032129498.png)
+
+速度分析（位移求导）
+
+![image-20240417032205341](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240417032205341.png)
+
+加速度分析
+
+![image-20240417032228970](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240417032228970.png)
+
+##### 曲柄摇杆机构
+
+位置分析
+
+![image-20240417032407332](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240417032407332.png)
+
+![image-20240417032513797](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240417032513797.png)
+
+![image-20240417032540629](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240417032540629.png)
+
+速度分析
+
+![image-20240417032607292](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240417032607292.png)
 
 ### 滑轮组
 
+- 固定轮只能用于改变力的方向，而运动轮可以降低输入力量的大小
+- 通过动滑轮，可以实现两倍的运动距离，但是需要的力矩需要增加一倍。
+
 ### 带传动
 
-### 链传动
+结构简单、传动平稳、造价低廉以及缓冲吸振
+
+#### 链传动
+
+是依靠链齿轮齿与链节的啮合来传递运动和动力，但在运转时**不能保证瞬时传动比**
+
+#### 同步带
+
+- 综合了带传动和链传动的优点
+- 避免采用润滑油对橡胶材料的皮带进行润滑，易造成橡胶的膨胀，导致其网裂和硬化。
 
 ### 涡轮-蜗杆传动
 
+- 传动比大，结构紧凑
+- 传动平稳，噪声小。
+- 具有自锁性。
+
+![动图](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/d081b02f504c3556ffff9d5a7d91d409_b.webp)
+
+![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/a942d11ag00qeurw800kpd000b4007wp.gif)
+
 ### 凸轮机构
+
+![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/q3fgrs7uda.gif)
 
 ### 轴承
 
+作用：用来支撑轴
+
+![image-20240422195340577](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240422195340577.png)
+
 使轴系有确定的位置
 
-## 机器人运动学
-
-正运动学：已知角度求位姿
-
-逆运动学：已知位姿求解角度
-
-滚动 `roll`
-
-俯仰 `pitch`
-
-偏摆 `yaw`
 
 
+![image-20240422195359029](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240422195359029.png)
 
-公式
+![image-20240422195541021](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240422195541021.png)
+
+![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/skzr7cxa9j.gif)
+
+![image-20240422201036218](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240422201036218.png)
+
+![image-20240422201142655](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240422201142655.png)
+
+![image-20240422201356861](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240422201356861.png)
+
+![image-20240422201534848](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240422201534848.png)
 
 
+
+
+
+
+
+## 六、机器人运动学
+
+### 基础概念
+
+**正运动学**：已知角度求末端执行器位姿
+
+**逆运动学**：已知位姿求解角度
+
+
+
+**关节空间**
+
+> 关节坐标是指描述机械臂中各个关节角度的坐标系。在关节坐标系中，每个关节的角度都被独立地表示出来，通过这些角度的变化，可以实现机械臂的运动。
+
+**笛卡尔空间**
+
+> 笛卡尔坐标系是一种常用的直角坐标系，它由三条相互垂直的坐标轴组成，分别为X轴、Y轴和Z轴。在笛卡尔坐标系中，任何点的位置都可以由这三个轴上的坐标值唯一确定。
+
+### 转动
+
+#### 桶滚 `roll`
+
+
+
+![在这里插入图片描述](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20190410212347423.gif)
+
+x轴不变，滚动（Roll)的旋转矩阵：
+$$
+\begin{bmatrix}
+1 & 0 & 0 \\
+0 & \cos\phi & -\sin\phi \\
+0 & \sin\phi & \cos\phi
+\end{bmatrix}
+$$
+
+#### 俯仰 `pitch`
+
+![在这里插入图片描述](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20190410212338361.gif)
+
+y轴不变，俯仰（Pitch)的旋转矩阵：
+$$
+\begin{bmatrix}
+\cos\theta & 0 & \sin\theta \\
+0 & 1 & 0 \\
+-\sin\theta & 0 & \cos\theta
+\end{bmatrix}
+$$
+#### 偏摆 `yaw`
+
+![在这里插入图片描述](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20190410212324456.gif)
+
+z轴不变，偏摆（Yaw）的旋转矩阵：
+
+$$
+\begin{bmatrix}
+\cos\psi & -\sin\psi & 0 \\
+\sin\psi & \cos\psi & 0 \\
+0 & 0 & 1
+\end{bmatrix}
+$$
+
+其中，$\phi$表示滚动角，$\theta$表示俯仰角，$\psi$表示偏摆角。这些矩阵分别表示了绕X轴、Y轴和Z轴的旋转。
+
+
+
+#### Z-Y-X欧拉角
+
+如果有一点 P绕原点依次作**滚动、俯仰和偏摆**，其位置将变成
+$$
+\begin{bmatrix}
+\cos\psi \cos\theta & -\sin\psi \cos\phi + \cos\psi \sin\theta \sin\phi & \sin\psi \sin\phi + \cos\psi \sin\theta \cos\phi \\
+\sin\psi \cos\theta & \cos\psi \cos\phi + \sin\psi \sin\theta \sin\phi & -\cos\psi \sin\phi + \sin\psi \sin\theta \cos\phi \\
+-\sin\theta & \cos\theta \sin\phi & \cos\theta \cos\phi
+\end{bmatrix}
+$$
+
+其中，$\phi$表示滚动角（roll），$\theta$表示俯仰角（pitch），$\psi$表示偏摆角（yaw）。这个矩阵表示了从世界坐标系到机体坐标系的变换。
+
+
+
+
+6自由度DOF 8个解
+
+7个自由度DOF 无穷多个解
+
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/017a2277142fe6ab01f933ad81c3e281_1440w.webp" alt="img" style="zoom:50%;" />
+
+一个6自由度的机械手，即使某两组构型对应的末端机构的三维位置相同，机械手在从一个构型移动到另一个构型的时候无法保持末端机构始终不动。
+
+如果有人在电视里看过[工业机器人](https://www.zhihu.com/search?q=工业机器人&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra={"sourceType"%3A"answer"%2C"sourceId"%3A77655656})焊东西的话，就会发现它在同一个位置焊接的时候，一会儿整个扭到这边，一会儿整个扭到那边，看起来非常酷炫的样子。事实上这么做只是因为，虽然焊接只是想改变末端机构的朝向，而不改变末端机构的位置，但是由于定理的限制，它必须要往后退一些，然后各种扭，才能保证在移动末端机构的朝向的过程中不会撞到东西，因为移动的时候末端机构的三维位置一定会乱动。如果它能够随便转一点点就可以达到目的，还费那个力气酷炫地整体都转起来干啥……
+
+而多了一个自由度以后就不一样了。
+
+想想开门时拧钥匙的动作，这个情况下是人胳膊的末端机构（手）的三维位置没有变（始终在钥匙孔前），但是末端机构（手）的三维旋转变了（转动了钥匙）。人能够实现这个简单的动作，就是因为我们的胳膊有7个自由度。
+
+说到这里，看官可能会看出来了，哎我懂了，我的末端机构有6个自由度（三维位置，三维旋转），而胳膊作为一个机械手，有7个自由度，这两个自由度好像说的不是一回事，但是数量上7-6=1，所以这1个自由度我能拿来拧钥匙。
 
 欧拉角
 
@@ -667,5 +1239,150 @@ VO的震荡问题
 
 ### 生物群落模型 flocking
 
+## 历年卷的一些题目
 
+##### Q1
+
+机器人的组成
+
+机器人是一种人造的机器机器人，具有人类的特性：体能，智能
+
+- 体能：依赖电荷、驱动和传动维持机器的运转
+- 智能：依赖传感器和电子线路实现控制反馈过程
+
+##### Q2 说明微控制器的冯诺依曼结构
+
+![image-20240414144051143](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240414144051143.png)
+
+##### Q3
+
+机器人传感器的定义？传感器在机器人系统中的作用？假如你正在设计一款智能移动家居机器人，请设计四个所需要的传感器，并说明原理和作用
+
+定义：用于**定量**感知环境**特定物质属性**的**电子、机械、化学设备**，并能够把各种物理量和化学量等**精确**地变换为**电信号**，再经由电子电路或计算机进行分析与处理，从而对这些量进行检测  
+
+作用：
+
+设计：
+
+**激光距离传感器/激光雷达（LIDAR）**   -
+
+- **原理：** 激光雷达通过发射激光脉冲并测量反射回来的光波的时间来计算距离。   
+- **作用：** 用于测量机器人周围物体的距离和位置，帮助进行导航、避障和地图构建。 
+
+**视觉传感器/摄像头**   
+
+- **原理：** 摄像头通过捕捉光线并将其转换为电子图像来模拟人类的视觉。   
+- **作用：** 用于视觉处理和识别，如识别室内的物品、门牌号或家庭成员的脸，以及为机器人视觉导航提供必要数据。 
+
+ **触觉传感器**   
+
+- **原理：** 触觉传感器在接触到物体时能够检测到压力或力量的变化。   
+- **作用：** 用于确保机器人在与家具或人互动时的安全性，比如在抓取物品时施加适当的力，或者在碰撞即将发生时停止移动。 
+
+**红外传感器/接近传感器**   
+
+- **原理：** 红外传感器通过发射红外光线并检测从表面反射回来的光线来检测物体的存在和距离。   
+- **作用：** 用于在比较近的距离内检测和避免障碍物，并帮助在低照明条件下导航。 这些传感器协同工作，使得智能移动家居机器人能够完成其设计目标，如自主导航，执行清洁或整理任务，以及与家庭成员互动。根据设计需求和成本限制，可能还会融入其他类型的传感器，以增强机器人的功能和提高互动品质。
+
+##### Q4
+
+双轮差速巡线小车，请画出巡线流程图，并编写一个简单的巡线用Arduino程序，简单注释
+
+流程图
+
+```
+开始
+|
+v
+初始化传感器和电机
+|
+v
+循环开始
+|      -----------------------
+|      | 读取左右巡线传感器 | 
+v      -----------------------
+|
+判断左右传感器值
+|
++-------------+-------------+
+| 左传感器检测到线（黑色）  | 右传感器检测到线（黑色）
++-------------+-------------+
+|             |             |
+让右轮加速   让左轮加速
+让左轮保持低速  让右轮保持低速
+|             |            
++------> 直行      
+|             
+|
+v
+结束循环
+```
+
+
+
+```C++
+// 定义Arduino引脚
+const int leftSensorPin = 2; // 左侧巡线传感器连接的引脚
+const int rightSensorPin = 3; // 右侧巡线传感器连接的引脚
+const int leftMotorPin = 9; // 左侧电机控制引脚
+const int rightMotorPin = 10; // 右侧电机控制引脚
+
+// 定义电机速度
+const int highSpeed = 255; // 高速
+const int lowSpeed = 150; // 低速
+
+void setup() {
+  pinMode(leftSensorPin, INPUT);
+  pinMode(rightSensorPin, INPUT);
+  pinMode(leftMotorPin, OUTPUT);
+  pinMode(rightMotorPin, OUTPUT);
+}
+
+void loop() {
+  // 读取传感器值
+  int leftSensorValue = digitalRead(leftSensorPin);
+  int rightSensorValue = digitalRead(rightSensorPin);
+
+  // 判断传感器的状态并调整电机速度
+  if (leftSensorValue == HIGH && rightSensorValue == LOW) {
+    // 左侧检测到线，右侧未检测到线，向右转
+    analogWrite(leftMotorPin, highSpeed);
+    analogWrite(rightMotorPin, lowSpeed);
+  } else if (rightSensorValue == HIGH && leftSensorValue == LOW) {
+    // 右侧检测到线，左侧未检测到线，向左转
+    analogWrite(rightMotorPin, highSpeed);
+    analogWrite(leftMotorPin, lowSpeed);
+  } else {
+    // 如果都未检测到或者都检测到了，直行
+    analogWrite(leftMotorPin, highSpeed);
+    analogWrite(rightMotorPin, highSpeed);
+  }
+}
+```
+
+##### Q5
+
+串励直流电机 
+
+- （1）写出电压平衡方程 
+- （2）写出转矩平衡方程
+- （3）用20kHz的pwm波调速，达到60%额定转速时的脉宽t1？
+
+![image-20240414191030070](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240414191030070.png)
+
+设电机永远接通电源时，其转速最大为Vmax，设占空比为D=t1/T，则电机的平均速度为
+$$
+V_d= V_{max} D\\
+$$
+故D = 60%，可以求出t1 = 30μs
+
+##### Q6
+
+定轴轮系 （1）几级减速？ （2）齿轮2的模数是1，求齿轮1的分度圆直径 （3）计算减速比
+
+（几级减速如何判断）
+
+
+
+码盘、加速度、陀螺仪
 
