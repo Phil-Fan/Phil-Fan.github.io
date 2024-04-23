@@ -220,7 +220,6 @@ nav:
     - CS/DataStructure-Tree.md
     - CS/DataStructure-Hash.md
     - CS/DataStructure-Sorting.md
-    - CS/DataStructure-Graph.md  
 
   - "计算机网络 | Computer Network" :
     - CS/ComputerNetwork-00-intro.md
@@ -229,14 +228,21 @@ nav:
     - CS/ComputerNetwork-03-NetworkLayer.md
     - CS/ComputerNetwork-04-LinkLayer.md
     - CS/ComputerNetwork-05-PhysicalLayer.md
+    - CS/security.md
     - CS/ComputerNetwork-06-networksecurity.md
     - CS/ComputerNetwork-07-experiment.md
     - CS/ComputerNetwork-08-问题探究.md
-    - CS/security.md
+    
     
   - "运筹学 | Operational Research":
     - CS/OperationalResearch.md
     - CS/OperationalResearch-DP.md
+    - CS/DataStructure-Graph.md 
+    - CS/OperationalResearch-DecisionTheory.md
+    - CS/OperationalResearch-GameTheory.md
+    - CS/OperationalResearch-GameTheoryModel.md
+    - CS/OperationalResearch-QueuingTheory.md
+     
     
 - Explore:
   - "CV | 计算机视觉":
@@ -291,7 +297,6 @@ nav:
 - "杂谈":
   - classes_in_zju.md
   - else/swimming.md
-  - Explore/GameTheory.md
 
 
 

@@ -12,20 +12,13 @@
        [2019-2020春夏部分考试回忆（机器人导论](https://www.cc98.org/topic/4960976/1#1)<br>
        [2020-2021春学期机器人导论回忆卷](https://www.cc98.org/topic/5070617)<br>
 
-
-
-1、冯诺依曼结构的硬件结构
-2、巡线小车的框图和程序设计（据我观察已经考了三四年了这题……不做评价）
- 3、传感器的定义，根据智能家居机器人写四种传感器or分析超声波/激光传感器的原理及其各自的优缺点
- 4、五种旋转变直线的机构
-
-> 螺丝、齿轮齿条、滚珠丝杠、曲柄滑块
-
- 5、写出3绕组2极无刷直流电机（就课上讲的模型）的联结方式和导通状态图
+![机器人导论](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%AF%BC%E8%AE%BA.png)
 
 ![image-20240416103542259](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416103542259.png)
 
 ![image-20240416164110402](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416164110402.png)
+
+## 一、导论
 
 
 
@@ -46,7 +39,16 @@
 4. 结构设计
 5. 优化分析
 6. 组装与测试
-7. 
+
+
+
+执行结构：完成操作任务
+
+传动机构：伺服系统 如齿轮
+
+支撑/导向机构：导向机构作用是**支撑和导向**，使运动能安全、准确地完成特定方向的运动。如：轴承和导轨
+
+
 
 
 
@@ -188,8 +190,6 @@ void loop()
 
 用于**定量**感知环境**特定物质属性**的**电子、机械、化学设备**，并能够把各种物理量和化学量等**精确**地变换为**电信号**，再经由电子电路或计算机进行分析与处理，从而对这些量进行检测  
 
-![image-20240416115839492](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416115839492.png)
-
 ### 静态特性
 
 指检测系统的输入为**不随时间变化**的恒定信号时，系统的输出与输入之间的关系
@@ -225,9 +225,12 @@ void loop()
 ![image-20240416111731145](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416111731145.png)
 
 类别
+
 旋转式:测量角位移
 
 直线式:测量线位移
+
+
 
 #### 编码器
 
@@ -333,7 +336,7 @@ $$
 
 双目视觉
 
-![image-20240416175522810](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416175522810.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416175522810.png" alt="image-20240416175522810" />
 
 **功能**
 
@@ -367,18 +370,6 @@ $$
 
 注意：**力矩 X 转速 = 功率**
 
-#### 分类
-
-- 电机驱动
-- 气动
-- 液压驱动
-
-
-
-转动惯量的匹配
-
-![image-20230907140256665](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20230907140256665.png)
-
 #### [有刷电机与无刷电机](https://www.bilibili.com/video/BV1ig411S7gX/?spm_id_from=333.337.search-card.all.click&vd_source=c22bb8d123dbc6430c3057dc8d2701b4)
 
 ![image-20240416164453791](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416164453791.png)
@@ -409,11 +400,9 @@ $$
 
 ![image-20240416104119842](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416104119842.png)
 
-转动顺序、导通方式
-
-**AB，AC，BC，BA，CA，CB**
-
-后三个是前三个反序
+!!! note "转动顺序、导通方式"
+    **AB，AC，BC，BA，CA，CB**<br>
+    后三个是前三个反序
 
 ![image-20240416104143466](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416104143466.png)
 
@@ -723,12 +712,6 @@ $D=\frac{t_1}{T}$:占空比
 
 ## 五、传动
 
-执行结构：完成操作任务
-
-传动机构：伺服系统 如齿轮
-
-支撑/导向机构：导向机构作用是**支撑和导向**，使运动能安全、准确地完成特定方向的运动。如：轴承和导轨
-
 ### 参数
 
 #### 传动机构的性能要求
@@ -748,33 +731,25 @@ $D=\frac{t_1}{T}$:占空比
 - 相同的强度，结构不同，刚度不同
 
 
-
-#### 自由度DOF：
-
-​	手臂：7自由度
-
-定义：刚体本身具有可独立运动方向的数目。
-$$
-F = 6(l - n - 1) + \sum_{i = 1}^{n}f_{i} \\
-l为连杆数（包括基座），n为关节总数，f_i为第i个关节的自由度数
-$$
-注：人的一条胳膊有7个自由度
-
-
-
-
-
 #### 减速比
 
 （传动比：输入速度与输出速度之比
 
 减速比，也即传动比。指减速机构输入速度与输出速度之比，用“i”表示。即，*i* =输入速度/输出速度，并使输出力/力矩变为原来的i倍。
+
 $$
 i = \frac{输入速度}{输出速度} = \frac{输入力矩}{输出力矩}
 $$
+
 例：电机输入减速箱的速度1000n/min，输出速度10n/min，则减速比 i =1000/10=100
 
 如电机输出力矩为Tin=0.1Nm，则输出力矩为Tout=Tin*i=0.1Nm*100=10Nm
+
+传动比是指机械传动系统中，始端主动轮与末端从动轮的角速度或转速的比值。传动比可以描述输入轴和输出轴之间的速度关系，包括齿轮传动、链条传动等多种传动方式。传动比的计算公式为：传动比 = 主动轮转速 / 从动轮转速。
+
+减速比则是传动比的一种特殊形式，专指减速装置的传动比。减速比是指减速机构中瞬时输入速度与输出速度的比值。减速比的目的是降低转速并增加扭矩，通常用于将高速低扭矩的驱动装置（如电动机）的速度降低，并提供高扭矩输出。减速比的计算公式为：减速比 = 输入转速 / 输出转速。
+
+
 
 #### 转动惯量
 
@@ -805,6 +780,8 @@ $$
 
 齿数要尽量大于17
 
+https://max.book118.com/html/2020/0123/8140121006002074.shtm
+
 
 
 #### 定轴传动
@@ -828,6 +805,8 @@ $$
 #### 减速比计算（重点）
 
 ![image-20240416215432743](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416215432743.png)
+
+![3d30f78dc8280d35bdeebccfba53a16](../../../../WeChatFile/WeChat%20Files/wxid_7vg96y67flrl32/FileStorage/Temp/3d30f78dc8280d35bdeebccfba53a16.png)
 
 #### 方向关系
 
@@ -902,7 +881,7 @@ AB当做输入，CD当做输出，则BC就是一个连杆
 
 ![image-20240416220706207](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416220706207.png)
 
-#### 矢量方程法
+#### 矢量方程法(不重要)
 
 ##### 步骤
 
@@ -972,13 +951,15 @@ AB当做输入，CD当做输出，则BC就是一个连杆
 
 ![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/q3fgrs7uda.gif)
 
+## 六、支撑与导向
+
 ### 轴承
 
-作用：用来支撑轴
+作用：用来支撑轴，使轴系有确定的位置
 
 ![image-20240422195340577](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240422195340577.png)
 
-使轴系有确定的位置
+
 
 
 
@@ -994,6 +975,8 @@ AB当做输入，CD当做输出，则BC就是一个连杆
 
 ![image-20240422201356861](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240422201356861.png)
 
+### 联接
+
 ![image-20240422201534848](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240422201534848.png)
 
 
@@ -1002,7 +985,7 @@ AB当做输入，CD当做输出，则BC就是一个连杆
 
 
 
-## 六、机器人运动学
+## 七、机器人运动学
 
 ### 基础概念
 
@@ -1020,7 +1003,50 @@ AB当做输入，CD当做输出，则BC就是一个连杆
 
 > 笛卡尔坐标系是一种常用的直角坐标系，它由三条相互垂直的坐标轴组成，分别为X轴、Y轴和Z轴。在笛卡尔坐标系中，任何点的位置都可以由这三个轴上的坐标值唯一确定。
 
+
+
+**自由度**
+
+手臂：7自由度；腿：6自由度
+
+定义：刚体本身具有可独立运动方向的数目。
+
+$$
+F = 6(l - n - 1) + \sum_{i = 1}^{n}f_{i} \\
+l为连杆数（包括基座），n为关节总数，f_i为第i个关节的自由度数
+$$
+
+
+
+6自由度DOF 8个解
+
+7个自由度DOF 无穷多个解
+
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/017a2277142fe6ab01f933ad81c3e281_1440w.webp" alt="img" style="zoom:50%;" />
+
+> 一个6自由度的机械手，即使某两组构型对应的末端机构的三维位置相同，机械手在从一个构型移动到另一个构型的时候无法保持末端机构始终不动。
+>
+> 
+>
+> 如果有人在电视里看过工业机器人焊东西的话，就会发现它在同一个位置焊接的时候，一会儿整个扭到这边，一会儿整个扭到那边，看起来非常酷炫的样子。事实上这么做只是因为，虽然焊接只是想改变末端机构的朝向，而不改变末端机构的位置，但是由于定理的限制，它必须要往后退一些，然后各种扭，才能保证在移动末端机构的朝向的过程中不会撞到东西，因为移动的时候末端机构的三维位置一定会乱动。如果它能够随便转一点点就可以达到目的，还费那个力气酷炫地整体都转起来干啥……
+>
+> 
+>
+> 而多了一个自由度以后就不一样了。
+>
+> 
+>
+> 想想开门时拧钥匙的动作，这个情况下是人胳膊的末端机构（手）的三维位置没有变（始终在钥匙孔前），但是末端机构（手）的三维旋转变了（转动了钥匙）。人能够实现这个简单的动作，就是因为我们的胳膊有7个自由度。
+
+
+
+
+
 ### 转动
+
+> 记忆变换矩阵的方法，已知一个轴是不动的，利用线代的知识，只需列写变换后的基向量的坐标即可推出矩阵
+>
+> [3blue1Brown视频-矩阵与线性变换_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1ib411t7YR?p=4&vd_source=8b7a5460b512357b2cf80ce1cefc69f5)
 
 #### 桶滚 `roll`
 
@@ -1029,6 +1055,7 @@ AB当做输入，CD当做输出，则BC就是一个连杆
 ![在这里插入图片描述](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20190410212347423.gif)
 
 x轴不变，滚动（Roll)的旋转矩阵：
+
 $$
 \begin{bmatrix}
 1 & 0 & 0 \\
@@ -1042,6 +1069,7 @@ $$
 ![在这里插入图片描述](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20190410212338361.gif)
 
 y轴不变，俯仰（Pitch)的旋转矩阵：
+
 $$
 \begin{bmatrix}
 \cos\theta & 0 & \sin\theta \\
@@ -1049,6 +1077,7 @@ $$
 -\sin\theta & 0 & \cos\theta
 \end{bmatrix}
 $$
+
 #### 偏摆 `yaw`
 
 ![在这里插入图片描述](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20190410212324456.gif)
@@ -1083,25 +1112,70 @@ $$
 
 
 
-6自由度DOF 8个解
 
-7个自由度DOF 无穷多个解
+??? note "例子"
+    如果使用矩阵来表示正运动学，我们可以将机械臂的关节角度和位置表示为向量，然后使用旋转矩阵和变换矩阵来进行计算。<br>
+    对于一个只有两个关节的机械臂，我们可以将关节角度表示为一个二维向量$\theta = \begin{bmatrix} \theta_1 \\ \theta_2 \end{bmatrix}$。然后，我们可以使用两个旋转矩阵来表示每个关节的旋转。<br>
+    第一个关节的旋转矩阵为：<br>
+    $$
+    R_1(\theta_1) = \begin{bmatrix}
+    \cos\theta_1 & -\sin\theta_1 & 0 \\
+    \sin\theta_1 & \cos\theta_1 & 0 \\
+    0 & 0 & 1
+    \end{bmatrix}
+    $$
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/017a2277142fe6ab01f933ad81c3e281_1440w.webp" alt="img" style="zoom:50%;" />
-
-一个6自由度的机械手，即使某两组构型对应的末端机构的三维位置相同，机械手在从一个构型移动到另一个构型的时候无法保持末端机构始终不动。
-
-如果有人在电视里看过[工业机器人](https://www.zhihu.com/search?q=工业机器人&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra={"sourceType"%3A"answer"%2C"sourceId"%3A77655656})焊东西的话，就会发现它在同一个位置焊接的时候，一会儿整个扭到这边，一会儿整个扭到那边，看起来非常酷炫的样子。事实上这么做只是因为，虽然焊接只是想改变末端机构的朝向，而不改变末端机构的位置，但是由于定理的限制，它必须要往后退一些，然后各种扭，才能保证在移动末端机构的朝向的过程中不会撞到东西，因为移动的时候末端机构的三维位置一定会乱动。如果它能够随便转一点点就可以达到目的，还费那个力气酷炫地整体都转起来干啥……
-
-而多了一个自由度以后就不一样了。
-
-想想开门时拧钥匙的动作，这个情况下是人胳膊的末端机构（手）的三维位置没有变（始终在钥匙孔前），但是末端机构（手）的三维旋转变了（转动了钥匙）。人能够实现这个简单的动作，就是因为我们的胳膊有7个自由度。
-
-说到这里，看官可能会看出来了，哎我懂了，我的末端机构有6个自由度（三维位置，三维旋转），而胳膊作为一个机械手，有7个自由度，这两个自由度好像说的不是一回事，但是数量上7-6=1，所以这1个自由度我能拿来拧钥匙。
-
-欧拉角
-
-![image-20240416110144598](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416110144598.png)
+    第二个关节的旋转矩阵为：<br>
+    $$
+    R_2(\theta_2) = \begin{bmatrix}
+    \cos\theta_2 & 0 & \sin\theta_2 \\
+    0 & 1 & 0 \\
+    -\sin\theta_2 & 0 & \cos\theta_2
+    \end{bmatrix}
+    $$
+    
+    然后，我们可以将这两个旋转矩阵相乘，得到总的旋转矩阵：<br>
+    $$
+    R(\theta) = R_2(\theta_2) \cdot R_1(\theta_1) = \begin{bmatrix}
+    \cos\theta_1\cos\theta_2 & -\sin\theta_1\cos\theta_2 & \sin\theta_2 \\
+    \sin\theta_1 & \cos\theta_1 & 0 \\
+    -\cos\theta_1\sin\theta_2 & \sin\theta_1\sin\theta_2 & \cos\theta_2
+    \end{bmatrix}
+    $$
+    
+    接下来，我们可以使用变换矩阵将机械臂的关节长度考虑进去。假设第一个关节的长度为$L_1$，第二个关节的长度为$L_2$，则变换矩阵为：<br>
+    $$
+    T = \begin{bmatrix}
+    1 & 0 & 0 & L_1 \\
+    0 & 1 & 0 & 0 \\
+    0 & 0 & 1 & L_2 \\
+    0 & 0 & 0 & 1
+    \end{bmatrix}
+    $$
+    
+    最后，我们可以将旋转矩阵和变换矩阵相乘，得到机械臂末端位置的齐次变换矩阵：<br>
+    $$
+    H(\theta) = T \cdot R(\theta) = \begin{bmatrix}
+    \cos\theta_1\cos\theta_2 & -\sin\theta_1\cos\theta_2 & \sin\theta_2 & L_1\cos\theta_1\cos\theta_2 + L_2\sin\theta_2 \\
+    \sin\theta_1 & \cos\theta_1 & 0 & L_1\sin\theta_1 \\
+    -\cos\theta_1\sin\theta_2 & \sin\theta_1\sin\theta_2 & \cos\theta_2 & L_1\cos\theta_1\sin\theta_2 - L_2\cos\theta_2 \\
+    0 & 0 & 0 & 1
+    \end{bmatrix}
+    $$
+    
+    通过这个齐次变换矩阵，我们可以得到机械臂末端在笛卡尔坐标系中的位置，它表示为矩阵的最后一列。例如，如果我们已知关节角度$\theta_1 = \frac{\pi}{4}$和$\theta_2 = \frac{\pi}{3}$，以及关节长度$L_1 = 1$米和$L_2 = 2$米，我们可以代入矩阵计算得到：
+    $$
+    H\left(\frac{\pi}{4}, \frac{\pi}{3}\right) = \begin{bmatrix}
+    \frac{\sqrt{2}}{2}\frac{\sqrt{3}}{2} & -\frac{\sqrt{2}}{2}\frac{\sqrt{3}}{2} & \frac{\sqrt{3}}{2} & \frac{3\sqrt{6}}{4} \\
+    \frac{\sqrt{2}}{2} & \frac{\sqrt{2}}{2} & 0 & \frac{\sqrt{2}}{2} \\
+    -\frac{\sqrt{2}}{2}\frac{\sqrt{3}}{2} & \frac{\sqrt{2}}{2}\frac{\sqrt{3}}{2} & \frac{\sqrt{3}}{2} & -\frac{\sqrt{6}}{4} \\
+    0 & 0 & 0 & 1
+    \end{bmatrix}
+    $$
+    
+    因此，机械臂末端的位置在笛卡尔坐标系中为$\left(\frac{3\sqrt{6}}{4}, \frac{\sqrt{2}}{2}, -\frac{\sqrt{6}}{4}\right)$，与之前使用方程计算得到的结果一致。<br>
+    
+    这个例子展示了如何使用矩阵来表示和计算正运动学，这种方法在处理更复杂的机械臂系统时非常有用。<br>
 
 ## 地图与规划
 
@@ -1240,6 +1314,20 @@ VO的震荡问题
 ### 生物群落模型 flocking
 
 ## 历年卷的一些题目
+
+1、冯诺依曼结构的硬件结构
+
+2、巡线小车的框图和程序设计（据我观察已经考了三四年了这题……不做评价）
+
+ 3、传感器的定义，根据智能家居机器人写四种传感器or分析超声波/激光传感器的原理及其各自的优缺点
+
+ 4、五种旋转变直线的机构
+
+> 螺丝、齿轮齿条、滚珠丝杠、曲柄滑块
+
+ 5、写出3绕组2极无刷直流电机（就课上讲的模型）的联结方式和导通状态图
+
+
 
 ##### Q1
 

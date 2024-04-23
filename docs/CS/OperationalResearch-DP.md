@@ -1,11 +1,21 @@
-# DP
+# 动态规划 | DP
 
-## LCS(longest common subsequence)最长公共子序列
+ 
+
+动态规划是一种求解多阶段决策过程最优解的方法，包括以下内容：
+
+- 基本概念：包括阶段、状态、决策、策略等。
+- 最优化原理和最优化定理：最优策略的子策略是对应子问题的最优策略。
+- 状态无后效性：某阶段的状态确定后，此后过程的演变不再受此前各状态及决策的影响。
+- 动态规划的逆序解法和顺序解法：两种不同的求解顺序，但本质相同。
+
+
+
+LCS(longest common subsequence)最长公共子序列
 
 max(dp(i-1,j-1)+1,dp(i,j-1),dp(i-1,j))
 
 
 
-## LIS(Longest Increasing Subsequence) 最长上升子序列
-
+LIS(Longest Increasing Subsequence) 最长上升子序列
 
