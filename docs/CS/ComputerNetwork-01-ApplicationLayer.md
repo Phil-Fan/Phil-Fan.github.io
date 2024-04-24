@@ -102,8 +102,6 @@ UDP套接字指定了应用所在的端结点（end point）
 
 不可靠 无连接
 
-
-
 #### TCP
 
 可靠、流量控制、拥塞控制、面向连接
@@ -194,6 +192,7 @@ Accept-language:fr
     - User-Agent：客户机通过这个头告诉服务器，客户机的软件环境（操作系统，浏览器版本等）；
     - Cookie：客户机通过这个头，将 Coockie 信息带给服务器；
     - Connection：告诉服务器，请求完成后，是否保持连接；
+
    - **Date**：header line indicates the time and date when the HTTP
      response was created and sent by the server. **Note that this is not the time when the object was created or last modified; it is the time when the server retrieves the object from its file system, inserts the object into the response message, and sends the response message.**
 
