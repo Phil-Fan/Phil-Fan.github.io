@@ -2,7 +2,7 @@
 
 > Perhaps what appeals the most to users is that the Web operates on demand. Users receive what they want, when they want it.
 
-![应用层思维导图](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/%E5%BA%94%E7%94%A8%E5%B1%82.png)
+![应用层](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/%E5%BA%94%E7%94%A8%E5%B1%82.svg)
 
 ## 原理
 
@@ -14,7 +14,7 @@ SAP
 
 - 唯一的IP地址（主机是哪个）
 - 采用的传输层协议 TCP/UDP
-- 端口号 PortNumber（16bit 65536）
+- 端口号 Port Number（16bit 65536）
 
 HTTP:80;Mail: TCP25;FTP: TCP2
 
@@ -37,32 +37,6 @@ HTTP:80;Mail: TCP25;FTP: TCP2
 IP交给下方
 
 
-
-
-
-#### socket(IP:port)套接字
-
-- TCP - `Transmission Control Protocol`<br>
-
-  四元组 我ip+port 对方ip+port
-
-记忆了一个会话关系，不必要每次都有
-
-建立了一个socket的映射
-
-> 经常和朋友寄件，只要知道你经常寄的信息（socket）的代码，顺丰就可以直接寄走
-
-- UDP - `User Datagram Protocol`
-
-  二元组 本地ip+port
-
-使得穿过层间的信息量最少
-
-UDP套接字指定了应用所在的端结点（end point）
-
-发送报文必须指定对方的ip+port
-
-> 不经常寄件，需要提供自己的地址和对方的地址
 
 
 
@@ -98,19 +72,15 @@ UDP套接字指定了应用所在的端结点（end point）
 
 ### 传输层提供的服务
 
-#### UDP
+UDP：不可靠 无连接
 
-不可靠 无连接
-
-#### TCP
-
-可靠、流量控制、拥塞控制、面向连接
+TCP：可靠、流量控制、拥塞控制、面向连接
 
 
 
 ## 网络应用实例
 
-协议：报文格式语法、语义、次序、采取的动作
+**协议：报文格式语法、语义、次序、采取的动作**
 
 ### WEB & HTTP
 
@@ -251,18 +221,6 @@ description:
 !!! note 
 	TCP不维护报文长度，需要HTTP自己去断句
 
-
-
-#### 工具
-
-CLI - Telnet
-
-软件 - Wireshark
-
-python - request库
-
-
-
 #### `cookies`用户-服务器状态 
 
 [Session、Cookie、Cache、Token分别是什么及区别](https://blog.csdn.net/xuhang1993/article/details/71164596)
@@ -296,7 +254,7 @@ python - request库
 
 
 
-#### **`Session`**
+##### **`Session`**
 
 会话关系
 
@@ -304,14 +262,15 @@ Session保存在服务器上。客户端浏览器访问服务器的时候，服�
 
 
 
-**Token**
+##### **Token**
 
 token就是令牌，比如你授权（登录）一个程序时，他就是个依据，判断你是否已经授权该软件.
 当客户端请求页面时，服务器会生成一个随机数Token，并且将Token放置到session当中，然后将Token发给客户端（一般通过构造hidden表单）。下次客户端提交请求时，Token会随着表单一起提交到服务器端.
 
 
 
-**Session与Cookie的区别**
+##### **Session与Cookie的区别**
+
 Cookie和Session都是为了保存客户端和服务端之间的交互状态
 
 最大的区别就是Cookie是保存在客户端而Session就保存在服务端的。
@@ -526,6 +485,12 @@ TCP三次握手（前面1个RTT+一个去程）
 
 ### Email
 
+> SMTP管‘发’， POP3/IMAP管‘收’。
+>
+> POP3是比较老的[protocol](https://www.zhihu.com/search?q=protocol&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra={"sourceType"%3A"answer"%2C"sourceId"%3A29039357})，主要为了解决本地机器和远程邮件服务器链接的问题，每次邮件会download到本地机器，然后从[远程邮件服务器](https://www.zhihu.com/search?q=远程邮件服务器&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra={"sourceType"%3A"answer"%2C"sourceId"%3A29039357})上删掉（当然特殊config除外），然后进行本地编辑。这样的问题是如果从多个终端链接服务器，只有第一个下载的能看到，现在[pop4](https://www.zhihu.com/search?q=pop4&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra={"sourceType"%3A"answer"%2C"sourceId"%3A29039357})正在讨论中
+>
+> IMAP是比较新的（好吧，好像也是80年代的产物）protocol，可以将邮件分文件夹整理，然后这些信息也存在远程的邮件服务器上，读取邮件后，服务器上不删除。原理上IMAP应该是相当于online编辑，但现在的mail client基本都有在本地存copy的功能
+
 #### **SMTP** | 发送邮件协议 
 
 用户代理 ——> 消息队列 ——>放到指定用户mailbox目录
@@ -577,9 +542,7 @@ TCP三次握手（前面1个RTT+一个去程）
     9. 服务器响应250，表示邮件接受成功。<br>
     10. 客户端发送`QUIT`命令，结束会话。<br>
 
-##### 多媒体扩展 MIME(mitimedia mail extension)
-
-base64编码
+多媒体扩展 MIME(mitimedia mail extension)：base64编码
 
 
 
@@ -620,10 +583,6 @@ Internet邮件访问协议
 
 ### DNS | `Domain Name System`
 
-IP 标示&寻址
-
-- 分层、基于域的命名
-- 分布式数据库、树状关系
 - 运行在UDP:53应用服务
 
 ???+note "互联网的复杂性"
@@ -632,17 +591,19 @@ IP 标示&寻址
 #### 作用
 
 - 提供域名到IP地址的转换
-- 规范名字（主机1-12）到别名的转换 `host aliasing`
-- 邮件父母器别名到正规名字转换 `Mail server aliasing`
+- 主机名到别名的转换 `host aliasing`
+- 邮件服务器别名 `Mail server aliasing`
 - 负载均衡`Load Distribution`: 
 
 > The DNS database contains this set of IP addresses. When clients make a DNS query for a name mapped to a set of addresses, the server responds with the entire set of IP addresses, but rotates the ordering of the addresses within each reply. Because a client typically sends its HTTP request message to the IP address that is listed first in the set, DNS rotation distributes the traffic among the replicated servers.
 
-#### 域名
+#### 分层NS实现的分布式数据库
+
+分布式数据库、树状关系
 
 ??? note "域名和主机名"
-   - **域名**是互联网上作为网站地址的一部分的一个易于记忆的名称，它映射到一个IP地址。域名系统（DNS）负责将域名转换为实际的IP地址，使得用户不需要记住复杂的数字序列就能访问网站。例如，`example.com`是一个域名。
-   - **主机名**是网络中某个设备的名称，用于标识网络中的计算机。它是一个标识符，用于在特定的网络环境中区分不同的设备。在很多情况下，主机名是解析为IP地址的一部分，它可以是域名的一部分或者单独存在于一个局部网络中。
+   - **域名**（domain name）是互联网上作为网站地址的一部分的一个易于记忆的名称，它映射到一个IP地址。域名系统（DNS）负责将域名转换为实际的IP地址，使得用户不需要记住复杂的数字序列就能访问网站。例如，`example.com`是一个域名。
+   - **主机名**（host name）是网络中某个设备的名称，用于标识网络中的计算机。它是一个标识符，用于在特定的网络环境中区分不同的设备。在很多情况下，主机名是解析为IP地址的一部分，它可以是域名的一部分或者单独存在于一个局部网络中。
 
 1. 每一个域名（只讨论英文域名）都是一个标号序列（labels），用字母（A-Z，a-z，大小写等价）、数字（0-9）和连接符（-）组成；
 2. 标号序列总长度不能超过 255 个字符，它由点号分割成一个个的标号（label）
@@ -654,93 +615,21 @@ www: 表示该公司的 WEB 服务器对应的主机
 
 ![预览大图](https://data.educoder.net/api/attachments/579702)
 
-##### 区域`zone`
-
-- 区域的划分有区域管理者自己决定
-
-- 将DNS名字空间划分为互不相交的区域，每个区域都是
-  树的一部分
-
-  
-
-- 名字服务器：
-
-  - 每个区域都有一个名字服务器：维护着它所管辖区域的权威信息
-    (authoritative record)
-  - 名字服务器允许被放置在区域之外，以保障可靠性
-
-层次树状结构，全球有13个根服务器
-
-- 顶级域`top lever domain`
-
-- 子域`subdomain`
-
-域与物理网络无关
-域遵从组织界限，而不是物理网络;是逻辑
-
-- 一个域的主机可以不在一个网络
-- 一个网络的主机不一定在一个域
-
-##### 分类
-
-1. 根域名服务器`(Root DNS servers)`：最高层次的域名服务器，本地域名服务器解析不了的域名就会向其求助；
-2. 顶级域名服务器`(TLD Top-level domain servers)`：负责管理在该顶级域名服务器下注册的二级域名；
+1. 根域名服务器`(Root DNS servers)`：最高层次的域名服务器，本地域名服务器解析不了的域名就会向其求助；、
+2. 顶级域名服务器`(TLD Top-level domain servers)`：负责管理在该顶级域名服务器下注册的二级域名；（如`com`、`org`、`net`、`edu`；`uk`，`fr`，`ca`，`jp`）
 3. 权限域名服务器`(Authoritative DNS servers)`：负责一个区的域名解析工作；
 4. 本地域名服务器`local DNS servers`：当一个主机发出 DNS 查询请求时，这个查询请求首先发给本地域名服务器。
 
-#### 报文
+#### 主机能查询分布式数据库的协议
 
-<img src="https://data.educoder.net/api/attachments/554296" alt="预览大图" style="zoom: 67%;" />
+- 应用调用解析器(resolver)；解析器作为客户向Name Server发出查询报文
+  （封装在UDP段中）；Name Server返回响应报文(name/ip)
 
-报文首部
+1. 先向Local Name Server(预先配置好的)进行查询
 
-- 标识符（ID）：16位（订单编号）
+- 目标名字在Local Name Server中：查询的名字在该区域内部或是缓存(cashing)
 
-- flags:
-
-  - 查询/应答
-
-  - 希望递归
-
-  - 递归可用
-
-  - 应答为权威
-
-
-
-- 资源记录`resource records`
-
-RR格式: (domain_name, ttl, type,class,Value)<br>
-`Domain_name`: 域名<br>
-`Ttl: time to live` : 生存时间(权威，缓冲记录)<br>
-`Class` 类别：对于Internet，值为IN<br>
-`Value` 值：可以是数字，域名或ASCII串<br>
-`Type` 类别：资源记录的类型—见下页<br>
-
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240129232745663.png" alt="image-20240129232745663" style="zoom:80%;" />
-
-缓存为了性能	TTL（默认2天）
-
-删除缓存为了和源端保持一致性
-
-
-
-#### 工作过程
-
-- 应用调用解析器(resolver)
-- 解析器作为客户向Name Server发出查询报文
-  （封装在UDP段中）
-
-- Name Server返回响应报文(name/ip)
-
-Local Name Server(预先配置好的)
-
-- 目标名字在Local Name Server中
-  - 情况1：查询的名字在该区域内部
-  
-  - 情况2：缓存(cashing)
-  
-- 当与本地名字服务器不能解析名字时，联系根名字服务器顺着根-TLD 一直找到权威名字服务器
+- 当与本地名字服务器不能解析名字时，查询根服务器 - TLD - 权威服务器
 
 <img src="https://data.educoder.net/api/attachments/579916" alt="预览大图" style="zoom:50%;" />
 
@@ -762,6 +651,45 @@ The query from the requesting host to the local DNS server is recursive, and the
 
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240318153924403.png" alt="image-20240318153924403" style="zoom:50%;" />
 
+
+
+#### DNS记录与报文
+
+##### 资源记录`resource records`
+
+四元组: (domain_name,value,type,TTL)<br>
+
+- `Domain_name`: 域名<br>
+- `Value` 值：可以是数字，域名或ASCII串<br>
+- `Type` 类别：资源记录的类型—见下页<br>
+- `Ttl: time to live` : 生存时间(权威，缓冲记录)默认2天<br>
+
+缓存为了性能，删除缓存为了和源端保持一致性<br>
+
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240129232745663.png" alt="image-20240129232745663" style="zoom:80%;" />
+
+##### 报文
+
+<img src="https://data.educoder.net/api/attachments/554296" alt="预览大图" style="zoom: 67%;" />
+
+报文首部
+
+- 标识符（ID）：16位（订单编号）
+
+- flags
+
+  - 查询/应答
+
+  - 希望递归
+
+  - 递归可用
+
+  - 应答为权威
+
+
+
+
+
 #### 命令
 
 [DNS报文及抓包分析-CSDN博客](https://blog.csdn.net/master_cui/article/details/112868443)
@@ -777,8 +705,6 @@ service networking restart
 ```
 
 
-
-##### `ping`
 
 ##### `nslookup`
 
@@ -800,11 +726,7 @@ nslookup -type=type domain # 指定类型查询
 
 >  迅雷
 
-每一个节点又可以充当服务器，又可以充当用户
-
-请求节点增加的同时，提供服务的节点也在增加
-
-
+每一个节点又可以充当服务器，又可以充当用户，请求节点增加的同时，提供服务的节点也在增加
 
 **缺点**：管理困难的多
 
@@ -820,9 +742,41 @@ nslookup -type=type domain # 指定类型查询
 
 ![image-20240130004451304](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240130004451304.png)
 
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240318154406618.png" alt="image-20240318154406618" style="zoom:50%;" />
 
 
 
+#### BitTorrent
+
+`bitmap`,定期泛洪交换
+
+`tracking server` 进行peer列表的维护
+
+![image-20240130101612770](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240130101612770.png)
+
+
+
+
+
+**问谁要**
+
+位图中全是0，随机请求其他节点的块；
+
+4个bit后开始稀缺优先（rarest first）；
+
+扰动`churn`: peer节点可能会上线或者下线，一旦一个peer拥有整个文件，它会（自私的）离开或者保留（利他主义）在torrent中
+
+
+
+**给谁发**
+
+`tit for tat`原则；可以更有利于网络的维护，激励共享，防止搭便车
+
+- 每10s计算：两个周期下载带宽大的排在前面（优先队列）；有限疏通：<br>
+
+  for each of her neighbors, Alice continually measures the rate at which she receives bits and determines **the four peers** that are feeding her bits at the highest rate
+
+- 每30s计算：第三个周期在请求中随机选择(additional)
 
 
 
@@ -860,38 +814,6 @@ nslookup -type=type domain # 指定类型查询
 
 如何定位所需资源
 如何处理对等方的加入与离开
-
-#### BitTorrent
-
-`bitmap`,定期泛洪交换
-
-![image-20240130101612770](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240130101612770.png)
-
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240318154406618.png" alt="image-20240318154406618" style="zoom:50%;" />
-
-
-
-- Peer加入torrent:
-
-位图中全是0，随机请求其他节点的块；
-
-4个bit后开始稀缺优先；`tit for tat`原则；可以更有利于网络的维护
-
-扰动churn: peer节点可能会上线或者下线
-
-一旦一个peer拥有整个文件，它会（自私的）离开或者保留（利他主义）在torrent中
-
-
-
-`tracking server` 进行peer列表的维护
-
-有限疏通：
-
-for each of her neighbors, Alice continually measures the rate at which she receives bits and determines **the four peers** that are feeding her bits at the highest rate
-
-每10s计算：两个周期下载带宽大的排在前面（优先队列）；
-
-每30s计算：第三个周期在请求中随机选择(additional)
 
 
 
@@ -1012,6 +934,26 @@ socket: 分布式应用进程之间的门，传输层协议提供的端到端服
 > A process is analogous to a house and its socket is analogous to its door
 
 
+
+- TCP - `Transmission Control Protocol`<br>
+
+  四元组 我ip+port 对方ip+port
+
+记忆了一个会话关系，不必要每次都有，建立了一个socket的映射
+
+> 经常和朋友寄件，只要知道你经常寄的信息（socket）的代码，顺丰就可以直接寄走
+
+- UDP - `User Datagram Protocol`
+
+  二元组 本地ip+port
+
+使得穿过层间的信息量最少
+
+UDP套接字指定了应用所在的端结点（end point）
+
+发送报文必须指定对方的ip+port
+
+> 不经常寄件，需要提供自己的地址和对方的地址
 
 
 

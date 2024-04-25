@@ -10,15 +10,163 @@ MATLAB 是“matrix laboratory”的缩写形式。MATLAB® 主要用于处理�
 
 ## 基础
 
+```matlab
+format long
+```
+
+### 复数
+
+复数包含实部和虚部，虚数单位是 `-1` 的平方根。
+
+```
+sqrt(-1)
+ans = 0.0000 + 1.0000i
+```
+
+要表示复数的虚部，请使用 `i` 或 `j`。
+
+```
+c = [3+4i, 4+3j; -i, 10j]
+```
+
+### 字符串数组中的文本
+
+当您处理文本时，将字符序列括在双引号中。可以将文本赋给变量。
+
+```matlab
+t = "Hello, world";
+```
+
+
+
+如果文本包含双引号，请在定义中使用两个双引号。
+
+```matlab
+q = "Something ""quoted"" and something else."
+```
+
+有时，字符表示的数据并不对应到文本，例如 DNA 序列。您可以将此类数据存储在数据类型为 `char` 的字符数组中。字符数组使用单引号。
+
+```matlab
+seq = 'GCTAGAATCC';
+whos seq
+seq2 = [seq 'ATTAGAAACC']
+```
+
+```shell
+seq2 =
+    'GCTAGAATCCATTAGAAACC'
+```
+
 ### 变量
 
+使用 `whos` 可以查看工作区的内容。
+
+```matlab
+whos
+```
+
+![The pane has a row for each variable. The columns are Name, Value, Min, and Max. Value includes size and class.](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/workspace.png)
+
+退出 MATLAB 后，工作区变量不会保留。使用 `save` 命令保存数据以供将来使用，
+
+```matlab
+save myfile.mat
+```
+
+通过保存，系统会使用 `.mat` 扩展名将工作区保存在当前工作文件夹中一个名为 MAT 文件的压缩文件中。
+
+要清除工作区中的所有变量，请使用 `clear` 命令。
+
+使用 `load` 将 MAT 文件中的数据还原到工作区。
+
+```matlab
+load myfile.mat
+```
+
+
+
+
+
 ### 函数
 
-### 向量
+```matlab
+max()
+union()
+[minA,maxA] = bounds(A) % 如果存在多个输出参数，请将其括在方括号中
+```
 
-### 函数
+用引号将任何文本输入括起来：
 
-## 矩阵计算
+```matlab
+disp("hello world")
+```
+
+
+
+## 矩阵
+
+### 创建
+
+请使用逗号 (`,`) 或空格分隔各元素,使用分号分隔各行。
+
+创建矩阵的另一种方法是使用 `ones`、`zeros` 或 `rand` 等函数。
+
+```matlab
+a = [1 3 5; 2 4 6; 7 8 10]
+z = zeros(5,1)
+```
+
+### 取值
+
+```matlab
+A(4,2)
+A(8) % 单一下标按顺序向下遍历每一列
+
+A(1:3,2) % 列出 A 前三行及第二列中的元素,与python元组语法类似
+A(3,:)
+
+B = 0:10:100 % 冒号表达式
+```
+
+
+
+
+
+
+
+### 运算
+
+MATLAB 允许您使用单一的算术运算符或函数来处理矩阵中的所有值
+
+```matlab
+a + 10
+sin(a)
+a' % 转置
+inv(a) % 逆矩阵
+```
+
+您可以使用 `*` 运算符执行标准矩阵乘法
+
+```
+p = a*inv(a)
+```
+
+元素级别乘法
+
+```matlab
+p = a.*a
+a.^3
+```
+
+### 串联
+
+*串联*是连接数组以便形成更大数组的过程。实际上，第一个数组是通过将其各个元素串联起来而构成的。成对的方括号 `[]` 即为串联运算符。
+
+```matlab
+A = [a,a]
+A = [a; a] % 垂直
+```
 
 
 
@@ -223,6 +371,8 @@ rlocus(num, den);
 - 添加`requirement`<br><img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240424103552781.png" alt="image-20240424103552781" style="zoom:50%;" />
 
 
+
+## 图像绘制
 
 
 
