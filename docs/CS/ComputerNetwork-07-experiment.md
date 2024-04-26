@@ -2,6 +2,16 @@
 
 
 
+## TCP
+
+??? bug "实验注意"
+    像Wireshark这种工具，通常显示的都是相对序列号/确认号，而不是实际序列号/确认号，相对序列号/确认号是和TCP会话的初始序列号相关联的。<br>
+    比如，在“包1”中，最初的相对序列号的值是0，但是最下方面板中的ASCII码显示真实序列号的值是0xf61c6cbe，转化为10进制为4129057982<br>
+	可以选择Wireshark菜单栏中的 **Edit** -> **Preferences** ->**protocols** ->**TCP**，去掉**Relative sequence number**后面勾选框中的√即可<br>
+    ![img](https://img-blog.csdn.net/20140725092301017?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYTE5ODgxMDI5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)<br>
+
+
+
 ## Clash给手机提供代理
 
 [使用Clash For Windows与Windows热点共享让你的所有移动设备科学上网 - CC98论坛](https://www.cc98.org/topic/5667186)

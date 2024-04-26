@@ -4,6 +4,17 @@
 
 ![应用层](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/%E5%BA%94%E7%94%A8%E5%B1%82.svg)
 
+
+
+| 对比           | HTTP   | FTP       | SMTP   | POP3 | IMAP | DNS  | BitTorrent |
+| -------------- | ------ | --------- | ------ | ---- | ---- | ---- | ---------- |
+| 中心/去中心    |        |           |        |      |      |      |            |
+| 有/无状态      | 无     | 有        | 无     | 无   | 有   |      |            |
+| 可靠/不可靠    |        |           |        |      |      |      |            |
+| 使用传输层协议 | TCP:80 | TCP:21,20 | TCP:25 | TCP  | TCP  | UDP  | TCP        |
+
+
+
 ## 原理
 
 ### 传输层服务模型
@@ -15,8 +26,6 @@ SAP
 - 唯一的IP地址（主机是哪个）
 - 采用的传输层协议 TCP/UDP
 - 端口号 Port Number（16bit 65536）
-
-HTTP:80;Mail: TCP25;FTP: TCP2
 
 
 
