@@ -7,6 +7,7 @@
         [【教程】推荐一个计算机网络小白向视频 - CC98论坛](https://www.cc98.org/topic/5793620)<br>
     
         [大鹏鸟 - 杨春节老师视角](https://www.cc98.org/topic/5671695)<br>
+        **复习优先级：HW、Quiz、Project、slides、textbook**
     
     === "光电   - 《数据通信与计算机网络》"
     
@@ -83,7 +84,7 @@ bit rate 性能指标
     - **KB (Kilobyte)**: 1 KB = 1024 Bytes <br>
     - **MB (Megabyte)**: 1 MB = 1024 KB = 1,048,576 Bytes <br>
     - **GB (Gigabyte)**: 1 GB = 1024 MB = 1,073,741,824 Bytes <br>
-
+    
     === "网络传输速率单位（基于1000"
     注意！！！ 1 Byte = 8 bits<br>
     注意换算时的基数差异（存储通常基于1024，而网络速率基于1000）<br>
