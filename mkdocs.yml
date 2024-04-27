@@ -199,6 +199,7 @@ nav:
   - Robotics/ROS.md
   - Robotics/Drone.md
   - Robotics/Introduction-to-Robotics.md
+  - Robotics/Introduction-to-Robotics-exam.md
   - "嵌入式系统 | Embbedded System":
     - Robotics/EmbeddedSystem-intro.md
     - Robotics/EmbeddedSystem-digitalcircuit.md

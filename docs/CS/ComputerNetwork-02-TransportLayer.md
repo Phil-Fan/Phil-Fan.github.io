@@ -390,6 +390,8 @@ message + 本地port + 对方 port 形成TCP数据报
 
 #### 建立连接(三次握手)
 
+!!! bug "与ACK序号有关的时间序列图"
+
 双方知道和对方通信；要准备一些必要的资源
 
 [TCP的三次握手详解](https://blog.csdn.net/weixin_48684274/article/details/108263608)

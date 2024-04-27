@@ -62,7 +62,7 @@ GPIO ： general purpose io
 
 二进制乘法： 移位相加 倍增
 
-![image-20240416101254260](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416101254260.png)
+![冯诺依曼.drawio](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/%E5%86%AF%E8%AF%BA%E4%BE%9D%E6%9B%BC.drawio.svg)
 
 ![image-20240416101303336](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416101303336.png)
 
@@ -332,21 +332,7 @@ $$
 
 压阻式、压电式、电容式
 
-### 相机
 
-双目视觉
-
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416175522810.png" alt="image-20240416175522810" />
-
-**功能**
-
-异常检测和图像分析；物体检测和识别；物体分割和识别；扫描测绘；环境理解；
-
-![image-20240416180035101](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416180035101.png)
-
-相机标定， 借助外部已知尺寸的物体，解算出内参
-
-![image-20240416180059493](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416180059493.png)
 
 ## 四、驱动
 
@@ -1048,6 +1034,8 @@ $$
 >
 > [3blue1Brown视频-矩阵与线性变换_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1ib411t7YR?p=4&vd_source=8b7a5460b512357b2cf80ce1cefc69f5)
 
+!!! note "绕x，绕z都正常，绕y反一下"
+
 #### 桶滚 `roll`
 
 
@@ -1094,7 +1082,7 @@ $$
 
 其中，$\phi$表示滚动角，$\theta$表示俯仰角，$\psi$表示偏摆角。这些矩阵分别表示了绕X轴、Y轴和Z轴的旋转。
 
-
+![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-9e1b5ce7917863ea39d34e84f3884faa_1440w.webp)
 
 #### Z-Y-X欧拉角
 
@@ -1117,15 +1105,16 @@ $$
     如果使用矩阵来表示正运动学，我们可以将机械臂的关节角度和位置表示为向量，然后使用旋转矩阵和变换矩阵来进行计算。<br>
     对于一个只有两个关节的机械臂，我们可以将关节角度表示为一个二维向量$\theta = \begin{bmatrix} \theta_1 \\ \theta_2 \end{bmatrix}$。然后，我们可以使用两个旋转矩阵来表示每个关节的旋转。<br>
     第一个关节的旋转矩阵为：<br>
-    $$
+$$
     R_1(\theta_1) = \begin{bmatrix}
     \cos\theta_1 & -\sin\theta_1 & 0 \\
     \sin\theta_1 & \cos\theta_1 & 0 \\
     0 & 0 & 1
     \end{bmatrix}
-    $$
+$$
 
     第二个关节的旋转矩阵为：<br>
+    
     $$
     R_2(\theta_2) = \begin{bmatrix}
     \cos\theta_2 & 0 & \sin\theta_2 \\
@@ -1135,6 +1124,7 @@ $$
     $$
     
     然后，我们可以将这两个旋转矩阵相乘，得到总的旋转矩阵：<br>
+    
     $$
     R(\theta) = R_2(\theta_2) \cdot R_1(\theta_1) = \begin{bmatrix}
     \cos\theta_1\cos\theta_2 & -\sin\theta_1\cos\theta_2 & \sin\theta_2 \\
@@ -1144,6 +1134,7 @@ $$
     $$
     
     接下来，我们可以使用变换矩阵将机械臂的关节长度考虑进去。假设第一个关节的长度为$L_1$，第二个关节的长度为$L_2$，则变换矩阵为：<br>
+    
     $$
     T = \begin{bmatrix}
     1 & 0 & 0 & L_1 \\
@@ -1154,6 +1145,7 @@ $$
     $$
     
     最后，我们可以将旋转矩阵和变换矩阵相乘，得到机械臂末端位置的齐次变换矩阵：<br>
+    
     $$
     H(\theta) = T \cdot R(\theta) = \begin{bmatrix}
     \cos\theta_1\cos\theta_2 & -\sin\theta_1\cos\theta_2 & \sin\theta_2 & L_1\cos\theta_1\cos\theta_2 + L_2\sin\theta_2 \\
@@ -1164,6 +1156,7 @@ $$
     $$
     
     通过这个齐次变换矩阵，我们可以得到机械臂末端在笛卡尔坐标系中的位置，它表示为矩阵的最后一列。例如，如果我们已知关节角度$\theta_1 = \frac{\pi}{4}$和$\theta_2 = \frac{\pi}{3}$，以及关节长度$L_1 = 1$米和$L_2 = 2$米，我们可以代入矩阵计算得到：
+    
     $$
     H\left(\frac{\pi}{4}, \frac{\pi}{3}\right) = \begin{bmatrix}
     \frac{\sqrt{2}}{2}\frac{\sqrt{3}}{2} & -\frac{\sqrt{2}}{2}\frac{\sqrt{3}}{2} & \frac{\sqrt{3}}{2} & \frac{3\sqrt{6}}{4} \\
@@ -1177,7 +1170,115 @@ $$
     
     这个例子展示了如何使用矩阵来表示和计算正运动学，这种方法在处理更复杂的机械臂系统时非常有用。<br>
 
-## 地图与规划
+## 八、机器人视觉
+
+
+
+**功能**
+
+异常检测和图像分析；物体检测和识别；物体分割和识别；扫描测绘；环境理解；
+
+![image-20240416180035101](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416180035101.png)
+
+
+
+[三维视觉测量技术：“被动”和“主动”视觉测量 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/590263368)
+
+### 被动视觉传感器
+
+定义：**被动视觉测量**不需要特殊的照明投射装置，仅利用相机拍摄被测物的图像，建立被测物与相机之间的相对位置关系，从而获取被测物表面的三维信息
+
+原理：借助外部光源的漫反射并结合小孔成像
+
+CCD传感器：放在成像面的一块具有反光能力的芯片
+
+缺点：
+
+- 无法获得物体的深度和大小（了解大小需要参照物 ）
+- 在外部光弱的情况下无法成像，依赖于外部环境影响
+
+双目相机可以获得深度
+
+![image-20240426112619019](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240426112619019.png)
+
+- 视差角的概念（图中a）
+- 需要认识两个图片直接的像素关系
+  - 改进措施：左目主动发射光源
+
+
+
+### 主动视觉传感器
+
+主动视觉测量与被动视觉测量最大的不同在于需要向被测物体投射光源
+
+
+
+### 机器人视觉应用
+
+- 划痕检测
+- 土壤分析
+- 文字识别
+- 人脸识别
+- 视觉定位、导航
+
+视觉提供了一种**几何测量**的工具，也提供一种**语义认知**的工具
+
+各种视觉应用是两种工具功能的组合
+
+
+
+### 图像函数
+
+图像是定义在CCD阵列下的离散函数  
+$$
+I:(u,v) ∈ [0,W-1] × [0,H-1] → q ∈ R^N  \\
+q = I(x)
+$$
+W,H分别为像素格数（横纵）
+
+
+
+#### 成像原理
+
+![image-20240426111452711](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240426111452711.png)
+
+**漫反射**无法成像
+
+![image-20240426111518621](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240426111518621.png)
+
+依靠小孔成像实现
+
+![image-20240426111607412](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240426111607412.png)
+
+用𝑐𝑥， 𝑐𝑦表示图像坐标系下的光心  
+
+引入 R， t 表示实际世界坐标和相机中心之间的位姿  
+
+#### 镜头畸变
+
+![image-20240426111747018](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240426111747018.png)
+
+![image-20240426111759427](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240426111759427.png)
+
+
+
+#### 相机标定
+
+相机标定， 借助外部已知尺寸的物体，解算出内参
+
+![image-20240416180059493](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416180059493.png)
+
+- 采用棋盘格作为已知尺寸的物体，利用平面特性方便求解  
+- 棋盘格的角点检测相对简单，可靠性高  
+
+#### 外参应用
+
+- 基于指定尺寸平面，可以估计出平面和相机的外参，也就是相机在世界坐标系下的位姿
+- 如果在世界坐标系下，增加一个虚拟点，可以计算出在图像中的成像  
+
+
+
+## 九、运动规划
 
 ### 里程估计
 
@@ -1201,25 +1302,83 @@ $$
 点云地图（无顺序，因而无法查询）
 ESDF图、沃罗若伊图、自由空间路线图
 
-### 路径规划
+### 前端—路径搜索
 
-精确最优
+#### 采样
 
-- 深度优先
-- 广度优先
+##### PRM
 
-近似最优
+基于概率采样的路径
 
-- 启发式搜索 A* D*
-- 模拟退火、进化、蚁群
+- 均匀生成采样点
+- 将与障碍物接触的点给删除
+- 领域点计算：在距离为r的园内均为领域点，将其连接
+- 碰撞检测：连线是否与障碍物相交
 
-### 避障规划
+优点：产生的roadmap可以被复用
 
-### 轨迹规划
+缺点：对于给定的起点和终点，非最短路径，效率低
+
+![image-20240427143014709](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240427143014709.png)
+
+[基于采样的运动规划算法-RRT(Rapidly-exploring Random Trees) - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/133224593)
+
+##### RRT
+
+- 概率采样，投影
+- 与最近点相连接，生成树
+
+优点：容易添加对目标点的引导，效率增加
+
+缺点：无法删除已生成树，但不一定是最短
 
 
 
-## 集群导论 - 高飞
+##### RRT*
+
+相比于RRT增加了Rewrie函数
+
+即在采样之后与最短路径连接后，考虑在某一个定长的圆的范围内，其内的点是否可以连接到新采样的点（用到初始点的距离进行判断）
+
+![image-20240427143031710](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240427143031710.png)
+
+
+
+[【算法】路径规划中的Dijkstra(狄克斯特拉)与A星算法_dijkstra和a星算法的差异-CSDN博客](https://blog.csdn.net/QLeelq/article/details/113862917)
+
+#### 搜索
+
+##### Dijkstra’s   
+
+加了权重的广度优先算法
+
+##### A*
+
+在Dijkstra's算法的基础上，加了对于距离目标点的预测方向，因而有了更强的目的性
+
+##### JPS
+
+在图上搜素
+
+
+
+三者都是最优解
+
+### 后端—轨迹优化
+
+#### Basic Minimum-snap  
+
+
+
+#### 硬约束与软约束轨迹优化  
+
+Hard constrained Minimum-snap  
+
+Soft Constrained Trajectory Optimization
+
+
+
+## 十、集群导论
 
 swarm
 
@@ -1285,6 +1444,12 @@ chstering
 
 ### `Velocity Obstacle`多智能体避障算法
 
+优点：复杂度低
+
+缺点： 每个机器人只考虑其它机器人当前的速度，而不考虑其他机器人下一个控制周期的速度  
+
+
+
 分布式的控制率
 
 
@@ -1312,6 +1477,20 @@ VO的震荡问题
 
 
 ### 生物群落模型 flocking
+
+基本思想： 为实现像鸟群一样的一致飞行，每一个体的运动由三股力量（速度）决定：
+
+- 短距离：与邻居、障碍物的排斥速度𝐯^𝑟𝑒𝑝，越靠近斥力越大； 
+- 中距离：运动对齐速度𝐯^𝑓𝑟𝑖𝑐𝑡，越偏离权重越大；
+- 长距离：远方目标的引力𝐯^𝑓𝑙𝑜𝑐𝑘，一定范围内维持未定；执行速度为三类速度的矢量  
+
+$$
+v^{exe} = v^{rep} + v^{frict} +v^{flock}
+$$
+
+应用难点： 参数繁多且对参数灵敏
+
+解决办法： 进化算法调参  
 
 ## 历年卷的一些题目
 
