@@ -285,13 +285,18 @@ nav:
     - Tools/obsidian.md
     - Tools/latex.md
   - "设计":
+    - Tools/color.md
     - Tools/powerpoint.md
     - Tools/design.md
+    - Tools/AdobePhotoshop.md
+    - Tools/AdobeIllustrator.md
+    
   - Tools/tableau.md
   - Tools/matlab.md
   - Tools/solidworks.md
   - Tools/sites.md
   - Tools/settings.md
+  
 
   
 

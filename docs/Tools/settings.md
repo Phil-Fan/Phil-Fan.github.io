@@ -38,6 +38,42 @@
 
 [AirPods Pro2蓝牙耳机连接win10电脑有杂音、不稳定问题 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/641213713)
 
+### 显示器相关
+
+#### 如何修复Type-C接口
+
+当我的type-c接口插了一段时间以后，接口就会出现松动的情况
+
+用针头将两侧的钩子撑开，就可以解决一定问题
+
+
+
+> 以下图片来自[USB TYPE C                             拆解以及USB3.1规范详解 (lulian.cn)](https://www.lulian.cn/news/88-cn.html)
+
+![USB Type C接头拆解图](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/1540889232305758.jpg)
+
+![USB Type C接头拆解图](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/1540889232965453.jpg)
+
+**盒盖不息屏**
+
+设置里搜“关闭盖子”
+
+![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-debea2bfb9bc1c5d7449c2a6c7080dfd_720w.webp)
+
+![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-79a54efe642a46bd24107b2a97f160d1_720w.webp)
+
+
+
+**Windows +A**进入消息中心
+
+![image-20240429090307137](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240429090307137.png)
+
+![image-20240429090336993](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240429090336993.png)
+
+打开显示设置，调节分辨率
+
+![image-20240429090404258](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240429090404258.png)
+
 
 
 ### 环境变量
@@ -142,71 +178,4 @@ ssh -p 15821 root@connect.westb.seetacloud.com
 
 
 
-
-## `mmpose 0.28`复现遇到问题
-
-### 安装流程
-
-[依赖环境 — MMPose 0.29.0 文档](https://mmpose.readthedocs.io/zh-cn/0.x/install.html#id2)
-
-[mmdet代码复现：安装指定版本的mmcv和mmdet以及版本匹配问题。-CSDN博客](https://blog.csdn.net/shysea2019/article/details/129818430)
-
-1. 安装`pytorch`
-2. 下载`mmpose 0.28`代码
-
-```shell
-pip install -U openmim
-mim install mmcv-full==1.3.8
-
-cd mmpose # 切换到源码目录
-pip install -r requirements.txt
-pip install -v -e .
-```
-
-### `错误 Microsoft Visual C++ 14.0 or greater is required.`
-
-这个原因就是因为由于缺少Microsoft Visual C++ Build Tools导致的
-
-根据报错里面提供的网址：[Microsoft C++ Build Tools - Visual Studio](https://visualstudio.microsoft.com/visual-cpp-build-tools/)把工具下好，如果你不知道你的项目部署的具体情况，就把c++的选项全点上。
-
-![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/e4f5ed6621e244de97c7a152277297b5.png)
-
-### `ModuleNotFoundError: No module named 'version'`
-
-错误原因：在`./mmpose/__init__.py`头有
-
-```python
-from version import __version__, short_version
-```
-
-相对引用有问题，需要改成
-
-```python
-from .version import __version__, short_version
-```
-
-
-
-### `AssertionError: Torch not compiled with CUDA enabled`
-
-问题：CUDA配置有问题，但是我的电脑没有显卡，所以需要使用CPU进行运算，所以在CPU上运行。
-
-```python
-# 法1
-# 原来的 torch.cuda.set_device(0)
-# 即把有device=xxx的语句统统写成cpu
-device = ('cuda' if torch.cuda.is_available() else 'cpu')
-
-
-
-# 法2
-# 原来的 checkpoint = torch.load("/home/model/model_J18.pth.tar")
-checkpoint = torch.load("C:/Users/user/Desktop/CoRRN/CoRRN/model/model_J18.pth.tar",map_location = 'cpu') 
-
-# 法3
-# 原来的 model = model.cuda() 
-model = model.to(device)
-```
-
-即将`.cuda()` 的地方都换成`.to(device)`
 
