@@ -64,20 +64,19 @@ $\begin{bmatrix} a_{11} & a_{12} & \cdots & a_{1n} \\ a_{21} & a_{22} & \cdots &
 
 **向量形式**
 $$
-\begin{align*}
+\begin{align}
 max(min)\quad &z = CX\\
 s.t. \quad&\Sigma P_j x_j \le b\\
 &X \ge 0,unr
-\end{align*}
+\end{align}
 $$
 
 
 
 **线性规划问题的标准形式**
 
-
 $$
-\begin{align*}
+\begin{align}
 max \quad &z = \mathbf{C}X\\
 s.t. &\left\{
 	\begin{array}{**lr**}  
@@ -85,7 +84,7 @@ s.t. &\left\{
 		x\ge 0 
 	\end{array}
 	\right.
-\end{align*}
+\end{align}
 $$
 
 > 可参照[【线性规划2】线性规划的标准型 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/31729190)中的例题
@@ -115,29 +114,31 @@ $$
 **变量条件转化为标准约束**
 
 $$
-\begin{align*}
+\begin{align}
 x_j \ge 0 \quad &不变\\
 x_j \le 0 \quad &取x_j' = -x_j\\
 x_j \ 无约束 \quad &取x_j'\ge 0,x_j''\ge 0,x_j = x_j'-x_j''
-\end{align*}
+\end{align}
 $$
 
 **约束条件的转化**
 
 把不等式条件转化为等式条件
+
 $$
-\begin{align*}
+\begin{align}
 \sum^n_{j=1} a_{ij}{x_j} \le b_i \quad\rightarrow\quad \sum^n_{j=1} a_{ij}x_{j} + x_{si}= b_i\\
 x_{sj} \quad 松弛变量
-\end{align*}
+\end{align}
 $$
 
 **目标函数的转化**
+
 $$
-\begin{align*}
+\begin{align}
 max \ z = \Sigma C_j x_j \quad &不变\\
  min \ z = \Sigma C_j x_j \quad &取 z' = -z\\
- \end{align*}
+ \end{align}
 $$
 
 
@@ -224,8 +225,8 @@ $$
     可行解$x$不是基可行解<br>
     $\Rightarrow$ $x$正分量对应的系数列向量线性相关<br>
     构造两个可行点<br>
-    $\Rightarrow$ $x$为两可行点的凸组合<br>
-    $\Rightarrow$$ x$​​不是顶点<br>
+    $\Rightarrow x$为两可行点的凸组合<br>
+    $\Rightarrow x$​​不是顶点<br>
 
 ![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-7de510c8cb1aedc309628d4f2984d2d6_1440w.webp)![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-3b51222801e565e186e6980183f6ae92_1440w.webp)
 
@@ -241,7 +242,7 @@ $$
 |   可行域的顶点   |        基可行解        |
 |  目标函数等值面  |   目标函数值相同的解   |
 
-<center><img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20200507160216458.png" alt="img" /><center>
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20200507160216458.png" alt="img" />
 
 ### 一、基本单纯形法
 
@@ -259,7 +260,7 @@ $$
 
 
 
-<center><img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240501140607194.png" alt="image-20240501140607194" style="zoom:50%;" /><center>
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240501140607194.png" alt="image-20240501140607194" style="zoom:50%;" />
 
 基本单纯形法是一种求解线性规划问题的方法，包括以下几个步骤：
 
@@ -406,24 +407,26 @@ $\mathop{min}\limits_{u(k),1\le k\le 10} \ max |y(k)-r(k)|$
 对偶问题是对称的
 
 原问题（Primal Problem）：
+
 $$
-\begin{align*}
+\begin{align}
 max \quad &Z = C \cdot x\\
 s.t. \quad &A \cdot x \le b\\
      &x \ge 0
-\end{align*}
+\end{align}
 $$
 
 
 其中，Z是目标函数，c是目标函数的系数向量，x是决策变量向量，A是约束矩阵，b是约束向量。
 
 对偶问题（Dual Problem）：
+
 $$
-\begin{align*}
+\begin{align}
 min \quad & W = b^T \cdot y\\
 s.t. \quad &A^T \cdot y \ge C^T\\
      &y \ge 0
-\end{align*}
+\end{align}
 $$
 
 
@@ -482,11 +485,11 @@ $$
 #### 互补松弛性（Complementary Slackness）
 
 $$
-(\boldsymbol{AX}-b)^T \boldsymbol{Y} = 0 \quad \boldsymbol{X^T(A^T Y-C^T}) = 0\\
+(\mathbf{AX}-b)^T \mathbf{Y} = 0 \quad \mathbf{X^T(A^T Y-C^T}) = 0\\
 \left\{
     \begin{array}
-        \boldsymbol{X_s^T Y} = 0\\
-        \boldsymbol{X^TY_s} = 0
+        \mathbf{X_s^T Y} = 0\\
+        \mathbf{X^TY_s} = 0
     \end{array}
 \right.
 $$
