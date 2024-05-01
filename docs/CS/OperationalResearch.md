@@ -37,11 +37,11 @@
 目标函数：maximize (或 minimize) $Z = c_1x_1 + c_2x_2 + \cdots + c_nx_n$
 
 约束条件：
-1. $a_{11}x_1 + a_{12}x_2 + \cdots + a_{1n}x_n \leq b_1$
-2. $a_{21}x_1 + a_{22}x_2 + \cdots + a_{2n}x_n \leq b_2$
-3. $\cdots$
-4. $a_{m1}x_1 + a_{m2}x_2 + \cdots + a_{mn}x_n \leq b_m$
-5. $x_1, x_2, \cdots, x_n \geq 0$​
+1. $a_{11}x_1 + a_{12}x_2 + \cdots + a_{1n}x_n \leq b_1$<br>
+2. $a_{21}x_1 + a_{22}x_2 + \cdots + a_{2n}x_n \leq b_2$<br>
+3. $\cdots$<br>
+4. $a_{m1}x_1 + a_{m2}x_2 + \cdots + a_{mn}x_n \leq b_m$<br>
+5. $x_1, x_2, \cdots, x_n \geq 0$<br>
 
 $C_n$为价值向量，$x_n$是约束变量，$A$是工艺矩阵，B为约束向量
 
@@ -52,6 +52,7 @@ $C_n$为价值向量，$x_n$是约束变量，$A$是工艺矩阵，B为约束向
 $Z = \begin{bmatrix} c_1 & c_2 & \cdots & c_n \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{bmatrix} = \mathbf{c}^T \mathbf{x}$
 
 约束条件：
+
 $\begin{bmatrix} a_{11} & a_{12} & \cdots & a_{1n} \\ a_{21} & a_{22} & \cdots & a_{2n} \\ \vdots & \vdots & \ddots & \vdots \\ a_{m1} & a_{m2} & \cdots & a_{mn} \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{bmatrix} \leq \begin{bmatrix} b_1 \\ b_2 \\ \vdots \\ b_m \end{bmatrix}$
 
 即 $\mathbf{A}\mathbf{x} \leq \mathbf{b}$，以及非负约束：$\mathbf{x} \geq \mathbf{0}$
@@ -59,6 +60,7 @@ $\begin{bmatrix} a_{11} & a_{12} & \cdots & a_{1n} \\ a_{21} & a_{22} & \cdots &
 
 
 **向量形式**
+
 $$
 max(min)\quad z = CX\\
 
@@ -66,6 +68,18 @@ s.t. \Sigma P_j x_j \le b\\
 
 X \ge 0,unr
 $$
+
+
+
+**线性规划问题的标准形式**
+
+
+$$
+max \quad &z = \mathbf{C}X\\
+s.t. &\mathbf{A}x = \vec{b}\\
+&x\ge 0
+$$
+
 
 
 
@@ -78,16 +92,18 @@ $$
 
 
 
-1. 解的情况:唯一最优解、无穷最优解、无界解（少了约束）无可行解（约束矛盾，鱼与熊掌不可得兼）
-2. 可行域很可能是一个凸集
-3. 最优解若存在，很可能就是可行域的顶点
-4. 必须寻找一种代数方法，来解决高维的情况
+从图解法我们可以发现有以下规律
+
+1. 解的情况:唯一最优解、无穷最优解、无界解（少了约束）无可行解（约束矛盾，鱼与熊掌不可得兼）<br>
+2. 可行域很可能是一个凸集<br>
+3. 最优解若存在，很可能就是可行域的顶点<br>
 
 
 
-数学技巧：
+### 数学技巧：
 
-变量条件转化为标准约束
+**变量条件转化为标准约束**
+
 $$
 \begin{align*}
 x_j \ge 0 \quad &不变\\
@@ -95,31 +111,43 @@ x_j \le 0 \quad &取x_j' = -x_j\\
 x_j \ 无约束 \quad &取x_j'\ge 0,x_j''\ge 0,x_j = x_j'-x_j''
 \end{align*}
 $$
-约束条件的转化
+
+**约束条件的转化**
+
+把不等式条件转化为等式条件
 $$
+\sum^n_{j=1} a_{ij}{x_j} \le b_i \quad\rightarrow\quad \sum^n_{j=1} a_{ij}x_{j} + x_{si}= b_i\\
 x_{sj} \quad 松弛变量
 $$
-目标函数的转化
+
+**目标函数的转化**
 $$
-max \ z = \Sigma C_j x_j \quad 不变
+ max \ z = \Sigma C_j x_j \quad &不变\\
+ min \ z = \Sigma C_j x_j \quad &取 z' = -z\\
 $$
 
 
-拉格朗日方程不可以用，$x\ge 0$不可以用求极值的方法
+
+
+
+!!! bug "拉格朗日方程不可以用"
+	$x\ge 0$这个条件不可以用求极值的方法
 
 !!! note "定义"
     === "可行域"
     在线性规划问题中，可行域是指满足所有约束条件的区域。换句话说，可行域包含了所有可行的解，即满足所有约束条件的解。
 
     数学表示：对于线性规划问题 $\max Z = \mathbf{c}^T\mathbf{x}$，约束条件为 $\mathbf{A}\mathbf{x} \leq \mathbf{b}$ 且 $\mathbf{x} \geq \mathbf{0}$，其可行域可以表示为：
+    
     $$
     \mathcal{F} = \{\mathbf{x} \in \mathbb{R}^n \mid \mathbf{A}\mathbf{x} \leq \mathbf{b}, \mathbf{x} \geq \mathbf{0}\}
     $$
+    
     其中，$\mathcal{F}$ 表示可行域，$\mathbb{R}^n$ 表示 $n$ 维实数空间。
     
     === "凸集"
     
-    凸集是指集合中任意两点之间的线段仍然属于该集合的集合。<br>
+    **凸集是指集合中任意两点之间的线段仍然属于该集合的集合。**<br>
     
     换句话说，如果集合中任意两点 $\mathbf{x}$ 和 $\mathbf{y}$，以及任意实数 $\lambda \in [0, 1]$，都有 $\lambda\mathbf{x} + (1-\lambda)\mathbf{y}$​ 属于该集合，那么该集合就是凸集。<br>
     
@@ -127,6 +155,7 @@ $$
     
     === "顶点"
     不出现在任意两点的连线内<br>
+    
     凸集的顶点是指凸集中不能被表示为其他点线性组合的点。换句话说，顶点是凸集中的极值点，无法通过凸集中其他点的线性组合来得到。<br>
     
     数学表示：对于凸集 $\mathcal{S} \subseteq \mathbb{R}^n$，如果存在点 $\mathbf{x} \in \mathcal{S}$，使得对于任意 $\mathbf{y}, \mathbf{z} \in \mathcal{S}$ 和任意 $\lambda \in (0, 1)$，都有 $\lambda\mathbf{y} + (1-\lambda)\mathbf{z} \neq \mathbf{x}$，那么点 $\mathbf{x}$ 是凸集 $\mathcal{S}$ 的一个顶点。<br>
@@ -136,7 +165,9 @@ $$
 线性规划最优解性质
 
 定理1若线性规划问题存在可行解，则问题的可行域是凸集。
+
 定理2 线性规划的可行域顶点与**基可行解**一一对应。
+
 定理3 若线性规划问题有最优解，一定存在一个**最优解是基可行解**。
 
 
@@ -147,16 +178,20 @@ $$
 
 基本单纯形法是一种求解线性规划问题的方法，包括以下几个步骤：
 
-- 松弛化为标准形式：通过添加松弛变量将不等号化为等号，并保证所有变量都大于等于0。
-- 找初始基可行解：通常通过构造某一部分单位矩阵来找到初始基可行解。
-- 最优性检验：计算检验数σ，即目标函数系数与对应基变量系数的差值。
-- 基可行解迭代：通过确定入基变量（按检验数最大选取）和出基变量（按bi/alk最小选取）来进行迭代求解。
-- 最优解判别：根据最终的检验数结果判断是否有唯一解、无穷解或无解。
+- **松弛化为标准形式**：通过添加松弛变量将不等号化为等号，并保证所有变量都大于等于0。
+- **找初始基可行解**：通常通过构造某一部分单位矩阵来找到初始基可行解。
+- **最优性检验**：计算检验数$\sigma$，即目标函数系数与对应基变量系数的差值。
+- 基可行解迭代：通过确定入基变量（按检验数最大选取）和出基变量（按$\frac{b_i}{a_{lk}}$最小选取）来进行迭代求解。
+- 最优解判别：根据最终的检验数结果判断是否有唯一解、无穷解或无解。<br>
   若最后检验数全等于0，有唯一可行解，若有至少一个检验数小于0，则有无数可行解，若检验数全小于0（没有一个等于0），则有无界解。
 
 2、单纯形表的各个元素的含义
 
 ![image-20240423091540343](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240423091540343.png)
+
+
+
+
 
 ### 二、人工变量法
 
