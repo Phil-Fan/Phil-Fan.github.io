@@ -30,6 +30,8 @@
 
 ## 线性规划
 
+![线性规划问题](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/%E7%BA%BF%E6%80%A7%E8%A7%84%E5%88%92%E9%97%AE%E9%A2%98.png)
+
 ### 数学表述与标准形式
 
 线性规划问题的一般数学模型可以表示为：
@@ -88,7 +90,7 @@ $$
 
 > 可参照[【线性规划2】线性规划的标准型 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/31729190)中的例题
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-60940d3d6f2b4378f3cb88c0217f25ed_1440w.webp" alt="img" style="zoom: 33%;" /><img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-c67044816117c7099e3d4c264edff055_1440w.webp" alt="img" style="zoom:33%;" /><img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-66da5ba9c5f0c5ddfb02c4ab77d26479_1440w.webp" alt="img" style="zoom:33%;" />
+<center><img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-60940d3d6f2b4378f3cb88c0217f25ed_1440w.webp" alt="img" style="zoom: 33%;" /><img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-c67044816117c7099e3d4c264edff055_1440w.webp" alt="img" style="zoom:33%;" /><img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-66da5ba9c5f0c5ddfb02c4ab77d26479_1440w.webp" alt="img" style="zoom:33%;" /><center>
 
 
 
@@ -166,30 +168,28 @@ $$
     数学表示：对于集合 $\mathcal{S} \subseteq \mathbb{R}^n$，如果对于任意 $\mathbf{x}, \mathbf{y} \in \mathcal{S}$ 和任意 $\lambda \in [0, 1]$，都有 $\lambda\mathbf{x} + (1-\lambda)\mathbf{y} \in \mathcal{S}$，那么集合 $\mathcal{S}$ 是一个凸集。
     
     === "顶点"
+    
     不出现在任意两点的连线内<br>
     
     凸集的顶点是指凸集中不能被表示为其他点线性组合的点。换句话说，顶点是凸集中的极值点，无法通过凸集中其他点的线性组合来得到。<br>
     
     数学表示：对于凸集 $\mathcal{S} \subseteq \mathbb{R}^n$，如果存在点 $\mathbf{x} \in \mathcal{S}$，使得对于任意 $\mathbf{y}, \mathbf{z} \in \mathcal{S}$ 和任意 $\lambda \in (0, 1)$，都有 $\lambda\mathbf{y} + (1-\lambda)\mathbf{z} \neq \mathbf{x}$，那么点 $\mathbf{x}$ 是凸集 $\mathcal{S}$ 的一个顶点。<br>
+    
     === "解"
-    满足$\left\{
-    	\begin{array}{**lr**}  
+    满足$\begin{array}{**lr**}  
     		\mathbf{A}x = \vec{b}\\
     		x\ge 0 
-    	\end{array}
-    	\right.
-    \end{align*}$的解$\mathbf{x} = (x_1,\dots,x_n)^T$是可行解。可行解的集合叫可行域。目标函数最值叫最优解
-
-
-​    
-​    === "基"
-​    系数矩阵$\mathbf{A}=(a_{ij})_{m\times n}$ $rank(A)=m$，$\mathbf{B_{m \times m}}= (p_1,p_2,\dots,p_m)$ 是A的非奇异子矩阵，B称为基。
-​    
+    	\end{array}$的解$\mathbf{x} = (x_1,\dots,x_n)^T$是可行解。可行解的集合叫可行域。目标函数最值叫最优解
+    
+    === "基"
+    系数矩阵$\mathbf{A}=(a_{ij})_{m\times n}$ $rank(A)=m$，$\mathbf{B_{m \times m}}= (p_1,p_2,\dots,p_m)$ 是A的非奇异子矩阵，B称为基<nr>
+    
     === "基向量"
     
     基$\mathbf{B_{m \times m}}= (p_1,p_2,\dots,p_m)$的向量$p_j$称为基向量，其他称为非基变量
     
     === "基解"
+    
     约束方程变为
     
     $$
@@ -204,14 +204,17 @@ $$
     === "基可行解"
     基解中$\mathbf{x} \ge 0$的解
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240501113721301.png" alt="image-20240501113721301" style="zoom:50%;" />
+<center>
+    <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240501113721301.png" alt="image-20240501113721301" style="zoom:50%;" />
+    <center>
+
 
 !!! note "定理1若线性规划问题存在可行解，则问题的可行域是凸集"
 
 !!! note "引理1 若$rank(A)=m$，则可行解$x$为基可行解"
 	可行解x的正分量所对应的系数列向量线性独立<br>
-	必要性证明：基可行解的定义<br>
-	充分性证明：<br>
+	**必要性证明**：基可行解的定义<br>
+	**充分性证明**：<br>
     可行解x是基解,构造x对应的基<br>
     假设x正分量个数为k，可知$k\le m$<br>
 
@@ -227,7 +230,7 @@ $$
     $\Rightarrow$ $x$为两可行点的凸组合<br>
     $\Rightarrow$$ x$​​不是顶点<br>
 
-![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-7de510c8cb1aedc309628d4f2984d2d6_1440w.webp)![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-3b51222801e565e186e6980183f6ae92_1440w.webp)
+    ![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-7de510c8cb1aedc309628d4f2984d2d6_1440w.webp)![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-3b51222801e565e186e6980183f6ae92_1440w.webp)
 
 
 
@@ -243,7 +246,7 @@ $$
 |   可行域的顶点   |        基可行解        |
 |  目标函数等值面  |   目标函数值相同的解   |
 
-![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20200507160216458.png)
+<center><img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20200507160216458.png" alt="img" /><center>
 
 ### 一、基本单纯形法
 
@@ -261,7 +264,9 @@ $$
 
 
 
+<center>
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240501140607194.png" alt="image-20240501140607194" style="zoom:50%;" />
+<center>
 
 基本单纯形法是一种求解线性规划问题的方法，包括以下几个步骤：
 
@@ -275,7 +280,7 @@ $$
 
   没有大于0的最优值时候，跳出循环
 
-  <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240501153721390.png" alt="image-20240501153721390" style="zoom:50%;" />
+  <center><img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240501153721390.png" alt="image-20240501153721390" style="zoom:50%;" /><center>
 
 - **基可行解迭代**：每次都只变更一个基向量<br>
 
@@ -294,11 +299,11 @@ $$
 
 
 
-![5c6bd94b01acd096378bcc5de043abb](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/5c6bd94b01acd096378bcc5de043abb.jpg)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/5c6bd94b01acd096378bcc5de043abb.jpg" alt="5c6bd94b01acd096378bcc5de043abb" style="zoom:50%;" />
 
 相邻基可行解的非基变量仅有一个不同
 
-![image-20240501153555816](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240501153555816.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240501153555816.png" alt="image-20240501153555816" style="zoom:33%;" />
 
 
 
@@ -314,6 +319,7 @@ $$
 
 例：某车间接到制作100套钢架的订单，每套钢架要用长为2.9m，2.1m，1.5m的圆钢各一根，已知原料长7.4m，问应如何下料，可使所用原料最省。
 
+
 | 方案     | 1    | 2    | 3    | 4    | 5    |
 | -------- | ---- | ---- | ---- | ---- | ---- |
 | 2.9      | 1    | 2    | 0    | 1    | 0    |
@@ -321,6 +327,7 @@ $$
 | 1.5      | 3    | 1    | 2    | 0    | 3    |
 | **合计** | 7.4  | 7.3  | 7.2  | 7.1  | 6.6  |
 | **剩余** | 0    | 0.1  | 0.2  | 0.3  | 0.8  |
+
 
 设$x_j$为按方案$j$​下料的原料根数
 
@@ -379,19 +386,125 @@ $\mathop{min}\limits_{u(k),1\le k\le 10} \ max |y(k)-r(k)|$
 
 ### 三、对偶理论
 
-对偶理论是研究原问题和对偶问题之间的关系，包括以下内容：
+> 参考博文
+>
+> [线性规划原问题对偶问题之间的转化](https://blog.csdn.net/qq_43657442/article/details/106074037)
+>
+> [对偶理论 : 总结 ](https://blog.csdn.net/shulianghan/article/details/112096734)
 
-- 对偶问题的理解：通过生产问题和出租设备问题来理解对偶问题。
-- 对偶松弛定理：通过计算对偶解的值，并代入对偶问题的不等式来判断原问题的解。
-- 对偶的自反性：问题的对偶的对偶是原问题。
-- 对偶单纯形法：在选择出基和入基变量以及最优性检验上与基本单纯形法有所不同。
-- 灵敏度分析：对问题的参数变化进行分析，研究其对最优解的影响。
+#### 背景理解
 
-
-
-1、对偶问题的理解：
 • 生产 : 目标函数追求 利润最大化 , 约束方程设备的使用时长受约束 , 小于等于 某个时间值 ;
 • 出租设备 : 目标函数追求 租金最小化 , 约束方程设备产生的利润要 大于等于 生产的利润 , 不能亏钱 ;
+
+> 感性理解：曲面的鞍点
+>
+> 两个问题的解相反但是
+
+![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-69e26f196f76a00179a7b5d3c8c793c4_1440w.webp)
+
+#### 对称性定理
+
+原问题 (LP - Primal problem) 的 对偶 是 对偶问题 (DP - Dual problem)
+对偶问题 (DP) 的 对偶 是 原问题 (LP)
+
+原问题 和 对偶问题 互为对偶 ;
+
+对偶问题是对称的
+
+原问题（Primal Problem）：
+$$
+\begin{align*}
+max \quad &Z = C \cdot x\\
+s.t. \quad &A \cdot x \le b\\
+     &x \ge 0
+\end{align*}
+$$
+
+
+其中，Z是目标函数，c是目标函数的系数向量，x是决策变量向量，A是约束矩阵，b是约束向量。
+
+对偶问题（Dual Problem）：
+$$
+\begin{align*}
+min \quad & W = b^T \cdot y\\
+s.t. \quad &A^T \cdot y \ge C^T\\
+     &y \ge 0
+\end{align*}
+$$
+
+
+其中，W是对偶目标函数，y是对偶变量向量。
+
+![image-20240501165458278](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240501165458278.png)
+
+#### 弱对偶性（Weak Duality）
+
+若$\overline{x}$是原问题(目标函数求最大)的可行解，$\overline{y}$是对偶问题（目标函数求最小）的可行解
+
+则$c^T\overline{x} \leq b^T\overline{y}$​。
+
+> 最优解是相同的，所以求最小值的大于求最大值的
+
+**弱对偶定理推论1:**
+
+原问题任何一个可行解的目标函数值,都是其对偶问题目标函数值的下界;
+
+对偶问题任何一个可行解的目标函数值,都是其原问题目标函数的上界;
+
+**弱对偶定理推论2:(对偶问题的无界性)**
+
+在一对对偶问题(P)和(D)中,
+
+如果其中一个线性规划问题可行,但是目标函数无界,则另外一个问题没有可行解;
+
+如果其中一个线性规划问题不可行,其对偶问题不一定不可行;
+
+**弱对偶定理推论3:**
+
+在一对对偶问题(P)和(D)中,
+
+如果其中一个线性规划问题可行,而另一个线性规划问题不可行,则该可行问题的目标函数是无界的;
+
+
+
+#### 最优性（Optimality）
+
+若$\overline{x}$是原问题的可行解，$\overline{y}$是对偶问题的可行解，且$c^T\overline{x} = b^T\overline{y}$
+
+则$\overline{x}$是原问题的最优解，$\overline{y}$​​是对偶问题的最优解
+
+
+
+#### 强对偶性（Strong Duality）
+
+若原问题和对偶问题都有可行解，则它们都有最优解，
+
+且最优解的目标函数值相等，即$c^Tx^* = b^Ty^*$
+
+
+
+
+
+#### 互补松弛性（Complementary Slackness）
+
+$$
+(\boldsymbol{AX}-b)^T \boldsymbol{Y} = 0 \quad \boldsymbol{X^T(A^T Y-C^T}) = 0\\
+\left\{
+    \begin{array}
+        \boldsymbol{X_s^T Y} = 0\\
+        \boldsymbol{X^TY_s} = 0
+    \end{array}
+\right.
+$$
+
+
+
+$X_s$与$Y_s$为松弛变量
+
+给了m+n个方程，互补松弛定理的等式
+
+![image-20240501170322542](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240501170322542.png)
 
 2、对偶松弛定理：
 先将问题的对偶解算出来，得到对偶解的值（条件1），代入对偶问题的不等式可得到对偶问题不等式是否为严格不等式（条件2）
@@ -400,7 +513,15 @@ $\mathop{min}\limits_{u(k),1\le k\le 10} \ max |y(k)-r(k)|$
 
 条件2：反之如果将对偶问题解代入可得为严格不等式，则原问题的对应解为0。
 
-3、对偶的自反性：问题的对偶的对偶是原问题
+
+
+约束条件的转化
+
+![在这里插入图片描述](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20201231075901236.png)
+
+![在这里插入图片描述](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/2020051213051145.png)
+
+
 
 ## 非线性规划
 
