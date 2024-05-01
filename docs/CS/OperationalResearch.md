@@ -90,7 +90,7 @@ $$
 
 > 可参照[【线性规划2】线性规划的标准型 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/31729190)中的例题
 
-<center><img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-60940d3d6f2b4378f3cb88c0217f25ed_1440w.webp" alt="img" style="zoom: 33%;" /><img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-c67044816117c7099e3d4c264edff055_1440w.webp" alt="img" style="zoom:33%;" /><img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-66da5ba9c5f0c5ddfb02c4ab77d26479_1440w.webp" alt="img" style="zoom:33%;" /><center>
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-60940d3d6f2b4378f3cb88c0217f25ed_1440w.webp" alt="img" style="zoom: 33%;" /><img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-c67044816117c7099e3d4c264edff055_1440w.webp" alt="img" style="zoom:33%;" /><img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-66da5ba9c5f0c5ddfb02c4ab77d26479_1440w.webp" alt="img" style="zoom:33%;" />
 
 
 
@@ -204,10 +204,7 @@ $$
     === "基可行解"
     基解中$\mathbf{x} \ge 0$的解
 
-<center>
-    <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240501113721301.png" alt="image-20240501113721301" style="zoom:50%;" />
-    <center>
-
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240501113721301.png" alt="image-20240501113721301" style="zoom:50%;" />
 
 !!! note "定理1若线性规划问题存在可行解，则问题的可行域是凸集"
 
@@ -230,9 +227,7 @@ $$
     $\Rightarrow$ $x$为两可行点的凸组合<br>
     $\Rightarrow$$ x$​​不是顶点<br>
 
-    ![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-7de510c8cb1aedc309628d4f2984d2d6_1440w.webp)![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-3b51222801e565e186e6980183f6ae92_1440w.webp)
-
-
+![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-7de510c8cb1aedc309628d4f2984d2d6_1440w.webp)![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-3b51222801e565e186e6980183f6ae92_1440w.webp)
 
 
 !!! note "定理3 若线性规划问题有最优解，一定存在一个**最优解是基可行解**"
@@ -264,9 +259,7 @@ $$
 
 
 
-<center>
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240501140607194.png" alt="image-20240501140607194" style="zoom:50%;" />
-<center>
+<center><img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240501140607194.png" alt="image-20240501140607194" style="zoom:50%;" /><center>
 
 基本单纯形法是一种求解线性规划问题的方法，包括以下几个步骤：
 
@@ -280,7 +273,7 @@ $$
 
   没有大于0的最优值时候，跳出循环
 
-  <center><img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240501153721390.png" alt="image-20240501153721390" style="zoom:50%;" /><center>
+  <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240501153721390.png" alt="image-20240501153721390" style="zoom:50%;" />
 
 - **基可行解迭代**：每次都只变更一个基向量<br>
 
