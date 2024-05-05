@@ -166,7 +166,7 @@ $$
     
     换句话说，如果集合中任意两点 $\mathbf{x}$ 和 $\mathbf{y}$，以及任意实数 $\lambda \in [0, 1]$，都有 $\lambda\mathbf{x} + (1-\lambda)\mathbf{y}$​ 属于该集合，那么该集合就是凸集。<br>
     
-    数学表示：对于集合 $\mathcal{S} \subseteq \mathbb{R}^n$，如果对于任意 $\mathbf{x}, \mathbf{y} \in \mathcal{S}$ 和任意 $\lambda \in [0, 1]$，都有 $\lambda\mathbf{x} + (1-\lambda)\mathbf{y} \in \mathcal{S}$，那么集合 $\mathcal{S}$ 是一个凸集。
+    数学表示：对于集合 $\mathcal{S} \subseteq \mathbb{R}^n$，如果对于任意 $\mathbf{x}, \mathbf{y} \in \mathcal{S}$ 和任意 $\lambda \in [0, 1]$，都有 $\lambda\mathbf{x} + (1-\lambda)\mathbf{y} \in \mathcal{S}$，那么集合 $\mathcal{S}$ 是一个凸集。<br>
     
     === "顶点"
     
@@ -177,13 +177,11 @@ $$
     数学表示：对于凸集 $\mathcal{S} \subseteq \mathbb{R}^n$，如果存在点 $\mathbf{x} \in \mathcal{S}$，使得对于任意 $\mathbf{y}, \mathbf{z} \in \mathcal{S}$ 和任意 $\lambda \in (0, 1)$，都有 $\lambda\mathbf{y} + (1-\lambda)\mathbf{z} \neq \mathbf{x}$，那么点 $\mathbf{x}$ 是凸集 $\mathcal{S}$ 的一个顶点。<br>
     
     === "解"
-    满足$\begin{array}{**lr**}  
-    		\mathbf{A}x = \vec{b}\\
-    		x\ge 0 
-    	\end{array}$的解$\mathbf{x} = (x_1,\dots,x_n)^T$是可行解。可行解的集合叫可行域。目标函数最值叫最优解
+    满足$\mathbf{A}x = \vec{b}\\x\ge 0$的解$\mathbf{x} = (x_1,\dots,x_n)^T$是可行解。<br>
+    可行解的集合叫可行域。目标函数最值叫最优解<br>
     
     === "基"
-    系数矩阵$\mathbf{A}=(a_{ij})_{m\times n}$ $rank(A)=m$，$\mathbf{B_{m \times m}}= (p_1,p_2,\dots,p_m)$ 是A的非奇异子矩阵，B称为基<nr>
+    系数矩阵$\mathbf{A}=(a_{ij})_{m\times n}$ $rank(A)=m$，$\mathbf{B_{m \times m}}= (p_1,p_2,\dots,p_m)$ 是A的非奇异子矩阵，B称为基<br>
     
     === "基向量"
     
@@ -199,7 +197,7 @@ $$
     \end{align*}
     $$
     
-    令$x_j=0,\quad j=\left[ m+1,n\right]$
+    令$x_j=0,\quad j=\left[ m+1,n\right]$<br>
     基解为解向量$\mathbf{x} = (x_1,\dots,x_m,0,\dots,0)^T$
     
     === "基可行解"
@@ -486,10 +484,11 @@ $$
 
 $$
 (\mathbf{AX}-b)^T \mathbf{Y} = 0 \quad \mathbf{X^T(A^T Y-C^T}) = 0\\
+
 \left\{
     \begin{array}
         \mathbf{X_s^T Y} = 0\\
-        \mathbf{X^TY_s} = 0
+        \mathbf{X^T Y_s} = 0
     \end{array}
 \right.
 $$

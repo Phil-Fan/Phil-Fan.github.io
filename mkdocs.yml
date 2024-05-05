@@ -290,6 +290,10 @@ nav:
     - Tools/design.md
     - Tools/AdobePhotoshop.md
     - Tools/AdobeIllustrator.md
+  - "摄影":
+    - Tools/Photography-base.md
+    - Tools/Photography-Landscape.md
+    - Tools/Photography-Portrait.md
     
   - Tools/tableau.md
   - Tools/matlab.md

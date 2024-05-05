@@ -10,6 +10,14 @@ MATLAB 是“matrix laboratory”的缩写形式。MATLAB® 主要用于处理�
 
 ## 基础
 
+
+
+`Ctrl + I`自动整理缩进
+
+多行注释：选中多行 → `Ctrl+R`；
+
+取消多行注释：选中多行 → `Ctrl+T`。
+
 ```matlab
 format long
 ```
