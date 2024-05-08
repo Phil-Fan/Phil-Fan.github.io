@@ -54,21 +54,21 @@
 
 ## 箭头
 
-|                                 |                                   |
-| ------------------------------- | --------------------------------- |
-| \uparrow                        | $\uparrow$                        |
-| \downarrow                      | $\downarrow$                      |
-| \Uparrow                        | $\Uparrow$                        |
-| \Downarrow                      | $\Downarrow$                      |
-| \updownarrow                    | $\updownarrow$                    |
-| \Updownarrow                    | $\Updownarrow$                    |
-| \rightarrow                     | $\rightarrow$                     |
-| \Longrightarrow                 | $\Longrightarrow$                 |
-| \Longleftarrow                  | $\Longleftarrow$                  |
-| \rightleftharpoons              | $\rightleftharpoons$              |
-| \nLeftarrow                     | $\nLeftarrow$                     |
-| \nRightarrow                    | $\nRightarrow$                    |
-| X\stackrel{F}{\longrightarrow}Y | $X\stackrel{F}{\longrightarrow}Y$ |
+|                                   |                                   |
+| --------------------------------- | --------------------------------- |
+| `\uparrow`                        | $\uparrow$                        |
+| `\downarrow`                      | $\downarrow$                      |
+| `\Uparrow`                        | $\Uparrow$                        |
+| `\Downarrow`                      | $\Downarrow$                      |
+| `\updownarrow`                    | $\updownarrow$                    |
+| `\Updownarrow`                    | $\Updownarrow$                    |
+| `\rightarrow`                     | $\rightarrow$                     |
+| `\Longrightarrow`                 | $\Longrightarrow$                 |
+| `\Longleftarrow`                  | $\Longleftarrow$                  |
+| `\rightleftharpoons`              | $\rightleftharpoons$              |
+| `\nLeftarrow`                     | $\nLeftarrow$                     |
+| `\nRightarrow`                    | $\nRightarrow$                    |
+| `X\stackrel{F}{\longrightarrow}Y` | $X\stackrel{F}{\longrightarrow}Y$ |
 
 ## 括号
 
@@ -166,6 +166,15 @@ $$
 | \boldsymbol{} | $\boldsymbol{A}$ |
 
 
+
+## 标注
+
+|                                                            |                            |
+| ---------------------------------------------------------- | -------------------------- |
+| 加^号 输入`\hat`  或 `\widehat`                            | $\hat{A}$<br>$\widehat{A}$ |
+| 加横线 输入 `\overline`                                    | $\overline{A}$             |
+| 加波浪线 输入` \widetilde`                                 | $\widetilde{A}$            |
+| 加一个点` \dot`{要加点的字母}加两个点`\ddot`{要加点的字母} | $\dot{A},\ddot{A}$         |
 
 
 

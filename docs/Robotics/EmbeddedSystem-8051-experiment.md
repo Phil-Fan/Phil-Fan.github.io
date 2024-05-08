@@ -209,22 +209,62 @@ C语言和汇编语言的相互调用
     sbit P10 = P1^0;
     void timer0(void) interrupt 1
     {
-     P10 = ! P10;
-     TH0 = -(10000/256);
-     TL0 = -(10000%256);
+        P10 = ! P10;
+        TH0 = -(10000/256);//重新初始化
+        TL0 = -(10000%256);
     }
     void main(void)
     {
-        TMOD = 0x01;//定时器初始化
+        TMOD = 0x01;			//定时器初始化
         P10 = 0;
         TH0 = -(10000/256);
-        TL0 = -(10000%256);//初始值
-        EA = 1;//中断使能
+        TL0 = -(10000%256);		//初始值
+        EA = 1;					//中断使能
         ET0 = 1;
-        TR0 = 1;//启动计时器
+        TR0 = 1;				//启动计时器
         while(1);
     } 
     ```
+
+
+
+!!! note "A/D转换接口编程示例"
+例  ADC0809与单片机的接口电路如图所示。采用查询方式采集数据的应用程序为：<br>
+
+![image-20240508112233118](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240508112233118.png)<br>
+
+```c
+# include “reg51.h”
+# include “absacc.h”
+# define uchar unsigned char
+# define IN0 XBYTE[0x7ff8]
+sbit ad_busy = P3^3;
+
+void main(void)
+{
+	uchar data ad[10];
+    while(1)
+    {
+    	ad0809(ad);
+    }
+} 
+void ad0809(uchar idata *x)
+{
+    uchar i;
+    uchar xdata * ad_adr;
+    ad_adr = & IN0;
+    for(i = 0；i < 8；i ++)
+    {
+        * ad_adr = 0; 			/*启动转换*/
+        i = i;              	/*延时等待*/
+        i = i;
+        while(ad_busy == 0);
+        x[i] = * ad_adr;  		/*存转换结果*/
+        ad_adr ++;            	/*下一通道*/
+    }
+}
+```
+
 
 
 
