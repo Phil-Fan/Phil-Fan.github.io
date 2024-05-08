@@ -83,6 +83,8 @@ $K_{A-B}$:对称密钥
   - 使用3个key，3重DES 运算；
   - 密文分组成串技术：当前明文和前面密文64bit 做异或处理
 
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240506083826564.png" alt="image-20240506083826564" style="zoom:50%;" />
+
 #### AES | `Advanced Encryption Standard`
 
 - 新的对称密钥NIST标准(Nov. 2001) 用于替换DES
@@ -93,34 +95,73 @@ $K_{A-B}$:对称密钥
 
 
 
+#### CBC | `Cipher Block Chaining`
+
+**密码块**：如果输入块重复，将会得到相同的密文块
+
+**密码块链**：
+
+异或第`i`轮输入`m(i)`, 与前一轮的密文, `c(i-1)`  
+
+`c(0)` 明文传输到接收端
 
 
-密码块：如果输入块重复，将会得到相同的密文块
- 密码块链： 异或第i轮输入m(i), 与前一轮的密文, c(i-1)  c(0) 明文传输到接收端
+
+$mac=MAC(K_{mac},message)$
+
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240506084559460.png" alt="image-20240506084559460" style="zoom:50%;" />
+
+是一种用于分组密码的加密模式。在CBC模式中，每个明文分组在加密之前会先与前一个密文分组进行XOR运算，然后再进行加密。这种方式使得密文分组之间相互连接，像链条一样
+
+当加密第一个明文分组时，由于不存在前一个密文分组，因此需要使用一个初始化向量（Initialization Vector，IV）来代替。初始化向量是一个随机生成的比特序列，其长度与分组长度相同。每次加密时，都会使用不同的初始化向量，以增加加密的安全性。
+
+CBC模式的特点包括：
+
+- 明文分组在加密之前一定会与前一个密文分组进行XOR运算，因此相同的明文分组在不同的上下文中会产生不同的密文分组。
+- 在加密过程中，无法单独对一个中间的明文分组进行加密，因为每个密文分组都依赖于前一个密文分组。
+- 在解密过程中，如果一个密文分组损坏，则最多只有两个分组会受到影响。
+
+
 
 ### 非对称密钥加密：
 
-RSA: `Rivest, Shamir, Adelson algorithm`
+**公钥只能用做数据加密。公钥加密的数据，只能用对应的私钥才能解密。这是非对称加密的核心概念**。
 
-两个密钥不一样
 
-公钥公开：证书方式
-
-私钥：自己保留
 
 
 
 加密
 
 > 我给你一把锁，钥匙只有我自己拿着，你把东西用我的锁锁起来
+>
+> 
 
 数字签名
 
 > 使用私钥进行盖章，就知道这个锁是来源是谁了
 
+!!! note "案例——小明小红去约会"
+    1、小明确定了自己的私钥 mPrivateKey，公钥 mPublicKey。自己保留私钥，将公钥mPublicKey发给了小红<br>
+    2、小红确定了自己的私钥 hPrivateKey，公钥 hPublicKey。自己保留私钥，将公钥 hPublicKey 发给了小明<br>
+    3、小明发送信息 “周六早10点soho T1楼下见”，并且用小红的公钥 hPublicKey 进行加密。<br>
+    4、小红收到信息后用自己的私钥 hPrivateKey 进行解密。然后回复 “收到，不要迟到” 并用小明的公钥mPublicKey加密。<br>
+    5、小明收到信息后用自己的私钥 mPrivateKey 进行解密。读取信息后心里暗想：还提醒我不迟到？每次迟到的都是你吧？<br>
+    以上过程是一次完整的request和response。通过这个例子我们梳理出一次信息传输的非对称加、解密过程：<br>
+    1、消息**接收方**准备好公钥和私钥<br>
+    2、私钥**接收方**自己留存、公钥发布给消息**发送方**<br>
+    3、消息**发送方**使用接收方公钥对消息进行加密<br>
+    4、消息**接收方**用自己的私钥对消息解密<br>
 
 
 
+#### RSA: `Rivest, Shamir, Adelson algorithm`
+
+两个密钥不一样
+
+- 公钥公开：证书方式
+
+- 私钥：自己保留
 
 RSA算法过程
 
@@ -168,7 +209,7 @@ Nonce: 一生只用一次的整数(R)
 
 
 
-ap4.0: 对称密钥加密
+### ap4.0: 对称密钥加密
 
 为了证明Alice的活跃性, Bob发送给Alice一个nonce,
 
@@ -178,7 +219,7 @@ R. Alice 必须返回加密之后的R，使用双方约定好的key
 
 
 
-ap5.0：非对称密钥加密
+### ap5.0：非对称密钥加密
 
 Bob发送challenge R，Alice发送私钥加密的报文和公钥，bob解密
 
@@ -196,7 +237,11 @@ Bob发送challenge R，Alice发送私钥加密的报文和公钥，bob解密
 
 数字签名类比于手写签名
 
-可验证性（对接收方），不可伪造性（对发送方），不可抵赖性（对第三方）
+- 可验证性（对接收方）
+
+- 不可伪造性（对发送方）
+
+- 不可抵赖性（对第三方）
 
 
 
@@ -210,11 +255,26 @@ Bob发送challenge R，Alice发送私钥加密的报文和公钥，bob解密
 
 > 一车水果打成果汁，取1mL果汁进行签名，足以代表一车水果
 
-MD5散列函数 - 四个步骤计算出128bit摘要
+![image-20240506091633237](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240506091633237.png)
 
-SHA-1 - 160bit报文摘要（git使用）
+### MD5散列函数 
 
-SHA-256
+四个步骤计算出128bit摘要
+
+Calculating a checksum using mathematical algorithms
+
+- It is impossible to guess the original data from the message digest
+- Regardless of the size of the original data, the resulting message digest can be a fixed size
+
+> This is the reason why it is used for digital signing and tamper-proofing
+
+- A change of a single bit in the original data will result in a different message digest
+
+  > Possibility of generating the same message digest is practically non-existent
+
+- SHA-1 - 160bit报文摘要（git使用）
+
+- SHA-256
 
 
 
@@ -277,8 +337,8 @@ KDC是Kerberos认证协议中的核心组件，主要用于认证服务和分配
 
 
 根证书：根证书是未被签名的公钥证书或自签名的证书
- 拿到一些CA的公钥
- 渠道：安装OS自带的数字证书；从网上下载，你信任的数字证书
+- 拿到一些CA的公钥
+- 渠道：安装OS自带的数字证书；从网上下载，你信任的数字证书
 
 
 
@@ -291,6 +351,46 @@ KDC是Kerberos认证协议中的核心组件，主要用于认证服务和分配
 - 
 
 ## 安全场景
+
+
+
+
+
+
+
+### 安全
+
+!!! note "What is Security? "
+	Confidentiality, Integrity, Availability (CIA triad)
+
+"CIA三元组"，它由保密性（Confidentiality）、完整性（Integrity）和可用性（Availability）三个要素组成，用于描述一个安全系统所需的基本属性。
+
+保密性是指保护系统和数据不被未授权的访问或泄露；
+
+完整性是指确保数据的准确性和一致性，防止未经授权的修改或破坏；
+
+可用性是指确保系统和数据在需要时可被授权用户访问和使用。
+
+
+
+!!! note "What Security Do We Need? "
+	Integrity, Confidentiality, Authenticity, Non-repudiation (I-CAN)
+
+"I-CAN"，它由完整性（Integrity）、保密性（Confidentiality）、认证性（Authenticity）和不可否认性（Non-repudiation）四个要素组成，用于描述一个安全系统所需的具体要求。
+
+Integrity | 完整性 : implementation using **message signature**
+
+Confidentiality | 保密性 : implementation using data encryption
+
+Authenticity | 认证性 : implementation using **challenge - response**,登录
+
+> 两个特工：天王盖地虎-宝塔镇河妖
+
+Non-repudiation | 不可否认性 : implementation using **message signature**。用私钥加密，公钥解密
+
+
+
+
 
 ### HTTP 认证
 
@@ -506,7 +606,8 @@ SYN flooding: 攻击者建立很多伪造TCP链接，对于真正用户而言已
 
 
 根据应用数据的内容来过滤进出的数据报，就像根据IP/TCP/UDP字段来过滤一样
- 检查的级别：应用层数据
+
+- 检查的级别：应用层数据
 
 对应用进行深度剖析
 
@@ -543,30 +644,30 @@ multiple IDSs: 在不同的地点进行不同类型的检查
 
 
 映射:
- 在攻击之前： “踩点” – 发现在网络上实现了哪些服务
- 使用ping来判断哪些主机在网络上有地址
- 端口扫描：试图顺序地在每一个端口上建立TCP连接(看看发生了什么)
+- 在攻击之前： “踩点” – 发现在网络上实现了哪些服务
+- 使用ping来判断哪些主机在网络上有地址
+- 端口扫描：试图顺序地在每一个端口上建立TCP连接(看看发生了什么)
 
 
 
 分组嗅探: 对策
- 机构中的所有主机都运行能够监测软件，周期性地检查是否有网卡运行于**混杂模式**
- 每一个主机一个独立的网段(交换式以太网而不是使用集线器)
+- 机构中的所有主机都运行能够监测软件，周期性地检查是否有网卡运行于**混杂模式**
+- 每一个主机一个独立的网段(交换式以太网而不是使用集线器)
 
 
 
 IP Spoofing欺骗:
- 可以有应用进程直接产生“raw” IP分组, 而且可以在IP源地址部分直接放置任何地址
- 接收端无法判断源地址是不是具有欺骗性的
- e.g. C 伪装成B
+- 可以有应用进程直接产生“raw” IP分组, 而且可以在IP源地址部分直接放置任何地址
+- 接收端无法判断源地址是不是具有欺骗性的
+- e.g. C 伪装成B
 
 设置入口过滤，出去的分组源IP应该和这个网段一致
 
 
 
 Denial of service (DOS): 对策
- 在到达主机之前过滤掉这些泛洪的分组(e.g., SYN): throw out good with bad
- 回溯到源主机(most likely an innocent,compromised machine)
+- 在到达主机之前过滤掉这些泛洪的分组(e.g., SYN): throw out good with bad
+- 回溯到源主机(most likely an innocent,compromised machine)
 
 
 
