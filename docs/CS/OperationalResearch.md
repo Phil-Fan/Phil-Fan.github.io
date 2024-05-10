@@ -63,6 +63,7 @@ $\begin{bmatrix} a_{11} & a_{12} & \cdots & a_{1n} \\ a_{21} & a_{22} & \cdots &
 
 
 **向量形式**
+
 $$
 \begin{align}
 max(min)\quad &z = CX\\
@@ -224,7 +225,16 @@ $$
     $\Rightarrow$ $x$正分量对应的系数列向量线性相关<br>
     构造两个可行点<br>
     $\Rightarrow x$为两可行点的凸组合<br>
-    $\Rightarrow x$​​不是顶点<br>
+    $\Rightarrow x$​​​不是顶点<br>
+
+> [感性理解](https://www.zhihu.com/question/23050705/answer/1205022104)
+>
+> 基本可行解有两个关键因素：
+>
+> 1. 所有约束均满足。
+> 2. 存在n个线性无关的约束有效。
+>
+> 顶点在约束所限制的多面体内，因此所有约束也都是满足的。下来考虑第二个关键因素，存在n个线性无关的约束有效，则说明这个点在n个超平面的交上。注意：n维空间中n个线性无关的超平面的交是一个点。（比如：2维空间中，两条线性无关的线的交是一个点；三维空间中，三个线性无关的面的交也是一个点）。那这个点为什么会是在多面体的最外侧而不是内部呢？这是因为多面体是由半空间所构成的，而上述的超平面就恰好是多面体的最外侧的面。那么基本可行解落在的点也就恰好是多平面的一个顶点。
 
 ![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-7de510c8cb1aedc309628d4f2984d2d6_1440w.webp)![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-3b51222801e565e186e6980183f6ae92_1440w.webp)
 
@@ -287,7 +297,7 @@ $$
 
 2、单纯形表的各个元素的含义
 
-![image-20240423091540343](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240423091540343.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240423091540343.png" alt="image-20240423091540343" style="zoom:67%;" />
 
 
 
@@ -440,6 +450,13 @@ $$
 
 > 最优解是相同的，所以求最小值的大于求最大值的
 
+!!! note "推导"
+    设$x_0,y_0$分别是原始问题和对偶问题的可行解，那么有$z = cx^0 \le y^{0T}A x^0 \le y^{0T}b = w$
+
+
+
+
+
 **弱对偶定理推论1:**
 
 原问题任何一个可行解的目标函数值,都是其对偶问题目标函数值的下界;
@@ -468,7 +485,10 @@ $$
 
 则$\overline{x}$是原问题的最优解，$\overline{y}$​​是对偶问题的最优解
 
-
+!!! note "证明"
+设$x^*,y^*$分别是原始问题和对偶问题的最优解<br>
+有$cx^0 \le cx^* \le b^T y^*\le b^T y^0$<br>
+所以当$cx^0 = b^T y^0$时候，有$cx^0 = cx^* = b^T y^*= b^T y^0$<br>
 
 #### 强对偶性（Strong Duality）
 
@@ -478,19 +498,42 @@ $$
 
 
 
+!!! note "证明"
+    由弱对偶性可知，原问题的目标函数值有上界，对偶问题的目标函数值有下界，故有最优值<br>
+    设原问题的最优解为$x^*$时，$x_B^* = \mathbf{B^{-1}} b$，由单纯形法矩阵分析，可知$y = (c_B B^{-1})^T$​是一个可行解<br>
+    满足$w = b^T y = c_B B^{-1}b = c_B x_B^* = cx^* = z^*$<br>
+
+| 初始单纯形表 | c            | 0            |
+| ------------ | ------------ | ------------ |
+| $0\ x_s\ b$  | $\mathbf{A}$ | $\mathbf{I}$ |
+| $\sigma_j$   | c            | 0            |
+
+| 最终单纯形表          | c              | 0             |
+| --------------------- | -------------- | ------------- |
+| $c_B \ x_B \ B^{-1}b$ | $B^{-1}A$      | $B^{-1}$      |
+| $\sigma _j$           | $c-c_BB^{-1}A$ | $-c_B B^{-1}$ |
+
+因为最终检验数都小于0，所以$c_B B^{-1} \ge 0,y = (c_B B^{-1})^T \ge 0$，且有$c-c_BB^{-1}A \le 0\\ c_BB^{-1}A \ge c$,所以y是一个可行解
+
+
+
+
+
 
 
 #### 互补松弛性（Complementary Slackness）
 
 $$
-(\mathbf{AX}-b)^T \mathbf{Y} = 0 \quad \mathbf{X^T(A^T Y-C^T}) = 0\\
+\begin{align}
+(\mathbf{AX}-b)^T \mathbf{Y} &= 0 \quad \mathbf{X^T(A^T Y-C^T}) = 0\\
 
-\left\{
+&\left\{
     \begin{array}
         \mathbf{X_s^T Y} = 0\\
         \mathbf{X^T Y_s} = 0
     \end{array}
 \right.
+\end{align}
 $$
 
 
@@ -499,7 +542,7 @@ $X_s$与$Y_s$为松弛变量
 
 给了m+n个方程，互补松弛定理的等式
 
-![image-20240501170322542](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240501170322542.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240501170322542.png" alt="image-20240501170322542" style="zoom:50%;" />
 
 2、对偶松弛定理：
 先将问题的对偶解算出来，得到对偶解的值（条件1），代入对偶问题的不等式可得到对偶问题不等式是否为严格不等式（条件2）
@@ -512,9 +555,44 @@ $X_s$与$Y_s$为松弛变量
 
 约束条件的转化
 
-![在这里插入图片描述](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20201231075901236.png)
+!!! note "一个问题的约束和对偶问题的变量有关系"
 
-![在这里插入图片描述](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/2020051213051145.png)
+
+
+| 原问题   | 对偶问题 |
+| -------- | -------- |
+| 约束     | 原变量   |
+| 原变量   | 约束     |
+|          | 松弛变量 |
+| 松弛变量 | 原变量   |
+| 基解     | 检验数   |
+| 检验数   | 基解     |
+
+
+
+单纯形表上，原问题的检验数对应对偶问题的一个基解，相反数关系;
+
+单纯形表同时给出原问题和对偶问题的基解。
+
+
+
+单纯形表的解释：保持x可行解，y演变为可行解
+
+!!! note "证明"
+
+对偶问题的约束方程$A^Ty-y_s = c^T$
+
+记录$A = [B\ N]\quad y_s= [y_{sB}^T \ y_{sN}]$​
+
+
+
+
+
+
+
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20201231075901236.png" alt="在这里插入图片描述" style="zoom: 67%;" />
+
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/2020051213051145.png" alt="在这里插入图片描述" style="zoom:67%;" />
 
 
 

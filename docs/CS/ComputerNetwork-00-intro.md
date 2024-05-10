@@ -1,17 +1,22 @@
 # `Introduction`
 
+
+
+
+
 ???+note "各学院开课信息"
     === "电气学院"
         [2023-2024冬 计算机网络与通信（电院） 期末考试回忆 - CC98论坛](https://www.cc98.org/topic/5799608)<br>
-
+		[控院计网 计算机网络原理 学习心得](https://www.cc98.org/topic/5877551/2#1)<br>
         [【教程】推荐一个计算机网络小白向视频 - CC98论坛](https://www.cc98.org/topic/5793620)<br>
     
-        [大鹏鸟 - 杨春节老师视角](https://www.cc98.org/topic/5671695)<br>
-		**复习优先级：HW、Quiz、Project、slides、textbook**
 
-		考题部分来自于top-down课本后原题，考前瞄了一眼这个系列[CSDN计网课后题整理](https://blog.csdn.net/weixin_46183779/category_11204556.html)
+        [大鹏鸟 - 杨春节老师视角](https://www.cc98.org/topic/5671695)<br>
+    	**复习优先级：HW、Quiz、Project、slides、textbook**
+    
+    	考题部分来自于top-down课本后原题，考前瞄了一眼这个系列[CSDN计网课后题整理](https://blog.csdn.net/weixin_46183779/category_11204556.html)
         
-		有几道题明显是HW的题改编的，所以要好好看一下老师发的课后题答案。总体感觉会偏理解，一些给到的公式和计算方法也没有进行考察。但是考试还是暴露了很多没有掌握的知识点，比如802.11部分的一些CSMA/CA的细节就没有注意到。
+    	有几道题明显是HW的题改编的，所以要好好看一下老师发的课后题答案。总体感觉会偏理解，一些给到的公式和计算方法也没有进行考察。但是考试还是暴露了很多没有掌握的知识点，比如802.11部分的一些CSMA/CA的细节就没有注意到。
     
     === "光电   - 《数据通信与计算机网络》"
     

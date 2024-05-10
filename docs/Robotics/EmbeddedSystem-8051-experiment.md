@@ -11,11 +11,11 @@
 
 能就叫它一脚吧？叫它什么名字呢？设计51 芯片的INTEL 公司已经起好了，就叫它P1.0，这是规定，不能由我们来更改。
 
-![image-20240327113053124](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240327113053124.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240327113053124.png" alt="image-20240327113053124" style="zoom:50%;" />
 
 ## C51编程
 
-![image-20240508102042152](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240508102042152.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240508102042152.png" alt="image-20240508102042152" style="zoom:40%;" />
 
 以main函数为主体
 
@@ -73,14 +73,13 @@ sfr  P1=0x90；      /* 定义P1口地址为90H */
 
 ```c
 sfr SCON = 0x90；/*定义串行口控制寄存器，地址为0x90 */
-sfr P0 = 0x80；  /*定义P0口，地址为0x80 */
-sfr16 T2 = 0xCC；/*定义80C52的T2L地址为0xCC，T2H地址为0xCD*/   
+sfr P0 = 0x80;  /*定义P0口，地址为0x80 */
+sfr16 T2 = 0xCC;/*定义80C52的T2L地址为0xCC，T2H地址为0xCD*/   
 
 
-  sfr PSW=0xD0；  /* 定义PSW寄存器地址为0xD0 */
-  sbit OV=PSW^2； /* 定义OV位为PSW.2，地址为0xD2 */
-  sbit CY=PSW^7； /* 定义CY位为PSW.7，地址为0xD7 */
-
+sfr PSW=0xD0;/* 定义PSW寄存器地址为0xD0 */
+sbit OV=PSW^2; /* 定义OV位为PSW.2，地址为0xD2 */
+sbit CY=PSW^7; /* 定义CY位为PSW.7，地址为0xD7 */
 ```
 
 
@@ -164,7 +163,7 @@ C语言和汇编语言的相互调用
 
 
 !!! note "实例"
-    在一80C51单片机应用系统中，**外中断0**引脚接一个开关，并行端口线P1.0接一个发光二级管。要求系统的功能是，开关闭合一次，发光二极管的状态改变一次。相应的程序为：<br>
+    在一80C51单片机应用系统中，**外中断0**引脚接一个开关，**并行端口线P1.0**接一个发光二级管。<br>要求系统的功能是，开关闭合一次，发光二极管的状态改变一次。相应的程序为：<br>
 
     ```c
     #include “reg51.h”
@@ -229,41 +228,37 @@ C语言和汇编语言的相互调用
 
 
 !!! note "A/D转换接口编程示例"
-例  ADC0809与单片机的接口电路如图所示。采用查询方式采集数据的应用程序为：<br>
-
-![image-20240508112233118](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240508112233118.png)<br>
-
-```c
-# include “reg51.h”
-# include “absacc.h”
-# define uchar unsigned char
-# define IN0 XBYTE[0x7ff8]
-sbit ad_busy = P3^3;
-
-void main(void)
-{
-	uchar data ad[10];
-    while(1)
+    ADC0809与单片机的接口电路如图所示。采用查询方式采集数据的应用程序为：<br>![image-20240508112233118](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240508112233118.png)<br>
+    ```c
+    # include “reg51.h”
+    # include “absacc.h”
+    # define uchar unsigned char
+    # define IN0 XBYTE[0x7ff8]
+    sbit ad_busy = P3^3;
+    void main(void)
     {
-    	ad0809(ad);
-    }
-} 
-void ad0809(uchar idata *x)
-{
-    uchar i;
-    uchar xdata * ad_adr;
-    ad_adr = & IN0;
-    for(i = 0；i < 8；i ++)
+        uchar data ad[10];
+        while(1)
+        {
+            ad0809(ad);
+        }
+    } 
+    void ad0809(uchar idata *x)
     {
-        * ad_adr = 0; 			/*启动转换*/
-        i = i;              	/*延时等待*/
-        i = i;
-        while(ad_busy == 0);
-        x[i] = * ad_adr;  		/*存转换结果*/
-        ad_adr ++;            	/*下一通道*/
+        uchar i;
+        uchar xdata * ad_adr;
+        ad_adr = & IN0;
+        for(i = 0；i < 8；i ++)
+        {
+            * ad_adr = 0; 			/*启动转换*/
+            i = i;              	/*延时等待*/
+            i = i;
+            while(ad_busy == 0);
+            x[i] = * ad_adr;  		/*存转换结果*/
+            ad_adr ++;            	/*下一通道*/
+        }
     }
-}
-```
+    ```
 
 
 
