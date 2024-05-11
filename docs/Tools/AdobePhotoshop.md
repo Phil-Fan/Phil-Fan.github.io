@@ -1,4 +1,4 @@
-# PS学习
+# Adobe Photoshop
 
 ## 图形制作
 

@@ -681,60 +681,61 @@ $A'=B^{-1}A \quad p_j'=B^{-1}p_j$​
 
 
 !!! note +"灵敏度分析例子"
-    问：如何安排产品产量，可获最大利润？
 
+    问：如何安排产品产量，可获最大利润？
+    
     | 原料 | 产品 | A    | B    | C    | 备用资源 |
     | ---- | ---- | ---- | ---- | ---- | -------- |
     | 甲   | 1    | 1    | 1    | 1    | 12       |
     | 乙   | 1    | 2    | 2    | 2    | 20       |
     | 利润 | 5    | 8    | 6    |      |          |
-
+    
     解：$max z=5x_1+8x_2+6x_3$
-
+    
     $\begin{cases} x_1+x_2+x_3+x_4=12 \\ x_1+2x_2+2x_3+x_5=20 \\ x_1,x_2,x_3\geq0 \end{cases}$
-
+    
     **最终单纯形表：**
-
+    
     | $c_B$      | 基    | $b$  | $x_1$ | $x_2$ | $x_3$ | $x_4$ | $x_5$ |
     | ---------- | ----- | ---- | ----- | ----- | ----- | ----- | ----- |
     | 5          | $x_1$ | 4    | 1     | 0     | 0     | 2     | -1    |
     | 8          | $x_2$ | 8    | 0     | 1     | 1     | -1    | 1     |
     | $\sigma_j$ |       | 0    | 0     | 0     | -2    | -2    | -3    |
-
+    
     === "**c 的灵敏度分析**"
-
+    
     **(1) 非基变量系数 $c_3$ 的改变范围**
-
+    
     $\sigma_3=c_3-c_BB^{-1}p_3$
-
+    
     $=c_3-[-5 \quad 8]\left[\begin{array}{cc}2 & -1 \\ -1 & 1\end{array}\right]\left[\begin{array}{c}l_1 \\ l_2\end{array}\right]=c_3-8 \leq 0$
-
+    
     即 $c_3 \leq 8$
-
+    
     **(2) 基变量系数 $c_1$ 的改变范围** 
-
+    
     $ \sigma_A = c - c_BB^{-1}A$
-
+    
     $
     =[c_1,8,6,0,0]-[c_1,8]\left[\begin{array}{cccc}1 & 0 & 0 & 2 \\ 0 & 1 & 1 & -1\end{array}\right]
     $
-
+    
     $
     =[0,0,-2,-2c_1+8,c_1-8]\leq 0
     $
-
+    
     $
     \begin{cases} -2c_1+8\leq 0 \\ c_1-8\leq 0 \end{cases} \quad \therefore 4\leq c_1\leq 8
     $
-
+    
     === "**b的灵敏度分析**"
-
+    
     保持最优方案不变，求$b_1$的变化范围。
-
+    
     $B^{-1}b=\left[\begin{array}{cc}2 & -1 \\ -1 & 1\end{array}\right]\left[\begin{array}{c}b_1 \\ 20\end{array}\right]\geq 0$
-
+    
     $\begin{cases} 2b_1-20\geq 0 \\ -b_1+20\geq 0 \end{cases} \quad \therefore 10\leq b_1\leq 20$
-
+    
     === "**A的灵敏度分析**"
     (计划生产的产品工艺结构改变)<br>
     (1)、非基变量$x_j$工艺改变<br>
@@ -746,15 +747,15 @@ $A'=B^{-1}A \quad p_j'=B^{-1}p_j$​
 
 
 
-!!! note +"增加新变量灵敏度分析"
-例：对于新产品D，已知1个单位D要消耗甲: 3 乙: 2<br>
-问：保持原有生产比例，利润为多少时，投产产品D有利？<br>
-解：$\sigma_6=c_6-c_BB^{-1}p_6=c_6-[-5 \quad 8]\left[\begin{array}{cc}2 & -1 \\ -1 & 1\end{array}\right]\left[\begin{array}{c}3 \\ 2\end{array}\right]=c_6-12>0$<br>
-得 $c_6>12$<br>
+!!! note +"增加新变量灵敏度分析"<br>
+    例：对于新产品D，已知1个单位D要消耗甲: 3 乙: 2<br>
+    问：保持原有生产比例，利润为多少时，投产产品D有利？<br>
+    解：$\sigma_6=c_6-c_BB^{-1}p_6=c_6-[-5 \quad 8]\left[\begin{array}{cc}2 & -1 \\ -1 & 1\end{array}\right]\left[\begin{array}{c}3 \\ 2\end{array}\right]=c_6-12>0$<br>
+    得 $c_6>12$<br>
 
 
 
-!!! note +"添加约束灵敏度分析"
+!!! note +"添加约束灵敏度分析"<br>
     例：新增加电力约束：13 已知A、B、C每单位需电 2、1、3<br>
     问：原方案是否改变?<br>
     解：$2x_1+x_2+3x_3\leq 13$；原方案 A: 4 B: 8 C: 0；$16>13$ 原方案要改变<br>

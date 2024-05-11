@@ -1,4 +1,4 @@
-#  PPT随记
+#  PowerPoint
 
 ## 快捷键
 
