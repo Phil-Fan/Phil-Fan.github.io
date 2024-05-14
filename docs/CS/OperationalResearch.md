@@ -741,7 +741,13 @@ $|u(k| \le M \quad |u(k+1)-u(k)| \le N \quad k = 1,2,\dots,10$
 
 $\mathop{min}\limits_{u(k),1\le k\le 10} \ max |y(k)-r(k)|$
 
+令$t = max |y(k)-r(k)|$​
 
+$-t\le y(k+1)-r(k) \le t$
+
+!!! note "非线性约束线性化"
+
+​	绝对值变成双向不等式
 
 
 
