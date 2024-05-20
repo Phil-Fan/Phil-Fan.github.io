@@ -276,3 +276,227 @@ C语言和汇编语言的相互调用
 - 使用到的自定义函数的.c文件必须添加到工程参与编译
 
 - 使用到的.h文件必须要放在编译器可寻找到的地方（工程文件夹根目录、安装目录、自定义）
+
+## 数码管
+
+共阴极接法
+
+
+
+对应表
+
+```c
+u8 code smgduan[50]={0x3f,0x06,0x5b,0x4f,0x66,0x6d,0x7d,0x07,0x7f,0x6f,
+                    0x77,0x7c,0x39,0x5e,0x79,0x71,0x3d,
+                    0x76,0x0f,0x0e,0x75,0x38,0x37,0x54,
+                    0x5c,0x73,0x67,
+                    0x31,0x49,0x78,
+                    0x3e,0x1c,0x7e,0x64,0x6e,0x59};
+```
+
+
+
+交通灯实验代码，改了部分端口
+
+整理了一下才发现还是需要读懂代码到底干了什么
+
+
+
+下面的代码大概有三个功能
+
+1. 端口的定义和映射，要和连线一一对应
+2. 数码管的赋值和显示
+3. 中断函数与定时器的设置
+
+```c
+#include "reg52.h" 
+typedef unsigned int u16;
+typedef unsigned char u8;
+
+sbit LSA=P2^5;//这里端口随便改都行，和实际接口一致就可以
+sbit LSB=P2^6;
+sbit LSC=P2^7;
+
+//定义灯的映射关系
+#define GPIO_DIG   P0
+#define GPIO_TRAFFIC P1
+sbit RED10   = P1^0;
+sbit GREEN10 = P1^1;
+sbit RED11   = P1^2;
+sbit YELLOW11= P1^3;
+sbit GREEN11 = P1^4;
+sbit RED00   = P3^0;
+sbit GREEN00 = P3^1;
+sbit RED01   = P1^5;
+sbit YELLOW01= P1^6;
+sbit GREEN01 = P1^7;
+
+u8 code smgduan[50]={0x3f,0x06,0x5b,0x4f,0x66,0x6d,0x7d,0x07,0x7f,0x6f,
+                    0x77,0x7c,0x39,0x5e,0x79,0x71,0x3d,
+                    0x76,0x0f,0x0e,0x75,0x38,0x37,0x54,
+                    0x5c,0x73,0x67,
+                    0x31,0x49,0x78,
+                    0x3e,0x1c,0x7e,0x64,0x6e,0x59};
+
+u8 DisplayData[8];
+u8 Second;
+
+void delay(u16 i)
+{
+	while(i--);	
+}
+
+void DigDisplay()
+{
+	u8 i;
+	for(i=0;i<8;i++)
+    //这个循环的意思是：对于8位数码管的每一位，先通过译码器选择对应位，再赋对应的数值
+	{
+		switch(i)
+		{
+			case(0):
+				LSA=0;LSB=0;LSC=0; break;
+			case(1):
+				LSA=1;LSB=0;LSC=0; break;
+			case(2):
+				LSA=0;LSB=1;LSC=0; break;
+			case(3):
+				LSA=1;LSB=1;LSC=0; break;
+			case(4):
+				LSA=0;LSB=0;LSC=1; break;
+			case(5):
+				LSA=1;LSB=0;LSC=1; break;
+			case(6):
+				LSA=0;LSB=1;LSC=1; break;
+			case(7):
+				LSA=1;LSB=1;LSC=1; break;
+		}
+		GPIO_DIG=DisplayData[i];
+		delay(100);
+		GPIO_DIG=0x00;
+	}
+}
+
+void Timer0Init()	//定时器的初始化和开关
+{
+	TMOD|=0X01;
+	TH0 = 0XFC;
+	TL0 = 0X18;	//计算中断条件
+	ET0 = 1;//打开定时器0中断开关
+	EA = 1;//打开中断总开关
+	TR0 = 1;//打开定时器0
+}
+
+
+void main()
+{	
+	Second = 1;
+	Timer0Init();	//这里打开定时器
+
+	while(1)
+	{
+        DisplayData[4] = 0x71;//F
+		DisplayData[5] = 0x3e;//U
+		DisplayData[6] = 0x39;//C
+		DisplayData[7] = 0x75;//K
+        //可以删掉上边四行
+		if(Second == 30)
+		{
+			Second = 1;
+		}
+
+		if(Second < 11)
+		{
+			DisplayData[0] = 0x00;
+			DisplayData[1] = 0x00;
+			DisplayData[2] = smgduan[(10 - Second) % 100 / 10];
+			DisplayData[3] = smgduan[(10 - Second) %10];
+
+			DigDisplay();
+			GPIO_TRAFFIC = 0xFF;
+			RED00 = 1;
+			GREEN00 = 1;
+			GREEN11 = 0;			
+			GREEN10	= 0;
+			RED01 = 0; 
+			RED00 = 0;
+		}
+
+		else if(Second < 16) 
+		{
+			DisplayData[0] = 0x00;
+			DisplayData[1] = 0x00;
+			DisplayData[2] = smgduan[(15 - Second) % 100 / 10];
+			DisplayData[3] = smgduan[(15 - Second) %10];
+			DigDisplay();
+            
+			GPIO_TRAFFIC = 0xFF;
+			RED00 = 1;
+			GREEN00 = 1;
+			YELLOW11 = 0;			
+			RED10	= 0;
+			YELLOW01 = 0;
+			RED00 = 0;
+		}
+		else if(Second < 26) 
+		{
+			DisplayData[0] = 0x00;
+			DisplayData[1] = 0x00;
+			DisplayData[2] = smgduan[(25 - Second) % 100 / 10];
+			DisplayData[3] = smgduan[(25 - Second) %10];
+			DigDisplay();
+            
+			GPIO_TRAFFIC = 0xFF;
+			RED00 = 1;
+			GREEN00 = 1;
+			RED11 = 0;	
+			RED10 = 0;
+			GREEN01 = 0;
+			GREEN00 = 0;
+		}
+
+		else 
+		{
+			DisplayData[0] = 0x00;
+			DisplayData[1] = 0x00;
+			DisplayData[2] = smgduan[(30 - Second) % 100 / 10];
+			DisplayData[3] = smgduan[(30 - Second) %10];
+			DigDisplay();
+			GPIO_TRAFFIC = 0xFF;
+			RED00 = 1;
+			GREEN00 = 1;
+
+			YELLOW11 = 0;		
+			RED10	= 0;
+
+			YELLOW01 = 0;
+			RED00 = 0;      
+		}
+	}					
+}
+
+void Timer0() interrupt 1
+{
+	static u16 i;
+	TH0=0XFC;	
+	TL0=0X18;
+	i++;
+	if(i==1000)
+	{
+		i=0;
+		Second ++;	
+	}	
+}
+```
+
+
+
+## LED
+
+LED 采用共阳接法
+
+所以高电平是熄灭
+
+拉电流——电流更大
+
+灌电流——电流小，不足以驱动

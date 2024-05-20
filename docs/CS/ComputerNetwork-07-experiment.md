@@ -320,3 +320,28 @@ def cancel_appointment(scheduled_id):
     print(response.status_code)
 ```
 
+## Kali配置与使用
+
+[Kali Linux | Penetration Testing and Ethical Hacking Linux Distribution](https://www.kali.org/)
+
+[Kali虚拟机安装，设置中文等详细教程，Linux最新免镜像版_kali安装中文语言包-CSDN博客](https://blog.csdn.net/l2872253606/article/details/123592717)
+
+
+
+
+
+### Nmap
+
+Nmap有四种基本功能：「端口扫描」、「主机探测」、「服务识别」和「系统识别」
+
+#### 端口扫描
+
+```
+nmap 192.168.1.1
+nmap 192.168.1.1 -p-
+nmap 192.168.1.1 -p 22
+
+```
+
+
+
