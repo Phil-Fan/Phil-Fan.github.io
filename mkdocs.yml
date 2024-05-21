@@ -223,6 +223,7 @@ nav:
     - CS/DataStructure.md
     - CS/DataStructure-Tree.md
     - CS/DataStructure-Hash.md
+    - CS/DataStructure-Graph.md
     - CS/DataStructure-Sorting.md
 
   - "计算机网络 | Computer Network" :
@@ -239,13 +240,14 @@ nav:
     
     
   - "运筹学 | Operational Research":
-    - CS/OperationalResearch.md
-    - CS/OperationalResearch-DP.md
-    - CS/DataStructure-Graph.md 
-    - CS/OperationalResearch-DecisionTheory.md
-    - CS/OperationalResearch-GameTheory.md
-    - CS/OperationalResearch-GameTheoryModel.md
-    - CS/OperationalResearch-QueuingTheory.md
+    - CS/OR.md
+    - CS/OR-.md
+    - CS/OR-DP.md
+    - CS/OR.md 
+    - CS/OR-DecisionTheory.md
+    - CS/OR-GameTheory.md
+    - CS/OR-GameTheoryModel.md
+    - CS/OR-QueuingTheory.md
      
     
 - Explore:
@@ -265,6 +267,7 @@ nav:
   
   - Finance:
     - Explore/Fin/Fintech.md
+    - Explore/Fin/consulting.md
 
   - Books:
     - Explore/Books/The Innovator`s Dilemma.md 

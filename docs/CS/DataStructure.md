@@ -49,7 +49,12 @@ $$
 
 ![例题](https://img-blog.csdnimg.cn/4afab6cb811245649465647d62c45a31.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzU2MDkxMw==,size_16,color_FFFFFF,t_70#pic_center)
 
+### P,NP,NP Hard
 
+- **P 问题**：P 问题是可以在多项式时间内得到最优解的问题。
+- **NP 问题**：NP 问题是可以在不确定的多项式时间内验证一个解是否可行的问题。
+- **NP-hard 问题**：NP-hard 问题是所有 NP 问题的求解都可在多项式时间复杂度内归约成的问题，也是更难求解的问题。
+- **NP-complete 问题**：NP-complete 问题是 NP-hard 问题中为 NP 的问题。
 
 ## 第三章 表、堆、队列
 
