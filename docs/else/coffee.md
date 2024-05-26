@@ -82,17 +82,26 @@
 |      |      | 代表 |      |
 | ---- | ---- | ---- | ---- |
 |第一次浪潮| 速溶咖啡 | 雀巢和麦斯威尔 | 速溶 灌装 |
-|第二次浪潮 |连锁精品咖啡 |星巴克 Costa |星巴克“第三空间” |
+|第二次浪潮 |大店综合咖啡 |星巴克 Costa |星巴克“第三空间” |
 |第三次浪潮 |互联网咖啡|瑞幸McCafe|瑞幸“无限场景”——门店布局和配送外卖|
-| |手工精品咖啡|Seesaw bluebottle||
+| |连锁精品咖啡|Seesaw bluebottle Manner %Arabica|新鲜的口感<br />店面布局|
 
 ![image-20240512163308426](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240512163308426.png)
 
-Starbucks + Alibaba
+> **第三空间**
+> 人的日常生活主要分布于三个生活空间，即第一空间（[居住空间](https://wiki.mbalib.com/wiki/居住空间)），第二空间（工作空间），第三空间（购物休闲场所）。要提高人的[生活质量](https://wiki.mbalib.com/wiki/生活质量)必须从三个生活空间同时去考虑。
 
-数字转型升级+新零售战略
+Starbucks + Alibaba：数字转型升级+新零售战略
 
 Costa+Cola
+
+[火爆京沪的“跳海酒馆”，我建议所有开店的老板都去看看 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/663035535)
+
+
+
+
+
+
 
 ## 案例——瑞幸
 

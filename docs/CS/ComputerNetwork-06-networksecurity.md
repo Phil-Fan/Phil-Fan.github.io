@@ -4,6 +4,7 @@
 	- ustc《计算机网络》
 	- 《信息物理系统安全》
 
+![image-20240522172938101](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240522172938101.png)
 
 ## 数论前置知识
 
@@ -51,39 +52,109 @@ $$
 
 表示找到一个数$b$，使得$a$和$b$相乘对模$n$同余1。
 
-## 加密
+## 加密——机密性
 
 ![image-20240215231126309](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240215231126309.png)
+
+
+
+!!! note "密钥才是加密的核心"
+    加密算法和密钥是分开的，每个人可以拥有相同品牌的锁，但是每一个人有不同的钥匙<br>锁的设计是公开的，但是钥匙是秘密的。
+
+
 
 - Trudy: 窃听、插入、伪装、劫持、拒绝服务
 
 只有发送方和预订的接收方能否理解传输的报文内容
 发送方加密报文；接收方解密报文
 
+明文密文并不是看是否由人读取
 
+
+
+|               Transaction                | Fill In This Column |       Choose From The Following        |
+| :--------------------------------------: | :-----------------: | :------------------------------------: |
+|   Alice wants to sign an email to Bob    |          b          |         a. Alice's public key          |
+|  Alice wants to encrypt an email to Bob  |          c          |         b. Alice's private key         |
+|    Bob wants to verify Alice's email     |          a          |          c. Bob's public key           |
+|    Bob wants to decrypt Alice's email    |          d          |          d. Bob's private key          |
+|  Alice public key certificate signed by  |          f          | e. Certification Authority public key  |
+| Bob public key certificate verifies with |          e          | f. Certification Authority private key |
+
+答案和解析:
+
+- Alice想要给Bob签名一封电子邮件：因为Alice使用她的私钥生成数字签名，而Bob需要使用Alice的公钥来验证这个签名。
+- Alice想要加密一封发送给Bob的电子邮件：应该是使用Bob的公钥来加密
+- Bob想要验证Alice的电子邮件：因为Bob使用Alice的公钥验证了数字签名，所以他知道这封电子邮件确实来自Alice。
+- Bob想要解密Alice的电子邮件：d（Bob的私钥）
+- Alice的公钥证书由以下机构签名：因为公钥证书是由认证机构使用其私钥签名的，所以其他人可以使用认证机构的公钥来验证这个签名。
+- Bob的公钥证书验证如下：使用认证机构的公钥来验证Bob的公钥证书
+
+
+
+### 历史上的密码
+
+#### 凯撒密码——平移
+
+![image-20240522173659727](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240522173659727.png)
+
+密钥：平移的字母数量
+
+可以使用暴力破解——平移1-n位
+
+#### 替换密码
+
+密钥：替换表，使用密码本
+
+字母替换，通过分析字频和词频可以破解
+
+> 英文文章出现最高的字母是e
+
+
+
+**Enigma加密**
+
+![image-20240522174420066](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240522174420066.png)
+
+!!! bug "这一部分没有看"
 
 ### 对称加密
 
 加密解密密钥一样
 
-- 字母替换，通过分析字频和词频可以破解
-
 $K_{A-B}$:对称密钥
 
 密钥的分发：密码本
 
+#### 一次性密码本——无法被破译
 
+
+
+因为无法判断是否为正确的明文，在破译过程中会出现所有的排列组合
+
+又称为维纳密码（`Vernam cipher`）
+
+香农证明其为无条件安全、理论上无法破译
 
 #### DES |  `Data Encryption Standard`
 
 - US 加密标准[NIST 1993]
 - 56-bit 对称密钥, 64-bit明文输入
 - 破解很难，但是可能有后门
-- 使DES更安全：
-  - 使用3个key，3重DES 运算；
-  - 密文分组成串技术：当前明文和前面密文64bit 做异或处理
 
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240506083826564.png" alt="image-20240506083826564" style="zoom:50%;" />
+
+
+
+#### 3DES  | `Triple DES`：
+
+- 3DES 是对 DES 的加强，通过三次应用 DES 算法来增加安全性。
+- 使用两到三个 56 位密钥。
+
+使DES更安全：
+
+- 使用3个key，3重DES 运算；
+- 密文分组成串技术：当前明文和前面密文64bit 做异或处理
 
 #### AES | `Advanced Encryption Standard`
 
@@ -92,6 +163,10 @@ $K_{A-B}$:对称密钥
 - 数据128bit成组加密：128, 192, or 256 bit keys
 
 - 穷尽法解密如果使用1秒钟破解DES, 需要花149万亿年破解AES
+
+### 分组密码
+
+#### ECB
 
 
 
@@ -121,9 +196,19 @@ CBC模式的特点包括：
 - 在加密过程中，无法单独对一个中间的明文分组进行加密，因为每个密文分组都依赖于前一个密文分组。
 - 在解密过程中，如果一个密文分组损坏，则最多只有两个分组会受到影响。
 
+#### CFB
 
 
-### 非对称密钥加密：
+
+#### OFB
+
+
+
+#### CTR
+
+
+
+### 非对称加密：
 
 **公钥只能用做数据加密。公钥加密的数据，只能用对应的私钥才能解密。这是非对称加密的核心概念**。
 
@@ -135,7 +220,6 @@ CBC模式的特点包括：
 
 > 我给你一把锁，钥匙只有我自己拿着，你把东西用我的锁锁起来
 >
-> 
 
 数字签名
 
@@ -195,53 +279,17 @@ $$
 
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240216123200169.png" alt="image-20240216123200169" style="zoom:50%;" />
 
+### 混合加密
 
 
 
+## Hash——完整性
 
-## 认证
-
-发送方和接收方需要确认对方的身份
-
-认证目的：避免重放攻击
-
-Nonce: 一生只用一次的整数(R)
-
-
-
-### ap4.0: 对称密钥加密
-
-为了证明Alice的活跃性, Bob发送给Alice一个nonce,
-
-R. Alice 必须返回加密之后的R，使用双方约定好的key
-
-问题：如何分发对称式加密的密钥
-
-
-
-### ap5.0：非对称密钥加密
-
-Bob发送challenge R，Alice发送私钥加密的报文和公钥，bob解密
-
-漏洞：Trudy中间截获所有，`middle attack`
-
-原因：不能可靠地拿到Alice的公钥
-
-
-
-## 报文完整性
+散列值，Hash，消息摘要，密码校验和，指纹
 
 发送方、接受方需要确认报文在传输的过程中或者事后没有被改变
 
-
-
-数字签名类比于手写签名
-
-- 可验证性（对接收方）
-
-- 不可伪造性（对发送方）
-
-- 不可抵赖性（对第三方）
+- 
 
 
 
@@ -257,7 +305,7 @@ Bob发送challenge R，Alice发送私钥加密的报文和公钥，bob解密
 
 ![image-20240506091633237](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240506091633237.png)
 
-### MD5散列函数 
+#### MD5散列函数 
 
 四个步骤计算出128bit摘要
 
@@ -289,6 +337,44 @@ Calculating a checksum using mathematical algorithms
 - 私钥用来进行解密和签名，是给自己用的。
 - 公钥由本人公开，用于加密和验证签名，是给别人用的。
 - 当该用户发送文件时，用私钥签名，别人用他给的公钥解密，可以保证该信息是由他发送的。即数字签名。
+
+## 消息认证——完整性、认证
+
+发送方和接收方需要确认对方的身份
+
+认证目的：避免重放攻击
+
+Nonce: 一生只用一次的整数(R)
+
+
+
+### ap4.0: 对称密钥加密
+
+为了证明Alice的活跃性, Bob发送给Alice一个nonce,
+
+R. Alice 必须返回加密之后的R，使用双方约定好的key
+
+问题：如何分发对称式加密的密钥
+
+
+
+### ap5.0：非对称密钥加密
+
+Bob发送challenge R，Alice发送私钥加密的报文和公钥，bob解密
+
+漏洞：Trudy中间截获所有，`middle attack`
+
+原因：不能可靠地拿到Alice的公钥
+
+## 数字签名——认证、不可抵赖性
+
+数字签名类比于手写签名
+
+- 可验证性（对接收方）
+
+- 不可伪造性（对发送方）
+
+- 不可抵赖性（对第三方）
 
 
 
@@ -348,7 +434,9 @@ KDC是Kerberos认证协议中的核心组件，主要用于认证服务和分配
 - 由根CA签署的给一些机构的数字证书，根信任机构
 - 由于你信任了根，从而能够可靠地拿到根CA签发的证书，可靠地拿到这些机构的公钥
 
-- 
+
+
+## 密钥和随机数
 
 ## 安全场景
 

@@ -277,30 +277,15 @@ C语言和汇编语言的相互调用
 
 - 使用到的.h文件必须要放在编译器可寻找到的地方（工程文件夹根目录、安装目录、自定义）
 
-## 数码管
-
-共阴极接法
 
 
-
-对应表
-
-```c
-u8 code smgduan[50]={0x3f,0x06,0x5b,0x4f,0x66,0x6d,0x7d,0x07,0x7f,0x6f,
-                    0x77,0x7c,0x39,0x5e,0x79,0x71,0x3d,
-                    0x76,0x0f,0x0e,0x75,0x38,0x37,0x54,
-                    0x5c,0x73,0x67,
-                    0x31,0x49,0x78,
-                    0x3e,0x1c,0x7e,0x64,0x6e,0x59};
-```
-
-
+## 交通灯
 
 交通灯实验代码，改了部分端口
 
 整理了一下才发现还是需要读懂代码到底干了什么
 
-
+### C语言程序实现
 
 下面的代码大概有三个功能
 
@@ -488,6 +473,281 @@ void Timer0() interrupt 1
 	}	
 }
 ```
+
+### **汇编程序参考**
+
+```assembly
+S_OK    BIT 20H.0          ; 定义一个位变量 S_OK，在 20H 寄存器的第 0 位
+ORG     0000H              ; 程序从地址 0000H 开始
+SJMP    MAIN               ; 在复位时跳转到 MAIN 函数
+ORG     000BH              ; 定义中断向量地址 000BH (定时器 0 中断)
+AJMP    SECOND             ; 在定时器 0 中断时跳转到 SECOND 函数
+ORG     0030H              ; 程序代码从地址 0030H 开始
+
+
+TAB2:	DB 03FH,06H,05BH,04FH,66H,6DH,7DH,07H,7FH,6FH
+
+//主程序
+MAIN:
+    MOV     SP,#60H      ; 设置堆栈指针 SP 的起始地址为 60H
+    CLR     EA           ; 关闭所有中断
+    MOV     TMOD,#01H    ; 定时器 0 设置为模式 1（16 位定时器）
+    MOV     TL0,#0B0H    ; 设定定时器初值 TL0 为 0B0H
+    MOV     TH0,#3CH     ; 设定定时器初值 TH0 为 3CH
+    SETB    ET0          ; 使能定时器 0 中断
+    SETB    PT0          ; 设置定时器 0 中断优先级
+    SETB    EA           ; 使能全局中断
+    SETB    TR0          ; 启动定时器 0
+    MOV     R0,#10       ; 初始化 R0 为 10
+
+Light:
+    ACALL   GREEN     ; 南北绿灯，东西红灯
+    ACALL   YELLOW    ; 南北黄灯，东西黄灯
+    ACALL   RED       ; 南北红灯，东西绿灯
+    ACALL   YELLOW    ; 南北黄灯，东西黄灯
+    AJMP    Light         ; 循环执行上述指令
+
+
+//中断程序
+SECOND:
+    CLR     EA           ; 关闭所有中断
+    CLR     S_OK         ; 清除标志位 S_OK
+    DEC     R0           ; R0 减 1
+    MOV     A,R0         ; 将 R0 的值移动到累加器 A
+    JZ      SECOND_1     ; 如果 R0 为 0 跳转到 SECOND_1
+    ACALL   LED          ; 调用 LED 子程序，更新显示
+SECOND_2:
+    MOV     TH0,#3CH     ; 重新装载定时器初值
+    MOV     TL0,#0BFH
+    SETB    EA           ; 使能全局中断
+    RETI                 ; 返回中断
+SECOND_1:
+    MOV     R0,#25       ; 如果 R0 为 0，将 R0 重置为 25
+    SETB    S_OK         ; 设置标志位 S_OK
+    SJMP    SECOND_2     ; 跳转到 SECOND_2
+
+
+//信号灯控制程序;
+;注意这里要注意板子上的连接
+;LED的控制是高位暗，低位（0）灭
+GREEN:
+    MOV     DPTR,#06H    ; 设置 DPTR 寄存器
+    MOV     A,#01111001B ; 南北方向绿灯，东西方向红灯
+    MOV     P1,A         ; 输出到端口 P1
+	MOV		A,#11111110B
+	MOV		P3,A
+    MOV     R1,#10       ; 设置 R1 为 10
+TLP:
+    JNB     S_OK,TLP     ; 等待 S_OK 标志位
+    CLR     S_OK         ; 清除 S_OK 标志位
+    DJNZ    R1,TLP       ; R1 减 1，如果不为 0，跳回 TLP
+    RET                  ; 返回
+
+YELLOW:
+    MOV     A,#10110111B ; 南北方向黄灯，东西方向黄灯
+    MOV     P1,A         ; 输出到端口 P1
+	MOV		A,#11111111B
+	MOV		P3,A
+    MOV     R1,#5        ; 设置 R1 为 5
+TLP1:
+    JNB     S_OK,TLP1    ; 等待 S_OK 标志位
+    CLR     S_OK         ; 清除 S_OK 标志位
+    DJNZ    R1,TLP1      ; R1 减 1，如果不为 0，跳回 TLP1
+    RET                  ; 返回
+
+RED:
+    MOV     A,#11001110B ; 南北方向红灯，东西方向绿灯
+    MOV     P1,A         ; 输出到端口 P1
+	MOV		A,#11111101B
+	MOV		P3,A
+    MOV     R1,#10       ; 设置 R1 为 10
+TLP2:
+    JNB     S_OK,TLP2    ; 等待 S_OK 标志位
+    CLR     S_OK         ; 清除 S_OK 标志位
+    DJNZ    R1,TLP2      ; R1 减 1，如果不为 0，跳回 TLP2
+    RET                  ; 返回
+
+//LED显示程序
+LED:
+    MOV     DPTR,#TAB2   ; 设置 DPTR 指向查找表
+    MOV     A,R1         ; 将 R1 的值移动到累加器 A
+    DEC     A            ; A 减 1
+    MOVC    A,@A+DPTR    ; 取查找表中的值
+    MOV     P0,A         ; 输出到端口 P0
+    RET                  ; 返回
+
+
+END 
+```
+
+
+
+在程序中，`S_OK` 的作用是：
+
+1. **在定时器中断中**：
+   - 当定时器达到设定的计数值时，会触发中断，在中断服务程序 `SECOND` 中，`S_OK` 被设置（`SETB S_OK`）以通知主程序定时已经到期。
+2. **在主程序中**：
+   - 主程序会不断检测 `S_OK` 的状态。如果 `S_OK` 被设置，意味着一个时间段（例如 10ms）已经过去，主程序可以执行下一步操作。
+   - 使用 `JNB S_OK, label` 指令来等待 `S_OK` 被设置。如果 `S_OK` 未被设置，程序会在当前循环等待；一旦 `S_OK` 被设置，程序将继续执行。
+
+
+
+### **对应关系**
+
+**初始化部分**
+
+```assembly
+MAIN:
+    MOV SP,#60H 
+    CLR EA ;关中断 
+    MOV TMOD,#01H ;设定时钟方式 
+    MOV TL0,#0B0H ;设定定时器/计数器T0为时钟常数(100ms) 
+    MOV TH0,#3CH 
+    SETB ET0 ;允许中断/计数器T0中断 
+    SETB PT0 ;启动定时器/计数器T0 
+    SETB EA ;开中断 
+    SETB TR0 ;启动定时器/计数器T0
+```
+
+```c
+void Timer0Init()
+{
+    TMOD |= 0x01; // 选择为定时器0模式，工作模式1，设置TR0启动
+
+    TH0 = 0xFC;  // 设置定时初值，使计时1ms
+    TL0 = 0x18;  
+    ET0 = 1;     // 允许定时器0中断
+    EA = 1;      // 使能总中断
+    TR0 = 1;     // 启动定时器
+}
+
+void main()
+{    
+    Second = 1;
+
+    Timer0Init();
+    ...
+}
+```
+
+**中断部分**
+
+```assembly
+SECOND:
+    CLR EA
+    CLR S_OK
+    DEC R0
+    MOV A,R0
+    JZ SECOND_1
+    JZ SECOND_2
+SECOND_1:
+    MOV RO,#10
+    SETB S_OK
+SECOND_2:
+    MOV TH0,#3CH
+    MOV TL0,#0BFH
+    SETB    EA
+    RETI
+```
+
+```c
+void Timer0() interrupt 1
+{
+    static u16 i;
+    TH0 = 0xFC;  // 设置定时初值，使计时1ms
+    TL0 = 0x18;
+    i++;
+    if(i == 1000)
+    {
+        i = 0;
+        Second++;    
+    }    
+}
+```
+
+这段汇编代码是一个基于8051单片机的交通灯控制系统，代码中包含了许多常用的指令，以下是这些指令的含义和用法：
+
+### 指令解释
+
+#### 基本指令
+- `MOV dest, src`: 将源操作数 `src` 的值传送到目的操作数 `dest`。
+  - 示例：`MOV SP,#60H` 将立即数 `60H` 装入堆栈指针 `SP`。
+  
+- `CLR bit`: 将指定位清零（置0）。
+  - 示例：`CLR EA` 将全局中断使能位清零。
+
+- `SETB bit`: 将指定位置1。
+  - 示例：`SETB EA` 将全局中断使能位置1。
+
+- `JZ label`: 如果累加器 `A` 的值为零，则跳转到指定标签。
+  - 示例：`JZ SECOND_1` 如果 `A` 为0，则跳转到 `SECOND_1`。
+
+- `SJMP label`: 无条件跳转到指定标签。
+  - 示例：`SJMP MAIN` 无条件跳转到 `MAIN`。
+
+- `JB bit, label`: 如果指定位为1，则跳转到指定标签。
+  - 示例：`JB ACC.2,EMERG` 如果累加器 `A` 的第2位为1，则跳转到 `EMERG`。
+
+- `DEC reg`: 将指定寄存器的值减1。
+  - 示例：`DEC R0` 将寄存器 `R0` 的值减1。
+
+- `DJNZ reg, label`: 将指定寄存器的值减1，如果减1后的结果不为0，则跳转到指定标签。
+  - 示例：`DJNZ R1,TLP` 将 `R1` 减1，如果 `R1` 不为0，则跳转到 `TLP`。
+
+- `RET`: 从子程序返回。
+  - 在这段代码中未使用。
+
+- `RETI`: 从中断服务程序返回。
+  - 示例：`RETI` 返回主程序。
+
+#### 中断和定时器
+- `ORG address`: 设置程序起始地址。
+  - 示例：`ORG 0000H` 设置程序起始地址为 `0000H`。
+
+- `AJMP address`: 绝对跳转到指定地址。
+  - 示例：`AJMP SECOND` 绝对跳转到 `SECOND`。
+
+- `MOV TL0,#value`: 将立即数装入定时器/计数器0的低8位。
+  - 示例：`MOV TL0,#0B0H` 将 `0B0H` 装入 `TL0`。
+
+- `MOV TH0,#value`: 将立即数装入定时器/计数器0的高8位。
+  - 示例：`MOV TH0,#3CH` 将 `3CH` 装入 `TH0`。
+
+- `MOV TMOD,#value`: 设置定时器/计数器模式寄存器 `TMOD` 的值。
+  - 示例：`MOV TMOD,#01H` 设置 `TMOD` 为模式1（16位定时器/计数器）。
+
+- `SETB TR0`: 启动定时器/计数器0。
+  - 示例：`SETB TR0` 启动定时器0。
+
+- `CLR TR0`: 停止定时器/计数器0。
+  - 在这段代码中未使用。
+
+#### 位操作
+- `S_OK BIT 20H.0`: 定义位变量 `S_OK` 在 `20H` 地址的第0位。
+  - 示例：`S_OK BIT 20H.0` 定义 `S_OK`。
+
+
+
+
+
+## 数码管
+
+共阴极接法
+
+
+
+对应表
+
+```c
+u8 code smgduan[50]={0x3f,0x06,0x5b,0x4f,0x66,0x6d,0x7d,0x07,0x7f,0x6f,
+                    0x77,0x7c,0x39,0x5e,0x79,0x71,0x3d,
+                    0x76,0x0f,0x0e,0x75,0x38,0x37,0x54,
+                    0x5c,0x73,0x67,
+                    0x31,0x49,0x78,
+                    0x3e,0x1c,0x7e,0x64,0x6e,0x59};
+```
+
+
 
 
 

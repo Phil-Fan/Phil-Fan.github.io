@@ -8,24 +8,24 @@
 
 - 凸规划的可行域为凸集
 
-  $$
+  $
   h_{i}(x)=0 \quad-g_{j}(x) \leq 0 \quad \text { 凸集的交集为凸集 }
-  $$
+  $
   
 - 如果最优解存在，最优解集合也为凸集
 
-  $$
+  $
   \begin{aligned}
   f\left[\lambda x_{1}^{*}+(1-\lambda) x_{2}\right] \leq f\left(x_{1}^{*}\right)+(1-\lambda) f\left(x_{2}\right)=f\left(x_{1}^{*}\right)=f\left(x_{2}^{*}\right) & 0<\lambda<1 \\
   f\left[\lambda x_{1}^{*}+(1-\lambda) x_{2}^{*}\right]=f\left(x_{1}^{*}\right)=f\left(x_{2}^{*}\right) \quad \text { 最优解的连线段均为最优解 }
   \end{aligned}
-  $$
+  $
   
 - 推论：线性规划问题的最优解集为所有最优顶点构成的多边形。（归纳法证）
 
-  $$
+  $
   x^{*}=\sum_{i=1}^{r} \alpha_{i} x^{*}{ }_{i} \quad \sum_{i=1}^{r} \alpha_{i}=1 \quad 0 \leq \alpha_{i} \leq 1 \quad i=1, \cdots r
-  $$
+  $
 
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240521163820391.png" alt="image-20240521163820391" style="zoom:50%;" />
 
@@ -33,9 +33,9 @@
 
 设函数 $f(x)$ 在向量空间 $\mathbb{R}^n$ 的某个凸子集 $C$ 上有定义，如果对于任意 $x_1, x_2 \in C$ 和任意 $\lambda \in [0, 1]$，都有：
 
-$$
+$
 f(\lambda x_1 + (1-\lambda) x_2) \leq \lambda f(x_1) + (1-\lambda) f(x_2)
-$$
+$
 
 那么函数 $f(x)$ 就被称为定义在 $C$ 上的凸函数。
 
@@ -109,9 +109,10 @@ $$
 局部极小点和全局最小点连线的目标函数值相同
 
 - 若目标函数为严格凸函数, 则如果全局最优解存在,必为唯一全局最优解。（反证法）
-  $$
-  f\left[\lambda x_{1}^{*}+(1-\lambda) x_{2}^{*}\right]<\lambda f\left(x_{1}^{*}\right)+(1-\lambda) f\left(x_{2}^{*}\right)=f\left(x_{1}^{*}\right)=f\left(x_{2}^{*}\right)
-  $$
+
+$$
+f\left[\lambda x_{1}^{*}+(1-\lambda) x_{2}^{*}\right]<\lambda f\left(x_{1}^{*}\right)+(1-\lambda) f\left(x_{2}^{*}\right)=f\left(x_{1}^{*}\right)=f\left(x_{2}^{*}\right)
+$$
 
 最优解的唯一性为数值解法提供了方便。
 
@@ -175,13 +176,9 @@ $$
 
 $$
 \min \quad f(x)\\
-
-\text{s.t.} \quad h_i(x) \ge 0 \quad i = 1, 2, ..., m
-\\
-\quad -h_i(x) \ge 0 \quad i = 1, 2, ..., m
-\\
-\quad g_j(x) \ge 0 \quad j = 1, 2, ..., l
-\\
+\text{s.t.} \quad h_i(x) \ge 0 \quad i = 1, 2, ..., m\\
+\quad -h_i(x) \ge 0 \quad i = 1, 2, ..., m\\
+\quad g_j(x) \ge 0 \quad j = 1, 2, ..., l\\
 x \in R^n
 $$
 
@@ -206,7 +203,6 @@ $$
 $$
 
 **等价问题**
-
 $$
 \begin{aligned}
 \min_x \ \max_{\lambda, \nu} \ & L(x, \lambda, \nu)
@@ -285,7 +281,7 @@ $\nabla f\left(x^{*}\right)=\left[\frac{\partial f(x)}{\partial x}\right]_{x=x^{
 
 #### **方向导数**
 
-方向导数是函数在某一特定方向上的变化率。它表示函数在定义域内某一点沿着给定方向的变化趋势。具体来说，对于一个具有定义域的函数 $f(x, y)$，在点 $(x_0, y_0)$ 处沿着方向向量 $\vec{u} = (u_1, u_2)$ 的方向导数被定义为：
+方向导数是函数在某一特定方向上的变化率。它表示函数在定义域内某一点沿着给定方向的变化趋势。具体来说，对于一个具有定义域的函数 $f(x, y)$，在点 $(x_0, y_0)$ 处沿着方向向量 
 
 $$
 D_{\vec{u}}f(x_0, y_0) = \lim_{h \to 0} \frac{f(x_0 + hu_1, y_0 + hu_2) - f(x_0, y_0)}{h}
