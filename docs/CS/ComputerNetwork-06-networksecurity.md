@@ -112,6 +112,12 @@ $$
 
 
 
+!!! note "—次性密码本与压缩"
+    > 虽然一次性密码本的密钥需要与明文等长，但是我手上有数据压缩程序，只要用这个程序 对一次性密码本的密钥进行压缩，不就可以把密钥变短了吗？ 请问Alice的想法正确吗？<br>
+    不正确。因为一次性密码本的密钥无论使用任何压缩软件都无法进行压缩。<br>压缩软件的压缩原理，是找出输入数据中出现的冗余的重复序列，并将它们替换成较短的数据。然而一次性密码本所使用的密钥是随机的，其中不包含任何冗余的重复序列。<br>反过来说， 如果一个比特序列能够被压缩，就说明它不是一个随机的比特序列。
+
+
+
 **Enigma加密**
 
 ![image-20240522174420066](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240522174420066.png)
@@ -125,6 +131,20 @@ $$
 $K_{A-B}$:对称密钥
 
 密钥的分发：密码本
+
+
+
+密码选择
+
+- 首先，DES不应再用于任何新的用途，因为随着计算机技术的进步，**现在用暴力破解法已经能够在现实的时间内完成对DES的破译**。但是，在某些情况下也需要保持与旧版本软件的兼容性。
+
+- 其次，我们也没有理由将三重DES用于任何新的用途，尽管在一些重视兼容性的环境中还会继续使用，但它会逐渐被AES所取代。
+
+- 现在大家应该使用的算法是AES(`Rijndael`),因为它安全、快速，而且能够在各种平台上工作。此外，由于全世界的密码学家都在对AES进行不断的验证，因此即便万一发现它有什么缺陷，也会立刻告知全世界并修复这些缺陷。
+
+
+
+
 
 #### 一次性密码本——无法被破译
 
@@ -166,35 +186,88 @@ $K_{A-B}$:对称密钥
 #### 3DES  | `Triple DES`：
 
 - 3DES 是对 DES 的加强，通过三次应用 DES 算法来增加安全性。
-
 - 使用两到三个 56 位密钥。
-
 - 三重DES并不是进行三次DES加密（加密 —加密 —加密），而是加密—解密——加密的过程。IBM公司设计，能够让3-DES兼容不同DES。
 
-- 当三重DES中所有的密钥都相同时，三重DES也就等同于普通的DES了。
+**三个密钥都相同**
 
-  <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240529100522514.png" alt="image-20240529100522514" style="zoom:50%;" />
+当三重DES中所有的密钥都相同时，三重DES也就等同于普通的DES了。
 
-  
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240529100522514.png" alt="image-20240529100522514" style="zoom:50%;" />
 
-  <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240506083826564.png" alt="image-20240506083826564" style="zoom:50%;" />
 
-使DES更安全：
+
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240506083826564.png" alt="image-20240506083826564" style="zoom:50%;" />
+
+**一三密钥相同**
+
+如果密钥1 和密钥3使用相同的密钥，而密钥2使用不同的密钥（也就是只使用两个DES，这种三重DES就称为DES-EDE2(图3 ( Decryption )—加密（Encryption )这个流程。
+
+
+
+
+
+**三个不同密钥**
 
 - 使用3个key，3重DES 运算；
 - 密文分组成串技术：当前明文和前面密文64bit 做异或处理
 
 ![image-20240529095943964](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240529095943964.png)
 
+尽管三重DES目前还被银行等机构使用，但其处理速度不高，除了特别重视向下兼容性的 情况以外，很少被用于新的用途。
+
+
+
+
+
 #### AES | `Advanced Encryption Standard`
 
-- 新的对称密钥NIST标准(Nov. 2001) 用于替换DES
-
+- 新的对称密钥NIST标准(NIST(National Institute of Standards and Technology, 国家标准技术研究所) 用于替换DES
 - 数据128bit成组加密：128, 192, or 256 bit keys
-
 - 穷尽法解密如果使用1秒钟破解DES, 需要花149万亿年破解AES
+- 像这样通过竞争来实现标准化（`standardization by competition`)的方式，正是密码算法选拔的正确方式
+- 彻底杜绝了隐蔽式安全性（`security by obscurity`)
+
+2000 年 10月2日，`Rijndael`力压群雄，被NIST选定为AES标准。
+
+
+
+`Rijndael `的分组长度和密钥长度可以分别以32比特为单位在128比特到256比特的范围内 进行选择。不过在AES的规格中，分组长度固定为128比特，密钥长度只有128、192和256 比特三种。
+
+
+
+其中每一轮分为`SubBytes`、`ShiftRows`、 `MixColumns` 和 `AddRoundKey` 共4 个步骤。
+
+- `SubBytes`
+
+![image-20240529101532403](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240529101532403.png)
+
+- `shiftrows`:每一行平移字节数也是不同的
+
+![image-20240529101600609](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240529101600609.png)
+
+- mixcolumn
+
+![image-20240529101833891](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240529101833891.png)
+
+
+
+最后，需要将`MixColumns` 的输出与轮密钥进行`XOR`, 即进行`AddRoundKey`处理。
+
+解密过程` AddRoundKey — InvMixColumns — InvShiftRows —InvSubBytes`
+
+
+
+!!! bug "如果密钥长度为 56比特，那么用暴力破解找到正确密钥需要平均尝试约$2^{28}$次。 "
+    平均尝试次数是密钥总数的大约一半。当密钥长度为56比特时，密钥总数为$2^{56}$个，它的一半是$2^{56}$ ( 注意，不是指数56变成 一半得28,而是减1得55)。 因此，当密钥长度为56比特时，平均尝试次数为$2^{55}$次，大约相当于$3.6\times10^{16}$次。
+
+
+
+
 
 ### 分组密码
+
+分组密码（`block cipher`)是每次只能处理特定长度的一块数据的一类密码算法，这里的 " —块” 就称为分组（`block`)。此外，一个分组的比特数就称为分组长度`blocklength`
 
 #### ECB
 
