@@ -269,8 +269,8 @@ nav:
   - Finance:
     - Explore/Fin/Fintech.md
     - Explore/Fin/consulting.md
-    # - Explore/Fin/industry-analyze.md
-    # - Explore/Fin/政治经济学.md
+    - Explore/Fin/industry-analyze.md
+    - Explore/Fin/政治经济学.md
   - Books:
     - Explore/Books/The Innovator`s Dilemma.md 
     - Explore/Books/Marxist principles.md

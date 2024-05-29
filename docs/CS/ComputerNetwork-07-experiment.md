@@ -13,8 +13,6 @@
 
 ## Clash给手机提供代理
 
-[使用Clash For Windows与Windows热点共享让你的所有移动设备科学上网 - CC98论坛](https://www.cc98.org/topic/5667186)
-
 1. 确定电脑可以通过clash进行正常连接，或者能通过SSR连接
 
 2. 打开Clash的`Allow Lan` ，这一步是为了让Clash允许局域网连接（在SSR中，则是允许来自局域网的连接）
@@ -262,7 +260,7 @@ schedule_appointment("3322", "2024-04-12", "13:30-14:00")
 
 可以发现，我的体测地点变成了快乐星球（😂
 
-![d519771d06acb8610067b01d27799f0](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/d519771d06acb8610067b01d27799f0.jpg)
+![111](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/d519771d06acb8610067b01d27799f0.jpg)
 
 同理，可以抓到取消预约的URL
 
@@ -281,9 +279,8 @@ def cancel_appointment(scheduled_id):
 
 ## Kali配置与使用
 
-[Kali Linux | Penetration Testing and Ethical Hacking Linux Distribution](https://www.kali.org/)
-
-[Kali虚拟机安装，设置中文等详细教程，Linux最新免镜像版_kali安装中文语言包-CSDN博客](https://blog.csdn.net/l2872253606/article/details/123592717)
+>[Kali Linux | Penetration Testing and Ethical Hacking Linux Distribution](https://www.kali.org/)
+>[Kali虚拟机安装，设置中文等详细教程，Linux最新免镜像版_kali安装中文语言包-CSDN博客](https://blog.csdn.net/l2872253606/article/details/123592717)
 
 
 
@@ -311,7 +308,7 @@ nmap ip -p 范围
 >
 > 访问本题请通过本地运行 ssh user@10.214.160.13 -p 10802 -D 10899 -N，并输入密码 sbus 来开启在本机 10899 端口的 SOCKS5 服务，以下所有域名均应在 SOCSK5 代理后才可访问(可以使用 proxychains4 等工具)。 对于无法直接将域名传入代理服务、必须事先解析的工具，这里提供题目中域名的IP: zju.tools(192.168.192.3), attackme.zjupy.trade(192.168.192.8) AAA web5 端口扫描与目录爆破 (part1)
 >
-> Q: 如何拿到flag? A:  1. 请扫描 zju.tools 服务器, 找出这台服务器上ssh的端口    ps:显然我没有把ssh开在标准端口, 以及, 为了不给zjutools服务器带来太大压力orz, 请在9000~11000之间扫   2. 请访问 http://192.168.192.8:[part1扫描出来的端口号]
+> Q: 如何拿到flag? A:  1. 请扫描 zju.tools 服务器, 找出这台服务器上ssh的端口    ps:显然我没有把ssh开在标准端口, 以及, 为了不给zjutools服务器带来太大压力orz, 请在9000~11000之间扫   2. 请访问 `http://192.168.192.8:[part1扫描出来的端口号]`
 
 
 
