@@ -248,6 +248,7 @@ nav:
     - CS/OR-GameTheory.md
     - CS/OR-GameTheoryModel.md
     - CS/OR-QueuingTheory.md
+    - CS/OR-exercise.md
      
     
 - Explore:
@@ -268,12 +269,14 @@ nav:
   - Finance:
     - Explore/Fin/Fintech.md
     - Explore/Fin/consulting.md
-
+    - Explore/Fin/industry-analyze.md
+    - Explore/Fin/政治经济学.md
   - Books:
     - Explore/Books/The Innovator`s Dilemma.md 
     - Explore/Books/Marxist principles.md
     - Explore/Philosophy.md
     - Explore/Philosophy-by-topic.md
+    
   - Explore/NFC.md
 
 - Tools:

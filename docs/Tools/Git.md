@@ -29,6 +29,17 @@ git config --global user.email "你的邮箱"
 
 ![3a2a4da685d8aaa34d486ac6](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/3a2a4da685d8aaa34d486ac6.png)
 
+```shell
+# 创建分支、更改
+git checkout -b <branch_name>
+git branch -a
+git branch -d <branch_name> //删除分支
+```
+
+
+
+
+
 ![a16f42f5af389230d4b27c7c](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/a16f42f5af389230d4b27c7c.png)
 
 ### `git commit`规范

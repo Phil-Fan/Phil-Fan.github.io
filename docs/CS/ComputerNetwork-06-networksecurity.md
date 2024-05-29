@@ -138,23 +138,53 @@ $K_{A-B}$:对称密钥
 
 #### DES |  `Data Encryption Standard`
 
-- US 加密标准[NIST 1993]
-- 56-bit 对称密钥, 64-bit明文输入
-- 破解很难，但是可能有后门
+- 56-bit 对称密钥, **64-bit明文输入**（每隔7bit会插入1bit错误检查的bit）
+- 分组密码的一种，以64bit为分组
+- 16 round Feistel网络
+- 已经被破解了
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240506083826564.png" alt="image-20240506083826564" style="zoom:50%;" />
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240526113303219.png" alt="image-20240526113303219" style="zoom:50%;" />
+
+中间的 “子密钥” 指的是本轮加密所使用的密钥。在Feistel 网络中，每一轮都需要使用一个不同的子密钥。由于子密钥只在一轮中使用，它只是一个局部密钥，因此才称为子密钥 (`subkey`)。
 
 
+
+1) 将输入的数据等分为左右两部分
+2) 将输人的右侧直接发送到输出的右侧
+3) 将输入的右侧发送到轮函数
+4) 轮函数根据右侧数据和子密钥，计算出一串看上去是随机的比特序列
+5) 将上一步得到的比特序列与左侧数据进行XOR运算，并将结果作为加密后的左侧
+
+
+
+但是，这样一来 “右侧” 根本就没有被加密，因此我们需要用不同的子密钥对一轮的处理 重复若干次，并在每两轮处理之间将左侧和右侧的数据对调。
+
+
+
+**解密**
 
 #### 3DES  | `Triple DES`：
 
 - 3DES 是对 DES 的加强，通过三次应用 DES 算法来增加安全性。
+
 - 使用两到三个 56 位密钥。
+
+- 三重DES并不是进行三次DES加密（加密 —加密 —加密），而是加密—解密——加密的过程。IBM公司设计，能够让3-DES兼容不同DES。
+
+- 当三重DES中所有的密钥都相同时，三重DES也就等同于普通的DES了。
+
+  <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240529100522514.png" alt="image-20240529100522514" style="zoom:50%;" />
+
+  
+
+  <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240506083826564.png" alt="image-20240506083826564" style="zoom:50%;" />
 
 使DES更安全：
 
 - 使用3个key，3重DES 运算；
 - 密文分组成串技术：当前明文和前面密文64bit 做异或处理
+
+![image-20240529095943964](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240529095943964.png)
 
 #### AES | `Advanced Encryption Standard`
 

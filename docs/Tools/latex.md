@@ -37,7 +37,7 @@
 | `\times`   | $\times$  | `\cdot`    | $\cdot$    |
 | `\div`     | $\div$    | `\sqrt{x}` | $\sqrt{x}$ |
 |            |           | `^\circ`   | $^\circ$   |
-|            |           |            |            |
+| `\oplus`   | $\oplus$  |            |            |
 |            |           |            |            |
 | `>`        | $>$       |            |            |
 | `<`        | $<$       | `\neq`     | $\neq$     |
