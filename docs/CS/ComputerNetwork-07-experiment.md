@@ -8,7 +8,6 @@
     像Wireshark这种工具，通常显示的都是相对序列号/确认号，而不是实际序列号/确认号，相对序列号/确认号是和TCP会话的初始序列号相关联的。<br>
     比如，在“包1”中，最初的相对序列号的值是0，但是最下方面板中的ASCII码显示真实序列号的值是0xf61c6cbe，转化为10进制为4129057982<br>
 	可以选择Wireshark菜单栏中的 **Edit** -> **Preferences** ->**protocols** ->**TCP**，去掉**Relative sequence number**后面勾选框中的√即可<br>
-    ![img](https://img-blog.csdn.net/20140725092301017?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYTE5ODgxMDI5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)<br>
 
 
 
@@ -48,9 +47,9 @@
 
 （2）完全控制权限慎选。
 
-![img](https://pic1.zhimg.com/80/v2-39f794731fac3c347391bf965fcf9490_1440w.webp)
+![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-39f794731fac3c347391bf965fcf9490_1440w.webp)
 
-![img](https://pic3.zhimg.com/80/v2-44103f753f47d507913fe5ab3a66a8c2_1440w.webp)
+![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-44103f753f47d507913fe5ab3a66a8c2_1440w.webp)
 
 - 获取IP地址
 
@@ -60,13 +59,11 @@
 
 打开iPhone端“文件”——点击右上角三个点——选择“连接服务器”——输入IP地址——点击连接——选择注册用户——输入电脑名称及密码——完成。然后打开“文件”应用，就可以看到共享文件夹了。
 
-![img](https://pic1.zhimg.com/80/v2-5d3c86fd875daf87211ce71fa8e1f548_1440w.webp)
+![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-5d3c86fd875daf87211ce71fa8e1f548_1440w.webp)
 
 
 
 ## 静态路由的配置 | 使用GNS3模拟
-
-![预览大图](https://data.educoder.net/api/attachments/510529)
 
 1.路由器的三种模式及切换 
 
@@ -90,21 +87,11 @@
 
 2.特权模式（ # ）切换到全局配置模式（（ config ）#）：使用命令 `config terminal` 并回车：
 
-![img](https://data.educoder.net/api/attachments/510601)
 
-其中，命令可以简写，也可以简写后按 tab 健补全：
-
-![img](https://data.educoder.net/api/attachments/510602)
-
-`exit `返回上一级，`end` 直接退回到特权模式：
-
-![img](https://data.educoder.net/api/attachments/510615)
 
 #### 路由器节点 IP 配置
 
-![预览大图](https://data.educoder.net/api/attachments/878525)
 
-![预览大图](https://data.educoder.net/api/attachments/510574)
 
 ```
 R1 ( config ) # interface f0/0     ----进入接口
@@ -116,37 +103,9 @@ R1 # write					---- 保存配置
 R1 # show ip interface brief  ---- 查看 ip 配置
 ```
 
-![write](https://data.educoder.net/api/attachments/542779)
 
-![查看ip配置](https://data.educoder.net/api/attachments/510622)
 
-### PC 机配置 IP 和网关
 
-以 PC1 为例，选中 PC1 ，鼠标右键选择 Start：
-
-![img](https://data.educoder.net/api/attachments/878605)
-
-然后鼠标右键选择 console ，打开控制台：
-
-![img](https://data.educoder.net/api/attachments/510640)
-
-使用命令
-
-```shell
-ip X.X.X.X（ PC 机 IP 地址） X.X.X.X（网关地址）
-save ---- 保存配置
-show ip ---- 查看配置
-```
-
-![img](https://data.educoder.net/api/attachments/510642)
-
-可以使用 show ip 命令查看 PC 机上配置的 IP 地址：
-
-![img](https://data.educoder.net/api/attachments/510673)
-
-通过 save 保存配置：
-
-![img](https://data.educoder.net/api/attachments/542782)
 
 ### 静态路由
 
@@ -174,7 +133,7 @@ show ip ---- 查看配置
 
 ![image-20240307090222479](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240307090222479.png)
 
-![预览大图](https://data.educoder.net/api/attachments/519532)
+
 
 ## 对zdty体测预约进行抓包分析
 
@@ -378,7 +337,7 @@ unfiltered(未被过滤的)
 
 open|filtered(开放或者被过滤的)
 
-当无法确定端口是开放还是被过滤的，Nmap就把该端口划分成 这种状态。开放的端口不响应就是一个例子。没有响应也可能意味着报文过滤器丢弃 了探测报文或者它引发的任何响应。因此Nmap无法确定该端口是开放的还是被过滤的。 UDP，IP协议， FIN，Null，和Xmas扫描可能把端口归入此类。
+当无法确定端口是开放还是被过滤的，`Nmap`就把该端口划分成 这种状态。开放的端口不响应就是一个例子。没有响应也可能意味着报文过滤器丢弃 了探测报文或者它引发的任何响应。因此Nmap无法确定该端口是开放的还是被过滤的。 UDP，IP协议， FIN，Null，和Xmas扫描可能把端口归入此类。
 
 closed|filtered(关闭或者被过滤的)
 
