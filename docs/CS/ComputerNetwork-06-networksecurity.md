@@ -58,7 +58,151 @@ $$
 
 ![image-20240529115856874](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240529115856874.png)
 
+### 裴蜀定理（Bézout's Theorem）
 
+**定义**：
+裴蜀定理指出，对于任意的整数 \(a\) 和 \(b\)，存在整数 \(x\) 和 \(y\)，使得 \(ax + by = \gcd(a, b)\)，其中 \(\gcd(a, b)\) 是 \(a\) 和 \(b\) 的最大公约数。
+
+**例子**：
+考虑 \(a = 56\) 和 \(b = 15\)，计算它们的最大公约数：
+\[ \gcd(56, 15) = 1 \]
+
+我们可以找到 \(x\) 和 \(y\) 使得：
+\[ 56x + 15y = 1 \]
+
+一个解是 \(x = -2\) 和 \(y = 15\)：
+\[ 56(-2) + 15(15) = -112 + 225 = 113 \]
+
+```python
+from sympy import gcd, mod_inverse
+
+a = 56
+b = 15
+g = gcd(a, b)  # 计算最大公约数
+
+# 使用扩展欧几里得算法找到x和y
+def extended_gcd(a, b):
+    if b == 0:
+        return (1, 0)
+    else:
+        x, y = extended_gcd(b, a % b)
+        return (y, x - (a // b) * y)
+
+x, y = extended_gcd(a, b)
+print(f"The coefficients x and y are: {x}, {y}")
+```
+
+### 中国剩余定理（Chinese Remainder Theorem, CRT）
+
+参考视频：[中国剩余定理，考试包会](https://www.bilibili.com/video/BV1Y84y1E7ts)
+
+**定义**：
+中国剩余定理解决同余方程组。若\(m_1, m_2, ..., m_k\) 互素，则对于任意整数 \(a_1, a_2, ..., a_k\)，存在唯一的整数 \(x\)，满足：
+\[ x \equiv a_i \mod m_i \]
+
+**例子**：
+求解以下方程组：
+\[ x \equiv 2 \mod 3 \]
+\[ x \equiv 3 \mod 5 \]
+\[ x \equiv 2 \mod 7 \]
+
+根据CRT，可以找到唯一解 \(x\)（在模 \(105 = 3 \times 5 \times 7\) 范围内）：
+解为 \(x = 23\)，因为：
+\[ 23 \mod 3 = 2 \]
+\[ 23 \mod 5 = 3 \]
+\[ 23 \mod 7 = 2 \]
+
+```python
+from sympy.ntheory.modular import crt
+
+# 模数
+moduli = [3, 5, 7]
+# 余数
+remainders = [2, 3, 2]
+
+x = crt(moduli, remainders)[0]
+print(f"The solution x is: {x}")
+```
+
+### 扩展欧几里得定理（Extended Euclidean Algorithm）
+
+**定义**：
+扩展欧几里得算法不仅计算两个整数的最大公约数，还可以找到裴蜀定理中的系数 \(x\) 和 \(y\)，使得：
+\[ ax + by = \gcd(a, b) \]
+
+**例子**：
+计算 \(a = 30\) 和 \(b = 20\) 的最大公约数，并找到对应的 \(x\) 和 \(y\)：
+\[ \gcd(30, 20) = 10 \]
+
+使用扩展欧几里得算法找到 \(x\) 和 \(y\)：
+\[ 30x + 20y = 10 \]
+
+一个解是 \(x = 1\) 和 \(y = -1\)，因为：
+\[ 30(1) + 20(-1) = 10 \]
+
+```python
+from sympy import gcd
+
+a = 30
+b = 20
+g = gcd(a, b)  # 计算最大公约数
+
+# 使用扩展欧几里得算法找到x和y
+def extended_gcd(a, b):
+    if b == 0:
+        return (1, 0)
+    else:
+        x, y = extended_gcd(b, a % b)
+        return (y, x - (a // b) * y)
+
+x, y = extended_gcd(a, b)
+print(f"The coefficients x and y are: {x}, {y}")
+```
+
+
+
+> 参考网址：[求逆元方法 简单又好记_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV11Y4y1U7Gh/?spm_id_from=333.788&vd_source=8b7a5460b512357b2cf80ce1cefc69f5)
+> [详解扩展欧几里得算法（扩展GCD） - Seaway-Fu - 博客园 (cnblogs.com)](https://www.cnblogs.com/fusiwei/p/11775503.html)
+
+1、求解不定方程
+
+2、求解模的逆元
+
+3、求解线性同余方程
+
+
+
+```cpp
+int exgcd(int a,int b,int &x,int &y)
+{
+    if(b==0)
+    {
+        x=1,y=0;
+        return a;
+    }
+    int d=exgcd(b,a%b,x,y);
+    int k=x;
+    x=y;
+    y=k-a/b*y;
+    return d;
+}
+```
+
+
+
+在RSA算法中求私钥中的整数d时，需要使得$ (e \times d ) \% m = 1$，该方程等价于 $e \times d = 1 + y \times m$ （y为整数），也等价于 $e \times d - y \times m = 1$。
+
+因此求解d的过程就是求解该二元一次方程组（e和m已知，求解d），即求e模m的逆元。
+
+
+
+实现的时候采用递归做法
+
+先递归进入下一层，等到到达最后一层即 b=0 时就返回x=1 , y=0
+
+再根据 x1=y2 , y1=x2-a/b*y2 ( x2 与 y2 为下一层的 x 与 y ) 得到当层的解
+
+不断算出当层的解并返回，最终返回至第一层，得到原解
 
 ## 加密——机密性
 
@@ -459,6 +603,8 @@ $$
 
 #### 机密性分析
 
+> [[CTF密码学\]RSA相关题目解题方法与python脚本总结](https://blog.csdn.net/qq_46145027/article/details/125047313)
+
 中间人攻击——消息认证和证书
 
 
@@ -500,17 +646,96 @@ RSA加密过程如下。
 
 那就是质数p和q不能被密码破译者知道。把p和q交给密码破译者与把私钥交给密码破译者是等价的。
 
-**对N进行质因数分解攻击**
+##### **对N进行质因数分解攻击**
 
 **一旦发现了对大整数进行质因数分解的高效算法，RSA就能够被破译**
 
+适用情况：n已知且可因式分解
+
+既然n = p*q，那么最常规的想法就是把n因式分解得到p,q，上面说n很难分解，但对于一些不太大的n，我们可以借助工具去分解它。下面介绍两种常规因式分解方法：
+
+第一种：在线因式分解网站，例如[factordb.com](http://www.factordb.com/)，我们可以利用在线网站快速分解出p,q
+
+第二种：yafu大数分解工具，windows下载地址：yafu download | SourceForge.net使用相关命令分解n
+
+```python
+import gmpy2
+from Crypto.Util.number import long_to_bytes
+ 
+ 
+q = 189239861511125143212536989589123569301
+p = 386123125371923651191219869811293586459
+ 
+e = 65537
+c = 28767758880940662779934612526152562406674613203406706867456395986985664083182
+#n = 73069886771625642807435783661014062604264768481735145873508846925735521695159
+n = q*p
+
+d = gmpy2.invert(e, (p - 1) * (q - 1))
+print("d=",d)
+m = pow(c, d, n)
+
+print(m)
+print(long_to_bytes(m))
+```
 
 
-**通过推测p和q进行攻击** 
+
+##### 通过推测p和q进行攻击
 
 即便不进行质因数分解，密码破译者还是有可能知道p和q。 由于p和q是通过伪随机数生成器产生的，如果伪随机数生成器的算法很差，密码破译者 就有可能推测出来q和p因此使用能够被推测出来的随机数是非常危险的。
 
+```python
+# 签到题，已知p,q
+from sympy import mod_inverse
+from Crypto.Util.number import long_to_bytes
 
+p = 0x848cc7edca3d2feef44961881e358cbe924df5bc0f1e7178089ad6dc23fa1eec7b0f1a8c6932b870dd53faf35b22f35c8a7a0d130f69e53a91d0330c0af2c5ab
+q = 0xa0ac7bcd3b1e826fdbd1ee907e592c163dea4a1a94eb03fd4d3ce58c2362100ec20d96ad858f1a21e8c38e1978d27cd3ab833ee344d8618065c003d8ffd0b1cb
+e = 0x10001
+c = 0x39f68bd43d1433e4fcbbe8fc0063661c97639324d63e67dedb6f4ed4501268571f128858b2f97ee7ce0407f24320a922787adf4d0233514934bbd7e81e4b4d07b423949c85ae3cc172ea5bcded917b5f67f18c2c6cd1b2dd98d7db941697ececdfc90507893579081f7e3d5ddeb9145a715abc20c4a938d32131013966bea539
+
+# 因为给了p,q 相当于就给到了私钥了
+n = p * q
+phi_n = (p - 1) * (q - 1)
+
+d = mod_inverse(e, phi_n) # 求模逆
+
+m = pow(c, d, n) # 解密方法，求明文
+
+print(m)
+print(long_to_bytes(m))
+# flag = AAA{Ace_Attorney_is_very_fun_Phoenix_Wright&Miles_Edgeworth}
+```
+
+
+
+##### 直接开根——N很大，e指数很小
+
+```python
+# 例题 ZJUAAA SimpleRSA
+import gmpy2
+from Crypto.Util.number import *
+
+c=431396049519259356426983102577521801906916650819409770125821662319298730692378063287943809162107163618549043548748362517694341497565980142708852098826686158246523270988062866178454564393347346790109724455155942667492571325721344535616869
+
+n=0x6270470b5e45bb464233683c38eeb03d17d54e0127038c9d286b00ac54946cfa1aa05c33610ec439c449b31f705c9e470ab6443cd090f9d88fab68f016c41bc00b9a1def40e77d836252ff03db2a525742e49b824d375216370d1cd810a60e2eac1824f306205c144b54c5f010ae17c8c88e76d1b41f13313cbd7e1b37822a0d
+
+e=3
+
+def de(c, e, n):
+    k = 0
+    while True:
+        m = c + n * k
+        result, flag = gmpy2.iroot(m, e)
+        if True == flag:
+            return result
+        k += 1
+
+m = de(c, e, n)
+print(m)
+print(long_to_bytes(m))
+```
 
 ### 混合密码
 
@@ -526,6 +751,10 @@ RSA加密过程如下。
 
 - 从混合密码系统外部赋予公钥密码加密时使用的密钥
 
+
+
+
+
 加密与解密过程
 
 ![image-20240529135817229](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240529135817229.png)
@@ -538,9 +767,27 @@ RSA加密过程如下。
 
 
 
-#### 随机数
+### 伪随机数生成器
 
+- 生成密钥 用于对称密码和消息认证码。
 
+- 生成密钥对 用于公钥密码和数字签名。
+
+- 生成初始化向量（IV) ：用于分组密码的CBC、CFB和OFB模式。 
+- 生成nonce ：用于防御重放攻击以及分组密码的CTR模式等。 
+- 生成盐 ：于基于口令的密码（PBE)等。
+
+随机性
+
+不可预测性：避免被攻击者看穿的不可预测性
+
+是指攻击者在知道过去生成的伪随机数列的前提下，依然无法预测出下—个生成出来的伪随机数的性质。
+
+![image-20240529153557497](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240529153557497.png)
+
+#### 线性同余法
+
+![image-20240529153657516](C:/Users/Philfan/AppData/Roaming/Typora/typora-user-images/image-20240529153657516.png)
 
 
 
@@ -552,11 +799,16 @@ RSA加密过程如下。
 
 发送方、接受方需要确认报文在传输的过程中或者事后没有被改变
 
+> 顺便说一句，单向散列函数中的 “散列” 的英文 “hash” 一词，原意是古法语中的 “斧子”，后来被引申为 “剁碎的肉末”，也许是用斧子一通乱剁再搅在一起的那种感觉吧。单向散列函数的作用，实际上就是将很长的消息剁碎，然后再混合成固定长度的散列值。
+
+生成速度快、抗碰撞性、单向性；不能检测伪装，只能检测篡改
+
 
 
 报文m 报文摘要H(m)
 
 计算报文摘要的签名$K^-_B(H(m))$
+单向散列函数所输出的散列值的长度是固定的
 
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240529140951509.png" alt="image-20240529140951509" style="zoom: 50%;" />
 
@@ -565,6 +817,22 @@ RSA加密过程如下。
 > 一车水果打成果汁，取1mL果汁进行签名，足以代表一车水果
 
 ![image-20240506091633237](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240506091633237.png)
+
+- 首先，MD5是不安全的，因此不应该使用。 
+
+- SHA-1 除了用于对过去生成的散列值进行校验之外，不应该被用于新的用途
+- SHA-2 有效应对了针对SHA-1的攻击方法，因此是安全的，可以使用。
+- SHA-3 是安全的，可以使用。  
+
+ 和对称密码算法一样，**我们不应该使用任何自制算法**。
+
+
+
+> **弱抗碰撞性**：要找出和某条消息具备相同散列值的另一条消息是非常困难的
+>
+> **强抗碰撞性**：找出具有相同散列值但互不相同的两条消息是非常困难的
+
+
 
 #### MD5散列函数 
 
@@ -581,29 +849,80 @@ Calculating a checksum using mathematical algorithms
 
   > Possibility of generating the same message digest is practically non-existent
 
-- SHA-1 - 160bit报文摘要（git使用）
 
-- SHA-256
+MD4已经被攻破了,MD5强抗碰撞性被攻破
+
+#### SHA-1 - 160bit报文摘要（git使用）
+
+SHA-1是由NIST ( National Institute of Standards and Technology, 美国国家标准技术研究所）设计的一种能够产生160比特的散列值的单向散列函数。
+
+SHA-1已经被列入 “可谨慎运用的密码清单”，即除了用于保持兼容性的目的以外，其他情况下都不推荐使用。
+
+**SHA-1 的强抗碰撞性已于2005年被攻破**
+
+#### SHA-256
+
+SHA-256、SHA-384 和SHA512都是由NIST设计的单向散列函数，它们的散列值长度分别为256比特、384比特和512比特。这些单向散列函数合起来统称SHA-2,它们的消息长度也存在上限（SHA-256的上限接近于264比特，SHA-384和SHA-512的上限接近于2128比特）。
+
+####  RIPEMD-160
+
+160比特的散列值的单向散列函数
 
 
 
+强抗碰撞性被攻破，但RIPEMD-160还没有被攻破
 
 
-公钥机制也有它的缺点，那就是**效率非常低**
 
-所以使用公私钥算法结合的方法
+#### SHA-3——Keccak
 
-用非对称算法对 对称密钥进行加密，明文使用对称密钥进行加密
+Secure Hash Algorithm-3 新标准，公开竞争的方式进行标准化
 
-- 私钥用来进行解密和签名，是给自己用的。
-- 公钥由本人公开，用于加密和验证签名，是给别人用的。
-- 当该用户发送文件时，用私钥签名，别人用他给的公钥解密，可以保证该信息是由他发送的。即数字签名。
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240529144434563.png" alt="image-20240529144434563" style="zoom:50%;" />
+
+
+
+#### 攻击方法
+
+**针对弱抗碰撞性的攻击**
+
+任何文件中都或多或少地具有一定的冗余性。利用文件的冗余性生成具有相 同散列值的另一个文件，这就是一种针对单向散列函数的攻击。
+
+**生日攻击**
+
+在这里，Mallory所进行的攻击不是寻找生成特定散列值的消息，而是要找到散列值相同的 两条消息，而散列值则可以是任意值。这样的攻击，一般称为生日攻击（`birthday attack`)或者 冲突攻击（`collision attack` )，这是一种试图破解单向散列函数的 “强抗碰撞性” 的攻击。
+
+> 只要有23个人，有两个人生日一样的概率就大于了50%
+
+
 
 ### 消息认证——完整性、认证
 
-发送方和接收方需要确认对方的身份
+消息认证码（`Message Authentication Code`)是一种确认完整性并进行认证的技术，取三个单词的首字母，简称为MAC。
 
-认证目的：避免重放攻击
+
+
+消息认证码是一种与密钥相关联的单向散列函数，无法保证机密性也无法防止抵赖
+
+![image-20240529145807418](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240529145807418.png)
+
+
+
+#### 实现方法
+
+**使用单向散列函数实现**：HMAC
+
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240529150336347.png" alt="image-20240529150336347" style="zoom:50%;" />
+
+
+
+**使用分组密码实现**
+
+分组密码的密钥作为消息认证码的共享密钥来使用，并用CBC模式（第4章）将消息全 部加密。此时，初始化向量（IV)是固定的。由于消息认证码中不需要解密，因此将除最后一 个分组以外的密文部分全部丢弃，而将最后一个分组用作MAC值。由于CBC模式的最后一个 分组会受到整个消息以及密钥的双重影响，因此可以将它用作消息认证码。例如，AES-CMAC ( RFC4493 )就是一种基于AES来实现的消息认证码。
+
+#### 攻击方法与防御
+
+发送方和接收方需要确认对方的身份。认证目的：避免重放攻击
 
 Nonce: 一生只用一次的整数(R)
 
@@ -611,9 +930,9 @@ Nonce: 一生只用一次的整数(R)
 
 ap4.0: 对称密钥加密
 
-为了证明Alice的活跃性, Bob发送给Alice一个nonce,
+为了证明Alice的活跃性, Bob发送给Alice一个nonce,R. 、
 
-R. Alice 必须返回加密之后的R，使用双方约定好的key
+Alice 必须返回加密之后的R，使用双方约定好的key
 
 问题：如何分发对称式加密的密钥
 
@@ -621,7 +940,9 @@ R. Alice 必须返回加密之后的R，使用双方约定好的key
 
 ap5.0：非对称密钥加密
 
-Bob发送challenge R，Alice发送私钥加密的报文和公钥，bob解密
+Bob发送challenge R，Alice发送私钥加密的报文和公钥，
+
+bob解密
 
 漏洞：Trudy中间截获所有，`middle attack`
 
@@ -637,11 +958,26 @@ Bob发送challenge R，Alice发送私钥加密的报文和公钥，bob解密
 
 - 不可抵赖性（对第三方）
 
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240529150956820.png" alt="image-20240529150956820" style="zoom:50%;" />
+
+**用私钥进行这一行为只能由持有私钥的人完成**：数字签名是利用了 “没有私钥的人事实上无法生成使用该私钥所生成的密文” 这一性质来 实现的。这里所生成的密文并非被用于保证机密性，而是被用于代表一种只有持有该密钥的人 才能够生成的信息。
+
+![image-20240529151054694](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240529151054694.png)
+
+也可以对消息的散列值签名
+
+!!! note "签名会不会被重复使用"
+    签名提取出来这一行为，就好像是现实世界中把纸质合同上的签名拓下来一样。然而在 数字签名中，签名和消息之间是具有对应关系的，消息不同签名内容也会不同，因此事实上是 无法做到将签名提取出来重复使用的。 <br>总之，将一份签名附加在别的消息后面，验证签名会失败。
+
 
 
 ### 密钥分发与证书
 
 可信赖中介
+
+> 证书其实和驾照差不多
+
+!!! note "认证机构所做的工作并不是加密，而是对公钥加上数字签名"
 
 #### 对称式解决 | KDC **Key Distribution Center**
 
@@ -671,7 +1007,9 @@ KDC是Kerberos认证协议中的核心组件，主要用于认证服务和分配
 
 出厂自带CA的公钥
 
-用CA的私钥签署了$$CA^-(Bob,K_B^+)$$
+用CA的私钥签署了$$CA^-(Bob,K_B^+)$$​
+
+![image-20240529152153523](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240529152153523.png)
 
 ![image-20240217100652773](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240217100652773.png)
 
@@ -699,7 +1037,17 @@ KDC是Kerberos认证协议中的核心组件，主要用于认证服务和分配
 
 #### Diffie-Hellman
 
+Diffie-Hellman 密钥交换( Diffie-Hellman key exchange )是 1976 年由 Whitfield Diffie 和 Martin Heilman 共同发明的一种算法。使用这种算法，通信双方仅通过交换一些可以公开的信息 就能够生成出共享的秘密数字，而这一秘密数字就可以被用作对称密码的密钥。IPsec中就使用 了经过改良的Diffie-Hellman 密钥交换。 
 
+虽然这种方法的名字叫 “密钥交换”，但实际上双方并没有真正交换密钥，而是通过计算生 成出了一个相同的共享秘钥。因此，这种方法也称为Diffie-Hellman密钥协商（`Diffie-Hellman key agreement` )
+
+![image-20240529152845886](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240529152845886.png)
+
+双方交换的数字（即能够被窃听者Eve知道的数字）一共有4个：P、 G,$ G^A \mod P$和$G^B \mod P $。根据这4个数字计算出Alice和Bob的共享密钥（$G^{AxB}\mod P$)是 非常困难的。
+
+这个问题称为有限域（`finite field`)的离散对数问题。 
+
+而有限域的离散对数问题的复杂度正是支撑Diffie-Hellman密钥交换算法的基础。
 
 ## 安全场景
 
