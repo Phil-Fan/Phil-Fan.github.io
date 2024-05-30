@@ -233,10 +233,8 @@ nav:
     - CS/ComputerNetwork-03-NetworkLayer.md
     - CS/ComputerNetwork-04-LinkLayer.md
     - CS/ComputerNetwork-05-PhysicalLayer.md
-    - CS/security.md
-    - CS/ComputerNetwork-06-networksecurity.md
-    - CS/ComputerNetwork-07-experiment.md
-    - CS/ComputerNetwork-08-问题探究.md
+    - CS/ComputerNetwork-06-experiment.md
+    - CS/ComputerNetwork-07-问题探究.md
     
     
   - "运筹学 | Operational Research":
@@ -249,6 +247,11 @@ nav:
     - CS/OR-GameTheoryModel.md
     - CS/OR-QueuingTheory.md
     - CS/OR-exercise.md
+
+  - "CTF相关知识":
+    - CS/CTF-crypto.md
+    - CS/CTF-reverse.md
+    - CS/CTF-CPS.md
      
     
 - Explore:
