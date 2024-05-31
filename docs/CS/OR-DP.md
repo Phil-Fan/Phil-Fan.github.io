@@ -15,23 +15,31 @@
 
 ## 基本概念与建模
 
-1. 阶段
-2. 状态
-3. 决策和策略
-4. 状态转移方程
-5. 指标函数
+1. **阶段**：问题过程按时间、空间的特征分解成若干相互联系的阶段。
+2. **状态**：k阶段开始（或结束）时的客观条件，记为$s_k \in S_k$，$S_k$为$k$阶段状态集合
+3. **决策**：依据状态做出的决定，记为$u_k(s_k)\in D_k(s_k)$ , $Dk (sk)$为状态$s_k$的允许决策集合。<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240531194223986.png" alt="image-20240531194223986" style="zoom:67%;" />如$D_1(A) = {B_1,B_2,B_3},u_1(A) = B_i \quad i = 1,2,3$
+4. **状态转移方程：**描述当前状态在给定决策下转移至下一阶段的过程；$s_{k+1}=T_k(s_k, u_k (s_k))$
+5. **指标函数**:评价沿子策略$P_{k,n}$过程性能优劣的函数，记为$V_{k,n}(s_{k}, p_{k,n})$。
+
 
 ## 基本原理与求解
+
+**状态的无后效性：**已经求解的子问题，不会再受到后续决策的影响。
+
+后部子过程策略，从k阶段开始到终了阶段的决策子序列，记为$p_{s,n}(s_k) = \{u_k \left(s_k\right), u_{k+1}\left(s_{k+1}\right),\dots, u_n\left(s_n\right)\} \in P_{k,n} (s_k)$
 
 最优化原理： 最优策略的子策略是对应子问题的最优策略。
 
 最优化定理：策略$p^*_{l,n}$是最优策略的充要条件是，对于所有的k，都有：
 $$
 \begin{array}{l}
-V_{1,n}\left({s_{1}}, p_{1, n}^{*}\right) \\
-\quad=\mathop{opt}\limits_{p_{1, k-1} \in p_{1, k-1}} V_{1, k-1}\left(s_{1}, p_{1, k-1}\right)+\mathop{opt}\limits_{p_{k, n} \in p_{k, n}} V_{k, n}\left(s_{k}, p_{k, n}\right)
+V_{1,n}\left({s_{l}}, p_{1, n}^{*}\right) \\
+\quad=\mathop{opt}\limits_{p_{l, k-1} \in p_{l, k-1}} V_{1, k-1}\left(s_{1}, p_{1, k-1}\right)+\mathop{opt}\limits_{p_{k, n} \in p_{k, n}} V_{k, n}\left(s_{k}, p_{k, n}\right)
 \end{array}
 $$
+
+> 新的最短路节点必定从已知的最短路节点展开
+
 
 
 顺序解法和逆序解法无本质区别
