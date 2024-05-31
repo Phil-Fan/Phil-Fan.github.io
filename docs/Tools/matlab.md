@@ -180,6 +180,131 @@ A = [a; a] % 垂直
 
 ## 信号处理
 
+```matlab
+conv() % 卷积
+laplace(x) % 拉普拉斯变换
+```
+
+
+
+### 连续系统时域分析
+
+```matlab
+sys = tf(num,den)
+# 单位冲激响应
+[y,t] = impulse(sys)
+[y,t] = impulse(sys,T_final) 
+
+# 单位阶跃响应
+[y,t] = step(sys)
+[y,t] = step(sys,Tfinal)
+
+# 任意激励 lsim
+[y,t,x] = lsim(sys,u,t) 
+[y,t,x] = lism(sys,u,t,x_0) %x_0系统状态变量
+```
+
+### 离散系统时域分析
+
+```matlab
+# 单位脉冲响应
+[h,t] = impz(num,den) 
+impz(b,a,-3:10)
+
+# 单位阶跃响应
+[h,t] = stepz(num,den)
+
+# 零状态响应
+y = filter(num,den,x,zi) 
+% x是包含输入序列非零样值点，zi表示系统输入延时
+
+[y,x] = dlism(num,den,u,x0)
+```
+
+### 频域分析
+
+时域卷积对应频域相乘
+
+连续系统：$Y(\omega) = X(\omega)H(\omega)$
+
+离散系统：$Y(\Omega) = X(\Omega)H(\Omega)$
+
+```matlab
+# 连续系统频率特性
+[h,w] = freqs(sys,n) % n为输出频率点个数
+abs() % 幅频
+angle() % 相频
+
+# 
+heaviside(t) 单位冲激响应h(t)
+fourier(x) % 傅里叶变换
+ifourier(Y) % 傅里叶反变换
+```
+
+```matlab
+# 离散系统频率特性
+[h,w] = freqz(sys, n, Fs) %频率等分点向量w的采样频率Fs，省略时候,w为0-pi的n个频率等分点
+
+[h,w] = freqz(sys,n,'whole') % H(Ω) 0-2pi n个频率等分点
+```
+
+
+
+### 复频域分析
+
+#### 连续系统
+
+```matlab
+# 传递函数表达方式转换
+[z,p,k] = tf2zp(num,den)
+[num,den] = tf2tf(z,p,k)
+[N,D] = numden(A) % 多项式分解成分子多项式N，分母多项式D
+
+a = sym2pol(P) % 返回多项式系数向量
+```
+
+```matlab
+# 求根
+r = roots(N)
+N = poly(r) % 将根转换为多项式系数向量
+den = conv() % 将因子相乘形式转换为多项式形式
+```
+
+```matlab
+# 部分分式展开
+[r,p,k] = residue(num,den)
+```
+
+$$
+\frac{num(s)}{den(s)} = k(s) + \frac{r_1}{s-p_1}+\frac{r_2}{s-p_2} +\dots+\frac{r_n}{s-p_n}
+$$
+
+
+
+```matlab
+# 绘制零极点分布
+pzmap(sys)
+```
+
+
+
+#### 离散系统
+
+```
+zrans(x)
+```
+
+
+
+```matlab
+[r,p,k] = residuez(num,den)
+
+# 绘制图像
+zplane(num,den)
+```
+
+
+
 ## Simulink
 
 - **系统仿真**：Simulink是MATLAB中用于动态系统建模、仿真和分析的工具箱，可以用于自动控制原理课程中的系统仿真。
