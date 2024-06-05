@@ -1,12 +1,9 @@
 # 网络安全
 
 ??? note "来源"
-
-- USTC《计算机网络》
-
-- 《图解密码技术》
-
-- 《信息物理系统安全》
+    - USTC《计算机网络》<br>
+    - 《图解密码技术》<br>
+    - 《信息物理系统安全》<br>
 
 ![image-20240522172938101](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240522172938101.png)
 
@@ -536,7 +533,7 @@ CBC模式的特点包括：
 
 
 
-#### RSA: `Rivest, Shamir, Adelson algorithm`
+#### RSA | `Rivest, Shamir, Adelson algorithm`
 
 ![image-20240529115538998](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240529115538998.png)
 

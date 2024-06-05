@@ -4,6 +4,8 @@
 
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240531210914839.png" alt="image-20240531210914839" style="zoom:50%;" />
 
+
+
 ## 基本概念和建模
 
 图论是数学的一个分支，主要研究图这种数据结构。图论中的基础概念主要包括：
@@ -216,6 +218,13 @@ void bellman(){
 
 
 
+
+
+## 最长路
+
+1. 正权边图中求最长路可使用SPFA
+2. 经典Dijsktra可在全负权边图中跑最长路、全正权边图中跑最短路
+
 ## 最小生成树
 
 [最小生成树详解(模板 + 例题)_最小生成树算法-CSDN博客](https://blog.csdn.net/qq_43619271/article/details/109091314)
@@ -266,6 +275,18 @@ void bellman(){
 #### **最大流**
 
 所有可行流中流量最大的流量
+
+
+$$
+\begin{aligned}
+\max \ f = \mathop{\Sigma} \limits_k x_{kt} = \mathop{\Sigma} \limits_j x_{sj}\\
+\mathop{\Sigma }\limits_k x_{ki} = \mathop{\Sigma} \limits_j x_{ij},i\ne s,t\\
+0\le x_{ij}\le u_{ij}\\
+\end{aligned}
+$$
+
+
+
 
 ![在这里插入图片描述](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20200729200443224.png)
 
@@ -376,7 +397,12 @@ $$
 
 该方法运用贪心的思想，通过寻找增广路来更新并求解最大流；
 
-!!! note "可以反悔，去掉不好的路"
+!!! note "增加反向边的目的"
+    可以反悔，去掉不好的路<br>
+    在做增广路径时可能会阻塞后来的增广路径，换计划说，做增广路径本来是有一个顺序的，只有按照有这一顺序，才能知道最大流。<br>
+    但是我们在寻找时是任意的，为了修正，我们就每次讲流量加入到了反向弧中从而让后面的流能够进行自我的调整。<br>
+
+
 $$
 flow = capacity -residual
 $$
@@ -393,6 +419,8 @@ Ford-Fulkerson 算法是通过 DFS（深度优先遍历）的方式在当前残�
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/b54c07de6761450d9ec4b72005d42d90.png" alt="在这里插入图片描述" style="zoom:33%;" /><img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/84dee643a7a94f1ba93ed4df2dbe9193.png" alt="在这里插入图片描述" style="zoom:33%;" /><img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/0c094f88a2e144cc9075bc3590500ab7.png" alt="在这里插入图片描述" style="zoom:33%;" />
 
 添加反向边是这一算法能够精确求解最大流问题的基础保障
+
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240604081319807.png" alt="image-20240604081319807" style="zoom:33%;" />
 
 然后重复上述过程，直到找不到增广路径，算法结束
 
@@ -412,13 +440,67 @@ Ford-Fulkerson 算法是通过 DFS（深度优先遍历）的方式在当前残�
 
 ## 最小费用流
 
-最小费用最大流问题：在网络$G = (V, E)$上，对每条边给定一个权值$w(u, v)$，称为费用（cost），含义是单位流量通过$ (u, v)$ 所花费的代价。对于$G$所有可能的最大流，我们称其中总费用最小的一者为最小费用最大流。
+最小费用最大流问题：在网络$G = (V, E)$上，对每条边给定一个权值$w(u, v)$，称为费用（cost），含义是单位流量通过$ (u, v)$​ 所花费的代价。
+
+$$
+\begin{align*}
+\min& \mathop{\Sigma}\limits_{(v_i,v_j) \in E} c_{ij}x_{ij}\\
+s.t. \Sigma{x_{ki}} &= \Sigma{x_{ij}},v_i \in V/\{v_s,v_t\}\\
+\Sigma{x_{kt}} &= \Sigma{x_{sj}} = f_g\\
+0 &\le x_{ij} \le u_{ij} \quad i,j = 1,2,\dots n
+\end{align*}
+$$
+
+**其中$f_g$是一个先验的值，当$f_g$为最小割容量的时候，是最小费用最大流问题**
+
+
+
+
+
+
+
+对于$G$​所有可能的最大流，我们称其中总费用最小的一者为最小费用最大流。
+
+> [P3381 【模板】最小费用最大流 - 洛谷](https://www.luogu.com.cn/problem/P3381)
+
+
+
+|名称	|特点	|不足|
+| ---- | ---- | ---- |
+|Bellman-Ford	|可以解决负权边，但不允许有负环	|每次循环值均对所有元素进行松弛判断，造成许多不必要的操作。|
+|SPFA	|进阶版的BF，使用队列进行优化，每次循环值选择当前节点相邻的若干节点进行松弛。在稀疏图上十分高效。	|单路增广。SPFA需要维护较为复杂的标号和队列操作，同时为了修正标号，需要不止一次地访问某些节点，速度会比较慢。|
+|改进的Dijkstra	|速度普遍比SPFA要快。	|无法直接处理负权边图，需要对算法进行改进。|
+
 
 ### SSP 算法
 
-SSP（Successive Shortest Path）算法是一个贪心的算法。它的思路是每次寻找单位费用最小的增广路进行增广，直到图上不存在增广路为止。
+SSP（Successive Shortest Path）算法是一个贪心的算法。它的思路是**每次寻找单位费用最小的增广路进行增广**，直到图上不存在增广路为止。
 
 如果图上存在单位费用为负的圈，SSP 算法无法正确求出该网络的最小费用最大流。此时需要先使用消圈算法消去图上的负圈。
+
+
+
+#### **证明**
+
+我们考虑使用数学归纳法和反证法来证明 SSP 算法的正确性。
+
+设流量为 $i$ 的时候最小费用为 $f_i$。我们假设最初的网络上 **没有负圈**，这种情况下 $f_0=0$。
+
+假设用 SSP 算法求出的 $f_i$ 是最小费用，我们在 $f_i$ 的基础上，找到一条最短的增广路，从而求出 $f_{i+1}$。这时 $f_{i+1}-f_i$ 是这条最短增广路的长度。
+
+假设存在更小的 $f_{i+1}$，设它为 $f'_{i+1}$。因为 $f_{i+1}-f_i$ 已经是最短增广路了，所以 $f'_{i+1}-f_i$ 一定对应一个经过 **至少一个负圈** 的增广路。
+
+这时候矛盾就出现了：既然存在一条经过至少一个负圈的增广路，那么 $f_i$ 就不是最小费用了。因为只要给这个负圈添加流量，就可以在不增加 $s$ 流出的流量的前提下，使 $f_i$ 对应的费用更小。
+
+综上，SSP 算法可以正确求出无负圈网络的最小费用最大流。
+
+
+
+#### 实现
+
+只需将 EK 算法或 Dinic 算法中找增广路的过程，替换为用最短路算法寻找单位费用最小的增广路即可。
+
+
 
 ## 工程进度优化
 

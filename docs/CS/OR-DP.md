@@ -195,8 +195,32 @@ Nim游戏
 
 ### 旅行商（货郎担）问题
 
+
+
+
+
 ### 设备更新问题
+
+
+
+
 
 ### 可靠性问题
 
+
+
+
+
 ### 控制问题
+
+离散系统的最优控制
+
+[「现代控制理论」Chap12 最优控制 泛函与变分](https://www.bilibili.com/video/BV1RF411u7T4)
+
+[「最优控制」 离散系统的动态规划_](https://www.bilibili.com/video/BV11t4y1F7EF)
+
+[最优控制理论 九、Bellman动态规划法用于最优控制_cost-to-go-CSDN博客](https://blog.csdn.net/NICAI001/article/details/127417277)
+
+[【最优控制】2_动态规划_Dynamic Programming_基本概念_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1Ed4y1w7tR/?spm_id_from=333.337.search-card.all.click&vd_source=8b7a5460b512357b2cf80ce1cefc69f5)
+
+[create_pdf.aspx (cnjournals.com)](http://jcta.cnjournals.com/cta_cn/ch/reader/create_pdf.aspx?file_no=CCTA121101&flag=1&journal_id=cta_cn&year_id=2013)

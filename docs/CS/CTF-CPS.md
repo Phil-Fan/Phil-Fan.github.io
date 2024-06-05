@@ -64,11 +64,16 @@ Modbus通信的设备分为主站(mater)和从站(slave)，主站为主动方，
 
 <center><b>报文结构<b><center>
 
+
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20210123223219854.png" alt="在这里插入图片描述" style="zoom:50%;" />
+
+
 
 MBAP报文头为 7 个字节长
 
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240508144701385.png" alt="image-20240508144701385" style="zoom:50%;" />
+
+
 
 PDU：1字节功能码+N字节数据
 

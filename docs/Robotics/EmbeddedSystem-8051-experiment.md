@@ -1,8 +1,6 @@
 # 8051 实验
 
-## 实验
-
-### 01 点亮一只发光二极管LED
+## 点亮一只发光二极管LED
 
 按照这个图的接法，当1 脚是高电平时，LED 不亮，只有1 脚是低电平时，LED 才发亮。
 
@@ -165,33 +163,33 @@ C语言和汇编语言的相互调用
 !!! note "实例"
     在一80C51单片机应用系统中，**外中断0**引脚接一个开关，**并行端口线P1.0**接一个发光二级管。<br>要求系统的功能是，开关闭合一次，发光二极管的状态改变一次。相应的程序为：<br>
 
-    ```c
-    #include “reg51.h”
-    #include “intrins.h”
-    sbit P10 = P1^0
-    Sbit INT0= P3^2
-    void delay(void) //延时操作
-    {
-        int a = 5000;
-        while(a--)
-            _nop_( );
+```c
+#include “reg51.h”
+#include “intrins.h”
+sbit P10 = P1^0
+Sbit INT0= P3^2
+void delay(void) //延时操作
+{
+    int a = 5000;
+    while(a--)
+        _nop_( );
+}
+void int_srv (void) interrupt 0 
+{
+    delay( );
+    if(INT0 == 0){
+        P10 = ! P10;
+        while(INT0 == 0);//按下后等待，而不会一直切换
     }
-    void int_srv (void) interrupt 0 
-    {
-        delay( );
-        if(INT0 == 0){
-            P10 = ! P10;
-            while(INT0 == 0);//按下后等待，而不会一直切换
-        }
-    }
-    void main()
-    {
-        P10 = 0;
-        EA = 1;//中断使能
-        EX0 = 1;
-        while(1);
-    } 
-    ```
+}
+void main()
+{
+    P10 = 0;
+    EA = 1;//中断使能
+    EX0 = 1;
+    while(1);
+} 
+```
 
 
 
@@ -199,31 +197,34 @@ C语言和汇编语言的相互调用
     例  利用定时/计数器`T0`的方式1，产生10ms的定时，并使`P1.0`引脚上输出周期为20ms的方波，采用中断方式，设系统时钟频率为`12 MHz`。<br><br>
     1、计算计数初值X：<br>
     由于晶振为`12 MHz`，所以机器周期$T_{cy}$​为$1\mu s$​。因此：
-    $N＝\frac{t}{T_{cy}} =10\times10-3/1\times10-6=10000$​<br>
+    $N＝\frac{t}{T_{cy}} =10\times10-3/1\times10-6=10000$​​<br>
     因计数器是向上计数，计数到10000时溢出，所以计数器初值为-10000。应将` -(10000/256)`送入`TH0`中，`-(10000%256)`送入`TL0`中。<br>
     2、求`T0`的方式控制字`TMOD`：<br>
     M1M0=01，GATE=0，C/    =0，可取方式控制字为`01H`；<br>
-    ```c
-    #include “reg51.h”
-    sbit P10 = P1^0;
-    void timer0(void) interrupt 1
-    {
-        P10 = ! P10;
-        TH0 = -(10000/256);//重新初始化
-        TL0 = -(10000%256);
-    }
-    void main(void)
-    {
-        TMOD = 0x01;			//定时器初始化
-        P10 = 0;
-        TH0 = -(10000/256);
-        TL0 = -(10000%256);		//初始值
-        EA = 1;					//中断使能
-        ET0 = 1;
-        TR0 = 1;				//启动计时器
-        while(1);
-    } 
-    ```
+    
+    
+
+```c
+#include “reg51.h”
+sbit P10 = P1^0;
+void timer0(void) interrupt 1
+{
+    P10 = ! P10;
+    TH0 = -(10000/256);//重新初始化
+    TL0 = -(10000%256);
+}
+void main(void)
+{
+    TMOD = 0x01;			//定时器初始化
+    P10 = 0;
+    TH0 = -(10000/256);
+    TL0 = -(10000%256);		//初始值
+    EA = 1;					//中断使能
+    ET0 = 1;
+    TR0 = 1;				//启动计时器
+    while(1);
+} 
+```
 
 
 
@@ -760,3 +761,228 @@ LED 采用共阳接法
 拉电流——电流更大
 
 灌电流——电流小，不足以驱动
+
+
+
+## 串口通信
+
+复制代码就行了，如果想玩，可以和你的队友连起来 P3.0 P3.1 互换连接
+
+不想玩的话其实1min烧录一下例程代码就结束了
+
+```c
+//将波特率设置为4800
+//接受端口
+#include "reg52.h"			 //此文件中定义了单片机的一些特殊功能寄存器
+
+typedef unsigned int u16;	  //对数据类型进行声明定义
+typedef unsigned char u8;
+
+
+void UsartInit()
+{
+	SCON=0X50;			//设置为工作方式1
+	TMOD=0X20;			//设置计数器工作方式2
+	PCON=0X80;			//波特率加倍
+	TH1=0XF3;				//计数器初始值设置，注意波特率是4800的
+	TL1=0XF3;
+	ES=1;						//打开接收中断
+	EA=1;						//打开总中断
+	TR1=1;					//打开计数器
+}
+
+void main()
+{	
+	UsartInit();  //	串口初始化
+	while(1);		
+}
+
+void Usart() interrupt 4
+    
+{
+    u8 receiveData;
+    receiveData=SBUF;//出去接收到的数据
+    RI = 0;//清除接收中断标志位
+}
+```
+
+```c
+//发送端口
+void Usart() interrupt 4
+{
+    u8 receiveData;
+    receiveData=SBUF;//出去接收到的数据
+    RI = 0;//清除接收中断标志位
+    SBUF=receiveData*2;//将接收到的数据放入到发送寄存器
+    while(!TI);			 //等待发送数据完成
+    TI=0;			//清除发送完成标志位
+}
+```
+
+可以实现大概这个效果。如果两个同时发送的话，可能数字会越来越大（我设置的是翻倍发送）
+
+![image-20240531230036861](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240531230036861.png)
+
+
+
+
+
+
+
+## LCD & ADC
+
+![1717167497179](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/1717167497179.jpg)
+
+```c
+#include "reg52.h"//此文件中定义了单片机的一些特殊功能寄存器
+#include "lcd.h"
+#include "XPT2046.h"	
+
+typedef unsigned int u16;	  //对数据类型进行声明定义
+typedef unsigned char u8;
+#define GPIO_DIG   P1
+sbit LSA=P2^0;
+sbit LSB=P2^1;
+sbit LSC=P2^2;
+//要非常注意LCD使用P2.5,P2.6,P2.7端口，不能混用，不然会有问题
+
+u8 disp[5];
+u8 isp[4];
+
+
+u8 code smgduan[50]={0x3f,0x06,0x5b,0x4f,0x66,0x6d,0x7d,0x07,0x7f,0x6f,
+            0x77,0x7c,0x39,0x5e,0x79,0x71,0x3d,
+            0x76,0x0f,0x0e,0x75,0x38,0x37,0x54,
+            0x5c,0x73,0x67,
+            0x31,0x49,0x78,
+            0x3e,0x1c,0x7e,0x64,0x6e,0x59};
+
+
+/***
+* 函 数 名: delay
+* 函数功能: 延时函数，i=1时，大约延时10us
+***/
+void delay(u16 i)
+{
+    while(i--);	
+}
+
+
+/***
+* 函数名:datapros()
+* 函数功能:数据处理函数
+***/
+void datapros()
+{
+    u16 temp;
+    temp = Read_AD_Data(0x94);		//   AIN0 电位器
+	
+    disp[0]=smgduan[temp/1000];//千位
+    disp[1]=smgduan[temp%1000/100];//百位
+    disp[2]=smgduan[temp%1000%100/10];//个位
+    disp[3]=smgduan[temp%1000%100%10];	
+    isp[0]=temp/1000+'0';
+    isp[1]=temp%1000/100+'0';//百位
+    isp[2]=temp%1000%100/10+'0';//个位
+    isp[3]=temp%1000%100%10+'0';	
+}
+
+
+/***
+* 函数名:DigDisplay()
+* 函数功能:数码管显示函数
+***/
+void DigDisplay()
+{
+    u8 i;
+    for(i=0;i<4;i++)
+    {
+        switch(i)
+        {
+            case(0):
+                LSA=0;LSB=0;LSC=0; break;
+            case(1):
+                LSA=1;LSB=0;LSC=0; break;
+            case(2):
+                LSA=0;LSB=1;LSC=0; break;
+            case(3):
+                LSA=1;LSB=1;LSC=0; break;
+            case(4):
+                LSA=0;LSB=0;LSC=1; break;
+            case(5):
+                LSA=1;LSB=0;LSC=1; break;
+            case(6):
+                LSA=0;LSB=1;LSC=1; break;
+            case(7):
+                LSA=1;LSB=1;LSC=1; break;
+        }
+        GPIO_DIG=disp[i];
+        delay(100);
+        GPIO_DIG=0x00;
+    }		
+}
+
+
+
+void Timer0Init()
+{
+    TMOD|=0X01;
+    TH0=0XFC;
+    TL0=0X18;	
+    ET0=1;
+    EA=1;
+    TR0=1;		
+}
+
+
+void main(void)
+{
+    Timer0Init();
+    LcdInit();
+    disp[4] = 0x5c;
+    disp[5] = 0x5c;
+    disp[6] = 0x5c;
+    disp[7] = 0x75;
+    while(1)
+    {		
+        DigDisplay();//数码管显示函数	
+    }		
+}
+
+void Timer0() interrupt 1
+{
+    static u16 i;
+    u16 j;
+    TH0=0XFC;
+    TL0=0X18;
+    i++;
+    if(i==1100)
+    {
+        i=0;
+        datapros();	 //数据处理函数
+        LcdWriteCom(0x01);  //清屏
+        for(j=0;j<4;j++)
+        {   
+            LcdWriteData(isp[j]);    
+        }
+    }	
+}
+```
+
+这里使用定时中断完全是为了好玩，为了让显示刷新率不那么高设置的。
+
+而且感觉使用循环的方法进行延时非常的蠢，所以定时$500-700ms$来完成任务。可以更改`if(i == 1000)`这个语句来设置延时的长短，这里还可以完成很多其他基于时间的操作。
+
+还有需要注意到的是，每次刷新LCD的屏幕可以不使用`lcdinit()`函数，而可以直接使用`LcdWriteCom(0x01); `清屏函数。
+
+
+
+```c
+//---定义使用的IO口---//
+sbit DOUT = P3^7;	  //输出
+sbit CLK  = P3^6;	  //时钟
+sbit DIN  = P3^4;	  //输入
+sbit CS   = P3^5;	  //片选
+```
+
+要非常注意这段头文件中给出的引脚定义，因为之前我引脚是随便连的，就导致我的LCD和数码管其实是使用的同样的引脚，就会出现很多很多奇怪的问题，所以一个教训就是不要随意更改接口，如果需要更改，那么请弄清楚有没有接口是这次实验中已经用到的（可能通过板子进行连接的）
