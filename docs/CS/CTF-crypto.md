@@ -5,7 +5,17 @@
     - 《图解密码技术》<br>
     - 《信息物理系统安全》<br>
 
-![image-20240522172938101](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240522172938101.png)
+!!! bug "如果看不到图像或是公式，多刷新几次"
+
+做PPT时候整理的图像
+
+![image-20240605143933543](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240605143933543.png)
+
+![image-20240605144047495](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240605144047495.png)
+
+
+
+
 
 ## 数论前置知识
 
