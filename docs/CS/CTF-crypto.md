@@ -269,6 +269,42 @@ int exgcd(int a,int b,int &x,int &y)
 
 > 英文文章出现最高的字母是e
 
+!!! note "Challenge 1"
+    ![crypto_challenge1](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/crypto_challenge1.png)
+
+    - 要求：破解纸条上的信息，给出最后的破解结果，对于本问题，可以不用写破解的过程，毕竟福尔摩斯曾经说过，“将中间的推理步骤统统去掉，能够达到惊人的效果”，不过还是很希望能够看到同学们是如何逐步破解问题，得到最后的结果的，这也是密码学题目，或者说 CTF 题目的真正乐趣所在。
+    
+    - 不妨读一下**福尔摩斯探案集《跳舞的小人》**，说不定对你有帮助呢？
+    
+    解密结果
+    > tonight Ethan will arrive here please lure him to the abandoned warehouse near the police station where the professional assassin reese hired will eliminate him
+    >
+    > tomorrow she will go to the warehouse and become the first person to discover his corpse with a strong alibi these police officers absolutely cannot arrest her
+
+方法：
+
+> **参考文档和网站**：
+>
+> [quipqiup - cryptoquip and cryptogram solver](http://quipqiup.com/)<br>
+> [古典密码学之词频分析 | Cata1yst's blog (cata1ysts.github.io)](https://cata1ysts.github.io/2022/08/14/古典密码学之词频分析/)<br>
+> [单表代换加密 - CTF Wiki (ctf-wiki.org)](https://ctf-wiki.org/crypto/classical/monoalphabetic/#_11)<br>
+
+先使用`opencv`库将图片进行切割和计数，然后猜测带圈和不带圈是同一个字母的大小写关系。
+
+手动匹配大小写关系后，使用程序将密码图片转换成密文字符串
+
+> ABCDEFaHAFIcKDLlINNDOhFHNhQLHIRhLSNhFDgAbAFhIVICWBCHwKINHFBSRhCHInAFhQBLDMhRAIADBcKFHNhAFhQNBPHRRDBCIlIRRIRRDcNHHRhFDNHwKDLlHLDGDCIAhFDgABGBNNBkRFhKDLlEbAbAFhKINHFBSRhICwVHMBGhAFhPDNRaQHNRBcAbWDRMBOHnFDrMBNQRhKDAfiRANBCeILDVdAFHRhQBLDMhBPPDMHNrIVRBLSAHLxMIcCBaINNHRaFHn
+
+将转换后的密文送入解密工具。稍微调整一下格式即可。
+
+![image-20240605182302624](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240605182302624.png)
+
+
+
+
+
+
+
 
 
 !!! note "—次性密码本与压缩"

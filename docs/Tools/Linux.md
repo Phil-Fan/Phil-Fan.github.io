@@ -16,14 +16,6 @@
 
 [The big list of Vim-like software (reversed.top)](https://reversed.top/2016-08-13/big-list-of-vim-like-software/)
 
-- 
-
-## 设置
-
-- 中文环境
-- 网络环境
-- 
-
 # Linux简介
 
 linux通常在指的是**linux内核**
@@ -808,7 +800,7 @@ convert image.{png,jpg}
 # 会展开为
 convert image.png image.jpg
 
-cp /path/to/project/{foo,bar,baz}.sh /newpath
+cp /project/{a,b,c}.sh /newpath
 # 会展开为
 cp /path/to/project/foo.sh /path/to/project/bar.sh /path/to/project/baz.sh /newpath
 
