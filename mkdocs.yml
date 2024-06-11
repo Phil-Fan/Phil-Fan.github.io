@@ -193,6 +193,7 @@ nav:
   - Class/signal.md
   - Class/自动控制原理.md
   - Class/SocialSciences.md
+  - Class/Statistics.md
   - "ITP课程" :
       - Class/ITP/ITP-Team-Communication-and-Leadership.md
       - Class/ITP/ITP-Management.md
@@ -257,6 +258,7 @@ nav:
     - CS/CTF-misc.md
     - CS/CTF-pwn.md
     - CS/CTF-web.md
+    - CS/CTF-security.md
     
      
     
@@ -265,10 +267,11 @@ nav:
     - Explore/CV/OpenCV.md
   - "ML | 机器学习":
     - Explore/ML/CNN.md
+    - Explore/ML/intro.md
+    - Explore/ML/LingoInAI.md
 
   - "AI | 人工智能":
     - Explore/AI/HumanPoseEstimation.md
-    - Explore/AI/LingoInAI.md
     - "AIGC网站探索":
       - Explore/AI/AIGC-explore.md
 
