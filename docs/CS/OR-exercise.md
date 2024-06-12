@@ -57,11 +57,11 @@
 
 
 
-
+对偶问题的对偶怎么解释？举例说明
 
 对偶问题的转化 
 
-
+对偶问题对原问题有何帮助。举3例。 
 
 等式约束化为无约束问题有哪两种方法，各有什么特点？数值解的时候哪个更好。
 
@@ -97,31 +97,29 @@
 
 
 
+分支定界在混合整数中更有效，相当于只需要对其中的一部分进行分支。另一部分没有约束
+
 
 
 ## 运输规划
 
-运输问题，但是这题是退化的，问你其中一个运价怎样变化使得这个最优方案不变化；然后又问其中一条路断了的话，最优方案怎么变化
+> 运输问题建模的两种方法。 
 
 
 
-1、运输问题，给出问题的最优方案。 
-
-（1）问其中一个运价变化时，若最优方案不变，求该运价取值范围； 
-
-（2）问其中一个产地停产，最优方案怎么改变。 
-
-
-
-对偶问题对原问题有何帮助。举3例。 
-
- A1：对偶问题的对偶怎么解释？举例说明 A2：KKT条件的几何解释，什么时候充分？
+> 1、运输问题，给出问题的最优方案。 
+>
+> （1）问其中一个运价变化时，若最优方案不变，求该运价取值范围； 
+>
+> （2）问其中一个产地停产，最优方案怎么改变。 
 
 
 
 
 
-运输问题建模的两种方法。 
+
+
+
 
 ## 目标规划
 
@@ -143,9 +141,9 @@
 >
 > （1）建立目标规划的模型，不需要求解；
 >
-> （2）证明使用单纯形法求解目标规划问题时，可以忽略非线性约束di+di-=0。 
+> （2）证明使用单纯形法求解目标规划问题时，可以忽略非线性约束$d_i^++d_i^-=0$。 
 
-$$
+$
 \begin{align}
 \min z &= \mathop{\Sigma}\limits_{k=1}^K p_k [\mathop{\Sigma}\limits_{l=1}^L(w_{kl}^- d_l^- + w_{kl}^+d_l^+)]\\
 s.t.&\left\{
@@ -158,7 +156,7 @@ s.t.&\left\{
 	
 \right.
 \end{align}
-$$
+$
 
 |                          条件                          |            结果             |
 | :----------------------------------------------------: | :-------------------------: |
@@ -200,6 +198,8 @@ $$
 
 
 > 给出题目问题的KT条件。 判断是否为充要条件。原因。
+>
+> KKT条件的几何解释，什么时候充分？
 
 
 
@@ -228,15 +228,54 @@ $$
 
 ## 动态规划
 
-给了一个差分方程和x(0)=1，叫你求一个目标函数的最小值，用动态规划
+> 动态规划名词解释（状态、决策、阶段），举例解释。 
+
+1. **阶段**：问题过程按时间、空间的特征分解成若干相互联系的阶段。
+2. **状态**：k阶段开始（或结束）时的客观条件，记为$s_k \in S_k$，$S_k$为$k$阶段状态集合
+3. **决策**：依据状态做出的决定，记为$u_k(s_k)\in D_k(s_k)$ , $Dk (sk)$为状态$s_k$的允许决策集合。<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240531194223986.png" alt="image-20240531194223986" style="zoom:67%;" />如$D_1(A) = {B_1,B_2,B_3},u_1(A) = B_i \quad i = 1,2,3$
+4. **状态转移方程：**描述当前状态在给定决策下转移至下一阶段的过程；$s_{k+1}=T_k(s_k, u_k (s_k))$
+5. **指标函数**:评价沿子策略$P_{k,n}$过程性能优劣的函数，记为$V_{k,n}(s_{k}, p_{k,n})$​。
+
+> 状态无后向性，为什么？
+
+**状态的无后效性：**给定某阶段的状态$s_k$，则以后各阶段的状态$s_l（l>k）$都只受$s_k$的影响，与之前的状态无关。
+
+已经求解的子问题，不会再受到后续决策的影响。
+
+后部子过程策略，从k阶段开始到终了阶段的决策子序列，记为$p_{s,n}(s_k) = \{u_k \left(s_k\right), u_{k+1}\left(s_{k+1}\right),\dots, u_n\left(s_n\right)\} \in P_{k,n} (s_k)$
+
+> 动态规划的最优性原理指什么
+> 贝尔曼是如何用数学语言表达最优性原理的。
+
+最优化原理： 最优策略的子策略是对应子问题的最优策略。
+
+最优化定理：策略$p^*_{l,n}$是最优策略的充要条件是，对于所有的k，都有：
+$
+\begin{array}{l}
+V_{1,n}\left({s_{l}}, p_{1, n}^{*}\right) \\
+\quad=\mathop{opt}\limits_{p_{l, k-1} \in p_{l, k-1}} V_{1, k-1}\left(s_{1}, p_{1, k-1}\right)+\mathop{opt}\limits_{p_{k, n} \in p_{k, n}} V_{k, n}\left(s_{k}, p_{k, n}\right)
+\end{array}
+$
 
 
 
-状态无后向性，为什么？动态规划名词解释（状态、决策、阶段），举例解释。 
+贝尔曼最优方程描述了最优值函数 $V^{*}(s)$ 和 $Q^{*}(s,a)$ 之间的关系：
+
+$V^{*}(s) = \max_{a} \left[ r(s,a) + \gamma \sum_{s'} P(s'|s,a) V^{*}(s') \right]$
+
+其中，$\max_{a}$ 表示对于所有可能的动作 $a$ 取最大值，$s$ 是当前状态，$a$ 是动作，$r(s,a)$ 是状态-动作对的奖励，$\gamma$ 是折扣因子，$P(s'|s,a)$ 是状态转移概率。
 
 
 
-动态规划的最优性原理。最优性原理指什么，贝尔曼是如何用数学语言表达最优性原理的。
+
+
+> **建模**给了一个差分方程和x(0)=1，叫你求一个目标函数的最小值，用动态规划
+
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240612101320263.png" alt="image-20240612101320263" style="zoom:50%;" />
+
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240612101314690.png" alt="image-20240612101314690" style="zoom:50%;" />
+
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240612101401823.png" alt="image-20240612101401823" style="zoom:50%;" />
 
 ## 图论
 
@@ -270,7 +309,7 @@ $$
 1. 正权边图中求最长路可使用SPFA
 2. 经典`Dijsktra`可在全负权边图中跑最长路、全正权边图中跑最短路；将所有边权全设置成为负数
 
-![image-20240611214010502](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240611214010502.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240611214010502.png" alt="image-20240611214010502" style="zoom:33%;" />
 
 
 
@@ -280,7 +319,7 @@ $$
 
 `Floyd-Warshall`算法不能处理带有负权环路的图，但它能够检测到负权环路的存在。
 
-![image-20240611220006981](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240611220006981.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240611220006981.png" alt="image-20240611220006981" style="zoom: 33%;" />
 
 ### 费用流
 
@@ -288,9 +327,9 @@ $$
 
 
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240611220645831.png" alt="image-20240611220645831" style="zoom:50%;" />
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240611220645831.png" alt="image-20240611220645831" style="zoom: 33%;" />
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240611220627796.png" alt="image-20240611220627796" style="zoom:50%;" />
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240611220627796.png" alt="image-20240611220627796" style="zoom: 33%;" />
 
 
 
