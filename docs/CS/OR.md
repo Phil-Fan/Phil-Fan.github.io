@@ -34,6 +34,16 @@
 
 ### 基础
 
+$C_n$为价值向量，$x_n$是约束变量，$A$是工艺矩阵，B为约束向量
+
+图解法：找到可行域，移动平行直线
+
+从图解法我们可以发现有以下规律
+
+1. 解的情况:唯一最优解、无穷最优解、无界解（少了约束）无可行解（约束矛盾，鱼与熊掌不可得兼）<br>
+2. 可行域很可能是一个凸集<br>
+3. 最优解若存在，很可能就是可行域的顶点<br>
+
 #### 数学表述与标准形式
 
 线性规划问题的一般数学模型可以表示为：
@@ -60,23 +70,9 @@ $Z = \begin{bmatrix} c_1 & c_2 & \cdots & c_n \end{bmatrix} \begin{bmatrix} x_1 
 
 $\begin{bmatrix} a_{11} & a_{12} & \cdots & a_{1n} \\ a_{21} & a_{22} & \cdots & a_{2n} \\ \vdots & \vdots & \ddots & \vdots \\ a_{m1} & a_{m2} & \cdots & a_{mn} \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{bmatrix} \leq \begin{bmatrix} b_1 \\ b_2 \\ \vdots \\ b_m \end{bmatrix}$
 
-即 $\mathbf{A}\mathbf{x} \leq \mathbf{b}$，以及非负约束：$\mathbf{x} \geq \mathbf{0}$
+即 $\mathbf{A}\mathbf{x} \leq \mathbf{b}$，以及非负约束：
 
-
-
-**向量形式**
-
-$$
-\begin{align}
-max(min)\quad &z = CX\\
-s.t. \quad&\Sigma P_j x_j \le b\\
-&X \ge 0,unr
-\end{align}
-$$
-
-
-
-**线性规划问题的标准形式**
+#### **线性规划问题的标准形式**
 
 $$
 \begin{align}
@@ -93,20 +89,6 @@ $$
 > 可参照[【线性规划2】线性规划的标准型 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/31729190)中的例题
 
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-60940d3d6f2b4378f3cb88c0217f25ed_1440w.webp" alt="img" style="zoom: 33%;" /><img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-c67044816117c7099e3d4c264edff055_1440w.webp" alt="img" style="zoom:33%;" /><img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-66da5ba9c5f0c5ddfb02c4ab77d26479_1440w.webp" alt="img" style="zoom:33%;" />
-
-
-
-图解法：找到可行域，移动平行直线
-
-从图解法我们可以发现有以下规律
-
-1. 解的情况:唯一最优解、无穷最优解、无界解（少了约束）无可行解（约束矛盾，鱼与熊掌不可得兼）<br>
-2. 可行域很可能是一个凸集<br>
-3. 最优解若存在，很可能就是可行域的顶点<br>
-
-
-
-#### 数学技巧：
 
 **变量条件转化为标准约束**
 $$
@@ -128,8 +110,15 @@ x_{sj} \quad 松弛变量
 \end{align}
 $$
 
-**目标函数的转化**
+大于等于则减去松弛变量
 
+
+
+绝对值不等式换成两个不等式
+
+
+
+**目标函数的转化**
 $$
 \begin{align}
 max \ z = \Sigma C_j x_j \quad &不变\\
@@ -194,7 +183,8 @@ $$
     $$
     
     令$x_j=0,\quad j=\left[ m+1,n\right]$<br>
-    基解为解向量$\mathbf{x} = (x_1,\dots,x_m,0,\dots,0)^T$
+    基解为解向量$\mathbf{x}  (x_1,\dots,x_m,0,\dots,0)^T$
+    非基变量设为零，解出的基变量的值
     
     === "基可行解"
     基解中$\mathbf{x} \ge 0$的解
@@ -253,52 +243,72 @@ $$
 >
 > [【运筹学】单纯形法总结 ( 单纯形法原理 | 单纯形法流程 | 单纯形表 | 计算检验数 | 最优解判定 | 入基变量 | 出基变量 | 方程组同解变换 ) ★★★-CSDN博客](https://hanshuliang.blog.csdn.net/article/details/114498881)
 >
-> 详细步骤解答
+> 
 >
-> [【Wu的课堂】《运筹学》单纯形法中文讲解_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1j7411d7Gm/?spm_id_from=333.880.my_history.page.click)
+> 详细步骤解答[【Wu的课堂】《运筹学》单纯形法中文讲解_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1j7411d7Gm/?spm_id_from=333.880.my_history.page.click)
+>
+> 
+>
+> 非常清楚的视频 讲的非常好[四种解的特殊情况](https://www.bilibili.com/video/BV1im4y1g7zM/?spm_id_from=333.999.0.0&vd_source=8b7a5460b512357b2cf80ce1cefc69f5)
 >
 > 思想
 >
 > **解必然存在于顶点处，那么只需要验证顶点就可以了，但是一个一个验证很麻烦，所以采用相邻迭代**
 
+!!! note "先求出一个基本可行解，判断是否最优；不是最优的话再换一个基本可行解"
 
+
+
+**松弛化为标准形式**：通过添加松弛变量将不等号化为等号，并保证所有变量都大于等于0。找到一组单位矩阵
 
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240501140607194.png" alt="image-20240501140607194" style="zoom:50%;" />
 
-基本单纯形法是一种求解线性规划问题的方法，包括以下几个步骤：
+#### **找初始基可行解**
 
-- **松弛化为标准形式**：通过添加松弛变量将不等号化为等号，并保证所有变量都大于等于0。找到一组单位矩阵
+通常通过构造某一部分单位矩阵来找到初始基可行解。
 
-- **找初始基可行解**：通常通过构造某一部分单位矩阵来找到初始基可行解。
+**单纯形表的解释**
 
-- **最优性检验**：计算检验数$\sigma$​，即目标函数系数与对应基变量系数的差值。<br>
+单纯形表的各个元素的含义
 
-  $\sigma_j = c_j - \Sigma^m_{i=1} c_ia_{ij}$<br>
+基变量对应检验数必为0
 
-  没有大于0的最优值时候，跳出循环
+![image-20240612115726009](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240612115726009.png)
 
-  <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240501153721390.png" alt="image-20240501153721390" style="zoom:50%;" />
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240423091540343.png" alt="image-20240423091540343" style="zoom:67%;" />
 
-- **基可行解迭代**：每次都只变更一个基向量<br>
+#### **最优性检验**
 
-  入基变量：按检验数最大选取<br>
+计算检验数$\sigma$，即目标函数系数与对应基变量系数的差值。根据最终的检验数结果判断是否有唯一解、无穷解或无解。<br>
 
-  出基变量：按$\theta_i = \frac{b_i}{a_{lk}}$​最小选取$\theta = min \{ \frac{b_i}{a_{ik}}\}$<br>
+$\sigma_j = c_j - \Sigma^m_{i=1} c_ia_{ij}$<br>
 
-  初等行变换<br>
+**没有大于0的最优值时候，跳出循环**
+
+
+
+- 若非基变量检验数全小于0，有唯一可行解<br>
+- **多重解**：若存在一个非基变量检验数为0，则有无数可行解<br>可以将为0的非基变量作为入基变量再进行一次，得到另一个解<br>其他的最优解使用$X_1^*$和$X_2^*$的线性组合$X^* = \alpha X_1^*+(1-\alpha) X_2^*$求得。<br>
+  目标函数平行于非冗余的紧约束<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240612123945639.png" alt="image-20240612123945639" style="zoom:33%;" />
+- **无界解**：若检验数$\sigma_k >0$且对应的变量$x_k$系数列向量$P_k \le 0$，则有无界解。<br>原因：计算$\theta_i$无法计算，要么小于0，要么不能除，所以找不到出基变量<br>约束条件不够<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240612124738057.png" alt="image-20240612124738057" style="zoom:50%;" />
+- **退化解**：有多个相同的$\theta_i$​​​时候，下一次迭代会有基变量等于0<br>原因：有约束没有作用，有冗余约束<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240612125308828.png" alt="image-20240612125308828" style="zoom:33%;" />元素相同时候，选择下角标最小的作为出基变量\入基变量
+- **无可行解**：检验数小于0，但又不等于零的人工变量；（有矛盾的约束）
+
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240501153721390.png" alt="image-20240501153721390" style="zoom:50%;" />
+
+#### **基可行解迭代**
+
+每次都只变更一个基向量<br>
+
+- 入基变量：按检验数最大选取
+- 出基变量：按$\theta_i = \frac{b_i}{a_{lk}}$​最小选取$\theta = min \{ \frac{b_i}{a_{ik}}\}$​
+- 初等行变换
 
 !!! note "需要$a_{lk}>0$​​​"
 
 $x_i-\theta \cdot a_j$，若$a_j<0$,那么$\theta$可以取到无穷大	
 
 
-
-- 最优解判别：根据最终的检验数结果判断是否有唯一解、无穷解或无解。<br>
-  若最后检验数全等于0，有唯一可行解<br>若有至少一个检验数小于0，则有无数可行解<br>若检验数全小于0（没有一个等于0），则有无界解。
-
-2、单纯形表的各个元素的含义
-
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240423091540343.png" alt="image-20240423091540343" style="zoom:67%;" />
 
 
 
@@ -318,20 +328,40 @@ $x_i-\theta \cdot a_j$，若$a_j<0$,那么$\theta$可以取到无穷大
 
 二、人工变量法
 
+> [线性规划与单纯形法(三)(大M法与两阶段法)bilibili](https://www.bilibili.com/video/BV1NL411c7dH/?spm_id_from=333.999.0.0&vd_source=8b7a5460b512357b2cf80ce1cefc69f5)
+>
+> [人工变量法总结](https://hanshuliang.blog.csdn.net/article/details/114544508)
+
+!!! note "线性规划要是有最优解，人工变量为0"
+	使人工变量为0，让人工变量出基
+
 人工变量法是在无法直接找到单位矩阵作为起始时使用的一种方法，主要步骤包括：
+
+![image-20240612121539611](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240612121539611.png)
 
 - 引入人工变量：人为引入几个人工变量使其构成对角单位矩阵。
 - 目标函数引入M：为了防止引入人工变量对线性规划的最大、最小解产生影响，在目标函数中引入一个正无穷的M。
-- 计算检验数：与基本单纯形法类似，计算检验数来确定入基和出基变量。
+
+**计算检验数**
+
+与基本单纯形法类似，计算检验数来确定入基和出基变量。
+
+- 所有检验数小于零且没有人工变量，则有最优解
+- 所有检验数小于零，有非零人工变量，没有可行解。
+
+
+
 - 中心元变换：在迭代过程中将人工变量替换成其他已有的变量，如果无法将人工变量替走，则无可行解。
 
-[【运筹学】人工变量法总结 ( 人工变量法解的分析 | 标准型变换 | 构造单位阵 | 目标函数引入 M | 计算检验数 | 选择入基变量 | 选择出基变量 | 中心元变换 | ) ★★_什么时候需要加入人工变量-CSDN博客](https://hanshuliang.blog.csdn.net/article/details/114544508)
-
-（如果无法直接找到单位矩阵，用人工变量法构建单位矩阵）
-在无法直接产生与系数矩阵同秩的单位矩阵的时候，人为引入几个人工变量使其构成对角单位矩阵，但是为了防止引入人工变量对线性规划的最大、最小解产生影响，在max/min栏处要-Mxi，这里的M为正无穷，寓意只要新引入的人工变量不为0就会产生很大的影响。
-人工变量法的关键在于一定要在不断的迭代过程中将人工变量替换成其他已有的变量，只要人工变量为出基变量，非人工变量为入基变量，人工变量栏也可以消去。人工变量可以看成一个“由头”，在后续迭代过程中将“头”舍去，如果在迭代过程中无法将人工变量替走，则无可行解。
-
 ![image-20240423091734877](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240423091734877.png)
+
+
+
+
+
+
+
+
 
 ### 二、对偶理论
 
@@ -364,12 +394,7 @@ $y_i^* = \frac{\partial{z^*}}{\partial{b_i}} = \frac{最大利润增量}{第i种
 
 #### 对称性定理
 
-原问题 (LP - Primal problem) 的 对偶 是 对偶问题 (DP - Dual problem)
-对偶问题 (DP) 的 对偶 是 原问题 (LP)
-
-原问题 和 对偶问题 互为对偶 ;
-
-对偶问题是对称的
+原问题 和 对偶问题 互为对偶 ;对偶问题是对称的
 
 原问题（Primal Problem）：
 
@@ -422,11 +447,15 @@ $$
 
 **弱对偶定理推论2:(对偶问题的无界性)**
 
-在一对对偶问题(P)和(D)中,
+原问题为无界解，则对偶问题无可行解
 
-如果其中一个线性规划问题可行,但是目标函数无界,则另外一个问题没有可行解;
+> 可以前推后，不可以后推前
 
-如果其中一个线性规划问题不可行,其对偶问题不一定不可行;
+![image-20240612131424300](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240612131424300.png)
+
+![image-20240612131531365](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240612131531365.png)
+
+
 
 **弱对偶定理推论3:**
 
@@ -482,16 +511,9 @@ $$
 
 #### 互补松弛性（Complementary Slackness）
 
-$(\mathbf{AX}-b)^T \mathbf{Y} = 0 \quad \mathbf{X^T(A^T Y-C^T}) = 0$​
+$\hat{X},\hat{Y}$是原问题和对偶问题的可行解，$X_s,Y_s$是松弛变量的可行解，
 
-$\left\{
-    \begin{array}
-        \mathbf{X_s^T Y} = 0\\
-        \mathbf{X^T Y_s} = 0
-    \end{array}
-\right.$
-
-$X_s$与$Y_s$为松弛变量
+则$\hat{X}$和$\hat{Y}$是最优解当且仅当$Y_s\hat{X} = 0,\hat{Y}X_s = 0$
 
 给了m+n个方程，互补松弛定理的等式
 
@@ -504,7 +526,11 @@ $X_s$与$Y_s$为松弛变量
 
 条件2：反之如果将对偶问题解代入可得为严格不等式，则原问题的对应解为0。
 
-约束条件的转化
+![image-20240612132752901](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240612132752901.png)
+
+
+
+#### 约束条件的转化
 
 
 
@@ -522,6 +548,10 @@ $X_s$与$Y_s$为松弛变量
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20201231075901236.png" alt="在这里插入图片描述" style="zoom: 67%;" />
 
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/2020051213051145.png" alt="在这里插入图片描述" style="zoom:67%;" />
+
+系数矩阵是转置
+
+![image-20240612130938287](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240612130938287.png)
 
 
 
@@ -564,7 +594,7 @@ $X_s$与$Y_s$为松弛变量
 
 **步骤3：跳出循环**
 
-
+![image-20240612140113503](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240612140113503.png)
 
 可行性分析
 
@@ -579,6 +609,12 @@ $\sigma_j ' = \sigma_j - \frac{a_{rj}}{a_{rs}}\sigma_s = a_{rj}\left(\frac{\sigm
 
 当 $a_{rj} < 0: \sigma_j / a_{rj} - \sigma_s / a_{rs} \ge 0$, 所以 $\sigma_j ' \le 0$
 
+
+
+- 初始解可以是非可行解，当检验数都$\le0$时候，就可以进行基变换，不需要添加人工变量
+- 当变量多于约束条件的时候，用对偶单纯形法可减少计算工作量
+- 用于灵敏度分析及求解整数规划的割平面法
+
 ### 三、灵敏度分析
 
 最优解在参数、约束条件或变量个数发生变化时候的影响
@@ -586,7 +622,13 @@ $\sigma_j ' = \sigma_j - \frac{a_{rj}}{a_{rs}}\sigma_s = a_{rj}\left(\frac{\sigm
 - 参数变化的情况，最优解怎么变
 - 最优解/最优基不变时候，参数变化的范围
 
+[【运筹学】-对偶理论与灵敏度分析(三)(灵敏度分析)_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1bS4y1j7sC/?spm_id_from=333.788.recommend_more_video.-1&vd_source=8b7a5460b512357b2cf80ce1cefc69f5)
 
+
+
+原问题可行解就是满足$b\ge 0$
+
+对偶问题可行解的条件是满足最优性检验条件，求最大（Max）的时候，$\sigma_i <0$（不能再增加了）
 
 |  原问题  | 对偶问题 |          处理          |
 | :------: | :------: | :--------------------: |
@@ -605,11 +647,16 @@ $\sigma_j ' = \sigma_j - \frac{a_{rj}}{a_{rs}}\sigma_s = a_{rj}\left(\frac{\sigm
 
 ① $b$ 的变化：$x_B=B^{-1}b$​
 
+$\mathbf{B}^{-1}$是松弛变量对应的技术系数
+
 ② $c$ 的变化：
 
 $\sigma_A=c-c_BB^{-1}A \quad \sigma_N=c_N-c_BB^{-1}N$​
 
 $\sigma_j=c_j-c_BB^{-1}p_j$​
+
+- 非基变量变化：只计算改变的一列即可
+- 基变量变化：需要重新计算所有非基变量的检验数 
 
 ③ $a_j$ 的变化
 
@@ -619,73 +666,84 @@ $A'=B^{-1}A \quad p_j'=B^{-1}p_j$​
 
 ??? note "灵敏度分析例子"
 
-    问：如何安排产品产量，可获最大利润？
-    
-    | 原料 | 产品 | A    | B    | C    | 备用资源 |
-    | ---- | ---- | ---- | ---- | ---- | -------- |
-    | 甲   | 1    | 1    | 1    | 1    | 12       |
-    | 乙   | 1    | 2    | 2    | 2    | 20       |
-    | 利润 | 5    | 8    | 6    |      |          |
-    
-    解：$max z=5x_1+8x_2+6x_3$
-    
-    $\begin{cases} x_1+x_2+x_3+x_4=12 \\ x_1+2x_2+2x_3+x_5=20 \\ x_1,x_2,x_3\geq0 \end{cases}$
-    
-    **最终单纯形表：**
-    
-    | $c_B$      | 基    | $b$  | $x_1$ | $x_2$ | $x_3$ | $x_4$ | $x_5$ |
-    | ---------- | ----- | ---- | ----- | ----- | ----- | ----- | ----- |
-    | 5          | $x_1$ | 4    | 1     | 0     | 0     | 2     | -1    |
-    | 8          | $x_2$ | 8    | 0     | 1     | 1     | -1    | 1     |
-    | $\sigma_j$ |       | 0    | 0     | 0     | -2    | -2    | -3    |
-    
-    === "**c 的灵敏度分析**"
-    
-    **(1) 非基变量系数 $c_3$ 的改变范围**
-    
-    $\sigma_3=c_3-c_BB^{-1}p_3$
-    
-    $=c_3-[-5 \quad 8]\left[\begin{array}{cc}2 & -1 \\ -1 & 1\end{array}\right]\left[\begin{array}{c}l_1 \\ l_2\end{array}\right]=c_3-8 \leq 0$
-    
-    即 $c_3 \leq 8$
-    
-    **(2) 基变量系数 $c_1$ 的改变范围** 
-    
-    $\sigma_A = c - c_BB^{-1}A$
-    
-    $=[c_1,8,6,0,0]-[c_1,8]\left[\begin{array}{cccc}1 & 0 & 0 & 2 \\ 0 & 1 & 1 & -1\end{array}\right]$
-    
-    $=[0,0,-2,-2c_1+8,c_1-8]\leq 0$
-    
-    $\begin{cases} -2c_1+8\leq 0 \\ c_1-8\leq 0 \end{cases} \quad \therefore 4\leq c_1\leq 8$
-    
-    === "**b的灵敏度分析**"
-    
-    保持最优方案不变，求$b_1$的变化范围。
-    
-    $B^{-1}b=\left[\begin{array}{cc}2 & -1 \\ -1 & 1\end{array}\right]\left[\begin{array}{c}b_1 \\ 20\end{array}\right]\geq 0$
-    
-    $\begin{cases} 2b_1-20\geq 0 \\ -b_1+20\geq 0 \end{cases} \quad \therefore 10\leq b_1\leq 20$
-    
-    === "**A的灵敏度分析**"
-    (计划生产的产品工艺结构改变)<br>
-    (1)、非基变量$x_j$工艺改变<br>
-    只影响单纯形表$p_j$列，即$\sigma_j$。<br>
-    关键看$\sigma_j\leq 0$？还是$>0$？可用类似前述方法解决。<br>
-    (2)、基变量$x_j$​工艺改变，具体分析<br>
-    
-    === "增加新变量灵敏度分析"
-    
-    例：对于新产品D，已知1个单位D要消耗甲: 3 乙: 2<br>
-    问：保持原有生产比例，利润为多少时，投产产品D有利？<br>
-    解：$\sigma_6=c_6-c_BB^{-1}p_6=c_6-[-5 \quad 8]\left[\begin{array}{cc}2 & -1 \\ -1 & 1\end{array}\right]\left[\begin{array}{c}3 \\ 2\end{array}\right]=c_6-12>0$<br>
-    得 $c_6>12$<br>
-    
-    === "添加约束灵敏度分析"
-    
-    例：新增加电力约束：13 已知A、B、C每单位需电 2、1、3<br>
-    问：原方案是否改变?<br>
-    解：$2x_1+x_2+3x_3\leq 13$；原方案 A: 4 B: 8 C: 0；$16>13$ 原方案要改变<br>
+问：如何安排产品产量，可获最大利润？
+
+| 原料 | 产品 | A    | B    | C    | 备用资源 |
+| ---- | ---- | ---- | ---- | ---- | -------- |
+| 甲   | 1    | 1    | 1    | 1    | 12       |
+| 乙   | 1    | 2    | 2    | 2    | 20       |
+| 利润 | 5    | 8    | 6    |      |          |
+
+解：$max z=5x_1+8x_2+6x_3$
+
+$\begin{cases} x_1+x_2+x_3+x_4=12 \\ x_1+2x_2+2x_3+x_5=20 \\ x_1,x_2,x_3\geq0 \end{cases}$
+
+**最终单纯形表：**
+
+|            |       |      | 5     | 8     | 6     | 0     | 0     |
+| ---------- | ----- | ---- | ----- | ----- | ----- | ----- | ----- |
+| $c_B$      | 基    | $b$  | $x_1$ | $x_2$ | $x_3$ | $x_4$ | $x_5$ |
+| 5          | $x_1$ | 4    | 1     | 0     | 0     | 2     | -1    |
+| 8          | $x_2$ | 8    | 0     | 1     | 1     | -1    | 1     |
+| $\sigma_j$ |       | 0    | 0     | 0     | -2    | -2    | -3    |
+
+=== "**c 的灵敏度分析**"
+
+**(1) 非基变量系数 $c_3$​ 的改变范围**
+
+
+
+$\sigma_3=c_3-c_BB^{-1}p_3$
+
+$=c_3-[5 \quad 8]\left[\begin{array}{cc}2 & -1 \\ -1 & 1\end{array}\right]\left[\begin{array}{c}1 \\ 2\end{array}\right]=c_3-8 \leq 0$
+
+即 $c_3 \leq 8$
+
+**(2) 基变量系数 $c_1$ 的改变范围** 
+
+
+
+$\sigma_A = c - c_BB^{-1}A$
+
+$=[c_1,8,6,0,0]-[c_1,8]\left[\begin{array}{ccccc}1 & 0 & 0 & 2 & -1\\ 0 & 1 & 1 & -1 & 1 \end{array}\right]$
+
+$=[0,0,-2,-2c_1+8,c_1-8]\leq 0$
+
+$\begin{cases} -2c_1+8\leq 0 \\ c_1-8\leq 0 \end{cases} \quad \therefore 4\leq c_1\leq 8$
+
+=== "**b的灵敏度分析**"
+
+
+
+保持最优方案不变，求$b_1$的变化范围。
+
+$B^{-1}b=\left[\begin{array}{cc}2 & -1 \\ -1 & 1\end{array}\right]\left[\begin{array}{c}b_1 \\ 20\end{array}\right]\geq 0$
+
+$\begin{cases} 2b_1-20\geq 0 \\ -b_1+20\geq 0 \end{cases} \quad \therefore 10\leq b_1\leq 20$​
+
+![image-20240612144652767](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240612144652767.png)
+
+![image-20240612145050904](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240612145050904.png)
+
+=== "**A的灵敏度分析**"
+(计划生产的产品工艺结构改变)<br>
+(1)、非基变量$x_j$工艺改变<br>
+只影响单纯形表$p_j$列，即$\sigma_j$。<br>
+关键看$\sigma_j\leq 0$？还是$>0$？可用类似前述方法解决。<br>
+(2)、基变量$x_j$​工艺改变，具体分析<br>
+
+=== "增加新变量灵敏度分析"
+
+例：对于新产品D，已知1个单位D要消耗甲: 3 乙: 2<br>
+问：保持原有生产比例，利润为多少时，投产产品D有利？<br>
+解：$\sigma_6=c_6-c_BB^{-1}p_6=c_6-[-5 \quad 8]\left[\begin{array}{cc}2 & -1 \\ -1 & 1\end{array}\right]\left[\begin{array}{c}3 \\ 2\end{array}\right]=c_6-12>0$<br>
+得 $c_6>12$<br>
+
+=== "添加约束灵敏度分析"
+
+例：新增加电力约束：13 已知A、B、C每单位需电 2、1、3<br>
+问：原方案是否改变?<br>
+解：$2x_1+x_2+3x_3\leq 13$；原方案 A: 4 B: 8 C: 0；$16>13$ 原方案要改变<br>
 
 
 
@@ -757,8 +815,15 @@ $-t\le y(k+1)-r(k) \le t$
 
 运输规划是研究如何在满足一定约束条件下，将货物从产地运到销地的最优方案，包括以下内容：
 
-- 运输问题的方法：包括最小元素法、差额法等表上作业法，以及闭回路法等检验最优解的方法。
-- 运输规划的秩：由行约束（运出地）和列约束（运入地）的数量决定。
+
+
+
+
+（1）求初始基本可行解——最小元素法、伏格尔法、西北角法
+
+（2）求检验数并判断——闭回路法、位势法
+
+（3）调整运量——闭回路法
 
 
 
@@ -813,6 +878,10 @@ $\sigma_j = c_j - Y^T P_j$
 
 可以使用简化版的单纯形法求最优解 , 该方法称为 "表上作业法"
 
+#### 西北角法
+
+![image-20240612173525391](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240612173525391.png)
+
 #### 最小元素
 
 > 使用贪心的思想，优先安排满运费最低的
@@ -850,7 +919,7 @@ $\sigma_j = c_j - Y^T P_j$
 1. 回路法
 2. 位势法
 
-
+![image-20240612175923952](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240612175923952.png)
 
 
 

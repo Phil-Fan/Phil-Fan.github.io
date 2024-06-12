@@ -161,7 +161,7 @@ extra_css:
   - style/css/counter.css
   - style/css/toc.css
   - style/css/flink.css
-  - https://unpkg.com/katex@0/dist/katex.min.css
+  # - https://unpkg.com/katex@0/dist/katex.min.css
   # source: https://tonycrane.cc/
   - https://cdn.tonycrane.cc/jbmono/jetbrainsmono.css
   - https://cdn.tonycrane.cc/lxgw/lxgwscreen.css
@@ -170,9 +170,11 @@ extra_css:
 
 extra_javascript:
   - style/js/toc.js
-  - https://unpkg.com/katex@0/dist/katex.min.js
-  - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js
-  - style/js/mathjax.js # 支持数学公式，ref : https://squidfunk.github.io/mkdocs-material/reference/mathjax
+  # - style/js/katex.js
+  - style/js/mathjax.js
+  # - https://unpkg.com/katex@0/dist/katex.min.js
+  # - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js
+   # 支持数学公式，ref : https://squidfunk.github.io/mkdocs-material/reference/mathjax
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
