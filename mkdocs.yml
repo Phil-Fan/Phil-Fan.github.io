@@ -241,10 +241,9 @@ nav:
     
   - "运筹学 | Operational Research":
     - CS/OR.md
-    - CS/OR-.md
+    - CS/OR-nonlinear.md
     - CS/OR-DP.md
-    - CS/OR.md 
-    - CS/OR-DecisionTheory.md
+    - CS/DataStructure-Graph.md
     - CS/OR-GameTheory.md
     - CS/OR-GameTheoryModel.md
     - CS/OR-QueuingTheory.md
@@ -266,9 +265,9 @@ nav:
   - "CV | 计算机视觉":
     - Explore/CV/OpenCV.md
   - "ML | 机器学习":
-    - Explore/ML/CNN.md
     - Explore/ML/intro.md
     - Explore/ML/LingoInAI.md
+    - Explore/ML/CNN.md
 
   - "AI | 人工智能":
     - Explore/AI/HumanPoseEstimation.md
