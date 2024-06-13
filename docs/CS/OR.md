@@ -1,33 +1,5 @@
 # 规划论 | Mathematical Programming
 
-???+note "课程信息"
-    === "回忆卷"
-        [hy运筹学23夏回忆](https://www.cc98.org/topic/5630278)<br>
-		[23梁军回忆卷](https://www.cc98.org/topic/5630287)<br>
-		[2022年夏 控院运筹学 lj老师回忆卷](https://www.cc98.org/topic/5345089)<br>
-		[2022夏学期 控院运筹学 hy老师回忆卷](https://www.cc98.org/topic/5344993)<br>
-		[2022夏学期 控院运筹学 wzg老师回忆卷](https://www.cc98.org/topic/5344941)<br>
-		[18-19春夏 运筹学 试题回忆](https://www.cc98.org/topic/4855659)<br>
-		[17-18电气学院运筹学回忆](https://www.cc98.org/topic/4778040)<br>
-
-    === "资料"
-    	[pcgg分享](https://www.cc98.org/topic/5671695)<br>
-        [运筹学控院hy老师班笔记整理](https://www.cc98.org/topic/5630999)<br>
-        [2021-2022春夏 管理学院-应用运筹学I（英文班） 学习分享](https://www.cc98.org/topic/5360245) <br>
-
-
-
-> 知识是学不完的，最重要的是学习思想
->
-> 
->
-> 为什么学习运筹学？
->
-> - 运筹学有丰富的优化思想与技术
-> - 提供科学管理和决策的方法
-
-
-
 ## 线性规划
 
 ![线性规划问题](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/%E7%BA%BF%E6%80%A7%E8%A7%84%E5%88%92%E9%97%AE%E9%A2%98.png)
@@ -93,9 +65,9 @@ $$
 **变量条件转化为标准约束**
 $$
 \begin{align}
-x_j \ge 0 \quad &不变\\
-x_j \le 0 \quad &取x_j' = -x_j\\
-x_j \ 无约束 \quad &取x_j'\ge 0,x_j''\ge 0,x_j = x_j'-x_j''
+    x_j \ge 0 \quad  unchange\\
+    x_j \le 0 \quad  x_j' = -x_j\\
+    x_j \ no \ limit \quad  x_j'\ge 0,x_j''\ge 0,x_j = x_j'-x_j''
 \end{align}
 $$
 
@@ -105,8 +77,8 @@ $$
 
 $$
 \begin{align}
-\sum^n_{j=1} a_{ij}{x_j} \le b_i \quad\rightarrow\quad \sum^n_{j=1} a_{ij}x_{j} + x_{si}= b_i\\
-x_{sj} \quad 松弛变量
+    \sum^n_{j=1} a_{ij}{x_j} \le b_i \quad\rightarrow\quad \sum^n_{j=1} a_{ij}x_{j} + x_{si}= b_i\\
+    x_{sj} \quad 松弛变量
 \end{align}
 $$
 
@@ -121,9 +93,9 @@ $$
 **目标函数的转化**
 $$
 \begin{align}
-max \ z = \Sigma C_j x_j \quad &不变\\
- min \ z = \Sigma C_j x_j \quad &取 z' = -z\\
- \end{align}
+    max \ z = \Sigma C_j x_j \quad 不变\\
+    min \ z = \Sigma C_j x_j \quad 取 z' = -z\\
+\end{align}
 $$
 
 
@@ -526,7 +498,7 @@ $\hat{X},\hat{Y}$是原问题和对偶问题的可行解，$X_s,Y_s$是松弛变
 
 条件2：反之如果将对偶问题解代入可得为严格不等式，则原问题的对应解为0。
 
-![image-20240612132752901](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240612132752901.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240612132752901.png" alt="image-20240612132752901" style="zoom:67%;" />
 
 
 
@@ -551,7 +523,7 @@ $\hat{X},\hat{Y}$是原问题和对偶问题的可行解，$X_s,Y_s$是松弛变
 
 系数矩阵是转置
 
-![image-20240612130938287](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240612130938287.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240612130938287.png" alt="image-20240612130938287" style="zoom:67%;" />
 
 
 
@@ -566,10 +538,8 @@ $\hat{X},\hat{Y}$是原问题和对偶问题的可行解，$X_s,Y_s$是松弛变
 
 
 !!! note "证明"
-
-对偶问题的约束方程$A^Ty-y_s = c^T$
-
-记录$A = [B\ N]\quad y_s= [y_{sB}^T \ y_{sN}]$​
+    对偶问题的约束方程$A^Ty-y_s = c^T$<br>
+    记录$A = [B\ N]\quad y_s= [y_{sB}^T \ y_{sN}]$
 
 
 
@@ -589,14 +559,13 @@ $\hat{X},\hat{Y}$是原问题和对偶问题的可行解，$X_s,Y_s$是松弛变
 - 入基变量$x_s$，$\theta' = \frac{\sigma_s}{a_{rs}} = \mathop{min}\limits_i\{\frac{\sigma_j}{a_{rj}}|a_{rj} <0,j = 1,\dots,n\}$
 
 !!! note "所有$a_{ij}\ge0$"
-
-说明对偶问题无界解，所以
+	说明对偶问题无界解
 
 **步骤3：跳出循环**
 
 ![image-20240612140113503](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240612140113503.png)
 
-可行性分析
+**可行性分析**
 
 如上选取的目的：保持 $\sigma_j ' \le 0$, $y$ 为可行解
 
@@ -664,7 +633,7 @@ $A'=B^{-1}A \quad p_j'=B^{-1}p_j$​
 
 
 
-??? note "灵敏度分析例子"
+
 
 问：如何安排产品产量，可获最大利润？
 
@@ -1143,13 +1112,6 @@ $$
 
 ### 概念与定义
 
-目标规划是线性规划的一种变式，用于处理多目标优化问题，特点包括：
-
-- 目标规划的特点：与线性规划相比，目标规划的约束为软约束，目标可以设定优先级。
-- 目标规划的方法：包括集中求解和序贯算法等。
-
-
-
 目标规划是用来解决多目标规划问题的，并且决策者事先对每个不同的目标都存在着一个期望值即理想值；即通过之前的生产运营数据计算出的最优值
 
 - 多个约束，很可能可行域为空$\rightarrow$为约束设置不同的优先级，先满足高优先级的约束
@@ -1162,22 +1124,11 @@ $$
 - 硬约束：指必须严格满足的等式约束和不等式约束。这些约束是由客观条件限定的，一定要满足的，管理者无法控制，故不应考虑其偏差变量。
 - 软约束：实现起来可以有偏差（di）的管理目标约束。实际中不要求绝对满足，所求解不一定是可行解，但是是满意解
 
-例如：对于原目标函数，现在提出利润管理目标值56元，实现结果可能有正偏差$d_i^+$，也可能有负偏差$d_i^-$​​，于是构成软约束方程。
-超利润目标时，超额利润为di+，达不到利润目标时，欠额利润为di－，恰好达到目标时，，di+＝di－＝0
-
-
-
-
-
-**偏差变量di**：表示实际值与目标值之间的差距。
+**偏差变量$d_i$**：表示实际值与目标值之间的差距。
 
 - $d_i^+ $正偏差，表示实际值-指标值
 
 - $d_i^-$​​负偏差，表示指标值-实际值
-
-
-
-
 
 **与线性规划区别**
 
@@ -1193,8 +1144,8 @@ $\max d^+$ 与$\min d^-$的选择
 
 $$
 \begin{align}
-\min z &= \mathop{\Sigma}\limits_{k=1}^K p_k [\mathop{\Sigma}\limits_{l=1}^L(w_{kl}^- d_l^- + w_{kl}^+d_l^+)]\\
-s.t.&\left\{
+\min z = \mathop{\Sigma}\limits_{k=1}^K p_k [\mathop{\Sigma}\limits_{l=1}^L(w_{kl}^- d_l^- + w_{kl}^+d_l^+)]\\
+s.t.\left\{
 	\begin{array}{**lr**}
         \mathop{\Sigma}\limits_{j=1}^n c_{lj}x_j +d_l^- - d_l^+= g_l\\
         \mathop{\Sigma}\limits_{j=1}^n a_{ij}x_j \le b_i\\
@@ -1220,7 +1171,7 @@ $$
 
 **绝对优先级**
 
-- $\min\{P_1d_1^+,P_2d_2^+,\}$
+- $\min\{P_1d_1^+,P_2d_2^+\}$
 - $\alpha_1 \gg \alpha_2 \gg \alpha_3$
 
 **相对优先级**

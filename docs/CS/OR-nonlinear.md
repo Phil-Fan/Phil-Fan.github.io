@@ -8,7 +8,9 @@
     老师讲的非常快，很多内容都是其他课程才能讲到的，奢求一个短学期的课讲清楚确实有点难了.自己的时间精力也不是特别充足，所以这部分有很多没有搞明白<br>
 
 **无约束**优化问题 **：**直接求导、最速下降法、共轭梯度法、牛顿法等；
+
 **等式约束**优化问题：拉格朗日(Lagrange)乘数法；
+
 **不等式约束**优化问题 **：**KKT条件。
 
 ## 概念
@@ -20,33 +22,34 @@
 - 凸规划的可行域为凸集
 
   $
-  h_{i}(x)=0 \quad-g_{j}(x) \leq 0 \quad \text { 凸集的交集为凸集 }
+  h_{i}(x)=0 \quad g_{j}(x) \leq 0 \quad 凸集的交集为凸集
   $
   
 - 如果最优解存在，最优解集合也为凸集
 
   $
-  \begin{aligned}
-  f\left[\lambda x_{1}^{*}+(1-\lambda) x_{2}\right] \leq f\left(x_{1}^{*}\right)+(1-\lambda) f\left(x_{2}\right)=f\left(x_{1}^{*}\right)=f\left(x_{2}^{*}\right) & 0<\lambda<1 \\
-  f\left[\lambda x_{1}^{*}+(1-\lambda) x_{2}^{*}\right]=f\left(x_{1}^{*}\right)=f\left(x_{2}^{*}\right) \quad \text { 最优解的连线段均为最优解 }
-  \end{aligned}
+  \begin{align}
+  f\left[\lambda x_{1}^{*}+(1-\lambda) x_{2}\right] \leq f\left(x_{1}^{*}\right)+(1-\lambda)\\ f\left(x_{2}\right)=f\left(x_{1}^{*}\right)=f\left(x_{2}^{*}\right) ,0<\lambda<1 \\
+  f\left[\lambda x_{1}^{*}+(1-\lambda) x_{2}^{*}\right]=f\left(x_{1}^{*}\right)=f\left(x_{2}^{*}\right) 
+  \end{align}
   $
+  
+  最优解的连线段均为最优解
   
 - 推论：线性规划问题的最优解集为所有最优顶点构成的多边形。（归纳法证）
 
-  $
-  x^{*}=\sum_{i=1}^{r} \alpha_{i} x^{*}{ }_{i} \quad \sum_{i=1}^{r} \alpha_{i}=1 \quad 0 \leq \alpha_{i} \leq 1 \quad i=1, \cdots r
-  $
+  $$
+  \begin{align}
+      x^{*}=\sum_{i=1}^{r} \alpha_{i} x^{*}_{i} \\ \sum_{i=1}^{r} \alpha_{i}=1 \\0 \le \alpha_{i} \le 1 \quad i=1, \cdots ,r
+  \end{align}
+  $$
+  
 
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240521163820391.png" alt="image-20240521163820391" style="zoom:50%;" />
 
 ### 凸函数
 
-设函数 $f(x)$ 在向量空间 $\mathbb{R}^n$ 的某个凸子集 $C$ 上有定义，如果对于任意 $x_1, x_2 \in C$ 和任意 $\lambda \in [0, 1]$，都有：
-
-$
-f(\lambda x_1 + (1-\lambda) x_2) \leq \lambda f(x_1) + (1-\lambda) f(x_2)
-$
+设函数 $f(x)$ 在向量空间 $\mathbb{R}^n$ 的某个凸子集 $C$ 上有定义，如果对于任意 $x_1, x_2 \in C$ 和任意 $\lambda \in [0, 1]$，都有：$f(\lambda x_1 + (1-\lambda) x_2) \le \lambda f(x_1) + (1-\lambda) f(x_2)$
 
 那么函数 $f(x)$ 就被称为定义在 $C$ 上的凸函数。
 
@@ -186,11 +189,13 @@ $$
 将等式约束变为不等式约束，可以得到
 
 $$
+\begin{align}
 \min \quad f(x)\\
 \text{s.t.} \quad h_i(x) \ge 0 \quad i = 1, 2, ..., m\\
 \quad -h_i(x) \ge 0 \quad i = 1, 2, ..., m\\
 \quad g_j(x) \ge 0 \quad j = 1, 2, ..., l\\
 x \in R^n
+\end{align}
 $$
 
 
@@ -215,12 +220,12 @@ $$
 
 **等价问题**
 $$
-\begin{aligned}
-\min_x \ \max_{\lambda, \nu} \ & L(x, \lambda, \nu)
+\begin{align}
+\min_x \ \max_{\lambda, \nu} \  L(x, \lambda, \nu)
 = f_0(x) + \sum_{i=1}^m \lambda_i f_i(x) + \sum_{i=1}^q \nu_i h_i(x) \\
 
-\text{s.t.} \quad & \lambda_i \ge 0 \\
-\end{aligned}
+\text{s.t.} \quad  \lambda_i \ge 0 \\
+\end{align}
 $$
 
 
@@ -246,9 +251,9 @@ $$
 **对偶问题**
 
 $$
-\begin{aligned}
-&\max \limits_{\lambda,v} g(\mathbf{\lambda},\mathbf{v}) =  \max \limits_{\lambda,v} \ \min \limits_x \ L(x,\mathbf{\lambda},\mathbf{v})\\
-&\text{s.t.} 
+\begin{align}
+\max \limits_{\lambda,v} g(\mathbf{\lambda},\mathbf{v}) =  \max \limits_{\lambda,v} \ \min \limits_x \ L(x,\mathbf{\lambda},\mathbf{v})\\
+\text{s.t.} 
 \left\{
     \begin{array}{**lr**}
     
@@ -256,7 +261,7 @@ $$
         \lambda \geq0
     \end{array}
 \right.
-\end{aligned}
+\end{align}
 $$
 
 ![image-20240521165037244](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240521165037244.png)
@@ -598,7 +603,7 @@ Slater条件是指：存在一个点$x \in relint D$，$relint D$表示可行域
 
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240521171945366.png" alt="image-20240521171945366" style="zoom:50%;" />
 
-![image-20240521175622067](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240521175622067.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240521175622067.png" alt="image-20240521175622067" style="zoom:50%;" />
 
 #### KKT条件——强对偶的必要条件
 
@@ -625,14 +630,14 @@ $min f(x) s.t. g(X) \le 0$
 !!! note "**能解出最优解的一定是等式，故式(1)(2)(3)帮我们求最优解；**
 **式(4)和式(5)是不等式，帮我们排除一些解，或者得到最优解的适用范围。**"
 
-![image-20240521172440334](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240521172440334.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240521172440334.png" alt="image-20240521172440334" style="zoom:50%;" />
 
 
 
 （1）如果目标为最小化（Min）问题，那么不等式约束需要整理成“$\le0$”的形式；
 （2）如果目标为最大化（Max）问题，那么不等式约束需要整理成“$\ge0$”的形式；
 
-![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/8101601f50f02cc9de347507ba01b44d.webp)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/8101601f50f02cc9de347507ba01b44d.webp" alt="img" style="zoom:50%;" />
 
 **梯度方向垂直于函数等值线，指向函数值增长的方向。**
 
@@ -647,7 +652,9 @@ $min f(x) s.t. g(X) \le 0$
 
 **负梯度向量是另一个梯度向量的$lambda$倍**。移项后发现，这不就是**KKT条件的第一个等式**嘛！
 $$
+\begin{align}
 \nabla f(X^*) +\lambda \nabla g(X^*) = 0, \lambda \ge 0
+\end{align}
 $$
 
 
@@ -663,8 +670,8 @@ $$
 
 
 $$
+\begin{align}
 y^* = 
-
 \begin{bmatrix}
 y_1^* \\
 y_2^* \\
@@ -698,6 +705,7 @@ g_2(x) \\
 \vdots \\
 g_n(x)
 \end{bmatrix}
+\end{align}
 $$
 
 $$
@@ -754,11 +762,11 @@ $$
 
 例题
 $$
-\begin{array}{ll} 
-\min & f(x_1, x_2) = (x_1 - 2)^2 + x_2^2 \\
-\text{s.t.} & x_2 \le x_1 + 2 \\
-& x_2 \ge x_1^2 + 1 \\
-& x_1 \ge 0 \quad x_2 \ge 0
+\begin{array}
+\min  f(x_1, x_2) = (x_1 - 2)^2 + x_2^2 \\
+s.t. x_2 \le x_1 + 2 \\
+ x_2 \ge x_1^2 + 1 \\
+ x_1 \ge 0 \quad x_2 \ge 0
 \end{array}
 $$
 
@@ -766,7 +774,9 @@ $$
 
 **列出向量**
 $$
+\begin{align}
 f(\mathbf{x}) = (x_1 - 2)^2 + x_2^2
+\end{align}
 $$
 
 $$
@@ -783,7 +793,9 @@ $$
 
 **列出题目条件**
 $$
+\begin{align}
 \nabla f(x^*) - \nabla h(x^*) y^* - \nabla g(x^*) \mu^* = 0
+\end{align}
 $$
 
 $$
@@ -800,18 +812,18 @@ $$
 
 **得出方程**
 $$
-\begin{array}{ll} 
-2(x_1 - 2) - \mu_1 + 2 \mu_2 x_1 - \mu_3 &= 0 \\
-2x_2 + \mu_1 - \mu_2 - \mu_4 &= 0 \\
-\mu_1 (x_1 - x_2 + 2) &= 0 \\
-\mu_2 (-x_1^2 + x_2 - 1) &= 0 \\
-\mu_3 x_1 &= 0 \\
-\mu_4 x_2 &= 0 \\
-\mu_j &\ge 0 \quad j = 1, 2, 3, 4 \\
-x_2 &\le x_1 + 2 \\
-x_2 &\ge x_1^2 + 1 \\
-x_1, x_2 &\ge 0
-\end{array}
+\begin{align}
+2(x_1 - 2) - \mu_1 + 2 \mu_2 x_1 - \mu_3 = 0 \\
+2x_2 + \mu_1 - \mu_2 - \mu_4 = 0 \\
+\mu_1 (x_1 - x_2 + 2) = 0 \\
+\mu_2 (-x_1^2 + x_2 - 1) = 0 \\
+\mu_3 x_1 = 0 \\
+\mu_4 x_2 = 0 \\
+\mu_j \ge 0 \quad j = 1, 2, 3, 4 \\
+x_2 \le x_1 + 2 \\
+x_2 \ge x_1^2 + 1 \\
+x_1, x_2 \ge 0
+\end{align}
 $$
 
 **求解方程**
@@ -929,7 +941,13 @@ $X^T \cdot \mathbf{H} \cdot X = c$
 
 * 设计思想：近似为二次问题。
 
-$f(x) \approx f\left(x^{(k)}\right)+\nabla f\left(x^{(k)}\right)^{T}\left(x-x^{(k)}\right)+\frac{1}{2}\left(x-x^{(k)}\right)^{T} \nabla^{2} f\left(x^{(k)}\right)\left(x-x^{(k)}\right) $
+$$
+\begin{align}
+f(x) \approx f\left(x^{(k)}\right)+\nabla f\left(x^{(k)}\right)^{T}\left(x-x^{(k)}\right)+\frac{1}{2}\left(x-x^{(k)}\right)^{T} \nabla^{2} f\left(x^{(k)}\right)\left(x-x^{(k)}\right) 
+\end{align}
+$$
+
+
 
 函数$f(x)$有极值的必要条件是在极值点处一阶导数为0，即梯度向量为0。特别的当$H(x^{(k)})$是正定矩阵时，函数$f(x(k))$的极值为极小值。
 
@@ -939,14 +957,14 @@ $\nabla f(x) \approx g_k+H_k\left(x-x^{(k)}\right) \approx 0$
 
 
 $$
-\begin{aligned}
-&\text { 迭代公式 } \Longrightarrow x^{(k+1)} \approx x^{(k)}-H_k^{-1} g_k \\
+\begin{align}
+迭代公式  \Longrightarrow x^{(k+1)} \approx x^{(k)}-H_k^{-1} g_k \\
 
-&\text { 迭代方向 } \Longrightarrow p^{(k)}=-H_k^{-1} g_k \quad \text { 牛顿方向 }
+迭代方向  \Longrightarrow p^{(k)}=-H_k^{-1} g_k \quad 牛顿方向 
 
 \\
-&其中，g_k = g(x{(k)} = \nabla f\left(x^{(k)}\right)\\
-\end{aligned}
+其中，g_k = g(x{(k)} = \nabla f\left(x^{(k)}\right)\\
+\end{align}
 $$
 
 优点：极值点附近收敛速率快。
@@ -1032,17 +1050,23 @@ x = x^{(k)} - \lambda H_k^{-1}g_k = x^{(k)} + \lambda p_k
 $$
 则 $f(x)$ 在 $x^{(k)}$ 的泰勒展开可近似为
 $$
+\begin{align}
 f(x) = f\left(x^{(k)}\right) - \lambda g_k^T H_k^{-1} g_k
+\end{align}
 $$
 由于 $H_k^{-1}$ 正定，故 $g_k^T H_k^{-1} g_k > 0$。当 $\lambda$ 为一个充分小的正数时，有 $f(x) < f\left(x^{(k)}\right)$，即搜索方向 $p_k$ 是下降方向。
 
 因此拟牛顿法将 $G_k$ 作为 $H_k^{-1}$ 近似。要求 $G_k$ 满足同样的条件下，首先，每次迭代矩阵 $G_k$ 是正定时，$G_k$ 满足下面的拟牛顿条件：
 $$
+\begin{align}
 G_{k+1} y_k = \delta_k
+\end{align}
 $$
 按照拟牛顿条件，在每次迭代中可以选择更新矩阵 $G_{k+1}$​：
 $$
+\begin{align}
 G_{k+1} = G_k + \Delta G_k
+\end{align}
 $$
 
 
@@ -1111,16 +1135,12 @@ $$
 
 共轭向量$p_i^T A p_j = 0$,其中A是一个对称正定矩阵。$p_i,p_j$ 是一对共轭的向量。
 
-可见，共轭是正交的推广化，因为向量正交的定义为：
-$$
-p_i^T\cdot p_j = 0
-$$
-
+可见，共轭是正交的推广化，因为向量正交的定义为：$p_i^T\cdot p_j = 0$
 
 共轭比正交中间只多了个矩阵A，而矩阵的几何意义正是对一个向量进行线性变换（可见Gilber Strang的线代公开课）。因此共轭向量的意思就是一个向量经过线性变换（缩放剪切和旋转）之后与另一个向量正交。
-![在这里插入图片描述](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/2b29249d0e29462dae65e18e1e2b25b7.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/2b29249d0e29462dae65e18e1e2b25b7.png" alt="在这里插入图片描述" style="zoom:50%;" />
 
-![image-20240528092452183](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240528092452183.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240528092452183.png" alt="image-20240528092452183" style="zoom:50%;" />
 
 ### 步长选择
 
@@ -1166,7 +1186,9 @@ $$
 
 梯度模准则（first-order optimality measure）
 $$
+\begin{align}
 \left\|\nabla f\left(\boldsymbol{x}^{(k)}\right)\right\| \leq \varepsilon_{5} \quad\left\|\nabla f\left(\boldsymbol{x}^{(0)}\right)\right\|
+\end{align}
 $$
 
 
@@ -1190,11 +1212,18 @@ $$
 (2)
 $$
 \begin{align*} 
-&\min \eta \\
-\text { s.t. } &\nabla f\left(\boldsymbol{x}^{(k)}\right)^{T} \boldsymbol{p} \leq \eta \\
-&-\nabla g_{j}\left(\boldsymbol{x}^{(k)}\right)^{T} \boldsymbol{p} \leq \eta, \quad j \in J\left(\boldsymbol{x}^{(k)}\right)\\
-&-1 \le p \le 1
+\min \eta \\
+s.t. &\left\{
+	\begin{array}{**lr**}  
+
+\nabla f\left(\boldsymbol{x}^{(k)}\right)^{T} \boldsymbol{p} \leq \eta \\
+-\nabla g_{j}\left(\boldsymbol{x}^{(k)}\right)^{T} \boldsymbol{p} \leq \eta, \quad j \in J\left(\boldsymbol{x}^{(k)}\right)\\
+-1 \le p \le 1
+
+	\end{array}
+	\right.
 \end{align*}
+
 $$
 
 - $\eta<0$：可行下降方向
@@ -1209,7 +1238,9 @@ $$
 
 **思想：构造罚函数，惩罚可行域外的迭代点**
 $$
+\begin{align}
 \min P(x,M)=f(x)+M\sum_{i=1}^{m}h_{i}^{2}(x)+M\sum_{j=1}^{l}[\min (0,g_{j}(x))]^{2}
+\end{align}
 $$
 
 Courant罚函数
@@ -1256,16 +1287,16 @@ $$
 
 所以考虑$x_{1}<1, x_{2}<0$区域的驻点。(可行域外的点)
 $$
-\begin{aligned}
-\frac{\partial P}{\partial x_{1}} & =(x_{1}+1)^{2}+2 M(x_{1}-1)=0 \\
-\frac{\partial P}{\partial x_{2}} & =1+2 M x_{2}=0
-\end{aligned}
+\begin{align}
+\frac{\partial P}{\partial x_{1}}  =(x_{1}+1)^{2}+2 M(x_{1}-1)=0 \\
+\frac{\partial P}{\partial x_{2}}  =1+2 M x_{2}=0
+\end{align}
 $$
 
 可得:
 
 $$
-\begin{aligned}
+\begin{align}
 & x_{1}^{*}=-1-M \pm \sqrt{M^{2}+4 M}\\
 & x_{2}^{*}=-\frac{1}{2 M} \\
  &\quad M \rightarrow+\infty \\
@@ -1273,8 +1304,8 @@ $$
 2\left(x_{1}+1\right)+2 M & 0 \\
 0 & 2 M
 \end{array}\right]>0 \\
-& \text { 故为极小值 }
-\end{aligned}
+& 故为极小值
+\end{align}
 $$
 ![image-20240612002931360](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240612002931360.png)
 
@@ -1286,7 +1317,7 @@ $$
 $$
 \begin{array}{l}
 \min \limits_{x \in R_{0}} \bar{P}(x, r)=f(x)+r \sum_{j=1}^{l} \frac{1}{g_{j}(x)} \\
-\text { 或 } \\
+或  \\
 \min \limits_{x \in R_{0}} \bar{P}(x, r)=f(x)-\sum_{j=1}^{l} \log g_{j}(x)
 \end{array}
 $$
@@ -1312,7 +1343,9 @@ $$
 
 构造障碍函数:
 $$
+\begin{align}
 \bar{P}(x, r)=x_{1}+x_{2}-r \cdot\left[\log \left(-x_{1}^{2}+x_{2}\right)+\log \left(x_{1}\right)\right]
+\end{align}
 $$
 
 根据驻点一阶条件, 有
@@ -1350,20 +1383,20 @@ $$
 
 第k步障碍函数局部极小值满足
 $$
-\begin{aligned}
-\nabla \bar{P}\left(x^{(k)}, r_k\right) & =\nabla f\left(x^{(k)}\right)-r_k \sum_{j=1}^{l} \frac{1}{g_{j}\left(x^{(k)}\right)} \nabla g_{j}\left(x^{(k)}\right)=0 \\
-\nabla P\left(x^{(k)}, r_k\right) & =\nabla f\left(x^{(k)}\right)-\sum_{j=1}^{l} \mu_{j}\left(k\right) \nabla g_{j}\left(x^{(k)}\right)=0 \\
-& \mu_{j}(k)=\frac{r}{g_{j}\left(x^{(k)}\right)} \geq 0
-\end{aligned}
+\begin{align}
+\nabla \bar{P}\left(x^{(k)}, r_k\right)  =\nabla f\left(x^{(k)}\right)-r_k \sum_{j=1}^{l} \frac{1}{g_{j}\left(x^{(k)}\right)} \nabla g_{j}\left(x^{(k)}\right)=0 \\
+\nabla P\left(x^{(k)}, r_k\right)  =\nabla f\left(x^{(k)}\right)-\sum_{j=1}^{l} \mu_{j}\left(k\right) \nabla g_{j}\left(x^{(k)}\right)=0 \\
+\mu_{j}(k)=\frac{r}{g_{j}\left(x^{(k)}\right)} \geq 0
+\end{align}
 $$
 
 $x_{k}^{*}$迭代收敛时
 $$
-\begin{aligned}
-& \nabla P\left(x^{*}, r\right)=\nabla f\left(x^{*}\right)-\sum_{j=1}^{l} \mu_{j}^{*} \nabla g_{j}\left(x^{*}\right)=0 \\
-& \mu_{j}^{*}=\frac{r}{g_{j}\left(x^{*}\right)} \geq 0 \\
-& \mu_{j}^{*} g_{j}\left(x^{*}\right)=r \rightarrow 0
-\end{aligned}
+\begin{align}
+ \nabla P\left(x^{*}, r\right)=\nabla f\left(x^{*}\right)-\sum_{j=1}^{l} \mu_{j}^{*} \nabla g_{j}\left(x^{*}\right)=0 \\
+ \mu_{j}^{*}=\frac{r}{g_{j}\left(x^{*}\right)} \geq 0 \\
+ \mu_{j}^{*} g_{j}\left(x^{*}\right)=r \rightarrow 0
+\end{align}
 $$
 
 **KKT条件!**

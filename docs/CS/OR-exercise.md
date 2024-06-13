@@ -2,28 +2,31 @@
 
 # 运筹学复习总结
 
-!!! note "总结"
+???+note "课程信息"
     === "历年卷"
-    [17-18电气学院运筹学回忆 - CC98论坛](https://www.cc98.org/topic/4778040)<br>
-    [18-19春夏 运筹学 试题回忆 - CC98论坛](https://www.cc98.org/topic/4855659)<br>
-    [2021运筹学考试内容+复习方法集合 - CC98论坛](https://www.cc98.org/topic/5111232)<br>
-    [2022夏学期 控院运筹学 hy老师回忆卷 - CC98论坛](https://www.cc98.org/topic/5344993)<br>
-    [2022年夏 控院运筹学 lj老师回忆卷 - CC98论坛](https://www.cc98.org/topic/5345089)<br>
-    [hy运筹学23夏回忆 - CC98论坛](https://www.cc98.org/topic/5630278)<br>
-    [建筑工程学院《运筹学》2023-2024春夏备考经验 - CC98论坛](https://www.cc98.org/topic/5873843)<br>
-    [2023-2024春电院运筹学 期末回忆 - CC98论坛](https://www.cc98.org/topic/5876082)<br>
-    
-
-    === "测试要求"
-    - 测试含基本题10题，问答题型，共18分；附加题2题，小作业题型，共4分（奖励分）。
-    - 测试范围为前七周课堂内容（不含排队论）。
-    - 开卷测试，可以使用电脑，不允许使用聊天软件（包括chatgpt等）。
-
+        [2024运筹学何衍班期末考试](https://www.cc98.org/topic/5912911/1)<br>
+        [17-18电气学院运筹学回忆 - CC98论坛](https://www.cc98.org/topic/4778040)<br>
+        [18-19春夏 运筹学 试题回忆 - CC98论坛](https://www.cc98.org/topic/4855659)<br>
+        [2021运筹学考试内容+复习方法集合 - CC98论坛](https://www.cc98.org/topic/5111232)<br>
+        [2022夏学期 控院运筹学 hy老师回忆卷 - CC98论坛](https://www.cc98.org/topic/5344993)<br>
+        [2022年夏 控院运筹学 lj老师回忆卷 - CC98论坛](https://www.cc98.org/topic/5345089)<br>
+        [hy运筹学23夏回忆 - CC98论坛](https://www.cc98.org/topic/5630278)<br>
+        [建筑工程学院《运筹学》2023-2024春夏备考经验 - CC98论坛](https://www.cc98.org/topic/5873843)<br>
+        [2023-2024春电院运筹学 期末回忆 - CC98论坛](https://www.cc98.org/topic/5876082)<br>
+    === "资料"
+    	[pcgg分享](https://www.cc98.org/topic/5671695)<br>
+        [运筹学控院hy老师班笔记整理](https://www.cc98.org/topic/5630999)<br>
+        [2021-2022春夏 管理学院-应用运筹学I（英文班） 学习分享](https://www.cc98.org/topic/5360245) <br>
 
 
 
+> 知识是学不完的，最重要的是学习思想
+>
+> 为什么学习运筹学？
+> - 运筹学有丰富的优化思想与技术
+> - 提供科学管理和决策的方法
 
-[【Wu的课堂】半个小时中文串讲《运筹学》：线性规划、单纯形法、对偶理论、灵敏度分析、运输问题_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1yK411F72C/?spm_id_from=333.788.b_636f6d6d656e74.4&vd_source=8b7a5460b512357b2cf80ce1cefc69f5)
+
 
 
 
