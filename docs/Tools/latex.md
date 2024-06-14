@@ -1,4 +1,68 @@
-# Latex常用
+# Latex备忘录
+
+## 环境与配置
+
+### Overleaf | 从入门到入土
+
+
+
+
+
+
+
+
+
+### `TexLive`
+
+[Installing TeX Live over the Internet - TeX Users Group (tug.org)](https://www.tug.org/texlive/acquire-netinstall.html)
+
+### `IguanaTex` | LaTeX in PPT
+
+假设已经安装好了Texlive
+
+[IguanaTex - A Free Latex Add-In for PowerPoint on Windows and Mac (jonathanleroux.org)](https://www.jonathanleroux.org/software/iguanatex/)
+
+**注意设置好路径**
+
+
+
+#### [`GhostScript`](https://ghostscript.com/releases/gsdnld.html) and [`ImageMagick`](https://www.imagemagick.org/script/download.php#windows)
+
+required to use pdflatex/xelatex/lualatex.
+
+1. **Install and set path to GhostScript and ImageMagick**:
+
+- Set the **full** path to `gswin32c.exe` or `gswin64c.exe` (note the "`c`"!) and to ImageMagick's magick.exe in the "Main Settings" window.
+- Best way to make sure the path is correct is to use the "..." button next to each path and navigate to the correct file.
+- Some default paths include `%USERPROFILE%`. It is recommended to click on "..." to make sure the path gets properly converted to the actual user profile path.
+
+#### **`TeX2img`**（SVG）
+
+(Optional): [TeX2img](https://github.com/abenori/TeX2img), used for vector graphics output via EMF ([Download](https://www.ms.u-tokyo.ac.jp/~abenori/soft/index.html#TEX2IMG)). Note that vector graphics output via SVG is now recommended if you have Office 2019 or 365.
+
+- Only needed for vector graphics support via EMF (compared to SVG, pros: available on all PowerPoint versions, fully modifiable shapes; cons: some displays randomly suffer from distortions)
+- Download from [this link](https://www.ms.u-tokyo.ac.jp/~abenori/soft/index.html#TEX2IMG) (more details on TeX2img on their [Github repo](https://github.com/abenori/TeX2img))
+- After unpacking TeX2img somewhere on your machine, run TeX2img.exe once to let it automatically set the various paths to latex/ghostscript, then set the **full** path to `TeX2imgc.exe` (note the "`c`"!) in the "Main Settings" window.
+
+!!! bug "中文公式输入错误"
+
+![image-20240609200702478](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240609200702478.png)
+
+```latex
+\documentclass{article}
+\usepackage{amsmath}
+\pagestyle{empty}
+
+\begin{document}
+\begin{align*}
+  
+\end{align*}
+\end{document}
+```
+
+
+
+
 
 ## 排版
 
@@ -257,54 +321,4 @@ $\sum\limits_{i=0}^n {x_i}$​
 $f_3(d) = \mathop{max}\limits_{x_3}(2x_3 + f_4(d-x_3))$
 
 
-
-
-
-## 环境安装
-
-[Installing TeX Live over the Internet - TeX Users Group (tug.org)](https://www.tug.org/texlive/acquire-netinstall.html)
-
-### ppt上的latex环境
-
-假设已经安装好了Texlive
-
-[IguanaTex - A Free Latex Add-In for PowerPoint on Windows and Mac (jonathanleroux.org)](https://www.jonathanleroux.org/software/iguanatex/)
-
-**注意设置好路径**
-
-
-
-#### [GhostScript](https://ghostscript.com/releases/gsdnld.html) and [ImageMagick](https://www.imagemagick.org/script/download.php#windows)
-
-required to use pdflatex/xelatex/lualatex.
-
-1. **Install and set path to GhostScript and ImageMagick**:
-
-- Set the **full** path to `gswin32c.exe` or `gswin64c.exe` (note the "`c`"!) and to ImageMagick's magick.exe in the "Main Settings" window.
-- Best way to make sure the path is correct is to use the "..." button next to each path and navigate to the correct file.
-- Some default paths include `%USERPROFILE%`. It is recommended to click on "..." to make sure the path gets properly converted to the actual user profile path.
-
-#### **TeX2img**（SVG）
-
-(Optional): [TeX2img](https://github.com/abenori/TeX2img), used for vector graphics output via EMF ([Download](https://www.ms.u-tokyo.ac.jp/~abenori/soft/index.html#TEX2IMG)). Note that vector graphics output via SVG is now recommended if you have Office 2019 or 365.
-
-- Only needed for vector graphics support via EMF (compared to SVG, pros: available on all PowerPoint versions, fully modifiable shapes; cons: some displays randomly suffer from distortions)
-- Download from [this link](https://www.ms.u-tokyo.ac.jp/~abenori/soft/index.html#TEX2IMG) (more details on TeX2img on their [Github repo](https://github.com/abenori/TeX2img))
-- After unpacking TeX2img somewhere on your machine, run TeX2img.exe once to let it automatically set the various paths to latex/ghostscript, then set the **full** path to `TeX2imgc.exe` (note the "`c`"!) in the "Main Settings" window.
-
-!!! bug "中文公式输入错误"
-
-![image-20240609200702478](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240609200702478.png)
-
-```latex
-\documentclass{article}
-\usepackage{amsmath}
-\pagestyle{empty}
-
-\begin{document}
-\begin{align*}
-  
-\end{align*}
-\end{document}
-```
 

@@ -209,8 +209,9 @@ nav:
 - Robotics:
   - Robotics/ROS.md
   - Robotics/Drone.md
-  - Robotics/Introduction-to-Robotics.md
-  - Robotics/Introduction-to-Robotics-exam.md
+  - "机器人导论":
+    - Robotics/Introduction-to-Robotics.md
+    - Robotics/Introduction-to-Robotics-exam.md
   - "嵌入式系统 | Embbedded System":
     - Robotics/EmbeddedSystem-intro.md
     - Robotics/EmbeddedSystem-digitalcircuit.md
@@ -218,7 +219,13 @@ nav:
     - Robotics/EmbeddedSystem-8051-experiment.md
     - Robotics/EmbeddedSystem-stm32.md
     - Robotics/EmbeddedSystem-experiment.md
-    
+  - "传感与检测":
+    - Robotics/sensor&detection.md
+  - "通信相关":
+    - Robotics/CC-NFC.md
+    - Robotics/CC-bluetooth.md
+
+
 - "Computer Science":
   - Language:
     - CS/Language/Assembly.md
@@ -270,6 +277,7 @@ nav:
     
 - Explore:
   - "CV | 计算机视觉":
+    - Explore/CV/CV-intro.md
     - Explore/CV/OpenCV.md
   - "ML | 机器学习":
     - Explore/ML/intro.md
@@ -289,13 +297,14 @@ nav:
     - Explore/Fin/consulting.md
     - Explore/Fin/industry-analyze.md
     - Explore/Fin/政治经济学.md
+
   - Books:
     - Explore/Books/The Innovator`s Dilemma.md 
     - Explore/Books/Marxist principles.md
     - Explore/Philosophy.md
     - Explore/Philosophy-by-topic.md
     
-  - Explore/NFC.md
+  
 
 - Tools:
   - Tools/Git.md
@@ -311,17 +320,7 @@ nav:
     - Tools/Mkdocs.md
     - Tools/obsidian.md
     - Tools/latex.md
-  - "设计":
-    - Tools/color.md
-    - Tools/design.md
-    - Tools/powerpoint.md
-    - Tools/AdobePhotoshop.md
-    - Tools/AdobeIllustrator.md
-  - "摄影":
-    - Tools/Photography-base.md
-    - Tools/Photography-Landscape.md
-    - Tools/Photography-Portrait.md
-    
+     
   - Tools/tableau.md
   - Tools/matlab.md
   - Tools/solidworks.md
@@ -330,10 +329,31 @@ nav:
   - Tools/macos.md
   
 
-- "杂谈":
+- "生命因你而火热":
   - classes_in_zju.md
-  - else/swimming.md
+  - else/flower.md
   - else/coffee.md
+
+  - else/exercise-fit.md
+  - else/exercise-swimming.md
+
+  - "音乐":
+    - else/music_theory.md
+    - else/piano.md
+    - else/music_classification.md
+    - else/rock_and_roll.md
+
+  - "设计":
+    - Tools/color.md
+    - Tools/design.md
+    - Tools/powerpoint.md
+    - Tools/AdobePhotoshop.md
+    - Tools/AdobeIllustrator.md
+    
+  - "摄影":
+    - Tools/Photography-base.md
+    - Tools/Photography-Landscape.md
+    - Tools/Photography-Portrait.md
 
 
 
