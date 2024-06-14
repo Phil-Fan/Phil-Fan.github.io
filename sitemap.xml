@@ -246,11 +246,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.philfan.cn/Explore/NFC/</loc>
-         <lastmod>2024-06-14</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://www.philfan.cn/Explore/Philosophy-by-topic/</loc>
          <lastmod>2024-06-14</lastmod>
          <changefreq>daily</changefreq>
@@ -282,6 +277,11 @@
     </url>
     <url>
          <loc>https://www.philfan.cn/Explore/Books/The%20Innovator%60s%20Dilemma/</loc>
+         <lastmod>2024-06-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/Explore/CV/CV-intro/</loc>
          <lastmod>2024-06-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -322,6 +322,16 @@
     </url>
     <url>
          <loc>https://www.philfan.cn/Explore/ML/intro/</loc>
+         <lastmod>2024-06-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/Robotics/CC-NFC/</loc>
+         <lastmod>2024-06-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/Robotics/CC-bluetooth/</loc>
          <lastmod>2024-06-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -372,6 +382,11 @@
     </url>
     <url>
          <loc>https://www.philfan.cn/Robotics/ROS/</loc>
+         <lastmod>2024-06-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/Robotics/sensor%26detection/</loc>
          <lastmod>2024-06-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -486,7 +501,37 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.philfan.cn/else/swimming/</loc>
+         <loc>https://www.philfan.cn/else/exercise-fit/</loc>
+         <lastmod>2024-06-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/else/exercise-swimming/</loc>
+         <lastmod>2024-06-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/else/flower/</loc>
+         <lastmod>2024-06-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/else/music_classification/</loc>
+         <lastmod>2024-06-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/else/music_theory/</loc>
+         <lastmod>2024-06-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/else/piano/</loc>
+         <lastmod>2024-06-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/else/rock_and_roll/</loc>
          <lastmod>2024-06-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
