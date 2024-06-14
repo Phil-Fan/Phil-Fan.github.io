@@ -50,7 +50,7 @@ $$
 \begin{align}
 max \quad &z = \mathbf{C}X\\
 s.t. &\left\{
-	\begin{array}{**lr**}  
+	\begin{array}{lr}  
 		\mathbf{A}x = \vec{b}\\
 		x\ge 0 
 	\end{array}

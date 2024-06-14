@@ -212,20 +212,20 @@ $$
 
 $$
 \begin{aligned}
-\min_x \ & f_0(x), x \in \mathbb{R}^n \\
-\text{s.t.} \quad & f_i(x) \le 0, \text{其中} i=1,2,3...m \\
-& h_i(x) = 0, \text{其中} i=1,2,3...q
+\min_x \  f_0(x), x \in \mathbb{R}^n \\
+\text{s.t.} \quad f_i(x) \le 0, \text{其中} i=1,2,3...m \\
+ h_i(x) = 0, \text{其中} i=1,2,3...q
 \end{aligned}
 $$
+
 
 **等价问题**
 
 $$
 \begin{align}
-\min_x \ \max_{\lambda, \nu} \  L(x, \lambda, \nu)
-= f_0(x) + \sum_{i=1}^m \lambda_i f_i(x) + \sum_{i=1}^q \nu_i h_i(x) \\
-
-\text{s.t.} \quad  \lambda_i \ge 0 \\
+  \min_x \ \max_{\lambda, \nu} \  L(x, \lambda, \nu)
+  = f_0(x) + \sum_{i=1}^m \lambda_i f_i(x) + \sum_{i=1}^q \nu_i h_i(x) \\
+  \text{s.t.} \quad  \lambda_i \ge 0 \\
 \end{align}
 $$
 
@@ -233,11 +233,11 @@ $$
 等价性的证明
 
 $$
-x \text{在可行域内} \\
+x  在可行域内
 \left\{
-\begin{array}{**lr**}
- \lambda_i f_i(x) = 0 \quad \text{或} \lambda_i = 0 \quad\text{或} f_i(x) = 0 \\
-\nu_i h_i(x) = 0 \quad\text{或} \nu_i = 0 \quad\text{或} h_i(x) = 0
+  \begin{array}{lr}
+ \lambda_i f_i(x) = 0 \quad  或  \lambda_i = 0 \quad n 或 f_i(x) = 0 \\
+\nu_i h_i(x) = 0 \quad 或 \nu_i = 0 \quad 或 h_i(x) = 0
 \end{array}
 \right.
 $$
@@ -253,15 +253,13 @@ $$
 
 $$
 \begin{align}
-\max \limits_{\lambda,v} g(\mathbf{\lambda},\mathbf{v}) =  \max \limits_{\lambda,v} \ \min \limits_x \ L(x,\mathbf{\lambda},\mathbf{v})\\
-s.t.
-\left\{
-    \begin{array}{**lr**}
-    
+\max \limits_{\lambda,v} \ \min \limits_x \ L(x,\mathbf{\lambda},\mathbf{v})=\\  
+s.t.= \left\{
+    \begin{array}{lr}
         \nabla_x \ L(x,\mathbf{\lambda},\mathbf{v}) = 0\\
-        \lambda \geq0
+        \lambda \ge 0
     \end{array}
-\right.
+   \right. 
 \end{align}
 $$
 
@@ -618,7 +616,7 @@ Kuhn-Tucker定理：若$x^*$是局部极小点，且满足正则条件（约束�
 
 对于问题来说
 
-$min f(x) s.t. g(X) \le 0$
+$min f(x) \\s.t. \quad g(X) \le 0$
 
 求得$X^*$有三种情况
 
@@ -678,36 +676,11 @@ y_1^* \\
 y_2^* \\
 \vdots \\
 y_m^*
-\end{bmatrix}
-
-\quad
-h(x)=
-\begin{bmatrix}
-h_1(x) \\
-h_2(x) \\
-\vdots \\
-h_m(x)
-\end{bmatrix}
-
-\quad
-\mu^* = 
-\begin{bmatrix}
-\mu_1^* \\
-\mu_2^* \\
-\vdots \\
-\mu_n^*
-\end{bmatrix}
-
-\quad
-g(x) = 
-\begin{bmatrix}
-g_1(x) \\
-g_2(x) \\
-\vdots \\
-g_n(x)
-\end{bmatrix}
+\end{bmatrix}\\
 \end{align}
 $$
+
+
 
 $$
 \nabla h(x) = 
@@ -720,8 +693,7 @@ $$
 \nabla g(x) = 
 \begin{bmatrix}
 \nabla g_1(x) & \nabla g_2(x) & \cdots & \nabla g_l(x)
-\end{bmatrix}
-= 
+\end{bmatrix}= 
 \begin{bmatrix}
 \frac{\partial g_1}{\partial x_1} & \frac{\partial g_2}{\partial x_1} & \cdots & \frac{\partial g_l}{\partial x_1} \\
 \frac{\partial g_1}{\partial x_2} & \frac{\partial g_2}{\partial x_2} & \cdots & \frac{\partial g_l}{\partial x_2} \\
@@ -764,12 +736,15 @@ $$
 例题
 
 $$
-\begin{array}
 \min  f(x_1, x_2) = (x_1 - 2)^2 + x_2^2 \\
-s.t. x_2 \le x_1 + 2 \\
+s.t. 
+\left\{
+\begin{array}{lr}
+  x_2 \le x_1 + 2 \\
  x_2 \ge x_1^2 + 1 \\
  x_1 \ge 0 \quad x_2 \ge 0
 \end{array}
+\right.
 $$
 
 
@@ -963,11 +938,8 @@ $\nabla f(x) \approx g_k+H_k\left(x-x^{(k)}\right) \approx 0$
 
 $$
 \begin{align}
-迭代公式  \Longrightarrow x^{(k+1)} \approx x^{(k)}-H_k^{-1} g_k \\
-
-迭代方向  \Longrightarrow p^{(k)}=-H_k^{-1} g_k \quad 牛顿方向 
-
-\\
+迭代公式  \Longrightarrow x^{(k+1)} \approx x^{(k)}-H_k^{-1} g_k\\
+迭代方向  \Longrightarrow p^{(k)}=-H_k^{-1} g_k \quad 牛顿方向 \\
 其中，g_k = g(x{(k)} = \nabla f\left(x^{(k)}\right)\\
 \end{align}
 $$
@@ -1218,15 +1190,14 @@ $$
 $$
 \begin{align} 
 \min \eta \\
-s.t. \left\{
-	\begin{array}{**lr**}  
-
-\nabla f\left(\boldsymbol{x}^{(k)}\right)^{T} \boldsymbol{p} \leq \eta \\
--\nabla g_{j}\left(\boldsymbol{x}^{(k)}\right)^{T} \boldsymbol{p} \leq \eta, \quad j \in J\left(\boldsymbol{x}^{(k)}\right)\\
--1 \le p \le 1
-
+s.t.
+\left\{
+	\begin{array}{lr}  
+    \nabla f\left(\boldsymbol{x}^{(k)}\right)^{T} \boldsymbol{p} \leq \eta \\
+    -\nabla g_{j}\left(\boldsymbol{x}^{(k)}\right)^{T} \boldsymbol{p} \leq \eta, \quad j \in J\left(\boldsymbol{x}^{(k)}\right)\\
+    -1 \le p \le 1
 	\end{array}
-	\right.
+\right.
 \end{align}
 $$
 

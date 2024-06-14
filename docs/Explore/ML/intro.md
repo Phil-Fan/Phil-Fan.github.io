@@ -69,15 +69,11 @@ pipeline
 ## 导论
 
 !!! note "什么是机器学习"
-
-自动从数据中学习提高系统能力
-
-- supervised learning ：分类任务（离散），回归任务（连续）；学习一个映射函数$x\rightarrow \mathbf{y}$
-- unsupervised learning ：找到标签或者模式，聚类、降维
-
-- reinforcement learning：强化学习（相当于是监督学习）
-
-![image-20240611173113321](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240611173113321.png)
+    自动从数据中学习提高系统能力
+    - supervised learning ：分类任务（离散），回归任务（连续）；学习一个映射函数$x\rightarrow \mathbf{y}$
+    - unsupervised learning ：找到标签或者模式，聚类、降维
+    - reinforcement learning：强化学习（相当于是监督学习）
+    ![image-20240611173113321](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240611173113321.png)
 
 
 Fundamental Concepts in Machine Learning
@@ -120,11 +116,24 @@ Fundamental Concepts in Machine Learning
 - Training error is the error calculated on the training data.
 - Test error is the error calculated on the test data.
 
+use test error to evaluate the quality of model
+
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240614191634130.png" alt="image-20240614191634130" style="zoom: 50%;" />
+
+overfitting 过拟合
+
+更复杂的模型：更小的training error
+
 
 
 
 
 ### 什么时候使用机器学习
+
+**there should be some patterns in the data**
+
+- we know the patterns,but don't know how to use
+- ML can discover the pattern themselves
 
 
 
@@ -135,6 +144,8 @@ pipeline，中文意为管线，意义等同于流水线。<br>
 Pipeline，你 土味一点 你把它 翻译成 **一条龙服务**<br>
 专业一点，叫 它 **综合解决方案**，就行。<br>
 
+![image-20240614191015217](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240614191015217.png)
+
 - **定义问题**:是有监督还是无监督？是分类还是回归？
 - 收集数据：
 - 数据预处理 transform data & get features：找到x和y
@@ -142,11 +153,65 @@ Pipeline，你 土味一点 你把它 翻译成 **一条龙服务**<br>
 - 评估模型结果
 - 模型调参
 
-是一个迭代的过程
-
-### metric
+是一个**迭代**的过程
 
 
+
+## metric
+
+
+
+generalization 泛化
+
+the performance of the classifier on test data
+
+
+
+accuracy
+
+- 不是所有人都会得癌症
+
+- 不是所有错误都是同样重要的
+
+- spam/ham email detection 
+
+
+
+精度$presicision = \frac{TP}{TP+FP}$
+
+召回率$Recall = \frac{TP}{TP+FN}$
+
+mean squared error | MSE: 均方误差
+
+$MSE(f,\theta) = \frac{1}{n} \Sigma^n_{i=1}(y_i-f(x_i,\theta))^2$
+
+- 极值影响很大
+
+Mean Absolute Error | MAE:
+
+$MAE(f,\theta) = \frac{1}{n}|y_i - f(x_i,\theta)|$
+
+
+
+speed
+
+FPS
+
+
+
+memory consumption
+
+platform required for running 
+
+CPU vs GPU
+
+server,workstation
+
+
+
+![image-20240614200543795](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240614200543795.png)
+
+more closed to the realistic world
 
 
 
@@ -156,11 +221,9 @@ Pipeline，你 土味一点 你把它 翻译成 **一条龙服务**<br>
 
 
 
-
-
 ## basic ML method
 
-
+linear boundary
 
 
 
