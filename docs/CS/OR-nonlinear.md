@@ -21,29 +21,29 @@
 
 - 凸规划的可行域为凸集
 
-  $
-  h_{i}(x)=0 \quad g_{j}(x) \leq 0 \quad 凸集的交集为凸集
-  $
-  
+$$
+h_{i}(x)=0 \quad g_{j}(x) \leq 0 \quad 凸集的交集为凸集
+$$
+
 - 如果最优解存在，最优解集合也为凸集
 
-  $
-  \begin{align}
-  f\left[\lambda x_{1}^{*}+(1-\lambda) x_{2}\right] \leq f\left(x_{1}^{*}\right)+(1-\lambda)\\ f\left(x_{2}\right)=f\left(x_{1}^{*}\right)=f\left(x_{2}^{*}\right) ,0<\lambda<1 \\
-  f\left[\lambda x_{1}^{*}+(1-\lambda) x_{2}^{*}\right]=f\left(x_{1}^{*}\right)=f\left(x_{2}^{*}\right) 
-  \end{align}
-  $
-  
+$$
+\begin{align}
+f\left[\lambda x_{1}^{*}+(1-\lambda) x_{2}\right] \leq f\left(x_{1}^{*}\right)+(1-\lambda)\\ f\left(x_{2}\right)=f\left(x_{1}^{*}\right)=f\left(x_{2}^{*}\right) ,0<\lambda<1 \\
+f\left[\lambda x_{1}^{*}+(1-\lambda) x_{2}^{*}\right]=f\left(x_{1}^{*}\right)=f\left(x_{2}^{*}\right) 
+\end{align}
+$$
+
   最优解的连线段均为最优解
-  
+
 - 推论：线性规划问题的最优解集为所有最优顶点构成的多边形。（归纳法证）
 
-  $$
-  \begin{align}
-      x^{*}=\sum_{i=1}^{r} \alpha_{i} x^{*}_{i} \\ \sum_{i=1}^{r} \alpha_{i}=1 \\0 \le \alpha_{i} \le 1 \quad i=1, \cdots ,r
-  \end{align}
-  $$
-  
+$$
+\begin{align}
+  x^{*}=\sum_{i=1}^{r} \alpha_{i} x^{*}_{i} \\ \sum_{i=1}^{r} \alpha_{i}=1 \\0 \le \alpha_{i} \le 1 \quad i=1, \cdots ,r
+\end{align}
+$$
+
 
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240521163820391.png" alt="image-20240521163820391" style="zoom:50%;" />
 
@@ -219,6 +219,7 @@ $$
 $$
 
 **等价问题**
+
 $$
 \begin{align}
 \min_x \ \max_{\lambda, \nu} \  L(x, \lambda, \nu)
@@ -253,7 +254,7 @@ $$
 $$
 \begin{align}
 \max \limits_{\lambda,v} g(\mathbf{\lambda},\mathbf{v}) =  \max \limits_{\lambda,v} \ \min \limits_x \ L(x,\mathbf{\lambda},\mathbf{v})\\
-\text{s.t.} 
+s.t.
 \left\{
     \begin{array}{**lr**}
     
@@ -761,6 +762,7 @@ $$
 
 
 例题
+
 $$
 \begin{array}
 \min  f(x_1, x_2) = (x_1 - 2)^2 + x_2^2 \\
@@ -773,6 +775,7 @@ $$
 
 
 **列出向量**
+
 $$
 \begin{align}
 f(\mathbf{x}) = (x_1 - 2)^2 + x_2^2
@@ -792,6 +795,7 @@ $$
 $$
 
 **列出题目条件**
+
 $$
 \begin{align}
 \nabla f(x^*) - \nabla h(x^*) y^* - \nabla g(x^*) \mu^* = 0
@@ -811,6 +815,7 @@ g(x^*) \ge 0 \quad \mu^* \ge 0
 $$
 
 **得出方程**
+
 $$
 \begin{align}
 2(x_1 - 2) - \mu_1 + 2 \mu_2 x_1 - \mu_3 = 0 \\
@@ -1209,11 +1214,11 @@ $$
 \end{array}
 $$
 
-(2)
+
 $$
-\begin{align*} 
+\begin{align} 
 \min \eta \\
-s.t. &\left\{
+s.t. \left\{
 	\begin{array}{**lr**}  
 
 \nabla f\left(\boldsymbol{x}^{(k)}\right)^{T} \boldsymbol{p} \leq \eta \\
@@ -1222,8 +1227,7 @@ s.t. &\left\{
 
 	\end{array}
 	\right.
-\end{align*}
-
+\end{align}
 $$
 
 - $\eta<0$：可行下降方向
@@ -1237,6 +1241,7 @@ $$
 #### 外点法——罚函数，罚外点
 
 **思想：构造罚函数，惩罚可行域外的迭代点**
+
 $$
 \begin{align}
 \min P(x,M)=f(x)+M\sum_{i=1}^{m}h_{i}^{2}(x)+M\sum_{j=1}^{l}[\min (0,g_{j}(x))]^{2}
@@ -1245,7 +1250,7 @@ $$
 
 Courant罚函数
 
-$M>0$ 为罚因子，当$M$趋向无穷时，$x^{*}$​为原问题约束极值解。
+$M>0$ 为罚因子，当$M$趋向无穷时，$x^{*}$为原问题约束极值解。
 
 
 
@@ -1286,6 +1291,7 @@ $$
 如果$x_{2} \geq 0 \Rightarrow 1=0$ ，不成立
 
 所以考虑$x_{1}<1, x_{2}<0$区域的驻点。(可行域外的点)
+
 $$
 \begin{align}
 \frac{\partial P}{\partial x_{1}}  =(x_{1}+1)^{2}+2 M(x_{1}-1)=0 \\
@@ -1314,6 +1320,7 @@ $$
 #### 内点法——障碍函数，阻止内点
 
 **构造障碍函数，阻止迭代点离开可行域。**
+
 $$
 \begin{array}{l}
 \min \limits_{x \in R_{0}} \bar{P}(x, r)=f(x)+r \sum_{j=1}^{l} \frac{1}{g_{j}(x)} \\
@@ -1342,6 +1349,7 @@ $$
 
 
 构造障碍函数:
+
 $$
 \begin{align}
 \bar{P}(x, r)=x_{1}+x_{2}-r \cdot\left[\log \left(-x_{1}^{2}+x_{2}\right)+\log \left(x_{1}\right)\right]
@@ -1377,11 +1385,13 @@ $$
 **内点法收敛性分析**
 
 障碍函数
+
 $$
 \bar{P}(x, r)=f(x)-r_k \sum_{j=1}^{l} \log g_{j}(x)
 $$
 
 第k步障碍函数局部极小值满足
+
 $$
 \begin{align}
 \nabla \bar{P}\left(x^{(k)}, r_k\right)  =\nabla f\left(x^{(k)}\right)-r_k \sum_{j=1}^{l} \frac{1}{g_{j}\left(x^{(k)}\right)} \nabla g_{j}\left(x^{(k)}\right)=0 \\
@@ -1391,6 +1401,7 @@ $$
 $$
 
 $x_{k}^{*}$迭代收敛时
+
 $$
 \begin{align}
  \nabla P\left(x^{*}, r\right)=\nabla f\left(x^{*}\right)-\sum_{j=1}^{l} \mu_{j}^{*} \nabla g_{j}\left(x^{*}\right)=0 \\

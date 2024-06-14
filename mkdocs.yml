@@ -199,6 +199,7 @@ nav:
   - Class/自动控制原理.md
   - Class/SocialSciences.md
   - Class/Statistics.md
+  - Class/马原.md
   - "ITP课程" :
       - Class/ITP/ITP-Team-Communication-and-Leadership.md
       - Class/ITP/ITP-Management.md
@@ -245,6 +246,7 @@ nav:
     
     
   - "运筹学 | Operational Research":
+    - CS/OR-exercise.md
     - CS/OR.md
     - CS/OR-nonlinear.md
     - CS/OR-DP.md
@@ -252,7 +254,7 @@ nav:
     - CS/OR-GameTheory.md
     - CS/OR-GameTheoryModel.md
     - CS/OR-QueuingTheory.md
-    - CS/OR-exercise.md
+    
 
   - "CTF相关知识":
     - CS/CTF-intro.md

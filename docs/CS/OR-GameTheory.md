@@ -128,17 +128,19 @@ $$
     证明：
 
 1、必要性
+
 $$
 \begin{align}
-&\max_{i}\min_{j}a_{ij}=\min_{j}\max_{i}a_{ij}\\
-\Rightarrow &i^{*},j^{*},\min_{j}a_{ij*}=\max_{i}\min_{j}a_{ij}=\min_{j}\max_{i}a_{ij}=\max_{i}a_{ij*}\\
-\Rightarrow &a_{ij*}\geq\min_{j}a_{ij*}=\max_{i}\min_{j}a_{ij}=\min_{j}\max_{i}a_{ij}=\max_{i}a_{ij*}\\
-\Rightarrow&\max_{i}a_{ij*}=a_{i*j*}=\min_{j}a_{ij*}\\
-&a_{ij*}\leq a_{i*j*}\leq a_{i*j}
+    &\max_{i}\min_{j}a_{ij}=\min_{j}\max_{i}a_{ij}\\
+    \Rightarrow &i^{*},j^{*},\min_{j}a_{ij*}=\max_{i}\min_{j}a_{ij}=\min_{j}\max_{i}a_{ij}=\max_{i}a_{ij*}\\
+    \Rightarrow &a_{ij*}\geq\min_{j}a_{ij*}=\max_{i}\min_{j}a_{ij}=\min_{j}\max_{i}a_{ij}=\max_{i}a_{ij*}\\
+    \Rightarrow&\max_{i}a_{ij*}=a_{i*j*}=\min_{j}a_{ij*}\\
+    &a_{ij*}\leq a_{i*j*}\leq a_{i*j}
 \end{align}
 $$
 
 2、充分性
+
 $$
 \Rightarrow\max_{i}a_{ij*}\leq a_{i*j*}\leq\min_{j}a_{i*j}\\
 \Rightarrow\min_{j}\max_{i}a_{ij}\leq a_{i*j*}\leq\max_{i}\min_{j}a_{ij}\\
@@ -420,11 +422,11 @@ $$
 $\left(x_{1}, y_{1}\right)$ 超优 $(\operatorname{dominate})\left(x_{2}, y_{2}\right)$ :
 
 $$
-\begin{aligned}
-&E_{1}\left(x_{1}, y_{1}\right) \geq E_{1}\left(x_{2}, y_{2}\right) \quad E_{2}\left(x_{1}, y_{1}\right) \geq E_{2}\left(x_{2}, y_{2}\right) \\
-
-\end{aligned}
+\begin{align}
+E_{1}\left(x_{1}, y_{1}\right) \ge E_{1}\left(x_{2}, y_{2}\right) \\E_{2}\left(x_{1}, y_{1}\right) \ge E_{2}\left(x_{2}, y_{2}\right) \\
+\end{align}
 $$
+
 且至少有一个不等式严格成立。
 
 
