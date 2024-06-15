@@ -216,8 +216,8 @@ impz(b,a,-3:10)
 
 # 零状态响应
 y = filter(num,den,x,zi) 
-% x是包含输入序列非零样值点，zi表示系统输入延时
 
+% x是包含输入序列非零样值点，zi表示系统输入延时
 [y,x] = dlism(num,den,u,x0)
 ```
 

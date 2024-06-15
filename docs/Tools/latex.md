@@ -164,8 +164,10 @@ required to use pdflatex/xelatex/lualatex.
 | `+`        | $+$       | `-`        | $-$        |
 | `\times`   | $\times$  | `\cdot`    | $\cdot$    |
 | `\div`     | $\div$    | `\sqrt{x}` | $\sqrt{x}$ |
-|            |           | `^\circ`   | $^\circ$   |
-| `\oplus`   | $\oplus$  |            |            |
+| `\pm`      | $\pm$     | `^\circ`   | $^\circ$   |
+| `\oplus`   | $\oplus$  | `\sum`     | $\sum$     |
+| `\int`     | $\int$    |            |            |
+|            |           |            |            |
 |            |           |            |            |
 | `>`        | $>$       |            |            |
 | `<`        | $<$       | `\neq`     | $\neq$     |
