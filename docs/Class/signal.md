@@ -95,20 +95,24 @@ X(\omega) &= \mathscr{F}(\mathop{\Sigma}\limits_{n=-\infty}^{\infty}X(n\omega_0)
 $$
 
 !!! note 例子:求周期为$T_0$的周期性冲激串$\delta_T(t)$的傅里叶变换。
+
     $$
     \begin{align*}
     \delta_T(t)&= \mathop{\sum}\limits_{n=-\infty}^{\infty}\delta(t-nT_0)\\
     \delta_T(t)&= \mathop{\sum}\limits_{n=-\infty}^{\infty}X(n\omega_0)e^{jn\omega_0t}
     \end{align*}
     $$
+
     又因为在一个周期内
     $X(n\omega_0) = \frac{1}{T_0} \int^\frac{T_0}{2}_{-\frac{T_0}{2}} \delta_T(t)e^{-jn\omega_0 t} = \frac{1}{T_0}$
     **所以可以求得**
+
     $$
     \begin{align*}
     X(\omega) = \mathop{\sum}\limits_{n=-\infty}^{\infty} 2\pi \frac{1}{T_0} \delta(\omega-n \omega_0) = \omega_0 \mathop{\sum}\limits_{n=-\infty}^{\infty}{\delta(\omega-n \omega_0) }
     \end{align*}
     $$
+    
     **该式子在推导时域、频域采样定理时候反复出现**
 
 
@@ -122,6 +126,7 @@ $$
 $$
 <\vec{a},\vec{b}> = \vec{a} \cdot \vec{b} = |\vec{a}| \cdot |\vec{b}| \cos \theta
 $$
+
 内积越大，投影越大，两个向量间夹角越小，方向越一致，相似度越高。特别地，当内积为0时，两个向量是垂直的；只有当两个向量夹角为0时，内积最大（相关系数也最大）。因此，相关可反映两个向量空间的夹角。
 
 
@@ -129,6 +134,7 @@ $$
 对位相乘求和
 
 **归一化角频率**
+
 $\Omega$的单位是弧度，表示的是一个采样周期内转过的角度，自然而然可以得出计算公式$\Omega = \omega_0 T_s = \frac{2\pi}{T_0}T_s = \frac{2\pi}{N T_s}T_s = \frac{2\pi}{N}$
 
 原因：我们拿到一串数字信号，不可能还附带着把采样间隔也告诉你。或者说，信号就是信号，在这组关于时间的一维信号上是没有采样率这样的信息的。有一个大聪明发现，反正经过采样后的数字信号在频域上是周期性的，这个周期只与采样率有关，那我**想办法忽略采样率，让周期都变成$2\pi$**，岂不是更好，那样很多算法就通用了。所以搞出来一个归一化角频率。
@@ -139,9 +145,9 @@ $\Omega$的单位是弧度，表示的是一个采样周期内转过的角度，
 [这篇文章](https://zhuanlan.zhihu.com/p/418221087)给出了从正交分解的视角看待DFS。
 
 
-!!! bug 正交基必须与原向量等维度
+!!! bug "正交基必须与原向量等维度"
 
-!!! bug 内插公式如何理解
+!!! bug "内插公式如何理解"
 
 
 **DFS性质**
@@ -155,5 +161,5 @@ $$
 
 证明：
 
-!!! bug 各种对称性如何理解：共轭对称
+!!! bug "各种对称性如何理解：共轭对称"
 
