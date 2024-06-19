@@ -234,14 +234,14 @@ nav:
     - CS/Language/Python.md
     - CS/Language/crawler.md
 
-  - "数据结构 | DataStructure":
+  - "DS | 数据结构":
     - CS/DataStructure.md
     - CS/DataStructure-Tree.md
     - CS/DataStructure-Hash.md
     - CS/DataStructure-Graph.md
     - CS/DataStructure-Sorting.md
 
-  - "计算机网络 | Computer Network" :
+  - "计网 | Computer Network" :
     - CS/ComputerNetwork-00-intro.md
     - CS/ComputerNetwork-01-ApplicationLayer.md
     - CS/ComputerNetwork-02-TransportLayer.md
@@ -252,7 +252,7 @@ nav:
     - CS/ComputerNetwork-07-问题探究.md
     
     
-  - "运筹学 | Operational Research":
+  - "OR | 运筹学 ":
     - CS/OR-exercise.md
     - CS/OR.md
     - CS/OR-nonlinear.md
@@ -262,7 +262,23 @@ nav:
     - CS/OR-GameTheoryModel.md
     - CS/OR-QueuingTheory.md
     
+  - "CV | 计算机视觉":
+    - CS//CV/CV-intro.md
+    - CS//CV/OpenCV.md
+  
+  - "ML | 机器学习":
+    - CS//ML/intro.md
+    - CS//ML/LingoInAI.md
+    - CS//ML/CNN.md
 
+  - "AI | 人工智能":
+    - CS//AI/HumanPoseEstimation.md
+    - "AIGC网站探索":
+      - CS/AI/AIGC-explore.md
+
+    - "Github 项目复现":
+      - CS/AI/GitHub-proj.md
+  
   - "CTF相关知识":
     - CS/CTF-intro.md
     - CS/CTF-crypto.md
@@ -276,22 +292,6 @@ nav:
      
     
 - Explore:
-  - "CV | 计算机视觉":
-    - Explore/CV/CV-intro.md
-    - Explore/CV/OpenCV.md
-  - "ML | 机器学习":
-    - Explore/ML/intro.md
-    - Explore/ML/LingoInAI.md
-    - Explore/ML/CNN.md
-
-  - "AI | 人工智能":
-    - Explore/AI/HumanPoseEstimation.md
-    - "AIGC网站探索":
-      - Explore/AI/AIGC-explore.md
-
-    - "Github 项目复现":
-      - Explore/AI/GitHub-proj.md
-  
   - Finance:
     - Explore/Fin/Fintech.md
     - Explore/Fin/consulting.md

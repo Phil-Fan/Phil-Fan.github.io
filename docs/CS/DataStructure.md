@@ -6,9 +6,20 @@
 
 ### **时间复杂度定义**
 
-![image-20230101145242893](https://zjushine-picgo.oss-cn-hangzhou.aliyuncs.com/img/image-20230101145242893.png)
 
-定义2.5：若存在c>0和n0，当N>n0时，T(N)>cq(N)，则记为T(N) = w(q(N))
+**定义 2.1:** 如果存在正常数 \(c\) 和 \(m_{0}\) 使得当 \(N \geqslant m_{0}\) 时 \(T(N) \leqslant c f(N)\), 则记为 \(T(N)=O f(N)\) 。
+
+
+**定义 2.2:** 如果存在正常数 \(c\) 和 \(m_{0}\) 使得当 \(N \geqslant m_{0}\) 时 \(T(N) \geqslant c g(N)\), 则记为 \(T(N)=\Omega(g(N))\) 。
+
+
+**定义 2.3: ** \(T(N)=\Theta(h(N))\) 当且仅当 \(T(N)=O(h(N))\) 且 \(T(N)=\Omega(h(N))\) 。
+
+
+**定义 2.4:** 如果对每一正常数 \(c\) 存在常数 \(m_{0}\) 使得当 \(N \geqslant m_{0}\) 时 \(T(N) \leqslant c p(N)\), 则 \(T(N)=\)
+ \(o(p(N))\) 。也可简述为, 如果 \(T(N)=O(p(N))\) 且 \(T(N) \neq \Theta(p(N))\), 则 \(T(N)=o(p(N))\) 。
+
+**定义2.5：** 若存在c>0和n0，当N>n0时，T(N)>cq(N)，则记为T(N) = w(q(N))
 
 ![image-20230101145822408](https://zjushine-picgo.oss-cn-hangzhou.aliyuncs.com/img/image-20230101145822408.png)
 
@@ -22,7 +33,7 @@ $O(1)$ 是指$f(n)$ 有上界
 
 $$
 rule1 \\
-IF T_1(N) = O(f(N)) and T_2(N) O(g(N))\\
+IF \quad T_1(N) = O(f(N)) \ and \ T_2(N) O(g(N))\\
 \begin{align}
 	T_1(N) + T_2(N) &= O(f(N) + g(N))\\
 	T_1(N) * T_2(N) &= O(f(N) * g(N))\\
@@ -37,9 +48,15 @@ $$
 
 ### **主定理**
 
-<img src="https://zjushine-picgo.oss-cn-hangzhou.aliyuncs.com/img/image-20230101154020619.png" alt="image-20230101154020619" style="zoom:50%;" />
+$$
+T(n) = aT(\frac{n}{b}) + f(n)
+$$
 
-<img src="https://zjushine-picgo.oss-cn-hangzhou.aliyuncs.com/img/image-20230101154044049.png" alt="image-20230101154044049" style="zoom:50%;" />
+<!-- <img src="https://zjushine-picgo.oss-cn-hangzhou.aliyuncs.com/img/image-20230101154044049.png" alt="image-20230101154044049" style="zoom:50%;" /> -->
+
+- (1) 若 \(f(n)<n^{\log _b^a}\) , 且是多项式的小于。即\(\exists \varepsilon>0\), 有 \(f(n)=O\left(n^{\log_b^a-\varepsilon}\right)\), 则 \(T(n)=\Theta\left(n^{\log_{b}^a}\right)\)
+- (2) 若 \(f(n)=n^{\log _{b}^a}\), 则 \(T(n)=\Theta\left(n^{\log _{b}^ a} \log n\right)\)
+- (3) 若 \(f(n)>n^{\log_b^a}\), 且是多项式的大于。即\(\exists \varepsilon>0\), 有 \(f(n)=\Omega\left(n^{\log_{b}^a+\varepsilon}\right)\), 且对 \(\forall c<1\) 与所有足够大的 \(n\), 有 \(a f\left(\frac{n}{b}\right) \leqslant c f(n)\), 则 \(T(n)=\Theta(f(n))\)
 
 [时空复杂度分析及master定理 - Chanis 的博客 - 洛谷博客 (luogu.com.cn)](https://www.luogu.com.cn/blog/Chanis/master)
 
