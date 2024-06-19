@@ -237,6 +237,7 @@ nav:
   - "DM | 离散数学":
     - CS/Discrete_mathematics.md
     - CS/DataStructure-Graph.md
+    
   - "DS | 数据结构":
     - CS/DataStructure.md
     - CS/DataStructure-Tree.md
@@ -268,22 +269,15 @@ nav:
   - "AI | 人工智能":
     - CS/AI/01-AI_history&intro.md
     - CS/AI/02-search.md
-    - CS/AI/03-AI_security.md
     
     - "AI应用":
+      - CS/AI/03-AI_security.md
       - CS/AI/AIGC-explore.md
       - CS/AI/GitHub-proj.md
 
+
     - CS/AI/HumanPoseEstimation.md
   
-  - "ML | 机器学习":
-    - CS/ML/intro.md
-    - CS/ML/神经网络.md
-    - CS/ML/CNN.md
-    - CS/ML/RNN.md
-    - CS/ML/Reinforment_learning.md
-    - CS/ML/LingoInAI.md
-
   - "CV | 计算机视觉":
     - CS/CV/CV-intro.md
     - CS/CV/OpenCV.md

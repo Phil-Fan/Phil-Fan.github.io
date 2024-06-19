@@ -1,10 +1,20 @@
 # 人工智能引论
 
+CS188
+
+
+
 
 
 [《人工智能引论》-人工智能历史与内容概要-2024年春夏.pdf (momodel.cn)](https://aiplusx-file.momodel.cn/files/《人工智能引论》-人工智能历史与内容概要-2024年春夏.pdf)
 
 https://mo.zju.edu.cn/
+
+[2023-2024秋冬学期《人工智能引论》期末考试回忆卷 - CC98论坛](https://www.cc98.org/topic/5797263)
+
+[2023-2024秋冬 《人工智能基础》 回忆卷 - CC98论坛](https://www.cc98.org/topic/5797700)
+
+
 
 ## 历史
 

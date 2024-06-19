@@ -2,6 +2,8 @@
 
 [数字电子技术（余孟尝）思维导图 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/583482398)
 
+![数电](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/%E6%95%B0%E7%94%B5.svg)
+
 ## 数制和码制
 
 ### 进制与进制转换

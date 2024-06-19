@@ -161,7 +161,7 @@ Pipeline，你 土味一点 你把它 翻译成 **一条龙服务**<br>
 
 
 
-generalization 泛化
+
 
 the performance of the classifier on test data
 
@@ -215,7 +215,46 @@ more closed to the realistic world
 
 
 
+## generalization 泛化
+
+
+
+
+
 ## typical ML problems
+
+### 贝叶斯决策
+
+$x$ sample
+
+$y$ state of the nature
+
+$P(y|x)$ given $x$​,what is the probability of the state of the nature
+
+条件概率：
+$$
+P(A|B) = \frac{P(A,B)}{P(B)}
+$$
+独立的含义
+
+
+
+贝叶斯
+$$
+P(A|B) = P(A)\frac{P(B|A)}{P(B)}
+$$
+
+$$
+[后验概率] = [先验概率]\times[后验概率]
+$$
+
+先验概率 | `prior`: $P(A)$the probability A being True. this is the knowledge
+
+似然性 | `likelihood`: $P(B|A)$the probability of B being true,given A is true
+
+最大似然概率决策
+
+后验概率 | `posterior`: $P(A|B)$
 
 
 
@@ -225,23 +264,4 @@ more closed to the realistic world
 
 linear boundary
 
-
-
-
-
-
-
-
-
-## Practical topics about ML
-
-### Typical pipeline for ML
-
-### python tools
-
-**pandas**
-
-**sklearn** 
-
-**matplotlib**
 
