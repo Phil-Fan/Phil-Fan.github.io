@@ -116,6 +116,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://www.philfan.cn/CS/Discrete_mathematics/</loc>
+         <lastmod>2024-06-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://www.philfan.cn/CS/OR-DP/</loc>
          <lastmod>2024-06-19</lastmod>
          <changefreq>daily</changefreq>
@@ -151,7 +156,47 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://www.philfan.cn/CS/AI/01-AI_history%26intro/</loc>
+         <lastmod>2024-06-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/CS/AI/02-UninformedSearch/</loc>
+         <lastmod>2024-06-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/CS/AI/03-AI_security/</loc>
+         <lastmod>2024-06-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/CS/AI/03-InformedSearch/</loc>
+         <lastmod>2024-06-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/CS/AI/04-OtherSearch/</loc>
+         <lastmod>2024-06-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/CS/AI/05-MarkovDecision/</loc>
+         <lastmod>2024-06-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/CS/AI/06-ML_intro/</loc>
+         <lastmod>2024-06-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://www.philfan.cn/CS/AI/AIGC-explore/</loc>
+         <lastmod>2024-06-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/CS/AI/CNN/</loc>
          <lastmod>2024-06-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -162,6 +207,31 @@
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/AI/HumanPoseEstimation/</loc>
+         <lastmod>2024-06-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/CS/AI/LingoInAI/</loc>
+         <lastmod>2024-06-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/CS/AI/NN/</loc>
+         <lastmod>2024-06-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/CS/AI/RNN/</loc>
+         <lastmod>2024-06-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/CS/AI/Reinforment_learning/</loc>
+         <lastmod>2024-06-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/CS/AI/python_package/</loc>
          <lastmod>2024-06-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -197,21 +267,6 @@
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/Language/crawler/</loc>
-         <lastmod>2024-06-19</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://www.philfan.cn/CS/ML/CNN/</loc>
-         <lastmod>2024-06-19</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://www.philfan.cn/CS/ML/LingoInAI/</loc>
-         <lastmod>2024-06-19</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://www.philfan.cn/CS/ML/intro/</loc>
          <lastmod>2024-06-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
