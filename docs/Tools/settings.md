@@ -179,3 +179,20 @@ ssh -p 15821 root@connect.westb.seetacloud.com
 
 
 
+## 搜狗输入法
+
+搜狗输入法老是出现快捷键冲突或是占用热键的情况
+
+所以进入设置界面 - 按键 - ban掉系统功能快捷键
+
+![在这里插入图片描述](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20201218111624799.png)
+
+![image-20240619085926633](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240619085926633.png)
+
+## vscode
+
+markdown 插件 —— Markdown Preview Enhanced
+
+设置一个`picgo`的快捷键，我这里设置的是`ctrl + alt + P`
+
+截图之后直接按就可以将图片上传到图床，并将连接复制到剪贴板
