@@ -271,12 +271,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.philfan.cn/Class/SocialSciences/</loc>
+         <loc>https://www.philfan.cn/CS/Statistic/0-intro/</loc>
          <lastmod>2024-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.philfan.cn/Class/Statistics/</loc>
+         <loc>https://www.philfan.cn/CS/Statistic/2-statistic/</loc>
+         <lastmod>2024-06-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/Class/SocialSciences/</loc>
          <lastmod>2024-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
