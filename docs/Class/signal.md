@@ -56,8 +56,19 @@
     $\mathscr{F}(Sa(\frac{t}{2})) = ?\quad \int_{-\infty}^{\infty}Sa(\frac{t}{2})dt = ?$
     解答：<br>第一问使用CFT的尺度变换性质<br>第二问先把t替换成$\omega$,使用ICFT看作求解x(0)的问题即可.所以任务变成了求解$Sa(\frac{\omega}{2})$​的原函数，就不难了
 
-各种常见信号傅里叶变换需要记住
 
+!!! bug "连续信号的傅里叶变换频谱是双边谱"
+    错误，实连续信号可以；
+    但复指数信号不行
+    例如$e^{j\omega_0 t} \rightarrow  2\pi \delta(\omega-\omega_0)$
+
+
+
+各种常见信号傅里叶变换需要记住
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240620212932.png)
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240620212944.png)
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240620213012.png)
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240620213040.png)
 - $cos(\omega_0 t)$频谱搬移
 - 门函数的表达 $u(t) - u(t-t_0)$
 
@@ -161,6 +172,11 @@ $$
 
 
 
+!!! note "例题"
+    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240620212715.png)
+
+    取样函数（内插函数）加权求和构成的无穷级数；将抽样信号通过一个理想低通滤波器。
+
 
 
 ### **卷积的计算方法**
@@ -234,15 +250,16 @@ $$
 !!! note "题目"
     ![DFT-question](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240620192017.png)
 
+    实数序列，根据共轭对称性,$X(k) = X^*(N-k)$
     ![answer](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240620194102.png)
 
 **计算量**
 
-每计算一个 $X(k)$ 值需要进行 $N$次复数相乘，$N-1$ 次复数相加;
+每计算一个 $X(k)$ 值需要进行 $N$次复数相乘，$N-1$次复数相加;
 
 对于 $N$个 $X(k) $点完成全部DFT运算共需 
 
-- $N^2$次复数相乘和 $N(N-1) $次复数加法。
+- $N^2$次复数相乘和 $N(N-1)$ 次复数加法。
 - $4N^2$ 次实数乘法,$2N^2 +2N(N-1)\approx 4N^2$ 次实数加法
 
 ### **FFT算法**
@@ -280,6 +297,7 @@ T(n) = aT(\frac{n}{b}) + f(n)
 $$
 
 $a = 2, b = 2 \therefore T(n) = n\log n$
+**是复杂度，不是准确乘加法数值！**
 
 **FFT 逆变换**
 
@@ -428,13 +446,19 @@ $$
 例如：
 
 $$
-
+x(n) = [1,j,-1,-j]
 $$
 
 **共轭反对称序列**(`Conjugate-Antisymmetry Sequence`):满足其实部为奇对称，虚部为偶对称，即表示为
 
 $$
 x_{o}(n)=-x_{o}^{*}(-n)
+$$
+
+例如
+
+$$
+x(n) = [0,j,0,j]
 $$
 
 任何复序列都可以被分解为一个共轭对称序列和一个共轭反对称序列之和。即
@@ -499,6 +523,8 @@ x共轭 - X先共轭再翻转
 
 x反转再共轭 - X共轭
 
+!!! note "对于实数序列，就有$X(k) = X^*(n-k)$"
+
 ## 信号处理
 
 ### 系统类型
@@ -518,11 +544,13 @@ y(t) = x(-t)
 $$
 
 $$
-证：
-y_1(t) = x_1(-t) \\
-y_1(t-t_0) = x_1(-t+t_0)\\
-x_2 = x_1(t-t_0)\\
-y_2(t) = x_2(-t) = x_1(-t-t_0)只对t进行操作
+证:\quad \begin{align*}
+    y_1(t) &= x_1(-t) \\
+    y_1(t-t_0) &= x_1(-t+t_0)\\
+    x_2 &= x_1(t-t_0)\\
+    y_2(t) &= x_2(-t) = x_1(-t-t_0)
+\end{align*}\\
+只对t进行操作
 $$
 
 
@@ -578,7 +606,7 @@ y(t) = x(t) * h(t)
 $$
 
 - $t<0$时候，$x(t) = 0$，所以积分下限取0
-- $\tau> t$时候，$t-\tau <0$ ，$h(t-\tau)=0$ 积分上限取t
+- $\tau> t$时候，$t-\tau <0$ ，$h(t-\tau)=0$ 积分上限取$t$
 
 !!! note "$\int_{-\infty}^{t}\delta(\tau)d\tau = u(t)$​"
 
@@ -620,7 +648,7 @@ $$
 H(\Omega) = H(z)|_{z = e^{j\Omega}}
 $$
 
-再带入对应的$\Omega $
+再带入对应的$\Omega$
 
 
 
