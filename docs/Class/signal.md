@@ -56,18 +56,47 @@
     $\mathscr{F}(Sa(\frac{t}{2})) = ?\quad \int_{-\infty}^{\infty}Sa(\frac{t}{2})dt = ?$
     解答：<br>第一问使用CFT的尺度变换性质<br>第二问先把t替换成$\omega$,使用ICFT看作求解x(0)的问题即可.所以任务变成了求解$Sa(\frac{\omega}{2})$​的原函数，就不难了
 
-
-
-微分性质，需要注意直流分量的处理；注意突变的信号求导时候要写$\delta(t-t_0)$
-
-最保险的方法是把原函数的解析表达式写出来然后一步一步求微分
-
-
 各种常见信号傅里叶变换需要记住
 
 - $cos(\omega_0 t)$频谱搬移
 - 门函数的表达 $u(t) - u(t-t_0)$
 
+
+**微分性质**
+
+最保险的方法是把原函数的解析表达式写出来然后一步一步求微分
+
+需要注意直流分量的处理:如果有直流分量，那么只能使用积分变换解决
+
+
+!!! note "例题"
+    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240620190744.png)
+    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240620190731.png)
+
+    $$
+    y(t) = t(u(t)-u(t-1))
+    $$
+
+    因为$tu(t)=0$,$tu(t-1)$只能在$t=1$处取值
+
+    $$
+    \begin{align*}
+        y'(t) &= (u(t)-u(t-1)) + t(\delta(t)-\delta(t-1))\\
+        &= u(t)-u(t-1) - \delta(t-1)
+    \end{align*}
+    $$
+
+**对称性**
+
+$$
+x^*(t) \stackrel{\mathscr{F}}{\longrightarrow}X^*(-\omega)
+$$
+
+**对偶性**
+
+单位冲激信号和直流
+
+采样信号和门函数
 
 
 **帕斯瓦尔定理**
@@ -155,6 +184,8 @@ $$
 
 原因：我们拿到一串数字信号，不可能还附带着把采样间隔也告诉你。或者说，信号就是信号，在这组关于时间的一维信号上是没有采样率这样的信息的。有一个大聪明发现，反正经过采样后的数字信号在频域上是周期性的，这个周期只与采样率有关，那我**想办法忽略采样率，让周期都变成$2\pi$**，岂不是更好，那样很多算法就通用了。所以搞出来一个归一化角频率。
 
+### DFS
+
 **DFS的推导**
 课本：利用冲激函数串进行采样，计算傅里叶变换（参考对周期函数进行傅里叶变换的例题）
 
@@ -174,9 +205,45 @@ $$
 x^*(-n)\stackrel{DFS}{\rightleftharpoons} X^*(k\Omega_0)
 $$
 
-证明：
 
-!!! bug "各种对称性如何理解：共轭对称"
+### DFT
+
+公式中各个字母的含义
+
+$$
+X(l) = \sum^{N-1}_{k=0} x(k)W_M^{kl} = \sum^{N-1}_{k=0} x(k)e^{-j\frac{2\pi}{M}kl}
+$$
+
+- $l$：频谱采样的序号,频域采样第几个点
+- $k$:时域序列点的序号
+- $N$: 时域内截取数据的长度
+- $M$:频域点的个数
+
+频域采样$N$点，时域延拓的周期也是N点，每两个点的间隔为采样周期$T_s$，所以周期延拓的周期是$N\cdot T_s$
+
+
+
+**圆周移位**
+
+比较重要
+
+$$
+x((n-m))_NR_N(n) \stackrel{DFT}{\rightarrow} X(k) e^{-j k \frac{2\pi}{N}m}
+$$
+
+!!! note "题目"
+    ![DFT-question](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240620192017.png)
+
+    ![answer](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240620194102.png)
+
+**计算量**
+
+每计算一个 $X(k)$ 值需要进行 $N$次复数相乘，$N-1$ 次复数相加;
+
+对于 $N$个 $X(k) $点完成全部DFT运算共需 
+
+- $N^2$次复数相乘和 $N(N-1) $次复数加法。
+- $4N^2$ 次实数乘法,$2N^2 +2N(N-1)\approx 4N^2$ 次实数加法
 
 ### **FFT算法**
 
@@ -188,6 +255,17 @@ $$
 
 !!! note "基本思想"
 	将原始的N点序列，一次分解成一系列短序列，并充分利用$W_N^{nk}$的对称性质和周期性质，求出短序列的DFT，适当组合后再求出长序列的DFT，减少乘法运算。
+
+令
+
+$$
+W_N = e^{-j\frac{2\pi}{N}}
+$$
+
+$$
+ X(k) = G(k) + W_N^{nk} H(k)\\
+ X(k + \frac{N}{2}) = G(k) - W_N^{nk} H(k)
+$$
 
 [可视化理解](https://www.bilibili.com/video/BV1za411F76U),前半部分有点冗余
 
@@ -224,6 +302,9 @@ N点序列FFT运算
 - 全系数：因为想要节省内存空间，所以将中间的系数根据可约性进行统一，统一成$W_N^{kn}$的形式，下标都为$N$
 - 倒位序：输入自然序，输出倒位序；输入倒位序，输出自然序
 
+
+
+
 **计算线性卷积**
 
 圆周卷积是线性卷积周期延拓取主值
@@ -237,15 +318,37 @@ N点序列FFT运算
 
 - 时限连续信号：频域无限长，必定会有混叠；采用抗混叠滤波器去除次要的高频信号，再进行采样；或者选择合适的$T_s$，减少混叠的影响。
 - 带限连续信号：时宽无限，会出现频谱泄漏；加大时宽$\tau$或者选择形状合适的窗函数；
-- 连续周期信号：时域正周期截断，
+- 连续周期信号：时域正周期截断
+
+!!! note "历年题"
+    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240620191142.png)
+    
+    **是一个频率向数字角频率转换的过程。**
+
+    - FFT进行计算，先得补零至$2^{10}=1024$个点
+    - $k\cdot \frac{2\pi}{N} = \frac{2\pi f}{f_s} = \Omega$
+    - 带入后求解得$k = 40$,若求频谱，则求$X(40)$
+
+    其中，频率分辨率$\Delta f = \frac{f_s}{N}$,$f_s$可以算出最高频率，$N$可以算出来频谱间距
 
 ### **z变换**
 
 [张健智云](https://vod.cmc.zju.edu.cn/default/2024/05/16/018231e133b1fe4dd793dd3ac9182714_1920_1080.mp4?auth_key=1718713170-0-0-523036fad9a613322d4ff4d85ff0cd55&t=636426-1718698772-3fd1aea60633bbede2412ad2a2ec047d)
 这部分其实直接看书就行了，有联系的是微积分2数列收敛性分析、复变函数洛朗级数、
 
+**常用z变换**
+最常用的应该是
 
-z变换的直观意义
+$$
+a^n u(n) \stackrel{\mathscr{z}}{\rightarrow} \frac{z}{z-a}
+$$
+
+$cos(\omega_0 n)$也是一样的做法，按照欧拉公式对$\cos (\omega_0 n )= \frac{1}{2}(e^{j\omega_0 n} + e^{-j\omega_0 n})$
+将$e^{j\omega_0}$看作$a$即可
+
+**z变换的定义域问题**
+
+**z变换的直观意义**
 
 !!! bug "z变换和复变中的保角映射的联系"
 
@@ -261,13 +364,28 @@ $$
 \end{align*}
 $$
 
+
+
 - 初值定理 $x(0) = \lim\limits_{z\rightarrow \infty}X(z)$
 
 - 终值定理 $\lim\limits_{n\rightarrow\infty}x(n) = \lim\limits_{z-\rightarrow 1}[(z-1)X(z)]$
 
 
+!!! note "一个很巧妙的题"
+    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/21e71365034176015b05ccec5ccc345.png)
+    
 
-****
+    思路：一开始没有看明白答案在干什么。后来看题才发现，题目中给出了$y(n)$的所有情况，只是没有用分段函数的方法给出而已。知道了这个点之后，这个题就不难了。
+
+    $$
+    \begin{align*}
+        Y(z)&=\sum_{n=-\infty}^{\infty}y(n)z^{-n}\\
+        &=\sum_{r=-\infty}^{\infty}y(3r)z^{-3r}+\sum_{r=-\infty}^{\infty}y(3r+1)z^{-(3r+1)}+\sum_{r=-\infty}^{\infty}y(3r+2)z^{-(3r+2)}\\
+        &=\sum_{r=-\infty}^{\infty}x(r)z^{-3r}+\sum_{r=-\infty}^{\infty}0.5x(r)z^{-(3r+1)}\\
+        &=X(z^3)+0.5z^{-1}X(z^3)\\
+        &=(1+0.5z^{-1})X(z^3)
+    \end{align*}
+    $$
 
 
 
@@ -287,8 +405,99 @@ DTFT→DFT：DFT是在主周期$[-\pi,\pi]$上按$\Omega_0 = \frac{2\pi}{N}$为�
 
 - 与傅里叶变换：z变换是蜡像抽样信号拉普拉斯变换进行$z = e^{sT_s}$映射的结果；有$X(z) = X_s(s)|_{s = \frac{\ln{z}}{T_s}}$
 
-- 与DTFT：DTFT就是在z平面单位圆上的z变换。可以先求出z变换，再用$e^{j\Omega}$替换$z$
+- 与DTFT：DTFT就是在z平面单位圆上的z变换。可以先求出z变换，再用$z=e^{j\Omega}$替换
 - 与DFT：DFT视为序列的z变换在单位圆上取样间隔$\Omega_0 = \frac{2\pi}{N}$的均匀取样
+
+### 共轭对称性
+
+[共轭对称讲解](https://www.bilibili.com/video/BV1ig411P73T)
+
+[共轭对称性讲解视频，还挺清楚的](https://www.bilibili.com/video/BV1WY4y1U7yJ)
+
+
+**复序列的对称性**
+
+若 $x(n)$ 为复序列
+
+**共轭对称序列**(`Conjugate-Symmetry Sequence`)：实部为偶对称，虚部为奇对称，即表示为
+
+$$
+x_{e}(n)=x_{e}^{*}(-n)
+$$
+
+例如：
+
+$$
+
+$$
+
+**共轭反对称序列**(`Conjugate-Antisymmetry Sequence`):满足其实部为奇对称，虚部为偶对称，即表示为
+
+$$
+x_{o}(n)=-x_{o}^{*}(-n)
+$$
+
+任何复序列都可以被分解为一个共轭对称序列和一个共轭反对称序列之和。即
+
+$$
+x(n)=x_{e}(n)+x_{o}(n)
+$$
+
+其中
+
+$$
+\begin{align*}
+    x_{e}(n)=\frac{1}{2}\left[x(n)+x^{*}(-n)\right]\\
+    x_{0}(n)=\frac{1}{2}\left[x(n)-x^{*}(-n)\right]
+\end{align*}
+$$
+
+!!! note "实偶序列的傅里叶变换是实偶函数，实奇序列的傅里叶变换是纯需奇函数"
+
+**傅里叶变换**
+
+$$
+X(j \omega)=X_e(j \omega)+X_o(j \omega)
+$$
+
+其中
+
+$$
+X_e(j \omega)=\frac{1}{2}\left[X(j \omega)+X^{*}(-j \omega)\right]
+$$
+
+$$
+X_o(j \omega)=\frac{1}{2}\left[X(j \omega)-X^{*}(-j \omega)\right]
+$$
+
+序列的实部和虚部与其傅里叶变换的共轭对称部分和共轭反对称部分存在如下关系：
+
+若 $\mathrm{FT}\{x(n)\}=X(j \omega)$，则
+
+$$
+\mathrm{FT}\{\operatorname{Re}[x(n)]\}=X_e(j \omega)
+$$
+
+$$
+\mathrm{FT}\{\operatorname{Im}[x(n)]\}=X_o(j \omega)
+$$
+
+**序列的共轭对称部分与共轭反对称部分的傅里叶变换**
+
+任一序列 $x(n)$ 的共轭对称部分 $x_c(n)$ 的傅里叶变换，为 $x(n)$ 的傅里叶变换 $X(j \omega)$ 的实部，其共轭反对称部分 $x_a(n)$ 的傅里叶变换为 $X(j \omega)$ 的虚部。即
+
+$$
+\mathrm{FT}\left[x_e(n)\right]=\operatorname{Re}[X(j \omega)]
+$$
+
+$$
+\mathrm{FT}\left[x_o(n)\right]=\operatorname{Im}[X(j \omega)]
+$$
+
+**离散**
+x共轭 - X先共轭再翻转
+
+x反转再共轭 - X共轭
 
 ## 信号处理
 
@@ -384,11 +593,11 @@ $$
 通过传输系统，波形不变，幅度可以放缩，允许时延
 
 $$
-y(t) = kx(t-t_0)
+y(t) = kx(t-t_0)\\
+Y(\omega) = Ke^{-j\omega t_0}\\
 $$
 
 $$
-h(t) = k \delta(t-t_0)\\
 |H(\omega) |= K\\
 \phi_n(\omega) = -\omega t_0
 $$
@@ -398,6 +607,8 @@ $$
 单位圆内没有极点
 
 当$H(z)$的极点全部位于z平面单位圆内部的时候，系统稳定
+
+这个时候才可以用初值定理和终值定理
 
 ### **稳态响应**
 
@@ -424,6 +635,25 @@ $$
 ![数字滤波器](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/%E6%95%B0%E5%AD%97%E6%BB%A4%E6%B3%A2%E5%99%A8.png)
 
 
+**冲激响应不变法**
+
+由数字角频率向模拟角频率变换的过程中，频率对应关系是
+
+s域到z域的映射是多值映射，在高频部分会出现混叠。
+
+
+**双线性法**
+把整个平面压缩到$[-\frac{\pi}{T_s} ~ \frac{\pi}{T_s}]$区间
+s域到z域单值映射，不会出现混叠
+
+
+经过非线性畸变
+
+
+$$
+z = \frac{k+s}{k-s}\\
+s = \frac{2}{T}\frac{1+z^-1}{1-z^{-1}}
+$$
 
 
 **FIR滤波器**

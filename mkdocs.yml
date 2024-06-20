@@ -245,7 +245,7 @@ nav:
     - CS/DataStructure-Graph.md
     - CS/DataStructure-Sorting.md
 
-  - "计网 | Computer Network" :
+  - "CN | 计算机网络" :
     - CS/ComputerNetwork-00-intro.md
     - CS/ComputerNetwork-01-ApplicationLayer.md
     - CS/ComputerNetwork-02-TransportLayer.md
