@@ -1,13 +1,15 @@
 # 信号分析与处理
 
 ???+note "课程信息"
-     === "回忆卷"
+    === "回忆卷"
         [2022-2023 春夏《信号分析与处理》回忆卷](https://www.cc98.org/topic/5638145)<br>
         [2023电气学院信号分析与处理回忆卷](https://www.cc98.org/topic/5637543)<br>
         [信号分析与处理（控院电院）2022春夏回忆卷](https://www.cc98.org/topic/5352194)<br>
         [2022春夏 信号分析与处理 部分回忆卷及复习建议](https://www.cc98.org/topic/5352226)<br>
         [《信号分析与处理》2020-2021春夏期末回忆卷及复习整理](https://www.cc98.org/topic/5111712)<br>
-     === "资源"
+
+
+    === "资源"
         [《信号分析与处理》课件例题整理](https://www.cc98.org/topic/5642928)<br>
         [梁毅浩学长资料](https://www.cc98.org/topic/5111712)<br>
         [张建老师ppt](https://www.cc98.org/topic/5621768/postid/822283147)<br>
@@ -15,14 +17,6 @@
         [赵光宙第二版答案](https://www.cc98.org/topic/4838843)<br>
         [信号分析与处理 郑军老师 实验指导书](https://www.cc98.org/topic/3930519)<br>
     
-
-
-
-[toc]
-
-
-
-
 
 ## 信号分类 + 连续信号分析
 
@@ -96,7 +90,8 @@ X(\omega) &= \mathscr{F}(\mathop{\Sigma}\limits_{n=-\infty}^{\infty}X(n\omega_0)
 \end{align}
 $$
 
-!!! note 例子:求周期为$T_0$的周期性冲激串$\delta_T(t)$的傅里叶变换。
+!!! note "例子:求周期为$T_0$的周期性冲激串$\delta_T(t)$的傅里叶变换。"
+
     $$
     \begin{align*}
     \delta_T(t)&= \mathop{\sum}\limits_{n=-\infty}^{\infty}\delta(t-nT_0)\\
@@ -146,9 +141,11 @@ $$
 ### **归一化角频率**(!!!!!核心中的核心)
 
 $\Omega$的单位是弧度，表示的是一个采样周期内转过的角度，自然而然可以得出计算公式
+
 $$
 \Omega = \omega_0 T_s = \frac{2\pi}{T_0}T_s = \frac{2\pi}{N T_s}T_s = \frac{2\pi}{N}
 $$
+
 其中，$\Omega$是数字角频率，$T_s,w_s$是采样，$\omega_0$是模拟角频率，$N$采样点数
 
 - 采样时长$T = N\cdot T_s$
@@ -172,6 +169,7 @@ $$
 
 共轭对称性
 若$x(n) \stackrel{DFS}{\longrightarrow} X(k\Omega_0)$，则有
+
 $$
 x^*(-n)\stackrel{DFS}{\rightleftharpoons} X^*(k\Omega_0)
 $$
@@ -221,7 +219,7 @@ $$
 
 N点序列FFT运算
 
-- 运算次数：复数乘法总数$\frac{N}{2}\log_2{N}$,复数加法$N\log_2 N $；<br>对应实数乘法$2N\log_2{N}$,实数加法$3N\log_2{N}$
+- 运算次数：复数乘法总数$\frac{N}{2}\log_2{N}$,复数加法$N\log_2 N $ 对应实数乘法$2N\log_2{N}$,实数加法$3N\log_2{N}$
 - 存储空间：$N + \frac{N}{2}$
 - 全系数：因为想要节省内存空间，所以将中间的系数根据可约性进行统一，统一成$W_N^{kn}$的形式，下标都为$N$
 - 倒位序：输入自然序，输出倒位序；输入倒位序，输出自然序
@@ -257,8 +255,10 @@ z变换的直观意义
 - 时移定理
 
 $$
-move \ left :\mathscr{Z}[x(n+m)u(n)] = z^m \left[X(z) - \sum^{m-1}_{k=0}x(k)z^{-k}\right]\\
-move \ right :\mathscr{Z}[x(n-m)u(n)] = z^{-m} \left[X(z) - \sum^{-1}_{k=-m}x(k)z^{-k}\right]
+\begin{align*}
+    move \ left :\mathscr{Z}[x(n+m)u(n)] = z^m \left[X(z) - \sum^{m-1}_{k=0}x(k)z^{-k}\right]\\
+    move \ right :\mathscr{Z}[x(n-m)u(n)] = z^{-m} \left[X(z) - \sum^{-1}_{k=-m}x(k)z^{-k}\right]
+\end{align*}
 $$
 
 - 初值定理 $x(0) = \lim\limits_{z\rightarrow \infty}X(z)$
@@ -303,6 +303,7 @@ DTFT→DFT：DFT是在主周期$[-\pi,\pi]$上按$\Omega_0 = \frac{2\pi}{N}$为�
 !!! note "只对t进行操作，不是对括号内所有的进行变换"
 
 比如下面的信号
+
 $$
 y(t) = x(-t)
 $$
@@ -326,13 +327,14 @@ $$
 **零状态响应**：系统没有内部条件
 
 **零输入响应**：输入为0时候的响应
+
 $$
 y(t) = y_{zs}(t)+y_{zi}(t)\\
 y(n) = y_{zs}(n) + y_{zi}(n)
 $$
 
-
 时域
+
 $$
 \sum_{k=0}^{n}a_k y^{(k)}(t) = \sum^{m}_{k=0}b_kx^{(k)}(t)
 $$
@@ -380,6 +382,7 @@ $$
 ### **无失真传输**
 
 通过传输系统，波形不变，幅度可以放缩，允许时延
+
 $$
 y(t) = kx(t-t_0)
 $$
@@ -401,6 +404,7 @@ $$
 先求频率特性函数
 
 离散系统的频率特性函数$H(\Omega)$可以由$H(z)$求取
+
 $$
 H(\Omega) = H(z)|_{z = e^{j\Omega}}
 $$

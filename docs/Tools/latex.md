@@ -106,6 +106,17 @@ required to use pdflatex/xelatex/lualatex.
 \clearpage
 ```
 
+**解决英文断字重排的问题**
+```latex
+\hyphenpenalty=5000
+\tolerance=1000
+```
+可以把这两个参数的调整加到tex文件里。hyphenpenalty的意思比较显而易见，这个值越大断字出现的就越少。tolerance越大，换行就会越少，也就是说，latex会把本该断开放到下一行的单词，整个儿的留在当前行。调这两个值就可以得到不一样的排版，有可能可以解决断字太多的问题。
+
+也可以手动指定。
+```latex
+\hyphenation{hy-phen-a-tion}
+```
 
 
 ### 图片位置
