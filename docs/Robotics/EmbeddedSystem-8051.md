@@ -1,31 +1,47 @@
 # 80C51
 
+
+
 ## 简介
 
 - 什么是单片机 
 
-一台能够工作的计算机要有这样几个部份构成：**CPU（进行运算、控制）、**
-**RAM（数据存储）、ROM（程序存储）、输入/输出设备（例如：串行口、并行输出口等）**。
-在个人计算机上这些部份被分成若干块芯片,安装一个称之为主板的印刷线路板上。
+一台能够工作的计算机要有这样几个部份构成：**CPU（进行运算、控制）、RAM（数据存储）、ROM（程序存储）、输入/输出设备（例如：串行口、并行输出口等）**。
 
-而在单片机中,这些部份全部被做到**一块集成电路芯片**中了,所以就称为单片（单芯片）机,一个微型的计算机,而加上晶振,存储器,地址锁存器,逻辑门,七段译码器（显示器）,按钮（类似键盘）,扩展芯片,接口等那是单片机系统。
+而在单片机中,这些部份全部被做到**一块集成电路芯片**中了,所以就称为单片机（单芯片）
 
- 
+![image-20240620231200675](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240620231200675.png)
 
-- MCS51 单片机和8051、8031、89C51 等的关系
+- 8位CPU
+- 4K ROM 存放程序
+- 128B RAM 存放数据
+- IO接口
+- 2个16位定时计数器
+- 1个全双工可编程串行口
 
-  - MCS51 是指由美国INTEL 公司生产的一系列单片机的总称,这一系列单片机包括了好些品种,如8031,8051,8751,8032,8052,8752 等
-  - 其中8051 是最早最典型的产品,该系列其它单片机都是在8051 的基础上进行功能的增、减、改变而来的,所以人们习惯于用8051 来称呼MCS51 系列单片机
+**数据总线、地址总线、控制总线**
 
-  - 而8031 是前些年在我国最流行的单片机,所以很多场合会看到8031 的名称。INTEL 公司将MCS51 的核心技术授权给了很多其它公司
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240327115106406.png" alt="image-20240327115106406" style="zoom:50%;" />
+
+??? note "MCS51 单片机和8051、8031、89C51 等的关系"
+    - MCS51 是指由美国INTEL 公司生产的一系列单片机的总称,这一系列单片机包括了好些品种,如8031,8051,8751,8032,8052,8752 等
+        - 其中8051 是最早最典型的产品,该系列其它单片机都是在8051 的基础上进行功能的增、减、改变而来的,所以人们习惯于用8051 来称呼MCS51 系列单片机
+        - 而8031 是前些年在我国最流行的单片机,所以很多场合会看到8031 的名称。INTEL 公司将MCS51 的核心技术授权给了很多其它公司
+        <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240327115106406.png" alt="image-20240327115106406" style="zoom:50%;" />
 
 
 
 ## 结构
 
+[单片机应用原理篇之80C51的CPU_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1p54y1D7Ys)
+
 ### 引脚
+
+![image-20240620231616616](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240620231616616.png)
+
+> 缺口左侧是1号口
+
+
 
 单片机的40 个引脚大致可分为4 类：
 
@@ -33,7 +49,19 @@
 
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240228113806275.png" alt="51单片机引脚图" style="zoom: 33%;" />
 
-#### I/O 线
+**电源引脚**
+
+Vcc 40脚:5V
+
+Vss 20 GND
+
+**控制引脚**
+
+RST 9 高电平复位
+
+ALE
+
+
 
 80C51 共有4个8位并行I/O 端口：
 
@@ -41,39 +69,52 @@
 
 P3 口还具有第二功能,用于特殊信号输入输出和控制信号（属控制总线）
 
+1. P0口既可以作为普通I/O口，又可以作为外部扩展时的数据总线和地址总线的低8位，分时复用；作为普通I/O口时，外部要接上拉电阻。
+2. P1口可以作为普通I/O口使用，内部带上拉电阻。
+3. P2口可以作为普通I/O口使用，又可作为外部扩展时地址总线的高8位，作为普通I/O时，内部带上拉电阻。
+4. P3口可以作为普通I/O口使用，又具有第二功能，作为普通I/O时，内部带上拉电阻。
+
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240228114417029.png" alt="复位连线图像" style="zoom:50%;" />
 
 ![image-20240619111616506](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240619111616506.png)
-
-**存储器构造**
-
-哈佛结构 RAM和ROM是分开的;独立结构
-
-哈佛结构 可以同时获得数据和代码
-
-冯诺依曼结构 RAM和ROM是相邻的
-
-
-
-看总线区分哈佛和冯诺依曼
-
-
-
-看总线区分哈佛和冯诺依曼
-
-
 
 
 
 ### CPU
 
-程序计数器PC
+**CPU的位数：**8位
 
-一开始指向0000H
+**CPU的作用：**取指令，译码，执行
+
+**CPU的构成：**
+
+![image-20240620232832045](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240620232832045.png)
+
+- 运算器
+
+![image-20240620232944582](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240620232944582.png)
+
+寄存器B：乘除法
+
+累加器A：最繁忙的寄存器
+
+PSW 程序状态字寄存器
+
+
+
+- 控制器
+
+![image-20240620233446761](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240620233446761.png)
 
 
 
 
+
+- 程序计数器PC（16位，24K），控制读取的代码
+
+一开始指向0000H，跳转到30H开始执行
+
+30H开始放代码
 
 ```assembly
 MOV A,20H
@@ -81,15 +122,71 @@ MOV B,20H
 MOV C,20H
 ```
 
+- 数据指针寄存器DPTR（data pointer）
+
+指向ROM或RAM的地址指针
+
+外部的RAM
+
+16位，可寻址范围64KB
 
 
 
 
 
+### **存储器构造**
 
-### 程序存储器 ROM
+看总线区分哈佛和冯诺依曼：数据总线和地址总线
 
-（READ ONLY MEMORY）
+
+
+哈佛结构 RAM和ROM是分开的;独立结构
+
+哈佛结构 可以同时获得数据和代码
+
+![image-20240620235824661](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240620235824661.png)
+
+冯诺依曼结构 RAM和ROM是相邻的，统一编址（分时）
+
+![image-20240620235816288](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240620235816288.png)
+
+51单片机是**改进哈佛结构**，分时复用，一套数据地址总线，通过指令的方式区分
+
+
+
+![image-20240621000834024](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240621000834024.png)
+
+4个物理存储空间，实际是3个逻辑存储空间
+
+![image-20240621002809377](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240621002809377.png)
+
+地址总线是16位的，最大不可以超过64K
+
+### 程序存储器 ROM | `READ ONLY MEMORY`
+
+存放程序、表格常数；
+
+在运行过程中只读不可写，掉电不丢失数据。
+
+
+
+EA引脚，EA=1方案1，EA=0方案2
+
+- 方案1：4K以内地址在片内ROM，大于4K的在片外ROM
+- 方案2：片内ROM禁用，全部存放在片外
+
+|       |                              |
+| ----- | ---------------------------- |
+| 0023H | RI/TI中断跳转                |
+| 001BH | T1中断跳转                   |
+| 0013H | INT1中断跳转                 |
+| 000BH | T0跳转                       |
+| 0003H | INT0中断跳转                 |
+| 0000H | 主程序跳转指令(只有三个Byte) |
+
+
+
+
 
 在89C51 中的ROM 是一种电可擦除的ROM,称为FLASH ROM
 
@@ -97,9 +194,7 @@ MOV C,20H
 
 
 
-### 数据存储器 RAM
-
-（READ RANDOM MEMORY）
+### 数据存储器 RAM | `READ RANDOM MEMORY`
 
 所谓随机存取存储器,即随时能改写,也能读出里面的数据,它类似于我们的黑板,我能随时写东西上去,也能用黑板擦擦掉重写。
 
@@ -107,8 +202,23 @@ MOV C,20H
 
 空间分配
 
-- 低128字节 real RAM
-- 高128字节 `SFR` 特殊功能寄存器
+- 低128字节 real RAM `00H-7FH`
+
+13只能字节寻址，2可以位寻址
+
+1 工作寄存器区：4x8bytes 每个区域都是R0-R7;只能选一组
+
+2 可位寻址区：对00H-7FH进行位编址，通过指令区分
+
+![image-20240621002147037](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240621002147037.png)
+
+3 用户RAM区
+
+![image-20240621001638481](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240621001638481.png)
+
+- 高128字节 `SFR` 特殊功能寄存器 `80H-FFH`
+
+![image-20240621002609930](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240621002609930.png)
 
 
 
