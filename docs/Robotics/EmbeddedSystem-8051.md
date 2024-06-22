@@ -12,6 +12,8 @@
 - 存储器的分布，各个部分都是放什么的。SFR中的各个寄存器可以控制单片机的各种资源
 - 最后了解汇编
 
+![思维导图](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/8051.svg)
+
 
 ## 简介
 
@@ -21,7 +23,7 @@
 
 而在单片机中,这些部份全部被做到**一块集成电路芯片**中了,所以就称为单片机（单芯片）
 
-![image-20240620231200675](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240620231200675.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240620231200675.png" alt="image-20240620231200675" style="zoom:50%;" />
 
 - 8位CPU
 - 4K ROM 存放程序
@@ -31,16 +33,6 @@
 - 1个全双工可编程串行口
 
 **数据总线、地址总线、控制总线**
-
-
-
-??? note "MCS51 单片机和8051、8031、89C51 等的关系"
-  - MCS51 是指由美国INTEL 公司生产的一系列单片机的总称,这一系列单片机包括了好些品种,如8031,8051,8751,8032,8052,8752 等
-  - 其中8051 是最早最典型的产品,该系列其它单片机都是在8051 的基础上进行功能的增、减、改变而来的,所以人们习惯于用8051 来称呼MCS51 系列单片机
-  - 而8031 是前些年在我国最流行的单片机,所以很多场合会看到8031 的名称。INTEL 公司将MCS51 的核心技术授权给了很多其它公司
-  <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240327115106406.png" alt="image-20240327115106406" style="zoom:50%;" />
-
-
 
 ## 结构
 
@@ -60,21 +52,11 @@
 
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240228113806275.png" alt="51单片机引脚图" style="zoom: 33%;" />
 
-**电源引脚**
+**电源引脚**：`Vcc` 40脚:5V；`Vss` 20 GND
 
-`Vcc` 40脚:5V
+**控制引脚**：`RST` 9 高电平复位；`ALE`；
 
-`Vss` 20 GND
-
-**控制引脚**
-
-`RST` 9 高电平复位
-
-`ALE`
-
-80C51 共有4个8位并行I/O 端口：
-
-**P0,P1,P2,P3 口**,共32 个引脚。
+80C51 共有4个8位并行I/O 端口：**P0,P1,P2,P3 口**,共32 个引脚。
 
 ### CPU
 
@@ -139,12 +121,12 @@ MOV C,20H
 
 
 
-![image-20240621000834024](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240621000834024.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240621000834024.png" alt="image-20240621000834024" style="zoom:50%;" />
 
 4个物理存储空间，实际是3个逻辑存储空间；
 地址总线是16位的，最大不可以超过64K
 
-![image-20240621002809377](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240621002809377.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240621002809377.png" alt="image-20240621002809377" style="zoom:50%;" />
 
 
 ### 程序存储器 ROM | `READ ONLY MEMORY`
@@ -191,15 +173,15 @@ MOV C,20H
 
 1和3只能字节寻址，只有2可以位寻址
 
-![image-20240621002147037](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240621002147037.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240621002147037.png" alt="image-20240621002147037" style="zoom:50%;" />
 
 
 
-![image-20240621001638481](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240621001638481.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240621001638481.png" alt="image-20240621001638481" style="zoom:50%;" />
 
 **高128字节 `SFR` 特殊功能寄存器 `80H-FFH`**
 
-![SFR寄存器](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240621002609930.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240621002609930.png" alt="SFR寄存器" style="zoom:50%;" />
 
 以0或8结尾的可以容许位寻址
 
@@ -207,7 +189,7 @@ MOV C,20H
 
 复位——使单片机回复原始默认状态的操作
 
-![image-20240621190646898](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240621190646898.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240621190646898.png" alt="image-20240621190646898" style="zoom:50%;" />
 
 复位RES
 
@@ -224,8 +206,8 @@ RST（9pin）：出现2个机器时间的高电平状态
 
 !!! note "可能的作用"
     - 外部设备连接：存储器扩展
-    - 并行IO输入
-    - 串行通信
+        - 并行IO输入
+        - 串行通信
 
 
 
@@ -238,19 +220,15 @@ RST（9pin）：出现2个机器时间的高电平状态
 3. P2口可以作为普通I/O口使用，又可作为外部扩展时地址总线的高8位，作为普通I/O时，内部带上拉电阻。
 4. P3口作为普通I/O时，内部带上拉电阻。第二功能,用于特殊信号输入输出和控制信号（属控制总线）
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240228114417029.png" alt="复位连线图像" style="zoom:50%;" />
-
-
-
 **P1**
 
 具有通用IO口的方式，可实现输出，读引脚、读锁存器三种功能
 
-![image-20240621192857719](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240621192857719.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240621192857719.png" alt="image-20240621192857719" style="zoom:50%;" />
 
 外部电平跟随内部总线上的电平
 
-![image-20240621193410016](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240621193410016.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240621193410016.png" alt="image-20240621193410016" style="zoom:50%;" />
 
 - 读取外部操作的时候，读引脚（最下边）高电平，可以读入
 - 读内部的锁存器：如对总线进行取反等操作的时候，
@@ -271,7 +249,7 @@ RST（9pin）：出现2个机器时间的高电平状态
 
 输入功能的时候，内部引脚也要置1
 
-![image-20240621195519916](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240621195519916.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240621195519916.png" alt="image-20240621195519916" style="zoom:50%;" />
 
 **P0，P2**
 
@@ -368,7 +346,7 @@ CPU执行程序过程中,在每个机器周期的**S5P2**期间,中断系统对�
 
 触发：低电平or下降沿
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240508115812183.png" alt="image-20240508115812183" style="zoom:50%;" />
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240508115812183.png" alt="image-20240508115812183" style="zoom: 33%;" />
 
 - `IT0（TCON.0）`,外部中断0触发方式控制位。<br>当IT0=0时,为电平触发方式。<br>当IT0=1时,为边沿触发方式（下降沿有效）。
 
@@ -384,11 +362,11 @@ CPU执行程序过程中,在每个机器周期的**S5P2**期间,中断系统对�
 
 **`SCON`(串行口控制寄存器)**
 
-![image-20240621212044659](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240621212044659.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240621212044659.png" alt="image-20240621212044659" style="zoom:33%;" />
 
 **`IP`（2个人为优先级）**
 
-![image-20240621210918383](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240621210918383.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240621210918383.png" alt="image-20240621210918383" style="zoom:33%;" />
 
 **`IE`（中断使能寄存器）** 
 响应需要总开关打开且子开关打开
@@ -426,31 +404,30 @@ CPU执行程序过程中,在每个机器周期的**S5P2**期间,中断系统对�
 ```assembly
     ORG 0000H
 START:
-	LJMP MAIN                ;跳转到主程序
+    LJMP MAIN                ;跳转到主程序
     ORG 0003H
     LJMP INT0                ;转向中断服务程序
-  
     ORG 0030H                ;主程序
 MAIN:
-	CLR IT0                      ;设为电平触发方式
+    CLR IT0                      ;设为电平触发方式
     SETB EA                     ;CPU开放中断
     SETB EX0                   ;允许中断
     MOV  DPTR,#1000H 		;设置数据区地址指针
     AJMP $
     ORG 0200H                  ;中断服务程序
 INT0:
-	PUSH PSW                  ;保护现场
-	PUSH ACC
-	CLR P3.0                     ;由P3.0输出0
-	NOP;
-	NOP;
-	SETB P3.0					;由P3.0输出1,撤除       
-	MOV A,P1					;输入数据
-	MOVX   @DPTR,A				;存入数据存储器
-	INC   DPTR					;修改数据指针,指向下一个单元
-	... ... 
-	POP ACC                     ;恢复现场
-	POP PSW
+    PUSH PSW                  ;保护现场
+    PUSH ACC
+    CLR P3.0                     ;由P3.0输出0
+    NOP;
+    NOP;
+    SETB P3.0					;由P3.0输出1,撤除       
+    MOV A,P1					;输入数据
+    MOVX   @DPTR,A				;存入数据存储器
+    INC   DPTR					;修改数据指针,指向下一个单元
+    ... ... 
+    POP ACC                     ;恢复现场
+    POP PSW
     RETI                              ;中断返回
 ```
 
@@ -535,11 +512,11 @@ DV4:
 
 
 
-- 如果晶振频率 $ f_{osc} = 12 MHz $,则时钟周期 $T_{clock} $ 为：
-  $T_{clock} = \frac{1}{12 \times 10^6 Hz} = 83.33 ns $
+- 如果晶振频率  $f_{osc} = 12 MHz$,则时钟周期 $T_{clock}$  为：
+  $T_{clock} = \frac{1}{12 \times 10^6 Hz} = 83.33 ns$
 
 - 如果某个微处理器的一个机器周期需要 12 个时钟周期完成,则机器周期 $T_{machine}$为：
-  $T_{machine} = 12 \times 83.33 ns = 1\mu s $
+  $T_{machine} = 12 \times 83.33 ns = 1\mu s$
 
 
 
@@ -628,7 +605,7 @@ TF0 TF1 溢出中断请求标志位
 
 #### 中断允许控制寄存器IE
 
-![image-20240511233252243](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240511233252243.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240511233252243.png" alt="image-20240511233252243" style="zoom:33%;" />
 
 开启ET1,ET0才能中断
 
@@ -652,7 +629,7 @@ Gate = 1：由INT0进行控制
 
 Gate = 0：或门让右侧一直是1 ,完全由TR决定
 
-![image-20240511234311556](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240511234311556.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240511234311556.png" alt="image-20240511234311556" style="zoom:50%;" />
 
 分析上图可以得出设置规律
 
@@ -725,7 +702,7 @@ Gate = 0：或门让右侧一直是1 ,完全由TR决定
 
 **16位**计数 65536
 
-![image-20240622004345473](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240622004345473.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240622004345473.png" alt="image-20240622004345473" style="zoom: 50%;" />
 
 GATE为1的时候，由INT0决定
 
@@ -790,7 +767,7 @@ GATE为1的时候，由INT0决定
 
 #### 方式2
 
-![image-20240511235352718](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240511235352718.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240511235352718.png" alt="image-20240511235352718" style="zoom:50%;" />
 
 
 
@@ -881,7 +858,7 @@ T0分成两个8位定时/计数器TL0和TH0 ;
       - TH1的波特率（详细计算见串行口部分）：设波特率为`2400`,则定时常数为`TC2 = F6H`
     
     === "程序代码"
-
+    
         ```assembly
         ; 定时器0初始化
         MOV TL0, #0B3H ; 设TL0初值(100us定时)
@@ -1035,19 +1012,19 @@ MCS-51单片机的串行口——全双工的异步串行通信接口（即：�
     电平：全双工（逻辑1：-15V--3V 逻辑0：+3V--+15V)<br>距离：15m左右，用232做中转可以做的更远；
 
     负逻辑
-
+    
     <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240516235636473.png" alt="image-20240516235636473" style="zoom: 33%;" />
-
+    
     | 主要引脚   | 作用     |
     | ---------- | -------- |
     | TXD `P3.0` | 发送数据 |
     | RXD `P3.1` | 接收数据 |
     | SGND       | 信号接地 |
-
+    
     公头-针,母头-孔（2,3交换,5共地）
-
+    
     <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240516235207535.png" alt="image-20240516235207535" style="zoom:50%;" />
-
+    
     **不能过远的原因:	距离太远，电平衰减**
 
 === "RS485"
@@ -1073,7 +1050,7 @@ MCS-51单片机的串行口——全双工的异步串行通信接口（即：�
 
 **单工：** 通信只能有一方发送到另一方,不能反向传输
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240622101003848.png" alt="image-20240622101003848" style="zoom:50%;" />
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240622101003848.png" alt="image-20240622101003848" style="zoom: 25%;" />
 
 #### 同步异步
 
@@ -1163,7 +1140,7 @@ MCS-51单片机的串行口——全双工的异步串行通信接口（即：�
 
 PCON的单元地址为87H,其内部各位均不能进行位寻址
 
-![image-20240517105934465](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240517105934465.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240517105934465.png" alt="image-20240517105934465" style="zoom:50%;" />
 
 SMOD为串行口波特率倍增位,当串行口工作在方式1和方式3时,其波特率可调。调节手段之一便是利用SMOD。
 
@@ -1266,7 +1243,7 @@ LP:
     CLR	TI           ;发送完成后清TI
 ```
 
-![image-20240517112045860](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240517112045860.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240517112045860.png" alt="image-20240517112045860" style="zoom:50%;" />
 
 ```assembly
 ;接收代码
@@ -1282,7 +1259,8 @@ LP:
 
 1位起始位+8位数据+1位校验+1位终止
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240517113138646.png" alt="image-20240517113138646" style="zoom:50%;" />
+| 起始位 | D0   | D1   | D2   | D3   | D4   | D5   | D6   | D7   | 校验 | 停止位 |
+| ------ | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ------ |
 
 **发送过程**
 
@@ -1292,7 +1270,7 @@ B、启动串口发送（`MOV SBUF,A` 或 `MOV SBUF,#XXH`）。按起始位、�
 
  C、待发送完毕后自动将SCON中的TI位置1,表示发送过程结束。
 
-![image-20240519143852958](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240519143852958.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240519143852958.png" alt="image-20240519143852958" style="zoom:50%;" />
 
 **接收过程**
 
@@ -1302,7 +1280,7 @@ B、UART自动地按规定的波特率从引脚`RXD`上逐位接收信息,移入
 
 C、接收完毕后,将接收移位寄存器中的数据位D0～D7锁入`SBUF`。同时将校验位送入`SCON`中的`RB8`位,自动将`SCON`中的RI置1,表示接收过程结束。编程时可通过查询和中断方式对下一步进行处理。 
 
-![image-20240519144526889](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240519144526889.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240519144526889.png" alt="image-20240519144526889" style="zoom:50%;" />
 
 
 
@@ -1352,7 +1330,7 @@ RI=1,一帧数据已送到,RI≠1,没有送到
 
 设置中断允许,以`TI`和`RI`作为中断请求标志位,`TI=1`或`RI=1`均可引发中断。
 
-![image-20240519150922105](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240519150922105.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240519150922105.png" alt="image-20240519150922105" style="zoom:50%;" />
 
 ??? note "串口方式1"
 	通过MCS-51串行口按模式1发送存放在片内`RAM 20H～3FH`中的数据,要求传送的波特率为`1200bps`。编写有关的通信程序。 `fosc=11.0592MHz`。
@@ -1362,7 +1340,7 @@ RI=1,一帧数据已送到,RI≠1,没有送到
         $波特率 = \frac{2^{SMOD}}{32}\times \frac{fosc}{12\times(2^8-TH1)}$
         取$SMOD＝0$
         $(TH1)＝232＝0E8H$
-
+    
     === "程序代码"
         ```assembly
         ;A机发送程序
@@ -1381,7 +1359,7 @@ RI=1,一帧数据已送到,RI≠1,没有送到
             INC	 R0 ;未发送完,则继续
             DJNZ R7,LOOP
         ```
-
+    
     === "B机接收"
         采用查询方式，本例与上例相呼应，接收器把接收到的32个数据存放在20H－3FH单元内，波特率同上。
         ```
