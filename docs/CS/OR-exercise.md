@@ -1,5 +1,3 @@
-
-
 # 运筹学复习总结
 
 ???+note "课程信息"
@@ -55,17 +53,20 @@
 $C_n$为价值向量，$x_n$是约束变量，$A$是工艺矩阵，B为约束向量
 
 只能求最大值
+
 $$
-\begin{align}
+\begin{align*}
 max \quad &z = \mathbf{C}X\\
-s.t. &\left\{
-	\begin{array}{**lr**}  
-		\mathbf{A}x = \vec{b}\\
-		x\ge 0 
-	\end{array}
+s.t. &
+\left\{
+   \begin{array}{lr}
+      \mathbf{A} x = \vec{b} \\
+   x \ge 0 
+   \end{array}
 	\right.
-\end{align}
+\end{align*}
 $$
+
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240501113721301.png" alt="image-20240501113721301" style="zoom:50%;" />
 
 |     几何概念     |        代数概念        |
@@ -218,20 +219,19 @@ $$
 >
 > （2）证明使用单纯形法求解目标规划问题时，可以忽略非线性约束$d_i^++d_i^-=0$。 
 
-$
+$$
 \begin{align}
 \min z &= \mathop{\Sigma}\limits_{k=1}^K p_k [\mathop{\Sigma}\limits_{l=1}^L(w_{kl}^- d_l^- + w_{kl}^+d_l^+)]\\
 s.t.&\left\{
-	\begin{array}{**lr**}
+	\begin{array}{lr}
         \mathop{\Sigma}\limits_{j=1}^n c_{lj}x_j +d_l^- - d_l^+= g_l\\
         \mathop{\Sigma}\limits_{j=1}^n a_{ij}x_j \le b_i\\
         x_j \ge 0\\
         d_l^-,d_l^+ \ge 0\\
 	\end{array}
-	
 \right.
 \end{align}
-$
+$$
 
 |                          条件                          |            结果             |
 | :----------------------------------------------------: | :-------------------------: |
@@ -408,12 +408,13 @@ $$
 最优化原理： 最优策略的子策略是对应子问题的最优策略。
 
 最优化定理：策略$p^*_{l,n}$是最优策略的充要条件是，对于所有的k，都有：
-$
-\begin{array}{l}
+
+$$
+\begin{array}{lr}
 V_{1,n}\left({s_{l}}, p_{1, n}^{*}\right) \\
 \quad=\mathop{opt}\limits_{p_{l, k-1} \in p_{l, k-1}} V_{1, k-1}\left(s_{1}, p_{1, k-1}\right)+\mathop{opt}\limits_{p_{k, n} \in p_{k, n}} V_{k, n}\left(s_{k}, p_{k, n}\right)
 \end{array}
-$
+$$
 
 
 
