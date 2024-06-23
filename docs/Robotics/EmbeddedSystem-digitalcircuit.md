@@ -18,7 +18,7 @@
 
 ### 其他码值（不同权值）
 
-![f1e944e5e211125aab884b428a733b6](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/f1e944e5e211125aab884b428a733b6.jpg)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/f1e944e5e211125aab884b428a733b6.jpg" alt="f1e944e5e211125aab884b428a733b6" style="zoom:50%;" />
 
 ### 运算
 
@@ -59,7 +59,7 @@ $$
 Y = A\quad AND\quad B = A\&B = A\cdot B = AB
 $$
 
-![与关系](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240228121552683.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240228121552683.png" alt="与关系" style="zoom:33%;" />
 
 ### 或 OR
 
@@ -67,7 +67,7 @@ $$
 Y = A \quad OR \quad B = A+B
 $$
 
-![或关系](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240228121833879.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240228121833879.png" alt="或关系" style="zoom:33%;" />
 
 ### 非 NOT
 
@@ -75,7 +75,7 @@ $$
 Y = A' = NOT \quad A
 $$
 
-![非关系](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240228122022442.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240228122022442.png" alt="非关系" style="zoom:33%;" />
 
 ### 异或——杂合子
 
@@ -87,7 +87,7 @@ $$
 Y = A \oplus B = \bar{A}B + A\bar{B}
 $$
 
-![异或关系](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240228122336850.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240228122336850.png" alt="异或关系" style="zoom:33%;" />
 
 ### 同或——纯合子
 
@@ -98,7 +98,7 @@ $$
 Y = A \odot B
 $$
 
-![同或关系](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240228122444834.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240228122444834.png" alt="同或关系" style="zoom:33%;" />
 
 ### 基本公式
 
@@ -107,66 +107,88 @@ $$
 #### 常量与常量
 
 $$
+\begin{align*}
 1 + 1 = 1\\
 0\cdot0 = 0
+\end{align*}
 $$
 
 #### 常量与变量
 
 $$
+\begin{align*}
 A \cdot 0 = 0\\
 A+1 = 1\\
+\end{align*}
 $$
 
 #### 变量和变量
 
 分配律
+
 $$
 A+BC = (A+B)(A+C)
 $$
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240301144447212.png" alt="公式17的证明" style="zoom: 50%;" />
 
 同一律
+
 $$
+\begin{align*}
 A+\bar{A} = 1\\
 A\cdot \bar{A} = 0\\
 \\
 A\cdot A = A\\
 A + A = A
+\end{align*}
 $$
+
 反演律（**De Morgan's laws**）
 
 **并项法**
+
 $$
 AB + A\bar{B} = A
 $$
+
 **吸收法**（**短项吸收长项**）
+
 $$
+\begin{align*}
 A + AB = A(1+B)= A\\
 AB + \bar{A}C + BC = AB + \bar{A}C
+\end{align*}
 $$
+
 消因子（**短项能够消去 长项中 的 相反项**）
+
 $$
+\begin{align*}
 A+\bar{A}B = A+B\\
 A\cdot (1+B) = A+AB+A’B = A+B
+\end{align*}
 $$
 
 配项法
+
 $$
+\begin{align*}
 A + \bar{A} = 1\\
 A \cdot A = 0
+\end{align*}
 $$
+
 ![image-20240306113302112](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240306113302112.png)
 
 [数字电路-逻辑式化简公式](https://zhuanlan.zhihu.com/p/392457877)
 
-![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-8dc1606574d995edbc843fb019b38fad_1440w.webp)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-8dc1606574d995edbc843fb019b38fad_1440w.webp" alt="img" style="zoom:50%;" />
 
-![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-61355c6b4a7dba5e2e887c17d8e480a8_1440w.webp)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-61355c6b4a7dba5e2e887c17d8e480a8_1440w.webp" alt="img" style="zoom:50%;" />
 
-![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-55a64baa868c2fd6676c3369c66ea3ff_r.jpg)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-55a64baa868c2fd6676c3369c66ea3ff_r.jpg" alt="img" style="zoom:50%;" />
 
-![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-939bf95fd46b11c990a59657ff7bc67f_r.jpg)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-939bf95fd46b11c990a59657ff7bc67f_r.jpg" alt="img" style="zoom:50%;" />
 
 
 
@@ -178,26 +200,13 @@ $$
 
 #### 规则
 
-1.反演规则
+1.反演规则：与或互换，01互换；原变量变成反变量，反变量变成原变量
 
-- 与或互换，01互换
-- 原变量变成反变量，反变量变成原变量
+2.对偶规则：与或互换，01互换
 
-2.对偶规则
+3.标准与或式：$n$个变量，共有$2^n$种可能eg.三变量逻辑函数$Y = A+BC$的最小项表示为$\Sigma m(3,4,5,6,7)$
 
-- 与或互换，01互换
-
-3.标准与或式
-
-$n$个变量，共有$2^n$种可能
-
-eg.三变量逻辑函数$Y = A+BC$的最小项表示为$\Sigma m(3,4,5,6,7)$
-
-4.与非-与非表达式
-
-- 化成与或式
-- 两次取反
-- 德摩根定律
+4.与非-与非表达式：化成与或式；两次取反；德摩根定律
 
 #### 公式化简
 
@@ -215,21 +224,17 @@ eg.三变量逻辑函数$Y = A+BC$的最小项表示为$\Sigma m(3,4,5,6,7)$
 
 所以顺序是00，01，11，10
 
-化简
+化简：相邻、相对（偶数个），**$2^n$个相邻的最小项合并可以消去$n$个因子**
 
-- 相邻、相对（偶数个）
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/4c32c787711a908076a7ec169f077d0.jpg" alt="4c32c787711a908076a7ec169f077d0" style="zoom:50%;" />
 
-**$2^n$个相邻的最小项合并可以消去$n$个因子**
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/c6677b612f12342788a479c941fda79.jpg" alt="c6677b612f12342788a479c941fda79" style="zoom: 50%;" />
 
-![4c32c787711a908076a7ec169f077d0](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/4c32c787711a908076a7ec169f077d0.jpg)
-
-![c6677b612f12342788a479c941fda79](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/c6677b612f12342788a479c941fda79.jpg)
-
-![dcc7e633252e1c0e39d94c11fa69557](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/dcc7e633252e1c0e39d94c11fa69557.jpg)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/dcc7e633252e1c0e39d94c11fa69557.jpg" alt="dcc7e633252e1c0e39d94c11fa69557" style="zoom:50%;" />
 
 最简与或：包含的乘积项已经最少，每个乘积项的因子也最少，称为最简的与-或逻辑式
 
-![img](https://pic2.zhimg.com/80/v2-06ac3268bb0d79aea7786e0d763dc2cd_1440w.webp)
+<img src="https://pic2.zhimg.com/80/v2-06ac3268bb0d79aea7786e0d763dc2cd_1440w.webp" alt="img" style="zoom:50%;" />
 
 
 
@@ -249,7 +254,7 @@ eg.三变量逻辑函数$Y = A+BC$的最小项表示为$\Sigma m(3,4,5,6,7)$
 
 #### 与门
 
-![与门](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240301144709854.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240301144709854.png" alt="与门" style="zoom:33%;" />
 
 使用优先导通原理
 
@@ -257,7 +262,7 @@ eg.三变量逻辑函数$Y = A+BC$的最小项表示为$\Sigma m(3,4,5,6,7)$
 
 #### 或门
 
-![或门](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240301144723459.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240301144723459.png" alt="或门" style="zoom:33%;" />
 
 - 二极管构成的门电路的缺点
 
@@ -269,7 +274,7 @@ eg.三变量逻辑函数$Y = A+BC$的最小项表示为$\Sigma m(3,4,5,6,7)$
 
 !!! bug "电路具体实现"
 
-![CMOS反相器](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240301145253756.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240301145253756.png" alt="CMOS反相器" style="zoom: 50%;" />
 
 ![image-20240301145306253](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240301145306253.png)
 
@@ -288,13 +293,13 @@ $$
 
 #### 三态输出门（Three state Output Gate ,TS）
 
-![image-20240301150229595](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240301150229595.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240301150229595.png" alt="image-20240301150229595" style="zoom:33%;" />
 
 ### TTL集成与非门
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240301150301018.png" alt="image-20240301150301018" style="zoom:50%;" />
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240301150301018.png" alt="image-20240301150301018" style="zoom: 33%;" />
 
-![image-20240301150314521](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240301150314521.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240301150314521.png" alt="image-20240301150314521" style="zoom:33%;" />
 
 ## 组合逻辑电路
 
@@ -335,9 +340,9 @@ $$
 
 ![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20200404082218222.png)
 
-![在这里插入图片描述](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/2020022812360080.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/2020022812360080.png" alt="在这里插入图片描述" style="zoom:50%;" />
 
-![八种逻辑门电路符号,8个基本门电路符号图,同或门图形符号_大山谷图库](https://ts1.cn.mm.bing.net/th/id/R-C.17f7966df61b03e0e9ad1338517516bc?rik=TC423C2D%2fk%2bYEA&riu=http%3a%2f%2ffile.elecfans.com%2fweb1%2fM00%2f46%2f1D%2fo4YBAFqTpBGAEefFAADd-9wfZXM945.jpg&ehk=byn9hbynzFmeTQwlsVmRqX14tvd9t3pNdbrpwFnc0V8%3d&risl=&pid=ImgRaw&r=0)
+<img src="https://ts1.cn.mm.bing.net/th/id/R-C.17f7966df61b03e0e9ad1338517516bc?rik=TC423C2D%2fk%2bYEA&riu=http%3a%2f%2ffile.elecfans.com%2fweb1%2fM00%2f46%2f1D%2fo4YBAFqTpBGAEefFAADd-9wfZXM945.jpg&ehk=byn9hbynzFmeTQwlsVmRqX14tvd9t3pNdbrpwFnc0V8%3d&risl=&pid=ImgRaw&r=0" alt="八种逻辑门电路符号,8个基本门电路符号图,同或门图形符号_大山谷图库" style="zoom:50%;" />
 
 
 
@@ -347,13 +352,13 @@ $$
 
 不考虑来自低位的进位，将两个1位的二进制数相加
 
-![image-20240313103532819](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240313103532819.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240313103532819.png" alt="image-20240313103532819" style="zoom:50%;" />
 
 #### 全加器
 
 将两个1位二进制数及来自低位的进位相加
 
-![image-20240313103643704](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240313103643704.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240313103643704.png" alt="image-20240313103643704" style="zoom:50%;" />
 
 #### 多位加法器
 
@@ -373,15 +378,15 @@ $$
 
 基本原理：加到第$i$位的进位输入信号是两个加数第$i$位以前各位$0 \ to\ i-1$​的函数，可在相加前由A,B两数确定。
 
-![在这里插入图片描述](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20200517172150217.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20200517172150217.png" alt="在这里插入图片描述" style="zoom:50%;" />
 
-![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20200517172524948.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20200517172524948.png" alt="img" style="zoom:50%;" />
 
 可以使用4个4位超前进位加法器组成一个16位的超前进位加法器
 
 ![在这里插入图片描述](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20200517173457592.png)
 
-![image-20240313104336683](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240313104336683.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240313104336683.png" alt="image-20240313104336683" style="zoom: 33%;" />
 
 
 
@@ -393,9 +398,9 @@ $$
 
 #### 一位比较
 
-![image-20240313105836046](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240313105836046.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240313105836046.png" alt="image-20240313105836046" style="zoom: 50%;" />
 
-![image-20240313105805295](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240313105805295.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240313105805295.png" alt="image-20240313105805295" style="zoom:50%;" />
 
 > 推导：最上面一条支路函数使用德摩根定律进行化简：
 >
@@ -411,11 +416,11 @@ $$
 
 #### 两位比较
 
-![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-bdaebb6580d3bbdd7a4cc252a0d25e6c_r.jpg)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-bdaebb6580d3bbdd7a4cc252a0d25e6c_r.jpg" alt="img" style="zoom:50%;" />
 
-![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-e417ce3acbe7a1f6ed053c1efe8dac80_r.jpg)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-e417ce3acbe7a1f6ed053c1efe8dac80_r.jpg" alt="img" style="zoom:50%;" />
 
-![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-1a5b5e5de9e966642139cc2ca11b7027_r.jpg)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-1a5b5e5de9e966642139cc2ca11b7027_r.jpg" alt="img" style="zoom:50%;" />
 
 #### CC14585  
 
@@ -841,36 +846,44 @@ Y = dafasdf
 
 核心：**置数**、**清零**
 
-**同步并行置数** 到$S_{N-1}$
+**同步并行置数** 到 $S_{N-1}$ 
+
 $$
 \overline{CR}= 1,\overline{LD} = 0,CP\uparrow,Q_3\sim Q_0 = D_3 \sim D_0
 $$
+
 **同步清零**：到$S_{N-1}$
 
 计数只能记到进制-1；eg：十进制只能记到9
+
 $$
 \overline{CR} = 0,Q_3\sim Q_0 = 0000
 $$
+
 **异步清零**：到$S_{N}$
 
 可以一直记到进制；eg：十二进制记录到12
 
 **保持**：
+
 $$
 \overline{CR} = \overline{LD} = 1,CT_T \cdot CT_P = 0时\\
 输出Q_3Q_2Q_1Q_0不变
 $$
+
 **计数**：
+
 $$
 \overline{CR} = \overline{LD} = CT_T = CT_P = 1
 $$
+
 CP变化时候，进行计数
 
 
 
-![image-20240320152331311](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240320152331311.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240320152331311.png" alt="image-20240320152331311" style="zoom:50%;" />
 
-![image-20240320114400991](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240320114400991.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240320114400991.png" alt="image-20240320114400991" style="zoom:50%;" />
 
 
 
@@ -886,7 +899,7 @@ n位二进制计数器
 
 **74LS163**——同步置数，同步清零
 
-![74LS161真值表](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240320153836181.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240320153836181.png" alt="74LS161真值表" style="zoom:50%;" />
 
 十进制计数器
 
@@ -894,7 +907,7 @@ n位二进制计数器
 
 **74LS160**——同步置数，异步清零
 
-![image-20240320161435233](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240320161435233.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240320161435233.png" alt="image-20240320161435233" style="zoom:50%;" />
 
 **74LS162**——同步置数，同步清零
 
@@ -912,13 +925,13 @@ n位二进制计数器
 
 **大容量N进制计数器**
 
-![image-20240320122514306](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240320122514306.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240320122514306.png" alt="image-20240320122514306" style="zoom:50%;" />
 
-![image-20240320122604161](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240320122604161.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240320122604161.png" alt="image-20240320122604161" style="zoom:50%;" />
 
 右侧是十位、左侧是个位
 
-![image-20240320122626344](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240320122626344.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240320122626344.png" alt="image-20240320122626344" style="zoom:50%;" />
 
 
 
@@ -940,11 +953,11 @@ n位二进制计数器
 
 串行输入、并行输出
 
-![image-20240320164327108](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240320164327108.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240320164327108.png" alt="image-20240320164327108" style="zoom:50%;" />
 
 
 
-![image-20240320164617018](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240320164617018.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240320164617018.png" alt="image-20240320164617018" style="zoom:50%;" />
 
 **左移**：按照$Q_3Q_2Q_1Q_0$的顺序
 
@@ -954,21 +967,21 @@ n位二进制计数器
 
 **自启动**
 
-![image-20240320111840464](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240320111840464.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240320111840464.png" alt="image-20240320111840464" style="zoom:50%;" />
 
 
 
-![image-20240320111249841](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240320111249841.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240320111249841.png" alt="image-20240320111249841" style="zoom:50%;" />
 
-![image-20240320111318088](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240320111318088.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240320111318088.png" alt="image-20240320111318088" style="zoom:50%;" />
 
-![image-20240320111556106](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240320111556106.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240320111556106.png" alt="image-20240320111556106" style="zoom:50%;" />
 
 
 
-![image-20240320112824196](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240320112824196.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240320112824196.png" alt="image-20240320112824196" style="zoom:50%;" />
 
-![image-20240320112525771](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240320112525771.png)
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240320112525771.png" alt="image-20240320112525771" style="zoom:50%;" />
 
 
 
