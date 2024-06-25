@@ -1,6 +1,10 @@
 # 机器人导论历年卷
 
 !!! note "历年卷来源"
+        [机器人导论复习资料&经验分享](https://www.cc98.org/topic/5877333)<br>
+        [机器人导论4-6小时速通方案（附Anki包）](https://www.cc98.org/topic/5876649)<br>
+        [23-24春机器人导论回忆卷](https://www.cc98.org/topic/5876637)<br>
+        [2023-2024春学期机器人导论回忆卷（4L附笔记和资源整理）](https://www.cc98.org/topic/5876628)
        [2022-2023春机器人导论回忆卷](https://www.cc98.org/topic/5597275)<br>
        [2021-2022 春 机器人导论 回忆卷](https://www.cc98.org/topic/5306507)<br>
        [2019-2020春夏机器人导论回忆卷](https://www.cc98.org/topic/4961482)<br>
