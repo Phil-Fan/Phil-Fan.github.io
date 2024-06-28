@@ -1,8 +1,55 @@
 # Latex备忘录
 
 ## 环境与配置
+### `TexLive` | windows 的 `LaTeX `环境
 
-### Overleaf | 从入门到入土
+[Installing TeX Live over the Internet - TeX Users Group (tug.org)](https://www.tug.org/texlive/acquire-netinstall.html)
+
+### `IguanaTex` | LaTeX in PPT
+
+假设已经安装好了Texlive
+
+[IguanaTex - A Free Latex Add-In for PowerPoint on Windows and Mac (jonathanleroux.org)](https://www.jonathanleroux.org/software/iguanatex/)
+
+**注意设置好路径**
+
+
+
+#### [`GhostScript`](https://ghostscript.com/releases/gsdnld.html) and [`ImageMagick`](https://www.imagemagick.org/script/download.php#windows)
+
+required to use pdflatex/xelatex/lualatex.
+
+1. **Install and set path to GhostScript and ImageMagick**:
+
+- Set the **full** path to `gswin32c.exe` or `gswin64c.exe` (note the "`c`"!) and to ImageMagick's magick.exe in the "Main Settings" window.
+- Best way to make sure the path is correct is to use the "..." button next to each path and navigate to the correct file.
+- Some default paths include `%USERPROFILE%`. It is recommended to click on "..." to make sure the path gets properly converted to the actual user profile path.
+
+#### **`TeX2img`**（SVG）
+
+(Optional): [TeX2img](https://github.com/abenori/TeX2img), used for vector graphics output via EMF ([Download](https://www.ms.u-tokyo.ac.jp/~abenori/soft/index.html#TEX2IMG)). Note that vector graphics output via SVG is now recommended if you have Office 2019 or 365.
+
+- Only needed for vector graphics support via EMF (compared to SVG, pros: available on all PowerPoint versions, fully modifiable shapes; cons: some displays randomly suffer from distortions)
+- Download from [this link](https://www.ms.u-tokyo.ac.jp/~abenori/soft/index.html#TEX2IMG) (more details on TeX2img on their [Github repo](https://github.com/abenori/TeX2img))
+- After unpacking TeX2img somewhere on your machine, run TeX2img.exe once to let it automatically set the various paths to latex/ghostscript, then set the **full** path to `TeX2imgc.exe` (note the "`c`"!) in the "Main Settings" window.
+
+!!! bug "中文公式输入错误"
+
+![image-20240609200702478](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240609200702478.png)
+
+```latex
+\documentclass{article}
+\usepackage{amsmath}
+\pagestyle{empty}
+
+\begin{document}
+\begin{align*}
+  
+\end{align*}
+\end{document}
+```
+
+## Overleaf | 从入门到入土
 
 !!! note "为什么要写这一个章节"
 	发现身边有很多朋友并不是非常会排版，或者是排版会花费很多时间。但是在现行的评价体系下，在内容质量大致相似的情况下，图文并茂，排版整洁的作业印象分一定会高不少。而`LaTeX`作为一种"所想即所得"的排版工具，正有着节省排版时间，专注内容本身的特性。这一个章节面向0 latex 基础小白，使用`overleaf`平台，希望实现的效果是基本掌握后，只用15-20min就能完成日常论文/实验报告作业的排版。
@@ -21,9 +68,6 @@
         - 有很多模版供使用
 
 
-
-### 模版使用指南
-
 每次使用模版的时候，点击复制按钮，将模版复制一份使用，不要随便修改模版！
 
 在进行排版之前，你至少需要以下：
@@ -36,12 +80,11 @@
 
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240628200644890.png" alt="界面介绍" style="zoom:50%;" />
 
-#### 工具栏与快捷键
+### 工具栏与快捷键
 
 首先来认识一下工具栏，这里标出了常见的功能。其中中文论文使用的比较多的可能是多级标题、图片、表格、文献。
 
 > 如果你还是一头雾水，不要着急，慢慢拆分一个个讲解
->
 
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240628201309401.png" alt="image-20240628201309401" style="zoom:50%;" />
 
@@ -56,13 +99,13 @@
 
 
 
-#### 个人信息
+### 个人信息
 
 先填好自己的个人信息，包括姓名、学号
 
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240628203915349.png" alt="image-20240628203915349" style="zoom:50%;" />
 
-#### 标题与小标题
+### 标题与小标题
 
 一般不建议使用3-4甚至更高的标题
 
@@ -74,17 +117,18 @@
 
 
 
-#### 表格
+### 表格
 
-- latex表格比较麻烦，一种简单快捷的方式是使用其他软件（excel、tableau）直接生成表格，另存为图片格式复制进latex中
-
+- latex表格比较麻烦，一种简单快捷的方式是使用其他软件（excel、tableau）直接生成表格，另存为图片格式复制进latex中（最简单省时）
 - 如果你还是想在latex中打表格 :laughing: ，推荐一个网站[Create LaTeX tables online – TablesGenerator.com](https://www.tablesgenerator.com/#)，在excel中打好之后。复制到这个网站中，点击`generate`，把生成的代码复制进编辑区域
+> 有时候会遇到一些奇怪的问题
+- 还可以使用`excel2latex`等excel的插件，不过感觉使用体验没有第二种方法好。
 
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240628205446618.png" alt="image-20240628205446618" style="zoom:33%;" />
 
 
 
-#### 图片怎么插入
+### 图片怎么插入
 
 - 方法一：点击工具栏里边的图片按钮
 - 方法二：直接在编辑窗口粘贴你想要的图片
@@ -139,7 +183,7 @@
 
 
 
-#### 参考文献如何设置
+### 参考文献如何设置
 
 `latex`中的参考文献是使用`bibtex`，什么意思呢？就是要用类似下面的语句来声明一个你要引用的文献
 
@@ -184,7 +228,7 @@
 
 在准备好上面的文献列表以后，在文中想要插入引用文献的地方打`\cite{xxx}`命令，xxx就是你刚才给文献取的名字。
 
-#### 交叉引用
+### 交叉引用
 
 你的论文或许有这样的片段——“如图1所示” “由表1可知”
 
@@ -209,13 +253,13 @@
 
 
 
-#### 共享与同步
+### 共享与同步
 
 点击右上角的`share`按钮，就可以打开共享链接，分为两种权限——只读和可编辑。发给同伴以后就可以一起编辑了。
 
 ![image-20240628202931052](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240628202931052.png)
 
-#### 其他
+### 其他
 
 至此，你已经可以使用上面的功能去编辑一篇有模有样的论文了。快去试试吧！
 
@@ -225,53 +269,7 @@
 
 
 
-### `TexLive` | windows 的 `LaTeX `环境
 
-[Installing TeX Live over the Internet - TeX Users Group (tug.org)](https://www.tug.org/texlive/acquire-netinstall.html)
-
-### `IguanaTex` | LaTeX in PPT
-
-假设已经安装好了Texlive
-
-[IguanaTex - A Free Latex Add-In for PowerPoint on Windows and Mac (jonathanleroux.org)](https://www.jonathanleroux.org/software/iguanatex/)
-
-**注意设置好路径**
-
-
-
-#### [`GhostScript`](https://ghostscript.com/releases/gsdnld.html) and [`ImageMagick`](https://www.imagemagick.org/script/download.php#windows)
-
-required to use pdflatex/xelatex/lualatex.
-
-1. **Install and set path to GhostScript and ImageMagick**:
-
-- Set the **full** path to `gswin32c.exe` or `gswin64c.exe` (note the "`c`"!) and to ImageMagick's magick.exe in the "Main Settings" window.
-- Best way to make sure the path is correct is to use the "..." button next to each path and navigate to the correct file.
-- Some default paths include `%USERPROFILE%`. It is recommended to click on "..." to make sure the path gets properly converted to the actual user profile path.
-
-#### **`TeX2img`**（SVG）
-
-(Optional): [TeX2img](https://github.com/abenori/TeX2img), used for vector graphics output via EMF ([Download](https://www.ms.u-tokyo.ac.jp/~abenori/soft/index.html#TEX2IMG)). Note that vector graphics output via SVG is now recommended if you have Office 2019 or 365.
-
-- Only needed for vector graphics support via EMF (compared to SVG, pros: available on all PowerPoint versions, fully modifiable shapes; cons: some displays randomly suffer from distortions)
-- Download from [this link](https://www.ms.u-tokyo.ac.jp/~abenori/soft/index.html#TEX2IMG) (more details on TeX2img on their [Github repo](https://github.com/abenori/TeX2img))
-- After unpacking TeX2img somewhere on your machine, run TeX2img.exe once to let it automatically set the various paths to latex/ghostscript, then set the **full** path to `TeX2imgc.exe` (note the "`c`"!) in the "Main Settings" window.
-
-!!! bug "中文公式输入错误"
-
-![image-20240609200702478](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240609200702478.png)
-
-```latex
-\documentclass{article}
-\usepackage{amsmath}
-\pagestyle{empty}
-
-\begin{document}
-\begin{align*}
-  
-\end{align*}
-\end{document}
-```
 
 
 
