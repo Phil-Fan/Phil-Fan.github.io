@@ -4,15 +4,228 @@
 
 ### Overleaf | 从入门到入土
 
+!!! note "为什么要写这一个章节"
+	发现身边有很多朋友并不是非常会排版，或者是排版会花费很多时间。但是在现行的评价体系下，在内容质量大致相似的情况下，图文并茂，排版整洁的作业印象分一定会高不少。而`LaTeX`作为一种"所想即所得"的排版工具，正有着节省排版时间，专注内容本身的特性。这一个章节面向0 latex 基础小白，使用`overleaf`平台，希望实现的效果是基本掌握后，只用15-20min就能完成日常论文/实验报告作业的排版。
+
+在日常生活中，我们常常会遇到水课需要交实验报告/论文/读书感想等等，除却写作内容，排版也是非常令人头疼的一部分。常用的排版工具有两大类，一类是以word为代表的“所见即所得”式，另一类是像latex这样子的“所想即所得”的编程式排版。
+
+!!! note "QA"
+    === "我为什么要用latex"
+        - 复用性高，所有设置都比较明晰 :yellow_heart:
+        - 只要做一个称心如意的模版，便可以**专注于内容本身，而将麻烦的排版交给编译器**:full_moon_with_face:
+        - 公式编辑较word方便太多，公式、图表、参考文献都可以自动标号
+
+    === "我为什么要用overleaf"
+        - 云端自动保存、不怕写了半天的论文突然消失
+        - 不用进行包管理、环境配置简单、打开网址就可以用
+        - 有很多模版供使用
+
+
+
+### 模版使用指南
+
+每次使用模版的时候，点击复制按钮，将模版复制一份使用，不要随便修改模版！
+
+在进行排版之前，你至少需要以下：
+
+- 文本
+- 插入的图片（最好可以按照一定的顺序保存在某个文件夹中，并命好名）
+- 参考文献（`bibtex`版本）：可以直接从`cnki`中导出或者使用`endnote`或者`zotero`等工具
+
+> 如果上面都没有，你想要边写边排也是可以的:laughing:
+
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240628200644890.png" alt="界面介绍" style="zoom:50%;" />
+
+#### 工具栏与快捷键
+
+首先来认识一下工具栏，这里标出了常见的功能。其中中文论文使用的比较多的可能是多级标题、图片、表格、文献。
+
+> 如果你还是一头雾水，不要着急，慢慢拆分一个个讲解
+>
+
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240628201309401.png" alt="image-20240628201309401" style="zoom:50%;" />
+
+`ctrl+B`:加粗
+
+`ctrl+/`:注释，latex中的注释是以`%`开头的，
+
+```latex
+% 我是一行注释
+\section{} %我是一句注释
+```
+
+
+
+#### 个人信息
+
+先填好自己的个人信息，包括姓名、学号
+
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240628203915349.png" alt="image-20240628203915349" style="zoom:50%;" />
+
+#### 标题与小标题
+
+一般不建议使用3-4甚至更高的标题
+
+```latex
+\section{} % 我是一级标题
+\subsection{} % 我是二级标题
+\subsubsection{} % 我是三级标题
+```
+
+
+
+#### 表格
+
+- latex表格比较麻烦，一种简单快捷的方式是使用其他软件（excel、tableau）直接生成表格，另存为图片格式复制进latex中
+
+- 如果你还是想在latex中打表格 :laughing: ，推荐一个网站[Create LaTeX tables online – TablesGenerator.com](https://www.tablesgenerator.com/#)，在excel中打好之后。复制到这个网站中，点击`generate`，把生成的代码复制进编辑区域
+
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240628205446618.png" alt="image-20240628205446618" style="zoom:33%;" />
+
+
+
+#### 图片怎么插入
+
+- 方法一：点击工具栏里边的图片按钮
+- 方法二：直接在编辑窗口粘贴你想要的图片
+
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240628203629409.png" alt="image-20240628203629409" style="zoom: 50%;" />
+
+插入之后编辑区域就会出现这样的代码
+
+```latex
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.5\linewidth]{figures/example.png} % 数字表示放缩比例
+    \caption{Enter Caption} % 图片标题
+    \label{fig:enter-label} % 图片tag，用于交叉引用
+\end{figure}
+```
+
+注意！！！
+
+- 如图，`folder location`请放在`figures`这个文件夹下，你可以在左侧的列表中看到。
+- 请在`\begin{figure}`后边加上`[htbp]`!!!
+
+
+
+**如何插入并排的图片**
+
+使用下面的代码，把`example`位置替换为想插入的图片的路径即可。
+
+同样的，这里的数字代表放缩的比例，可以修改一下看看会发生什么。
+
+```latex
+\begin{figure}[!htbp]
+    \centering
+    \begin{minipage}[b]{0.45\linewidth}
+        \centering
+        \includegraphics[width=0.9\textwidth]{example}
+        \caption{非子图并排题注1}
+    \end{minipage}%
+    \begin{minipage}[b]{0.45\linewidth}
+        \centering
+        \includegraphics[width=0.9\textwidth]{example}
+        \caption{非子图并排题注2}
+    \end{minipage}
+\end{figure}
+```
+
+
+
+**如何插入2x2，3个并排或者其他类型**
+
+在`pic.tex`文件中，由多种图片展示形式，选择你想要的形式，将代码复制到主文件下，把`\includegraphics[width=0.5\linewidth]{figures/example.png}`这一行改成你想要的图片的路径。
+
+
+
+#### 参考文献如何设置
+
+`latex`中的参考文献是使用`bibtex`，什么意思呢？就是要用类似下面的语句来声明一个你要引用的文献
+
+```latex
+@book{14,
+  title={新时代的中国绿色发展},
+  author={{中华人民共和国国务院新闻办公室}},
+  publisher={人民出版社},
+  year={2023},
+  address={北京}
+}
+```
+
+这种格式如何获取呢？
+
+=== "方式一：从知网获取"
+	<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240628210459330.png" alt="image-20240628210459330" style="zoom: 50%;" />
+
+=== "方式2：使用`endnote`或者`zotero`等文献管理软件"
+	<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240628210840951.png" alt="image-20240628210840951" style="zoom:50%;" />
+
+=== "方式3——GPT"
+	你已经有了一版参考文献的列表，但是你懒得一个一个去知网找了；打开任意一个大模型，输入你的参考文献的列表，说"请把上边的参考文献改写成为bibtex的格式"
+
+
+
+获取之后，请把对应的代码放在`ref.bib`文件下，这个代码中的`number1`可以改成任何你记得住的数字或者字符，相当于给这个参考文献一个名字。
+
+```latex
+@book{number1,
+  title={新时代的中国绿色发展},
+  author={{中华人民共和国国务院新闻办公室}},
+  publisher={人民出版社},
+  year={2023},
+  address={北京}
+}
+```
+
+
+
+**在文中如何引用呢？**
+
+在准备好上面的文献列表以后，在文中想要插入引用文献的地方打`\cite{xxx}`命令，xxx就是你刚才给文献取的名字。
+
+#### 交叉引用
+
+你的论文或许有这样的片段——“如图1所示” “由表1可知”
+
+但是如果你的图片不止一张，或者你在这张图片前面又加了一张图片，那顺序不就乱了吗？难道还要一个一个手动编号吗！！！？:sob: 
+
+当然不用！:laughing:
+
+聪明的你可能注意到了，在刚才图片或者表格的代码当中，有一行是`label`，这一行的名字就相当于图片的tag。
+
+```latex
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.5\linewidth]{figures/example.png} % 数字表示放缩比例
+    \caption{Enter Caption} % 图片标题
+    \label{xxxx} % 图片tag，用于交叉引用
+\end{figure}
+```
+
+`如图1所示`——就可以改写成`如图\ref{xxxx}所示`，其中`xxxx`是你要交叉引用的对象的label
 
 
 
 
 
+#### 共享与同步
+
+点击右上角的`share`按钮，就可以打开共享链接，分为两种权限——只读和可编辑。发给同伴以后就可以一起编辑了。
+
+![image-20240628202931052](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240628202931052.png)
+
+#### 其他
+
+至此，你已经可以使用上面的功能去编辑一篇有模有样的论文了。快去试试吧！
+
+要记住的是，使用一种新的工具，遇到问题是很正常的事情。遇到问题先自行排查问题原因，搜索解决方案，这也是学习latex的很好途径。
+
+如果遇到了解决不了的问题，请寻求帮助，但先看一下[提问的智慧](https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/main/README-zh_CN.md)和[别像弱智一样提问](https://github.com/tangx/Stop-Ask-Questions-The-Stupid-Ways/blob/master/README.md)这两篇文章
 
 
 
-### `TexLive`
+### `TexLive` | windows 的 `LaTeX `环境
 
 [Installing TeX Live over the Internet - TeX Users Group (tug.org)](https://www.tug.org/texlive/acquire-netinstall.html)
 

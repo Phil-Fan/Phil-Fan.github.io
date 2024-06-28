@@ -168,7 +168,19 @@ $x$ sample
 
 $y$ state of the nature
 
-$P(y|x)$ given $x$​,what is the probability of the state of the nature
+$P(y|x)$ given $x$​​,what is the probability of the state of the nature
+
+
+
+
+
+[【官方双语】贝叶斯定理，使概率论直觉化_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1R7411a76r)
+
+> rationality is not about knowing facts, it's about recognizing which facts are relevant
+>
+> 新证据不能直接决定看法，而是应该更新你的观点
+
+
 
 条件概率：
 $$
