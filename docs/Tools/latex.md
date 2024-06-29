@@ -49,26 +49,45 @@ required to use pdflatex/xelatex/lualatex.
 \end{document}
 ```
 
-## Overleaf | 从入门到入土
+## Overleaf | 边学边用的使用指南
+
+
+
+最早是看到98上发的有关latex的帖子，说可以快速高效地写实验报告。也从雪松前辈发的模版中学习到一些latex排版的基础知识。再加上去年《数学软件》短学期老妖的一些小作业的磨炼，可以说对latex的基本用法有了浅薄的了解。这个学期的所有课程作业报告和论文就没有使用过word了（真香啊:laughing:）。
+
+!!! tip "趁手的工具才是最好的工具"
 
 !!! note "为什么要写这一个章节"
-	发现身边有很多朋友并不是非常会排版，或者是排版会花费很多时间。但是在现行的评价体系下，在内容质量大致相似的情况下，图文并茂，排版整洁的作业印象分一定会高不少。而`LaTeX`作为一种"所想即所得"的排版工具，正有着节省排版时间，专注内容本身的特性。这一个章节面向0 latex 基础小白，使用`overleaf`平台，希望实现的效果是基本掌握后，只用15-20min就能完成日常论文/实验报告作业的排版。
+    众所周知，大学中有很多课程都需要写实验报告/解题报告/小作业报告/论文等等，除却写作内容，排版也是非常令人头疼的一部分。常用的排版工具有两大类，一类是以word为代表的“所见即所得”式，另一类是像latex这样子的“所想即所得”的编程式排版。
 
-在日常生活中，我们常常会遇到水课需要交实验报告/论文/读书感想等等，除却写作内容，排版也是非常令人头疼的一部分。常用的排版工具有两大类，一类是以word为代表的“所见即所得”式，另一类是像latex这样子的“所想即所得”的编程式排版。
+	发现身边有很多朋友并不是非常会排版，或者是排版会花费很多时间。而在现行的评价体系下，在内容质量大致相似的情况下，图文并茂，排版整洁的作业印象分一定会高不少。笔者latex水平不高，目的就是想要快点把实验报告写掉:laughing:，中间也花了很多时间迭代这几个模版，所以就有了这个笔记+分享性质的章节。
 
-!!! note "QA"
-    === "我为什么要用latex"
-        - 复用性高，所有设置都比较明晰 :yellow_heart:
-        - 只要做一个称心如意的模版，便可以**专注于内容本身，而将麻烦的排版交给编译器**:full_moon_with_face:
-        - 公式编辑较word方便太多，公式、图表、参考文献都可以自动标号
-
-    === "我为什么要用overleaf"
-        - 云端自动保存、不怕写了半天的论文突然消失
-        - 不用进行包管理、环境配置简单、打开网址就可以用
-        - 有很多模版供使用
+    这一个章节面向0 latex 基础小白，使用`overleaf`平台，希望实现的效果是基本掌握后，只用15-20min就能完成日常论文/实验报告作业的排版。
 
 
-每次使用模版的时候，点击复制按钮，将模版复制一份使用，不要随便修改模版！
+
+=== "我为什么要用latex"
+    - 复用性高，所有设置都比较明晰 :yellow_heart:
+    - 只要做一个称心如意的模版，便可以**专注于内容本身，而将麻烦的排版交给编译器**:full_moon_with_face:
+    - 无敌的公式体验：公式编辑较word方便和美观太多
+    - 公式、图表、参考文献都可以自动标号
+
+=== "我为什么要用overleaf"
+    - 云端自动保存、不怕写了半天的论文突然消失
+    - 不用进行包管理、环境配置简单、打开网址就可以用
+    - 有很多模版供使用
+
+这里分享4个我自己魔改的模版，基本上覆盖到了大部分的日常学习场景。
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240629181605.png)
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240629181704.png)
+
+- [Template1：日常课程小作业](https://www.overleaf.com/read/hqckgzcdwscq#d182d9)
+- [Template2：中文课程论文](https://www.overleaf.com/read/yqgsngdxvvcd#a149e2)
+- [Template3：实验报告](https://www.overleaf.com/read/zxmwdhtbssrf#ee235c) 按照嵌入式系统等一些课程给的word模版改编
+- [Template4：实验报告](https://www.overleaf.com/read/kjpmbgxvmcwr#e6e432)  这一个是笔者使用频率最高的模版。
+
+使用模版的时候，**点击复制按钮，将模版复制一份使用**！
 
 在进行排版之前，你至少需要以下：
 
@@ -103,7 +122,7 @@ required to use pdflatex/xelatex/lualatex.
 
 先填好自己的个人信息，包括姓名、学号
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240628203915349.png" alt="image-20240628203915349" style="zoom:50%;" />
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240628203915349.png" alt="image-20240628203915349" style="zoom:70%;" />
 
 ### 标题与小标题
 
@@ -149,7 +168,7 @@ required to use pdflatex/xelatex/lualatex.
 注意！！！
 
 - 如图，`folder location`请放在`figures`这个文件夹下，你可以在左侧的列表中看到。
-- 请在`\begin{figure}`后边加上`[htbp]`!!!
+- 请在`\begin{figure}`后边加上`[htbp]`!
 
 
 
@@ -199,7 +218,7 @@ required to use pdflatex/xelatex/lualatex.
 
 这种格式如何获取呢？
 
-=== "方式一：从知网获取"
+=== "方式一：从你找到论文的网页获取"
 	<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240628210459330.png" alt="image-20240628210459330" style="zoom: 50%;" />
 
 === "方式2：使用`endnote`或者`zotero`等文献管理软件"
@@ -250,14 +269,20 @@ required to use pdflatex/xelatex/lualatex.
 `如图1所示`——就可以改写成`如图\ref{xxxx}所示`，其中`xxxx`是你要交叉引用的对象的label
 
 
+### 公式
+这点应该是latex的强项了
+可以依照参考文献中的资料，自己学习一下相关语法
 
+遇到不会的上网搜索一下，应该问题不大。
+
+推荐一个小工具 https://www.latexlive.com/
 
 
 ### 共享与同步
 
 点击右上角的`share`按钮，就可以打开共享链接，分为两种权限——只读和可编辑。发给同伴以后就可以一起编辑了。
 
-![image-20240628202931052](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240628202931052.png)
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240629191400.png)
 
 ### 其他
 
@@ -265,15 +290,55 @@ required to use pdflatex/xelatex/lualatex.
 
 要记住的是，使用一种新的工具，遇到问题是很正常的事情。遇到问题先自行排查问题原因，搜索解决方案，这也是学习latex的很好途径。
 
-如果遇到了解决不了的问题，请寻求帮助，但先看一下[提问的智慧](https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/main/README-zh_CN.md)和[别像弱智一样提问](https://github.com/tangx/Stop-Ask-Questions-The-Stupid-Ways/blob/master/README.md)这两篇文章
+如果遇到了解决不了的问题，先上网搜有没有相似的问题，再问问GPT。也可以在98上发帖求助，但先看一下[提问的智慧](https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/main/README-zh_CN.md)和[别像弱智一样提问](https://github.com/tangx/Stop-Ask-Questions-The-Stupid-Ways/blob/master/README.md)这两篇文章
 
 
 
 
 
+### 拓展阅读 & 98资源整合
 
+感谢各位前辈的分享！
 
+=== "教程类"
 
+    [Documentation - Overleaf](https://www.overleaf.com/learn)
+
+    [一份其实很短的 LaTeX 入门文档](https://www.cc98.org/topic/4914572)
+
+=== "模版类"
+
+    [如何使用zjuthesis编写毕业论文：LaTeX零基础入门](https://www.cc98.org/topic/5511675)
+
+    [魔改了个课程大作业报告 Latex 模版](https://www.cc98.org/topic/5548440)
+
+    [Typora 实验报告模板 基于github上项目typora-latex-theme](https://www.cc98.org/topic/5834340)
+
+    [开坑LaTeX笔记模板，目标将ElegantNote斩于马下](https://www.cc98.org/topic/5337819)
+
+    [分享一个微调后的数院学位论文latex模板（hyperref+bibtex）](https://www.cc98.org/topic/5141677)
+
+    [本科生实验报告 LaTeX 模板](https://www.cc98.org/topic/5068412)
+
+    [本科生毕业设计与展示latex模板](https://www.cc98.org/topic/5070413)
+
+    [自制了一个简单的课程论文的LaTex模板](https://www.cc98.org/topic/5063731)
+
+=== "笔记 & 技巧类"
+
+    [Latex笔记美化](https://www.cc98.org/topic/5325844)
+
+    [我是如何用vim+latex记笔记的](https://www.cc98.org/topic/5319293)
+
+    [发现一个超好用的\LaTeX公式和绘图工具](https://www.cc98.org/topic/5089911)
+
+    [开一个帖子记录下使用latex时学会的一些技巧](https://www.cc98.org/topic/5126300)
+
+    [latex一夜入门 搞定 简历模版](https://www.cc98.org/topic/5008837)
+
+    [🍃overleaf本地部署｜会员｜解除时间限制](https://www.cc98.org/topic/5874634)
+
+    [合法免费白嫖 Overleaf 高级会员方法，解决编译时间限制问题（已失效）](https://www.cc98.org/topic/5749388)
 
 ## 排版
 
