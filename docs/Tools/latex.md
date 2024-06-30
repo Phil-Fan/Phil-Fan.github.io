@@ -1,9 +1,142 @@
 # Latex备忘录
 
 ## 环境与配置
+
 ### `TexLive` | windows 的 `LaTeX `环境
 
 [Installing TeX Live over the Internet - TeX Users Group (tug.org)](https://www.tug.org/texlive/acquire-netinstall.html)
+
+
+### `LaTeX` + `Latex Workshop` + VScode
+
+下载`Latex Workshop`插件。
+
+按`ctrl+,`进入设置，点击右上角的“白纸”图标，选择`setting.json`。
+
+在`setting.json`中加入以下语句
+
+添加完成后，重新启动VScode。
+
+```json
+// LATEX settings
+"editor.minimap.enabled": true,
+"latex-workshop.latex.tools": [	
+    {
+        "name": "pdflatex",
+        "command": "pdflatex",
+        "args": [
+            "-synctex=1",
+            "-interaction=nonstopmode",
+            "-file-line-error",
+            "%DOCFILE%"
+        ]
+    },
+    {
+        "name": "xelatex",
+        "command": "xelatex",
+        "args": [
+            "-synctex=1",
+            "-interaction=nonstopmode",
+            "-file-line-error",
+            "%DOCFILE%"
+        ]
+    },
+    {
+        "name": "bibtex",
+        "command": "bibtex",
+        "args": [
+            "%DOCFILE%"
+        ]
+    }
+],
+"latex-workshop.latex.recipes": [
+    {
+        "name": "xelatex",
+        "tools": [
+            "xelatex"
+        ],
+    },
+    {
+        "name": "pdflatex",
+        "tools": [
+            "pdflatex"
+        ]
+    },
+    {
+        "name": "xe->bib->xe->xe",
+        "tools": [
+            "xelatex",
+            "bibtex",
+            "xelatex",
+            "xelatex"
+        ]
+    },
+    {
+        "name": "pdf->bib->pdf->pdf",
+        "tools": [
+            "pdflatex",
+            "bibtex",
+            "pdflatex",
+            "pdflatex"
+        ]
+    }
+],
+"latex-workshop.latex.clean.fileTypes": [
+    "*.aux",
+    "*.bbl",
+    "*.blg",
+    "*.idx",
+    "*.ind",
+    "*.lof",
+    "*.lot",
+    "*.out",
+    "*.toc",
+    "*.acn",
+    "*.acr",
+    "*.alg",
+    "*.glg",
+    "*.glo",
+    "*.gls",
+    "*.ist",
+    "*.fls",
+    "*.log",
+    "*.fdb_latexmk"
+],
+//tex文件浏览器，可选项为"none" "browser" "tab" "external"
+"latex-workshop.view.pdf.viewer": "tab",
+//自动编译tex文件
+"latex-workshop.latex.autoBuild.run": "onFileChange",
+//显示内容菜单：（1）编译文件；（2）定位游标
+"latex-workshop.showContextMenu": true,
+//显示错误
+"latex-workshop.message.error.show": false,
+//弹窗显示警告
+"latex-workshop.message.warning.show": false,
+//从使用的包中自动补全命令和环境
+"latex-workshop.intellisense.package.enabled": true,
+//设置为never，为不清除辅助文件
+"latex-workshop.latex.autoClean.run": "never",
+//设置vscode编译tex文档时的默认编译链
+"latex-workshop.latex.recipe.default": "lastUsed",
+// 用于反向同步的内部查看器的键绑定。ctrl/cmd +点击(默认)或双击
+// ctrl-click 代表 ctrl + 左键单击
+// double-click 代表左键双击反向定位
+"latex-workshop.view.pdf.internal.synctex.keybinding": "double-click",
+```
+
+[论文神器 VS Code + LaTex + LaTex Workshop](https://blog.csdn.net/qq_41140138/article/details/125966870)
+
+!!! bug "chetex：warning ..."
+    在`setting.json`中加入
+
+    ```
+    "latex.linter.enabled": false
+    ```
+
+    [教程](https://blog.csdn.net/weixin_40935730/article/details/121680692)
+
+点击左侧的编译和查看pdf，就可以啦~
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240630191728.png)
 
 ### `IguanaTex` | LaTeX in PPT
 
