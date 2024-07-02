@@ -474,7 +474,9 @@ TCP三次握手（前面1个RTT+一个去程）
 
 - it can prioritize the responses it is requesting by assigning a weight between 1 and 256 to each message
 
-
+!!! note "一个著名的用了都说好的下载器IDM可以加速你的网络下载速度，是什么原理？又是如何实现的？"
+  [IDM原理](https://wenku.csdn.net/column/4jy5mn0ays)
+  如果网站不支持断点续传就没法加速了
 
 ### FTP
 

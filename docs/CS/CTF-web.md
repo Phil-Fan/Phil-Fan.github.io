@@ -13,15 +13,24 @@
 === "网页服务器"
     用于处理 HTTP 请求的软件，例如 Apache、Nginx、IIS 等
     也可以使用 Node.js、Python 等编程语言的库
+
 ## 前置科技
-插件
+**插件**
 - Hackbar
 - Cookie-Editor
 - SwitchOmega
 
-- BurpSuite, 社区版就够用
-- PHPStudy
-- sqlmap, 可选
+**软件**
+- BurpSuite, Kali 自带
+- PHPStudy，[安装 phpstudy on Kali](https://blog.csdn.net/weixin_54358903/article/details/127698009)
+- sqlmap, Kali 自带
+
+
+[phpstudy on Kali 搭建小皮面板 配置sqli靶场](https://blog.csdn.net/qq_45301512/article/details/128931564)
+
+按照这个教程可以基本配置成功，需要注意的是配置本地host文件的时候，域名的ip地址是本机
+使用`ifconfig`查看本机ip地址
+
 
 ### PHP
 [PHP学习路线](https://www.runoob.com/w3cnote/php-learning-recommend.html)
@@ -39,11 +48,15 @@
 
 ## SQL注入
 
+
+
+
 ## XSS跨站脚本攻击
 
-
+## 侧信道攻击
 
 ## CSRF跨站请求伪造
+
 
 ## PHP代码审计
 
