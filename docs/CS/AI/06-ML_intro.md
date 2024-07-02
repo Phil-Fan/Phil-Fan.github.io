@@ -364,15 +364,23 @@ $$
 - 上述假设在实际中可能并不成立
 - float point underflow
 - 0 probability
-  - smoothing: $P(x_i| y_k) = \frac{|x_{ik}|+1}{N_{y_k}+K}$,K是label的数量
+  - laplace smoothing: $P(x_i| y_k) = \frac{|x_{ik}|+1}{N_{y_k}+K}$,K是label的数量
 
 !!! note "改成取$\ln$的原因"
     最重要的不是值本身，而是相对大小
     为了避免向上溢出，和向下溢出（浮点数问题），take a log
 
+!!! example "例题"
+    首先需要将文本表示成词向量，再从词向量中计算得到条件概率 $P(X|C)$和先验概率 $P(C)$
+    然后利用条件概率 $P(X|C)$与先验概率 $P(C)$计算后验概率 $P(C_0|X)$、 $P (C_1|X)$
+    最终比较 $P(C_0|X)$、 $P (C_1|X)$大小得到 $X$ 属于 $C_0$ 类还是 $C_1$ 类
 
+|||||
+|---|---|---|---|
+|||||
 
-
+1|book|student|campus|study|
+0|others|game|sky’1‘campus’, ‘ book ‘0‘others’, ‘yes’
 
 ## generalization 泛化
 

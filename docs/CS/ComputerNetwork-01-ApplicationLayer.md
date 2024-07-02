@@ -926,13 +926,21 @@ ISP购买CDN服务
 
 ![image-20240130123254230](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240130123254230.png)
 
-### `SSL:Secure Sockets Layer`
+### `TLS:Transport Layer Security`
+
+传输层安全协议`Transport Layer Security`，旧称安全套接层`SSL:Secure Sockets Layer`
+
+
 
 安全套接层
 
 跑在TCP之上，在应用层实现
 
 私密性、数据完整性、服务器的认证、报文的完整性
+
+
+- 不只是 HTTP，任何应用层协议都可以透明地使用 TLS
+- 通过加密、认证和完整性保护来保护通信内容
 
 `https`
 

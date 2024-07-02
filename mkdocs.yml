@@ -234,6 +234,18 @@ nav:
     - CS/Language/Python.md
     - CS/Language/crawler.md
 
+  
+  - FrontEnd:
+    - CS/Frontend/HTML.md
+    - CS/Frontend/CSS.md
+    - CS/Frontend/PHP.md
+    - CS/Frontend/JavaScript.md
+    - CS/Frontend/WeChat.md
+
+  - BackEnd:
+    - CS/Frontend/MySQL.md
+
+
   - "DM | 离散数学":
     - CS/Discrete_mathematics.md
     - CS/DataStructure-Graph.md
@@ -254,7 +266,7 @@ nav:
     - CS/ComputerNetwork-05-PhysicalLayer.md
     - CS/ComputerNetwork-06-experiment.md
     - CS/ComputerNetwork-07-问题探究.md
-    
+    - CS/ComputerNetwork-08-security.md
     
   - "OR | 运筹学 ":
     - CS/OR-exercise.md
@@ -291,7 +303,6 @@ nav:
     - CS/CTF-misc.md
     - CS/CTF-pwn.md
     - CS/CTF-web.md
-    - CS/CTF-security.md
     
      
     
@@ -314,10 +325,7 @@ nav:
   - Tools/Git.md
   - Tools/Linux.md
     # - Tools/gdb.md
-  
-  - FrontEnd:
-    - Tools/Frontend/WeChat.md
-    
+      
   - "效率":
     - Markdown:
       - https://minjoker.github.io/cs/tools/markdown/

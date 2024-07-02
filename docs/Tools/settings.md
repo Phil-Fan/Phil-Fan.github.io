@@ -132,6 +132,21 @@ nvidia-smi
 
 ## `conda`
 
+清华镜像地址：`https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/`
+
+下载之后
+```shell
+bash Miniconda3-py39_4.10.3-Linux-x86_64.sh
+```
+
+激活
+```shell
+source ~/anaconda3/bin/activate
+```
+
+
+
+
 ```shell
 # 切换盘符
 cd /d d:
@@ -139,18 +154,30 @@ cd /d d:
 conda --version
 conda -V #获取版本号
 
-conda env list # 列出所有的环境
-
-# 创建环境
+# 1. 创建虚拟环境
 conda create -n your_env_name(虚拟环境名称) python==xx(想要创建的虚拟环境的python版本号)
-
+ 
+# 在指定的位置创建虚拟环境
+conda create -p /PATH/TO/path
+conda env list # 查看所有的conda虚拟环境  
+conda list # 检查安装
+ 
+# 2. 激活虚拟环境
 conda activate name
 conda deactivate
 conda env remove -n flowers
-
-# 检查安装
-conda list
-
+ 
+# 5. 安装包
+conda install package_name(包名)
+conda install scrapy==1.3 # 安装指定版本的包
+conda install -n 环境名 包名 # 在conda指定的某个环境中安装包
+ 
+# 6. 跳过安装失败的包，继续安装
+# conda方式
+while read requirement; do conda install --yes $requirement; done < requirements.txt
+ 
+# pip方式
+while read requirement; do conda install --yes $requirement || pip install $requirement; done < requirements.txt
 ```
 
 ## `Pycharm`
@@ -196,3 +223,32 @@ markdown 插件 —— Markdown Preview Enhanced
 设置一个`picgo`的快捷键，我这里设置的是`ctrl + alt + P`
 
 截图之后直接按就可以将图片上传到图床，并将连接复制到剪贴板
+
+
+## Kali
+[vscode on Kali](https://blog.csdn.net/CM_STC89C52/article/details/127296320)
+
+1. 用kali内嵌的浏览器搜索vscode，下载vscode的.deb格式的安装包
+2. 在终端中输入 `sudo dpkg -i code_1.72.1-1665423861_amd64.deb` 进行解压包
+3. 在vscode软件上点击鼠标右键，点击 `Edit Application`
+4. 有个Command选项，输入 `/usr/share/code/code --unity-launch %F --no-sandbox` 即可，再点击保存。
+
+
+[phpstudy on Kali](https://blog.csdn.net/weixin_54358903/article/details/127698009)
+
+phpStudy是一个PHP调试环境的程序集成包。该程序包集成最新的Apache+PHP+MySQL+phpMyAdmin+ZendOptimizer，一次性安装，无须配置即可使用，是非常方便、好用的PHP调试环境。
+
+
+```shell
+wget -O install.sh https://notdocker.xp.cn/install.sh && sudo bash install.sh
+```
+
+```shell
+phpstudy start # 启动
+```
+
+[ncat](https://nmap.org/ncat/)
+
+```shell
+sudo apt-get install ncat
+```

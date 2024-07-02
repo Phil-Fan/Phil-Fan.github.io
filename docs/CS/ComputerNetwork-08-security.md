@@ -204,3 +204,150 @@ Denial of service (DOS): 对策
 - 在到达主机之前过滤掉这些泛洪的分组(e.g., SYN): throw out good with bad
 - 回溯到源主机(most likely an innocent,compromised machine)
 
+## 安全场景
+
+
+
+
+
+
+
+### 安全
+
+!!! note "What is Security? "
+	Confidentiality, Integrity, Availability (CIA triad)
+
+"CIA三元组"，它由保密性（Confidentiality）、完整性（Integrity）和可用性（Availability）三个要素组成，用于描述一个安全系统所需的基本属性。
+
+保密性是指保护系统和数据不被未授权的访问或泄露；
+
+完整性是指确保数据的准确性和一致性，防止未经授权的修改或破坏；
+
+可用性是指确保系统和数据在需要时可被授权用户访问和使用。
+
+
+
+!!! note "What Security Do We Need? "
+	Integrity, Confidentiality, Authenticity, Non-repudiation (I-CAN)
+
+"I-CAN"，它由完整性（Integrity）、保密性（Confidentiality）、认证性（Authenticity）和不可否认性（Non-repudiation）四个要素组成，用于描述一个安全系统所需的具体要求。
+
+Integrity | 完整性 : implementation using **message signature**
+
+Confidentiality | 保密性 : implementation using data encryption
+
+Authenticity | 认证性 : implementation using **challenge - response**,登录
+
+> 两个特工：天王盖地虎-宝塔镇河妖
+
+Non-repudiation | 不可否认性 : implementation using **message signature**。用私钥加密，公钥解密
+
+
+
+
+
+### HTTP 认证
+
+#### 基本认证
+
+当一个客户端向 HTTP 服务器进行数据请求时，如果客户端未被认证，则 HTTP 服务器将通过基本认证过程对客户端的用户名及密码进行验证，以决定用户是否合法。
+
+客户端在接收到 HTTP 服务器的身份认证要求后，会提示用户输入用户名及密码，然后将用户名及密码以`BASE64`加密，加密后的密文将附加于请求信息中。
+
+> 如当用户名为`anjuta`，密码为：`123456`时，客户端将用户名和密码用“：”合并，并将合并后的字符串用`BASE64`加密为密文，并于每次请求数据时，将密文附加于请求头（Request Header）中
+
+HTTP 服务器在每次收到请求包后，根据协议取得客户端附加的用户信息（`BASE64`加密的用户名和密码），解开请求包，对用户名及密码进行验证
+
+BASIC 认证的步骤：
+
+1. 客户端访问一个受 HTTP 基本认证保护的资源；
+
+2. 服务器返回 `401` 状态，要求客户端提供用户名和密码进行认证。（验证失败的时候，响应头会加上`WWW-Authenticate: Basic realm="请求域"`），如下所示：
+
+   ```
+   401 Unauthorized
+   WWW-Authenticate： Basic realm="WallyWorld"
+   ```
+
+3. 客户端将输入的用户名密码用`Base64`进行编码后，采用非加密的明文方式传送给服务器；
+
+   ```
+   Authorization: Basic xxxxxxxxxx.
+   ```
+
+4. 服务器将 `Authorization` 头中的用户名密码解码并取出，进行验证，如果认证成功，则返回相应的资源；如果认证失败，则仍返回 `401` 状态，要求重新进行认证。
+
+
+
+#### 摘要认证 digest authentication
+
+该认证是 HTTP1.1 提出的基本认证的替代方法，不包含密码的明文传递。 摘要认证使用`随机数 + MD5 加密哈希函数`来对用户名、密码进行加密，在上述第二步时，服务器返回随机字符串 `nonnce` 之后，客户端发送摘要`MD5（HA1:nonce:HA2）`。 其中`HA1=MD5(username:realm:password),HA2=MD5(method:digestURI)`。
+
+#### 开放认证 OAuth Authentication
+
+开放认证允许用户提供一个令牌，而不是用户名和密码来访问它们存放在特定服务器的数据，每一个令牌授权一个特定的第三方系统。
+
+#### 令牌认证 Token Authentication
+
+令牌认证是指当用户第一次登陆时，服务器生成一个 token 并返回给客户端，之后的每次访问客户端都会带上该 token，无需再次带上用户名和密码。
+
+#### 基本认证中的认证相关字段
+
+（1）服务器响应状态码与状态描述：当服务器响应状态码为 401 时，表明服务器资源需要认证。 其状态描述为`Unauthorized`，表明未通过认证，当响应`200 OK`时，表明通过认证，正常响应； 
+
+（2）当用户提供用户名和密码后，重新提出请求时：  ` Authorization: Basic xxxxxxxxxx. ` `Authorization` 字段表明在请求中，提供了需要的认证方式和认证信息（已经经过加密）。
+
+
+
+### 安全电子邮件
+
+私密性：对称式+非对称式
+
+可认证性和报文完整性：传报文和数字签名（用对称式密钥加密），密钥用对方公钥加密；
+
+​	如果接收方bob算出的报文摘要和传过来的报文摘要是相同的
+
+PGP 电子邮件加密方案
+
+应用层
+
+![image-20240217101521016](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240217101521016.png)
+
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240217101539896.png" alt="image-20240217101539896" style="zoom: 67%;" />
+
+### SSL (secure sockets layer)
+
+为使用SSL服务的、基于TCP的应用提供传输层次的安全性
+
+步骤
+
+- 握手
+- 密钥导出
+- 数据传输
+
+传输层
+
+
+
+### IPsec
+
+网络层
+
+双方要建立通信关系
+
+Authentication Header (AH) 协议
+
+提供源端的可认证性，数据完整性，但是不提供机密性
+
+
+
+ESP 协议
+
+提供机密性，主机的可认证性，数据的完整性
+
+
+
+### 802.11 security
+
+链路层的安全
+
