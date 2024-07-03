@@ -280,15 +280,17 @@ token就是令牌，比如你授权（登录）一个程序时，他就是个依
 
 ##### **Session与Cookie的区别**
 
-Cookie和Session都是为了保存客户端和服务端之间的交互状态
+Cookie和Session都是为了保存客户端和服务端之间的交互状态最大的区别就是Cookie是保存在客户端而Session就保存在服务端的。
 
-最大的区别就是Cookie是保存在客户端而Session就保存在服务端的。
-
-Cookie是客户端请求服务端时服务器会将信息以键值给客户端，保存在浏览器中<br>用Cookie就可以方便的做一些缓存。
-
-Cookie缺点：是大小和数量都有限制；Cookie是存在客户端的可能被禁用、删除、篡改，是不安全的；Cookie如果很大，影响了传输效率。
-
-Session是基于Cookie来实现的，不同的是Session本身存在于服务端，但是每次传输的时候不会传输数据，只是把代表一个客户端的唯一ID（通常是JSESSIONID）写在客户端的Cookie中传输。Session的优势就是传输数据量小，比较安全。但是Session也有缺点，就是如果Session不做特殊的处理容易失效、过期、丢失或者Session过多导致服务器内存溢出
+- **Cookie**：存储在客户端的小型文本文件，通常用于存储用户的偏好设置、身份验证信息等。
+    - **示例**：用户登录后，服务器发送一个包含用户ID的Cookie到客户端，客户端在后续请求中自动包含该Cookie，以便服务器识别用户。
+    - **Cookie劫持**：攻击者通过XSS攻击或其他手段获取用户的Cookie，从而冒充用户身份。
+    - Cookie是客户端请求服务端时服务器会将信息以键值给客户端，保存在浏览器中<br>用Cookie就可以方便的做一些缓存。
+    - Cookie缺点：是大小和数量都有限制；Cookie是存在客户端的可能被禁用、删除、篡改，是不安全的；Cookie如果很大，影响了传输效率。
+- **Session**：存储在服务器端的临时数据存储区域，通常用于存储用户的会话状态信息。
+    - **示例**：用户登录后，服务器创建一个Session，并将Session ID通过Cookie发送给客户端。客户端在后续请求中包含该Session ID，服务器根据Session ID查找对应的Session数据。
+    - 如果服务器被攻破，Session中就可能有一些敏感信息。
+    - Session是基于Cookie来实现的，不同的是Session本身存在于服务端，但是每次传输的时候不会传输数据，只是把代表一个客户端的唯一ID（通常是JSESSIONID）写在客户端的Cookie中传输。Session的优势就是传输数据量小，比较安全。但是Session也有缺点，就是如果Session不做特殊的处理容易失效、过期、丢失或者Session过多导致服务器内存溢出
 
 #### `cache` - Web缓存
 
@@ -635,11 +637,9 @@ www: 表示该公司的 WEB 服务器对应的主机
 
 #### 主机能查询分布式数据库的协议
 
-- 应用调用解析器(resolver)；解析器作为客户向Name Server发出查询报文
-  （封装在UDP段中）；Name Server返回响应报文(name/ip)
+- 应用调用解析器(resolver)；解析器作为客户向Name Server发出查询报文（封装在UDP段中）；Name Server返回响应报文(name/ip)
 
-1. 先向Local Name Server(预先配置好的)进行查询
-
+先向Local Name Server(预先配置好的)进行查询
 - 目标名字在Local Name Server中：查询的名字在该区域内部或是缓存(cashing)
 
 - 当与本地名字服务器不能解析名字时，查询根服务器 - TLD - 权威服务器

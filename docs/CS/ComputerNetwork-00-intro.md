@@ -575,18 +575,18 @@ DHCP 服务器生成DHCP；ACK 包括客户端IP地址，第一跳路由器IP地
 
 ### ARP
 
-在发送HTTP request请求之前,需要知道www.google.com的IP地址：DNS
- DNS查询被创建，封装在UDP段中，封装在IP数据报中，封装在以太网的帧中. 将帧传递给路由器，但是需要知道路由器的接口：MAC地址：ARP
- ARP查询广播，被路由器接收，路由器用ARP应答，给出其IP地址某个端口的MAC地址
- 客户端现在知道第一跳路由器MAC地址，所以可以发送DNS查询帧了
+- 在发送HTTP request请求之前,需要知道www.google.com的IP地址：DNS
+- DNS查询被创建，封装在UDP段中，封装在IP数据报中，封装在以太网的帧中. 将帧传递给路由器，但是需要知道路由器的接口：MAC地址：ARP
+- ARP查询广播，被路由器接收，路由器用ARP应答，给出其IP地址某个端口的MAC地址
+- 客户端现在知道第一跳路由器MAC地址，所以可以发送DNS查询帧了
 
 包含了DNS查询的IP数据报通过LAN交换机转发，从客户端到第一跳路由器
 
 ### 使用DNS
 
 IP 数据报被转发，从校园到达comcast网络，路由（路由表被RIP，OSPF，IS-IS 和/或BGP协议创建）到DNS服务器
- 被DNS服务器解封装
- DNS服务器回复给客户端：www.google.com的IP地址
+- 被DNS服务器解封装
+- DNS服务器回复给客户端：www.google.com的IP地址
 
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240217181241937.png" alt="image-20240217181241937" style="zoom:50%;" />
 
@@ -612,4 +612,11 @@ web 服务器用HTTP应答回应(包括请求的页面)
 
 IP 数据报包含HTTP应答最后被路由到客户端
 
-web 页面最后显示出来了
+**浏览器接收响应并渲染页面**：
+    - 浏览器接收到服务器返回的HTTP响应后，会解析响应的头信息和内容。
+    - 如果内容是HTML文件，浏览器会解析HTML并根据其中的指令（如加载CSS文件、执行JavaScript脚本等）进行渲染。
+    - 浏览器会逐步构建DOM树和CSSOM树，并根据它们生成渲染树，最后将内容绘制到屏幕上。
+
+**加载资源**：
+    - 如果HTML文件中包含了其他资源（如图片、CSS、JavaScript等），浏览器会根据需要发送额外的HTTP请求来加载这些资源。
+    - 这些资源加载完成后，浏览器会继续渲染页面，更新显示内容。

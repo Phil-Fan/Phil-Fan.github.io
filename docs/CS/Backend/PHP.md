@@ -1,4 +1,8 @@
 # PHP 备忘录
+
+> PHP是最早的Web开发语言之一，它在Web开发历史上占有重要地位。
+> 但它快死了。
+
 [PHP学习路线](https://www.runoob.com/w3cnote/php-learning-recommend.html)
 
 !!! tip "学习路线"
@@ -31,7 +35,10 @@ PHP 多行
 注释
 */
 
-$y=10; // 变量声明
+$name = "John"; // 字符串变量
+$age = 25;      // 整数变量
+$height = 1.75; // 浮点数变量
+$isStudent = true; // 布尔变量
 global $x,$y;//在函数内调用函数外定义的全局变量，我们需要在函数中的变量前加上 global 关键字
 
 // 常量声明
@@ -169,3 +176,48 @@ $func('test');  // 调用 bar()
 
 
 ## 实战案例
+获取 GET 参数与 Cookie 并查询数据库对应的用户
+```php
+<?php
+// 数据库连接信息
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "test_db";
+
+// 创建数据库连接
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// 检查连接是否成功
+if ($conn->connect_error) {
+    die("连接失败: " . $conn->connect_error);
+}
+
+// 获取GET参数
+$userId = isset($_GET['user_id']) ? intval($_GET['user_id']) : 0;
+
+// 获取Cookie
+$sessionId = isset($_COOKIE['session_id']) ? $_COOKIE['session_id'] : '';
+
+// 查询数据库
+if ($userId > 0) {
+    $sql = "SELECT * FROM users WHERE id = $userId";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        $user = $result->fetch_assoc();
+        echo "<p>用户信息: </p>";
+        echo "<p>ID: " . $user['id'] . "</p>";
+        echo "<p>姓名: " . $user['name'] . "</p>";
+        echo "<p>邮箱: " . $user['email'] . "</p>";
+    } else {
+        echo "<p>没有找到对应的用户。</p>";
+    }
+} else {
+    echo "<p>无效的用户ID。</p>";
+}
+
+// 关闭数据库连接
+$conn->close();
+?>
+```

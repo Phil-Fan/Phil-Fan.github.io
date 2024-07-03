@@ -238,12 +238,13 @@ nav:
   - FrontEnd:
     - CS/Frontend/HTML.md
     - CS/Frontend/CSS.md
-    - CS/Frontend/PHP.md
     - CS/Frontend/JavaScript.md
-    - CS/Frontend/WeChat.md
+    # - CS/Frontend/WeChat.md
 
   - BackEnd:
-    - CS/Frontend/MySQL.md
+    - CS/Backend/SQL.md
+    - CS/Backend/Nodejs.md
+    - CS/Backend/PHP.md
 
 
   - "DM | 离散数学":

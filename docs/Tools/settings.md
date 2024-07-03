@@ -252,3 +252,28 @@ phpstudy start # 启动
 ```shell
 sudo apt-get install ncat
 ```
+
+
+
+[nodejs on Kali](https://www.cnblogs.com/hirak0/p/16133730.html)
+按照这个安装即可
+
+```shell
+wget  https://nodejs.org/dist/v16.14.2/node-v16.14.2-linux-x64.tar.xz
+
+tar -xvf node-v16.14.2-linux-x64.tar.xz
+
+mv node-v16.14.2-linux-x64 nodejs
+
+sudo mv nodejs/ /usr/local/sbin/
+```
+
+创建软链接的方式
+```shell
+sudo ln -s /usr/local/sbin/nodejs/bin/node /usr/local/bin/
+sudo ln -s /usr/local/sbin/nodejs/bin/npm /usr/local/bin/
+```
+很奇怪这里不输入绝对路径会有错误
+
+
+
