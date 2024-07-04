@@ -50,6 +50,8 @@ WHERE name='菜鸟教程';
 SELECT 语句用于从数据库中选取数据。
 
 结果被存储在一个结果表中，称为结果集。
+if(ascii(substr((select(flag)from(flag)),1,1))=ascii('f'),1,2)
+if(ascii(substr((select(flag)from(flag)),1,1))=ascii('f'),1,2)
 
 ```sql
 SELECT column1, column2, ... FROM table_name;
@@ -109,3 +111,6 @@ MySQL 为关系型数据库(Relational Database Management System), 这种所谓
 - 行(row): 每一行用来描述某条记录的具体信息;
 - 值(value): 行的具体信息, 每个值必须与该列的数据类型相同;
 - **键(key): 键的值在当前列中具有唯一性。**
+if(ascii(substr((select(flag)from(flag)),{position},5))=ascii('{'),1,2)
+
+flag{af266f5e-79e1-41ee-96bd-784b3417a30d}
