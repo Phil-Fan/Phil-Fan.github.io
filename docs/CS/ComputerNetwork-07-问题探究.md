@@ -67,3 +67,31 @@ Denote 到达率为$l$，处理速率为$u$，也就是该条链路的带宽，�
 [OM | 浅谈排队论 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/99131787)
 
 ![课本描述](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/6c176fc1b617d7cb64a6339634b874c.png)
+
+
+## DNS 的过程
+
+
+## 禁用IP访问
+
+不同的域名通过 A 记录或者 CNAME 方式可以连接都同一个 IP 下，同一个 IP 也可以设置多个不同站点，那么访问不同的域名都转发到同一 IP ，怎么区分这些不同的站点呢，就是用的 Host 字段。这样每次访问都会根据不同的 Host 的信息请求到不同的站点上面。
+
+1.host字段可以是域名，也可以是ip地址。host字段域名/ip后可以跟端口号，如Host: www.6san.com:8080
+
+2.host可以由程序自定义，某些程序为了防止运营商或防火墙拦截会定义虚假host
+
+3.http1.1中host字段可以是空值，http1.0中可以缺失host字段
+
+4.http响应头中不包含host字段，所以wireshark中http.host过滤到的都是请求包
+
+5.因为http头中的host字段可以由程序自定义，所以host字段的值就会有很多特殊情况，如包含多个’/'字符的HOST头信息，结尾含有”.”等
+
+http头中可以没有host字段吗？
+
+在http 1.1中不能缺失host字段,如果缺失, 服务器返回400 bad request，http1.1中不能缺失host字段，但host字段可以是空值。
+
+在http 1.0中可以缺失host字段。
+
+[什么使Cloudflare能够禁用直接IP地址访问](https://cloud.tencent.com/developer/ask/sof/116387989)
+
+[参考网址](https://serverfault.com/questions/607137/restrict-direct-ip-access-to-website/607222#607222)
