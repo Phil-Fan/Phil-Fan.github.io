@@ -16,7 +16,7 @@
 * `mkdocs -h` - Print help message and exit.
 
 ??? note "安装代码" 
-	```language=Shell
+	```Shell
     pip install mkdocs
     pip install mkdocs-material
     pip install mkdocs-material-extensions
@@ -28,14 +28,14 @@
 
 
 !!! failure "这是 failure 类型的提示框" 
-
 	注意`extension`不要拼成`extention`！！
 
 !!! bug "这是 bug 类型的提示框" 
+    发现一个 bug，请尽快修复！
 
-发现一个 bug，请尽快修复！
+!!! tip "tip"
 
-
+!!! note "note"
 
 ### 插件
 
