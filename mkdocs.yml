@@ -334,11 +334,11 @@ nav:
     - Tools/obsidian.md
     - Tools/latex.md
     - Tools/vim.md
-  - "软件"
-    - Tools/tableau.md
-    - Tools/matlab.md
-    - Tools/solidworks.md
-    - Tools/sites.md
+
+  - Tools/tableau.md
+  - Tools/matlab.md
+  - Tools/solidworks.md
+  - Tools/sites.md
   
   - Tools/settings.md
   - Tools/macos.md

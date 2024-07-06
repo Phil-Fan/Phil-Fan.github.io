@@ -160,6 +160,8 @@ nvidia-smi
 bash Miniconda3-py39_4.10.3-Linux-x86_64.sh
 ```
 
+[conda 使用指南](https://blog.csdn.net/miracleoa/article/details/106115730)
+
 激活
 ```shell
 source ~/anaconda3/bin/activate
@@ -201,6 +203,27 @@ while read requirement; do conda install --yes $requirement; done < requirements
 while read requirement; do conda install --yes $requirement || pip install $requirement; done < requirements.txt
 ```
 
+导出
+```
+conda list -e > requirements.txt
+```
+
+导入安装
+```
+conda install --yes --file requirements.txt
+```
+
+导出 yml 文件方式
+```
+conda env export > freeze.yml
+```
+
+安装
+```
+conda env create -f freeze.yml
+```
+
+
 ## `Pycharm`
 
 ### 申请学生权限
@@ -239,14 +262,20 @@ ssh -p 15821 root@connect.westb.seetacloud.com
 
 ## vscode
 
-markdown 插件 —— Markdown Preview Enhanced
+**markdown 插件 —— Markdown Preview Enhanced**
 
 设置一个`picgo`的快捷键，我这里设置的是`ctrl + alt + P`
 
 截图之后直接按就可以将图片上传到图床，并将连接复制到剪贴板
 
-vim插件 —— vim
+**vim插件 —— vim**
 
+
+**copy as markdown**
+
+[chorme下载地址](https://microsoftedge.microsoft.com/addons/detail/copy-as-markdown/cbbdkefgbfifiljnnklfhnhcnlmpglpd)
+
+解决链接复制之后只有url没有标题的问题
 
 
 ## Kali
