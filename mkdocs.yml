@@ -325,7 +325,7 @@ nav:
 - Tools:
   - Tools/Git.md
   - Tools/Linux.md
-    # - Tools/gdb.md
+  - Tools/gdb.md
       
   - "效率":
     - Markdown:
@@ -333,11 +333,13 @@ nav:
     - Tools/Mkdocs.md
     - Tools/obsidian.md
     - Tools/latex.md
-     
-  - Tools/tableau.md
-  - Tools/matlab.md
-  - Tools/solidworks.md
-  - Tools/sites.md
+    - Tools/vim.md
+  - "软件"
+    - Tools/tableau.md
+    - Tools/matlab.md
+    - Tools/solidworks.md
+    - Tools/sites.md
+  
   - Tools/settings.md
   - Tools/macos.md
   

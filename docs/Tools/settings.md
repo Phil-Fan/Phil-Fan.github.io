@@ -27,16 +27,31 @@
 - word，小恐龙公文助手
 - latex：overleaf
 
+
+- [foldersize](https://foldersize.sourceforge.net/?utm_source=appinn.com)
 ### 设计软件
 
 - Adobe: AI,PS,PR,剪映
 - powerpoint，okplus，Canva
+
+
+
 
 ## windows
 
 电脑
 
 [AirPods Pro2蓝牙耳机连接win10电脑有杂音、不稳定问题 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/641213713)
+
+
+### win+G 录屏
+xGameBar对我来说没什么用，但是虚拟机中需要使用到这个快捷键，所以将win下这个快捷键禁用
+
+`win+I`进入设置，搜索Game Bar
+
+关闭里边选项即可。
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240706192241.png)
 
 ### 显示器相关
 
@@ -132,7 +147,13 @@ nvidia-smi
 
 ## `conda`
 
+[conda换地址](https://blog.csdn.net/chengjinpei/article/details/119835339)
+
+
 清华镜像地址：`https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/`
+
+
+
 
 下载之后
 ```shell
@@ -224,8 +245,77 @@ markdown 插件 —— Markdown Preview Enhanced
 
 截图之后直接按就可以将图片上传到图床，并将连接复制到剪贴板
 
+vim插件 —— vim
+
+
 
 ## Kali
+[apt 换源](https://www.cnblogs.com/u-damowang1/p/14729017.html)
+
+
+[The big list of Vim-like software (reversed.top)](https://reversed.top/2014-08-13/big-list-of-vim-like-software/)
+
+```shell
+vim /etc/apt/sources.list
+```
+
+```
+#中科大
+deb http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib
+deb-src http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib
+
+#阿里云
+deb http://mirrors.aliyun.com/kali kali-rolling main non-free contrib
+deb-src http://mirrors.aliyun.com/kali kali-rolling main non-free contrib
+
+#清华大学
+deb http://mirrors.tuna.tsinghua.edu.cn/kali kali-rolling main contrib non-free
+deb-src https://mirrors.tuna.tsinghua.edu.cn/kali kali-rolling main contrib non-free
+```
+
+```shell
+apt-get update
+apt-get upgrade
+```
+
+### 软件安装
+```shell
+apt-get install git
+apt-get install vim
+```
+
+[terminator](https://blog.csdn.net/learning_tortosie/article/details/102581261)
+
+```shell
+sudo apt-get install terminator
+```
+!!! bug "设置为默认终端"
+
+|开启or关闭快捷键|	作用|
+|---|---|
+|`Ctrl + Shift + O`|	水平分割终端（分成上下两个窗口）|
+|`Ctrl + Shift + E`|	垂直分割终端（分成左右两个窗口）|
+|`Ctrl + Shift + W`|	关闭当前终端|
+|`Ctrl + Shift + X`|	放大（还原）当前终端|
+|`Ctrl + Shift + G`|	清屏|
+|`Ctrl + Shift + Q`|	关闭所有终端（退出程序）|
+|`Ctrl + Shift + T`|	开一个新终端|
+
+
+|快捷键|	作用|
+|---|---|
+|`alt+方向键` or `ctrl+TAB`|切换窗口|
+|`ctrl shift +`|加字号|
+|`F11`|全屏|
+|`super(win) + g`|group,将不同窗口打包，指令可以广播|
+|`Super+Shift+g`|取消分组|
+|`ctrl+shift+f`|搜索命令|
+|`Ctrl+Shift+c`|复制指令|
+|`Ctrl+Shift+v`|粘贴指令|
+|`Ctrl+Shift+X`|    将分割的某一个窗口放大至全屏使用|
+|`Ctrl+Shift+Z`|    从放大至全屏的某一窗口回到多窗格界面|
+
+
 [vscode on Kali](https://blog.csdn.net/CM_STC89C52/article/details/127296320)
 
 1. 用kali内嵌的浏览器搜索vscode，下载vscode的.deb格式的安装包
@@ -233,6 +323,11 @@ markdown 插件 —— Markdown Preview Enhanced
 3. 在vscode软件上点击鼠标右键，点击 `Edit Application`
 4. 有个Command选项，输入 `/usr/share/code/code --unity-launch %F --no-sandbox` 即可，再点击保存。
 
+
+- tldr：简易版man手册
+- fd-find：人性化的find
+- rg(ripgrep)：快速搜索
+- fzf ： 模糊搜索
 
 [phpstudy on Kali](https://blog.csdn.net/weixin_54358903/article/details/127698009)
 
@@ -276,4 +371,6 @@ sudo ln -s /usr/local/sbin/nodejs/bin/npm /usr/local/bin/
 很奇怪这里不输入绝对路径会有错误
 
 
-
+### linux安装软件的方式
+[deb]
+[Appimage](https://cn.linux-console.net/?p=19002)

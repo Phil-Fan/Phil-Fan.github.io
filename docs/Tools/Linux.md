@@ -14,7 +14,7 @@
 - fzf ： 模糊搜索
 - vim
 
-[The big list of Vim-like software (reversed.top)](https://reversed.top/2016-08-13/big-list-of-vim-like-software/)
+[The big list of Vim-like software (reversed.top)](https://reversed.top/2014-08-13/big-list-of-vim-like-software/)
 
 # Linux简介
 
