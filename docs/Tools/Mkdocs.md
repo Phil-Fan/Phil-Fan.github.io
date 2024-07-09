@@ -80,5 +80,42 @@
 
 [github pages绑定域名-腾讯云开发者社区-腾讯云 (tencent.com)](https://cloud.tencent.com/developer/article/1454059)
 
+- 编写`workflow`文件
+
+在仓库上方有actions选项，点击new workflow，我这里选择了自己编写的workflow文件，貌似也有针对Mkdocs的模板
+
+```yml
+name: deploy
+
+on:
+  push:
+    branches:
+      - master
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0    # for mkdocs-git-revision-date-localized-plugin
+      - uses: actions/setup-python@v4
+        with:
+          python-version: 3.x
+      - run: pip install -r requirements.txt
+      - name: Create CNAME file
+        run: echo "www.philfan.cn" > docs/CNAME   # Adjust the path if your configuration is different
+      - run: mkdocs gh-deploy --force
+```
+
+- 设置deploy from branch
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240707225202.png)
+
+- 设置自定义域名
+将域名填入`CNAME`文件中，然后打开仓库的设置界面，在cumtom domain 中设置好自己的域名
 
 

@@ -399,6 +399,8 @@ sudo ln -s /usr/local/sbin/nodejs/bin/npm /usr/local/bin/
 ```
 很奇怪这里不输入绝对路径会有错误
 
+**strace & ltrace**
+调试工具
 
 ### linux安装软件的方式
 [deb]

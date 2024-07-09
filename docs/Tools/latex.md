@@ -504,7 +504,11 @@ required to use pdflatex/xelatex/lualatex.
 \centering	%居中
 ```
 
-
+首行不能缩进
+```latex
+\usepackage{indentfirst} 
+\setlength{\parindent}{2em} % 控制首行缩进  
+```
 
 ### 换行换页
 

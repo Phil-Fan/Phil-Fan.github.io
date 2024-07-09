@@ -1,11 +1,11 @@
 # 密码技术
 
-??? note "来源"
+!!! note "来源"
     - USTC《计算机网络》<br>
     - 《图解密码技术》<br>
     - 《信息物理系统安全》<br>
 
-!!! bug "如果看不到图像或是公式，多刷新几次"
+!!! tip "如果看不到图像或是公式，多刷新几次"
 
 做PPT时候整理的图像
 
@@ -19,6 +19,54 @@
 
 ## 数论前置知识
 
+[数论基础 - OI Wiki](https://oi-wiki.org/math/number-theory/basic/)
+
+### 整除
+
+
+最大公约数
+
+求法
+- 欧几里得算法（辗转相除法）
+
+\[ \gcd(a, b) = \gcd(b, a \mod b) \]
+
+> 所有大于3的素数都可以表示为$6n-1$ ^[1]
+
+[1]:ddd
+
+!!! note "proof"
+
+    设 \( a \) 可以表示成 \( a = kb + r \)（其中 \( a, b, k, r \) 均为正整数，且 \( r \neq 0 \)）。假设 \( d \) 是 \( a \) 和 \( b \) 的一个公约数，记作 \( d \mid a \) 且 \( d \mid b \)，即 \( a \) 和 \( b \) 都可以被 \( d \) 整除。
+
+    根据等式 \( r = a - kb \)，我们将等式两边同时除以 \( d \)：
+
+    \[ \frac{r}{d} = \frac{a}{d} - k \cdot \frac{b}{d} \]
+
+    由等式右边可知 \( \frac{a}{d} \) 和 \( \frac{b}{d} \) 均为整数，因此 \( \frac{r}{d} \) 也是整数，这意味着 \( d \mid r \)。
+
+    因此，\( d \) 也是 \( b \) 和 \( a \mod b \) 的公约数。
+
+    由于 \( a \) 和 \( b \) 的公约数与 \( b \) 和 \( a \mod b \) 的公约数相等，所以它们的最大公约数也相等，得证。
+
+    
+
+### 模
+特别的，当
+
+$$
+gcd(a, b) = 1
+$$
+
+时，我们称$a$和$b$是互质的。互质的两个数的最大公约数是1。
+
+
+### gcd & lcm
+
+$$
+gcd(a,b) \times lcm(a,b) = a \times b
+$$
+
 ### 同余 (Congruence)
 
 同余是表示两个整数除以同一个正整数后余数相等的关系。如果整数 $a$ 除以正整数 $n$ 的余数与整数$b$除以$n$的余数相同，我们说$a$和$b$对模$n$同余，表示为：
@@ -27,33 +75,9 @@ $$
 a \equiv b \mod n
 $$
 
-### 互质 (Coprime)
+b 是除法的余数
 
-$$
-gcd(a, b) = 1
-$$
-
-### 欧拉函数 (Euler's Totient Function)
-
-欧拉函数$\phi(n)$是小于或等于$n$的正整数中与$n$互质的数的数量。
-
-对于质数$p$，$\phi(p) = p - 1$。如果$n$是两个不同质数$p$和$q$的乘积，即$n = pq$，那么$\phi(n) = (p-1)(q-1)$。
-
-$$
-\phi(n) = n \prod_{p|n} \left(1 - \frac{1}{p}\right)
-$$
-
-### 欧拉定理
-
-欧拉定理指出，对于两个互质的正整数 \(a\) 和 \(n\)（即 \(gcd(a, n) = 1\)），\(a\) 的欧拉函数 \(\phi(n)\) 次幂对 \(n\) 的模等于 1。用数学表达式表示为：
-
-$$
-a^{\phi(n)} \equiv 1 \mod n
-$$
-
-其中，\(\phi(n)\) 是欧拉函数，表示小于或等于 \(n\) 的正整数中与 \(n\) 互质的数的数量。
-
-### 模逆 (Modular Inverse)
+### 逆元/模逆 (Modular Inverse)
 
 如果存在整数$b$使得$ab \equiv 1 \mod n$，则称$b$是$a$模$n$的逆元
 
@@ -63,7 +87,57 @@ $$
 
 表示找到一个数$b$，使得$a$和$b$相乘对模$n$同余1。
 
+
+!!! note "有逆元的充要条件"
+    两数互质
+
 ![image-20240529115856874](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240529115856874.png)
+
+计算方法
+- 拓展欧几里得 `Exgcd(a,mod)` 取x,略
+
+- **快速幂**
+
+因为 $ax \equiv 1 \pmod b$；
+
+所以 $ax \equiv a^{b-1} \pmod b$（根据 [费马小定理](./fermat.md)）；
+
+所以 $x \equiv a^{b-2} \pmod b$。
+
+然后我们就可以用快速幂来求了。
+
+这里还可以使用矩阵快速幂进行优化
+
+
+???+ note "实现"
+
+    === "C++"
+        ```cpp
+        int qpow(long long a, int b) {
+          int ans = 1;
+          a = (a % p + p) % p;
+          for (; b; b >>= 1) {
+            if (b & 1) ans = (a * ans) % p;
+            a = (a * a) % p;
+          }
+          return ans;
+        }
+        ```
+    
+    === "Python"
+        ```python
+        def qpow(a, b):
+            ans = 1
+            a = (a % p + p) % p
+            while b:
+                if b & 1:
+                    ans = (a * ans) % p
+                a = (a * a) % p
+                b >>= 1
+            return ans
+        ```
+
+注意：快速幂法使用了 [费马小定理](./fermat.md)，要求 $b$ 是一个素数；而扩展欧几里得法只要求 $\gcd(a, b) = 1$。
 
 ### 裴蜀定理（Bézout's Theorem）
 
@@ -99,6 +173,146 @@ x, y = extended_gcd(a, b)
 print(f"The coefficients x and y are: {x}, {y}")
 ```
 
+
+### 扩展欧几里得定理（Extended Euclidean Algorithm）
+
+根据裴蜀定理我们知道
+\[ ax + by = \gcd(a, b) \]
+
+那么对于不定方程
+\[ ax + by = m \]
+必有 $m$ 是 $\gcd(a,b)$ 的倍数（即第一个用途，判断是否有解）
+
+
+
+**知道是否有解通常不能达到目的，还需要得到一组可行解**
+
+设
+
+$$
+ax_1+by_1=\gcd(a,b)\\
+bx_2+(a\bmod b)y_2=\gcd(b,a\bmod b)
+$$
+
+由欧几里得定理可知
+
+$$
+\gcd(a,b)=\gcd(b,a\bmod b)
+$$
+
+所以 
+
+$$
+ax_1+by_1=bx_2+(a\bmod b)y_2
+$$
+
+又因为 $a\bmod b=a-(\lfloor\frac{a}{b}\rfloor\times b)$
+
+所以 
+
+$$
+ax_1+by_1=bx_2+(a-(\lfloor\frac{a}{b}\rfloor\times b))y_2\\
+ax_1+by_1=ay_2+bx_2-\lfloor\frac{a}{b}\rfloor\times by_2=ay_2+b(x_2-\lfloor\frac{a}{b}\rfloor y_2)
+$$
+
+因为 $a=a,b=b$
+
+所以 $x_1=y_2,y_1=x_2-\lfloor\frac{a}{b}\rfloor y_2$
+
+将 $x_2,y_2$ 不断代入递归求解直至 $\gcd$（最大公约数，下同）为 $0$ 递归 $x=1,y=0$ 回去求解。
+
+
+**通解**
+
+对于方程
+
+$$
+ax+by=gcd(a,b) \rightarrow ax+by=k
+$$
+
+扩大了$\frac{k}{gcd(a,b)}$ 倍，那么Exgcd求出来$x_0,y_0$也要响应的扩大$\frac{k}{gcd(a,b)}$倍
+
+$$
+\begin{align*}
+x_0 = x_0 * \frac{k}{gcd(a,b)}\\
+y_0 = y_0 * \frac{k}{gcd(a,b)}\\
+\end{align*}
+$$
+
+**上述方法可以求得一个特解，而通解形式如下：**
+
+
+$$
+\begin{align*}
+\left\{
+\begin{array}{lr}
+x = x_0 + \frac{b}{\gcd(a,b)} \cdot t\\
+y = y_0 - \frac{a}{\gcd(a,b)} \cdot t
+\end{array}
+\right.
+t\in \mathbf{Z}
+\end{align*}
+$$
+
+**最小整数解**
+
+$$
+x=(x+\frac{b}{\gcd(a,b)}*n)\mod \frac{b}{\gcd(a,b)}\\
+=x\mod \frac{b}{\gcd(a,b)}
+$$
+
+若x<=0，则x+=b/gcd
+
+> 参考网址：[求逆元方法 简单又好记_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV11Y4y1U7Gh/?spm_id_from=333.788&vd_source=8b7a5460b512357b2cf80ce1cefc69f5)
+> [详解扩展欧几里得算法（扩展GCD） - Seaway-Fu - 博客园 (cnblogs.com)](https://www.cnblogs.com/fusiwei/p/11775503.html)
+
+
+=== "C++"
+    ```cpp
+    int Exgcd(int a, int b, int &x, int &y) {
+      if (!b) {
+        x = 1;
+        y = 0;
+        return a;
+      }
+      int d = Exgcd(b, a % b, x, y);
+      int t = x;
+      x = y;
+      y = t - (a / b) * y;
+      return d;
+    }
+    ```
+
+=== "Python"
+    ```python
+    def Exgcd(a, b):
+        if b == 0:
+            return a, 1, 0
+        d, x, y = Exgcd(b, a % b)
+        return d, y, x - (a // b) * y
+    ```
+
+函数最后返回的$d$即为 $\gcd$，在这个过程中计算 $x,y$ 即可。
+
+
+
+**求解乘法逆元**
+
+对于一个数 $a$，求解其模 $m$ 的逆元 $a^{-1} = x$，即满足 $a \times x \equiv 1 \mod m$。
+
+有
+
+$$
+a \times x = 1 + m \times k\\
+a \times x + m \times (-k) = 1\\
+a \times x + m \times y = 1
+$$
+
+使用扩展欧几里得算法求解 $x$ 和 $y$ 即可。
+此时 $a = a,b = m$ ,求得的$x$即为逆元
+
+
+
 ### 中国剩余定理（Chinese Remainder Theorem, CRT）
 
 参考视频：[中国剩余定理，考试包会](https://www.bilibili.com/video/BV1Y84y1E7ts)
@@ -131,85 +345,124 @@ x = crt(moduli, remainders)[0]
 print(f"The solution x is: {x}")
 ```
 
-### 扩展欧几里得定理（Extended Euclidean Algorithm）
-
-**定义**：
-扩展欧几里得算法不仅计算两个整数的最大公约数，还可以找到裴蜀定理中的系数 \(x\) 和 \(y\)，使得：
-\[ ax + by = \gcd(a, b) \]
-
-**例子**：
-计算 \(a = 30\) 和 \(b = 20\) 的最大公约数，并找到对应的 \(x\) 和 \(y\)：
-\[ \gcd(30, 20) = 10 \]
-
-使用扩展欧几里得算法找到 \(x\) 和 \(y\)：
-\[ 30x + 20y = 10 \]
-
-一个解是 \(x = 1\) 和 \(y = -1\)，因为：
-\[ 30(1) + 20(-1) = 10 \]
-
-```python
-from sympy import gcd
-
-a = 30
-b = 20
-g = gcd(a, b)  # 计算最大公约数
-
-# 使用扩展欧几里得算法找到x和y
-def extended_gcd(a, b):
-    if b == 0:
-        return (1, 0)
-    else:
-        x, y = extended_gcd(b, a % b)
-        return (y, x - (a // b) * y)
-
-x, y = extended_gcd(a, b)
-print(f"The coefficients x and y are: {x}, {y}")
-```
 
 
+### 欧拉函数 (Euler's Totient Function)
 
-> 参考网址：[求逆元方法 简单又好记_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV11Y4y1U7Gh/?spm_id_from=333.788&vd_source=8b7a5460b512357b2cf80ce1cefc69f5)
-> [详解扩展欧几里得算法（扩展GCD） - Seaway-Fu - 博客园 (cnblogs.com)](https://www.cnblogs.com/fusiwei/p/11775503.html)
+欧拉函数$\phi(n)$是小于或等于$n$的正整数中与$n$互质的数的数量。
 
-1、求解不定方程
+- 对于质数$p$，$\phi(p) = p - 1$。
 
-2、求解模的逆元
+- 如果$n$是两个不同质数$p$和$q$的乘积,从定义上考虑，与$p$ 不互质的有 $q$个，与$ q $不互质的有$ p $个，重复计算的有一个，所以 
 
-3、求解线性同余方程
+$$
+\begin{aligned}
+\phi(n) &= n-p-q+1= pq-p-q+1\\
+&= (p - 1)(q - 1)
+\end{aligned}
+$$
+
+- 若$n = p^k$,，从定义上考虑，与 n 不互质的有 $p,2p,3p,\dots p^{k-1}*p $，共$p^{k-1} $个，剩下的就是互质的，所以 
+$\phi(n) = n -p^{k-1} = n(1-\frac{1}{p})$
+
+- 对于任意的$n = p_1^{a_1}*p_2^{a_2}\dots p_{k}^{a_k}$
+
+$$
+\phi(n) = n \prod_{i=1}^k \left(1 - \frac{1}{p_i}\right)
+$$
+
+### 费马小定理
+
+若 $p$ 为素数，$\gcd(a, p) = 1$，则 
+
+$$
+a^{p - 1} \equiv 1 \pmod{p}
+$$
+
+另一个形式：对于任意整数 $a$，有 
+
+$$
+a^p \equiv a \pmod{p}
+$$
+
+!!! note "证明"
+
+    设一个质数为 $p$，我们取一个不为 $p$ 倍数的数 $a$。
+
+    构造一个序列：$A=\{1,2,3\dots,p-1\}$，这个序列有着这样一个性质：
+
+    $$
+    \prod_{i=1}^{p-1}\space A_i\equiv\prod_{i=1}^{p-1} (A_i\times a) \pmod p
+    $$
+
+    **证明：**
+
+    $$
+    \because (A_i,p)=1,(A_i\times a,p)=1
+    $$
+
+    又因为每一个 $A_i\times a \pmod p$ 都是独一无二的，且 $A_i\times a \pmod p < p$
+
+    得证（每一个 $A_i\times a$ 都对应了一个 $A_i$）
+
+    设 $f=(p-1)!$, 则 $f\equiv a\times A_1\times a\times A_2\times a \times A_3 \dots \times  A_{p-1} \pmod p$
+
+    $$
+    \begin{aligned}
+    a^{p-1}\times f &\equiv f \pmod p \\
+    a^{p-1} &\equiv 1 \pmod p
+    \end{aligned}
+    $$
+
+    证毕。
+
+    **也可用归纳法证明：**
+
+    显然 $1^p\equiv 1\pmod p$，假设 $a^p\equiv a\pmod p$ 成立，那么通过二项式定理有
+
+    $$
+    (a+1)^p=a^p+\binom{p}{1}a^{p-1}+\binom{p}{2}a^{p-2}+\cdots +\binom{p}{p-1}a+1
+    $$
+
+    因为 $\binom{p}{k}=\frac{p(p-1)\cdots (p-k+1)}{k!}$ 对于 $1\leq k\leq p-1$ 成立，在模 $p$ 意义下 $\binom{p}{1}\equiv \binom{p}{2}\equiv \cdots \equiv \binom{p}{p-1}\equiv 0\pmod p$，那么 $(a+1)^p \equiv a^p +1\pmod p$，将 $a^p\equiv a\pmod p$ 带入得 $(a+1)^p\equiv a+1\pmod p$ 得证。
 
 
 
-```cpp
-int exgcd(int a,int b,int &x,int &y)
-{
-    if(b==0)
-    {
-        x=1,y=0;
-        return a;
-    }
-    int d=exgcd(b,a%b,x,y);
-    int k=x;
-    x=y;
-    y=k-a/b*y;
-    return d;
-}
-```
+### 欧拉定理
+
+欧拉定理指出，对于两个互质的正整数 \(a\) 和 \(n\)（即 \(gcd(a, n) = 1\)），\(a\) 的欧拉函数 \(\phi(n)\) 次幂对 \(n\) 的模等于 1。用数学表达式表示为：
+
+$$
+a^{\phi(n)} \equiv 1 \mod n
+$$
+
+其中，\(\phi(n)\) 是欧拉函数，表示小于或等于 \(n\) 的正整数中与 \(n\) 互质的数的数量。
+
+若 $\gcd(a, m) = 1$，则 $a^{\varphi(m)} \equiv 1 \pmod{m}$。
 
 
 
-在RSA算法中求私钥中的整数d时，需要使得$ (e \times d ) \% m = 1$，该方程等价于 $e \times d = 1 + y \times m$ （y为整数），也等价于 $e \times d - y \times m = 1$。
 
-因此求解d的过程就是求解该二元一次方程组（e和m已知，求解d），即求e模m的逆元。
+欧拉定理是 RSA 加密的数学基础
 
+!!! note "证明"
+    实际上这个证明过程跟上文费马小定理的证明过程是非常相似的：**构造一个与 $m$ 互质的数列**，再进行操作。
 
+    设 $r_1, r_2, \cdots, r_{\varphi(m)}$ 为模 $m$ 意义下的一个简化剩余系，则 $ar_1, ar_2, \cdots, ar_{\varphi(m)}$ 也为模 $m$ 意义下的一个简化剩余系。
+    
+    所以 
+    
+    $$
+    r_1r_2 \cdots r_{\varphi(m)} \equiv ar_1 \cdot ar_2 \cdots ar_{\varphi(m)} \equiv a^{\varphi(m)}r_1r_2 \cdots r_{\varphi(m)} \pmod{m}
+    $$
+    
+    可约去 $r_1r_2 \cdots r_{\varphi(m)}$，即得 
+    
+    $$
+    a^{\varphi(m)} \equiv 1 \pmod{m}
+    $$
 
-实现的时候采用递归做法
-
-先递归进入下一层，等到到达最后一层即 b=0 时就返回x=1 , y=0
-
-再根据 x1=y2 , y1=x2-a/b*y2 ( x2 与 y2 为下一层的 x 与 y ) 得到当层的解
-
-不断算出当层的解并返回，最终返回至第一层，得到原解
+    当 $m$ 为素数时，由于 $\varphi(m) = m - 1$，代入欧拉定理可立即得到费马小定理。**费马小定理是欧拉定理的特例**
 
 ## 加密——机密性
 
@@ -251,7 +504,15 @@ int exgcd(int a,int b,int &x,int &y)
 
 
 
-### 历史上的密码
+### 古典密码
+
+> 更少的数学，更多的人文！
+
+- 代换(substitution)密码用新的替换原先的内容
+
+- 置换(permutation)密码 打乱原先的顺序
+
+- Hill密码
 
 #### 摩斯密码
 摩尔斯电码（Morse Code）：利用点划（“滴”的时间长短）来表示字符
@@ -337,11 +598,48 @@ int exgcd(int a,int b,int &x,int &y)
 
 ![image-20240522173659727](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240522173659727.png)
 
-密钥：平移的字母数量
 
-可以使用暴力破解——平移1-n位
+又叫加法密码，是一种替换密码，属于其中的单表密码，将明文的每个字母按字母表循环移动固定位数得到密文
 
-#### 替换密码
+**加密：**
+
+$$
+enc(x)=( x+key ) \mod \ 26
+$$
+
+**解密：**
+
+$$
+dec(y)=(y−key) \mod \  26
+$$
+
+**破解：**
+
+爆破移动位数观察结果即可（常见编码ROT13 ，取 key=13)
+
+一般的凯撒加密只作用于26 个字母，但也可以将其扩展到 ASCII 码表上（常见编码 ROT47 ，将 33-126 作为字母表，取 key=47)
+
+#### 仿射密码
+
+类似凯撒加密，但不仅仅进行加法
+
+**加密：**
+
+$$
+encx=(x\times key_1+key_2) \mod \ 26
+$$
+
+**解密：**
+
+$$
+decy = (y-key_2)\times key_1^{-1} \mod \ 26
+$$
+
+**破解：**
+
+单表密码加密前后的字符是一一对应的，不会破坏统计规律，根据英文文本中字母出现的频率以及一些常见单词即可轻松破解
+
+#### 单表替换密码
 
 密钥：替换表，使用密码本
 
@@ -349,49 +647,131 @@ int exgcd(int a,int b,int &x,int &y)
 
 > 英文文章出现最高的字母是e
 
-!!! note "Challenge 1"
+
+[quipqiup - cryptoquip and cryptogram solver](http://quipqiup.com/)<br>
+[古典密码学之词频分析 | Cata1yst's blog (cata1ysts.github.io)](https://cata1ysts.github.io/2022/08/14/古典密码学之词频分析/)<br>
+[单表代换加密 - CTF Wiki (ctf-wiki.org)](https://ctf-wiki.org/crypto/classical/monoalphabetic/#_11)<br>
+
+!!! note "单表替换密码"
     ![crypto_challenge1](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/crypto_challenge1.png)
 
-    - 要求：破解纸条上的信息，给出最后的破解结果，对于本问题，可以不用写破解的过程，毕竟福尔摩斯曾经说过，“将中间的推理步骤统统去掉，能够达到惊人的效果”，不过还是很希望能够看到同学们是如何逐步破解问题，得到最后的结果的，这也是密码学题目，或者说 CTF 题目的真正乐趣所在。
-    
     - 不妨读一下**福尔摩斯探案集《跳舞的小人》**，说不定对你有帮助呢？
     
     解密结果
+    
     > tonight Ethan will arrive here please lure him to the abandoned warehouse near the police station where the professional assassin reese hired will eliminate him
     >
     > tomorrow she will go to the warehouse and become the first person to discover his corpse with a strong alibi these police officers absolutely cannot arrest her
 
-方法：
 
-> **参考文档和网站**：
->
-> [quipqiup - cryptoquip and cryptogram solver](http://quipqiup.com/)<br>
-> [古典密码学之词频分析 | Cata1yst's blog (cata1ysts.github.io)](https://cata1ysts.github.io/2022/08/14/古典密码学之词频分析/)<br>
-> [单表代换加密 - CTF Wiki (ctf-wiki.org)](https://ctf-wiki.org/crypto/classical/monoalphabetic/#_11)<br>
 
-先使用`opencv`库将图片进行切割和计数，然后猜测带圈和不带圈是同一个字母的大小写关系。
 
-手动匹配大小写关系后，使用程序将密码图片转换成密文字符串
-
-> ABCDEFaHAFIcKDLlINNDOhFHNhQLHIRhLSNhFDgAbAFhIVICWBCHwKINHFBSRhCHInAFhQBLDMhRAIADBcKFHNhAFhQNBPHRRDBCIlIRRIRRDcNHHRhFDNHwKDLlHLDGDCIAhFDgABGBNNBkRFhKDLlEbAbAFhKINHFBSRhICwVHMBGhAFhPDNRaQHNRBcAbWDRMBOHnFDrMBNQRhKDAfiRANBCeILDVdAFHRhQBLDMhBPPDMHNrIVRBLSAHLxMIcCBaINNHRaFHn
-
-将转换后的密文送入解密工具。稍微调整一下格式即可。
 
 ![image-20240605182302624](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240605182302624.png)
 
 
+#### 多表替换密码——维吉尼亚密码
+一种多表加密的替换密码。密钥任意长，并且以循环使用
+
+第i个字符使用第 i 个密钥进行偏移
 
 
+加密：
 
+$$
+enc(x_i) = (x_i + key_i) \mod \ 26
+$$
 
+解密：
 
+$$
+dec(y_i)= (y_i-key_i) \mod 26
+$$
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240707145724.png)
+
+!!! note "例：明文CRANE,密钥 TONY"
+    (C, T)  to   V 
+    (R, O)  to   F 
+    (A, N)  to   N 
+    (N, Y)  to   L 
+    (E, T)  to   X
+
+确定密钥长度→分组爆破加法密码→得到密钥
+
+!!! note "解密实战"
+
+    === "题目"
+        Fhovq abi mn ypp hyvee krp a vmftvi tobwq ox e rabq . Ano hmy dlq ovh tobwq acoe tri xidxxe rsdso xa sorp tri ihoef ty xte wmxl . Dlq lsxflo larci us fidy rebpi . Lq ckvdiow fho atekx mnn vgnc xawkvp tri yivp . Nud xtebi us k vuvov un pvand sr tri xidxxe rsdso . Lq sdsbs krp dyie nyx wnya ihkx fo ns zehx . Vucx fhor Muxx Oog me pkweixk ny . Dlq lsxflo larci msuw , Muxx Oog , txekwq topx mo. Gmn S gdocw fho vuvov ". Muxx Oog ezsgids , Sx us xsf doib , yyy oax gdocw ut.ut." Glqn dlq lsxflo larci neqmzs ds orywe tri difid , a vmftvi eqemdrop ehyyfs kx tiw , Putdpqhyvee , nszt mvasc mf, yyy iivp ne nvawxip . Yowfebhmy yrq op qk fbmqnnw iac hdogrqd sr fhsw difid ." tri xidxxe rsdso me vovk apvmin . Junkpxy ri pemmpec xa gy lamo ezd kww hsw yodlqr.Dlq ovh tobwq acoe , Wrc po isg tkoq tri ihoef bkgw Wrefs gvanq autr cau Wcohspp ." tri xidxxe rsdso ezsgids cepli , Xtebi us k vuvov un pvand sr mo. Egnd Gaw ceud sx iac rat niqp . Lyf tri xidxxe cugibvql ceud sx iac hqez . Atad wtavp U dy ". Xte ypp hyvee ceks , Wc ohspp , yyy ehyyxd dvk ty gdocw fho vuvov ny isgrcixf . Sj koe hanyx fri , law ns koe ozog xte bmheb me doib ob rat". Dlq lsxflo larci oabvuec xte glqad ezd bifubre ty xte bmhebwudo . Ef lkwf , ho wgcmiqdc mzcbsessrs tri difid . Nya, Te urawc law niqp dlq rszqr sw.
+    === "分析"
+        相同内容tri 出现位置 20, 92, 124, 320, 528, 640, 864 ，第一次出现的位置记为 0
+        最大公因数为4 密钥长度极大概率为 4 ，有较小概率为 2 或 1
+    
+    === "方法一：根据重复单词爆破密钥"
+        前文多次重复的，tri 有很大概率为 the ，求出密钥，接下来只需要爆破一位即可
+    
+    === "方法二：逐个爆破密钥"
+        已知密钥长度为k;第0,k,2k,…… 个字符使用同一个密钥，构成一个单表加法密码
+        根据字母频率推断这位密钥为 m
+        经过分析破解，最后能得到密钥为 make
 
 
 !!! note "—次性密码本与压缩"
-    > 虽然一次性密码本的密钥需要与明文等长，但是我手上有数据压缩程序，只要用这个程序 对一次性密码本的密钥进行压缩，不就可以把密钥变短了吗？ 请问Alice的想法正确吗？<br>
+    虽然一次性密码本的密钥需要与明文等长，但是我手上有数据压缩程序，只要用这个程序 对一次性密码本的密钥进行压缩，不就可以把密钥变短了吗？ 请问Alice的想法正确吗？<br>
     不正确。因为一次性密码本的密钥无论使用任何压缩软件都无法进行压缩。<br>压缩软件的压缩原理，是找出输入数据中出现的冗余的重复序列，并将它们替换成较短的数据。然而一次性密码本所使用的密钥是随机的，其中不包含任何冗余的重复序列。<br>反过来说， 如果一个比特序列能够被压缩，就说明它不是一个随机的比特序列。
 
+#### 替换密码
 
+加密变换使得信息元素只有位置变化而内容不变
+比如对于一种置换密码，其置换表为
+
+| 明文$X$ | 密文$E(X)$ | 
+| --- | --- |
+| 1 | 3 |
+| 2 | 5 |
+| 3 | 1 |
+| 4 | 6 |
+| 5 | 4 |
+| 6 | 2 |
+
+对于明文`crypto basic`，先进行分组（不足需填充）对每一组进行置换：
+```
+[crypto]→ [yoctrp] [ basic] → [ac ibs]
+```
+最终密文就是`yoctrpac ibs`
+
+栅栏密码
+
+栅栏密码也是一种置换密码，其将明文分割成k行，然后重新拼接，这里 k 即为加密的密钥。
+
+比如还是明文`crypto basic` ，取 k=3 ，将明文分割成三行
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240707152053.png)
+因此，密文为 `cp srtbiyoac`
+
+
+#### 矩阵的替换——Hill加密
+
+Hill密码是一种基于线性代数的多字母替换密码，由数学家Lester S. Hill于1929年发明。它通过将字母映射到数值，然后使用矩阵乘法对消息进行加密。
+
+
+每个字母当作26 进制数字，将一串字母当成$ n $维向量，跟一个 $n*n$的矩阵相乘，再将得出的结果 $\mod 26 $，其中 $n*n$ 矩阵就是密钥。
+
+1. **字母映射**：首先，将字母映射到数字。通常使用如下映射：
+   - A = 0, B = 1, C = 2, ..., Z = 25
+
+2. **加密公式**：明文向量为 \( P \)，加密矩阵为 \( K \)，则密文向量 \( C \) 为：
+
+     \[
+     C = K \cdot P \ (\text{mod} \ 26)
+     \]
+
+3. **解密公式**：设密文向量为 \( C \)，加密矩阵 \( K \) 的逆矩阵为 \( K^{-1} \)，则明文向量 \( P \) 为：
+  
+     \[
+     P = K^{-1} \cdot C \ (\text{mod} \ 26)
+     \]
+     
 
 **Enigma加密**
 
@@ -740,6 +1120,9 @@ $$
 - 明文：需要破译的内容
 - 数D：私钥中至少D是不知道的信息
 - 其他：密码破译者不知道生成密钥对时所使用的p、q和L
+
+!!! note "思考：$e$ 和 $\phi(n)$不互质会怎么样？"
+    出现多解的情况，$e$ 和 $\phi(n)$不互质，那么没有乘法逆元，不能完全恢复消息
 
 
 
@@ -1177,4 +1560,49 @@ Diffie-Hellman 密钥交换( Diffie-Hellman key exchange )是 1976 年由 Whitfi
 这个问题称为有限域（`finite field`)的离散对数问题。 
 
 而有限域的离散对数问题的复杂度正是支撑Diffie-Hellman密钥交换算法的基础。
+
+
+## 工具与数学计算库
+
+[CyberChef](https://lab.tonycrane.cc/CyberChef/)
+
+
+- C++ 程序，可以使用 `OpenSSL` 和 `GMP` 等 库进行大数运算
+- python中有许多数学计算库，如 `SciPy`,`gmpy2`
+
+- 商用软件: `Maple`,`Matlab`,`SageMath`
+### gmpy2使用
+$x^y \mod n$
+```python
+gmpy2.powmod(x, y, n)
+```
+$x^{-1} \mod n$
+```python
+gmpy2.invert(x, n) 
+```
+$\sqrt[n]{x}$ exact or not
+```python
+gmpy2.iroot(x, n)
+```
+
+### SageMath
+
+[Sage线上运行网址](https://sagecell.sagemath.org/)
+
+ubuntu安装
+```
+apt-get install sagemath
+```
+docker
+```
+docker pull sagemath sagemath
+```
+
+
+- GF,Zmod
+
+- gcd,inverse_mod,CRT
+
+- vector
+- matrix
 

@@ -1,5 +1,370 @@
 # Reverse
 
+| 序号 | 架构    | 特点                 | 代表性的厂商          | 运营机构      | 发明时间 |
+| ---- | ------- | -------------------- | --------------------- | ------------- | -------- |
+| 1    | X86     | 性能高，速度快，兼容性好 | 英特尔，AMD           | 英特尔        | 1978年   |
+| 2    | ARM     | 成本低，低功耗         | 苹果，谷歌，IBM，华为 | 英国ARM公司   | 1983年   |
+| 3    | RISC-V  | 模块化，极简，可拓展   | 三星，英伟达，西部数据 | RISC-V基金会 | 2014年   |
+| 4    | MIPS    | 简洁，优化方便，高拓展性 | 龙芯                  | MIPS科技公司  | 1981年   |
+
+
+
+## 程序？可“执行”文件
+
+为什么计算机可以执行给定的程序呢？
+因为任何程序都将最终转化为「指令」的形式由计算机执行
+
+
+1 word = 2 Bytes
+Dword = 4 Bytes = int
+
+!!! bug "寄存器有哪些"
+    eax
+    edx
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240707201856.png)
+
+AST：抽象代码树
+IR：中间表达式
+
+=== "编译执行"
+    上述通过编译器 (compiler) 将代码转化为机器指令格式的程序，进而执行
+    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240707202333.png)
+
+=== "解释执行"
+    通过解释器 (interpreter) 将代码转化为 VM 格式的程序（如字节码），进而在 VM上执行；更安全，但更慢
+    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240707202320.png)
+
+
+可执行文件
+- Windows：PE/PE32+ (Port Executable)
+
+- Mac：Mach-O (Mach Object)
+
+- Linux：ELF (Executable and Linkable Format)
+
+
+
+
+
+
+
+
+
+## ELF
+
+[ELF文件头](https://www.cnblogs.com/jiqingwu/p/elf_explore_2.html)
+
+```
+ELF Header:
+  Magic:   7f 45 4c 46 02 01 01 00 00 00 00 00 00 00 00 00
+  Class:                             ELF64
+  Data:                              2's complement, little endian
+  Version:                           1 (current)
+  OS/ABI:                            UNIX - System V
+  ABI Version:                       0
+  Type:                              DYN (Shared object file)
+  Machine:                           Advanced Micro Devices X86-64
+  Version:                           0x1
+  Entry point address:               0x1050
+  Start of program headers:          64 (bytes into file)
+  Start of section headers:          14768 (bytes into file)
+  Flags:                             0x0
+  Size of this header:               64 (bytes)
+  Size of program headers:           56 (bytes)
+  Number of program headers:         11
+  Size of section headers:           64 (bytes)
+  Number of section headers:         29
+  Section header string table index: 28
+```
+
+!!! note "通过命令行工具静态检视 ELF 文件"
+    - file:输出文件的基本信息
+    ```
+    file xxx
+    ```
+    - objdump:看指令代码
+    ```
+    objdump -d xxx
+    ```
+    - readelf
+
+## ELF 的编译
+
+GCC(GNU Compiler Collection)即GNU编译器套件，属于一种编程语言编译器，其原名为GCC（GNU C Compiler）即GNU c语言编译器
+
+gcc（GUN C Compiler）是GCC中的c编译器，而g++（GUN C++ Compiler）是GCC中的c++编译器。
+
+gcc和g++两者都可以编译c和cpp文件，但存在差异。gcc在编译cpp时语法按照c来编译但默认不能链接到c++的库（gcc默认链接c库，g++默认链接c++库）。g++编译.c和.cpp文件都统一按cpp的语法规则来编译。所以一般编译c用gcc，编译c++用g++。
+
+```shell
+gcc/clang hello.c
+```
+
+
+保留所有中间文件
+```shell
+clang -save-temps hello.c -o hello.elf
+```
+
+
+!!! note "常用参数"
+    - `-o <file>`: 指定输出的文件名。
+    - `-c`: 只编译不链接，生成目标文件(.o)。
+    - `-S`: 只编译不链接，生成汇编代码。
+    - `-E`: 只进行预处理，不进行编译、汇编和链接。
+    - `-g`: 生成调试信息。
+    - `-Wall`: 开启所有警告信息。
+    - `-O, -O1, -O2, -O3`: 设置不同的优化级别，-O2为默认值。
+    - `-I <dir>`: 添加头文件搜索目录。
+    - `-L <dir>`: 添加库文件搜索目录。
+    - `-l<library>`: 链接指定的库文件。
+    - `-static`: 使用静态链接。
+    - `-shared`: 生成共享库。
+    - `-m32` / `-m64`: 指定生成代码的目标平台是32位还是64位。
+    - `-std=<standard>`: 指定使用的C/C++标准，如`-std=c99`或`-std=c++11`。
+
+
+AST：抽象代码树
+```shell
+clang -Xclang -ast-dump -S hello.c 
+```
+
+IR：中间表达式
+```shell
+clang -Xclang -emit-llvm -S hello.c -o hello.ll
+```
+```shell
+gcc -fdump-tree-all -S hello.c
+```
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240707210444.png)
+
+**编译后端**
+
+- 从LLVM IR生成目标代码
+```shell
+llc hello.ll -o hello.s
+```
+- 从汇编文件到目标文件
+```shell
+llvm-mc -filetype=obj hello.s -o hello.o
+```
+- 一步到位
+```
+llc -filetype=obj hello.ll -o hello.o
+``` 
+
+
+## ELF 链接
+
+把已有的目标文件和库目标文件或别的目标文件链接在一起，生成一个可执行文件
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240707210812.png)
+
+
+GNU linker
+```
+ld hello.o -o hello
+```
+
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240707215122.png)
+
+- 静态链接：处理更快，但文件更大
+- 动态链接：处理更慢，文件小
+
+- PLT: Procedure Linkage Table
+- GOT: Global Offset Table
+- lazy binding optimization以及 full-relro 保护
+
+!!! tip "保护技术1"
+    lazy binding 比较危险，可能会被劫持
+
+**程序的执行**
+查看链接了什么东西
+
+```
+ldd hello.elf
+```
+
+```
+linux-vdso.so.1 (0x00007fff45b18000) #虚拟动态共享对象
+libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f9bddd66000) #libc
+/lib64/ld-linux-x86-64.so.2 (0x00007f9bddf69000) #动态链接器
+```
+
+
+通过指定 loader 来执行程序
+```shell
+/lib64/ld-linux-x86-64.so.2 ./hello
+```
+
+libc及其版本
+糟糕的不向前兼容
+
+## ELF 的装载、运行
+
+程序 to 进程
+
+进程有自己的pid号
+```shell
+pidof xxx
+```
+
+我们就可以进入到`\proc\'pidof xxx'\maps `这个文件下看它的内存映射
+
+
+???+note "内存映射"
+    动态链接程序需要把自己的loader和libc都映射好
+    可以看到，既有这里相当于创建了一些映射，包括libc和ld
+
+    ```shell
+    55f232470000-55f232471000 r--p 00000000 08:01 919328                     /root/Desktop/CTF/Rev/echo
+    55f232471000-55f232472000 r-xp 00001000 08:01 919328                     /root/Desktop/CTF/Rev/echo
+    55f232472000-55f232473000 r--p 00002000 08:01 919328                     /root/Desktop/CTF/Rev/echo
+    55f232473000-55f232474000 r--p 00002000 08:01 919328                     /root/Desktop/CTF/Rev/echo
+    55f232474000-55f232475000 rw-p 00003000 08:01 919328                     /root/Desktop/CTF/Rev/echo
+    55f23369b000-55f2336bc000 rw-p 00000000 00:00 0                          [heap]
+    7fd593c36000-7fd593c39000 rw-p 00000000 00:00 0 
+    7fd593c39000-7fd593c5f000 r--p 00000000 08:01 4065513                    /usr/lib/x86_64-linux-gnu/libc.so.6
+    7fd593c5f000-7fd593db6000 r-xp 00026000 08:01 4065513                    /usr/lib/x86_64-linux-gnu/libc.so.6
+    7fd593db6000-7fd593e0b000 r--p 0017d000 08:01 4065513                    /usr/lib/x86_64-linux-gnu/libc.so.6
+    7fd593e0b000-7fd593e0f000 r--p 001d1000 08:01 4065513                    /usr/lib/x86_64-linux-gnu/libc.so.6
+    7fd593e0f000-7fd593e11000 rw-p 001d5000 08:01 4065513                    /usr/lib/x86_64-linux-gnu/libc.so.6
+    7fd593e11000-7fd593e1e000 rw-p 00000000 00:00 0 
+    7fd593e35000-7fd593e37000 rw-p 00000000 00:00 0 
+    7fd593e37000-7fd593e38000 r--p 00000000 08:01 4065507                    /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+    7fd593e38000-7fd593e5d000 r-xp 00001000 08:01 4065507                    /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+    7fd593e5d000-7fd593e67000 r--p 00026000 08:01 4065507                    /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+    7fd593e67000-7fd593e69000 r--p 00030000 08:01 4065507                    /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+    7fd593e69000-7fd593e6b000 rw-p 00032000 08:01 4065507                    /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+    7ffd9ca1d000-7ffd9ca3e000 rw-p 00000000 00:00 0                          [stack]
+    7ffd9cb5f000-7ffd9cb63000 r--p 00000000 00:00 0                          [vvar]
+    7ffd9cb63000-7ffd9cb65000 r-xp 00000000 00:00 0                          [vdso]
+    ```
+
+不同的映射是不同的权限，比如说代码段是只读的，堆是可读可写的
+
+!!! tip "保护技术2"
+    写和执行不能同时有，否则会有注入漏洞
+
+
+execve 系统调用
+- 先fork， 再通过excve替换
+```shell
+int execve(const char *filename, char *const argv[], char *const envp[]);
+```
+
+
+程序执行的起点和终点并不是main函数，c++有construct等特性可以在main之前就调用
+[Function Attributes - Using the GNU Compiler Collection (GCC)](https://gcc.gnu.org/onlinedocs/gcc-4.1.2/gcc/Function-Attributes.html)
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240707223320.png)
+
+内核以可执行文件 e_entry 位置 (即_start) 作为起点
+
+!!! note "_start"
+    https://codebrowser.dev/glibc/glibc/sysdeps/x86_64/start.S.html#_start
+    - glibc 代码 (汇编构筑)
+    - 携带 *main* 符号跳转 *__libc_start_main* 函数
+
+
+!!! note "*__libc_start_main*"
+    https://codebrowser.dev/glibc/glibc/csu/libc-start.c.html#234
+    - 完成各类和目标 ELF 有关的初始化
+    - 内联 *__libc_start_call_main*
+    - 最终跳往 main 符号
+    - main 结束后调用 exit
+
+!!! tip "保护技术3——基地址与 ASLR"
+    程序开始的地方每次都是随机的
+
+
+## ELF 的交互、调试
+- 绝对路径 / 相对路径
+    * -h / --help
+    * manual
+    * PATH 路径
+
+
+**通过虚拟机或者沙箱进行交互**
+○ https://firejail.wordpress.com/
+○ https://github.com/google/nsjail
+
+**通过编程与程序交互**
+- 重定向构建特殊字符作为输入
+- C 管道编程
+- python subprocess 库
+- python pwntools 库
+
+调试工具
+
+strace：追踪系统调用
+ltrace：追踪调用的库（只对动态链接程序有用）
+
+gdb：GNU debug
+
+```
+run
+start 在main之前临时断点
+
+continue
+
+step / s #单步
+
+info register
+info proc mapping
+
+disassemble main/ disass main #反汇编
+
+breakpoint *0x4005a0 #断点
+b *0x4005a0
+
+
+```
+
+
+## ELF 的逆向
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240708181631.png)
+
+- Bad Aspect 外挂、注册机
+- Good Aspect：未知攻，焉知防
+
+
+
+### **反汇编**
+
+机器指令 => 汇编指令（查表、准确）
+- objdump
+
+
+### **反编译**
+
+汇编指令 => 编程语言（分析/特征匹配/启发式、往往不准确）
+
+- IDA Pro (https://hex-rays.com/ida-pro/ )
+- Binary Ninja (https://binary.ninja )with free version
+- Ghidra (https://github.com/NationalSecurityAgency/ghidra )
+- Cutter / radare (https://github.com/rizinorg/cutter )
+- 大语言模型 ;D https://mlm.lingyiwanwu.com/
+
+
+
+对于符号恢复的静态 or 动态链接目标
+- 关注特定常量和字符串
+- 关注输入和输出函数
+- 关注分支、比较指令
+- 关注可能涉及加密解密的特殊运算（位运算、异或、取余）
+
+
+「可运行」和「可调试」是高效解决逆向问题的必备
+
+- 许多逆向赛题都需要「纯静态」的方式解决，程序可能依赖特定的架构/设备
+- “if it can run, it can be cracked”
+- 通过运行时的结果解决静态逆向时的疑惑
+
 ## IDA
 
 ### 安装
@@ -151,143 +516,3 @@ IDA文本搜索相当于对反汇编列表窗口进行子字符串搜索。
 
 在方框内添加注释，程序员必备，不多讲
 
-
-
-
-
-
-
-## 其他
-
-
-
-| 二进制   | 十进制 | 十六进制 | 字符/缩写                                    | 解释                               |
-| -------- | ------ | -------- | -------------------------------------------- | ---------------------------------- |
-| 00000000 | 0      | 00       | NUL (NULL)                                   | 空字符                             |
-| 00000001 | 1      | 01       | SOH (Start Of Headling)                      | 标题开始                           |
-| 00000010 | 2      | 02       | STX (Start Of Text)                          | 正文开始                           |
-| 00000011 | 3      | 03       | ETX (End Of Text)                            | 正文结束                           |
-| 00000100 | 4      | 04       | EOT (End Of Transmission)                    | 传输结束                           |
-| 00000101 | 5      | 05       | ENQ (Enquiry)                                | 请求                               |
-| 00000110 | 6      | 06       | ACK (Acknowledge)                            | 回应/响应/收到通知                 |
-| 00000111 | 7      | 07       | BEL (Bell)                                   | 响铃                               |
-| 00001000 | 8      | 08       | BS (Backspace)                               | 退格                               |
-| 00001001 | 9      | 09       | HT (Horizontal Tab)                          | 水平制表符                         |
-| 00001010 | 10     | 0A       | LF/NL(Line Feed/New Line)                    | 换行键                             |
-| 00001011 | 11     | 0B       | VT (Vertical Tab)                            | 垂直制表符                         |
-| 00001100 | 12     | 0C       | FF/NP (Form Feed/New Page)                   | 换页键                             |
-| 00001101 | 13     | 0D       | CR (Carriage Return)                         | 回车键                             |
-| 00001110 | 14     | 0E       | SO (Shift Out)                               | 不用切换                           |
-| 00001111 | 15     | 0F       | SI (Shift In)                                | 启用切换                           |
-| 00010000 | 16     | 10       | DLE (Data Link Escape)                       | 数据链路转义                       |
-| 00010001 | 17     | 11       | DC1/XON (Device Control 1/Transmission On)   | 设备控制1/传输开始                 |
-| 00010010 | 18     | 12       | DC2 (Device Control 2)                       | 设备控制2                          |
-| 00010011 | 19     | 13       | DC3/XOFF (Device Control 3/Transmission Off) | 设备控制3/传输中断                 |
-| 00010100 | 20     | 14       | DC4 (Device Control 4)                       | 设备控制4                          |
-| 00010101 | 21     | 15       | NAK (Negative Acknowledge)                   | 无响应/非正常响应/拒绝接收         |
-| 00010110 | 22     | 16       | SYN (Synchronous Idle)                       | 同步空闲                           |
-| 00010111 | 23     | 17       | ETB (End of Transmission Block)              | 传输块结束/块传输终止              |
-| 00011000 | 24     | 18       | CAN (Cancel)                                 | 取消                               |
-| 00011001 | 25     | 19       | EM (End of Medium)                           | 已到介质末端/介质存储已满/介质中断 |
-| 00011010 | 26     | 1A       | SUB (Substitute)                             | 替补/替换                          |
-| 00011011 | 27     | 1B       | ESC (Escape)                                 | 逃离/取消                          |
-| 00011100 | 28     | 1C       | FS (File Separator)                          | 文件分割符                         |
-| 00011101 | 29     | 1D       | GS (Group Separator)                         | 组分隔符/分组符                    |
-| 00011110 | 30     | 1E       | RS (Record Separator)                        | 记录分离符                         |
-| 00011111 | 31     | 1F       | US (Unit Separator)                          | 单元分隔符                         |
-| 00100000 | 32     | 20       | (Space)                                      | 空格                               |
-| 00100001 | 33     | 21       | !                                            |                                    |
-| 00100010 | 34     | 22       | "                                            |                                    |
-| 00100011 | 35     | 23       | #                                            |                                    |
-| 00100100 | 36     | 24       | $                                            |                                    |
-| 00100101 | 37     | 25       | %                                            |                                    |
-| 00100110 | 38     | 26       | &                                            |                                    |
-| 00100111 | 39     | 27       | '                                            |                                    |
-| 00101000 | 40     | 28       | (                                            |                                    |
-| 00101001 | 41     | 29       | )                                            |                                    |
-| 00101010 | 42     | 2A       | *                                            |                                    |
-| 00101011 | 43     | 2B       | +                                            |                                    |
-| 00101100 | 44     | 2C       | ,                                            |                                    |
-| 00101101 | 45     | 2D       | -                                            |                                    |
-| 00101110 | 46     | 2E       | .                                            |                                    |
-| 00101111 | 47     | 2F       | /                                            |                                    |
-| 00110000 | 48     | 30       | 0                                            |                                    |
-| 00110001 | 49     | 31       | 1                                            |                                    |
-| 00110010 | 50     | 32       | 2                                            |                                    |
-| 00110011 | 51     | 33       | 3                                            |                                    |
-| 00110100 | 52     | 34       | 4                                            |                                    |
-| 00110101 | 53     | 35       | 5                                            |                                    |
-| 00110110 | 54     | 36       | 6                                            |                                    |
-| 00110111 | 55     | 37       | 7                                            |                                    |
-| 00111000 | 56     | 38       | 8                                            |                                    |
-| 00111001 | 57     | 39       | 9                                            |                                    |
-| 00111010 | 58     | 3A       | :                                            |                                    |
-| 00111011 | 59     | 3B       | ;                                            |                                    |
-| 00111100 | 60     | 3C       | <                                            |                                    |
-| 00111101 | 61     | 3D       | =                                            |                                    |
-| 00111110 | 62     | 3E       | >                                            |                                    |
-| 00111111 | 63     | 3F       | ?                                            |                                    |
-| 01000000 | 64     | 40       | @                                            |                                    |
-| 01000001 | 65     | 41       | A                                            |                                    |
-| 01000010 | 66     | 42       | B                                            |                                    |
-| 01000011 | 67     | 43       | C                                            |                                    |
-| 01000100 | 68     | 44       | D                                            |                                    |
-| 01000101 | 69     | 45       | E                                            |                                    |
-| 01000110 | 70     | 46       | F                                            |                                    |
-| 01000111 | 71     | 47       | G                                            |                                    |
-| 01001000 | 72     | 48       | H                                            |                                    |
-| 01001001 | 73     | 49       | I                                            |                                    |
-| 01001010 | 74     | 4A       | J                                            |                                    |
-| 01001011 | 75     | 4B       | K                                            |                                    |
-| 01001100 | 76     | 4C       | L                                            |                                    |
-| 01001101 | 77     | 4D       | M                                            |                                    |
-| 01001110 | 78     | 4E       | N                                            |                                    |
-| 01001111 | 79     | 4F       | O                                            |                                    |
-| 01010000 | 80     | 50       | P                                            |                                    |
-| 01010001 | 81     | 51       | Q                                            |                                    |
-| 01010010 | 82     | 52       | R                                            |                                    |
-| 01010011 | 83     | 53       | S                                            |                                    |
-| 01010100 | 84     | 54       | T                                            |                                    |
-| 01010101 | 85     | 55       | U                                            |                                    |
-| 01010110 | 86     | 56       | V                                            |                                    |
-| 01010111 | 87     | 57       | W                                            |                                    |
-| 01011000 | 88     | 58       | X                                            |                                    |
-| 01011001 | 89     | 59       | Y                                            |                                    |
-| 01011010 | 90     | 5A       | Z                                            |                                    |
-| 01011011 | 91     | 5B       | [                                            |                                    |
-| 01011100 | 92     | 5C       | \                                            |                                    |
-| 01011101 | 93     | 5D       | ]                                            |                                    |
-| 01011110 | 94     | 5E       | ^                                            |                                    |
-| 01011111 | 95     | 5F       | _                                            |                                    |
-| 01100000 | 96     | 60       | `                                            |                                    |
-| 01100001 | 97     | 61       | a                                            |                                    |
-| 01100010 | 98     | 62       | b                                            |                                    |
-| 01100011 | 99     | 63       | c                                            |                                    |
-| 01100100 | 100    | 64       | d                                            |                                    |
-| 01100101 | 101    | 65       | e                                            |                                    |
-| 01100110 | 102    | 66       | f                                            |                                    |
-| 01100111 | 103    | 67       | g                                            |                                    |
-| 01101000 | 104    | 68       | h                                            |                                    |
-| 01101001 | 105    | 69       | i                                            |                                    |
-| 01101010 | 106    | 6A       | j                                            |                                    |
-| 01101011 | 107    | 6B       | k                                            |                                    |
-| 01101100 | 108    | 6C       | l                                            |                                    |
-| 01101101 | 109    | 6D       | m                                            |                                    |
-| 01101110 | 110    | 6E       | n                                            |                                    |
-| 01101111 | 111    | 6F       | o                                            |                                    |
-| 01110000 | 112    | 70       | p                                            |                                    |
-| 01110001 | 113    | 71       | q                                            |                                    |
-| 01110010 | 114    | 72       | r                                            |                                    |
-| 01110011 | 115    | 73       | s                                            |                                    |
-| 01110100 | 116    | 74       | t                                            |                                    |
-| 01110101 | 117    | 75       | u                                            |                                    |
-| 01110110 | 118    | 76       | v                                            |                                    |
-| 01110111 | 119    | 77       | w                                            |                                    |
-| 01111000 | 120    | 78       | x                                            |                                    |
-| 01111001 | 121    | 79       | y                                            |                                    |
-| 01111010 | 122    | 7A       | z                                            |                                    |
-| 01111011 | 123    | 7B       | {                                            |                                    |
-| 01111100 | 124    | 7C       | \|                                           |                                    |
-| 01111101 | 125    | 7D       | }                                            |                                    |
-| 01111110 | 126    | 7E       | ~                                            |                                    |
-| 01111111 | 127    | 7F       | DEL (Delete)                                 | 删除                               |
