@@ -70,25 +70,21 @@ every color send a message
 
 ### 色轮
 
+## 色彩空间与色彩模式
+
 ### 色彩空间
+色彩空间（sRGB、Adobe RGB、Display P3 等）是一个相对非常复杂的概念，而且是针对显示的，我们不详细介绍
 
-颜色空间
+### 色彩模式
 
-颜色模型
-
-
-
-HSV
-
-Hue
-
-satuation 饱和度
-
-
-
-value 
-
-不同类型的颜色空间
+- 二值图像（bitonal）：每个像素只有两种颜色，如黑白
+- 灰度图像（grayscale）：每个像素有多种灰度，如 256 级灰度
+- RGB(A)：3(+1) 通道，表示 RGB 三种颜色，A 表示Alpha透明度通道
+- CMYK：青 cyan、品红 magenta、黄 yellow、黑 black 四种颜色混合
+- HSV：色调 hue、饱和度 saturation、明度 value
+- HSL：色调 hue、饱和度 saturation、亮度 lightness
+- YCbCr：亮度 luminance、蓝色色度 blue chroma、红色色度 red chroma
+- LAB：亮度 lightness、绿红色度 A、蓝黄色度 B
 
 ## 色彩与温度
 

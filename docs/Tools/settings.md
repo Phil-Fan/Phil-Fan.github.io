@@ -279,6 +279,7 @@ ssh -p 15821 root@connect.westb.seetacloud.com
 
 
 ## Kali
+### 换源
 [apt 换源](https://www.cnblogs.com/u-damowang1/p/14729017.html)
 
 
@@ -307,11 +308,25 @@ apt-get update
 apt-get upgrade
 ```
 
+
+### linux安装软件的方式
+[deb]
+[Appimage](https://cn.linux-console.net/?p=19002)
+
 ### 软件安装
 ```shell
 apt-get install git
 apt-get install vim
 ```
+
+
+- tldr：简易版man手册
+- fd-find：人性化的find
+- rg(ripgrep)：快速搜索
+- fzf ： 模糊搜索
+
+
+### terminator
 
 [terminator](https://blog.csdn.net/learning_tortosie/article/details/102581261)
 
@@ -344,7 +359,7 @@ sudo apt-get install terminator
 |`Ctrl+Shift+X`|    将分割的某一个窗口放大至全屏使用|
 |`Ctrl+Shift+Z`|    从放大至全屏的某一窗口回到多窗格界面|
 
-
+### vscode
 [vscode on Kali](https://blog.csdn.net/CM_STC89C52/article/details/127296320)
 
 1. 用kali内嵌的浏览器搜索vscode，下载vscode的.deb格式的安装包
@@ -353,10 +368,9 @@ sudo apt-get install terminator
 4. 有个Command选项，输入 `/usr/share/code/code --unity-launch %F --no-sandbox` 即可，再点击保存。
 
 
-- tldr：简易版man手册
-- fd-find：人性化的find
-- rg(ripgrep)：快速搜索
-- fzf ： 模糊搜索
+
+
+### phpstudy
 
 [phpstudy on Kali](https://blog.csdn.net/weixin_54358903/article/details/127698009)
 
@@ -378,7 +392,7 @@ sudo apt-get install ncat
 ```
 
 
-
+### nodejs
 [nodejs on Kali](https://www.cnblogs.com/hirak0/p/16133730.html)
 按照这个安装即可
 
@@ -399,9 +413,80 @@ sudo ln -s /usr/local/sbin/nodejs/bin/npm /usr/local/bin/
 ```
 很奇怪这里不输入绝对路径会有错误
 
-**strace & ltrace**
+### strace & ltrace
 调试工具
+```shell
+sudo apt-get install strace ltrace
+```
 
-### linux安装软件的方式
-[deb]
-[Appimage](https://cn.linux-console.net/?p=19002)
+### Stegsolve
+[在Kali Linux中下载工具Stegsolve - 平静的雨田 - 博客园](https://www.cnblogs.com/hardcoreYutian/p/10613036.html)
+
+[linux 解决 " command not found: shopt "的 "\~/.bashrc" 配置问题-CSDN博客](https://blog.csdn.net/qq_36148847/article/details/79261067)
+
+1. 安装[java环境](https://www.oracle.com/java/technologies/downloads/?er=221886)
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240710122150.png)
+
+```shell
+tar -xzvf jdk-12_linux-x64_bin.tar.gz
+mv jdk /opt
+cd /opt/jdk
+```
+
+2. 设置环境变量，这里不要用`.bashrc`，而是`.zshrc`
+
+
+```shell
+gedit ~/.zshrc
+export JAVA_HOME=/opt/jdk
+export CLASSPATH=.:${JAVA_HOME}/lib
+export PATH=${JAVA_HOME}/bin:$PATH
+```
+
+```shell
+source ~/.zshrc
+```
+
+验证安装成功
+```shell
+java -version
+```
+出现类似于下面的文字即成功
+>Picked up _JAVA_OPTIONS: -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true
+>java version "22.0.1" 2024-04-16
+>Java(TM) SE Runtime Environment (build 22.0.1+8-16)
+>Java HotSpot(TM) 64-Bit Server VM (build 22.0.1+8-16, mixed mode, sharing)
+
+
+前往[github库](https://github.com/Giotino/stegsolve/releases)，下载软件
+```
+wget https://github.com/Giotino/stegsolve/releases/download/v1.4/StegSolve-1.4.jar
+mv StegSolve-1.4.jar StegSolve
+```
+
+直接使用
+```
+java -jar StegSolve
+```
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240710122852.png)
+
+!!! bug "若执行`source ~/.bashrc`会报错"
+    [bash - shopt command not found in .bashrc after shell updation - Stack Overflow](https://stackoverflow.com/questions/26616003/shopt-command-not-found-in-bashrc-after-shell-updation)
+
+    ```shell
+    /home/amerrnath/.bashrc:17: command not found: shopt 
+    /home/amerrnath/.bashrc:25: command not found: shopt 
+    /home/amerrnath/.bashrc:109: command not found: shopt 
+    /usr/share/bash-completion/bash_completion:35: parse error near `]]'
+    ```
+### 其他隐写工具
+
+- steghide
+steghide不支持png格式的隐写，zsteg支持png。
+```shell
+apt install steghide
+```
+
+- zsteg
+[安装](https://blog.csdn.net/Amherstieae/article/details/107512398)
+
