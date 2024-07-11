@@ -313,6 +313,33 @@ apt-get upgrade
 [deb]
 [Appimage](https://cn.linux-console.net/?p=19002)
 
+
+### SSH
+```shell
+vim /etc/ssh/sshd_config
+
+```
+
+- 第33行:将 PermitRootLogin without-password（第33行） 改为 PermitRootLogin yes 并去掉前面的注释符号（#） 
+- 第57行:#PasswordAuthentication yes(第57行)的注释去掉，如果是no就改为yes
+- 保存
+
+```shell
+service ssh restart
+```
+
+**验证安装**
+```shell
+service ssh status
+```
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240711175232.png)
+
+**开机自启动**
+
+```shell
+update-rc.d ssh enable
+```
+
 ### 软件安装
 ```shell
 apt-get install git
@@ -490,3 +517,70 @@ apt install steghide
 - zsteg
 [安装](https://blog.csdn.net/Amherstieae/article/details/107512398)
 
+### go环境搭建
+[参考](https://blog.csdn.net/single_g_l/article/details/123244435)
+[go中文](https://studygolang.com/dl)
+
+```shell
+wget https://studygolang.com/dl/golang/go1.22.5.linux-amd64.tar.gz
+tar -xzvf go1.22.5.linux-amd64.tar.gz
+rm go1.22.5.linux-amd64.tar.gz
+```
+
+```shell
+mv ./go /usr/local
+```
+
+**配置环境变量**
+
+在`/home`目录下新建go目录（文件名随意），然后在go目录下分别新建三个目录：
+- src ---- 里面每一个子目录，就是一个包。包内是Go的源码文件
+- pkg ---- 编译后生成的，包的目标文件
+- bin ---- 生成的可执行文件。
+
+
+`vim ~/.zshrc` 编辑文件
+ 
+ 
+在文件末尾中添加
+```shell
+export PATH=$PATH:/usr/local/go/bin   //  将 /usr/local/go/bin 目录添加至PATH环境变量
+export GOPATH=/home/go                // 设置GOPATH环境变量
+```
+
+```shell
+source ~/.zshrc
+```
+
+**验证安装**
+
+```shell
+$ go version
+go version go1.22.5 linux/amd64
+
+$ go
+Go is a tool for managing Go source code.
+Usage:
+	go <command> [arguments]
+```
+
+### geth
+[Downloads | go-ethereum](https://geth.ethereum.org/downloads)
+
+下载后解压
+```
+tar -xzvf geth-linux-amd64-1.14.6-aadddf3a.tar.gz
+cd geth-linux-amd64-1.14.6-aadddf3a
+```
+
+移动到对应位置`\usr\local`
+
+```shell
+cd /usr/local
+mkdir geth
+```
+
+```shell
+mv geth /usr/local/geth
+vim ~/.zshrc
+```

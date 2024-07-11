@@ -918,10 +918,13 @@ namechk:https://namechk.com/
 [常见的隐写工具的使用\_stegoveritas-CSDN博客](https://blog.csdn.net/qq_44101248/article/details/108850686)
 
 !!! note "WorkFlow"
-    - 使用 `exiftool` 检查图片元信息，看看有没有看起来会有用的信息
+    - 使用`file`查看信息，使用 `exiftool` 检查图片元信息，看看有没有看起来会有用的信息
     - 使用十六进制编辑器打开，观察文件中有无附带信息、图片基本格式是否正确
     - 使用 `binwalk` 检查文件末尾是否叠加了多余的文件
     - 使用 `stegsolve` 打开图片 / 或者使用 `CyberChef`
+    - 使用`steghide extract -sf <file> -p <passwd>`解密数据
+    - `zsteg`：自动检测隐写，`zsteg <file>`
+    - `stegoveritas -steghide <file>`
     - 观察各个通道的 `bit plane`
     - 使用 `Extract LSB` 尝试提取数据格式的 LSB（或者使用 `zsteg` 猜测）
     - 考虑能否查找原图，如果找到了尝试进行比较
