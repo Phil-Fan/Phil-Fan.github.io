@@ -716,7 +716,7 @@ sys 系统相关
 root
 
 usr 软件安装
-
+[在Linux系统中使用mount命令挂载后缀为.img的Ubuntu系统 - 3yude - 博客园](https://www.cnblogs.com/la1den/p/16888272.html)
 
 
 `/etc/shadow`用户口令的加密信息

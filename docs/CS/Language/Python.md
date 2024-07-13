@@ -1072,6 +1072,22 @@ print(next(generator))  # 输出：1
 
 ### 字符串 `String`
 
+!!! tip "奇怪的版本问题"
+
+    [Python3 字符串与hex之间的相互转换\_python 字符串转hex-CSDN博客](https://blog.csdn.net/qdPython/article/details/114840579)
+
+    [Python（00）：bytes字节串类型及用法 - springsnow - 博客园](https://www.cnblogs.com/springsnow/p/13174511.html)
+
+!!! tip "TypeError: Odd-length string "
+  
+    意思是奇数长度字符串
+
+    但我数了好几遍字符串都是偶数的，想不通，我以为我的转化方式有问题，改了好几种转化方式，后来发现在python终端直接输入字符串的话可以输出字节数组，就想到可能我之前的文件file有问题，果然发现原来在读的时候读进了一个回车，导致字符串成奇数了，所以在读后后可以加一行
+
+    ```python
+    f=f.strip('\n')
+    ```
+
 可以用来取出字符串中的某个字符
 
 - `s[0]`：s中的第1个字符

@@ -1048,3 +1048,65 @@ ZIP 也使用分段的方式存储数据
 ## PPC
 
 ### Quine
+
+
+## 流量取证
+
+流量取证一般就是拿到这些数据包（cap、pcap、pcapng 格式）进行分析
+
+- 如有损坏的话修复数据包（少见，pcapfix 可以修复）
+- 分析、提取得到正在通信的内容（可能包含有效信息）
+- 分析一些特定的、不太常见的协议（比如一些自定义协议）
+- 分析、解密一些加密的协议（比如 VMess 等）
+
+### 常用工具
+
+- tcpdump 抓 TCP 包（Linux 命令行）
+- Wireshark直接抓包，得到物理层的全部数据并解析（开源）
+- 自带命令行工具 tshark：[官网](https://www.wireshark.org/docs/man-pages/tshark.html)，可以再wireshark中筛选，然后得到对应的指令
+[一文读懂网络报文分析神器Tshark： 100+张图、100+个示例轻松掌握-腾讯云开发者社区-腾讯云](https://cloud.tencent.com/developer/article/2312883)
+- termshark类似 Wireshark 的开源命令行工具
+- pyshark：tshark 的 Python 封装，可以用 Python 脚本分析
+- scapy：Python 库，也可以用来分析流量包
+
+### HTTP 协议流量分析
+- 分析统计信息，查看所有的 HTTP 请求 URI
+- 分析 HTTP 往返的情况，流量整体信息
+- 具体分析某些请求：利用过滤器
+- 分析某一数据包具体内容：跟踪流，跟踪 TCP 解析 TCP，跟踪 HTTP 可以自动解压 gzip 等；分析请求头、响应头、请求体、响应体等
+[Wireshark分析sql布尔盲注流量包\_sql注入wireshark抓包分析-CSDN博客](https://blog.csdn.net/weixin_44032232/article/details/114297460)
+
+### 其他协议
+
+**ICMP 协议**：ping
+某时也会带有一些信息，可以进行进一步分析
+OICQ 协议：QQ 使用，是加密的，但是可以看到双方 QQ 号等
+
+**WIFI 协议（IEEE 802.11）**
+可以使用 Linux aircrack 套件爆破密码
+有了密码后可以在 Wireshark 中设置并解密流量
+
+[Kali-WIFI攻防(二)----无线网络分析工具Aircrack-ng\_airdecap-ng-CSDN博客](https://blog.csdn.net/u011781521/article/details/69062209)
+
+**USB 协议**
+安装了 USBcap 之后可以在 Wireshark 中捕获 USB 流量
+有工具可以解析流量，绘制鼠标轨迹，得到按键信息等
+
+
+**VMess**，需要读文档 / 源码，实现解密
+
+## 内存取证
+### 先 strings
+提取出文件中所有的 ASCII 字符串，没准就发现有效信息秒杀了
+会有超多，可以输出到文件然后搜索，或者直接 grep
+strings mem.raw | grep "flag"
+提取 Unicode 字符 strings -el
+
+### 再上 volatility
+- 开源的内存取证工具，可以分析 Windows/Linux/macOS
+- 先识别系统信息
+- 针对不同系统使用不同命令分析
+- 能跑的都跑一遍，注意看输出
+
+## 以太坊区块链基础
+

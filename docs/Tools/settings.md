@@ -340,6 +340,11 @@ service ssh status
 update-rc.d ssh enable
 ```
 
+**配置免密登陆**
+
+
+
+
 ### 软件安装
 ```shell
 apt-get install git
@@ -584,3 +589,47 @@ mkdir geth
 mv geth /usr/local/geth
 vim ~/.zshrc
 ```
+
+### volatility
+[内存取证-volatility工具的使用 （史上更全教程，更全命令）\_volatility内存取证-CSDN博客](https://blog.csdn.net/m0_68012373/article/details/127419463)
+
+
+是一个内存取证的工具，依赖python2版本
+所以先使用conda构建一个基于python2的环境
+```shell
+conda create -n vol python=2.7
+conda activate vol
+```
+
+#### 安装依赖
+
+**crypto**
+```shell
+pip install pycryptodome
+```
+
+**distorm3**
+[vext01/distorm3: distorm3](https://github.com/vext01/distorm3)
+下载源码后，进入到对应文件夹
+```shell
+cd distorm3
+python setup.py install
+```
+
+#### 安装
+[volatilityfoundation/volatility: An advanced memory forensics framework](https://github.com/volatilityfoundation/volatility)
+下载源码
+```shell
+cd volatility
+python setup.py install
+```
+
+**验证**
+
+```shell
+vol.py
+```
+
+> └─# vol.py       
+> Volatility Foundation Volatility Framework 2.6.1
+> ERROR   : volatility.debug    : You must specify something to do (try -h)
