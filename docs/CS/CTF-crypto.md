@@ -1350,6 +1350,23 @@ print(long_to_bytes(m))
 
 四个步骤计算出128bit摘要
 
+```python
+>>> import hashlib
+>>> m = hashlib.md5()
+>>> m.update(b'123')
+>>> m.hexdigest()
+'202cb962ac59075b964b07152d234b70'
+ 
+# 或者可以这样（最常见的写法，常用于图片的命名）
+>>> hashlib.md5(b'123').hexdigest()
+'202cb962ac59075b964b07152d234b70'
+ 
+# 也可以使用hash.new()这个一般方法，hashlib.new(name[, data])，name传入的是哈希加密算法的名称，如md5
+>>> hashlib.new('md5', b'123').hexdigest()
+'202cb962ac59075b964b07152d234b70'
+```
+
+
 Calculating a checksum using mathematical algorithms
 
 - It is impossible to guess the original data from the message digest

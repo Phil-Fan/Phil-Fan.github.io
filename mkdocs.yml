@@ -197,14 +197,20 @@ nav:
 - Class:
   - Class/signal.md
   - Class/自动控制原理.md
+  - Class/现代控制理论.md
   - Class/SocialSciences.md
-  - Class/Statistics.md
   - Class/马原.md
+  - "统计与大数据分析":
+      - CS/Statistic/0-intro.md
+      - CS/Statistic/2-statistic.md
   - "ITP课程" :
       - Class/ITP/ITP-Team-Communication-and-Leadership.md
       - Class/ITP/ITP-Management.md
+      - Class/ITP/ITP-创业营销.md
       - Class/ITP/ITP-创业战略.md
       - Class/ITP/ITP-基于创新的创业.md
+      
+     
   
 - Robotics:
   - Robotics/ROS.md
@@ -219,6 +225,10 @@ nav:
     - Robotics/EmbeddedSystem-8051-experiment.md
     - Robotics/EmbeddedSystem-stm32.md
     - Robotics/EmbeddedSystem-experiment.md
+  - "嵌入式开发板学习":
+    - Robotics/k210.md
+    - Robotics/RespberryPi.md
+
   - "传感与检测":
     - Robotics/sensor&detection.md
   - "通信相关":
@@ -288,7 +298,7 @@ nav:
       - CS/AI/AIGC-explore.md
       - CS/AI/GitHub-proj.md
 
-
+    
     - CS/AI/HumanPoseEstimation.md
   
   - "CV | 计算机视觉":
@@ -305,7 +315,12 @@ nav:
     - CS/CTF-pwn.md
     - CS/CTF-web.md
     
-     
+  - "Web3":
+    - CS/Web3/blockchain.md
+    - CS/Web3/contract.md
+    - CS/Web3/solidity.md
+    - CS/Web3/lingo.md
+
     
 - Explore:
   - Finance:
@@ -319,7 +334,7 @@ nav:
     - Explore/Books/Marxist principles.md
     - Explore/Philosophy.md
     - Explore/Philosophy-by-topic.md
-    
+  - Explore/Opensource.md
   
 
 - Tools:
@@ -334,6 +349,7 @@ nav:
     - Tools/obsidian.md
     - Tools/latex.md
     - Tools/vim.md
+    - Tools/markdown.md
 
   - Tools/tableau.md
   - Tools/matlab.md
@@ -349,9 +365,12 @@ nav:
   - else/flower.md
   - else/coffee.md
 
-  - else/exercise-fit.md
-  - else/exercise-swimming.md
+  - "运动":
+    - else/exercise-fit.md
+    - else/exercise-swimming.md
 
+  - "食在Hangzhou"
+    - else/eat.md  
   - "音乐":
     - else/music_theory.md
     - else/piano.md

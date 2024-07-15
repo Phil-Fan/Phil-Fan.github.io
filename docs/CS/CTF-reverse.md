@@ -7,7 +7,7 @@
 | 3    | RISC-V  | 模块化，极简，可拓展   | 三星，英伟达，西部数据 | RISC-V基金会 | 2014年   |
 | 4    | MIPS    | 简洁，优化方便，高拓展性 | 龙芯                  | MIPS科技公司  | 1981年   |
 
-
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240714181857.png)
 
 ## 程序？可“执行”文件
 
@@ -89,8 +89,13 @@ ELF Header:
     ```
     - readelf
 
-## ELF 的编译
+## ELF 的编译 Complier
+[详解三大编译器：gcc、llvm 和 clang - 知乎](https://zhuanlan.zhihu.com/p/357803433)
 
+[GCC - 维基百科，自由的百科全书](https://zh.wikipedia.org/wiki/GCC#%E4%BC%98%E5%8C%96)
+
+
+[GNU计划 - 维基百科，自由的百科全书](https://zh.wikipedia.org/wiki/GNU%E8%A8%88%E5%8A%83)
 GCC(GNU Compiler Collection)即GNU编译器套件，属于一种编程语言编译器，其原名为GCC（GNU C Compiler）即GNU c语言编译器
 
 gcc（GUN C Compiler）是GCC中的c编译器，而g++（GUN C++ Compiler）是GCC中的c++编译器。
@@ -140,6 +145,9 @@ gcc -fdump-tree-all -S hello.c
 
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240707210444.png)
 
+Assemble
+
+
 **编译后端**
 
 - 从LLVM IR生成目标代码
@@ -188,6 +196,8 @@ ld hello.o -o hello
 ldd hello.elf
 ```
 
+- libc
+- ld 程序的加载器
 ```
 linux-vdso.so.1 (0x00007fff45b18000) #虚拟动态共享对象
 libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f9bddd66000) #libc
@@ -300,12 +310,27 @@ int execve(const char *filename, char *const argv[], char *const envp[]);
 
 调试工具
 
-strace：追踪系统调用
-ltrace：追踪调用的库（只对动态链接程序有用）
+`strace`：追踪系统调用(操作系统提供给程序的库)
 
-gdb：GNU debug
+`ltrace`：追踪调用的库（只对动态链接程序有用）
 
-```
+### gdb：GNU debug
+
+● 调试模式
+○ 调试器执行模式
+○ attach 模式
+○ remote 模式
+
+
+● 常用调试功能
+○ 执行断点
+○ 硬件断点
+○ 查看寄存器 / 内存
+○ set 修改寄存器 / 内存
+
+● gdb 插件
+
+```shell
 run
 start 在main之前临时断点
 
@@ -320,8 +345,6 @@ disassemble main/ disass main #反汇编
 
 breakpoint *0x4005a0 #断点
 b *0x4005a0
-
-
 ```
 
 
@@ -364,6 +387,18 @@ b *0x4005a0
 - 许多逆向赛题都需要「纯静态」的方式解决，程序可能依赖特定的架构/设备
 - “if it can run, it can be cracked”
 - 通过运行时的结果解决静态逆向时的疑惑
+
+!!! note "题目给到的main函数不一定是真正的main函数"
+
+### 动态示例
+crackme-ext
+
+因为shuffle这个函数是一对一映射的，所以可以定向爆破
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240715101015.png)
+
+这里call shuffle就是调用shuffle函数，那么B6E就是shuffle函数的结束地址
+
 
 ## IDA
 
@@ -448,17 +483,6 @@ Options：可以进行一些个性化的设置
 
 
 
-#### 导航栏
-
-彩色的水平带是 IDA 的概况导航栏，也叫做导航带。导航带是被加载文件地址空间的线性视图。默认情况下，它会呈现二进制文件的整个地址范围。你可以右击导航带内任何位置
-
-
-
-在导航带上，会有一个细小的当前位置指示符（默认为黄色）指向与当前反汇编窗口中显示的地址范围对应的导航带地址。将光标悬停在导航带的任何位置，IDA 会显示一个提示，指出其在二进制文件中的对应位置。
-
-简单来说，点到哪里跳到哪里
-
-而不同的颜色代表了不同的数据段，比如说data段，text段等
 
 
 
@@ -515,4 +539,13 @@ IDA文本搜索相当于对反汇编列表窗口进行子字符串搜索。
 #### / （ 注释操作）
 
 在方框内添加注释，程序员必备，不多讲
+
+### R | 常量标注char 
+
+可以把一些常用的可见字符标注成`char`
+
+右键即可
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240715100010.png)
+
+
 
