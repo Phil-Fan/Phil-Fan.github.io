@@ -707,7 +707,7 @@ base家族编码都不算难，根据特征特点找到对应的加解密方式�
 ### 其他编码
 
 - UUencode、XXencode
-- QR Code 二维码：[介绍](note.tonycrane.cc/ctf/misc/qrcode)
+- QR Code 二维码：[介绍](https://note.tonycrane.cc/ctf/misc/qrcode)
 - 条形码
 - 盲文编码
 - 一些其他好玩的类编码：

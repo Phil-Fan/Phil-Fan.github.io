@@ -42,9 +42,36 @@
 #### Github评论
 
 - 安装[giscus](https://giscus.app/zh-CN)
-- 覆盖comments.html
+1. 安装 giscus GitHub App。这一步只需要在 GitHub 官网上点击安装即可。
+2. 访问 giscus 官网，配置与 giscus 评论系统关联的 GitHub 仓库。
+
+请确保：
+- 该仓库是**公开**的，否则访客将无法查看 Discussions。
+- **giscus app** 已安装，否则访客将无法评论和回应。
+- Discussions 功能已在你的仓库中启用。
 
 [mkdocs-material集成评论系统 - 知识库 (geodoer.github.io)](https://geodoer.github.io/Z-工具/博客相关工具/mkdocs/mkdocs-material/评论系统/#commentshtml)
+
+
+
+```
+<script src="https://giscus.app/client.js"
+        data-repo="Phil-Fan/Phil-Fan.github.io"
+        data-repo-id="R_kgDOLJH-6w"
+        data-category="General"
+        data-category-id="DIC_kwDOLJH-684Ccv_n"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="dark"
+        data-lang="zh-CN"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
+```
 
 ### 图床的配置与更换
 

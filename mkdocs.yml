@@ -207,7 +207,6 @@ nav:
       - Class/ITP/ITP-Team-Communication-and-Leadership.md
       - Class/ITP/ITP-Management.md
       - Class/ITP/ITP-创业营销.md
-      - Class/ITP/ITP-创业战略.md
       - Class/ITP/ITP-基于创新的创业.md
       
      
@@ -291,7 +290,6 @@ nav:
     
   - "AI | 人工智能":
     - CS/AI/01-AI_history&intro.md
-    - CS/AI/02-search.md
     
     - "AI应用":
       - CS/AI/03-AI_security.md
@@ -369,8 +367,9 @@ nav:
     - else/exercise-fit.md
     - else/exercise-swimming.md
 
-  - "食在Hangzhou"
-    - else/eat.md  
+  - "食在Hangzhou":
+    - else/eat.md
+
   - "音乐":
     - else/music_theory.md
     - else/piano.md
@@ -392,6 +391,7 @@ nav:
 
 
 plugins:
+  # - meta
   - search:
       lang:
         - zh
