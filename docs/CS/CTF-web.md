@@ -414,6 +414,17 @@ form[0].submit();
 ```
 
 ## SSRF | 服务器端请求伪造
+[谈一谈如何在Python开发中拒绝SSRF漏洞](https://www.leavesongs.com/PYTHON/defend-ssrf-vulnerable-in-python.html)
+
+[SSRF - School Bus](https://zjusec.com/challenges/47)
+
+[CTFshow刷题日记-WEB-SSRF（web351-360）SSRF总结\_ctf ssrf题型总结-CSDN博客](https://blog.csdn.net/q20010619/article/details/120536552)
+
+
+DNS rebinder
+[rbndr.us dns rebinding service](https://lock.cmpxchg8b.com/rebinder.html)
+[CEYE - Monitor service for security testing](http://ceye.io/profile)
+
 服务端请求伪造（Server Side Request Forgery, SSRF）指的是攻击者在未能取得服务器所有权限时，利用服务器漏洞以服务器的身份发送一条构造好的请求给服务器所在内网。SSRF攻击通常针对外部网络无法直接访问的内部系统。
 
 假设有一个Web应用允许用户输入URL并获取该URL的内容。攻击者可以输入内部服务的URL，获取敏感信息：

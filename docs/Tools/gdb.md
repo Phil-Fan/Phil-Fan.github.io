@@ -49,7 +49,9 @@ b *0x4005a0
 ```
 
 ### 快捷指令
-enter 重复指令
+**enter 重复指令**
+
+
 ### 断点
 b(breakpoint) + 行号 —— 在那一行打断点
 
@@ -74,8 +76,7 @@ enable b(breakpoint) + 编号 —— 使一个断点有效【开启断点】
 相当于VS中的空断点
 
 enable breakpount —— 使一个断点有效【开启断电】
-
-
+        b
 ### 查看类
 l(list) 行号/函数名 —— 显示对应的code，每次10行
 
@@ -106,7 +107,152 @@ finish —— 在一个函数内部，执行到当前函数返回，然后停下
 
 c(continue) —— 从一个断点处，直接运行至下一个断点处【VS下不断按F5】
 
-### 编程
+## 自动化脚本
+
+[GDB自动化脚本编写笔记一\_gdb 脚本-CSDN博客](https://blog.csdn.net/kelxLZ/article/details/112411761)
+[用gdb脚本进行自动化调试\_gdb本来就支持自定义脚本辅助调试-CSDN博客](https://blog.csdn.net/nirendao/article/details/105910753)
+
+1. 井号 # 表示注释
+
+2. set
+
+
+执行方法
+
+- interactive 界面
+```
+(gdb) file test.exe 
+(gdb) source mycmd.gdb 
+```
+
+
+- 在命令行中运行 gdb 的 batch 模式命令
+```
+gdb --batch --command=cmd.gdb --args test.exe <add necessary parameters here> 
+```
+
+### `.gdb`脚本
+使用`.gdb`脚本进行自动调试
+
+`run`命令可以接受输入重定向
+`run < input.txt`
+
+```
+set logging file output.log
+set $i = 0
+while $i < 100
+  run < count.txt
+  set logging enabled on
+  p $eax
+  set logging enabled off
+  set $i = $i + 1
+end
+```
+
+
+函数声明语法
+```
+define func_name
+    <body>
+end
+```
+
+```
+document func_name
+# write documents here 
+end
+```
+
+1> 设置gdb的一些选项的值，如前面提及的pagination等
+如果要查看当前的值，可以使用show命令，比如： show pagination
+
+2> 创建调试使用的变量
+```
+set $a = i 
+```
+不带$的变量是被调试程序中的变量，如这里的i； 带$的变量为调试过程中定义的变量，如这里的$a
+所有在gdb中创建的变量都是全局的
+
+其他的例子还有：
+```
+(gdb) set $i = (char *)("Hello")
+
+(gdb) print $i
+$1 = 0x7ffff7fddf00 "Hello"
+
+(gdb) printf "%s\n", $i
+Hello
+```
+
+3> 访问寄存器
+```
+set $a = $eax
+p $a
+```
+
+
+
+4> 修改寄存器
+```
+set $eax = 5
+```
+
+
+
+5> 修改内存
+```
+set *(unsigned char *)$addr = 0x90
+```
+
+打印语句
+```
+echo Hello\n
+
+printf "a=%d\n", 10
+```
+
+条件语句
+```
+# e.g. if i == 10
+if <condition>
+    # do something 
+else 
+    # do other things 
+end 
+```
+
+
+循环语句
+```
+while <condition> 
+    # do something 
+end
+```
+
+
+```
+set $i = 10
+while $i > 0
+    printf "%d\n", $i 
+    set $i = $i - 1
+end
+```
+
+
+在 breakpoint 处执行调试语句
+这一点是很常用的，尤其是在调试for循环的时候。
+先看一个最简单的实例
+
+```
+break function_name
+    command 1
+    backtrace
+    continue
+end
+```
+
+### python
+
 
 
 

@@ -391,7 +391,9 @@ b *0x4005a0
 !!! note "题目给到的main函数不一定是真正的main函数"
 
 ### 动态示例
-crackme-ext
+```
+file crackme-ext
+```
 
 因为shuffle这个函数是一对一映射的，所以可以定向爆破
 
