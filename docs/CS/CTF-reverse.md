@@ -164,6 +164,10 @@ llc -filetype=obj hello.ll -o hello.o
 ``` 
 
 
+```bash
+as [options] -o outputfile inputfile
+```
+
 ## ELF 链接
 
 把已有的目标文件和库目标文件或别的目标文件链接在一起，生成一个可执行文件

@@ -6,6 +6,10 @@
 
 [Markdown 教程-常见Markdown错误和解决方法 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/672261576)
 
+
+### 代码块
+[Code blocks(代码块) - Material for MkDocs](https://wdk-docs.github.io/mkdocs-material-docs/reference/code-blocks/#annotations-with-numbers)
+
 ## 配置
 
 ### Commands

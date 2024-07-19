@@ -1,4 +1,4 @@
-# MISC | 杂项
+# MISC
 
 ## 什么是MISC
 miscellaneous 杂项

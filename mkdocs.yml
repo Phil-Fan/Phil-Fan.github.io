@@ -306,12 +306,12 @@ nav:
   
   - "CTF相关知识":
     - CS/CTF-intro.md
-    - CS/CTF-crypto.md
-    - CS/CTF-reverse.md
-    - CS/CTF-CPS.md
-    - CS/CTF-misc.md
-    - CS/CTF-pwn.md
     - CS/CTF-web.md
+    - CS/CTF-misc.md
+    - CS/CTF-reverse.md
+    - CS/CTF-pwn.md
+    - CS/CTF-crypto.md
+    - CS/CTF-CPS.md
     
   - "Web3":
     - CS/Web3/blockchain.md

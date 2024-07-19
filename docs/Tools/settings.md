@@ -35,7 +35,12 @@
 - powerpoint，okplus，Canva
 
 
+## linux
 
+查看cpu信息
+```bash
+cat /proc/cpuinfo
+```
 
 ## windows
 
@@ -52,6 +57,56 @@ xGameBar对我来说没什么用，但是虚拟机中需要使用到这个快捷
 关闭里边选项即可。
 
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240706192241.png)
+
+
+### 电脑蓝屏
+查看错误原因
+
+蓝屏以后先重启
+
+
+
+#### 排查方法———WinDBG查看.dmp文件
+[查找/分析Windows蓝屏DMP文件\_蓝屏文件在哪个文件夹-CSDN博客](https://blog.csdn.net/pzhier/article/details/102593562#)
+
+
+
+下载WinDBG[64位](https://link.csdn.net/?target=https%3A%2F%2Fdownload.microsoft.com%2Fdownload%2FA%2F6%2FA%2FA6AC035D-DA3F-4F0C-ADA4-37C8E5D34E3D%2Fsetup%2FWinSDKDebuggingTools_amd64%2Fdbg_amd64.msi)
+
+
+1. 运行Windbg，然后按Ctrl+S或从文件菜单中打开符号表设置窗；
+2. 将符号表地址：`SRV*C:\Symbols*http://msdl.microsoft.com/download/symbols` 粘贴在输入框中，确定。^[1]
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240720005545.png)
+
+
+可使用`Ctrl+D`快捷键来打开一个dmp文件，或者点击WinDbg界面上的`File=>Open Crash Dump`按钮，来打开一个dmp文件。第一次打开dmp文件时，可能会收到如下提示，出现这个提示时，勾选`Don’t ask again in this WinDbg session`，然后点否即可
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240720005606.png)
+
+!!! tip "打开第二个DMP文件"
+    如果在打开第二个DMP文件时，可能因为上一个分析记录未清除，导致无法直接分析下一个dmp文件，可以使用快捷键`Shift+F5`来关闭上一个DMP的分析记录。
+
+
+打开之后首先查看两点
+
+- 第一个关键信息：`Probably caused by:`
+- 第二个关键信息：找到并点击`！analyze –v `， 从弹出的内容中查找 `BUGCHECK_STR:`
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240720010134.png)
+
+
+[Windows Bug Check Code Reference](https://learn.microsoft.com/en-us/windows-hardware/drivers/debugger/bug-check-code-reference2)
+
+
+
+[1]: 加粗字体(C:\Symbols)为符号表本地存储路径，建议固定路径，你也可以选择其它路径，可避免符号表重复下载。
+
+#### memory_management
+[只要看直播或者b站视频就容易蓝屏 NGA玩家社区](https://ngabbs.com/read.php?tid=36810975&rand=354)
+
+[在看B站时突然蓝屏，报错 VIDEO\_xxx，蓝屏上面还有B站横幅。 - Microsoft Community](https://answers.microsoft.com/zh-hans/windows/forum/all/%E5%9C%A8%E7%9C%8Bb%E7%AB%99%E6%97%B6%E7%AA%81/1c6e5719-545b-4f6e-9f39-5dfa49e218dc)
+
+
 
 ### 显示器相关
 
@@ -152,9 +207,6 @@ nvidia-smi
 
 清华镜像地址：`https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/`
 
-
-
-
 下载之后
 ```shell
 bash Miniconda3-py39_4.10.3-Linux-x86_64.sh
@@ -203,25 +255,49 @@ while read requirement; do conda install --yes $requirement; done < requirements
 while read requirement; do conda install --yes $requirement || pip install $requirement; done < requirements.txt
 ```
 
+
+### `conda`环境导出与导入
 导出
-```
+```bash
 conda list -e > requirements.txt
 ```
 
 导入安装
-```
+```bash
 conda install --yes --file requirements.txt
 ```
 
 导出 yml 文件方式
-```
+```bash
 conda env export > freeze.yml
 ```
 
 安装
-```
+```bash
 conda env create -f freeze.yml
 ```
+
+### pip 导出环境
+
+1. 导出结果含有路径
+导出结果会存在路径，生成的requirements.txt文件在当前目录下。
+```shell
+pip freezen > requirements.txt
+```
+
+2. 导出不带路径的
+生成的requirements.txt文件在当前目录下。
+```shell
+pip list --format=freeze > requirement.txt
+```
+生成requirements.txt，pip freeze会将当前PC环境下所有的安装包都进行生成,再进行安装的时候会全部安装很多没有的包.此方法要注意。
+
+安装requirements文件的pip源的包
+```shell
+pip install -r requirements.txt
+```
+
+
 
 
 ## `Pycharm`
@@ -655,7 +731,7 @@ vol.py
 > Volatility Foundation Volatility Framework 2.6.1
 > ERROR   : volatility.debug    : You must specify something to do (try -h)
 
-### docker 
+## docker 
 [Docker Compose - 安装和基本使用\_docker-compose 安装-CSDN博客](https://blog.csdn.net/Que_art/article/details/135192479)
 
 === "Docker Compose（容器编排工具）"
@@ -681,7 +757,7 @@ vol.py
 Docker Compose version v2.16.0
 ```
 
-#### 换源
+### 换源
 ```shell
 sudo vim /etc/docker/daemon.json
 ```
@@ -691,7 +767,7 @@ sudo vim /etc/docker/daemon.json
     "registry-mirrors": ["https://dockerhub.icu"]
 }
 ```
-#### 文档
+### 文档
 
 !!! note "文档结构"
 
@@ -728,7 +804,7 @@ sudo vim /etc/docker/daemon.json
         logvolume01: {}
         ```
 
-#### 使用
+### 使用
 
 ```shell
 docker-compose up
