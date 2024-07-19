@@ -17,7 +17,10 @@
 
 1. **阶段**：问题过程按时间、空间的特征分解成若干相互联系的阶段。
 2. **状态**：k阶段开始（或结束）时的客观条件，记为$s_k \in S_k$，$S_k$为$k$阶段状态集合
-3. **决策**：依据状态做出的决定，记为$u_k(s_k)\in D_k(s_k)$ , $Dk (sk)$为状态$s_k$的允许决策集合。<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240531194223986.png" alt="image-20240531194223986" style="zoom:67%;" />如$D_1(A) = {B_1,B_2,B_3},u_1(A) = B_i \quad i = 1,2,3$
+3. **决策**：依据状态做出的决定，记为$u_k(s_k)\in D_k(s_k)$ , $Dk (sk)$为状态$s_k$的允许决策集合。<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240531194223986.png" alt="image-20240531194223986" style="zoom:67%;" />
+
+
+如$D_1(A) = {B_1,B_2,B_3},u_1(A) = B_i \quad i = 1,2,3$
 4. **状态转移方程：**描述当前状态在给定决策下转移至下一阶段的过程；$s_{k+1}=T_k(s_k, u_k (s_k))$
 5. **指标函数**:评价沿子策略$P_{k,n}$过程性能优劣的函数，记为$V_{k,n}(s_{k}, p_{k,n})$。
 

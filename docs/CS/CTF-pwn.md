@@ -2,6 +2,7 @@
 ## 简介
 !!! note "PWN"
   PWN = Find the Bugs + Exploit them
+  
   - 阅读源代码，找到程序的漏洞
   - 本地运行并触发该 bug
   - 与远端交互、触发 bug 并获取 flag

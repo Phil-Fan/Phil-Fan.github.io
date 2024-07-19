@@ -90,12 +90,14 @@ ELF Header:
     - readelf
 
 ## ELF 的编译 Complier
+
 [详解三大编译器：gcc、llvm 和 clang - 知乎](https://zhuanlan.zhihu.com/p/357803433)
 
 [GCC - 维基百科，自由的百科全书](https://zh.wikipedia.org/wiki/GCC#%E4%BC%98%E5%8C%96)
 
 
 [GNU计划 - 维基百科，自由的百科全书](https://zh.wikipedia.org/wiki/GNU%E8%A8%88%E5%8A%83)
+
 GCC(GNU Compiler Collection)即GNU编译器套件，属于一种编程语言编译器，其原名为GCC（GNU C Compiler）即GNU c语言编译器
 
 gcc（GUN C Compiler）是GCC中的c编译器，而g++（GUN C++ Compiler）是GCC中的c++编译器。
@@ -303,8 +305,10 @@ int execve(const char *filename, char *const argv[], char *const envp[]);
 
 
 **通过虚拟机或者沙箱进行交互**
-○ https://firejail.wordpress.com/
-○ https://github.com/google/nsjail
+
+* https://firejail.wordpress.com/
+* https://github.com/google/nsjail
+
 
 **通过编程与程序交互**
 - 重定向构建特殊字符作为输入
@@ -320,17 +324,19 @@ int execve(const char *filename, char *const argv[], char *const envp[]);
 
 ### gdb：GNU debug
 
-● 调试模式
-○ 调试器执行模式
-○ attach 模式
-○ remote 模式
+详见[GDB](../tools/gdb.md)
+
+- 调试模式
+  - 调试器执行模式
+  - attach 模式
+  - remote 模式
 
 
-● 常用调试功能
-○ 执行断点
-○ 硬件断点
-○ 查看寄存器 / 内存
-○ set 修改寄存器 / 内存
+- 常用调试功能
+  - 执行断点
+  - 硬件断点
+  - 查看寄存器 / 内存
+  - set 修改寄存器 / 内存
 
 ● gdb 插件
 

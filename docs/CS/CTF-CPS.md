@@ -62,7 +62,7 @@ Modbus通信的设备分为主站(mater)和从站(slave)，主站为主动方，
 
 
 
-<center><b>报文结构<b><center>
+报文结构
 
 
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20210123223219854.png" alt="在这里插入图片描述" style="zoom:50%;" />
