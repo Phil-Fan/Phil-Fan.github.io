@@ -153,10 +153,12 @@ Assemble
 **编译后端**
 
 - 从LLVM IR生成目标代码
+  
 ```shell
 llc hello.ll -o hello.s
 ```
 - 从汇编文件到目标文件
+
 ```shell
 llvm-mc -filetype=obj hello.s -o hello.o
 ```
