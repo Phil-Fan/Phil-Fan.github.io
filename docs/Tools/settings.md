@@ -59,6 +59,63 @@ xGameBar对我来说没什么用，但是虚拟机中需要使用到这个快捷
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240706192241.png)
 
 
+### 如何让你的win11不再智障
+
+#### 恢复win10开始菜单风格
+![恢复win10开始菜单风格](https://cn.windows-office.net/common-images/classic-start-menu-in-windows-11-5189891/4cb15e48c390243f8252fb1dc1.jpg)
+
+从任务栏中选择搜索按钮并输入`regedit`。
+
+
+
+当注册表编辑器出现时，选择打开。
+
+通过从左窗格中展开文件夹来导航至此处：
+
+`HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced`
+
+右键单击左窗格中的高级，然后选择新建> DWORD（32 位）值。
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240722095029.png)
+
+
+输入此值作为新值的名称，然后按 Enter 保存它。
+
+`Start_ShowClassicMode`
+
+双击相同的值并将数据更改为1，然后选择确定。
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240722095039.png)
+
+重启你的电脑。重新启动 Windows 11 的最快方法是右键单击“开始”按钮，然后选择关机或注销>重新启动。注销并重新登录也可以。
+
+
+#### 任务栏自定义
+[如何调整 Windows 11 任务栏位置、对齐方式，及自定义任务栏](https://www.sysgeek.cn/windows-11-taskbar-customize/)
+
+#### 右键菜单调整
+[【Windows】Win11右键恢复完整右键菜单\_windows 11 classic context menu-CSDN博客](https://blog.csdn.net/u012153104/article/details/130195590)
+
+
+使用快捷键`Win+X`，然后点击`Windows终端（管理员）`以打开管理员权限的命令提示符。
+
+第一步
+```shell
+reg add "HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32" /f /ve
+```
+
+如果操作成功，命令提示符会显示“操作成功完成”消息。
+
+
+第二步，重启资源管理器进程。
+```shell
+taskkill /f /im explorer.exe
+```
+
+```shell
+start explorer.exe
+```
+
+
 ### 电脑蓝屏
 查看错误原因
 
