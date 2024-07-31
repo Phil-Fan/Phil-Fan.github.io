@@ -7,6 +7,17 @@
 [Installing TeX Live over the Internet - TeX Users Group (tug.org)](https://www.tug.org/texlive/acquire-netinstall.html)
 
 
+
+
+**参考文献编译**
+
+在设置页面，选择bibtex为默认
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240731211334.png)
+
+对于texstudio来说，应该是F6+F8+F6+F6
+
+
 ### `LaTeX` + `Latex Workshop` + VScode
 
 下载`Latex Workshop`插件。

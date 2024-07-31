@@ -125,10 +125,13 @@ SELECT col_name(…) FROM table_name WHERE id = 1 UNION SELECT {secret_data};
 这样，联合查询就会覆盖SQL查询的结果，并借助PHP代码实现的HTML嵌入，将我们想要的信息嵌在页面里传回来！
 
 在MySQL中，所有的数据库名存放在information_schema.schemata的schema_name字段下
+
 ```sql
 SELECT schema_name FROM information_schema.schemata;
 ```
+
 所有的表名存放在information_schema.tables的table_name字段下，可以以table_schema为条件筛选
+
 ```sql
 SELECT table_name FROM information_schema.tables WHERE table_schema='db_name';
 ```
@@ -212,6 +215,7 @@ SELECT col_name(…) FROM table_name WHERE username = 'admin' and IF(ASCII(SUBST
 
 
 假设某用户注册场景，username/email/password分别用POST参数uname&email&passwd传入
+
 ```sql
 INSERT INTO `users` VALUES (100, '{username}', '{email}', '{password}');
 ```
@@ -452,3 +456,54 @@ def fetch_url(url):
 ```
 
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240709163411.png)
+
+
+## 网站扫描
+### 备份文件搜索
+网站备份文件的泄露一般是由于网站管理员将网站备份文件或是敏感信息文件存放在某个网站目录下，然后这个目录按照网站的默认设置是可以公开访问的。那么黑客就可通过暴力破解目录的方法获取该备份文件，导致网站敏感信息泄露。
+
+=== "常见后缀名"
+    `.rar`
+    .zip
+    .7z
+    .tar.gz
+    .bak:index.php.bak
+    .txt
+    .old
+    .temp
+    _index.html
+    .swp
+    .sql
+    .tgz
+    tar
+
+=== "常见文件名"
+    web
+    website
+    backup
+    back
+    www
+    wwwroot
+    temp
+    db
+    data
+    code
+    test
+    admin
+    user
+    sql
+
+=== "常见目录"
+    ```
+    /     #根目录首先
+    /admin 
+    /data
+    /default
+    /index
+    /login
+    /manage
+    /cmseditor
+    /db
+    /bbs
+    /phpadmin
+    ```

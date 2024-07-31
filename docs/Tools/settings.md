@@ -422,7 +422,12 @@ ssh -p 15821 root@connect.westb.seetacloud.com
 vim /etc/apt/sources.list
 ```
 
+[Kali Linux | ZJU Mirror](https://mirrors.zju.edu.cn/docs/kali/)
 ```
+# zju source
+deb https://mirrors.zju.edu.cn/kali kali-rolling main non-free contrib
+#deb-src https://mirrors.zju.edu.cn/kali kali-rolling main non-free contrib
+
 #中科大
 deb http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib
 deb-src http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib
@@ -556,6 +561,53 @@ phpstudy start # 启动
 sudo apt-get install ncat
 ```
 
+### dirsearch
+
+```
+sudo apt-get install dirsearch
+```
+
+有很多依赖是没有安装的，这里手动安装一下
+
+要注意`defusedxml`这个库不叫`defusexml`,安装带d的这一版才可以
+```
+pip install requests_ntlm
+pip install defusedxml
+pip install bs4
+pip install jinja2
+pip install colorama
+```
+
+### php
+
+[Kali Linux 添加 add-apt-repository | Silearner](https://blog.chaos.run/dreams/kali-linux-ppa/index.html)
+
+```shell 
+File "/usr/lib/python3/dist-packages/softwareproperties/ppa.py", line 129, in lpppa
+    self._lpppa = self.lpteam.getPPAByName(name=self.ppaname)
+                  ^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/softwareproperties/ppa.py", line 116, in lpteam
+    self._lpteam = self.lp.people(self.teamname)
+                   ^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'people'
+```
+遇到的问题
+
+
+```shell
+pip install launchpadlib
+```
+
+发现是ppa.py文件的问题，所以修改一下文件导入的路径
+
+```shell
+find / | grep launchpadlib
+```
+
+```shell
+import sys
+sys.path.append(r'这里填入上一步搜出来的路径')
+```
 
 ### nodejs
 [nodejs on Kali](https://www.cnblogs.com/hirak0/p/16133730.html)
@@ -777,6 +829,7 @@ python setup.py install
 cd volatility
 python setup.py install
 ```
+
 
 **验证**
 

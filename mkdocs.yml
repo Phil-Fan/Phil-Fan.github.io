@@ -201,6 +201,7 @@ nav:
   - Class/SocialSciences.md
   - Class/马原.md
   - "统计与大数据分析":
+      - CS/Statistic/big_data_security&privacy_protection.md
       - CS/Statistic/0-intro.md
       - CS/Statistic/2-statistic.md
   - "ITP课程" :
