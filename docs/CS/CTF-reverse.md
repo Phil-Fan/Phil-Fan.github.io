@@ -326,7 +326,7 @@ int execve(const char *filename, char *const argv[], char *const envp[]);
 
 ### gdb：GNU debug
 
-详见[GDB](../tools/gdb.md)
+
 
 - 调试模式
   - 调试器执行模式
