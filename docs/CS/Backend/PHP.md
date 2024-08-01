@@ -223,6 +223,8 @@ $conn->close();
 ?>
 ```
 
+## php 伪协议
+[[WEB安全]PHP伪协议总结 - 肖洋肖恩、 - 博客园](https://www.cnblogs.com/-mo-/p/11736445.html)
 
 ## 序列化与反序列化
 
@@ -242,7 +244,13 @@ $conn->close();
 !!! note "最终的原因"
     PHP是弱类型的原因，我们可以利用这样的特性去绕过一些判断
 
-#### BUUCTF PHP
+#### [BUUCTF[极客大挑战 2019]PHP](https://buuoj.cn/challenges#[%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98%202019]PHP)
+
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240801190745.png)
+
+一进来是一个猫猫抓球的界面，你别说还挺好玩的嘞，不知道是怎么实现的。
+
 首先提示了有备份，用dirsearch扫描一下，发现有`www.zip`
 
 使用`http://ip of baji/www.zip`下载文件，获得网站的源码
@@ -362,7 +370,7 @@ else echo "are you trolling?";
 ```
 
 
-#### 
+#### [[网鼎杯 2020 青龙组]AreUSerialz](https://buuoj.cn/challenges#[%E7%BD%91%E9%BC%8E%E6%9D%AF%202020%20%E9%9D%92%E9%BE%99%E7%BB%84]AreUSerialz) 
 
 ```php
 <?php

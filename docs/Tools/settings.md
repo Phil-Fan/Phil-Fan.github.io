@@ -578,6 +578,49 @@ pip install jinja2
 pip install colorama
 ```
 
+### 菜刀 weevely
+[weevely3下载](https://github.com/epinna/weevely3/archive/master.zip)
+
+```shell
+cd weevely3/
+sudo pip install -r requirements.txt --upgrade
+```
+
+### 中国蚁剑
+[中国蚁剑(antSword)下载、安装、使用教程-CSDN博客](https://blog.csdn.net/weixin_42474304/article/details/116376746)
+
+[AntSwordProject/AntSword-Loader: AntSword 加载器](https://github.com/AntSwordProject/AntSword-Loader?tab=readme-ov-file)
+
+[官方文档](https://www.yuque.com/antswordproject/antsword)
+
+### 文件泄露分析
+
+#### GitHack 
+
+[lijiejie/GitHack: A \`.git\` folder disclosure exploit](https://github.com/lijiejie/GitHack)
+
+```shell
+GitHack.py http://www.example.com/.git/
+```
+
+#### dvcs-ripper
+[dvcs-ripper](https://github.com/kost/dvcs-ripper#dvcs-ripper)
+
+依赖安装
+```shell
+sudo apt-get install perl libio-socket-ssl-perl libdbd-sqlite3-perl libclass-dbi-perl libio-all-lwp-perl
+
+sudo apt-get install libparallel-forkmanager-perl libredis-perl libalgorithm-combinatorics-perl
+
+sudo apt-get install cvs subversion git bzr mercurial
+```
+
+使用方法
+
+```shell
+rip-git.pl -s -v -u http://www.example.com/.git/
+```
+
 ### php
 
 [Kali Linux 添加 add-apt-repository | Silearner](https://blog.chaos.run/dreams/kali-linux-ppa/index.html)
