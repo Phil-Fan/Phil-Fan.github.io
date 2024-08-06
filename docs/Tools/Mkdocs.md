@@ -17,6 +17,33 @@
 `title="bubble_sort.py"` 显示文件名字
 
 
+### Jupyter Notebook
+使用mkdocs-jupyter插件可以支持jupyter notebook文件
+[mkdocs-jupyter](https://pypi.org/project/mkdocs-jupyter/)
+[Jupytext demo (.py) - mkdocs-jupyter demo](https://mkdocs-jupyter.danielfrg.com/demo-script/)
+
+```shell
+pip install mkdocs-jupyter
+```
+
+
+```yml
+nav:
+    - Home: index.md
+    - Notebook page: notebook.ipynb
+    - Python file: python_script.py
+plugins:
+    - mkdocs-jupyter
+        execute: true
+        kernel_name: python3
+        theme: dark
+        include_source: True
+```
+
+
+
+
+
 ## 配置
 
 ### Commands
@@ -61,16 +88,23 @@
 - **giscus app** 已安装，否则访客将无法评论和回应。
 - Discussions 功能已在你的仓库中启用。
 
-[mkdocs-material集成评论系统 - 知识库 (geodoer.github.io)](https://geodoer.github.io/Z-工具/博客相关工具/mkdocs/mkdocs-material/评论系统/#commentshtml)
+在`mkdocs.yml`中添加如下配置
 
-
-
+```yml linenums="1" hl_lines="3"
+theme:
+  name: material
+  custom_dir: overrides  #主要是这一行
 ```
+
+访问[giscus](https://giscus.app/)网站，并通过网站上的配置工具生成代码段。复制此代码段，下面的步骤要用
+复制如下面格式的代码到`overrides/comments.html`文件中
+
+```html
 <script src="https://giscus.app/client.js"
         data-repo="Phil-Fan/Phil-Fan.github.io"
-        data-repo-id="R_kgDOLJH-6w"
+        data-repo-id=""
         data-category="General"
-        data-category-id="DIC_kwDOLJH-684Ccv_n"
+        data-category-id=""
         data-mapping="pathname"
         data-strict="0"
         data-reactions-enabled="1"
@@ -83,6 +117,71 @@
         async>
 </script>
 ```
+
+```html hl_line="5"
+{% if page.meta.comments %}
+  <h2 id="__comments">{{ lang.t("meta.comments") }}</h2>
+
+  <!-- Insert generated snippet here -->
+  <!-- 在这里粘贴刚才获得代码段 -->
+  <!-- ... -->
+
+  <!-- Synchronize Giscus theme with palette -->
+  <script>
+    var giscus = document.querySelector("script[src*=giscus]")
+
+    /* Set palette on initial load */
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+      var theme = palette.color.scheme === "slate" ? "dark" : "light"
+      giscus.setAttribute("data-theme", theme) 
+    }
+
+    /* Register event handlers after documented loaded */
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      ref.addEventListener("change", function() {
+        var palette = __md_get("__palette")
+        if (palette && typeof palette.color === "object") {
+          var theme = palette.color.scheme === "slate" ? "dark" : "light"
+
+          /* Instruct Giscus to change theme */
+          var frame = document.querySelector(".giscus-frame")
+          frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme } } },
+            "https://giscus.app"
+          )
+        }
+      })
+    })
+  </script>
+{% endif %}
+```
+
+
+**一个页面单独添加**
+
+在每个文档头前添加comments: true
+```markdown
+---
+comments: true
+---
+```
+
+
+**所有页面**
+
+在`mkdocs.yml`的插件中添加
+
+```yml
+plugins:
+  - comments
+```
+
+
+[mkdocs-material集成评论系统 - 知识库 (geodoer.github.io)](https://geodoer.github.io/Z-工具/博客相关工具/mkdocs/mkdocs-material/评论系统/#commentshtml)
+[为Mkdocs网站添加评论系统（以giscus为例）\_giscus mkdocs-CSDN博客](https://blog.csdn.net/m0_63203517/article/details/133819706)
+
 
 ### 图床的配置与更换
 

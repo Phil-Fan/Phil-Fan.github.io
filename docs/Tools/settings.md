@@ -99,6 +99,7 @@ xGameBar对我来说没什么用，但是虚拟机中需要使用到这个快捷
 使用快捷键`Win+X`，然后点击`Windows终端（管理员）`以打开管理员权限的命令提示符。
 
 第一步
+
 ```shell
 reg add "HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32" /f /ve
 ```
@@ -107,6 +108,7 @@ reg add "HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\Inpr
 
 
 第二步，重启资源管理器进程。
+
 ```shell
 taskkill /f /im explorer.exe
 ```
@@ -132,7 +134,7 @@ start explorer.exe
 
 
 1. 运行Windbg，然后按Ctrl+S或从文件菜单中打开符号表设置窗；
-2. 将符号表地址：`SRV*C:\Symbols*http://msdl.microsoft.com/download/symbols` 粘贴在输入框中，确定。^[1]
+2. 将符号表地址：`SRV*C:\Symbols*http://msdl.microsoft.com/download/symbols` 粘贴在输入框中，确定。
 
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240720005545.png)
 
@@ -156,8 +158,6 @@ start explorer.exe
 
 
 
-[1]: 加粗字体(C:\Symbols)为符号表本地存储路径，建议固定路径，你也可以选择其它路径，可避免符号表重复下载。
-
 #### memory_management
 [只要看直播或者b站视频就容易蓝屏 NGA玩家社区](https://ngabbs.com/read.php?tid=36810975&rand=354)
 
@@ -175,7 +175,7 @@ start explorer.exe
 
 
 
-> 以下图片来自[USB TYPE C                             拆解以及USB3.1规范详解 (lulian.cn)](https://www.lulian.cn/news/88-cn.html)
+> 以下图片来自[USB TYPE C拆解以及USB3.1规范详解 (lulian.cn)](https://www.lulian.cn/news/88-cn.html)
 
 ![USB Type C接头拆解图](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/1540889232305758.jpg)
 

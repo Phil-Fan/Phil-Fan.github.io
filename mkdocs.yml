@@ -16,6 +16,7 @@ theme:
   name: material
   logo: logo.ico
   favicon: logo.ico
+  custom_dir: overrides
   icon:
     admonition:
       note: octicons/tag-16
@@ -204,6 +205,7 @@ nav:
       - CS/Statistic/big_data_security&privacy_protection.md
       - CS/Statistic/0-intro.md
       - CS/Statistic/2-statistic.md
+      - Notebook page: CS/Statistic/02-test.ipynb
   - "ITP课程" :
       - Class/ITP/ITP-Team-Communication-and-Leadership.md
       - Class/ITP/ITP-Management.md
@@ -294,8 +296,6 @@ nav:
     
     - "AI应用":
       - CS/AI/03-AI_security.md
-      - CS/AI/AIGC-explore.md
-      - CS/AI/GitHub-proj.md
 
     
     - CS/AI/HumanPoseEstimation.md
@@ -424,3 +424,9 @@ plugins:
         - index.md
         - link.md
       strict: false
+  
+  - mkdocs-jupyter:
+      execute: true
+      kernel_name: python3
+      theme: dark
+      include_source: True
