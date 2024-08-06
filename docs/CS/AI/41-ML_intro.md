@@ -385,9 +385,100 @@ $$
 ## generalization 泛化
 
 
+## linear Regression
+y 是一个连续的值；
+区别于classification，y是一个离散的值
+
+### Polynomial Curve Fitting
+
+$f(x,\omega) = \omega_0 + \omega_1x + \omega_2x^2 + \omega_3x^3 + \dots + \omega_Mx^M = \sum_{j=0}^{M}\omega_jx^j$
+
+loss function: MSE: 
+MSE(\omega) = \frac{1}{N}\sum_{i=1}^{N}(y_i - f(x_i,\omega))^2
+
+模型是已知的，$\omega$未知，通过最小化MSE来求解$\omega$
+
+- 最小二乘法
+
+只能用于线性回归
+
+!!! note "过程"
+    using matrix notation for convenience: $X = [1,x,x^2,x^3,...,x^n], y = [y_1,y_2,...,y_n]^T$
+
+    $Loss(\omega) = (y - X^T\omega)^T(y - X^T\omega)$
+
+    梯度： $\nabla_{\omega}Loss(\omega) = -2X(y - X^T\omega)$
+
+    令梯度为0，求解$\omega$，得到$\omega = (X^TX)^{-1}X^Ty$
+
+!!! tips "几何理解"
+
+    
+
+- Gradient Descent | 梯度下降法
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240806020009.png)
+步长的大小：学习率
+Time complexity: $O(ndt)$,t是迭代次数,d是特征的数量,n是样本的数量
+
+
+stochastic gradient descent | 随机梯度下降法
+- randomly select b(batch size) samples from the training set
+- Time complexity: $O(bdt)$
+
+
+- Quasi Newton Method | 拟牛顿法
 
 
 
+### overfitting | 过拟合
+在测试集上效果好的模型就是好的模型
+
+在测试集上效果差的模型就是差模型
+
+把training data中的noise也学习到了
+
+- Ridge Regression | 岭回归
+
+Loss(\omega*)
+
+regularization: 一些先验的假设，比如$\omega$是稀疏的，或者$\omega$是平滑的；避免学习到
+
+超参数：
+- $\lambda$：控制正则化的强度: $\lambda$越大，正则化的强度越大，模型越简单，training error 越大；如下图，左侧叫做过拟合，右侧叫做欠拟合![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240806021738.png)
+- $\alpha$：控制学习率
+
+
+
+### bias and variance decomposition
+偏差 & 方差
+
+- bias: 最好的模型和ground truth之间的差距;模型的上限; training error
+- variance: 最优的模型和最差的模型之间的差距；模型的下限; the difference between training error and test error
+
+prediction error = bias + variance + noise
+
+- high bias, low variance: underfitting
+- low bias, high variance: overfitting
+- low bias, low variance: good model
+
+
+改进策略
+
+underfitting:
+- add more features
+- use more complex model
+- descrease regularization
+
+overfitting:
+- decrease model complexity
+- decrease number of features
+- add more regularization
+- add more data
+!!! note "train val test"
+    60% 20% 20%
+    - training set: train the model
+    - validation set: tune the hyperparameters
+    - test set: evaluate the model
 ## 学习资源
 
 [Machine Learning in Practice Crash Course | Jinming Hu (conanhujinming.github.io)](https://conanhujinming.github.io/post/ml_in_practice_crash_course/)

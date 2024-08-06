@@ -412,6 +412,14 @@ ssh -p 15821 root@connect.westb.seetacloud.com
 
 
 ## Kali
+### 系统烧录
+!!! note "准备"
+    - 下载[kali](https://www.kali.org/get-kali/#kali-platforms)
+    - 下载烧录工具[Etcher](https://etcher.balena.io/#download-etcher)
+    - 准备sd卡
+    - 准备读卡器
+    - 电脑
+
 ### 换源
 [apt 换源](https://www.cnblogs.com/u-damowang1/p/14729017.html)
 
