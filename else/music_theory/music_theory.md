@@ -1,5 +1,8 @@
 # 乐理
 
+[B站最通俗易懂的乐理课程（30集），零基础轻松学！适用于作曲编曲、钢琴、吉他、声乐。\_哔哩哔哩\_bilibili](https://www.bilibili.com/video/BV1Hg411w7n2/)
+
+
 一. 识谱读谱
 
 (1)能够识别不带调号的五线谱, 包括拍号谱号和音符的音高时值, 了解每个音的音名. 熟练掌握的依据是**能够自己写出一些合法旋律来**, 这里不太推荐手写, 可以用Overture之类的软件打谱, **然后直接播放**. 打谱软件中都会附带很多五线谱标志的, 可以边看边学习. 
@@ -34,22 +37,111 @@
 
 ## 基础
 
+### 琴键与音名
+**钢琴键盘：88键**
+
+88键-左3-右1=84键=(7白+5黑)*7组
+
+(7组钢琴键盘，电子琴不一定是7组)
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240806130753.png)
+其中，5黑是2+3组合
+
+- CDEFGAB :heavy_check_mark:
+- 1234567 :heavy_multiplication_x:
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240806131047.png)
+
+ 
+**半音 semi tone ：** 相邻的叫半音，白键只有E和F， B和C是半音关系。另外，一个白键与它相邻的黑键也是半音关系。
 
 
-- 音节：音乐基本元素
 
-- 八度，CDEFGAB，where C starts 
+**全音 whole tone  ：** 两个音之间隔了一个音(比如C和D之间隔了一个黑键)，这两个音就是全音关系。
+
+- 在同一个(CDEFGAB)内，黑键与黑键之间肯定是全音关系。
+- 不管白键和黑键，只要两个键相邻就是半音关系，隔了一个键就是全音关系。
+
+
+
+**黑键音名：**
+
+升#，降b，注意$C\#\neq D\mathscr{b}$
+因为有还原号的存在。
+
+但是，$B\# = C\mathscr{b}$,这两个是等音
+
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240806143637.png)
+
+钢琴： 中央c是$c_1$
+编曲：中央c是$c_3$
+
 
 ![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/zrbn3tlt.jpg)
 
-- 升阶和降阶，A#，Cb - 音阶：简单音节之间的关系，chord的基础   
-- 全音whole tone   
-- 半音semi tone    
-- 大调音阶：WWHWWWH，+元素    - 小调音阶：WHWWHWW，-元素     - 举例        - C大调（无黑键） - 音程：用来衡量音节之间的距离
+### 音符时值
+音的长短
+
+- 全音符： $X---$
+- 二分音符：$X-$
+- 四分音符：$X$
+- 八分音符：$\underline{X}$
+
+
+
+### 节奏
+
+**拍号**
+
+- 4/4拍：四分音符为一拍, 一小节四拍;
+- 3/4拍：三分音符为一拍, 一小节三拍;
+
+歌曲以小节为单位，小节的时值是固定的
+
+!!! bug "错误"
+    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240806145041.png)
+
+**附点音符**
+指在原来音符的时长上，再加上一半时值
+
+**三连音**
+把一个整体分成均等的三份，每份的时值是原来的1/3
+
+
+**强弱关系**
+- 两拍：强弱 强弱
+- 三拍：强弱弱
+- 四拍：强弱次强弱 强弱次强弱
+
+
+**歌曲速度**
+
+BPM：每分钟节拍数
+
+可以确定歌曲的节奏
+
+$$
+BPM = \frac{60}{每拍时值}
+$$
+
+### 简谱
+1234567和唱名do re mi fa sol la si是一一对应的
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240806150132.png)
+
+
+### 调式
+注明了唱名和音名的对应关系，如1=C
+
+!!! note "规律"
+    调式内七个音名按照顺序全部出现
+    - 大调音阶：全全半全全全半，+元素 
+    - 小调音阶：WHWWHWW，-元素
 
 ![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/qqfcyxzm.jpg)
 
-\- 和弦：从大小调中同时演奏符合音程关系的多个音    - 三和弦：大调音阶前三个，常见的包括（Do Mi So），（Re Fa La），（Mi So Do）        - 大三和弦和小三和弦 - 五度环：弹和弦神器
+
+### 和弦
+从大小调中同时演奏符合音程关系的多个音    - 三和弦：大调音阶前三个，常见的包括（Do Mi So），（Re Fa La），（Mi So Do）        - 大三和弦和小三和弦 - 五度环：弹和弦神器
 
 ![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/4d3fqpu0.jpg)
 
