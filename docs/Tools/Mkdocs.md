@@ -207,7 +207,34 @@ plugins:
 - 更换picgo中服务
 - 更换`.md`中所有图片的链接
 
+#### 显示音乐符号
 
+关于安装lilypond
+
+LilyPond (荷花池) 是一个音乐雕版软件，致力产生最高质量的乐谱。它把传统音乐雕版印刷的美学，呈现在计算机打印的乐谱上。LilyPond 是自由软件，也是 GNU Project 的一部分。
+
+[Download (LilyPond – 人人的乐谱软件)](https://lilypond.org/download.zh.html)
+
+下载之后，是没有安装的，但是需要将其添加到环境变量中.win菜单搜索`查看高级环境设置`,在path中添加`lilypond\bin\`的路径
+
+编译
+
+```shell
+lilypond -o output music.ly
+```
+
+[LilyPond 学习手册: LilyPond — 学习手册](https://lilypond.org/doc/v2.23/Documentation/learning/index)
+
+[关于在 Markdown 中描述音乐符号](https://blog.twofei.com/1425/)
+
+
+
+[Lilypond in Markdown](https://lilypond-in-markdown.netlify.app/)
+
+
+[Render LilyPond in Markdown](https://pianomanfrazier.com/post/lilypond-in-markdown/)
+
+[uliska/markdown-lilypond： 支持 LilyPond（符号软件）输入的 MkDocs 插件](https://github.com/uliska/markdown-lilypond)
 
 ## 发布
 
