@@ -1,4 +1,4 @@
-# SolidWorks学习
+# SolidWorks
 
 ## 1. 基础操作
 

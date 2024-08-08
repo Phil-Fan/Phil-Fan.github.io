@@ -301,22 +301,27 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.philfan.cn/CS/Statistic/01-intro/</loc>
+         <loc>https://www.philfan.cn/CS/Statistic/00-intro/</loc>
          <lastmod>2024-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.philfan.cn/CS/Statistic/02-probability/</loc>
+         <loc>https://www.philfan.cn/CS/Statistic/01-probability/</loc>
          <lastmod>2024-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.philfan.cn/CS/Statistic/03-Discrete_Random_Variable/</loc>
+         <loc>https://www.philfan.cn/CS/Statistic/02-Univariate_Random_Variable/</loc>
          <lastmod>2024-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.philfan.cn/CS/Statistic/04-Continuous_Random_Variables/</loc>
+         <loc>https://www.philfan.cn/CS/Statistic/03-Multivariate_Random_Variable/</loc>
+         <lastmod>2024-08-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/CS/Statistic/04-Numerical_Features/</loc>
          <lastmod>2024-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -652,6 +657,11 @@
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/powerpoint/</loc>
+         <lastmod>2024-08-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/Tools/setting-linux/</loc>
          <lastmod>2024-08-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
