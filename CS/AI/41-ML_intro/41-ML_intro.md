@@ -479,6 +479,54 @@ overfitting:
     - training set: train the model
     - validation set: tune the hyperparameters
     - test set: evaluate the model
+
+### Logistic Regression
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240807233452.png)
+
+线性回归有一个很强的假设，就是y是连续的；并且有更像邻近数的趋势(MSE 对于线性回归不是一个好的function)
+
+- one vs. Rest
+
+logistic function:
+
+- sigmoid function: $f(x) = \frac{1}{1+e^{-x}}$
+CDF(累积分布函数)ofthe standard logistic distribution   
+使用sigmoid函数将线性回归的输出转换为概率
+
+!!! note "logistic Regreesion是一个线性模型"
+    主要考虑的是decision boundary
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240807234021.png)
+
+
+为什么loss function要取log
+- 为了方便求导
+- 取log使得连乘变成连加，不会丢失信息
+
+Assumptions behind logistic regression
+- l(a) = -\sum_{i\in I} \log(1+e^{-y_i a^T x_i})
+
+
+pros:
+- binomial distribution is a  good assumption for classification
+- provide a probability
+- low computation, easy to optimize
+- support online learning:梯度下降的模型都支持在线学习
+
+cons:
+- too simple:high bias & low variance
+
+
+### Support Vector Machine
+计算每个点到决策边界的距离$\gamma$
+
+- Maximum Margin Classifier:数据集最小的margin
+目的就是要找到一个决策边界，使得margin最大
+
+为什么使用这种方法
+- 裕度更高，容错性更好
+- 如果margin越大，对于噪声的容忍度越高
+
+### loss function
 ## 学习资源
 
 [Machine Learning in Practice Crash Course | Jinming Hu (conanhujinming.github.io)](https://conanhujinming.github.io/post/ml_in_practice_crash_course/)
