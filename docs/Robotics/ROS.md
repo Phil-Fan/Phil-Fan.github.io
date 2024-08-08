@@ -1,3 +1,4 @@
+# ROS 操作
 ## 系统烧录
 
 [balenaEtcher已经烧录的u盘恢复](https://blog.csdn.net/A___LEi/article/details/117700660#:~:text=1、打开命令行cmd（win%2Br打开运行，在其中输入cmd就可以打开）； 2、在cmd下输入diskpart命令； 3、在diskpart里面，输入list disk命令查看当前系统挂载的磁盘（包括SATA、U盘、SD卡等）； balenaEtcher烧录U盘%2FSD卡恢复方法,4、找到要恢复的磁盘，比如我要恢复的是磁盘1，输入命令select disk 1； 5、输入命令clean就可以将4中所选的磁盘数据清空了，再次输入list disk可以看到磁盘的可用已经和大小一样了。)
@@ -10,40 +11,11 @@
 
 
 
-## 系统配置
 
-- 中文系统
-- [linux 下更改分辨率](https://blog.csdn.net/SueMagic/article/details/89399959)
-- [静态路由](https://blog.csdn.net/u010521062/article/details/114067036)
+## 硬件安装
 
-[Linux 配置静态IP - chy_18883701161 - 博客园 (cnblogs.com)](https://www.cnblogs.com/chy18883701161/p/12396035.html#:~:text=配置静态IP 1 （1）先切换到网络管理的目录 cd %2Fetc%2Fsysconfig%2Fnetwork-scripts 看一下网络配置的文件： ls -l,8之前的版本，下面2条指令任一条都可以，都是重启network服务： service network restart systemctl restart network.service )
-
-
-
-- ssh
-
-```
-sudo apt-get install openssh-server
-
-ssh user@remote
-```
-
-
-
-- ssh免密登录
-
-```
-shutdown -h now
-reboot
-
-```
-
-
-
-- 蓝牙操作
-- 
-
-- 风扇安装与控制
+### 风扇
+风扇安装与控制
 
 ```
 sudo sh -c 'echo 255 > /sys/devices/pwm-fan/target_pwm'
@@ -58,19 +30,7 @@ sudo /usr/bin/jetson_clocks
 sudo sh -c 'echo 255 > /sys/devices/pwm-fan/target_pwm'
 ```
 
-- fishros
-- 虚拟机无法打开
 
-> 虚拟机使用的是此版本 [VMware](https://so.csdn.net/so/search?q=VMware&spm=1001.2101.3001.7020) Workstation 不支持的硬件版本。
-> 模块“Upgrade”启动失败。
-
-打开`.vmx`文件，修改` virtualHW.version = "19"`一行至` virtualHW.version = "16"` 
-
-
-
-
-
-## 硬件安装
 
 nano板子和stm32板子使用usb-b -》usb-c 链接
 

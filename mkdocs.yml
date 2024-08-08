@@ -202,15 +202,17 @@ nav:
   - Class/SocialSciences.md
   - Class/马原.md
   - "统计与大数据分析":
-      - CS/Statistic/01-intro.md
-      - Notebook page: CS/Statistic/02-probability.ipynb
-      - Notebook page: CS/Statistic/03-Discrete_Random_Variable.ipynb
-      - Notebook page: CS/Statistic/04-Continuous_Random_Variables.ipynb
+      - CS/Statistic/00-intro.md
+      - Notebook page: CS/Statistic/01-probability.ipynb
+      - Notebook page: CS/Statistic/02-Univariate_Random_Variable.ipynb
+      - Notebook page: CS/Statistic/03-Multivariate_Random_Variable.ipynb
+      - Notebook page: CS/Statistic/04-Numerical_Features.ipynb
       - Notebook page: CS/Statistic/05-Special_Functions.ipynb
       - Notebook page: CS/Statistic/06-Parameter_Estimation.ipynb
       - Notebook page: CS/Statistic/07-Hypothesis_Testing.ipynb
       - Notebook page: CS/Statistic/08-Goodness_of_Fit.ipynb
       - Notebook page: CS/Statistic/09-Regression.ipynb
+      - Notebook page: CS/Statistic/10-Multiple_Regression_and_Analysis_of_Variance.ipynb
       - Notebook page: CS/AI/60-python_package.ipynb
       - CS/Statistic/big_data_security&privacy_protection.md
 

@@ -119,6 +119,7 @@ theme:
 ```
 
 ```html hl_line="5"
+
 {% if page.meta.comments %}
   <h2 id="__comments">{{ lang.t("meta.comments") }}</h2>
 
@@ -156,6 +157,7 @@ theme:
     })
   </script>
 {% endif %}
+
 ```
 
 
@@ -207,7 +209,7 @@ plugins:
 - 更换picgo中服务
 - 更换`.md`中所有图片的链接
 
-#### 显示音乐符号
+### 显示音乐符号
 
 关于安装lilypond
 
