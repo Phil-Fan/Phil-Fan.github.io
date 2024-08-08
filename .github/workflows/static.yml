@@ -17,8 +17,8 @@ jobs:
           fetch-depth: 0    # for mkdocs-git-revision-date-localized-plugin
       - uses: actions/setup-python@v4
         with:
-          python-version: 3.x
-      - run: pip install -r requirements.txt
+          python-version: 3.12.4
+      - run: pip install -r requirement.txt
       - name: Create CNAME file
         run: echo "www.philfan.cn" > docs/CNAME   # Adjust the path if your configuration is different
       - run: mkdocs gh-deploy --force

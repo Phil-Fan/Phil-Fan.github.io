@@ -302,11 +302,7 @@ nav:
     
   - "AI | 人工智能":
     - CS/AI/01-AI_history&intro.md
-    
-    - "AI应用":
-      - CS/AI/03-AI_security.md
-
-    
+        
     - CS/AI/HumanPoseEstimation.md
   
   - "CV | 计算机视觉":
