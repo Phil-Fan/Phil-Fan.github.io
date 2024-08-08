@@ -202,10 +202,18 @@ nav:
   - Class/SocialSciences.md
   - Class/马原.md
   - "统计与大数据分析":
+      - CS/Statistic/01-intro.md
+      - Notebook page: CS/Statistic/02-probability.ipynb
+      - Notebook page: CS/Statistic/03-Discrete_Random_Variable.ipynb
+      - Notebook page: CS/Statistic/04-Continuous_Random_Variables.ipynb
+      - Notebook page: CS/Statistic/05-Special_Functions.ipynb
+      - Notebook page: CS/Statistic/06-Parameter_Estimation.ipynb
+      - Notebook page: CS/Statistic/07-Hypothesis_Testing.ipynb
+      - Notebook page: CS/Statistic/08-Goodness_of_Fit.ipynb
+      - Notebook page: CS/Statistic/09-Regression.ipynb
+      - Notebook page: CS/AI/60-python_package.ipynb
       - CS/Statistic/big_data_security&privacy_protection.md
-      - CS/Statistic/0-intro.md
-      - CS/Statistic/2-statistic.md
-      - Notebook page: CS/Statistic/02-test.ipynb
+
   - "ITP课程" :
       - Class/ITP/ITP-Team-Communication-and-Leadership.md
       - Class/ITP/ITP-Management.md
@@ -244,6 +252,7 @@ nav:
     - CS/Language/C.md
     - CS/Language/C++.md
     - CS/Language/Python.md
+    - CS/Language/Python_packages.md
     - CS/Language/crawler.md
 
   

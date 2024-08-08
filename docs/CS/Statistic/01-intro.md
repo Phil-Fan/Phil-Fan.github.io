@@ -34,38 +34,38 @@ pipeline
 
 集合、概率率、离散模型、常见数据格式及处理方法、连续模型、条件概率、全概率定理、贝叶斯准则、独立、排列组合
 
-## 离散随机变量
+## 离散随机变量 | Discrete Random Variables
 
 分布列、分布函数、均值、方差等
 
-## 连续随机变量
+## 连续随机变量 | Continuous Random Variables
 
 均值、方差、二维正态分布、多维随机变量
 
-## 特殊函数
+## 特殊函数 | Special Functions
 
 大数定律、中心极限定理、统计学三大函数
 
-## 参数估计
+## 参数估计 | Parameter Estimation
 
 点估计、区间估计
 
-## 假设检验
+## 假设检验 | Hypothesis Testing
 
 重要参数检验、符号检验
 
-## 拟合优度
+## 拟合优度 | Goodness of Fit
 
 分类数据、列联表
 
-## 回归
+## 回归 | Regression
 
 OLS估计、误差估计、预测区间
 
-## 多元回归和方差分析
+## 多元回归和方差分析 | Multiple Regression and Analysis of Variance
 
 区间估计、偏相关、方差分析
 
-## 机器学习
+## 机器学习 | Machine Learning
 
 SKlearn实现、学习性能量化、二元分类、Logistic函数、梯度下降法、正则化、非线性边界、多元分类、非线性分类、神经网络算法、图像识别
