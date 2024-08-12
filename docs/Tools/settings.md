@@ -6,7 +6,7 @@
 
 - 日程 - 滴答清单
 - Markdown - Typora
-- 图片： HoneyView，PicGo（图床）
+- 图片： HoneyView，[PicGo（图床）](https://github.com/Molunerfinn/PicGo/releases)
 - 视频：QQ影音
 - 思维导图: Xmind
 - 计时：ManicTime
@@ -14,18 +14,19 @@
 - PDF阅读：Adobe Acrobat
 - 云同步：百度网盘、阿里网盘
 - 即时通讯：TIM，WeChat，飞书，腾讯会议，钉钉
-- 压缩：Bandzip
+- 压缩：[Bandzip](https://www.bandisoft.com/bandizip/)
 - 浏览器：Edge
 - 翻译：欧陆词典
+- 网络相关：[Clash for windows](https://www.clash.la/archives/748/)
 
 ### 专业软件
 
-- Coding: VSC, PyCharm, WebStorm
-- 环境：python，R，VMware，anaconda，git
+- Coding: [VSC](https://code.visualstudio.com/Download), PyCharm, WebStorm
+- 环境：[anaconda](https://www.anaconda.com/download)，[git](https://git-scm.com/download/win),python，R，VMware
 - 数据：Tableau，excel，origin
 - 文献：Zotero
 - word，小恐龙公文助手
-- latex：overleaf
+- latex：[overleaf](https://www.overleaf.com)
 
 
 - [foldersize](https://foldersize.sourceforge.net/?utm_source=appinn.com)
