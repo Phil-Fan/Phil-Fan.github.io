@@ -5,12 +5,12 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="PhilFan的笔记本" name="description"/>
 <meta content="PhilFan" name="author"/>
-<link href="https://www.philfan.cn/CS/ComputerNetwork-04-LinkLayer/" rel="canonical"/>
-<link href="../ComputerNetwork-03-NetworkLayer/" rel="prev"/>
-<link href="../ComputerNetwork-05-PhysicalLayer/" rel="next"/>
+<link href="https://www.philfan.cn/Tools/settings-linux/" rel="canonical"/>
+<link href="../settings/" rel="prev"/>
+<link href="../macos/" rel="next"/>
 <link href="../../logo.ico" rel="icon"/>
 <meta content="mkdocs-1.6.0, mkdocs-material-9.5.31" name="generator"/>
-<title>链路层与局域网 | Link Layer - PhilFan's Notebook</title>
+<title>Linux 系统设置 - PhilFan's Notebook</title>
 <link href="../../assets/stylesheets/main.3cba04c6.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1 7.775V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 0 1 0 2.474l-5.026 5.026a1.75 1.75 0 0 1-2.474 0l-6.25-6.25A1.752 1.752 0 0 1 1 7.775Zm1.5 0c0 .066.026.13.073.177l6.25 6.25a.25.25 0 0 0 .354 0l5.025-5.025a.25.25 0 0 0 0-.354l-6.25-6.25a.25.25 0 0 0-.177-.073H2.75a.25.25 0 0 0-.25.25ZM6 5a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"/></svg>');--md-admonition-icon--abstract:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.5 1.75v11.5c0 .138.112.25.25.25h3.17a.75.75 0 0 1 0 1.5H2.75A1.75 1.75 0 0 1 1 13.25V1.75C1 .784 1.784 0 2.75 0h8.5C12.216 0 13 .784 13 1.75v7.736a.75.75 0 0 1-1.5 0V1.75a.25.25 0 0 0-.25-.25h-8.5a.25.25 0 0 0-.25.25Zm13.274 9.537v-.001l-4.557 4.45a.75.75 0 0 1-1.055-.008l-1.943-1.95a.75.75 0 0 1 1.062-1.058l1.419 1.425 4.026-3.932a.75.75 0 1 1 1.048 1.074ZM4.75 4h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM4 7.75A.75.75 0 0 1 4.75 7h2a.75.75 0 0 1 0 1.5h-2A.75.75 0 0 1 4 7.75Z"/></svg>');--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/></svg>');--md-admonition-icon--tip:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.499.75a.75.75 0 0 1 1.5 0v.996C5.9 2.903 6.793 3.65 7.662 4.376l.24.202c-.036-.694.055-1.422.426-2.163C9.1.873 10.794-.045 12.622.26 14.408.558 16 1.94 16 4.25c0 1.278-.954 2.575-2.44 2.734l.146.508.065.22c.203.701.412 1.455.476 2.226.142 1.707-.4 3.03-1.487 3.898C11.714 14.671 10.27 15 8.75 15h-6a.75.75 0 0 1 0-1.5h1.376a4.484 4.484 0 0 1-.563-1.191 3.835 3.835 0 0 1-.05-2.063 4.647 4.647 0 0 1-2.025-.293.75.75 0 0 1 .525-1.406c1.357.507 2.376-.006 2.698-.318l.009-.01a.747.747 0 0 1 1.06 0 .748.748 0 0 1-.012 1.074c-.912.92-.992 1.835-.768 2.586.221.74.745 1.337 1.196 1.621H8.75c1.343 0 2.398-.296 3.074-.836.635-.507 1.036-1.31.928-2.602-.05-.603-.216-1.224-.422-1.93l-.064-.221c-.12-.407-.246-.84-.353-1.29a2.425 2.425 0 0 1-.507-.441 3.075 3.075 0 0 1-.633-1.248.75.75 0 0 1 1.455-.364c.046.185.144.436.31.627.146.168.353.305.712.305.738 0 1.25-.615 1.25-1.25 0-1.47-.95-2.315-2.123-2.51-1.172-.196-2.227.387-2.706 1.345-.46.92-.27 1.774.019 3.062l.042.19a.884.884 0 0 1 .01.05c.348.443.666.949.94 1.553a.75.75 0 1 1-1.365.62c-.553-1.217-1.32-1.94-2.3-2.768L6.7 5.527c-.814-.68-1.75-1.462-2.692-2.619a3.737 3.737 0 0 0-1.023.88c-.406.495-.663 1.036-.722 1.508.116.122.306.21.591.239.388.038.797-.06 1.032-.19a.75.75 0 0 1 .728 1.31c-.515.287-1.23.439-1.906.373-.682-.067-1.473-.38-1.879-1.193L.75 5.677V5.5c0-.984.48-1.94 1.077-2.664.46-.559 1.05-1.055 1.673-1.353V.75Z"/></svg>');--md-admonition-icon--success:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"/></svg>');--md-admonition-icon--question:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.92 6.085h.001a.749.749 0 1 1-1.342-.67c.169-.339.436-.701.849-.977C6.845 4.16 7.369 4 8 4a2.756 2.756 0 0 1 1.637.525c.503.377.863.965.863 1.725 0 .448-.115.83-.329 1.15-.205.307-.47.513-.692.662-.109.072-.22.138-.313.195l-.006.004a6.24 6.24 0 0 0-.26.16.952.952 0 0 0-.276.245.75.75 0 0 1-1.248-.832c.184-.264.42-.489.692-.661.103-.067.207-.132.313-.195l.007-.004c.1-.061.182-.11.258-.161a.969.969 0 0 0 .277-.245C8.96 6.514 9 6.427 9 6.25a.612.612 0 0 0-.262-.525A1.27 1.27 0 0 0 8 5.5c-.369 0-.595.09-.74.187a1.01 1.01 0 0 0-.34.398ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>');--md-admonition-icon--warning:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>');--md-admonition-icon--failure:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.344 2.343h-.001a8 8 0 0 1 11.314 11.314A8.002 8.002 0 0 1 .234 10.089a8 8 0 0 1 2.11-7.746Zm1.06 10.253a6.5 6.5 0 1 0 9.108-9.275 6.5 6.5 0 0 0-9.108 9.275ZM6.03 4.97 8 6.94l1.97-1.97a.749.749 0 0 1 1.275.326.749.749 0 0 1-.215.734L9.06 8l1.97 1.97a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L8 9.06l-1.97 1.97a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734L6.94 8 4.97 6.03a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018Z"/></svg>');--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M9.504.43a1.516 1.516 0 0 1 2.437 1.713L10.415 5.5h2.123c1.57 0 2.346 1.909 1.22 3.004l-7.34 7.142a1.249 1.249 0 0 1-.871.354h-.302a1.25 1.25 0 0 1-1.157-1.723L5.633 10.5H3.462c-1.57 0-2.346-1.909-1.22-3.004L9.503.429Zm1.047 1.074L3.286 8.571A.25.25 0 0 0 3.462 9H6.75a.75.75 0 0 1 .694 1.034l-1.713 4.188 6.982-6.793A.25.25 0 0 0 12.538 7H9.25a.75.75 0 0 1-.683-1.06l2.008-4.418.003-.006a.036.036 0 0 0-.004-.009l-.006-.006-.008-.001c-.003 0-.006.002-.009.004Z"/></svg>');--md-admonition-icon--bug:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M4.72.22a.75.75 0 0 1 1.06 0l1 .999a3.488 3.488 0 0 1 2.441 0l.999-1a.748.748 0 0 1 1.265.332.75.75 0 0 1-.205.729l-.775.776c.616.63.995 1.493.995 2.444v.327c0 .1-.009.197-.025.292.408.14.764.392 1.029.722l1.968-.787a.75.75 0 0 1 .556 1.392L13 7.258V9h2.25a.75.75 0 0 1 0 1.5H13v.5c0 .409-.049.806-.141 1.186l2.17.868a.75.75 0 0 1-.557 1.392l-2.184-.873A4.997 4.997 0 0 1 8 16a4.997 4.997 0 0 1-4.288-2.427l-2.183.873a.75.75 0 0 1-.558-1.392l2.17-.868A5.036 5.036 0 0 1 3 11v-.5H.75a.75.75 0 0 1 0-1.5H3V7.258L.971 6.446a.75.75 0 0 1 .558-1.392l1.967.787c.265-.33.62-.583 1.03-.722a1.677 1.677 0 0 1-.026-.292V4.5c0-.951.38-1.814.995-2.444L4.72 1.28a.75.75 0 0 1 0-1.06Zm.53 6.28a.75.75 0 0 0-.75.75V11a3.5 3.5 0 1 0 7 0V7.25a.75.75 0 0 0-.75-.75ZM6.173 5h3.654A.172.172 0 0 0 10 4.827V4.5a2 2 0 1 0-4 0v.327c0 .096.077.173.173.173Z"/></svg>');--md-admonition-icon--example:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M5 5.782V2.5h-.25a.75.75 0 0 1 0-1.5h6.5a.75.75 0 0 1 0 1.5H11v3.282l3.666 5.76C15.619 13.04 14.543 15 12.767 15H3.233c-1.776 0-2.852-1.96-1.899-3.458Zm-2.4 6.565a.75.75 0 0 0 .633 1.153h9.534a.75.75 0 0 0 .633-1.153L12.225 10.5h-8.45ZM9.5 2.5h-3V6c0 .143-.04.283-.117.403L4.73 9h6.54L9.617 6.403A.746.746 0 0 1 9.5 6Z"/></svg>');--md-admonition-icon--quote:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1.75 2.5h10.5a.75.75 0 0 1 0 1.5H1.75a.75.75 0 0 1 0-1.5Zm4 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5ZM2.5 7.75v6a.75.75 0 0 1-1.5 0v-6a.75.75 0 0 1 1.5 0Z"/></svg>');}</style>
@@ -31,7 +31,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#link-layer">
+<a class="md-skip" href="#linux">
           跳转至
         </a>
 </div>
@@ -55,7 +55,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              链路层与局域网 | Link Layer
+              Linux 系统设置
             
           </span>
 </div>
@@ -162,8 +162,8 @@
 
         </a>
 </li>
-<li class="md-tabs__item md-tabs__item--active">
-<a class="md-tabs__link" href="../Language/Assembly/">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../CS/Language/Assembly/">
           
   
     
@@ -182,8 +182,8 @@
 
         </a>
 </li>
-<li class="md-tabs__item">
-<a class="md-tabs__link" href="../../Tools/Git/">
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="../Git/">
           
   
     
@@ -368,91 +368,91 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../Statistic/00-intro/">
+<a class="md-nav__link" href="../../CS/Statistic/00-intro/">
 <span class="md-ellipsis">
     统计
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../Statistic/01-probability/">
+<a class="md-nav__link" href="../../CS/Statistic/01-probability/">
 <span class="md-ellipsis">
     样本空间与概率
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../Statistic/02-Univariate_Random_Variable/">
+<a class="md-nav__link" href="../../CS/Statistic/02-Univariate_Random_Variable/">
 <span class="md-ellipsis">
     一维随机变量
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../Statistic/03-Multivariate_Random_Variable/">
+<a class="md-nav__link" href="../../CS/Statistic/03-Multivariate_Random_Variable/">
 <span class="md-ellipsis">
     多维随机变量
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../Statistic/04-Numerical_Features/">
+<a class="md-nav__link" href="../../CS/Statistic/04-Numerical_Features/">
 <span class="md-ellipsis">
     随机变量的数字特征
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../Statistic/05-Special_Functions/">
+<a class="md-nav__link" href="../../CS/Statistic/05-Special_Functions/">
 <span class="md-ellipsis">
     特殊函数
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../Statistic/06-Parameter_Estimation/">
+<a class="md-nav__link" href="../../CS/Statistic/06-Parameter_Estimation/">
 <span class="md-ellipsis">
     参数估计
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../Statistic/07-Hypothesis_Testing/">
+<a class="md-nav__link" href="../../CS/Statistic/07-Hypothesis_Testing/">
 <span class="md-ellipsis">
     假设检验
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../Statistic/08-Goodness_of_Fit/">
+<a class="md-nav__link" href="../../CS/Statistic/08-Goodness_of_Fit/">
 <span class="md-ellipsis">
     拟合优度
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../Statistic/09-Regression/">
+<a class="md-nav__link" href="../../CS/Statistic/09-Regression/">
 <span class="md-ellipsis">
     回归
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../Statistic/10-Multiple_Regression_and_Analysis_of_Variance/">
+<a class="md-nav__link" href="../../CS/Statistic/10-Multiple_Regression_and_Analysis_of_Variance/">
 <span class="md-ellipsis">
     多元回归分析
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../AI/60-python_package/">
+<a class="md-nav__link" href="../../CS/AI/60-python_package/">
 <span class="md-ellipsis">
     python tools used in ML
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../Statistic/big_data_security%26privacy_protection/">
+<a class="md-nav__link" href="../../CS/Statistic/big_data_security%26privacy_protection/">
 <span class="md-ellipsis">
     大数据安全与隐私保护
   </span>
@@ -716,15 +716,15 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
-<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
 <span class="md-ellipsis">
     Computer Science
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="true" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_5">
 <span class="md-nav__icon md-icon"></span>
             Computer Science
@@ -745,42 +745,42 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../Language/Assembly/">
+<a class="md-nav__link" href="../../CS/Language/Assembly/">
 <span class="md-ellipsis">
     汇编
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../Language/C/">
+<a class="md-nav__link" href="../../CS/Language/C/">
 <span class="md-ellipsis">
     C程序设计基础
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../Language/C%2B%2B/">
+<a class="md-nav__link" href="../../CS/Language/C%2B%2B/">
 <span class="md-ellipsis">
     C++
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../Language/Python/">
+<a class="md-nav__link" href="../../CS/Language/Python/">
 <span class="md-ellipsis">
     Python
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../Language/Python_packages/">
+<a class="md-nav__link" href="../../CS/Language/Python_packages/">
 <span class="md-ellipsis">
     Python 常用库
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../Language/crawler/">
+<a class="md-nav__link" href="../../CS/Language/crawler/">
 <span class="md-ellipsis">
     E：一只爬虫
   </span>
@@ -804,21 +804,21 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../Frontend/HTML/">
+<a class="md-nav__link" href="../../CS/Frontend/HTML/">
 <span class="md-ellipsis">
     HTML | 超文本标记语言
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../Frontend/CSS/">
+<a class="md-nav__link" href="../../CS/Frontend/CSS/">
 <span class="md-ellipsis">
     CSS | 层叠样式表
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../Frontend/JavaScript/">
+<a class="md-nav__link" href="../../CS/Frontend/JavaScript/">
 <span class="md-ellipsis">
     JavaScript
   </span>
@@ -842,21 +842,21 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../Backend/SQL/">
+<a class="md-nav__link" href="../../CS/Backend/SQL/">
 <span class="md-ellipsis">
     SQL
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../Backend/Nodejs/">
+<a class="md-nav__link" href="../../CS/Backend/Nodejs/">
 <span class="md-ellipsis">
     NodeJS
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../Backend/PHP/">
+<a class="md-nav__link" href="../../CS/Backend/PHP/">
 <span class="md-ellipsis">
     PHP 备忘录
   </span>
@@ -880,14 +880,14 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../Discrete_mathematics/">
+<a class="md-nav__link" href="../../CS/Discrete_mathematics/">
 <span class="md-ellipsis">
     离散数学
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../DataStructure-Graph/">
+<a class="md-nav__link" href="../../CS/DataStructure-Graph/">
 <span class="md-ellipsis">
     图论 | Graph Theory
   </span>
@@ -911,35 +911,35 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../DataStructure/">
+<a class="md-nav__link" href="../../CS/DataStructure/">
 <span class="md-ellipsis">
     数据结构与算法
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../DataStructure-Tree/">
+<a class="md-nav__link" href="../../CS/DataStructure-Tree/">
 <span class="md-ellipsis">
     第四章 Tree
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../DataStructure-Hash/">
+<a class="md-nav__link" href="../../CS/DataStructure-Hash/">
 <span class="md-ellipsis">
     第五章 散列表与hash
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../DataStructure-Graph/">
+<a class="md-nav__link" href="../../CS/DataStructure-Graph/">
 <span class="md-ellipsis">
     图论 | Graph Theory
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../DataStructure-Sorting/">
+<a class="md-nav__link" href="../../CS/DataStructure-Sorting/">
 <span class="md-ellipsis">
     第七章 Sorting
   </span>
@@ -948,242 +948,78 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_5_6" type="checkbox"/>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5_6" type="checkbox"/>
 <label class="md-nav__link" for="__nav_5_6" id="__nav_5_6_label" tabindex="0">
 <span class="md-ellipsis">
     CN | 计算机网络
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="true" aria-labelledby="__nav_5_6_label" class="md-nav" data-md-level="2">
+<nav aria-expanded="false" aria-labelledby="__nav_5_6_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_5_6">
 <span class="md-nav__icon md-icon"></span>
             CN | 计算机网络
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../ComputerNetwork-00-intro/">
+<a class="md-nav__link" href="../../CS/ComputerNetwork-00-intro/">
 <span class="md-ellipsis">
     Introduction
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../ComputerNetwork-01-ApplicationLayer/">
+<a class="md-nav__link" href="../../CS/ComputerNetwork-01-ApplicationLayer/">
 <span class="md-ellipsis">
     应用层 | Application Layer
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../ComputerNetwork-02-TransportLayer/">
+<a class="md-nav__link" href="../../CS/ComputerNetwork-02-TransportLayer/">
 <span class="md-ellipsis">
     传输层 | Transport Layer
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../ComputerNetwork-03-NetworkLayer/">
+<a class="md-nav__link" href="../../CS/ComputerNetwork-03-NetworkLayer/">
 <span class="md-ellipsis">
     网络层 | Network Layer
   </span>
 </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-<span class="md-ellipsis">
-    链路层与局域网 | Link Layer
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../CS/ComputerNetwork-04-LinkLayer/">
 <span class="md-ellipsis">
     链路层与局域网 | Link Layer
   </span>
 </a>
-<nav aria-label="目录" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_1">
-<span class="md-ellipsis">
-      链路层服务原理
-    </span>
-</a>
-<nav aria-label="链路层服务原理" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#1">
-<span class="md-ellipsis">
-      服务1：成帧
-    </span>
-</a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#2edc">
-<span class="md-ellipsis">
-      服务2：EDC 检错和纠错
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#3">
-<span class="md-ellipsis">
-      服务3：链路接入
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#4">
-<span class="md-ellipsis">
-      服务4：全双工、半双工
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#edc">
-<span class="md-ellipsis">
-      差错检测 | EDC
-    </span>
-</a>
-<nav aria-label="差错检测 | EDC" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_2">
-<span class="md-ellipsis">
-      奇偶检验
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_3">
-<span class="md-ellipsis">
-      检验和
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#crc">
-<span class="md-ellipsis">
-      CRC（循环冗余校验）
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#map">
-<span class="md-ellipsis">
-      多点接入 | MAP
-    </span>
-</a>
-<nav aria-label="多点接入 | MAP" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_4">
-<span class="md-ellipsis">
-      信道划分
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_5">
-<span class="md-ellipsis">
-      随机访问
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#taking-turns">
-<span class="md-ellipsis">
-      依次轮流 Taking Turns
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#lan-local-area-network">
-<span class="md-ellipsis">
-      LAN Local Area Network
-    </span>
-</a>
-<nav aria-label="LAN Local Area Network" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#mac-medium-access-control">
-<span class="md-ellipsis">
-      MAC medium access control
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#arp-address-resolution-protocol">
-<span class="md-ellipsis">
-      ARP: Address Resolution Protocol
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#ethernet">
-<span class="md-ellipsis">
-      Ethernet
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_15">
-<span class="md-ellipsis">
-      链路层的设备
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#vlans">
-<span class="md-ellipsis">
-      VLANS
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../ComputerNetwork-05-PhysicalLayer/">
+<a class="md-nav__link" href="../../CS/ComputerNetwork-05-PhysicalLayer/">
 <span class="md-ellipsis">
     物理层 | Physical Layer
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../ComputerNetwork-06-experiment/">
+<a class="md-nav__link" href="../../CS/ComputerNetwork-06-experiment/">
 <span class="md-ellipsis">
     计网实验以及探索
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../ComputerNetwork-07-%E9%97%AE%E9%A2%98%E6%8E%A2%E7%A9%B6/">
+<a class="md-nav__link" href="../../CS/ComputerNetwork-07-%E9%97%AE%E9%A2%98%E6%8E%A2%E7%A9%B6/">
 <span class="md-ellipsis">
     有趣问题探究
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../ComputerNetwork-08-security/">
+<a class="md-nav__link" href="../../CS/ComputerNetwork-08-security/">
 <span class="md-ellipsis">
     网络安全
   </span>
@@ -1207,56 +1043,56 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../OR-exercise/">
+<a class="md-nav__link" href="../../CS/OR-exercise/">
 <span class="md-ellipsis">
     运筹学复习总结
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../OR/">
+<a class="md-nav__link" href="../../CS/OR/">
 <span class="md-ellipsis">
     规划论 | Mathematical Programming
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../OR-nonlinear/">
+<a class="md-nav__link" href="../../CS/OR-nonlinear/">
 <span class="md-ellipsis">
     规划论 | 非线性规划 凸优化
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../OR-DP/">
+<a class="md-nav__link" href="../../CS/OR-DP/">
 <span class="md-ellipsis">
     动态规划 | DP
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../DataStructure-Graph/">
+<a class="md-nav__link" href="../../CS/DataStructure-Graph/">
 <span class="md-ellipsis">
     图论 | Graph Theory
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../OR-GameTheory/">
+<a class="md-nav__link" href="../../CS/OR-GameTheory/">
 <span class="md-ellipsis">
     博弈论 | GameTheory
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../OR-GameTheoryModel/">
+<a class="md-nav__link" href="../../CS/OR-GameTheoryModel/">
 <span class="md-ellipsis">
     博弈论模型
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../OR-QueuingTheory/">
+<a class="md-nav__link" href="../../CS/OR-QueuingTheory/">
 <span class="md-ellipsis">
     排队论 | Queuing Theory
   </span>
@@ -1280,14 +1116,14 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../AI/01-AI_history%26intro/">
+<a class="md-nav__link" href="../../CS/AI/01-AI_history%26intro/">
 <span class="md-ellipsis">
     人工智能引论
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../AI/HumanPoseEstimation/">
+<a class="md-nav__link" href="../../CS/AI/HumanPoseEstimation/">
 <span class="md-ellipsis">
     HPE领域综述
   </span>
@@ -1311,14 +1147,14 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../CV/CV-intro/">
+<a class="md-nav__link" href="../../CS/CV/CV-intro/">
 <span class="md-ellipsis">
     CV intro
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../CV/OpenCV/">
+<a class="md-nav__link" href="../../CS/CV/OpenCV/">
 <span class="md-ellipsis">
     OpenCV学习
   </span>
@@ -1342,49 +1178,49 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../CTF-intro/">
+<a class="md-nav__link" href="../../CS/CTF-intro/">
 <span class="md-ellipsis">
     CTF 简介
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../CTF-web/">
+<a class="md-nav__link" href="../../CS/CTF-web/">
 <span class="md-ellipsis">
     Web
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../CTF-misc/">
+<a class="md-nav__link" href="../../CS/CTF-misc/">
 <span class="md-ellipsis">
     MISC
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../CTF-reverse/">
+<a class="md-nav__link" href="../../CS/CTF-reverse/">
 <span class="md-ellipsis">
     Reverse
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../CTF-pwn/">
+<a class="md-nav__link" href="../../CS/CTF-pwn/">
 <span class="md-ellipsis">
     PWN
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../CTF-crypto/">
+<a class="md-nav__link" href="../../CS/CTF-crypto/">
 <span class="md-ellipsis">
     Crypto
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../CTF-CPS/">
+<a class="md-nav__link" href="../../CS/CTF-CPS/">
 <span class="md-ellipsis">
     信息物理系统安全
   </span>
@@ -1408,28 +1244,28 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../Web3/blockchain/">
+<a class="md-nav__link" href="../../CS/Web3/blockchain/">
 <span class="md-ellipsis">
     以太坊区块链基础
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../Web3/contract/">
+<a class="md-nav__link" href="../../CS/Web3/contract/">
 <span class="md-ellipsis">
     Contract
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../Web3/solidity/">
+<a class="md-nav__link" href="../../CS/Web3/solidity/">
 <span class="md-ellipsis">
     Solidity
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../Web3/lingo/">
+<a class="md-nav__link" href="../../CS/Web3/lingo/">
 <span class="md-ellipsis">
     Lingo
   </span>
@@ -1439,7 +1275,7 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../missing_knowledge/">
+<a class="md-nav__link" href="../../CS/missing_knowledge/">
 <span class="md-ellipsis">
     missing knowledge
   </span>
@@ -1562,36 +1398,36 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_7" type="checkbox"/>
-<label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
 <span class="md-ellipsis">
     Tools
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="false" aria-labelledby="__nav_7_label" class="md-nav" data-md-level="1">
+<nav aria-expanded="true" aria-labelledby="__nav_7_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_7">
 <span class="md-nav__icon md-icon"></span>
             Tools
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../Tools/Git/">
+<a class="md-nav__link" href="../Git/">
 <span class="md-ellipsis">
     Git
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../Tools/Linux/">
+<a class="md-nav__link" href="../Linux/">
 <span class="md-ellipsis">
     Linux 应用技术基础
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../Tools/gdb/">
+<a class="md-nav__link" href="../gdb/">
 <span class="md-ellipsis">
     gdb
   </span>
@@ -1636,35 +1472,35 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../Tools/Mkdocs/">
+<a class="md-nav__link" href="../Mkdocs/">
 <span class="md-ellipsis">
     Mkdocs
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../Tools/obsidian/">
+<a class="md-nav__link" href="../obsidian/">
 <span class="md-ellipsis">
     Obisidian
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../Tools/latex/">
+<a class="md-nav__link" href="../latex/">
 <span class="md-ellipsis">
     Latex备忘录
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../Tools/vim/">
+<a class="md-nav__link" href="../vim/">
 <span class="md-ellipsis">
     Vim
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../Tools/markdown/">
+<a class="md-nav__link" href="../markdown/">
 <span class="md-ellipsis">
     Markdown
   </span>
@@ -1674,49 +1510,326 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../Tools/tableau/">
+<a class="md-nav__link" href="../tableau/">
 <span class="md-ellipsis">
     Tableau
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../Tools/matlab/">
+<a class="md-nav__link" href="../matlab/">
 <span class="md-ellipsis">
     MATLAB使用记录
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../Tools/solidworks/">
+<a class="md-nav__link" href="../solidworks/">
 <span class="md-ellipsis">
     SolidWorks
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../Tools/sites/">
+<a class="md-nav__link" href="../sites/">
 <span class="md-ellipsis">
     常用网站以及工具分享
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../Tools/settings/">
+<a class="md-nav__link" href="../settings/">
 <span class="md-ellipsis">
     环境配置
   </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../Tools/settings-linux/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    Linux 系统设置
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
     Linux 系统设置
   </span>
 </a>
+<nav aria-label="目录" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_1">
+<span class="md-ellipsis">
+      系统配置
+    </span>
+</a>
+<nav aria-label="系统配置" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+<span class="md-ellipsis">
+      中文系统
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../Tools/macos/">
+<a class="md-nav__link" href="#_3">
+<span class="md-ellipsis">
+      分辨率
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+<span class="md-ellipsis">
+      查看系统信息
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_5">
+<span class="md-ellipsis">
+      通用软件
+    </span>
+</a>
+<nav aria-label="通用软件" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#terminator">
+<span class="md-ellipsis">
+      terminator
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#vscode">
+<span class="md-ellipsis">
+      vscode
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ssh">
+<span class="md-ellipsis">
+      SSH
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_6">
+<span class="md-ellipsis">
+      外设与硬件
+    </span>
+</a>
+<nav aria-label="外设与硬件" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_7">
+<span class="md-ellipsis">
+      蓝牙操作
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_8">
+<span class="md-ellipsis">
+      网络
+    </span>
+</a>
+<nav aria-label="网络" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#wifi">
+<span class="md-ellipsis">
+      连接wifi
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_9">
+<span class="md-ellipsis">
+      路由
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#docker">
+<span class="md-ellipsis">
+      docker
+    </span>
+</a>
+<nav aria-label="docker" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_10">
+<span class="md-ellipsis">
+      换源
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_11">
+<span class="md-ellipsis">
+      文档
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_12">
+<span class="md-ellipsis">
+      使用
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#kali">
+<span class="md-ellipsis">
+      Kali
+    </span>
+</a>
+<nav aria-label="Kali" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_13">
+<span class="md-ellipsis">
+      系统烧录
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_14">
+<span class="md-ellipsis">
+      换源
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#linux_1">
+<span class="md-ellipsis">
+      linux安装软件的方式
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#phpstudy">
+<span class="md-ellipsis">
+      phpstudy
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#dirsearch">
+<span class="md-ellipsis">
+      dirsearch
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#weevely">
+<span class="md-ellipsis">
+      菜刀 weevely
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_15">
+<span class="md-ellipsis">
+      中国蚁剑
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_16">
+<span class="md-ellipsis">
+      文件泄露分析
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#php">
+<span class="md-ellipsis">
+      php
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#nodejs">
+<span class="md-ellipsis">
+      nodejs
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#strace-ltrace">
+<span class="md-ellipsis">
+      strace &amp; ltrace
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#stegsolve">
+<span class="md-ellipsis">
+      Stegsolve
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_17">
+<span class="md-ellipsis">
+      其他隐写工具
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#go">
+<span class="md-ellipsis">
+      go环境搭建
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#geth">
+<span class="md-ellipsis">
+      geth
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#volatility">
+<span class="md-ellipsis">
+      volatility
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../macos/">
 <span class="md-ellipsis">
     MacOS使用备忘
   </span>
@@ -1882,35 +1995,35 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../Tools/color/">
+<a class="md-nav__link" href="../color/">
 <span class="md-ellipsis">
     色彩 | 从入门到入土
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../Tools/design/">
+<a class="md-nav__link" href="../design/">
 <span class="md-ellipsis">
     案例 | 有趣的设计idea
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../Tools/powerpoint/">
+<a class="md-nav__link" href="../powerpoint/">
 <span class="md-ellipsis">
     PowerPoint
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../Tools/AdobePhotoshop/">
+<a class="md-nav__link" href="../AdobePhotoshop/">
 <span class="md-ellipsis">
     Adobe Photoshop
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../Tools/AdobeIllustrator/">
+<a class="md-nav__link" href="../AdobeIllustrator/">
 <span class="md-ellipsis">
     Adobe Illustrator
   </span>
@@ -1934,21 +2047,21 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../Tools/Photography-base/">
+<a class="md-nav__link" href="../Photography-base/">
 <span class="md-ellipsis">
     摄影 - 基础知识
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../Tools/Photography-Landscape/">
+<a class="md-nav__link" href="../Photography-Landscape/">
 <span class="md-ellipsis">
     风光摄影
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../Tools/Photography-Portrait/">
+<a class="md-nav__link" href="../Photography-Portrait/">
 <span class="md-ellipsis">
     人像摄影
   </span>
@@ -1977,68 +2090,22 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_1">
 <span class="md-ellipsis">
-      链路层服务原理
+      系统配置
     </span>
 </a>
-<nav aria-label="链路层服务原理" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#1">
-<span class="md-ellipsis">
-      服务1：成帧
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#2edc">
-<span class="md-ellipsis">
-      服务2：EDC 检错和纠错
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#3">
-<span class="md-ellipsis">
-      服务3：链路接入
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#4">
-<span class="md-ellipsis">
-      服务4：全双工、半双工
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#edc">
-<span class="md-ellipsis">
-      差错检测 | EDC
-    </span>
-</a>
-<nav aria-label="差错检测 | EDC" class="md-nav">
+<nav aria-label="系统配置" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_2">
 <span class="md-ellipsis">
-      奇偶检验
+      中文系统
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_3">
 <span class="md-ellipsis">
-      检验和
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#crc">
-<span class="md-ellipsis">
-      CRC（循环冗余校验）
+      分辨率
     </span>
 </a>
 </li>
@@ -2046,31 +2113,38 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#map">
-<span class="md-ellipsis">
-      多点接入 | MAP
-    </span>
-</a>
-<nav aria-label="多点接入 | MAP" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
 <a class="md-nav__link" href="#_4">
 <span class="md-ellipsis">
-      信道划分
+      查看系统信息
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_5">
 <span class="md-ellipsis">
-      随机访问
+      通用软件
+    </span>
+</a>
+<nav aria-label="通用软件" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#terminator">
+<span class="md-ellipsis">
+      terminator
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#taking-turns">
+<a class="md-nav__link" href="#vscode">
 <span class="md-ellipsis">
-      依次轮流 Taking Turns
+      vscode
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ssh">
+<span class="md-ellipsis">
+      SSH
     </span>
 </a>
 </li>
@@ -2078,45 +2152,197 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#lan-local-area-network">
+<a class="md-nav__link" href="#_6">
 <span class="md-ellipsis">
-      LAN Local Area Network
+      外设与硬件
     </span>
 </a>
-<nav aria-label="LAN Local Area Network" class="md-nav">
+<nav aria-label="外设与硬件" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#mac-medium-access-control">
+<a class="md-nav__link" href="#_7">
 <span class="md-ellipsis">
-      MAC medium access control
+      蓝牙操作
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_8">
+<span class="md-ellipsis">
+      网络
+    </span>
+</a>
+<nav aria-label="网络" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#wifi">
+<span class="md-ellipsis">
+      连接wifi
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#arp-address-resolution-protocol">
+<a class="md-nav__link" href="#_9">
 <span class="md-ellipsis">
-      ARP: Address Resolution Protocol
+      路由
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#docker">
+<span class="md-ellipsis">
+      docker
+    </span>
+</a>
+<nav aria-label="docker" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_10">
+<span class="md-ellipsis">
+      换源
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#ethernet">
+<a class="md-nav__link" href="#_11">
 <span class="md-ellipsis">
-      Ethernet
+      文档
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_12">
+<span class="md-ellipsis">
+      使用
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#kali">
+<span class="md-ellipsis">
+      Kali
+    </span>
+</a>
+<nav aria-label="Kali" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_13">
+<span class="md-ellipsis">
+      系统烧录
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_14">
+<span class="md-ellipsis">
+      换源
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#linux_1">
+<span class="md-ellipsis">
+      linux安装软件的方式
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#phpstudy">
+<span class="md-ellipsis">
+      phpstudy
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#dirsearch">
+<span class="md-ellipsis">
+      dirsearch
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#weevely">
+<span class="md-ellipsis">
+      菜刀 weevely
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_15">
 <span class="md-ellipsis">
-      链路层的设备
+      中国蚁剑
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#vlans">
+<a class="md-nav__link" href="#_16">
 <span class="md-ellipsis">
-      VLANS
+      文件泄露分析
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#php">
+<span class="md-ellipsis">
+      php
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#nodejs">
+<span class="md-ellipsis">
+      nodejs
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#strace-ltrace">
+<span class="md-ellipsis">
+      strace &amp; ltrace
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#stegsolve">
+<span class="md-ellipsis">
+      Stegsolve
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_17">
+<span class="md-ellipsis">
+      其他隐写工具
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#go">
+<span class="md-ellipsis">
+      go环境搭建
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#geth">
+<span class="md-ellipsis">
+      geth
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#volatility">
+<span class="md-ellipsis">
+      volatility
     </span>
 </a>
 </li>
@@ -2130,497 +2356,536 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="link-layer">链路层与局域网<span><span class="heti-spacing"> </span>|</span><code>Link Layer</code><a class="headerlink" href="#link-layer" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h1>
+<h1 id="linux"><span>Linux<span class="heti-spacing"> </span></span>系统设置<a class="headerlink" href="#linux" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>3679<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>14<span class="heti-spacing"> </span></span>分钟</p>
+<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>1712<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"></path></svg></span> <span>115<span class="heti-spacing"> </span></span>行代码 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>8<span class="heti-spacing"> </span></span>分钟</p>
 </div>
-<p><img alt="链路层与局域网" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/%E9%93%BE%E8%B7%AF%E5%B1%82%E4%B8%8E%E5%B1%80%E5%9F%9F%E7%BD%91.svg"/></p>
-<h2 id="_1">链路层服务原理<a class="headerlink" href="#_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<blockquote>
-<p>链路层：一个节点把<strong>帧</strong>通过链路传送到另外一个节点</p>
-<p>网络层：端到端 </p>
-<p>传输层：区分进程、不可靠变成可靠</p>
-<p>应用层：交换报文，形成网络应用</p>
-</blockquote>
-<p><strong>广域网使用单点连接</strong></p>
-<p><strong>局域网使用多点连接</strong></p>
-<p>在子网的内部实现点到点<span><span class="heti-spacing"> </span>point to point</span> </p>
-<p><strong>网卡<span><span class="heti-spacing"> </span>NIC</span></strong>实现链路层和相应物理层的功能</p>
-<p><img alt="image-20240217114915691" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240217114915691.png"/></p>
-<h3 id="1">服务<span><span class="heti-spacing"> </span>1</span>：成帧<a class="headerlink" href="#1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h2 id="_1">系统配置<a class="headerlink" href="#_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h3 id="_2">中文系统<a class="headerlink" href="#_2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_3">分辨率<a class="headerlink" href="#_3" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p><a href="https://blog.csdn.net/SueMagic/article/details/89399959"><span>linux<span class="heti-spacing"> </span></span>下更改分辨率</a></p>
+<h2 id="_4">查看系统信息<a class="headerlink" href="#_4" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<p>查看<span class="heti-skip"><span class="heti-spacing"> </span>cpu<span class="heti-spacing"> </span></span>信息
+</p><div class="highlight"><pre><span></span><code>cat<span class="w"> </span>/proc/cpuinfo
+</code></pre></div>
+<h2 id="_5">通用软件<a class="headerlink" href="#_5" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<div class="highlight"><pre><span></span><code>apt-get<span class="w"> </span>install<span class="w"> </span>git
+apt-get<span class="w"> </span>install<span class="w"> </span>vim
+</code></pre></div>
 <ul>
-<li>节点 <code>node</code></li>
-<li>链路 <code>link</code></li>
-<li>帧<code>frame</code><span><span class="heti-spacing"> </span>PDU</span></li>
+<li>tldr：简易版<span class="heti-skip"><span class="heti-spacing"> </span>man<span class="heti-spacing"> </span></span>手册</li>
+<li>fd-find：人性化的<span><span class="heti-spacing"> </span>find</span></li>
+<li>rg(ripgrep)：快速搜索</li>
+<li>fzf ： 模糊搜索</li>
 </ul>
-<p>在帧头部使用“MAC”（物理）地址来标示源和目的</p>
-<h3 id="2edc">服务<span><span class="heti-spacing"> </span>2</span>：<span>EDC<span class="heti-spacing"> </span></span>检错和纠错<a class="headerlink" href="#2edc" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<p><span>Error Detection and Correction<span class="heti-spacing"> </span></span>差错检测和纠正位<strong>在相邻两个节点之间完成可靠数据传递</strong></p>
-<ul>
-<li>
-<p>低差错率，不控制</p>
-</li>
-<li>
-<p>高差错率，上层代价大所以要控制</p>
-</li>
-</ul>
-<h3 id="3">服务<span><span class="heti-spacing"> </span>3</span>：链路接入<a class="headerlink" href="#3" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<p><span>MAC<span class="heti-spacing"> </span></span>协议规定了帧在链路上传输的规则。用于协调多个节点的帧传输</p>
-<h3 id="4">服务<span><span class="heti-spacing"> </span>4</span>：全双工、半双工<a class="headerlink" href="#4" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<p>半双工：双向传输，一次一个方向</p>
-<p>全双工：双向传输，同时收发</p>
-<h2 id="edc">差错检测<span><span class="heti-spacing"> </span>| EDC</span><a class="headerlink" href="#edc" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<h3 id="_2">奇偶检验<a class="headerlink" href="#_2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<p>单<span class="heti-skip"><span class="heti-spacing"> </span>bit<span class="heti-spacing"> </span></span>奇偶校验：检测单个<span class="heti-skip"><span class="heti-spacing"> </span>bit<span class="heti-spacing"> </span></span>级错误</p>
-<p>偶检验，加上一个冗余位，使得整行<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>的个数是偶数个，可以检验出奇数个<span class="heti-skip"><span class="heti-spacing"> </span>bit<span class="heti-spacing"> </span></span>错误</p>
-<p><span>2<span class="heti-spacing"> </span></span>维奇偶校验：检测和纠正单个<span class="heti-skip"><span class="heti-spacing"> </span>bit<span class="heti-spacing"> </span></span>错误，可以定位到行列，进而进行纠正</p>
-<p>无法检验对偶错误</p>
-<h3 id="_3">检验和<a class="headerlink" href="#_3" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<p>更多用于传输层</p>
-<p>软件层实现，所以需要更快的速度</p>
-<h3 id="crc">CRC（循环冗余校验）<a class="headerlink" href="#crc" title="anchor link to this section for reference">¶</a></h3>
-<blockquote>
-<p>此部分参考了<span class="heti-skip"><span class="heti-spacing"> </span>[<span class="heti-spacing"> </span></span><a href="https://www.bilibili.com/video/BV1V4411Z7VA/?spm_id_from=333.337.search-card.all.click&amp;vd_source=8b7a5460b512357b2cf80ce1cefc69f5"><span class="heti-skip"><span class="heti-spacing"> </span>CRC<span class="heti-spacing"> </span></span>校验<span class="heti-skip"><span class="heti-spacing"> </span>]<span class="heti-spacing"> </span></span>手算与直观演示动画</a></p>
-</blockquote>
-<ol>
-<li>
-<p>模二运算（异或）</p>
-</li>
-<li>
-<p>使用位串的方式约定一个多项式，<span>r<span class="heti-spacing"> </span></span>次方，<span>r+1<span class="heti-spacing"> </span></span>位</p>
-</li>
-<li>
-<p>发送方<span class="heti-skip"><span class="heti-spacing"> </span>sender<span class="heti-spacing"> </span></span>有<span class="heti-skip"><span class="heti-spacing"> </span>D<span class="heti-spacing"> </span></span>位，向左移动<span class="heti-skip"><span class="heti-spacing"> </span>R<span class="heti-spacing"> </span></span>位补零</p>
-</li>
-</ol>
-<p>接收方用位串除以（从左往右按位异或）多项式得到余数<span><span class="heti-spacing"> </span>R</span>，即为校验</p>
-<div class="arithmatex">\[
-&amp;D\cdot 2^r\oplus R = n\cdot G\\
-&amp;\Rightarrow D\cdot 2^r\oplus R \oplus R = n\cdot G \oplus R\\
-&amp;\Rightarrow D\cdot 2^r = n\cdot G \oplus R\\
-&amp;\therefore R= remainder[\frac{D\cdot 2^r}{G}]\\
-\]</div>
-<p>例子：</p>
-<div class="arithmatex">\[
-&amp;D = 101110\\
-&amp;G = 1001(r=3)\\
-&amp;R = D&lt;&lt;3/G = remainder[\frac{101110000}{1001}] = 011
-\]</div>
-<p><span>CRC<span class="heti-spacing"> </span></span>检错性能描述</p>
-<ul>
-<li>能够检查出所有的<span class="heti-skip"><span class="heti-spacing"> </span>1bit<span class="heti-spacing"> </span></span>错误</li>
-<li>能够检查出所有的双<span class="heti-skip"><span class="heti-spacing"> </span>bits<span class="heti-spacing"> </span></span>的错误</li>
-<li>能够检查出所有长度<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(=r\)</span><span class="heti-spacing"> </span></span>或者<span class="heti-skip"><span class="heti-spacing"> </span>$&lt;r $<span class="heti-spacing"> </span></span>位的错误</li>
-<li>出现长度为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(r+1\)</span><span class="heti-spacing"> </span></span>的突发错误，检查不出的概率是<span><span class="heti-spacing"> </span><span class="arithmatex">\(\frac{1}{2^{r-1}}\)</span></span></li>
-<li>现长度大于<code>r+1</code>的突发错误，检查不出的概率<span><span class="heti-spacing"> </span><span class="arithmatex">\(\frac{1}{2^r}\)</span></span></li>
-</ul>
-<h2 id="map">多点接入<span><span class="heti-spacing"> </span>| MAP</span><a class="headerlink" href="#map" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<p>MAC <code>media access control</code></p>
-<p>设计一个分布式算法，协调各个节点对信道访问和使用</p>
-<p><strong>存在问题</strong>：碰撞问题，广域网多点连接碰撞代价特别大</p>
-<p><span>2<span class="heti-spacing"> </span></span>个或更多节点同时传送<span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span>冲突（<code>collision</code>）</p>
-<p>必要条件：
-1. 当一个节点要发送时，可以R速率发送.
-2. 当M个节点要发送，每个可以以R/M的平均速率发送
-3. 完全分布的:没有特殊节点协调发送；没有时钟和时隙的同步
-4. 简单</p>
-<h3 id="_4">信道划分<a class="headerlink" href="#_4" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<ul>
-<li>把信道划分成小片（时间、频率、编码）</li>
-<li>分配片给每个节点专用</li>
-</ul>
-<p><span>TDMA: time division multiple access<span class="heti-spacing"> </span></span>分时</p>
-<p><span>FDMA: frequency division multiple access<span class="heti-spacing"> </span></span>分频 （类似鲸鱼蝙蝠不同频率</p>
-<p><span>CDMA (code division multiple access)<span class="heti-spacing"> </span></span>分码 （类似方言</p>
-<h3 id="_5">随机访问<a class="headerlink" href="#_5" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<ul>
-<li>信道不划分，允许冲突</li>
-<li><strong>如何检测冲突</strong></li>
-<li><strong>冲突后恢复</strong></li>
-</ul>
-<h4 id="aloha">时隙<span><span class="heti-spacing"> </span>ALOHA</span><a class="headerlink" href="#aloha" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
-<p>时隙<code>slot</code></p>
-<p>所有节点在信 道上保持同步</p>
-<p>在有限信道发，检测冲突，如果有碰撞，下一时隙按照概率<span class="heti-skip"><span class="heti-spacing"> </span>p<span class="heti-spacing"> </span></span>进行发送（服从二项分布）</p>
-<p>信道状态：<strong>碰撞的<span><span class="heti-spacing"> </span>C</span>、空闲的<span><span class="heti-spacing"> </span>E</span>、成功的<span><span class="heti-spacing"> </span>S</span></strong></p>
-<p><img alt="image-20240217123812413" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240217123812413.png" style="zoom:50%;"/></p>
-<h5 id="_6">优点<a class="headerlink" href="#_6" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h5>
-<ul>
-<li>节点可以以信道带宽全速连续传输</li>
-<li>高度分布：仅需要节点之间在时隙上的同步</li>
-<li>简单</li>
-</ul>
-<h5 id="_7">缺点<a class="headerlink" href="#_7" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h5>
-<ul>
-<li>
-<p>存在冲突，浪费时隙</p>
-</li>
-<li>
-<p>即使有帧要发送，仍然有可能存在空闲的时隙</p>
-</li>
-<li>
-<p>节点检测冲突的时间<span class="heti-skip"><span class="heti-spacing"> </span>&lt;<span class="heti-spacing"> </span></span>帧传输的时间；必须传完 </p>
-</li>
-</ul>
-<blockquote>
-<p>鸡蛋坏了也要吃完</p>
-</blockquote>
-<ul>
-<li>需要时钟上同步</li>
-</ul>
-<h5 id="_8">效率分析<a class="headerlink" href="#_8" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h5>
-<p>当有很多节点，每个节点有很多帧要发送时，<span>x%<span class="heti-spacing"> </span></span>的时隙是成功传输帧的时隙</p>
-<p>最大效率 </p>
-<div class="arithmatex">\[
-f(N,P) = N\cdot P (1-P)^{N-1}\\
-f_{max} = 37.5\%
-\]</div>
-<h4 id="pure-aloha">Pure ALOHA<a class="headerlink" href="#pure-aloha" title="anchor link to this section for reference">¶</a></h4>
-<p>任何时间有帧形成，就将帧放出去</p>
-<ul>
-<li>简单，无需时间同步</li>
-</ul>
-<p><img alt="image-20240217124359578" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240217124359578.png"/></p>
-<p>frame time </p>
-<p>bit time</p>
-<p><strong>效率低于时隙<span><span class="heti-spacing"> </span>ALOHA</span></strong></p>
-<div class="arithmatex">\[
-\begin{align}
-f(N,P) &amp;= N\cdot P (1-P)^{N-1} \cdot(1-P)^{N-1} 
-\\
-&amp;= N  \cdot P\cdot (1-P)^{2(N-1)} \\
-f_{max} &amp;= 17.5\%
-\end{align}
-\]</div>
-<h4 id="csma">CSMA<a class="headerlink" href="#csma" title="anchor link to this section for reference">¶</a></h4>
-<blockquote>
-<p>说之前听一下别人是否再说话，不要打断别人正在进行的说话<span><span class="heti-spacing"> </span>!</span></p>
-</blockquote>
-<p><code>carrier sense</code></p>
-<p>监听信道直至信道空闲位置</p>
-<p>如果侦听到信道空闲，传送整个帧；如果侦听到信道忙，推迟传送</p>
-<p><img alt="image-20240217125439610" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240217125439610.png" style="zoom:50%;"/></p>
-<ul>
-<li><strong>仍然会发生冲突</strong><span>(<span class="heti-spacing"> </span></span>局部探知全局情况不可靠<span><span class="heti-spacing"> </span>)</span></li>
-</ul>
-<p>各个节点通过局部<span class="heti-skip"><span class="heti-spacing"> </span>sense<span class="heti-spacing"> </span></span>得到全局状态，最远两个节点的时间越长，冲突可能性就越大</p>
-<p>整个冲突帧的传输时间都被浪费了，是无效的传输<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>红黄区域<span><span class="heti-spacing"> </span>)</span></p>
-<h4 id="csmacdethernet">CSMA/CD（Ethernet）<a class="headerlink" href="#csmacdethernet" title="anchor link to this section for reference">¶</a></h4>
-<p><code>collision detection</code> 冲突检测</p>
-<blockquote>
-<p>一边发送，一边监听，检测到冲突就停止发送</p>
-</blockquote>
-<p><strong>过程分析</strong></p>
-<ol>
-<li>
-<p>适配器获取数据报，创建帧</p>
-</li>
-<li>
-<p>发送前：侦听信道<span><span class="heti-spacing"> </span>CS</span><br/>
-  1)闲：开始传送帧<br/>
-  2)忙：一直等到闲再发送<br/></p>
-</li>
-<li>
-<p>发送过程中，冲突检测<span><span class="heti-spacing"> </span>CD</span><br/>
-  1)没有冲突：成功<br/>
-  2)检测到冲突：放弃,之后尝试重发<br/></p>
-</li>
-<li>
-<p>发送方适配器检测到冲突，除放弃外，还<strong>发送一个<span class="heti-skip"><span class="heti-spacing"> </span>Jam<span class="heti-spacing"> </span></span>信号</strong>，所有听到冲突的适配器也是如此；防止冲突太短听不到；</p>
-</li>
-<li>
-<p><code>exponential backoff</code>二进制指数退避算法<br/></p>
-</li>
-</ol>
-<p>如果放弃，适配器进入指数退避状态在第<span class="heti-skip"><span class="heti-spacing"> </span>m<span class="heti-spacing"> </span></span>次失败后，适配器随机选择一个<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\({0,1,2,\dots,2^m-1}\)</span><span class="heti-spacing"> </span></span>中选择<span><span class="heti-spacing"> </span>K</span><br/></p>
-<p>等待<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(K*512\)</span><span class="heti-spacing"> </span></span>位时，然后转到步骤<span><span class="heti-spacing"> </span>2</span><br/>碰撞窗口最大是<span><span class="heti-spacing"> </span>1024</span></p>
-<p>等待时间增加了<br/></p>
-<blockquote>
-<p><span>"<span class="heti-spacing"> </span></span>了不得啦，这里有冲突啊啊啊啊<span><span class="heti-spacing"> </span>"</span> </p>
-<p>强化冲突：让所有站点都知道冲突</p>
-<p>第一次碰撞：在<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\{0,1\}\)</span><span class="heti-spacing"> </span></span>中选择<span><span class="heti-spacing"> </span>K</span>，延时<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(K*512\)</span><span class="heti-spacing"> </span></span>位时</p>
-<p>第二次：在<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\{0,1,2,3\}\)</span><span class="heti-spacing"> </span></span>中选择<span><span class="heti-spacing"> </span>K</span>，延时<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(K*512\)</span><span class="heti-spacing"> </span></span>位时</p>
-</blockquote>
-<p><strong>效率分析</strong></p>
+<h3 id="terminator">terminator<a class="headerlink" href="#terminator" title="anchor link to this section for reference">¶</a></h3>
+<p><a href="https://blog.csdn.net/learning_tortosie/article/details/102581261">terminator</a></p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>terminator
+</code></pre></div>
+<div class="admonition bug">
+<p class="admonition-title">设置为默认终端</p>
+</div>
 <table>
 <thead>
 <tr>
-<th>量</th>
-<th>含义</th>
+<th>开启<span class="heti-skip"><span class="heti-spacing"> </span>or<span class="heti-spacing"> </span></span>关闭快捷键</th>
+<th>作用</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><span class="arithmatex">\(T_{prop}\)</span></td>
-<td><span>LAN<span class="heti-spacing"> </span></span>上<span class="heti-skip"><span class="heti-spacing"> </span>2<span class="heti-spacing"> </span></span>个节点的最大传播延迟</td>
+<td><code>Ctrl + Shift + O</code></td>
+<td>水平分割终端（分成上下两个窗口）</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(t_{trans}\)</span></td>
-<td>传输最大长度的以太网的帧的时间</td>
+<td><code>Ctrl + Shift + E</code></td>
+<td>垂直分割终端（分成左右两个窗口）</td>
+</tr>
+<tr>
+<td><code>Ctrl + Shift + W</code></td>
+<td>关闭当前终端</td>
+</tr>
+<tr>
+<td><code>Ctrl + Shift + X</code></td>
+<td>放大（还原）当前终端</td>
+</tr>
+<tr>
+<td><code>Ctrl + Shift + G</code></td>
+<td>清屏</td>
+</tr>
+<tr>
+<td><code>Ctrl + Shift + Q</code></td>
+<td>关闭所有终端（退出程序）</td>
+</tr>
+<tr>
+<td><code>Ctrl + Shift + T</code></td>
+<td>开一个新终端</td>
 </tr>
 </tbody>
 </table>
-<div class="arithmatex">\[
-efficiency = \frac{1}{1+5T_{prop}/t_{trans}}
-\]</div>
-<p>效率变为<span><span class="heti-spacing"> </span>1</span></p>
-<ul>
-<li>当<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(T_{prop}\)</span><span class="heti-spacing"> </span></span>变成<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>时</li>
-<li>当<span><span class="heti-spacing"> </span><span class="arithmatex">\(t_{trans}\)</span></span>​ 变成无穷大时<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>某个节点<span><span class="heti-spacing"> </span>800T</span>，一旦抓住信道就不放手了<span><span class="heti-spacing"> </span>)</span></li>
-<li>比<span class="heti-skip"><span class="heti-spacing"> </span>ALOHA<span class="heti-spacing"> </span></span>更好的性能，而且简单，廉价，分布式<span><span class="heti-spacing"> </span>!</span></li>
-</ul>
-<h4 id="csmacawlan">CSMA/CA(WLAN)<a class="headerlink" href="#csmacawlan" title="anchor link to this section for reference">¶</a></h4>
-<p><code>collision avoidance</code> 冲突避免</p>
-<p>有基础设施<code>infrastructure</code></p>
-<p><img alt="image-20240418000656125" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240418000656125.png"/></p>
-<p>802.11: <strong>没有冲突检测，做不了<span><span class="heti-spacing"> </span>CD</span></strong></p>
-<ul>
-<li>无法检测冲突：自身信号远远大于其他节点信号；有衰减</li>
-<li>即使能<span><span class="heti-spacing"> </span>CD</span>：不冲突<span class="heti-skip"><span class="heti-spacing"> </span>!=<span class="heti-spacing"> </span></span>成功<br/></li>
-<li>无法<span><span class="heti-spacing"> </span>CD</span>，一旦发送一股脑全部发送完毕，不<span><span class="heti-spacing"> </span>CD</span><br/></li>
-<li>
-<p>为了避免无<span class="heti-skip"><span class="heti-spacing"> </span>CD<span class="heti-spacing"> </span></span>带来的信道利用率低的问题，事前进行冲突避免<br/></p>
-</li>
-<li>
-<p>冲突也有可能是成功的</p>
-</li>
-</ul>
-<p><img alt="image-20240418001217281" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240418001217281.png"/></p>
-<p>无线链路特性，需要每帧确认；例如：由于隐藏终端问题，在接收端可能形成干扰<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>接收方没有正确地收到。</p>
-<p><img alt="image-20240418001048962" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240418001048962.png" style="zoom:33%;"/></p>
-<p><span>??? +note "2<span class="heti-spacing"> </span></span>个站点有数据帧需要发送，第三个节点正在发送<span><span class="heti-spacing"> </span>"</span>
-    === "WLAN CA"</p>
-<div class="highlight"><pre><span></span><code>    - 无法CD，一旦发送就必须发完，如冲突信道浪费严重，代价高昂&lt;br&gt;
-    - 思想：尽量事先避免冲突（抛骰子），而不是在发生冲突时放弃然后重发&lt;br&gt;
-    - 听到发送的站点，分别选择随机值，回退到0发送&lt;br&gt;
-      - 不同的随机值，一个站点会胜利&lt;br&gt;
-      - 失败站点会冻结计数器，当胜利节点发完再发&lt;br&gt;
-
-=== "LAN CD"
-    让2者听完第三个节点发完，立即发送&lt;br&gt;
-        冲突：放弃当前的发送，避免了信道的浪费无用于冲突帧的发送&lt;br&gt;
-        代价不昂贵&lt;br&gt;
+<table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>alt+方向键</code> or <code>ctrl+TAB</code></td>
+<td>切换窗口</td>
+</tr>
+<tr>
+<td><code>ctrl shift +</code></td>
+<td>加字号</td>
+</tr>
+<tr>
+<td><code>F11</code></td>
+<td>全屏</td>
+</tr>
+<tr>
+<td><code>super(win) + g</code></td>
+<td><span>group,<span class="heti-spacing"> </span></span>将不同窗口打包，指令可以广播</td>
+</tr>
+<tr>
+<td><code>Super+Shift+g</code></td>
+<td>取消分组</td>
+</tr>
+<tr>
+<td><code>ctrl+shift+f</code></td>
+<td>搜索命令</td>
+</tr>
+<tr>
+<td><code>Ctrl+Shift+c</code></td>
+<td>复制指令</td>
+</tr>
+<tr>
+<td><code>Ctrl+Shift+v</code></td>
+<td>粘贴指令</td>
+</tr>
+<tr>
+<td><code>Ctrl+Shift+X</code></td>
+<td>将分割的某一个窗口放大至全屏使用</td>
+</tr>
+<tr>
+<td><code>Ctrl+Shift+Z</code></td>
+<td>从放大至全屏的某一窗口回到多窗格界面</td>
+</tr>
+</tbody>
+</table>
+<h3 id="vscode">vscode<a class="headerlink" href="#vscode" title="anchor link to this section for reference">¶</a></h3>
+<p><a href="https://blog.csdn.net/CM_STC89C52/article/details/127296320">vscode on Kali</a></p>
+<ol>
+<li>用内嵌的浏览器搜索<span><span class="heti-spacing"> </span>vscode</span>，下载<span class="heti-skip"><span class="heti-spacing"> </span>vscode<span class="heti-spacing"> </span></span>的<span class="heti-skip"><span class="heti-spacing"> </span>.deb<span class="heti-spacing"> </span></span>格式的安装包</li>
+<li>在终端中输入 <code>sudo dpkg -i code_1.72.1-1665423861_amd64.deb</code> 进行解压包</li>
+<li>在<span class="heti-skip"><span class="heti-spacing"> </span>vscode<span class="heti-spacing"> </span></span>软件上点击鼠标右键，点击 <code>Edit Application</code></li>
+<li>有个<span class="heti-skip"><span class="heti-spacing"> </span>Command<span class="heti-spacing"> </span></span>选项，输入 <code>/usr/share/code/code --unity-launch %F --no-sandbox</code> 即可，再点击保存。</li>
+</ol>
+<h3 id="ssh">SSH<a class="headerlink" href="#ssh" title="anchor link to this section for reference">¶</a></h3>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>openssh-server
+ssh<span class="w"> </span>user@remote
 </code></pre></div>
-<p><img alt="image-20240217160017462" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240217160017462.png" style="zoom:50%;"/></p>
-<p>无法完全避免冲突；只有单向冲突，通过预约和管理解决冲突</p>
-<p><strong><span>CSMA/CA<span class="heti-spacing"> </span></span>协议工作原理<span><span class="heti-spacing"> </span>:</span></strong></p>
+<div class="highlight"><pre><span></span><code>vim<span class="w"> </span>/etc/ssh/sshd_config
+</code></pre></div>
+<ul>
+<li>第<span class="heti-skip"><span class="heti-spacing"> </span>33<span class="heti-spacing"> </span></span>行<span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span>将<span><span class="heti-spacing"> </span>PermitRootLogin without-password</span>（第<span class="heti-skip"><span class="heti-spacing"> </span>33<span class="heti-spacing"> </span></span>行） 改为<span class="heti-skip"><span class="heti-spacing"> </span>PermitRootLogin yes<span class="heti-spacing"> </span></span>并去掉前面的注释符号（#） </li>
+<li>第<span class="heti-skip"><span class="heti-spacing"> </span>57<span class="heti-spacing"> </span></span>行<span class="heti-skip"><span class="heti-spacing"> </span>:#PasswordAuthentication yes(<span class="heti-spacing"> </span></span>第<span class="heti-skip"><span class="heti-spacing"> </span>57<span class="heti-spacing"> </span></span>行<span class="heti-skip"><span class="heti-spacing"> </span>)<span class="heti-spacing"> </span></span>的注释去掉，如果是<span class="heti-skip"><span class="heti-spacing"> </span>no<span class="heti-spacing"> </span></span>就改为<span><span class="heti-spacing"> </span>yes</span></li>
+<li>保存</li>
+</ul>
+<div class="highlight"><pre><span></span><code>service<span class="w"> </span>ssh<span class="w"> </span>restart
+</code></pre></div>
+<p><strong>验证安装</strong>
+</p><div class="highlight"><pre><span></span><code>service<span class="w"> </span>ssh<span class="w"> </span>status
+</code></pre></div>
+<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240711175232.png"/>
+<p><strong>开机自启动</strong></p>
+<div class="highlight"><pre><span></span><code>update-rc.d<span class="w"> </span>ssh<span class="w"> </span><span class="nb">enable</span>
+</code></pre></div>
+<p><strong>配置免密登陆</strong></p>
+<h2 id="_6">外设与硬件<a class="headerlink" href="#_6" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h3 id="_7">蓝牙操作<a class="headerlink" href="#_7" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h2 id="_8">网络<a class="headerlink" href="#_8" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h3 id="wifi">连接<span><span class="heti-spacing"> </span>wifi</span><a class="headerlink" href="#wifi" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_9">路由<a class="headerlink" href="#_9" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p><a href="https://blog.csdn.net/u010521062/article/details/114067036">静态路由</a></p>
+<p><a href="https://www.cnblogs.com/chy18883701161/p/12396035.html#:~:text=配置静态IP 1 （1）先切换到网络管理的目录 cd %2Fetc%2Fsysconfig%2Fnetwork-scripts 看一下网络配置的文件： ls -l,8之前的版本，下面2条指令任一条都可以，都是重启network服务： service network restart systemctl restart network.service"><span>Linux<span class="heti-spacing"> </span></span>配置静态<span class="heti-skip"><span class="heti-spacing"> </span>IP - chy_18883701161 -<span class="heti-spacing"> </span></span>博客园<span><span class="heti-spacing"> </span>(cnblogs.com)</span></a></p>
+<ul>
+<li>fishros</li>
+<li>虚拟机无法打开</li>
+</ul>
 <blockquote>
-<p>参考博文<span><span class="heti-spacing"> </span>https://blog.csdn.net/shulianghan/article/details/108116406</span></p>
+<p>虚拟机使用的是此版本<a href="https://so.csdn.net/so/search?q=VMware&amp;spm=1001.2101.3001.7020"><span class="heti-skip"><span class="heti-spacing"> </span>VMware<span class="heti-spacing"> </span></span></a><span class="heti-skip"><span class="heti-spacing"> </span>Workstation<span class="heti-spacing"> </span></span>不支持的硬件版本。
+模块“Upgrade”启动失败。</p>
 </blockquote>
-<p>① 检测信道<span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span>发送数据前<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>检测信道是否空闲<span><span class="heti-spacing"> </span>;</span></p>
-<p>② 信道空闲<span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span>发出<span class="heti-skip"><span class="heti-spacing"> </span>RTS ( Request To Send ) , RTS<span class="heti-spacing"> </span></span>包括 发射端地址<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>接收端地址<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>发送持续时间 等信息<span><span class="heti-spacing"> </span>;</span></p>
-<p>③ 信道忙<span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span>等待<span><span class="heti-spacing"> </span>;</span></p>
-<p>④ 接收端收到<span class="heti-skip"><span class="heti-spacing"> </span>RTS :<span class="heti-spacing"> </span></span>发送<span class="heti-skip"><span class="heti-spacing"> </span>CTS ( Clear To Send )<span class="heti-spacing"> </span></span>响应<span><span class="heti-spacing"> </span>;</span></p>
-<p>⑤ 发送端收到<span class="heti-skip"><span class="heti-spacing"> </span>CTS :<span class="heti-spacing"> </span></span>同时执行以下两个操作<span><span class="heti-spacing"> </span>;</span></p>
-<ul>
-<li>发送数据<span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span>开始发送数据帧<span><span class="heti-spacing"> </span>;</span></li>
-<li>预约信道<span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span>告知其它站点<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>自己要传输数据<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>并给出传输时间<span><span class="heti-spacing"> </span>;</span></li>
-</ul>
-<p>⑥ 接收方接收到数据后<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>使用<span class="heti-skip"><span class="heti-spacing"> </span>CRC<span class="heti-spacing"> </span></span>循环冗余校验码 校验 数据是否正确<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>如果数据正确<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>返回<span class="heti-skip"><span class="heti-spacing"> </span>ACK<span class="heti-spacing"> </span></span>确认帧<span><span class="heti-spacing"> </span>;</span></p>
-<p>⑦ 发送方接收到<span class="heti-skip"><span class="heti-spacing"> </span>ACK<span class="heti-spacing"> </span></span>确认帧 后<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>才进行下一帧的发送<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>如果没有收到<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>则一直重传<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>直到<span class="heti-skip"><span class="heti-spacing"> </span>16 1616<span class="heti-spacing"> </span></span>次失败为止<span class="heti-skip"><span class="heti-spacing"> </span>; (<span class="heti-spacing"> </span></span>二进制指数退避算法<span><span class="heti-spacing"> </span>)</span></p>
-<p><img alt="image-20240217160450274" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240217160450274.png" style="zoom:50%;"/></p>
-<h4 id="_9">线缆接入网络<a class="headerlink" href="#_9" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
-<p>下行<span class="heti-skip"><span class="heti-spacing"> </span>CMTS<span class="heti-spacing"> </span></span>一个</p>
-<p><img alt="image-20240217160813735" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240217160813735.png" style="zoom:50%;"/></p>
-<p>多个<span class="heti-skip"><span class="heti-spacing"> </span>40Mbps<span class="heti-spacing"> </span></span>下行<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>广播<span class="heti-skip"><span class="heti-spacing"> </span>)<span class="heti-spacing"> </span></span>信道<span><span class="heti-spacing"> </span>,FDM</span>
-    下行：通过FDM分成若干信道，互联网、数字电视等<br/>
-    互联网信道：只有1个CMTS在其上传输<br/>
-多个30 Mbps上行的信道,FDM
-    多路访问：所有用户使用；接着TDM分成微时隙<br/>
-    部分时隙：分配；部分时隙：竞争；<br/></p>
-<p><code>DOCSIS: data over cable service interface spec</code></p>
-<h3 id="taking-turns">依次轮流<span><span class="heti-spacing"> </span>Taking Turns</span><a class="headerlink" href="#taking-turns" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<ul>
-<li>节点依次轮流</li>
-<li>有很多数据传输的节点可以获得较长的信道使用权</li>
-</ul>
-<h4 id="_10">论询<span><span class="heti-spacing"> </span>:</span><a class="headerlink" href="#_10" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
-<p>主节点邀请从节点依次传送</p>
-<p><img alt="image-20240217161518137" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240217161518137.png" style="zoom:25%;"/></p>
-<p><strong>缺点<span><span class="heti-spacing"> </span>:</span></strong></p>
-<ul>
-<li>轮询开销：轮询本身消耗信道带宽</li>
-<li>等待时间：每个节点需等到主节点轮询后开始传输，即使只有一个节点，也需要等到轮询一周后才能够发送</li>
-<li><strong>单点故障</strong>：<span>master<span class="heti-spacing"> </span></span>故障，整个系统失效</li>
-</ul>
-<h4 id="_11">令牌传递<span><span class="heti-spacing"> </span>:</span><a class="headerlink" href="#_11" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
-<blockquote>
-<p>击鼓传花</p>
-</blockquote>
-<p>控制令牌<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span><code>token</code><span class="heti-skip"><span class="heti-spacing"> </span>)<span class="heti-spacing"> </span></span>循环从一个节点到下一个节点传递</p>
-<p>令牌报文：<strong>特殊的帧</strong>，<span>1<span class="heti-spacing"> </span></span>是令牌，<span>0<span class="heti-spacing"> </span></span>是数据</p>
-<p>当一个节点收到令牌，仅当其有帧要传输才接受，否则向下一个节点转发</p>
-<p><strong>优点：</strong>分散的、效率较高</p>
-<p><strong>缺点<span><span class="heti-spacing"> </span>:</span></strong></p>
-<ul>
-<li>令牌开销：本身消耗带宽</li>
-<li>延迟：只有等到抓住令牌，才可传输</li>
-<li>单点故障<span><span class="heti-spacing"> </span>(token)</span>：令牌丢失系统级故障，整个系统无法传输</li>
-<li>复杂机制重新生成令牌</li>
-</ul>
-<h2 id="lan-local-area-network">LAN <code>Local Area Network</code><a class="headerlink" href="#lan-local-area-network" title="anchor link to this section for reference">¶</a></h2>
-<h3 id="mac-medium-access-control">MAC <code>medium access control</code><a class="headerlink" href="#mac-medium-access-control" title="anchor link to this section for reference">¶</a></h3>
-<p>前<span class="heti-skip"><span class="heti-spacing"> </span>n-1<span class="heti-spacing"> </span></span>跳：用于使数据报到达目的<span class="heti-skip"><span class="heti-spacing"> </span>IP<span class="heti-spacing"> </span></span>子网；</p>
-<p>最后一跳：到达子网中的目标节点</p>
-<p>LAN（<span>MAC/<span class="heti-spacing"> </span></span>物理<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>以太网）地址<span><span class="heti-spacing"> </span>:</span></p>
-<p><span>MAC<span class="heti-spacing"> </span></span>地址，<span>6<span class="heti-spacing"> </span></span>字节<span><span class="heti-spacing"> </span>48bit</span>；<strong><span>FF-FF-FF-FF<span class="heti-spacing"> </span></span>广播地址</strong></p>
-<p><span>MAC<span class="heti-spacing"> </span></span>地址由<span class="heti-skip"><span class="heti-spacing"> </span>IEEE<span class="heti-spacing"> </span></span>管理和分配，制造商购入<span class="heti-skip"><span class="heti-spacing"> </span>MAC<span class="heti-spacing"> </span></span>地址空间（固定前<span><span class="heti-spacing"> </span>24bit</span>，后<span class="heti-skip"><span class="heti-spacing"> </span>24bit<span class="heti-spacing"> </span></span>公司自己生成）</p>
-<details class="note">
-<summary><span>IP<span class="heti-spacing"> </span></span>地址分层，<span>mac<span class="heti-spacing"> </span></span>地址在一个平面</summary>
-<p>网卡在生产时不知道被用于哪个网络，因此给网卡一个唯一的标示，用于区分一个网络内部不同的网卡即可<br/></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">分离好处</label><label for="__tabbed_1_2">捆绑的问题</label></div>
+<p>打开<code>.vmx</code>文件，修改<code>virtualHW.version = "19"</code>一行至<code>virtualHW.version = "16"</code> </p>
+<h2 id="docker">docker<a class="headerlink" href="#docker" title="anchor link to this section for reference">¶</a></h2>
+<p><a href="https://blog.csdn.net/Que_art/article/details/135192479"><span>Docker Compose -<span class="heti-spacing"> </span></span>安装和基本使用<span class="heti-skip"><span class="heti-spacing"> </span>_docker-compose<span class="heti-spacing"> </span></span>安装<span class="heti-skip"><span class="heti-spacing"> </span>-CSDN<span class="heti-spacing"> </span></span>博客</a></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">Docker Compose（容器编排工具）</label><label for="__tabbed_1_2">Docker（容器平台）</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p><span>a)<span class="heti-spacing"> </span></span>网卡坏了，<span>ip<span class="heti-spacing"> </span></span>不变，可以捆绑到另外一个网卡的<span class="heti-skip"><span class="heti-spacing"> </span>mac<span class="heti-spacing"> </span></span>上<br/>
-b) 物理网络还可以除IP之外支持其他网络层协议，链路协议为任意上层网络协议， 如IPX等<br/></p>
+<p>定义：<span>Docker Compose<span class="heti-spacing"> </span></span>是一个用于定义和运行多容器<span class="heti-skip"><span class="heti-spacing"> </span>Docker<span class="heti-spacing"> </span></span>应用的工具。</p>
+<p>功能：
+- <strong>多容器管理</strong>：允许用户在一个<span class="heti-skip"><span class="heti-spacing"> </span>YAML<span class="heti-spacing"> </span></span>文件中定义和管理多个容器
+- <strong>服务编排</strong>：配置容器间的网络和依赖关系
+- <strong>一键部署</strong>：使用<span class="heti-skip"><span class="heti-spacing"> </span>docker-compose up<span class="heti-spacing"> </span></span>命令启动、停止和</p>
 </div>
 <div class="tabbed-block">
-<p><span>a)<span class="heti-spacing"> </span></span>如果仅仅使用<span class="heti-skip"><span class="heti-spacing"> </span>IP<span class="heti-spacing"> </span></span>地址，不用<span class="heti-skip"><span class="heti-spacing"> </span>mac<span class="heti-spacing"> </span></span>地址，那么它仅支持<span class="heti-skip"><span class="heti-spacing"> </span>IP<span class="heti-spacing"> </span></span>协议<br/>
-b) 每次上电都要重新写入网卡IP地址；<br/>
-c) 另外一个选择就是不使用任何地址；不用MAC地址，则每到来一个帧都要上传到IP层次，由它判断是不是需要接受，干扰一次<br/></p>
-</div>
-</div>
-</div>
-</details>
-<p><span>LAN<span class="heti-spacing"> </span></span>中<heti-adjacent class="heti-adjacent-quarter">，</heti-adjacent>“不碰” <span>=<span class="heti-spacing"> </span></span>成功</p>
-<p>条件是<span><span class="heti-spacing"> </span><span class="arithmatex">\(帧&gt;= 2\tau\)</span></span></p>
-<h3 id="arp-address-resolution-protocol">ARP: <code>Address Resolution Protocol</code><a class="headerlink" href="#arp-address-resolution-protocol" title="anchor link to this section for reference">¶</a></h3>
-<blockquote>
-<p>完成<span class="heti-skip"><span class="heti-spacing"> </span>IP<span class="heti-spacing"> </span></span>地址到<span class="heti-skip"><span class="heti-spacing"> </span>MAC<span class="heti-spacing"> </span></span>地址的转换；</p>
-<p>从而完成把分组封装帧，从一个网卡发送到另一个网卡</p>
-</blockquote>
-<h4 id="_12">向子网内<a class="headerlink" href="#_12" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
-<p><span>ARP<span class="heti-spacing"> </span></span>只为在同一个子网上的主机和路由器接口解析<span class="heti-skip"><span class="heti-spacing"> </span>IP<span class="heti-spacing"> </span></span>地址</p>
-<blockquote>
-<p>云南节点试图用<span class="heti-skip"><span class="heti-spacing"> </span>ARP<span class="heti-spacing"> </span></span>解析美国的节点的<span class="heti-skip"><span class="heti-spacing"> </span>IP<span class="heti-spacing"> </span></span>地址，将返回错误</p>
-</blockquote>
-<p><strong><span>ARP<span class="heti-spacing"> </span></span>表：</strong></p>
-<p>包括一些<span class="heti-skip"><span class="heti-spacing"> </span>LAN<span class="heti-spacing"> </span></span>节点<span class="heti-skip"><span class="heti-spacing"> </span>IP/MAC<span class="heti-spacing"> </span></span>地址的映射<code>&lt; IP address; MAC address; TTL &gt;</code></p>
-<p><span>TTL<span class="heti-spacing"> </span></span>时间是指地址映射失效的时间；典型是<span><span class="heti-spacing"> </span>20min</span></p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240426140148724.png"/></p>
-<p><span>ARP<span class="heti-spacing"> </span></span>表中没有目标主机的项目：</p>
+<p>定义：一个开放源代码的容器化平台，允许开发者将应用及其依赖打包进轻量级、可移植的容器中。</p>
 <ul>
-<li>
-<p>发送方构造一个<span><span class="heti-spacing"> </span>ARP packet</span>，有几个字段，包括发送和接受<span class="heti-skip"><span class="heti-spacing"> </span>IP<span class="heti-spacing"> </span></span>地址<span class="heti-skip"><span class="heti-spacing"> </span>&amp;MAC<span class="heti-spacing"> </span></span>地址</p>
-</li>
-<li>
-<p>向适配器发送一个<span class="heti-skip"><span class="heti-spacing"> </span>ARP<span class="heti-spacing"> </span></span>查询分组，适配器用<span class="heti-skip"><span class="heti-spacing"> </span>MAC<span class="heti-spacing"> </span></span>广播地址（<code>FF-FF-FF-FF-FF-FF</code>）发送分组</p>
-</li>
-<li>每个适配器检查目标<span class="heti-skip"><span class="heti-spacing"> </span>IP<span class="heti-spacing"> </span></span>和自己是否匹配，匹配的发送一个响应<span class="heti-skip"><span class="heti-spacing"> </span>ARP<span class="heti-spacing"> </span></span>分组，更新源适配器的<span class="heti-skip"><span class="heti-spacing"> </span>ARP<span class="heti-spacing"> </span></span>表</li>
+<li><strong>容器化</strong>：将应用和其运行环境封装在一个容器中</li>
+<li><strong>镜像管理</strong>：创建、存储和分发容器镜像</li>
+<li><strong>容器运行</strong>：可以运行在任何支持<span class="heti-skip"><span class="heti-spacing"> </span>Docker<span class="heti-spacing"> </span></span>的环境中</li>
 </ul>
+</div>
+</div>
+</div>
+<p>查看是否安装成功
+</p><div class="highlight"><pre><span></span><code><span class="o">[</span>root@localhost<span class="w"> </span>~<span class="o">]</span><span class="c1"># docker-compose --version</span>
+Docker<span class="w"> </span>Compose<span class="w"> </span>version<span class="w"> </span>v2.16.0
+</code></pre></div>
+<h3 id="_10">换源<a class="headerlink" href="#_10" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p></p><div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>vim<span class="w"> </span>/etc/docker/daemon.json
+</code></pre></div>
+插入下面的句子，最后不要加逗号
+<div class="highlight"><pre><span></span><code>{
+    "registry-mirrors": ["https://dockerhub.icu"]
+}
+</code></pre></div>
+<h3 id="_11">文档<a class="headerlink" href="#_11" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <div class="admonition note">
-<p class="admonition-title">查询<span class="heti-skip"><span class="heti-spacing"> </span>ARP<span class="heti-spacing"> </span></span>报文是在广播帧发送的，响应<span class="heti-skip"><span class="heti-spacing"> </span>ARP<span class="heti-spacing"> </span></span>报文是在标准帧中发送的</p>
+<p class="admonition-title">文档结构</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="__tabbed_2_1">说明</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block"></div>
 </div>
-<h4 id="_13">向子网外查询<a class="headerlink" href="#_13" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
-<p>假如<code>111.111.111.111</code>想发送到<code>222.222.222.222</code></p>
+</div>
 <ul>
-<li>创建帧，包含寻址到目标的数据包，发送到子网<span><span class="heti-spacing"> </span>1</span></li>
-<li>子网<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>传输到网络层，根据路由器的转发表，转发到另一个接口</li>
-<li>封装到新的帧当中，把帧发送到子网<span><span class="heti-spacing"> </span>2</span></li>
+<li>version：指定<span class="heti-skip"><span class="heti-spacing"> </span>Compose<span class="heti-spacing"> </span></span>文件格式<span class="heti-skip"><span class="heti-spacing"> </span>yaml<span class="heti-spacing"> </span></span>的规则版本，版本决定可用的配置选项</li>
+<li>service：定义了应用中的服务，每个服务可以使用不同的镜像、环境设置和依赖关系<ul>
+<li>web：自己构建的镜像</li>
+<li>build：用于构建镜像，指定构建镜像的<span class="heti-skip"><span class="heti-spacing"> </span>dockerfile<span class="heti-spacing"> </span></span>的上下文路径</li>
+<li>ports：映射容器和宿主机的端口</li>
+<li>volumes：挂载本地目录到指定容器目录，用于数据持久化或在容器之间共享数据</li>
+<li>links：与<span class="heti-skip"><span class="heti-spacing"> </span>redis<span class="heti-spacing"> </span></span>服务连接</li>
 </ul>
-<p><img alt="image-20240426140231136" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240426140231136.png" style="zoom:50%;"/></p>
-<h3 id="ethernet">Ethernet<a class="headerlink" href="#ethernet" title="anchor link to this section for reference">¶</a></h3>
-<p>最主流的<span class="heti-skip"><span class="heti-spacing"> </span>LAN<span class="heti-spacing"> </span></span>技术：<span>98%<span class="heti-spacing"> </span></span>占有率；廉价；带宽不断提升</p>
-<h4 id="topology">Topology<a class="headerlink" href="#topology" title="anchor link to this section for reference">¶</a></h4>
-<p>使用同轴电缆链接</p>
-<p><img alt="image-20240418090302357" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240418090302357.png"/></p>
-<p><strong>总线</strong></p>
-<p>在上个世纪<span class="heti-skip"><span class="heti-spacing"> </span>90<span class="heti-spacing"> </span></span>年代中期很流行</p>
-<ul>
-<li>所有节点在一个碰撞域内，<strong>任意时刻只允许一个节点发送</strong>，降低利用率</li>
-<li>可靠性差，如果介质破损，形成反射，误认为是冲突，总是冲突</li>
-</ul>
-<p><strong>星型</strong></p>
-<p>目前最主流</p>
-<p>连接选择<span class="heti-skip"><span class="heti-spacing"> </span>: hub<span class="heti-spacing"> </span></span>或者<span><span class="heti-spacing"> </span>switch</span>；现在一般是交换机在中心</p>
-<p><img alt="image-20240418090518781" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240418090518781.png"/></p>
-<h4 id="_14">以太帧类型<a class="headerlink" href="#_14" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
-<p>发送方适配器在以太网帧中封装<span class="heti-skip"><span class="heti-spacing"> </span>IP<span class="heti-spacing"> </span></span>数据报</p>
-<p><img alt="image-20240426142902476" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240426142902476.png"/></p>
-<ul>
-<li>前导码：用来同步接收方和发送方的时钟，前<span class="heti-skip"><span class="heti-spacing"> </span>7<span class="heti-spacing"> </span></span>字节<code>10101010</code>，最后一字节<code>10101011</code>，用于警告目标适配器，重要信息要来了</li>
-<li>数据字段：<span>46-1500<span class="heti-spacing"> </span></span>字节。承载<span class="heti-skip"><span class="heti-spacing"> </span>IP<span class="heti-spacing"> </span></span>数据报。<span>MTU<span class="heti-spacing"> </span></span>是<span class="heti-skip"><span class="heti-spacing"> </span>1500<span class="heti-spacing"> </span></span>字节，多余<span class="heti-skip"><span class="heti-spacing"> </span>1500<span class="heti-spacing"> </span></span>要进行分片。数据字段最小长度<span class="heti-skip"><span class="heti-spacing"> </span>46<span class="heti-spacing"> </span></span>字节，<span>IP<span class="heti-spacing"> </span></span>数据报小于<span class="heti-skip"><span class="heti-spacing"> </span>46<span class="heti-spacing"> </span></span>字节，数据报必须被填充到<span class="heti-skip"><span class="heti-spacing"> </span>46<span class="heti-spacing"> </span></span>字节。</li>
-<li>目的地址<span class="heti-skip"><span class="heti-spacing"> </span>6<span class="heti-spacing"> </span></span>字节：目的适配器的<span class="heti-skip"><span class="heti-spacing"> </span>MAC<span class="heti-spacing"> </span></span>地址</li>
-<li>源地址<span class="heti-skip"><span class="heti-spacing"> </span>6<span class="heti-spacing"> </span></span>字节</li>
-<li>类型字段<span class="heti-skip"><span class="heti-spacing"> </span>2<span class="heti-spacing"> </span></span>字节：除了<span class="heti-skip"><span class="heti-spacing"> </span>IP<span class="heti-spacing"> </span></span>之外的网络层协议，如<span><span class="heti-spacing"> </span>ARP</span>，IPX。</li>
-<li>
-<p><span>CRC 4<span class="heti-spacing"> </span></span>字节</p>
 </li>
-<li>
-<p>无连接：帧传输前，发送方和接收方之间没有握手（本身可靠性较高</p>
-</li>
-<li>不可靠：接收方适配器不发送<span class="heti-skip"><span class="heti-spacing"> </span>ACKs<span class="heti-spacing"> </span></span>或<span class="heti-skip"><span class="heti-spacing"> </span>NAKs<span class="heti-spacing"> </span></span>给发送方</li>
+<li>redis：构建指定镜像<span><span class="heti-spacing"> </span>redis</span></li>
+<li>image：从指定的镜像中启动容器，可以是存储仓库、标签以及镜像<span><span class="heti-spacing"> </span>ID</span></li>
+<li>volumes：用于数据持久化和共享的数据卷定义，常用于数据库存储、配置文件、日志等数据的持久化</li>
 </ul>
-<p>使用<span class="heti-skip"><span class="heti-spacing"> </span>MAC<span class="heti-spacing"> </span></span>协议：<span>CSMA/CD<span class="heti-spacing"> </span></span>二进制指数退避算法</p>
-<h3 id="_15">链路层的设备<a class="headerlink" href="#_15" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<h4 id="hub"><span>Hub<span class="heti-spacing"> </span></span>集线器<a class="headerlink" href="#hub" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
-<p><img alt="image-20240217173640472" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240217173640472.png" style="zoom:50%;"/></p>
-<p>高负载下性能差</p>
-<h4 id="_16">交换机<a class="headerlink" href="#_16" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
-<p><strong>链路层设备</strong>：扮演主动角色（端口执行以太网协议<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，对帧进行存储转发</p>
-<p><strong>透明</strong>：主机对交换机的存在可以不关心；通过交换机相联的各节点好像这些站点是直接相联的一样</p>
-<p><strong>即插即用，自学习</strong>：交换机无需配置</p>
-<p><strong>交换表</strong></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"/><div class="tabbed-labels"><label for="__tabbed_3_1">实例</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>version: "3.9"
+services:
+    web:
+    build: .
+    ports:
+        - "8000:5000"
+    volumes:
+        - .:/code
+        - logvolume01:/var/log
+    links:
+        - redis
+    redis:
+    image: redis
+volumes:
+logvolume01: {}
+</code></pre></div>
+</div>
+</div>
+</div>
+</div>
+<h3 id="_12">使用<a class="headerlink" href="#_12" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<div class="highlight"><pre><span></span><code>docker-compose<span class="w"> </span>up
+</code></pre></div>
+<h2 id="kali">Kali<a class="headerlink" href="#kali" title="anchor link to this section for reference">¶</a></h2>
+<h3 id="_13">系统烧录<a class="headerlink" href="#_13" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<div class="admonition note">
+<p class="admonition-title">准备</p>
+<ul>
+<li>下载<a href="https://www.kali.org/get-kali/#kali-platforms"><span><span class="heti-spacing"> </span>kali</span></a></li>
+<li>下载烧录工具<a href="https://etcher.balena.io/#download-etcher"><span><span class="heti-spacing"> </span>Etcher</span></a></li>
+<li>准备<span class="heti-skip"><span class="heti-spacing"> </span>sd<span class="heti-spacing"> </span></span>卡</li>
+<li>准备读卡器</li>
+<li>电脑</li>
+</ul>
+</div>
+<h3 id="_14">换源<a class="headerlink" href="#_14" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p><a href="https://www.cnblogs.com/u-damowang1/p/14729017.html"><span>apt<span class="heti-spacing"> </span></span>换源</a></p>
+<p><a href="https://reversed.top/2014-08-13/big-list-of-vim-like-software/">The big list of Vim-like software (reversed.top)</a></p>
+<div class="highlight"><pre><span></span><code>vim<span class="w"> </span>/etc/apt/sources.list
+</code></pre></div>
+<p><a href="https://mirrors.zju.edu.cn/docs/kali/">Kali Linux | ZJU Mirror</a>
+</p><div class="highlight"><pre><span></span><code># zju source
+deb https://mirrors.zju.edu.cn/kali kali-rolling main non-free contrib
+#deb-src https://mirrors.zju.edu.cn/kali kali-rolling main non-free contrib
+
+#中科大
+deb http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib
+deb-src http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib
+
+#阿里云
+deb http://mirrors.aliyun.com/kali kali-rolling main non-free contrib
+deb-src http://mirrors.aliyun.com/kali kali-rolling main non-free contrib
+
+#清华大学
+deb http://mirrors.tuna.tsinghua.edu.cn/kali kali-rolling main contrib non-free
+deb-src https://mirrors.tuna.tsinghua.edu.cn/kali kali-rolling main contrib non-free
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>apt-get<span class="w"> </span>update
+apt-get<span class="w"> </span>upgrade
+</code></pre></div>
+<h3 id="linux_1"><span>linux<span class="heti-spacing"> </span></span>安装软件的方式<a class="headerlink" href="#linux_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>[deb]
+<a href="https://cn.linux-console.net/?p=19002">Appimage</a></p>
+<h3 id="phpstudy">phpstudy<a class="headerlink" href="#phpstudy" title="anchor link to this section for reference">¶</a></h3>
+<p><a href="https://blog.csdn.net/weixin_54358903/article/details/127698009">phpstudy on Kali</a></p>
+<p><span>phpStudy<span class="heti-spacing"> </span></span>是一个<span class="heti-skip"><span class="heti-spacing"> </span>PHP<span class="heti-spacing"> </span></span>调试环境的程序集成包。该程序包集成最新的<span><span class="heti-spacing"> </span>Apache+PHP+MySQL+phpMyAdmin+ZendOptimizer</span>，一次性安装，无须配置即可使用，是非常方便、好用的<span class="heti-skip"><span class="heti-spacing"> </span>PHP<span class="heti-spacing"> </span></span>调试环境。</p>
+<div class="highlight"><pre><span></span><code>wget<span class="w"> </span>-O<span class="w"> </span>install.sh<span class="w"> </span>https://notdocker.xp.cn/install.sh<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>bash<span class="w"> </span>install.sh
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>phpstudy<span class="w"> </span>start<span class="w"> </span><span class="c1"># 启动</span>
+</code></pre></div>
+<p><a href="https://nmap.org/ncat/">ncat</a></p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>ncat
+</code></pre></div>
+<h3 id="dirsearch">dirsearch<a class="headerlink" href="#dirsearch" title="anchor link to this section for reference">¶</a></h3>
+<div class="highlight"><pre><span></span><code>sudo apt-get install dirsearch
+</code></pre></div>
+<p>有很多依赖是没有安装的，这里手动安装一下</p>
+<p>要注意<code>defusedxml</code>这个库不叫<code>defusexml</code><span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>安装带<span class="heti-skip"><span class="heti-spacing"> </span>d<span class="heti-spacing"> </span></span>的这一版才可以
+</p><div class="highlight"><pre><span></span><code>pip install requests_ntlm
+pip install defusedxml
+pip install bs4
+pip install jinja2
+pip install colorama
+</code></pre></div>
+<h3 id="weevely">菜刀<span><span class="heti-spacing"> </span>weevely</span><a class="headerlink" href="#weevely" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p><a href="https://github.com/epinna/weevely3/archive/master.zip"><span>weevely3<span class="heti-spacing"> </span></span>下载</a></p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>weevely3/
+sudo<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt<span class="w"> </span>--upgrade
+</code></pre></div>
+<h3 id="_15">中国蚁剑<a class="headerlink" href="#_15" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p><a href="https://blog.csdn.net/weixin_42474304/article/details/116376746">中国蚁剑<span class="heti-skip"><span class="heti-spacing"> </span>(antSword)<span class="heti-spacing"> </span></span>下载、安装、使用教程<span class="heti-skip"><span class="heti-spacing"> </span>-CSDN<span class="heti-spacing"> </span></span>博客</a></p>
+<p><a href="https://github.com/AntSwordProject/AntSword-Loader?tab=readme-ov-file"><span>AntSwordProject/AntSword-Loader: AntSword<span class="heti-spacing"> </span></span>加载器</a></p>
+<p><a href="https://www.yuque.com/antswordproject/antsword">官方文档</a></p>
+<h3 id="_16">文件泄露分析<a class="headerlink" href="#_16" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h4 id="githack">GitHack<a class="headerlink" href="#githack" title="anchor link to this section for reference">¶</a></h4>
+<p><a href="https://github.com/lijiejie/GitHack">lijiejie/GitHack: A `.git` folder disclosure exploit</a></p>
+<div class="highlight"><pre><span></span><code>GitHack.py<span class="w"> </span>http://www.example.com/.git/
+</code></pre></div>
+<h4 id="dvcs-ripper">dvcs-ripper<a class="headerlink" href="#dvcs-ripper" title="anchor link to this section for reference">¶</a></h4>
+<p><a href="https://github.com/kost/dvcs-ripper#dvcs-ripper">dvcs-ripper</a></p>
+<p>依赖安装
+</p><div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>perl<span class="w"> </span>libio-socket-ssl-perl<span class="w"> </span>libdbd-sqlite3-perl<span class="w"> </span>libclass-dbi-perl<span class="w"> </span>libio-all-lwp-perl
+
+sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>libparallel-forkmanager-perl<span class="w"> </span>libredis-perl<span class="w"> </span>libalgorithm-combinatorics-perl
+
+sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>cvs<span class="w"> </span>subversion<span class="w"> </span>git<span class="w"> </span>bzr<span class="w"> </span>mercurial
+</code></pre></div>
+<p>使用方法</p>
+<div class="highlight"><pre><span></span><code>rip-git.pl<span class="w"> </span>-s<span class="w"> </span>-v<span class="w"> </span>-u<span class="w"> </span>http://www.example.com/.git/
+</code></pre></div>
+<h3 id="php">php<a class="headerlink" href="#php" title="anchor link to this section for reference">¶</a></h3>
+<p><a href="https://blog.chaos.run/dreams/kali-linux-ppa/index.html"><span>Kali Linux<span class="heti-spacing"> </span></span>添加<span><span class="heti-spacing"> </span>add-apt-repository | Silearner</span></a></p>
+<p></p><div class="highlight"><pre><span></span><code>File<span class="w"> </span><span class="s2">"/usr/lib/python3/dist-packages/softwareproperties/ppa.py"</span>,<span class="w"> </span>line<span class="w"> </span><span class="m">129</span>,<span class="w"> </span><span class="k">in</span><span class="w"> </span>lpppa
+<span class="w">    </span>self._lpppa<span class="w"> </span><span class="o">=</span><span class="w"> </span>self.lpteam.getPPAByName<span class="o">(</span><span class="nv">name</span><span class="o">=</span>self.ppaname<span class="o">)</span>
+<span class="w">                  </span>^^^^^^^^^^^
+<span class="w">  </span>File<span class="w"> </span><span class="s2">"/usr/lib/python3/dist-packages/softwareproperties/ppa.py"</span>,<span class="w"> </span>line<span class="w"> </span><span class="m">116</span>,<span class="w"> </span><span class="k">in</span><span class="w"> </span>lpteam
+<span class="w">    </span>self._lpteam<span class="w"> </span><span class="o">=</span><span class="w"> </span>self.lp.people<span class="o">(</span>self.teamname<span class="o">)</span>
+<span class="w">                   </span>^^^^^^^^^^^^^^
+AttributeError:<span class="w"> </span><span class="s1">'NoneType'</span><span class="w"> </span>object<span class="w"> </span>has<span class="w"> </span>no<span class="w"> </span>attribute<span class="w"> </span><span class="s1">'people'</span>
+</code></pre></div>
+遇到的问题
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>launchpadlib
+</code></pre></div>
+<p>发现是<span class="heti-skip"><span class="heti-spacing"> </span>ppa.py<span class="heti-spacing"> </span></span>文件的问题，所以修改一下文件导入的路径</p>
+<div class="highlight"><pre><span></span><code>find<span class="w"> </span>/<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>launchpadlib
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>import<span class="w"> </span>sys
+sys.path.append<span class="o">(</span>r<span class="s1">'这里填入上一步搜出来的路径'</span><span class="o">)</span>
+</code></pre></div>
+<h3 id="nodejs">nodejs<a class="headerlink" href="#nodejs" title="anchor link to this section for reference">¶</a></h3>
+<p><a href="https://www.cnblogs.com/hirak0/p/16133730.html">nodejs on Kali</a>
+按照这个安装即可</p>
+<div class="highlight"><pre><span></span><code>wget<span class="w">  </span>https://nodejs.org/dist/v16.14.2/node-v16.14.2-linux-x64.tar.xz
+
+tar<span class="w"> </span>-xvf<span class="w"> </span>node-v16.14.2-linux-x64.tar.xz
+
+mv<span class="w"> </span>node-v16.14.2-linux-x64<span class="w"> </span>nodejs
+
+sudo<span class="w"> </span>mv<span class="w"> </span>nodejs/<span class="w"> </span>/usr/local/sbin/
+</code></pre></div>
+<p>创建软链接的方式
+</p><div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>ln<span class="w"> </span>-s<span class="w"> </span>/usr/local/sbin/nodejs/bin/node<span class="w"> </span>/usr/local/bin/
+sudo<span class="w"> </span>ln<span class="w"> </span>-s<span class="w"> </span>/usr/local/sbin/nodejs/bin/npm<span class="w"> </span>/usr/local/bin/
+</code></pre></div>
+很奇怪这里不输入绝对路径会有错误
+<h3 id="strace-ltrace">strace &amp; ltrace<a class="headerlink" href="#strace-ltrace" title="anchor link to this section for reference">¶</a></h3>
+<p>调试工具
+</p><div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>strace<span class="w"> </span>ltrace
+</code></pre></div>
+<h3 id="stegsolve">Stegsolve<a class="headerlink" href="#stegsolve" title="anchor link to this section for reference">¶</a></h3>
+<p><a href="https://www.cnblogs.com/hardcoreYutian/p/10613036.html">在<span class="heti-skip"><span class="heti-spacing"> </span>Kali Linux<span class="heti-spacing"> </span></span>中下载工具<span class="heti-skip"><span class="heti-spacing"> </span>Stegsolve -<span class="heti-spacing"> </span></span>平静的雨田<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>博客园</a></p>
+<p><a href="https://blog.csdn.net/qq_36148847/article/details/79261067"><span>linux<span class="heti-spacing"> </span></span>解决<span class="heti-skip"><span class="heti-spacing"> </span>" command not found: shopt "<span class="heti-spacing"> </span></span>的<span class="heti-skip"><span class="heti-spacing"> </span>"~/.bashrc"<span class="heti-spacing"> </span></span>配置问题<span class="heti-skip"><span class="heti-spacing"> </span>-CSDN<span class="heti-spacing"> </span></span>博客</a></p>
+<ol>
+<li>安装<a href="https://www.oracle.com/java/technologies/downloads/?er=221886"><span class="heti-skip"><span class="heti-spacing"> </span>java<span class="heti-spacing"> </span></span>环境</a>
+<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240710122150.png"/></li>
+</ol>
+<div class="highlight"><pre><span></span><code>tar<span class="w"> </span>-xzvf<span class="w"> </span>jdk-12_linux-x64_bin.tar.gz
+mv<span class="w"> </span>jdk<span class="w"> </span>/opt
+<span class="nb">cd</span><span class="w"> </span>/opt/jdk
+</code></pre></div>
+<ol>
+<li>设置环境变量，这里不要用<code>.bashrc</code>，而是<code>.zshrc</code></li>
+</ol>
+<div class="highlight"><pre><span></span><code>gedit<span class="w"> </span>~/.zshrc
+<span class="nb">export</span><span class="w"> </span><span class="nv">JAVA_HOME</span><span class="o">=</span>/opt/jdk
+<span class="nb">export</span><span class="w"> </span><span class="nv">CLASSPATH</span><span class="o">=</span>.:<span class="si">${</span><span class="nv">JAVA_HOME</span><span class="si">}</span>/lib
+<span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="si">${</span><span class="nv">JAVA_HOME</span><span class="si">}</span>/bin:<span class="nv">$PATH</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>~/.zshrc
+</code></pre></div>
+<p>验证安装成功
+</p><div class="highlight"><pre><span></span><code>java<span class="w"> </span>-version
+</code></pre></div>
+出现类似于下面的文字即成功
 <blockquote>
-<p><strong>过滤<span><span class="heti-spacing"> </span>filtering</span></strong> 决定一个帧应该转发到某个接口还是应当丢弃</p>
-<p><strong>转发<span><span class="heti-spacing"> </span>forwarding</span></strong> 决定一个帧应该被导向那个接口，并移动到对应接口</p>
+<p>Picked up _JAVA_OPTIONS: -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true
+java version "22.0.1" 2024-04-16
+Java(TM) SE Runtime Environment (build 22.0.1+8-16)
+Java HotSpot(TM) 64-Bit Server VM (build 22.0.1+8-16, mixed mode, sharing)</p>
 </blockquote>
-<p><span>MAC<span class="heti-spacing"> </span></span>地址<span class="heti-skip"><span class="heti-spacing"> </span>+<span class="heti-spacing"> </span></span>对应端口<span class="heti-skip"><span class="heti-spacing"> </span>+<span class="heti-spacing"> </span></span>时戳</p>
-<table>
-<thead>
-<tr>
-<th><code>MAC addr</code></th>
-<th>interface</th>
-<th>TTL</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>A</td>
-<td>1</td>
-<td>60</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p>目的地址为<span class="heti-skip"><span class="heti-spacing"> </span>A<span class="heti-spacing"> </span></span>的帧来自接口<span><span class="heti-spacing"> </span>x</span></p>
+<p>前往<a href="https://github.com/Giotino/stegsolve/releases"><span class="heti-skip"><span class="heti-spacing"> </span>github<span class="heti-spacing"> </span></span>库</a>，下载软件
+</p><div class="highlight"><pre><span></span><code>wget https://github.com/Giotino/stegsolve/releases/download/v1.4/StegSolve-1.4.jar
+mv StegSolve-1.4.jar StegSolve
+</code></pre></div>
+<p>直接使用
+</p><div class="highlight"><pre><span></span><code>java -jar StegSolve
+</code></pre></div>
+<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240710122852.png"/>
+<div class="admonition bug">
+<p class="admonition-title">若执行<code>source ~/.bashrc</code>会报错</p>
+<p><a href="https://stackoverflow.com/questions/26616003/shopt-command-not-found-in-bashrc-after-shell-updation">bash - shopt command not found in .bashrc after shell updation - Stack Overflow</a></p>
+<div class="highlight"><pre><span></span><code>/home/amerrnath/.bashrc:17:<span class="w"> </span><span class="nb">command</span><span class="w"> </span>not<span class="w"> </span>found:<span class="w"> </span><span class="nb">shopt</span><span class="w"> </span>
+/home/amerrnath/.bashrc:25:<span class="w"> </span><span class="nb">command</span><span class="w"> </span>not<span class="w"> </span>found:<span class="w"> </span><span class="nb">shopt</span><span class="w"> </span>
+/home/amerrnath/.bashrc:109:<span class="w"> </span><span class="nb">command</span><span class="w"> </span>not<span class="w"> </span>found:<span class="w"> </span><span class="nb">shopt</span><span class="w"> </span>
+/usr/share/bash-completion/bash_completion:35:<span class="w"> </span>parse<span class="w"> </span>error<span class="w"> </span>near<span class="w"> </span><span class="sb">`</span><span class="o">]]</span><span class="err">'</span>
+</code></pre></div>
+</div>
+<h3 id="_17">其他隐写工具<a class="headerlink" href="#_17" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ul>
-<li>没有这个表项：泛洪<span><span class="heti-spacing"> </span>flooding</span>，向所有接口转发帧的副本<br/></li>
-<li>表中有表项，目的地址和源接口一致（A-x<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，则这个帧直接过滤<br/></li>
-<li>转发：知道目标<span class="heti-skip"><span class="heti-spacing"> </span>A<span class="heti-spacing"> </span></span>对应的接口（<span class="arithmatex">\(A-y| y\ne x\)</span>​)：选择性发送到那个端口<br/></li>
+<li>
+<p>steghide
+steghide不支持png格式的隐写，zsteg支持png。
+</p><div class="highlight"><pre><span></span><code>apt<span class="w"> </span>install<span class="w"> </span>steghide
+</code></pre></div>
+</li>
+<li>
+<p>zsteg
+<a href="https://blog.csdn.net/Amherstieae/article/details/107512398">安装</a></p>
+</li>
 </ul>
-<p>即插即用，<strong>自学习</strong></p>
-<ul>
-<li>交换表初始为空</li>
-<li>当接收到帧，交换机学习到发送站点所在的端口（网段<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，记录源目标<span class="heti-skip"><span class="heti-spacing"> </span>MAC<span class="heti-spacing"> </span></span>和端口在交换表中（软状态维护机制</li>
-<li>一段时间后，<span>TTL<span class="heti-spacing"> </span></span>后，删除掉这个帧。</li>
-</ul>
-<p><strong>交换机可以级联</strong>：有生成树算法，每个时刻工作的只有一颗树，防止广播式传播</p>
-<p><img alt="image-20240217175712364" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240217175712364.png" style="zoom:50%;"/></p>
-<h3 id="vlans">VLANS<a class="headerlink" href="#vlans" title="anchor link to this section for reference">¶</a></h3>
-<p>带有<span class="heti-skip"><span class="heti-spacing"> </span>VLAN<span class="heti-spacing"> </span></span>功能的交换机（们）可以被配置成：一个物理<span class="heti-skip"><span class="heti-spacing"> </span>LAN<span class="heti-spacing"> </span></span>基础设施，虚拟成多个<span><span class="heti-spacing"> </span>LANs</span></p>
-<p>如果有多个交换机，希望它们相连并且共享<span class="heti-skip"><span class="heti-spacing"> </span>VLANs<span class="heti-spacing"> </span></span>信息</p>
-<ul>
-<li>方法<span><span class="heti-spacing"> </span>1</span>：各交换机每个<span class="heti-skip"><span class="heti-spacing"> </span>VLAN<span class="heti-spacing"> </span></span>一个端口和另外交换机相应；<span>VLAN<span class="heti-spacing"> </span></span>端口相连<span class="heti-skip"><span class="heti-spacing"> </span>-&gt;<span class="heti-spacing"> </span></span>扩展性问题</li>
-<li><code>trunk port</code>干线端口<span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span>多个交换机共享定义的<span><span class="heti-spacing"> </span>VLAN</span>，在它们之间传输帧</li>
-</ul>
-<p><img alt="image-20240217180329788" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240217180329788.png" style="zoom:50%;"/></p>
+<h3 id="go"><span>go<span class="heti-spacing"> </span></span>环境搭建<a class="headerlink" href="#go" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p><a href="https://blog.csdn.net/single_g_l/article/details/123244435">参考</a>
+<a href="https://studygolang.com/dl">go中文</a></p>
+<div class="highlight"><pre><span></span><code>wget<span class="w"> </span>https://studygolang.com/dl/golang/go1.22.5.linux-amd64.tar.gz
+tar<span class="w"> </span>-xzvf<span class="w"> </span>go1.22.5.linux-amd64.tar.gz
+rm<span class="w"> </span>go1.22.5.linux-amd64.tar.gz
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>mv<span class="w"> </span>./go<span class="w"> </span>/usr/local
+</code></pre></div>
+<p><strong>配置环境变量</strong></p>
+<p>在<code>/home</code>目录下新建<span class="heti-skip"><span class="heti-spacing"> </span>go<span class="heti-spacing"> </span></span>目录（文件名随意<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，然后在<span class="heti-skip"><span class="heti-spacing"> </span>go<span class="heti-spacing"> </span></span>目录下分别新建三个目录：
+- src ---- 里面每一个子目录，就是一个包。包内是Go的源码文件
+- pkg ---- 编译后生成的，包的目标文件
+- bin ---- 生成的可执行文件。</p>
+<p><code>vim ~/.zshrc</code> 编辑文件</p>
+<p>在文件末尾中添加
+</p><div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:/usr/local/go/bin<span class="w">   </span>//<span class="w">  </span>将<span class="w"> </span>/usr/local/go/bin<span class="w"> </span>目录添加至PATH环境变量
+<span class="nb">export</span><span class="w"> </span><span class="nv">GOPATH</span><span class="o">=</span>/home/go<span class="w">                </span>//<span class="w"> </span>设置GOPATH环境变量
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>~/.zshrc
+</code></pre></div>
+<p><strong>验证安装</strong></p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>go<span class="w"> </span>version
+go<span class="w"> </span>version<span class="w"> </span>go1.22.5<span class="w"> </span>linux/amd64
+
+$<span class="w"> </span>go
+Go<span class="w"> </span>is<span class="w"> </span>a<span class="w"> </span>tool<span class="w"> </span><span class="k">for</span><span class="w"> </span>managing<span class="w"> </span>Go<span class="w"> </span><span class="nb">source</span><span class="w"> </span>code.
+Usage:
+<span class="w">	</span>go<span class="w"> </span>&lt;command&gt;<span class="w"> </span><span class="o">[</span>arguments<span class="o">]</span>
+</code></pre></div>
+<h3 id="geth">geth<a class="headerlink" href="#geth" title="anchor link to this section for reference">¶</a></h3>
+<p><a href="https://geth.ethereum.org/downloads">Downloads | go-ethereum</a></p>
+<p>下载后解压
+</p><div class="highlight"><pre><span></span><code>tar -xzvf geth-linux-amd64-1.14.6-aadddf3a.tar.gz
+cd geth-linux-amd64-1.14.6-aadddf3a
+</code></pre></div>
+<p>移动到对应位置<code>\usr\local</code></p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/usr/local
+mkdir<span class="w"> </span>geth
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>mv<span class="w"> </span>geth<span class="w"> </span>/usr/local/geth
+vim<span class="w"> </span>~/.zshrc
+</code></pre></div>
+<p><strong>示例</strong></p>
+<p>下载学长给到的范例</p>
+<p></p><div class="highlight"><pre><span></span><code>geth<span class="w"> </span>attach<span class="w"> </span>http://localhost:8545
+</code></pre></div>
+出现
+<div class="highlight"><pre><span></span><code>Welcome<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>Geth<span class="w"> </span>JavaScript<span class="w"> </span>console!
+
+instance:<span class="w"> </span>Geth/v1.13.4-stable-3f907d6a/linux-amd64/go1.21.3
+at<span class="w"> </span>block:<span class="w"> </span><span class="m">345</span><span class="w"> </span><span class="o">(</span>Sat<span class="w"> </span>Jul<span class="w"> </span><span class="m">13</span><span class="w"> </span><span class="m">2024</span><span class="w"> </span><span class="m">08</span>:38:08<span class="w"> </span>GMT-0400<span class="w"> </span><span class="o">(</span>EDT<span class="o">))</span>
+<span class="w"> </span>modules:<span class="w"> </span>eth:1.0<span class="w"> </span>net:1.0<span class="w"> </span>personal:1.0<span class="w"> </span>rpc:1.0<span class="w"> </span>web3:1.0
+
+To<span class="w"> </span>exit,<span class="w"> </span>press<span class="w"> </span>ctrl-d<span class="w"> </span>or<span class="w"> </span><span class="nb">type</span><span class="w"> </span><span class="nb">exit</span>
+&gt;<span class="w"> </span>
+</code></pre></div>
+<h3 id="volatility">volatility<a class="headerlink" href="#volatility" title="anchor link to this section for reference">¶</a></h3>
+<p><a href="https://blog.csdn.net/m0_68012373/article/details/127419463">内存取证<span class="heti-skip"><span class="heti-spacing"> </span>-volatility<span class="heti-spacing"> </span></span>工具的使用 （史上更全教程，更全命令）<span>_volatility<span class="heti-spacing"> </span></span>内存取证<span class="heti-skip"><span class="heti-spacing"> </span>-CSDN<span class="heti-spacing"> </span></span>博客</a></p>
+<p>是一个内存取证的工具，依赖<span class="heti-skip"><span class="heti-spacing"> </span>python2<span class="heti-spacing"> </span></span>版本
+所以先使用conda构建一个基于python2的环境
+</p><div class="highlight"><pre><span></span><code>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>vol<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">2</span>.7
+conda<span class="w"> </span>activate<span class="w"> </span>vol
+</code></pre></div>
+<h4 id="_18">安装依赖<a class="headerlink" href="#_18" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<p><strong>crypto</strong>
+</p><div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>pycryptodome
+</code></pre></div>
+<p><strong>distorm3</strong>
+<a href="https://github.com/vext01/distorm3">vext01/distorm3: distorm3</a>
+下载源码后，进入到对应文件夹
+</p><div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>distorm3
+python<span class="w"> </span>setup.py<span class="w"> </span>install
+</code></pre></div>
+<h4 id="_19">安装<a class="headerlink" href="#_19" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<p><a href="https://github.com/volatilityfoundation/volatility">volatilityfoundation/volatility: An advanced memory forensics framework</a>
+下载源码
+</p><div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>volatility
+python<span class="w"> </span>setup.py<span class="w"> </span>install
+</code></pre></div>
+<p><strong>验证</strong></p>
+<div class="highlight"><pre><span></span><code>vol.py
+</code></pre></div>
+<blockquote>
+<p>└─# vol.py     <br/>
+Volatility Foundation Volatility Framework 2.6.1
+ERROR   : volatility.debug    : You must specify something to do (try -h)</p>
+</blockquote>
 <aside class="md-source-file">
 <span class="md-source-file__fact">
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年4月26日 23:40:43</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年8月12日 23:15:22</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年1月24日 23:42:01</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年3月20日 12:29:01</span>
 </span>
 </aside>
 </article>
@@ -2635,7 +2900,7 @@ c) 另外一个选择就是不使用任何地址；不用MAC地址，则每到�
 </main>
 <footer class="md-footer">
 <nav aria-label="页脚" class="md-footer__inner md-grid">
-<a aria-label="上一页: 网络层 | Network Layer" class="md-footer__link md-footer__link--prev" href="../ComputerNetwork-03-NetworkLayer/">
+<a aria-label="上一页: 环境配置" class="md-footer__link md-footer__link--prev" href="../settings/">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
 </div>
@@ -2644,17 +2909,17 @@ c) 另外一个选择就是不使用任何地址；不用MAC地址，则每到�
                 上一页
               </span>
 <div class="md-ellipsis">
-                网络层 | Network Layer
+                环境配置
               </div>
 </div>
 </a>
-<a aria-label="下一页: 物理层 | Physical Layer" class="md-footer__link md-footer__link--next" href="../ComputerNetwork-05-PhysicalLayer/">
+<a aria-label="下一页: MacOS使用备忘" class="md-footer__link md-footer__link--next" href="../macos/">
 <div class="md-footer__title">
 <span class="md-footer__direction">
                 下一页
               </span>
 <div class="md-ellipsis">
-                物理层 | Physical Layer
+                MacOS使用备忘
               </div>
 </div>
 <div class="md-footer__button md-icon">
