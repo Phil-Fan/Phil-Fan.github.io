@@ -1,43 +1,47 @@
 # 环境配置
+!!! note "前言"
+    这一篇的目的是记录一些常用的软件的安装与使用，以及一些常见的问题的解决方案。遇到重复的问题不至于反复搜索。
+    另外也是为了在特殊环境下，可以迅速的切换到另一台设备进行工作，不至于项目停滞。
 
 ## 如何复制Phil Fan的工作环境
 
 ### 效率软件
 
-!!! note "以下顺序也为安装顺序"
+!!! note "以下顺序为安装顺序"
 
-- 浏览器：Edge
-- 日程: 滴答清单
+- 浏览器：[Edge](https://www.microsoft.com/zh-cn/edge/download)
+- 日程: [滴答清单(付费)](https://dida365.com/download?language=zh_CN)
 - 网络相关：[Clash for windows](https://www.clash.la/archives/748/)
 - 压缩：[Bandzip](https://www.bandisoft.com/bandizip/)
-- 图片： [bandView](https://www.bandisoft.com/bandiview/)，[PicGo（图床）](https://github.com/Molunerfinn/PicGo/releases)
-- 视频：[VLC media player](https://www.videolan.org/vlc/index.zh_CN.html),QQ影音
-- 思维导图: Xmind
-- 计时：ManicTime
+- 图片： [bandView](https://www.bandisoft.com/bandiview/)，[PicGo（图床）](https://github.com/Molunerfinn/PicGo/releases),[honeycam(动图)](https://www.bandisoft.com/honeycam/)
+- 多媒体：[VLC media player](https://www.videolan.org/vlc/index.zh_CN.html),QQ影音
+- 思维导图: [Xmind(付费)](https://xmind.cn/download/)，xmind zen 绿色版
+- 即时通讯：[TIM](https://tim.qq.com/download.html)，[WeChat](https://weixin.qq.com/)，[飞书](https://www.feishu.cn/download/)，[腾讯会议](https://meeting.tencent.com/download/)，[钉钉](https://page.dingtalk.com/wow/z/dingtalk/simple/ddhomedownload#/),[微信文件传输网页版](https://filehelper.weixin.qq.com/)
+- 使用时长统计：[ManicTime](https://www.manictime.com/download/windows)
+- PDF阅读：Adobe Acrobat(adobe处下载),[pdfedit](http://pdfedit.cz/en/download.html)
+- Markdown: [Typora](https://typoraio.cn/)
+- 云同步(付费)：[百度网盘](https://pan.baidu.com/download#win)、[阿里网盘](https://www.alipan.com/)
 
-- Markdown - Typora
-- PDF阅读：Adobe Acrobat,[pdfedit](http://pdfedit.cz/en/download.html)
-- 云同步：百度网盘、阿里网盘
-- 即时通讯：TIM，WeChat，飞书，腾讯会议，钉钉
 
-- 翻译：欧陆词典
+- 翻译：[欧陆词典](https://www.eudic.net/v4/en/app/download),欧陆词典文件
 - 绘图：Draw.io, Geogebra
-
+- 音乐：QQ音乐
 
 ### 专业软件
 
-- Coding: [VSC](https://code.visualstudio.com/Download), PyCharm, WebStorm
-- 环境:[miniconda(smaller)](https://docs.anaconda.com/miniconda/)/[anaconda](https://www.anaconda.com/download)，[git](https://git-scm.com/download/win),python，R，VMware
-- 数据：Tableau，excel，origin
-- 文献：Zotero
-- word，小恐龙公文助手
-- latex：[overleaf](https://www.overleaf.com)
+- Coding: [VSC](https://code.visualstudio.com/Download),PyCharm, WebStorm
+- 环境:[miniconda(smaller)](https://docs.anaconda.com/miniconda/)/[anaconda](https://www.anaconda.com/download)
+[git](https://git-scm.com/download/win),R,VMware
+- 数据：excel，Tableau，origin
+- 文献：[Zotero](https://www.zotero.org/download/)
+- word，[小恐龙公文助手](https://xkonglong.com/xkl_wordaddin/)
+- latex：texlive,[overleaf](https://www.overleaf.com)
 - [foldersize](https://foldersize.sourceforge.net/?utm_source=appinn.com)
 
 ### 设计软件
 
-- Adobe: AI,PS,PR,剪映
-- powerpoint，okplus，Canva
+- [Adobe](https://www.adobe.com/cn/):AI,PS,PR,[剪映](https://www.capcut.cn/)
+- powerpoint,okplus,[Canva](https://www.canva.cn/)
 
 
 ## windows
@@ -76,15 +80,11 @@ xGameBar对我来说没什么用，但是虚拟机中需要使用到这个快捷
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240722095029.png)
 
 
-输入此值作为新值的名称，然后按 Enter 保存它。
-
-`Start_ShowClassicMode`
-
-双击相同的值并将数据更改为1，然后选择确定。
+输入`Start_ShowClassicMode`作为新值的名称，然后按 Enter 保存它。双击并将数据更改为1，然后选择确定。
 
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240722095039.png)
 
-重启你的电脑。重新启动 Windows 11 的最快方法是右键单击“开始”按钮，然后选择关机或注销>重新启动。注销并重新登录也可以。
+重启。
 
 
 #### 任务栏自定义
@@ -179,7 +179,7 @@ start explorer.exe
 
 ![USB Type C接头拆解图](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/1540889232965453.jpg)
 
-**盒盖不息屏**
+#### 盒盖不息屏
 
 设置里搜“关闭盖子”
 
@@ -188,7 +188,7 @@ start explorer.exe
 ![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-79a54efe642a46bd24107b2a97f160d1_720w.webp)
 
 
-
+#### 投屏方式
 **Windows +A**进入消息中心
 
 ![image-20240429090307137](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240429090307137.png)
@@ -257,8 +257,21 @@ start explorer.exe
     Get-Item "C:\Users\Administrator\Documents\WindowsPowerShell\profile.ps1" | Format-List * -Force
     ```
 
+### 网络相关
 
+#### 查看wifi密码
 
+#### clash忘记关了解决方案
+- `win+x` 点击网络连接
+- 点击高级网络设置，“Internet选项”
+- 点击“连接”弹窗的“局域网设置”
+- 取消代理服务器这里的对勾
+
+### 账户相关
+
+#### 密码
+
+`win+x` - 设置 - 账户 - 登录选项 - 设置PIN和指纹登陆
 
 ## `Vimium`配置
 

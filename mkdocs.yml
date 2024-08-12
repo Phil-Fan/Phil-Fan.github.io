@@ -403,7 +403,7 @@ nav:
 
 
 plugins:
-  # - meta
+  # meta
   - search:
       lang:
         - zh

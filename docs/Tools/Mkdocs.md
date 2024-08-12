@@ -209,6 +209,18 @@ plugins:
 - 更换picgo中服务
 - 更换`.md`中所有图片的链接
 
+
+picgo中的设置如下
+
+1. 设定`keyid`，就是创建用户的`AccessKey ID`，
+2. `KeySecret` 就是`AccessKeySecret`
+3. 存储空间名就是创建Bucket的名字，存储区域也是创建时设定的， 忘记的可以通过Bucket概览查看，如下图所示：
+4. 存储路径默认设置img/即可
+5. 如果自己有已经备案的域名，可以填写设定自定义域名，如果没有不填即可。
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240813014140.png)
+
+
 ### 显示音乐符号
 
 关于安装lilypond
