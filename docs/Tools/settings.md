@@ -4,32 +4,36 @@
 
 ### 效率软件
 
-- 日程 - 滴答清单
-- Markdown - Typora
-- 图片： HoneyView，[PicGo（图床）](https://github.com/Molunerfinn/PicGo/releases)
-- 视频：QQ影音
+!!! note "以下顺序也为安装顺序"
+
+- 浏览器：Edge
+- 日程: 滴答清单
+- 网络相关：[Clash for windows](https://www.clash.la/archives/748/)
+- 压缩：[Bandzip](https://www.bandisoft.com/bandizip/)
+- 图片： [bandView](https://www.bandisoft.com/bandiview/)，[PicGo（图床）](https://github.com/Molunerfinn/PicGo/releases)
+- 视频：[VLC media player](https://www.videolan.org/vlc/index.zh_CN.html),QQ影音
 - 思维导图: Xmind
 - 计时：ManicTime
-- 绘图：Draw.io, Geogebra
-- PDF阅读：Adobe Acrobat
+
+- Markdown - Typora
+- PDF阅读：Adobe Acrobat,[pdfedit](http://pdfedit.cz/en/download.html)
 - 云同步：百度网盘、阿里网盘
 - 即时通讯：TIM，WeChat，飞书，腾讯会议，钉钉
-- 压缩：[Bandzip](https://www.bandisoft.com/bandizip/)
-- 浏览器：Edge
+
 - 翻译：欧陆词典
-- 网络相关：[Clash for windows](https://www.clash.la/archives/748/)
+- 绘图：Draw.io, Geogebra
+
 
 ### 专业软件
 
 - Coding: [VSC](https://code.visualstudio.com/Download), PyCharm, WebStorm
-- 环境：[anaconda](https://www.anaconda.com/download)，[git](https://git-scm.com/download/win),python，R，VMware
+- 环境:[miniconda(smaller)](https://docs.anaconda.com/miniconda/)/[anaconda](https://www.anaconda.com/download)，[git](https://git-scm.com/download/win),python，R，VMware
 - 数据：Tableau，excel，origin
 - 文献：Zotero
 - word，小恐龙公文助手
 - latex：[overleaf](https://www.overleaf.com)
-
-
 - [foldersize](https://foldersize.sourceforge.net/?utm_source=appinn.com)
+
 ### 设计软件
 
 - Adobe: AI,PS,PR,剪映
@@ -199,16 +203,6 @@ start explorer.exe
 
 ### 环境变量
 
-#### 使用命令行调用不同版本的python
-
-在系统路径path（高级系统系统设置——环境变量）中加入python.exe所在目录（打开文件所在位置——属性——打开文件所在位置）（因为是快捷方式，所以需要先找到快捷方式所在目录，再找到原exe文件所在位置）
-
-**注：应考虑到优先级的问题，将想要通过命令行直接进入的python版本所对应的路径放在上面**
-
-
-
-
-
 #### 如何用命令行直接打开软件
 
 省流：建立一个文件夹保存快捷方式，将文件夹路径添加到PATH环境变量
@@ -228,6 +222,43 @@ start explorer.exe
 高级系统设置 - 环境变量
 
 ![image-20240422084315579](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240422084315579.png)
+
+### win 终端
+
+快捷打开终端
+1. `win + R`，输入`cmd`
+2. `win + X`，选择`Windows Terminal`
+
+常用命令
+
+1. 删除文件：`del` 文件名
+2. 查看ip命令：`ipconfig`
+3. 清屏：  `clear`    (cmd窗口清屏用cls)
+4. 查看列表(list)：`ls`  （cmd窗口用dir） 
+5. 切换目录：`cd xxx`    直接切换到xxx文件夹
+
+
+??? failure "无法加载WindowsPowerShell\profile.ps1"
+    [完美解决无法加载文件 WindowsPowerShell\profile.ps1系统编译问题-CSDN博客](https://blog.csdn.net/weixin_41194129/article/details/140538410)
+    1. 按`Win + X` 键,`Windows PowerShell (Admin)`
+    2. 使用命令 `Get-ExecutionPolicy -List`
+    3. 更改执行策略：为了允许运行脚本，你可以将执行策略更改为 RemoteSigned 或 Unrestricted。
+    ```shell
+    Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+    ```
+    如果你需要为所有用户设置执行策略，可以使用 -Scope LocalMachine 参数：
+    ```shell
+    Set-ExecutionPolicy RemoteSigned -Scope LocalMachine
+    ```
+    4. 选择`Y`确认更改
+    5. 重新打开终端
+    6. 验证执行策略是否更改成功
+    ```shell title="路径改为本地报错时候显示的路径"
+    Get-Item "C:\Users\Administrator\Documents\WindowsPowerShell\profile.ps1" | Format-List * -Force
+    ```
+
+
+
 
 ## `Vimium`配置
 
@@ -264,6 +295,28 @@ bash Miniconda3-py39_4.10.3-Linux-x86_64.sh
 ```
 
 [conda 使用指南](https://blog.csdn.net/miracleoa/article/details/106115730)
+
+### pip
+
+查看某个包所有的版本
+```shell
+pip index versions <package>
+```
+
+安装指定版本的包
+
+```shell
+pip install <package>==<version>
+```
+
+#### 使用命令行调用不同版本的python
+
+在系统路径path（高级系统系统设置——环境变量）中加入python.exe所在目录（打开文件所在位置——属性——打开文件所在位置）（因为是快捷方式，所以需要先找到快捷方式所在目录，再找到原exe文件所在位置）
+
+**注：应考虑到优先级的问题，将想要通过命令行直接进入的python版本所对应的路径放在上面**
+
+
+### 使用
 
 激活
 ```shell
@@ -388,7 +441,7 @@ ssh -p 15821 root@connect.westb.seetacloud.com
 ![image-20240619085926633](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240619085926633.png)
 
 ## vscode
-
+### 插件
 **markdown 插件 —— Markdown Preview Enhanced**
 
 设置一个`picgo`的快捷键，我这里设置的是`ctrl + alt + P`
@@ -404,5 +457,9 @@ ssh -p 15821 root@connect.westb.seetacloud.com
 
 解决链接复制之后只有url没有标题的问题
 
+### 安装
 
+把vscode安装路径下的`bin\`文件夹添加到环境变量中，就可以实现命令行操作
+- `code .` 打开当前文件夹
+- `code filename` 打开文件
 

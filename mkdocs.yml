@@ -327,6 +327,8 @@ nav:
     - CS/Web3/solidity.md
     - CS/Web3/lingo.md
 
+  - CS/missing_knowledge.md
+
     
 - Explore:
   - Finance:
@@ -363,6 +365,7 @@ nav:
   - Tools/sites.md
   
   - Tools/settings.md
+  - Tools/settings-linux.md
   - Tools/macos.md
   
 
@@ -416,9 +419,10 @@ plugins:
       words_per_minute: 256
       codelines_per_minute: 80
   
-  #这个插件用于压缩HTML输出，减少页面的加载时间和带宽消耗。
-  - minify:
-      minify_html: true
+  # 这个插件用于压缩HTML输出，减少页面的加载时间和带宽消耗。
+  # 重构环境的时候，这个插件貌似有一点点问题
+  # - minify:
+  #     minify_html: true
 
   # 显示文件的最后修改时间，基于git提交记录
   # https://github.com/timvink/mkdocs-git-revision-date-localized-plugin
