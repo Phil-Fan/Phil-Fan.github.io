@@ -16,13 +16,12 @@ we stay in the domitory in CityU, Jiulong.
 
 two members in one single room , with a shared bathroom.
 
-### seminar in University 
-
 
 ### feeling
 
 
 
+### cost
 
 
 

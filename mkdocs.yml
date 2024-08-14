@@ -372,30 +372,34 @@ nav:
 - "生命因你而火热":
   - classes_in_zju.md
   - else/flower.md
-  - else/coffee.md
-  - journey.md
+  - まめちしき.md
 
-  - "运动":
+  - "🏃运动":
     - else/exercise-fit.md
     - else/exercise-swimming.md
 
-  - "食在Hangzhou":
+  - "🥢食为天":
     - else/eat.md
+    - else/coffee.md
 
-  - "音乐":
+  - "🗺️出行":
+    - else/C-Driving.md
+    - else/C-journey.md
+
+  - "🎶音乐":
     - else/music_theory.md
     - else/piano.md
     - else/music_classification.md
     - else/rock_and_roll.md
 
-  - "设计":
+  - "🎨设计":
     - Tools/color.md
     - Tools/design.md
     - Tools/powerpoint.md
     - Tools/AdobePhotoshop.md
     - Tools/AdobeIllustrator.md
     
-  - "摄影":
+  - "📸摄影":
     - Tools/Photography-base.md
     - Tools/Photography-Landscape.md
     - Tools/Photography-Portrait.md
