@@ -24,20 +24,19 @@
 
 
 - 翻译：[欧陆词典](https://www.eudic.net/v4/en/app/download),欧陆词典文件
-- 绘图：Draw.io, Geogebra
 - 音乐：QQ音乐
+- 其他：[logi option+](https://www.logitech.com/zh-cn/setup/ergosetup/logi-options.html),[foldersize(快速测文件夹大小)](https://foldersize.sourceforge.net/?utm_source=appinn.com)
 
 ### 专业软件
 
 - Coding: [VSC](https://code.visualstudio.com/Download),PyCharm, WebStorm
-- 环境:[miniconda(smaller)](https://docs.anaconda.com/miniconda/)/[anaconda](https://www.anaconda.com/download)
+- Environment:[miniconda(smaller)](https://docs.anaconda.com/miniconda/)/[anaconda](https://www.anaconda.com/download)
 [git](https://git-scm.com/download/win),R,VMware
-- 数据：excel，Tableau，origin
 - 文献：[Zotero](https://www.zotero.org/download/)
-- word，[小恐龙公文助手](https://xkonglong.com/xkl_wordaddin/)
 - latex：texlive,[overleaf](https://www.overleaf.com)
-- [foldersize](https://foldersize.sourceforge.net/?utm_source=appinn.com)
-
+- 绘图：ppt,Draw.io, ai,ps,Geogebra,python
+- 数据：excel，Tableau，origin
+- word，[小恐龙公文助手](https://xkonglong.com/xkl_wordaddin/)
 ### 设计软件
 
 - [Adobe](https://www.adobe.com/cn/):AI,PS,PR,[剪映](https://www.capcut.cn/)
@@ -273,6 +272,12 @@ start explorer.exe
 
 `win+x` - 设置 - 账户 - 登录选项 - 设置PIN和指纹登陆
 
+
+### onedrive
+### onedrive账号解冻方法
+超过系统的免费额度，账号会被封禁，被封禁后，桌面端会无法登录，显示错误代码`0x8004def7`
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240814121753.png)
+
 ## `Vimium`配置
 
 [使用 Vimium 获得更舒适的网页阅读体验 - 少数派 (sspai.com)](https://sspai.com/post/57091#!)
@@ -454,6 +459,13 @@ ssh -p 15821 root@connect.westb.seetacloud.com
 ![image-20240619085926633](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240619085926633.png)
 
 ## vscode
+### 使用
+
+- F1打开命令面板
+- `ctrl + P` 搜索文件名打开文件
+- `ctrl + F` 搜索内容
+- 搜索工作区内容的快捷键是`Ctrl + Shift + F`，或者在菜单栏中选择 `查看 (View)` -> `搜索 (Search)`
+
 ### 插件
 **markdown 插件 —— Markdown Preview Enhanced**
 
@@ -476,3 +488,27 @@ ssh -p 15821 root@connect.westb.seetacloud.com
 - `code .` 打开当前文件夹
 - `code filename` 打开文件
 
+## Mail
+### 我使用的邮箱
+- zju邮箱
+- 126邮箱
+- gmail
+- qq邮箱
+- outlook邮箱
+
+### pop3
+
+### IMAP
+
+
+#### outlook 添加浙大邮箱
+- “IMAP”则接收服务器： `imap.zju.edu.cn` 端口`143`，勾选SSL端口：993；
+- “POP3”则接受服务器： `pop3.zju.edu.cn` 端口`110`，勾选SSL端口：995；
+- 发送服务器都为：`smtp.zju.edu.cn` 端口：`25`，勾选SSL端口：994 。
+- 在“登录信息”的“用户名”填写完整邮箱地址，如`test@zju.edu.cn`
+- 密码处填写邮箱密码
+
+#### 添加qq邮箱
+在qq邮箱设置处开启IMAP/SMTP服务，需要绑定手机号，然后手机发验证短信
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240814123902.png)
+发完验证短信后，会有一个授权码，这个授权码就是密码
