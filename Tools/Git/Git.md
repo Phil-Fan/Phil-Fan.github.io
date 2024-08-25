@@ -109,6 +109,27 @@ git config --global credential.helper store
 git config --global --unset credential.helper 
 ```
 
+### github 配置ssh
+
+
+```shell
+cd ~
+ssh-keygen -t rsa -C "xxx@xxx.com" # 这里输入你的邮箱
+cd .ssh
+cat id_rsa.pub # 复制到github的ssh设置中
+```
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240816111626.png)
+点击右上角的settings
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240816111700.png)
+将刚才复制的内容粘贴到这里
+
+验证是否成功
+```shell
+ssh -T git@github.com
+```
+显示如下信息表明设置成功
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240816111807.png)
+
 
 
 ### SSH
@@ -225,3 +246,7 @@ git add .gitattributes
 
 4.重新安装vmware-tools  
 
+### Host key verification failed.
+重新配置一下ssh，删除`~/.ssh`文件夹，重新生成ssh key，然后再次连接。
+
+具体操作看`配置/github 配置ssh`一节

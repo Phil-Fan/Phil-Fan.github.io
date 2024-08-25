@@ -286,3 +286,33 @@ VISA 信用卡号码: `^(4[0-9]{12}(?:[0-9]{3})?)*$`
 
 
 ## request库 - 爬虫、网络相关
+
+
+
+```python title='发送 GET 请求'
+import requests
+
+response = requests.get('https://api.example.com/data')
+print(response.status_code)
+print(response.json())
+```
+
+```python title='发送 POST 请求'
+import requests
+
+data = {'key': 'value'}
+response = requests.post('https://api.example.com/data', json=data)
+print(response.status_code)
+print(response.json())
+```
+
+```python
+# 添加请求头
+headers = {'Authorization': 'Bearer YOUR_ACCESS_TOKEN'}
+response = requests.get('https://api.example.com/data', headers=headers)
+
+# 处理查询参数
+params = {'key1': 'value1', 'key2': 'value2'}
+response = requests.get('https://api.example.com/data', params=params)
+```
+
