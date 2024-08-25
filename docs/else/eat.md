@@ -19,11 +19,42 @@
 ### 使用软件
 - [食べログ](https://tabelog.com/)，类似于中国的大众点评，可以查看餐厅评分、菜单、地址、营业时间等信息；app版需要日区账号
 - 小红书
-- 翻译：apple相机拍照后自动识别翻译
+- 翻译：apple相机拍照后自动识别翻译；kulikuli识别效果不错，但是token有限制，要付费
+- google map：进行导航
 
 ### 烤肉
 
-#### [叙叙苑](https://www.jojoen.co.jp/cn/)
+#### 和牛 焼肉 食べ放題 肉屋の台所 新宿店
+
+!!! note "简介"
+    - **官网：**[和牛 焼肉 食べ放題 肉屋の台所 新宿歌舞伎町店 | A4・A5の厳選和牛をリーズナブルな価格の食べ放題で](https://nikuyanodaidokoro-shinjyuku.com/)
+    - **评分：**
+    - [**地址**](https://maps.app.goo.gl/mcFh7bUSasXyvNKU9)：日本〒160-0021 Tokyo, Shinjuku City, Kabukicho, 1 Chome−6−14 第２ショーリビル 2F
+
+
+店内环境，比起国内烤肉店还是略挤
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240825142659.png)
+
+**爽吃和牛！！！**
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/a5a26cc305b5be4cf445f30e9dfbbd8.jpg)
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/9d41cea3d93bcbe1050c23a19fa76bc.jpg)
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/3c7f724f668d4480c89075ba1ee57ae.jpg)
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/313079cadb1362a6f907583b35e4dc7.jpg)
+
+#### 叙叙苑
+
+!!! note "简介"
+    - **官网：** https://www.jojoen.co.jp/cn/
+    - **评分：**
+    - **地址：**
+
+
+
+
 号称日本烤肉海底捞，服务比较好。
 
 小桌点餐，中午是定食。套餐里面肉和配菜都很好吃。午餐套餐价格3000yan-7000yan这个区间。猪肉套餐貌似便宜一些
@@ -35,20 +66,51 @@
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/8943eae2282f29cbd3b46547a485294.jpg)
 
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/c2b21b4581cdc6944ef32d21db50e19.jpg)
-### 烧鸟 or 居酒屋
 
-#### [鳥貴族](https://www.torikizoku.co.jp/)
-这个xhs上推荐有好有坏，个人感觉还不错。
+#### 路边店
+菜谱
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240825141308.png)
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/0ef49196d8f8c09071b6e43136ea037.jpg)
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/23303d9a85d9f050b87f93b038a2214.jpg)
+
+
+
+
+
+### 烧鸟 or 居酒屋
+居酒屋可以大声说话，是日本人喝酒吹nb的地方（bushi
 
 有的居酒屋嫌外国人点菜比较麻烦，所以不让不会说日语的进去qwq
+#### [鳥貴族](https://www.torikizoku.co.jp/)
+这个xhs上推荐有好有坏
+
+
 
 #### 随便去的一家居酒屋
 
+菜单
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240825134745.png)
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240825134909.png)
+每家店的菜单差距都挺大的，可能当地人有的也看不太懂具体的菜名，所以相当于是开盲盒了。
+我们要了一个中文菜单hhh
 
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/950de4153ac4006cd7e9746ac2c3583.jpg)
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/941ccb3ca82848345731aed60a51088.jpg)
+
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/dbfb86751b99bed8a7a67dd49339cd8.jpg)
+
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/e70be4b2fcf75be9b8179d4abd36fd0.jpg)
 ### 面
 
 #### **油そば（油荞面）**
-网址：[東京油組総本店＜油そば＞ 公式サイト](https://www.tokyo-aburasoba.com/)
+
+!!! note "简介"
+    - **官网：** [東京油組総本店＜油そば＞ 公式サイト](https://www.tokyo-aburasoba.com/)
+    - **评分：**
+    - **地址**: 连锁店，shibuya，秋叶原，银座等等都有店
 
 这家真的超好吃，比起汤面我更喜欢吃拌面一点
 
@@ -82,7 +144,8 @@
 朋友说感觉太咸了。
 
 ### 寿司
-旋转小寿司 はま寿司　くら寿司这两家
+旋转小寿司 
+搜索：はま寿司、くら寿司这两家
 
 
 #### 元祖寿司
@@ -106,10 +169,17 @@
 
 ### 炸猪排
 #### 匠庵 Takumian
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240825132858.png)
-[炸猪排和幸 Takumian 伊势丹新宿店|炸猪排和幸](https://wako-group.co.jp/shop/detai/shop_2031/)
 
-[とんかつ和幸 匠庵 伊勢丹新宿店 - 新宿三丁目/とんかつ | 食べログ](https://tabelog.com/tokyo/A1304/A130401/13131322/)
+!!! note "简介"
+    - **官网：** [炸猪排和幸 Takumian 伊势丹新宿店|炸猪排和幸](https://wako-group.co.jp/shop/detai/shop_2031/)
+    - **评分：** 3.20 [とんかつ和幸 匠庵 伊勢丹新宿店 - 新宿三丁目/とんかつ | 食べログ](https://tabelog.com/tokyo/A1304/A130401/13131322/)
+    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240825132858.png)
+    - **地址**: https://maps.app.goo.gl/iygvipBjwwxPVuPW9
+
+
+
+
+
 
 
 环境很好，服务也不错，店开到挺晚的。当时去的时候没怎么排队
@@ -128,6 +198,20 @@
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240825133135.png)
 
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/f306c911cfa6e546bae4204a02b3d60.jpg)
+
+### 快餐
+快餐一般是自助点餐，桌上会有ipad，可以选择中文，然后自己点餐，付款后取餐。
+
+常见的店有 `すき家`, `吉野家`, `松屋`等等
+
+店很多，在哪都有
+
+比较适合时间比较紧张，or不想排队or特别饿的时候，量大管饱
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240825140750.png)
+
+
+
 
 ### 便利店好物
 日本的便利店主要是罗森、全家、711。

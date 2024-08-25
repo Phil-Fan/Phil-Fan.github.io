@@ -37,3 +37,14 @@ NPO（Non-Profit Organization）非营利组织，是指不以营利为目的，
 
 资金哪里来
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240825112209.png)
+
+## 案例
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240825140335.png)
+项目交付回顾
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240825141008.png)
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240825141601.png)
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240825141933.png)
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/4fa89db9a3c5bf94e05bcb5931dc0d6.png)
