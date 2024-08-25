@@ -372,7 +372,8 @@ nav:
 - "生命因你而火热":
   - classes_in_zju.md
   - else/flower.md
-  - まめちしき.md
+  - else/まめちしき.md
+  - else/interview.md
 
   - "🏃运动":
     - else/exercise-fit.md

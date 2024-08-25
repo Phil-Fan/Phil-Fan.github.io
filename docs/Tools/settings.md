@@ -15,7 +15,7 @@
 - 压缩：[Bandzip](https://www.bandisoft.com/bandizip/)
 - 图片： [bandView](https://www.bandisoft.com/bandiview/)，[PicGo（图床）](https://github.com/Molunerfinn/PicGo/releases),[honeycam(动图)](https://www.bandisoft.com/honeycam/)
 - 多媒体：[VLC media player](https://www.videolan.org/vlc/index.zh_CN.html),QQ影音
-- 思维导图: [Xmind(付费)](https://xmind.cn/download/)，xmind zen 绿色版
+- 思维导图: [Xmind(付费)](https://xmind.cn/download/)，xmind zen 绿色版；首选项设置 深色主题 `alt+s`:概要 `ctrl + l`:方程
 - 即时通讯：[TIM](https://tim.qq.com/download.html)，[WeChat](https://weixin.qq.com/)，[飞书](https://www.feishu.cn/download/)，[腾讯会议](https://meeting.tencent.com/download/)，[钉钉](https://page.dingtalk.com/wow/z/dingtalk/simple/ddhomedownload#/),[微信文件传输网页版](https://filehelper.weixin.qq.com/)
 - 使用时长统计：[ManicTime](https://www.manictime.com/download/windows)
 - PDF阅读：Adobe Acrobat(adobe处下载),[pdfedit](http://pdfedit.cz/en/download.html)
@@ -58,7 +58,41 @@ xGameBar对我来说没什么用，但是虚拟机中需要使用到这个快捷
 关闭里边选项即可。
 
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240706192241.png)
+### 驯服自带输入法
 
+- **自定义短语**
+
+输入法内置了大多数常用的短语，但我们依然可以进行自定义导入，以满足自身行业的特殊词汇需求。
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240816114002.png)
+- **专业词典**
+
+专业词典选项会被大部分人忽略——因为它看起来默认开启，但没有完全启用。
+
+- **「V模式」**
+  
+颇有意思，v键进入后，可快速输入中文年月日时间以及公式运算等。
+
+例如，你输入“`v123`”，在按a选择，呈现的结果就是“一百二十三”
+
+`v12:55`，对应：十二时五十五分/ 12时55分 / 十二分五十五秒 等
+
+`v1989.08.12`，对应：1989年08月12/  一九八九年八月十二日 等
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240816114019.png)
+
+- **「U模式」**
+
+则方便用户输入一些特殊符号。如win笔记本键盘上并不存在的「」，就可以在输入 uubd 后找到。
+
+- **其他**
+  
+输入sjx，可以得到三角形 △ ▲
+输入slh，可以得到省略号
+输入pzh，可以得到中文破折号
+
+- **emoji、颜文字与符号面板**
+  
+微软内置了emoji方案、颜文字、符号面板，使用 `Ctrl + Shift + B` 即可唤出。
+[一些小技巧，让你的 Win 10 内置输入法更好用 - 少数派](https://sspai.com/post/52101#!)
 
 ### 如何让你的win11不再智障
 
@@ -487,6 +521,13 @@ ssh -p 15821 root@connect.westb.seetacloud.com
 把vscode安装路径下的`bin\`文件夹添加到环境变量中，就可以实现命令行操作
 - `code .` 打开当前文件夹
 - `code filename` 打开文件
+
+### PlatformIO
+PlatformIO is a cross-platform, cross-architecture, multiple framework, professional tool for embedded systems engineers and for software developers who write applications for embedded products.
+
+
+[VSCode 下 PlatformIO 的安装教程-CSDN博客](https://blog.csdn.net/qq_40018676/article/details/128680677)
+
 
 ## Mail
 ### 我使用的邮箱
