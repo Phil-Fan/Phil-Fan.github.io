@@ -4,9 +4,11 @@
 
 ### `TexLive` | windows 的 `LaTeX `环境
 
+Texlive 下载
 [Installing TeX Live over the Internet - TeX Users Group (tug.org)](https://www.tug.org/texlive/acquire-netinstall.html)
 
-
+Texstudio 下载
+[Releases · texstudio-org/texstudio](https://github.com/texstudio-org/texstudio/releases/)
 
 
 **参考文献编译**
