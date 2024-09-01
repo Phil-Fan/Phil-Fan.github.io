@@ -1816,7 +1816,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../else/exercise-fit/">
 <span class="md-ellipsis">
-    Exercise fit
+    健身
   </span>
 </a>
 </li>
@@ -2919,33 +2919,33 @@ y_{k} &amp; =\boldsymbol{H}_{k+1} \delta_{k} \\
 \end{aligned}
 \]</div>
 <p>其次，如果<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(H_k\)</span><span class="heti-spacing"> </span></span>是正定的（<span><span class="arithmatex">\(H_k^{-1}\)</span><span class="heti-spacing"> </span></span>也是正定的<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，那么保证牛顿法的搜索方向<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(p_k\)</span><span class="heti-spacing"> </span></span>是下降方向。这是因为搜索方向是<span><span class="heti-spacing"> </span><span class="arithmatex">\(p_k = -H_k^{-1}g_k\)</span></span>。</p>
-<p>由
-$$
+<p>由</p>
+<div class="arithmatex">\[
 x^{(k+1)} = x^{(k)} - H_k^{-1}g_k
-$$
-有
-$$
-x = x^{(k)} - lambda H_k^{-1}g_k = x^{(k)} + lambda p_k
-$$
-则 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\(x^{(k)}\)</span> 的泰勒展开可近似为
-$$
-begin{align}
-f(x) = fleft(x^{(k)}right) - lambda g_k^T H_k^{-1} g_k
-end{align}
-$$
-由于 <span class="arithmatex">\(H_k^{-1}\)</span> 正定，故 <span class="arithmatex">\(g_k^T H_k^{-1} g_k &gt; 0\)</span>。当 <span class="arithmatex">\(\lambda\)</span> 为一个充分小的正数时，有 <span class="arithmatex">\(f(x) &lt; f\left(x^{(k)}\right)\)</span>，即搜索方向 <span class="arithmatex">\(p_k\)</span> 是下降方向。</p>
-<p>因此拟牛顿法将<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(G_k\)</span><span class="heti-spacing"> </span></span>作为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(H_k^{-1}\)</span><span class="heti-spacing"> </span></span>近似。要求<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(G_k\)</span><span class="heti-spacing"> </span></span>满足同样的条件下，首先，每次迭代矩阵<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(G_k\)</span><span class="heti-spacing"> </span></span>是正定时，<span><span class="arithmatex">\(G_k\)</span><span class="heti-spacing"> </span></span>满足下面的拟牛顿条件：
-$$
-begin{align}
-G_{k+1} y_k = delta_k
-end{align}
-$$
-按照拟牛顿条件，在每次迭代中可以选择更新矩阵 <span class="arithmatex">\(G_{k+1}\)</span>​：
-$$
-begin{align}
-G_{k+1} = G_k + Delta G_k
-end{align}
-$$</p>
+\]</div>
+<p>有</p>
+<div class="arithmatex">\[
+x = x^{(k)} - \lambda H_k^{-1}g_k = x^{(k)} + \lambda p_k
+\]</div>
+<p>则<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(f(x)\)</span><span class="heti-spacing"> </span></span>在<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(x^{(k)}\)</span><span class="heti-spacing"> </span></span>的泰勒展开可近似为</p>
+<div class="arithmatex">\[
+\begin{align}
+f(x) = f\left(x^{(k)}\right) - \lambda g_k^T H_k^{-1} g_k
+\end{align}
+\]</div>
+<p>由于<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(H_k^{-1}\)</span><span class="heti-spacing"> </span></span>正定，故<span><span class="heti-spacing"> </span><span class="arithmatex">\(g_k^T H_k^{-1} g_k &gt; 0\)</span></span>。当<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\lambda\)</span><span class="heti-spacing"> </span></span>为一个充分小的正数时，有<span><span class="heti-spacing"> </span><span class="arithmatex">\(f(x) &lt; f\left(x^{(k)}\right)\)</span></span>，即搜索方向<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(p_k\)</span><span class="heti-spacing"> </span></span>是下降方向。</p>
+<p>因此拟牛顿法将<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(G_k\)</span><span class="heti-spacing"> </span></span>作为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(H_k^{-1}\)</span><span class="heti-spacing"> </span></span>近似。要求<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(G_k\)</span><span class="heti-spacing"> </span></span>满足同样的条件下，首先，每次迭代矩阵<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(G_k\)</span><span class="heti-spacing"> </span></span>是正定时，<span><span class="arithmatex">\(G_k\)</span><span class="heti-spacing"> </span></span>满足下面的拟牛顿条件：</p>
+<div class="arithmatex">\[
+\begin{align}
+G_{k+1} y_k = \delta_k
+\end{align}
+\]</div>
+<p>按照拟牛顿条件，在每次迭代中可以选择更新矩阵<span><span class="heti-spacing"> </span><span class="arithmatex">\(G_{k+1}\)</span></span>​：</p>
+<div class="arithmatex">\[
+\begin{align}
+G_{k+1} = G_k + \Delta G_k
+\end{align}
+\]</div>
 <h4 id="dfp"><span>DFP<span class="heti-spacing"> </span></span>算法<a class="headerlink" href="#dfp" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p>在<span><span class="heti-spacing"> </span>DFP</span>（Davidon-Fletcher-Powell）算法中，我们选择<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(G_k\)</span><span class="heti-spacing"> </span></span>作为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(H_k^{-1}\)</span><span class="heti-spacing"> </span></span>的近似。假设在每次迭代中，矩阵<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(G_{k+1}\)</span><span class="heti-spacing"> </span></span>由<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(G_k\)</span><span class="heti-spacing"> </span></span>加上两个附加项构成：</p>
 <div class="arithmatex">\[
@@ -3013,12 +3013,12 @@ G_{k+1} = G_k + \frac{\delta_k \delta_k^T}{\delta_k^T y_k} - \frac{\delta_k y_k^
 <div class="arithmatex">\[
 \frac{\left\|\boldsymbol{x}^{(k+1)}-\boldsymbol{x}^{(k)}\right\|}{\left\|\boldsymbol{x}^{(k)}\right\|} \leq \varepsilon_{3} \quad \frac{\left|f\left(\boldsymbol{x}^{(k+1)}\right)-f\left(\boldsymbol{x}^{(k)}\right)\right|}{\left|f\left(\boldsymbol{x}^{(k)}\right)\right|} \leq \varepsilon_{4}
 \]</div>
-<p>梯度模准则（first-order optimality measure）
-$$
-begin{align}
-left|nabla fleft(boldsymbol{x}^{(k)}right)right| leq varepsilon_{5} quadleft|nabla fleft(boldsymbol{x}^{(0)}right)right|
-end{align}
-$$</p>
+<p>梯度模准则（first-order optimality measure）</p>
+<div class="arithmatex">\[
+\begin{align}
+\left\|\nabla f\left(\boldsymbol{x}^{(k)}\right)\right\| \leq \varepsilon_{5} \quad\left\|\nabla f\left(\boldsymbol{x}^{(0)}\right)\right\|
+\end{align}
+\]</div>
 <h2 id="_28">数值解法（有约束）<a class="headerlink" href="#_28" title="anchor link to this section for reference">¶</a></h2>
 <h3 id="zoutendijk">可行方向 —— <span>Zoutendijk<span class="heti-spacing"> </span></span>可行方向法<a class="headerlink" href="#zoutendijk" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <div class="arithmatex">\[
@@ -3086,19 +3086,19 @@ P(x, M)=\frac{1}{3}(x_{1}+1)^{3}+x_{2}+M[\min (0, x_{1}-1)]^{2}+M[\min (0, x_{2}
 \end{align}
 \]</div>
 <p>可得<span><span class="heti-spacing"> </span>:</span></p>
-<p>$$
-begin{align}
-&amp; x_{1}^{<em>}=-1-M pm sqrt{M^{2}+4 M}\
-&amp; x_{2}^{</em>}=-frac{1}{2 M} \
- &amp;quad M rightarrow+infty \
-&amp; nabla^{2} P(x)=left[begin{array}{cc}
-2left(x_{1}+1right)+2 M &amp; 0 \
+<div class="arithmatex">\[
+\begin{align}
+&amp; x_{1}^{*}=-1-M \pm \sqrt{M^{2}+4 M}\\
+&amp; x_{2}^{*}=-\frac{1}{2 M} \\
+ &amp;\quad M \rightarrow+\infty \\
+&amp; \nabla^{2} P(x)=\left[\begin{array}{cc}
+2\left(x_{1}+1\right)+2 M &amp; 0 \\
 0 &amp; 2 M
-end{array}right]&gt;0 \
+\end{array}\right]&gt;0 \\
 &amp; 故为极小值
-end{align}
-$$
-<img alt="image-20240612002931360" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240612002931360.png"/></p>
+\end{align}
+\]</div>
+<p><img alt="image-20240612002931360" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240612002931360.png"/></p>
 <h4 id="_31">内点法——障碍函数，阻止内点<a class="headerlink" href="#_31" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p><strong>构造障碍函数，阻止迭代点离开可行域。</strong></p>
 <div class="arithmatex">\[
@@ -3201,7 +3201,7 @@ x_{2}^{*}=0
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年6月14日 22:37:38</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年9月1日 21:23:41</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">

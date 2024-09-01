@@ -12,7 +12,56 @@
 >**西溪天街：**
 >湘先生米小姐 小钢碗桂林米粉 安三胖烤肉
 
+### 汉堡
+#### three fingers
+离玉泉特别近，一家小店，汉堡挺好吃的，薯条是我喜欢的比较粗比较脆的类型，装修风格比较简约
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/9ccd3e5f668e61e77c3f8689a7e305c.jpg)
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/063631681d0a9560b2e8beb2c7f89a3.jpg)
+
+### 东明烧烤
+22年冬天慢慢火起来的一个路边摊，东明大哥一直在浙大附近做烧烤，个人感觉他家的烤肉并不好吃，至少水平波动挺大的，但是烤鱼还是挺绝的。
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/ed03731a8be17a4659caf9e12a31fe5.jpg)
+
+
+### 日料
+
+####
+优点：离紫金港比较近，适合一人食
+价格不是特别便宜 
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/62fa900491a3312f37bb4a7a1d249df.jpg)
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/bde8d7f859624315d76cc966711b791.jpg)
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/8271460ea1993ef31808fc5a22b0950.jpg)
 ## 菜谱
+
+## 成都
+
+### geographer
+在太古里附近的一家店，下午卖咖啡，晚上卖酒
+
+装修风格非常赞，环境也比较适合拍照
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/6014c9340d31726372c100f7fb59704.jpg)
+### 如思台北
+算是一家比较有名的甜品店了
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/5e790123d892c7c0e5430f0086b140d.jpg)
+
+### 川菜
+
+#### 明婷饭店
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/88ed4081f1be64152dd20f35e47bec1.jpg)
+非常老牌的川菜店，排队排了一个半小时hhh
+味道还是很赞的
+
+
+#### 鸡毛店
+最近几年火起来的一家连锁店，菜品比较新颖，味道也不错。上菜速度可以
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/9ae36d5ce851b892069e2c8a68c1892.jpg)
+
+#### 印象李庄
+不太适合自己去吃，适合一大家人去吃，菜品比较丰富，经典的李庄白肉特别嫩
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/9b1066b6f0dd3ff7c9436b88889f697.jpg)
+
 
 
 ## 东京餐厅
@@ -50,7 +99,7 @@
 !!! note "简介"
     - **官网：** https://www.jojoen.co.jp/cn/
     - **评分：**
-    - **地址：**
+    - **地址：** https://www.google.com/maps/d/u/0/viewer?mid=1kVP1RGZK9T5govdIEEqqA5WBSlc&ll=35.6584561410289%2C139.72324494609646&z=18
 
 
 
@@ -215,4 +264,11 @@
 
 ### 便利店好物
 日本的便利店主要是罗森、全家、711。
+
 个人感觉所有的奶制品、雪糕都很好吃。如果教超也有就好了我的妈呀
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/6640f9caa67a066c4e89c464111b1b7.jpg)
+好喝的牛奶就像这个名字一样好喝，比较浓，喝了不拉肚子（以前喝牛奶我会拉肚子
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240825150547.png)
+

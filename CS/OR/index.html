@@ -1798,7 +1798,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../else/exercise-fit/">
 <span class="md-ellipsis">
-    Exercise fit
+    健身
   </span>
 </a>
 </li>
@@ -2198,7 +2198,7 @@
 <article class="md-content__inner md-typeset">
 <h1 id="mathematical-programming">规划论<span><span class="heti-spacing"> </span>| Mathematical Programming</span><a class="headerlink" href="#mathematical-programming" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>8138<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>32<span class="heti-spacing"> </span></span>分钟</p>
+<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>8147<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>32<span class="heti-spacing"> </span></span>分钟</p>
 </div>
 <h2 id="_1">线性规划<a class="headerlink" href="#_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p><img alt="线性规划问题" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/%E7%BA%BF%E6%80%A7%E8%A7%84%E5%88%92%E9%97%AE%E9%A2%98.png"/></p>
@@ -2262,13 +2262,13 @@ $$</p>
 \]</div>
 <p>大于等于则减去松弛变量</p>
 <p>绝对值不等式换成两个不等式</p>
-<p><strong>目标函数的转化</strong>
-$$
-begin{align}
-    max  z = Sigma C_j x_j quad 不变\
-    min  z = Sigma C_j x_j quad 取 z' = -z\
-end{align}
-$$</p>
+<p><strong>目标函数的转化</strong></p>
+<div class="arithmatex">\[
+\begin{align}
+    max \ z = \Sigma C_j x_j \quad 不变\\
+    min \ z = \Sigma C_j x_j \quad 取 z' = -z\\
+\end{align}
+\]</div>
 <div class="admonition bug">
 <p class="admonition-title">拉格朗日方程不可以用</p>
 <p><span><span class="arithmatex">\(x\ge 0\)</span><span class="heti-spacing"> </span></span>这个条件不可以用求极值的方法</p>
@@ -3140,20 +3140,20 @@ s.t. \quad &amp;A^T \cdot y \ge C^T\\
 <li>原问题求最小值时，目标值是分支问题的下界；</li>
 </ul>
 <h4 id="_30">例子<a class="headerlink" href="#_30" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
-<p>$$
-begin{array}{c}
-min W = -x_1 - 5x_2 \
-text{s.t} quad left{
-begin{aligned}
-x_1 - x_2 &amp;geq -2 \
-5x_1 + 6x_2 &amp;leq 30 \
-x_1 &amp;leq 4 \
-x_1, x_2 &amp;geq 0
-end{aligned}
-right.
-end{array}
-$$
-<img alt="在这里插入图片描述" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20210112203423822.png" style="zoom:50%;"/></p>
+<div class="arithmatex">\[
+\begin{array}{c}
+\min W = -x_1 - 5x_2 \\
+\text{s.t} \quad \left\{
+\begin{aligned}
+x_1 - x_2 &amp;\geq -2 \\
+5x_1 + 6x_2 &amp;\leq 30 \\
+x_1 &amp;\leq 4 \\
+x_1, x_2 &amp;\geq 0
+\end{aligned}
+\right.
+\end{array}
+\]</div>
+<p><img alt="在这里插入图片描述" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20210112203423822.png" style="zoom:50%;"/></p>
 <h3 id="_31">割平面法<a class="headerlink" href="#_31" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>思路：构造切割可行域问题的割平面，把整数
 最优解变为切割后松弛问题的顶点。</p>
@@ -3162,12 +3162,14 @@ $$
 </blockquote>
 <p>利用整数约束条件引入新变量，构造新的松弛问题进行求解。</p>
 <p>割平面法解题的标准形式</p>
-<p>$$
-max z=sum_{j=1}^{n}c_{j}x_{j}\</p>
-<p>sum_{j=1}^{n}a_{i j}x_{j}=b_{i} quad(i=1, cdots, m)\</p>
-<p>x_{j} geq 0 quad(j=1, cdots, n)\</p>
-<p><span>x_{j}, a_{i j}, b_{i} text {<span class="heti-spacing"> </span></span>全部取整数<span><span class="heti-spacing"> </span>}</span>
-$$</p>
+<div class="arithmatex">\[
+\begin{align}
+\max z=\sum_{j=1}^{n}c_{j}x_{j}\\
+\sum_{j=1}^{n}a_{i j}x_{j}=b_{i} \quad(i=1, \cdots, m)\\
+x_{j} \geq 0 \quad(j=1, \cdots, n)\\
+x_{j}, a_{i j}, b_{i} \text { 全部取整数 }
+\end{align}
+\]</div>
 <p>注意：
 当<span class="arithmatex">\(a_{ij}\)</span>不是整数时，可乘以某一个倍数化为整数。
 目的：
@@ -3176,16 +3178,16 @@ $$</p>
 <div class="arithmatex">\[
 min z = \sum_{i=1}^{n}\sum_{j=1}^{n}c_{ij}x_{ij}
 \]</div>
-<p>s.t. 
-$$
-sum_{j=1}^{n}x_{ij} = 1 quad text{每个人有且只有一项工作}
-$$
-$$
-sum_{i=1}^{n}x_{ij} = 1 quad text{每项工作有且只有一个人}
-$$
-$$
-x_{ij} = 0 text{或} 1 quad i, j = 1, 2, …, n
-$$</p>
+<p>s.t. </p>
+<div class="arithmatex">\[
+\sum_{j=1}^{n}x_{ij} = 1 \quad \text{每个人有且只有一项工作}
+\]</div>
+<div class="arithmatex">\[
+\sum_{i=1}^{n}x_{ij} = 1 \quad \text{每项工作有且只有一个人}
+\]</div>
+<div class="arithmatex">\[
+x_{ij} = 0 \text{或} 1 \quad i, j = 1, 2, ..., n
+\]</div>
 <div class="admonition note">
 <p class="admonition-title">独立零元素的个数</p>
 <p>定理<span class="heti-skip"><span class="heti-spacing"> </span>(D.Konig):<span class="heti-spacing"> </span></span>系数矩阵<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>中独立零元素的个数最多等于能覆盖所有零元素的最少直线数。</p>
@@ -3253,19 +3255,19 @@ $$</p>
 </ul>
 <h3 id="_35">建模<a class="headerlink" href="#_35" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p><span><span class="arithmatex">\(\max d^+\)</span><span class="heti-spacing"> </span></span>与<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\min d^-\)</span><span class="heti-spacing"> </span></span>的选择</p>
-<p>$$
-begin{align}
-min z = mathop{Sigma}limits_{k=1}^K p_k [mathop{Sigma}limits_{l=1}<sup>L(w_{kl}</sup>- d_l^- + w_{kl}<sup>+d_l</sup>+)]\
-s.t.left{
-    begin{array}{<strong>lr</strong>}
-        mathop{Sigma}limits_{j=1}^n c_{lj}x_j +d_l^- - d_l^+= g_l\
-        mathop{Sigma}limits_{j=1}^n a_{ij}x_j le b_i\
-        x_j ge 0\
-        d_l<sup>-,d_l</sup>+ ge 0\
-    end{array}</p>
-<p>right.
-end{align}
-$$</p>
+<div class="arithmatex">\[
+\begin{align}
+\min z = \sum_{k=1}^K p_k \left[\sum_{l=1}^L \left(w_{kl}^- d_l^- + w_{kl}^+ d_l^+\right)\right] \\
+\text{s.t.} \left\{
+    \begin{array}{lr}
+        \sum_{j=1}^n c_{lj} x_j + d_l^- - d_l^+ = g_l &amp; \forall l \\
+        \sum_{j=1}^n a_{ij} x_j \le b_i &amp; \forall i \\
+        x_j \ge 0 &amp; \forall j \\
+        d_l^-, d_l^+ \ge 0 &amp; \forall l \\
+    \end{array}
+\right.
+\end{align}
+\]</div>
 <table>
 <thead>
 <tr>
@@ -3328,7 +3330,7 @@ $$</p>
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年6月14日 22:37:38</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年9月1日 21:23:41</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">

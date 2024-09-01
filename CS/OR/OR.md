@@ -91,6 +91,7 @@ $$
 
 
 **目标函数的转化**
+
 $$
 \begin{align}
     max \ z = \Sigma C_j x_j \quad 不变\\
@@ -1016,6 +1017,7 @@ x_1, x_2 &\geq 0
 \right.
 \end{array}
 $$
+
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20210112203423822.png" alt="在这里插入图片描述" style="zoom:50%;" />
 
 
@@ -1034,13 +1036,12 @@ $$
 割平面法解题的标准形式
 
 $$
+\begin{align}
 \max z=\sum_{j=1}^{n}c_{j}x_{j}\\
-
 \sum_{j=1}^{n}a_{i j}x_{j}=b_{i} \quad(i=1, \cdots, m)\\
-
 x_{j} \geq 0 \quad(j=1, \cdots, n)\\
-
 x_{j}, a_{i j}, b_{i} \text { 全部取整数 }
+\end{align}
 $$
 
 注意：
@@ -1059,12 +1060,15 @@ min z = \sum_{i=1}^{n}\sum_{j=1}^{n}c_{ij}x_{ij}
 $$
 
 s.t. 
+
 $$
 \sum_{j=1}^{n}x_{ij} = 1 \quad \text{每个人有且只有一项工作}
 $$
+
 $$
 \sum_{i=1}^{n}x_{ij} = 1 \quad \text{每项工作有且只有一个人}
 $$
+
 $$
 x_{ij} = 0 \text{或} 1 \quad i, j = 1, 2, ..., n
 $$
@@ -1144,15 +1148,14 @@ $\max d^+$ 与$\min d^-$的选择
 
 $$
 \begin{align}
-\min z = \mathop{\Sigma}\limits_{k=1}^K p_k [\mathop{\Sigma}\limits_{l=1}^L(w_{kl}^- d_l^- + w_{kl}^+d_l^+)]\\
-s.t.\left\{
-	\begin{array}{**lr**}
-        \mathop{\Sigma}\limits_{j=1}^n c_{lj}x_j +d_l^- - d_l^+= g_l\\
-        \mathop{\Sigma}\limits_{j=1}^n a_{ij}x_j \le b_i\\
-        x_j \ge 0\\
-        d_l^-,d_l^+ \ge 0\\
-	\end{array}
-	
+\min z = \sum_{k=1}^K p_k \left[\sum_{l=1}^L \left(w_{kl}^- d_l^- + w_{kl}^+ d_l^+\right)\right] \\
+\text{s.t.} \left\{
+    \begin{array}{lr}
+        \sum_{j=1}^n c_{lj} x_j + d_l^- - d_l^+ = g_l & \forall l \\
+        \sum_{j=1}^n a_{ij} x_j \le b_i & \forall i \\
+        x_j \ge 0 & \forall j \\
+        d_l^-, d_l^+ \ge 0 & \forall l \\
+    \end{array}
 \right.
 \end{align}
 $$

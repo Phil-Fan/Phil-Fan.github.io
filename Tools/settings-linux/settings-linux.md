@@ -2,7 +2,15 @@
 
 !!! note "这一篇主要记录在配置linux时候遇到的一些问题和解决方案"
 
+## VMware
 
+【VMware Workstation 17】
+VMware Workstation v17.x 永久许可证激活密钥：
+MC60H-DWHD5-H80U9-6V85M-8280D
+4A4RR-813DK-M81A9-4U35H-06KND
+NZ4RR-FTK5H-H81C1-Q30QH-1V2LA
+JU090-6039P-08409-8J0QH-2YR7F
+4Y09U-AJK97-089Z0-A3054-83KLA
 ## 系统配置
 
 ### 中文系统
@@ -224,7 +232,7 @@ docker-compose up
 ## Kali
 ### 系统烧录
 !!! note "准备"
-    - 下载[kali](https://www.kali.org/get-kali/#kali-platforms)
+    - 下载[kali](https://www.kali.org/get-kali/#kali-platforms) 也可以在镜像站上下载[ZJU Mirror](https://mirror.zju.edu.cn/)
     - 下载烧录工具[Etcher](https://etcher.balena.io/#download-etcher)
     - 准备sd卡
     - 准备读卡器

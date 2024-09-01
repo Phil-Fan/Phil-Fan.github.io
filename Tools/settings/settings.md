@@ -21,6 +21,7 @@
 - PDF阅读：Adobe Acrobat(adobe处下载),[pdfedit](http://pdfedit.cz/en/download.html)
 - Markdown: [Typora](https://typoraio.cn/)
 - 云同步(付费)：[百度网盘](https://pan.baidu.com/download#win)、[阿里网盘](https://www.alipan.com/)
+- 下载：[utorrent](https://file.cc98.org/v2-upload/il0glpvw.zip)
 
 
 - 翻译：[欧陆词典](https://www.eudic.net/v4/en/app/download),欧陆词典文件
@@ -37,11 +38,46 @@
 - 绘图：ppt,Draw.io, ai,ps,Geogebra,python
 - 数据：excel，Tableau，origin
 - word，[小恐龙公文助手](https://xkonglong.com/xkl_wordaddin/)
+- 驯化windows dism++ [Releases · Chuyu-Team/Dism-Multi-language](https://github.com/Chuyu-Team/Dism-Multi-language/releases)
+
 ### 设计软件
 
 - [Adobe](https://www.adobe.com/cn/):AI,PS,PR,[剪映](https://www.capcut.cn/)
 - powerpoint,okplus,[Canva](https://www.canva.cn/)
 
+## CUDA
+!!! note "什么是CUDA"
+    通俗地说，CUDA是一种协助“CPU任务分发+GPU并行处理”的编程模型/平台，用于加速GPU和CPU之间的计算。
+    
+    也就是说CUDA通过CPU任务分发和GPU并行处理的方式，把计算任务通过CPU分发给GPU进行并行计算加速。而GPU并行计算的能力需要CUDA借助其自带的编程接口和工具，比如C/C++语言来编写并行计算程序，并通过CUDA编译器将程序转化为可以在英NVIDIA GPU上执行的机器码快速运行。
+                        
+查看cuda支持版本，`win+R`输入`cmd`输入`nvidia-smi.exe`
+
+下载地址[CUDA Toolkit Archive | NVIDIA Developer](https://developer.nvidia.com/cuda-toolkit-archive)
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240829195225.png)
+
+点击符合的版本选择下载，直接安装。注意安装路径要装在自己记得住的地方下，要预留好空间，最好不要装在C盘。
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240829195549.png)
+
+**安装验证方法：**
+
+1. cmd中输入`nvcc -V`，有信息说明成功
+2. 安装路径下`\extras\demo_suite\deviceQuery.exe`，运行这个文件，有`PASS`说明成功（查询一下本机的gpu设备
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240829200019.png)
+3. 安装路径下`\extras\demo_suite\bandwidthTest.exe`，运行这个文件，有`PASS`说明成功
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240829200006.png)
+
+[Installation Guide Windows :: CUDA Toolkit Documentation](https://docs.nvidia.com/cuda/archive/11.6.0/cuda-installation-guide-microsoft-windows/index.html#system-requirements)
+
+### cuDNN安装
+cuDNN是NVIDIA CUDA®深度神经网络库，用于GPU加速的深度神经网络。它提供了高度优化的实现，包括前向和反向卷积、池化层、归一化和激活层等标准例程
+
+安装网站[cuDNN Archive | NVIDIA Developer](https://developer.nvidia.com/rdp/cudnn-archive)
+
+找到符合自己上面CUDA安装版本的cuDNN版本，下载解压，将解压后的文件夹中的`bin`、`include`、`lib\x64`文件夹中的文件复制到CUDA的安装目录中对应的文件夹中。
+
+注意这一步需要注册一下NVIDIA的账号
 
 ## windows
 
@@ -49,7 +85,12 @@
 
 [AirPods Pro2蓝牙耳机连接win10电脑有杂音、不稳定问题 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/641213713)
 
+### 查看系统架构
+`win+R`输入`cmd`，输入`wmic os get osarchitecture`查看系统架构
 
+或者输入`dxdiag`查看系统信息
+
+或者输入`systeminfo`查看,系统类型字段就可以看出来了
 ### win+G 录屏
 xGameBar对我来说没什么用，但是虚拟机中需要使用到这个快捷键，所以将win下这个快捷键禁用
 
