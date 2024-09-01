@@ -21,6 +21,7 @@
 - PDF阅读：Adobe Acrobat(adobe处下载),[pdfedit](http://pdfedit.cz/en/download.html)
 - Markdown: [Typora](https://typoraio.cn/)
 - 云同步(付费)：[百度网盘](https://pan.baidu.com/download#win)、[阿里网盘](https://www.alipan.com/)
+- 下载：[utorrent](https://file.cc98.org/v2-upload/il0glpvw.zip)
 
 
 - 翻译：[欧陆词典](https://www.eudic.net/v4/en/app/download),欧陆词典文件

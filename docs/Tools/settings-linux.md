@@ -232,7 +232,7 @@ docker-compose up
 ## Kali
 ### 系统烧录
 !!! note "准备"
-    - 下载[kali](https://www.kali.org/get-kali/#kali-platforms)
+    - 下载[kali](https://www.kali.org/get-kali/#kali-platforms) 也可以在镜像站上下载[ZJU Mirror](https://mirror.zju.edu.cn/)
     - 下载烧录工具[Etcher](https://etcher.balena.io/#download-etcher)
     - 准备sd卡
     - 准备读卡器

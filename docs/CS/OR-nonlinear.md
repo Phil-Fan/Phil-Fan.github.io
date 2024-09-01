@@ -1018,28 +1018,37 @@ $$
 其次，如果 $H_k$ 是正定的（$H_k^{-1}$ 也是正定的），那么保证牛顿法的搜索方向 $p_k$ 是下降方向。这是因为搜索方向是 $p_k = -H_k^{-1}g_k$。
 
 由
+
 $$
 x^{(k+1)} = x^{(k)} - H_k^{-1}g_k
 $$
+
 有
+
 $$
 x = x^{(k)} - \lambda H_k^{-1}g_k = x^{(k)} + \lambda p_k
 $$
+
 则 $f(x)$ 在 $x^{(k)}$ 的泰勒展开可近似为
+
 $$
 \begin{align}
 f(x) = f\left(x^{(k)}\right) - \lambda g_k^T H_k^{-1} g_k
 \end{align}
 $$
+
 由于 $H_k^{-1}$ 正定，故 $g_k^T H_k^{-1} g_k > 0$。当 $\lambda$ 为一个充分小的正数时，有 $f(x) < f\left(x^{(k)}\right)$，即搜索方向 $p_k$ 是下降方向。
 
 因此拟牛顿法将 $G_k$ 作为 $H_k^{-1}$ 近似。要求 $G_k$ 满足同样的条件下，首先，每次迭代矩阵 $G_k$ 是正定时，$G_k$ 满足下面的拟牛顿条件：
+
 $$
 \begin{align}
 G_{k+1} y_k = \delta_k
 \end{align}
 $$
+
 按照拟牛顿条件，在每次迭代中可以选择更新矩阵 $G_{k+1}$​：
+
 $$
 \begin{align}
 G_{k+1} = G_k + \Delta G_k
@@ -1162,6 +1171,7 @@ $$
 $$
 
 梯度模准则（first-order optimality measure）
+
 $$
 \begin{align}
 \left\|\nabla f\left(\boldsymbol{x}^{(k)}\right)\right\| \leq \varepsilon_{5} \quad\left\|\nabla f\left(\boldsymbol{x}^{(0)}\right)\right\|
@@ -1284,6 +1294,7 @@ $$
 & 故为极小值
 \end{align}
 $$
+
 ![image-20240612002931360](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240612002931360.png)
 
 
