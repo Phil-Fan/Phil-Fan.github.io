@@ -45,45 +45,18 @@
 - [Adobe](https://www.adobe.com/cn/):AI,PS,PR,[剪映](https://www.capcut.cn/)
 - powerpoint,okplus,[Canva](https://www.canva.cn/)
 
-## CUDA
-!!! note "什么是CUDA"
-    通俗地说，CUDA是一种协助“CPU任务分发+GPU并行处理”的编程模型/平台，用于加速GPU和CPU之间的计算。
-    
-    也就是说CUDA通过CPU任务分发和GPU并行处理的方式，把计算任务通过CPU分发给GPU进行并行计算加速。而GPU并行计算的能力需要CUDA借助其自带的编程接口和工具，比如C/C++语言来编写并行计算程序，并通过CUDA编译器将程序转化为可以在英NVIDIA GPU上执行的机器码快速运行。
-                        
-查看cuda支持版本，`win+R`输入`cmd`输入`nvidia-smi.exe`
 
-下载地址[CUDA Toolkit Archive | NVIDIA Developer](https://developer.nvidia.com/cuda-toolkit-archive)
-
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240829195225.png)
-
-点击符合的版本选择下载，直接安装。注意安装路径要装在自己记得住的地方下，要预留好空间，最好不要装在C盘。
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240829195549.png)
-
-**安装验证方法：**
-
-1. cmd中输入`nvcc -V`，有信息说明成功
-2. 安装路径下`\extras\demo_suite\deviceQuery.exe`，运行这个文件，有`PASS`说明成功（查询一下本机的gpu设备
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240829200019.png)
-3. 安装路径下`\extras\demo_suite\bandwidthTest.exe`，运行这个文件，有`PASS`说明成功
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240829200006.png)
-
-[Installation Guide Windows :: CUDA Toolkit Documentation](https://docs.nvidia.com/cuda/archive/11.6.0/cuda-installation-guide-microsoft-windows/index.html#system-requirements)
-
-### cuDNN安装
-cuDNN是NVIDIA CUDA®深度神经网络库，用于GPU加速的深度神经网络。它提供了高度优化的实现，包括前向和反向卷积、池化层、归一化和激活层等标准例程
-
-安装网站[cuDNN Archive | NVIDIA Developer](https://developer.nvidia.com/rdp/cudnn-archive)
-
-找到符合自己上面CUDA安装版本的cuDNN版本，下载解压，将解压后的文件夹中的`bin`、`include`、`lib\x64`文件夹中的文件复制到CUDA的安装目录中对应的文件夹中。
-
-注意这一步需要注册一下NVIDIA的账号
 
 ## windows
 
 电脑
 
 [AirPods Pro2蓝牙耳机连接win10电脑有杂音、不稳定问题 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/641213713)
+
+### Edge
+#### `Vimium`配置
+
+[使用 Vimium 获得更舒适的网页阅读体验 - 少数派 (sspai.com)](https://sspai.com/post/57091#!)
 
 ### 查看系统架构
 `win+R`输入`cmd`，输入`wmic os get osarchitecture`查看系统架构
@@ -99,6 +72,16 @@ xGameBar对我来说没什么用，但是虚拟机中需要使用到这个快捷
 关闭里边选项即可。
 
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240706192241.png)
+
+### 搜狗输入法
+
+搜狗输入法老是出现快捷键冲突或是占用热键的情况
+
+所以进入设置界面 - 按键 - ban掉系统功能快捷键
+
+![在这里插入图片描述](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20201218111624799.png)
+
+![image-20240619085926633](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240619085926633.png)
 ### 驯服自带输入法
 
 - **自定义短语**
@@ -136,7 +119,33 @@ xGameBar对我来说没什么用，但是虚拟机中需要使用到这个快捷
 [一些小技巧，让你的 Win 10 内置输入法更好用 - 少数派](https://sspai.com/post/52101#!)
 
 ### 如何让你的win11不再智障
+- 驯化windows的软件**dism++** ，内置了很多小功能  [Releases · Chuyu-Team/Dism-Multi-language](https://github.com/Chuyu-Team/Dism-Multi-language/releases)
 
+
+#### 右键菜单调整
+[【Windows】Win11右键恢复完整右键菜单\_windows 11 classic context menu-CSDN博客](https://blog.csdn.net/u012153104/article/details/130195590)
+
+
+使用快捷键`Win+X`，然后点击`Windows终端（管理员）`以打开管理员权限的命令提示符。
+
+第一步
+
+```shell
+reg add "HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32" /f /ve
+```
+
+如果操作成功，命令提示符会显示“操作成功完成”消息。
+
+
+第二步，重启资源管理器进程。
+
+```shell
+taskkill /f /im explorer.exe
+```
+
+```shell
+start explorer.exe
+```
 #### 恢复win10开始菜单风格
 ![恢复win10开始菜单风格](https://cn.windows-office.net/common-images/classic-start-menu-in-windows-11-5189891/4cb15e48c390243f8252fb1dc1.jpg)
 
@@ -164,30 +173,7 @@ xGameBar对我来说没什么用，但是虚拟机中需要使用到这个快捷
 #### 任务栏自定义
 [如何调整 Windows 11 任务栏位置、对齐方式，及自定义任务栏](https://www.sysgeek.cn/windows-11-taskbar-customize/)
 
-#### 右键菜单调整
-[【Windows】Win11右键恢复完整右键菜单\_windows 11 classic context menu-CSDN博客](https://blog.csdn.net/u012153104/article/details/130195590)
 
-
-使用快捷键`Win+X`，然后点击`Windows终端（管理员）`以打开管理员权限的命令提示符。
-
-第一步
-
-```shell
-reg add "HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32" /f /ve
-```
-
-如果操作成功，命令提示符会显示“操作成功完成”消息。
-
-
-第二步，重启资源管理器进程。
-
-```shell
-taskkill /f /im explorer.exe
-```
-
-```shell
-start explorer.exe
-```
 
 
 ### 电脑蓝屏
@@ -277,6 +263,9 @@ start explorer.exe
 
 ### 环境变量
 
+#### python
+如果设置了环境变量，却打不开python，可以尝试将python的路径放在最前面
+
 #### 如何用命令行直接打开软件
 
 省流：建立一个文件夹保存快捷方式，将文件夹路径添加到PATH环境变量
@@ -310,7 +299,7 @@ start explorer.exe
 3. 清屏：  `clear`    (cmd窗口清屏用cls)
 4. 查看列表(list)：`ls`  （cmd窗口用dir） 
 5. 切换目录：`cd xxx`    直接切换到xxx文件夹
-
+6. 切换盘符：`d:`    切换到D盘；`cd /d D:\Code`直接切换到D盘下的Code文件夹；但要注意，如果是在C盘下，直接输入`cd /d`是无法切换的
 
 ??? failure "无法加载WindowsPowerShell\profile.ps1"
     [完美解决无法加载文件 WindowsPowerShell\profile.ps1系统编译问题-CSDN博客](https://blog.csdn.net/weixin_41194129/article/details/140538410)
@@ -353,29 +342,10 @@ start explorer.exe
 超过系统的免费额度，账号会被封禁，被封禁后，桌面端会无法登录，显示错误代码`0x8004def7`
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240814121753.png)
 
-## `Vimium`配置
-
-[使用 Vimium 获得更舒适的网页阅读体验 - 少数派 (sspai.com)](https://sspai.com/post/57091#!)
-
-## `pytorch`
-
-```shell
-import torch # 如果pytorch安装成功即可导入
-print(torch.cuda.is_available()) # 查看CUDA是否可用
-print(torch.cuda.device_count()) # 查看可用的CUDA数量
-print(torch.version.cuda) # 查看CUDA的版本号
-
-# 查看CUDA的版本
-nvcc -V
-nvcc --version
-
-# 查看CUDA版本
-nvidia-smi
-```
-
-
 
 ## `conda`
+
+
 
 [conda换地址](https://blog.csdn.net/chengjinpei/article/details/119835339)
 
@@ -388,6 +358,22 @@ bash Miniconda3-py39_4.10.3-Linux-x86_64.sh
 ```
 
 [conda 使用指南](https://blog.csdn.net/miracleoa/article/details/106115730)
+
+!!! note " conda 和 pip 的区别"
+    [Anaconda | Understanding Conda and Pip](https://www.anaconda.com/blog/understanding-conda-and-pip)
+
+    ||conda|pip|
+    |---|---|---|
+    |manages|binaries|	wheel or source|
+    |can require compilers|	no|	yes|
+    |package types|	any	|Python-only|
+    |create environment|yes, built-in|no, requires virtualenv or venv|
+    |dependency checks|	yes|no|
+    |package sources|Anaconda repo and cloud|PyPI|
+
+
+### conda的环境变量配置
+在安装目录下的`\Scripts`文件夹下
 
 ### pip
 
@@ -450,6 +436,9 @@ while read requirement; do conda install --yes $requirement; done < requirements
  
 # pip方式
 while read requirement; do conda install --yes $requirement || pip install $requirement; done < requirements.txt
+
+# 7. 卸载包
+conda remove -n <package_name> --all
 ```
 
 
@@ -495,6 +484,87 @@ pip install -r requirements.txt
 ```
 
 
+## Pytorch
+
+### CUDA
+!!! note "什么是CUDA"
+    通俗地说，CUDA是一种协助“CPU任务分发+GPU并行处理”的编程模型/平台，用于加速GPU和CPU之间的计算。
+    
+    也就是说CUDA通过CPU任务分发和GPU并行处理的方式，把计算任务通过CPU分发给GPU进行并行计算加速。而GPU并行计算的能力需要CUDA借助其自带的编程接口和工具，比如C/C++语言来编写并行计算程序，并通过CUDA编译器将程序转化为可以在英NVIDIA GPU上执行的机器码快速运行。
+                        
+查看cuda支持版本，`win+R`输入`cmd`输入`nvidia-smi.exe`
+
+下载地址[CUDA Toolkit Archive | NVIDIA Developer](https://developer.nvidia.com/cuda-toolkit-archive)
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240829195225.png)
+
+点击符合的版本选择下载，直接安装。注意安装路径要装在自己记得住的地方下，要预留好空间，最好不要装在C盘。
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240829195549.png)
+
+**安装验证方法：**
+
+1. cmd中输入`nvcc -V`，有信息说明成功
+2. 安装路径下`\extras\demo_suite\deviceQuery.exe`，运行这个文件，有`PASS`说明成功（查询一下本机的gpu设备
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240829200019.png)
+3. 安装路径下`\extras\demo_suite\bandwidthTest.exe`，运行这个文件，有`PASS`说明成功
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240829200006.png)
+
+[Installation Guide Windows :: CUDA Toolkit Documentation](https://docs.nvidia.com/cuda/archive/11.6.0/cuda-installation-guide-microsoft-windows/index.html#system-requirements)
+
+### cuDNN安装
+cuDNN是NVIDIA CUDA®深度神经网络库，用于GPU加速的深度神经网络。它提供了高度优化的实现，包括前向和反向卷积、池化层、归一化和激活层等标准例程
+
+安装网站[cuDNN Archive | NVIDIA Developer](https://developer.nvidia.com/rdp/cudnn-archive)
+
+找到符合自己上面CUDA安装版本的cuDNN版本，下载解压，将解压后的文件夹中的`bin`、`include`、`lib\x64`文件夹中的文件复制到CUDA的安装目录中对应的文件夹中。
+
+注意这一步需要注册一下NVIDIA的账号
+
+
+### Pytorch 安装
+
+
+```shell title="查看CUDA版本"
+nvidia-smi
+```
+
+```shell title="查看CUDA的版本"
+nvcc -V
+nvcc --version
+```
+
+装了python3.9，我的CUDA版本是10.2，在[Previous PyTorch Versions | PyTorch](https://pytorch.org/get-started/previous-versions/)这个网站上可以找到各个版本对应的下载链接
+
+```shell title="CUDA=10.2"
+pip install torch==1.10.1+cu102 torchvision==0.11.2+cu102 torchaudio==0.10.1 -f https://download.pytorch.org/whl/cu102/torch_stable.html
+```
+
+!!! failure "numpy报错"
+    安装好torch之后，numpy会报错
+
+    ```
+    UserWarning: Failed to initialize NumPy: _ARRAY_API not found (Triggered internally at  ..\torch\csrc\utils\tensor_numpy.cpp:68.)
+    _dtype_to_storage = {data_type(0).dtype: data_type for data_type in _storages}
+    ```
+
+    **解决方法：** 将numpy版本降低为非>2.0.0的版本，之后就能成功导入了。
+    ```shell
+    pip uninstall numpy
+    pip install numpy==1.26
+    ```
+
+
+
+```python title="测试是否可用"
+import torch # 如果pytorch安装成功即可导入
+print(torch.cuda.is_available()) # 查看CUDA是否可用
+print(torch.cuda.device_count()) # 查看可用的CUDA数量
+print(torch.version.cuda) # 查看CUDA的版本号
+```
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240903112501.png)
+
+
+
 
 
 ## `Pycharm`
@@ -523,15 +593,7 @@ ssh -p 15821 root@connect.westb.seetacloud.com
 
 
 
-## 搜狗输入法
 
-搜狗输入法老是出现快捷键冲突或是占用热键的情况
-
-所以进入设置界面 - 按键 - ban掉系统功能快捷键
-
-![在这里插入图片描述](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20201218111624799.png)
-
-![image-20240619085926633](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240619085926633.png)
 
 ## vscode
 ### 使用
