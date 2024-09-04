@@ -626,6 +626,8 @@ python setup.py install
 vol.py
 ```
 
+```
 > └─# vol.py       
 > Volatility Foundation Volatility Framework 2.6.1
 > ERROR   : volatility.debug    : You must specify something to do (try -h)
+```

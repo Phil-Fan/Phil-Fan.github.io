@@ -4,11 +4,77 @@
 
 ### `TexLive` | windows 的 `LaTeX `环境
 
-Texlive 下载
+#### Texlive 安装
+
 [Installing TeX Live over the Internet - TeX Users Group (tug.org)](https://www.tug.org/texlive/acquire-netinstall.html)
 
-Texstudio 下载
+[CTAN | ZJU Mirror](https://mirror.zju.edu.cn/docs/CTAN/)
+
+
+[常见问题](https://mirrors.zju.edu.cn/CTAN/info/install-latex-guide-zh-cn/install-latex-guide-zh-cn.pdf)
+
+在进入安装界面前，可以选择镜像源
+
+安装texworks前端可以不选
+
+texlive安装比较慢，需要耐心等待
+
+安装后，搜索“查看高级系统设置”，修改环境变量，将texlive安装目录下的`bin/windows`目录加入到系统环境变量中
+
+然后在cmd中输入`tex -v`，如果出现版本号，说明安装成功
+
+```shell title="验证代码"
+tex -v
+latex -v
+xelatex -v
+bibtex -v
+```
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240904110729.png)
+
+#### Texstudio 下载
+
 [Releases · texstudio-org/texstudio](https://github.com/texstudio-org/texstudio/releases/)
+
+- 将语言设置为中文。依次选择Opitions->Configure TeXstudio
+
+- 修改中文界面后，我们可以选择左侧命令设置不同编译器，外部PDF查看器，和参看文献的执行程序。点击1处，可以将上述提到的3，4，5等的路径设置为TeXlive安装路径下对应的exe执行程序。点击2处，就可恢复默认。
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240904105850.png)
+-  默认编译器、默认PDF查看器、默认文献工具等设置；点击构建选项，可以修改默认编译器、PDF查看器和默认文献工具等。若写中文论文，则需修改默认编译器为XelaTeX. 若为英文，则用PdfLaTex。
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240904105924.png)
+- 设置默认字体编码和添加行号：点击编辑器选项，一般默认字体编码为UTF-8（一般不修改）。显示行号默认：所有行号。添加行号，可以快速定位某个词或句的位置。此外，当程序报错时，可快速定位到出错位置，方便修改。
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240904110012.png)
+
+
+```latex title="测试代码"
+\documentclass{article}
+\usepackage{amsmath}
+
+\begin{document}
+
+\title{TeX Live Configuration Test}
+\author{Your Name}
+\date{\today}
+
+\maketitle
+
+\section{Introduction}
+This is a simple document to test if TeX Live is configured correctly.
+
+\section{Mathematics}
+Here is a simple mathematical equation:
+\begin{equation}
+    E = mc^2
+\end{equation}
+
+\section{Conclusion}
+If you can see this document with the title, sections, and the equation above, then your TeX Live installation is working correctly.
+
+\end{document}
+```
+
+编译后显示下面的页面，说明编译成功
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240904110244.png)
 
 
 **参考文献编译**
