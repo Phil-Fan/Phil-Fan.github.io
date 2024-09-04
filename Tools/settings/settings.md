@@ -39,6 +39,7 @@
 - 数据：excel，Tableau，origin
 - word，[小恐龙公文助手](https://xkonglong.com/xkl_wordaddin/)
 - 驯化windows dism++ [Releases · Chuyu-Team/Dism-Multi-language](https://github.com/Chuyu-Team/Dism-Multi-language/releases)
+- 音乐：[Sibelius(西贝柳斯)打谱软件](https://sibelius.mairuan.com/)
 
 ### 设计软件
 
@@ -343,7 +344,7 @@ start explorer.exe
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240814121753.png)
 
 
-## `conda`
+## conda
 
 
 
@@ -567,7 +568,7 @@ print(torch.version.cuda) # 查看CUDA的版本号
 
 
 
-## `Pycharm`
+## Pycharm
 
 ### 申请学生权限
 
