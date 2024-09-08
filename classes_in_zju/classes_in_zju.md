@@ -1,8 +1,9 @@
 # 浙里的通识课
 今天也算比较闲，就想着把上过的课总结一下
 
+**玉泉手绘地图**
 
-
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/d8833a5b67384364385346c6ca5430e.jpg)
 ## 生命科学导论实验
 
 ???+note "课程介绍"

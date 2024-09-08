@@ -27,3 +27,10 @@ McGraw 博士和同事 Warren（2010）曾提出了幽默的形成机制，即�
 - 近/远视度数、散光度数、轴位
 - PD是瞳距，是指两眼瞳孔中心的距离，单位是毫米
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/03fa727584b2a3859ec03ba79755b1f.jpg)
+
+
+### 台球
+
+**如何摆球**
+- 三角形摆法：将15颗球摆成三角形，其中第一颗球放在三角形的最前端，第二排放5颗球，第三排放4颗球，第四排放3颗球，第五排放2颗球，第六排放1颗球。
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/2a0d96873c46a04432fb72ed088ed6c.jpg)

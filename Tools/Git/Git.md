@@ -4,8 +4,9 @@
 
 missing semester
 
+[版本控制(Git) · the missing semester of your cs education](https://missing-semester-cn.github.io/2020/version-control/)
 
-
+[6. Lecture 6 - 版本控制git\_哔哩哔哩\_bilibili](https://www.bilibili.com/video/BV1Tp4y1H7jr/?p=6&vd_source=8b7a5460b512357b2cf80ce1cefc69f5)
 ## 使用
 
 ### 命令合集
