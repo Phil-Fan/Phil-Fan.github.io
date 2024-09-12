@@ -589,6 +589,16 @@ required to use pdflatex/xelatex/lualatex.
 \setlength{\parindent}{2em} % 控制首行缩进  
 ```
 
+
+在ctexart类型文章中，标题\section标题是居中的，现需要改为左对齐，需要设置如下。转自：Latex标题左对齐
+
+```
+\documentclass[UTF8]{ctexart}
+
+\CTEXsetup[format={\Large\bfseries}]{section}
+
+\title{题目}
+```
 ### 换行换页
 
 ```latex

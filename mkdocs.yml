@@ -201,6 +201,7 @@ nav:
   - Class/现代控制理论.md
   - Class/SocialSciences.md
   - Class/马原.md
+  - Class/毛概.md
   - "统计与大数据分析":
       - CS/Statistic/00-intro.md
       - Notebook page: CS/Statistic/01-probability.ipynb
@@ -227,6 +228,7 @@ nav:
 - Robotics:
   - Robotics/ROS.md
   - Robotics/Drone.md
+  - Robotics/model.md
   - "机器人导论":
     - Robotics/Introduction-to-Robotics.md
     - Robotics/Introduction-to-Robotics-exam.md
@@ -304,7 +306,7 @@ nav:
     
   - "AI | 人工智能":
     - CS/AI/01-AI_history&intro.md
-        
+    - CS/AI/41-ML_intro.md
     - CS/AI/HumanPoseEstimation.md
   
   - "CV | 计算机视觉":
