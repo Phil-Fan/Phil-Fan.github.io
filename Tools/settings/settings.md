@@ -12,6 +12,7 @@
 - 浏览器：[Edge](https://www.microsoft.com/zh-cn/edge/download)
 - 日程: [滴答清单(付费)](https://dida365.com/download?language=zh_CN)
 - 网络相关：[Clash for windows](https://www.clash.la/archives/748/)
+  [v2rayN](https://github.com/2dust/v2rayN/releases),[下载 .NET 8.0 Desktop Runtime (v8.0.8) - Windows x64 Installer](https://dotnet.microsoft.com/zh-cn/download/dotnet/thank-you/runtime-desktop-8.0.8-windows-x64-installer?cid=getdotnetcore)
 - 压缩：[Bandzip](https://www.bandisoft.com/bandizip/)
 - 图片： [bandView](https://www.bandisoft.com/bandiview/)，[PicGo（图床）](https://github.com/Molunerfinn/PicGo/releases),[honeycam(动图)](https://www.bandisoft.com/honeycam/)
 - 多媒体：[VLC media player](https://www.videolan.org/vlc/index.zh_CN.html),QQ影音
