@@ -21,6 +21,17 @@ JU090-6039P-08409-8J0QH-2YR7F
 [linux 下更改分辨率](https://blog.csdn.net/SueMagic/article/details/89399959)
 
 
+!!! failure "无法获得锁 /var/lib/dpkg/lock-frontend - open "
+    ```shell
+    ps -e | grep apt
+    ```
+
+    ```
+    > 3209 ? 00:00:00 apt.systemd.dai
+    > 3213 ? 00:00:00 apt.systemd.dai
+    ```
+    
+    杀死进程并切换到sudo权限[完美解决“无法获得锁 /var/lib/dpkg/lock-frontend - open (11: 资源暂时不可用)无法获取 dpkg 前端锁 (/var/lib/dpkg/lock-f”的问题](https://blog.csdn.net/diaodaa/article/details/104516036)
 
 ## 查看系统信息
 
@@ -28,6 +39,14 @@ JU090-6039P-08409-8J0QH-2YR7F
 ```bash
 cat /proc/cpuinfo
 ```
+[x86-64、amd64、arm、aarch64 都是些什么？-CSDN博客](https://blog.csdn.net/qq_24433609/article/details/125991550)
+
+
+```
+sudo !4
+```
+执行历史记录中第4条命令
+
 ## 通用软件
 
 ```shell
@@ -40,6 +59,15 @@ apt-get install vim
 - fd-find：人性化的find
 - rg(ripgrep)：快速搜索
 - fzf ： 模糊搜索
+
+### nano
+常见操作
+
+|操作|快捷键|
+|---|---|
+|保存|`Ctrl + O`|
+|退出|`Ctrl + X`|
+|删除|`Ctrl + K`|
 
 
 ### terminator
@@ -104,6 +132,8 @@ vim /etc/ssh/sshd_config
 service ssh restart
 ```
 
+
+
 **验证安装**
 ```shell
 service ssh status
@@ -119,7 +149,7 @@ update-rc.d ssh enable
 **配置免密登陆**
 
 
-
+[深入理解\~/.ssh/config和/etc/ssh/ssh\_config配置文件-百度开发者中心](https://developer.baidu.com/article/details/2922032)
 
 ## 外设与硬件
 ### 蓝牙操作

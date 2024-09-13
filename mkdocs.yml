@@ -228,6 +228,7 @@ nav:
 - Robotics:
   - Robotics/ROS.md
   - Robotics/Drone.md
+  - Robotics/Drone_experiment.md
   - Robotics/model.md
   - "机器人导论":
     - Robotics/Introduction-to-Robotics.md

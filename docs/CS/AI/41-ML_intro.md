@@ -79,6 +79,9 @@ iid 保证了统计意义上可以使用机器学习
     
         - Test data is the dataset used to evaluate the performance of the model.
         - $(x_1, y_1), (x_2, y_2), \ldots, (x_n, y_n)$ represent individual data points in the test data, where $x_i$ is the feature and $y_i$ is the label.
+    
+    === "验证集"
+        训练集上用来调参数的集合
 
 |机器学习术语|疾病诊断例子|
 |---|---|
@@ -90,13 +93,17 @@ iid 保证了统计意义上可以使用机器学习
 
 
 
-inductive bias | 归纳偏好: 机器学习算法对于某些假设的倾向性，存在多条曲线符合数据时候，算法的倾向性叫做inductive bias
+**inductive bias** | 归纳偏好: 机器学习算法对于某些假设的倾向性，存在多条曲线符合数据时候，算法的倾向性叫做inductive bias
 
-Occam's Razor | 奥卡姆剃刀原理：在所有可能的解释中，最简单的解释最有可能是正确的（大道至简）
+**Occam's Razor** | 奥卡姆剃刀原理：在所有可能的解释中，最简单的解释最有可能是正确的（大道至简）
 
 !!! tip "算法的优越性来自于算法的assumption和数据的匹配程度"
 
-No Free Lunch Theorem: 没有一个算法是最好的，每个算法都有自己的适用范围，空谈“什么学习算法更好”毫无意义
+**No Free Lunch Theorem**:
+一个算法A在某个问题上表现比B好，比存在另一个问题，B比A好
+脱离具体问题，空泛谈论“什么学习算法更好”毫无意义
+
+脱离数据分布和输出去谈学习算法，是没有意义的
 
 ### 什么时候使用机器学习
 
@@ -141,12 +148,19 @@ iid假设：训练集和测试集是独立同分布的 `identical and independen
 use test error to evaluate the quality of model
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240614191634130.png" alt="image-20240614191634130" style="zoom: 50%;" />
 
+!!! tip "不同的算法就是在用不同的方式去达到平衡点"
+
+
 overfitting 过拟合
 
 更复杂的模型：更小的training error
 
 - 优化目标，加入正则化项，使得模型更简单
 - early stopping
+
+
+
+
 
 欠拟合：对训练样本的一般性质没有学好
 - 决策树：拓展分支
@@ -155,23 +169,43 @@ overfitting 过拟合
 
 
 ### 评估方法
+理解方法：题库出小测题目
 
-**hold-out**：
+
+#### **hold-out**：
 - 直接将数据集划分为两个互斥集合——训练集和测试集。在划分训练集和测试集时，要尽可能保持数据分布的一致性。
 - 使用分层采样（stratified sampling）方法，以保持类别比例一致。
 - 一般进行若干次随机划分，重复实验并取平均值。
 - 训练集和测试集的样本比例通常为2:1或4:1，效果还不错。
-
-**交叉验证法**
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240912151812.png)
+#### **交叉验证法**
 
 1. 分层采样划分数据集：将数据集分层采样划分为K个大小相似的互斥子集。
 2. 训练和测试：每次使用K-1个子集的并集作为训练集，剩下的一个子集作为测试集。
 3. 重复实验：重复上述过程K次，每次都使用不同的子集作为测试集。
 4. 计算平均值：最终返回K个测试结果的平均值
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240912152056.png)
 
-**调参数**
+LOO leave-one-out：留一法，最接近于理想情况，开销太大，NFL
+
+!!! tip "猜测进教室性别问题"
+    男生多猜男生，女生多猜女生
+
+#### 自助法 bootstrap
+
+包外估计，有36.8%不出现
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240912152608.png)
+
+- 改变了数据的分布
+
+#### **调参数**
+
+- 模型参数：算法计算
+- 超参数：用户提供,轮数，
+
 
 ### 性能度量
+作为设计自己度量的一种启发
 
 #### 回归
 
@@ -223,7 +257,13 @@ $Accuracy=\frac{T P+T N}{T P+F P+F N+T N}$
 	正类和负类预测正确的重要性不一样，比如对于癌症检测来说，可能负类(没有患癌症) 预测正确的数量非常大，就导致Accuracy的分子非常大，得到的Accuracy就非常大，但是可能正类(患癌症) 预测正确的数量非常小，就导致虽然模型的准确率很高，但根本检测不出癌症。
 
 解决问题的方案：采用精确率或者召回率
-- 真阳性率（True Positive Rate，TPR）通常也被称为敏感性（Sensitivity）或召回率（Recall）。它是指分类器正确识别正例的能力。真阳性率可以理解为所有阳性群体中被检测出来的比率(1-漏诊率)，因此TPR越接近1越好。它的计算公式如下：$precision=\frac{T P}{T P+F P}$
+
+!!! tip "查准率和查全率"
+    - 查准率：即你认为是True的样本中，到底有多少个样本是真为True。
+    - 查全率：即在预测样本中属于True的样本，你真的判断为True的有几个。
+
+- 真阳性率（True Positive Rate，TPR）通常也被称为敏感性（Sensitivity）或召回率（Recall）。它是指分类器正确识别正例的能力。真阳性率可以理解为所有阳性群体中被检测出来的比率(1-漏诊率)，因此TPR越接近1越好。它的计算公式如下：$precision=\frac{T P}{TP+FP}$
+
 
 - 召回率（查全率）：实际为正类的样本中，被预测正确的正类的比例。$recall=\frac{T P}{T P+F N}$
 
@@ -239,6 +279,9 @@ F1 度量：
 
 $F 1=\frac{2 \times \text { precision } \times \text { recall }}{\text { precision }+\text { recall }} = 、\frac{2\times TP}{总数 + TP -TN}$
 
+!!! tip "F1是P和R的调和平均"
+
+对查准率、查全率有不同的偏好
 $F_\beta = \frac{(1+\beta^2)\times P\times R}{(\beta^2 \times P) + R}$
 $\beta = 1$:标准F1
 
