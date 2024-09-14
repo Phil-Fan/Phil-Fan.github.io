@@ -8,11 +8,20 @@ wget http://fishros.com/install -O fishros && . fishros
 ```
 [小鱼的一键安装系列 | 鱼香ROS](https://fishros.org.cn)
 
+!!! note "no directory"
+    切换到`bash`使用 可以把 `. fishros` 替换成 `bash fishros`
+
 
 [如何在树莓派 4 上安装 Ubuntu 桌面系统 | Linux 中国 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/413743940)
 
 注意安装desktop版本而不是sever版本
 
+测试代码
+```shell
+roscore
+rosrun turtlesim turtlesim_node
+rosrun turtlesmi turtle_teleop_key
+```
 
 
 

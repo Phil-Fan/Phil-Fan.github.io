@@ -13,9 +13,102 @@ NZ4RR-FTK5H-H81C1-Q30QH-1V2LA
 JU090-6039P-08409-8J0QH-2YR7F
 4Y09U-AJK97-089Z0-A3054-83KLA
 ```
+
+
+## 系统烧录
+
+
+
+
 ## 系统配置
 
+### 换源
+
+
+```shell
+lsb_release -a
+uname -a
+```
+
+```shell
+vim /etc/apt/sources.list
+```
+
+!!! tip "注意换源的时候注意备份之前的"
+    ```shell
+    sudo cp /etc/apt/sources.list /etc/apt/sources.list.backup
+    ```
+
+20.04版本的源
+
+=== "清华源"
+    [ubuntu | 镜像站使用帮助 | 清华大学开源软件镜像站 | Tsinghua Open Source Mirror](https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/)
+
+    ```shell
+    # 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释
+    deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal main restricted universe multiverse
+    # deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal main restricted universe multiverse
+    deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-updates main restricted universe multiverse
+    # deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-updates main restricted universe multiverse
+    deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-backports main restricted universe multiverse
+    # deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-backports main restricted universe multiverse
+    deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-security main restricted universe multiverse
+    # deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-security main restricted universe multiverse
+    ```
+
+=== "aliyun源"
+    [ubuntu镜像\_ubuntu下载地址\_ubuntu安装教程-阿里巴巴开源镜像站](https://developer.aliyun.com/mirror/ubuntu)
+
+    ```shell
+    deb http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse
+    deb-src http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse
+    deb http://mirrors.aliyun.com/ubuntu/ focal-security main restricted universe multiverse
+    deb-src http://mirrors.aliyun.com/ubuntu/ focal-security main restricted universe multiverse
+    deb http://mirrors.aliyun.com/ubuntu/ focal-updates main restricted universe multiverse
+    deb-src http://mirrors.aliyun.com/ubuntu/ focal-updates main restricted universe multiverse
+    deb http://mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse
+    deb-src http://mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse
+    deb http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse
+    deb-src http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse
+    ```
+
+=== "ustc源"
+
+    ```
+    deb https://mirrors.ustc.edu.cn/ubuntu/ focal main restricted universe multiverse
+    deb-src https://mirrors.ustc.edu.cn/ubuntu/ focal main restricted universe multiverse
+    deb https://mirrors.ustc.edu.cn/ubuntu/ focal-updates main restricted universe multiverse
+    deb-src https://mirrors.ustc.edu.cn/ubuntu/ focal-updates main restricted universe multiverse
+    deb https://mirrors.ustc.edu.cn/ubuntu/ focal-backports main restricted universe multiverse
+    deb-src https://mirrors.ustc.edu.cn/ubuntu/ focal-backports main restricted universe multiverse
+    deb https://mirrors.ustc.edu.cn/ubuntu/ focal-security main restricted universe multiverse
+    deb-src https://mirrors.ustc.edu.cn/ubuntu/ focal-security main restricted universe multiverse
+    deb https://mirrors.ustc.edu.cn/ubuntu/ focal-proposed main restricted universe multiverse
+    deb-src https://mirrors.ustc.edu.cn/ubuntu/ focal-proposed main restricted universe multiverse
+    ```
+
+
+=== "zju"
+
+
+
+```shell
+sudo apt-get update
+sudo apt-get upgrade
+```
+
+
+!!! failure "404"
+    [Ubuntu 换源后仍然报错：404、没有 Release 文件\_没有release文件所以禁用-CSDN博客](https://blog.csdn.net/ys743276112/article/details/127436835)
+    [sudo apt-get update 命令出现没有Release文件问题解决\_debian apt get update 没有release 文件-CSDN博客](https://blog.csdn.net/A18040554844/article/details/110099737)
+
+    另外的解决方法，拉取https问题
+    ```shell
+    sudo apt install apt-transport-https
+    sudo apt install ca-certificates
+    ```
 ### 中文系统
+
 
 ### 分辨率
 [linux 下更改分辨率](https://blog.csdn.net/SueMagic/article/details/89399959)
@@ -112,6 +205,15 @@ sudo apt-get install terminator
 4. 有个Command选项，输入 `/usr/share/code/code --unity-launch %F --no-sandbox` 即可，再点击保存。
 
 ### SSH
+
+```shell
+sudo apt install net-tools
+```
+
+```shell
+ifconfig
+```
+
 ```shell
 sudo apt-get install openssh-server
 ssh user@remote
@@ -159,10 +261,61 @@ update-rc.d ssh enable
 ## 网络
 
 ### 连接wifi
+
+```shell    
+sudo vim /etc/netplan/50-cloud-init.yaml
+```
+
+```yaml
+network:
+  ethernets:
+    enp2s0:
+      dhcp4: true
+  wifis:
+    wlo1:
+      dhcp4: true
+      access-points:
+        "<ssid>":
+          password: "<passowrd>"
+  version: 2
+```
+
+设置好之后退出，重启网络
+```shell
+sudo netplan apply
+```
+
+1.该编辑文件中**不能出现制表符**，要不然会有问题；在执行后面的命令会报错；
+
+2.改文件的编辑必须严格按照格式来，**是分层的**，用空格来退格
+
+
+!!! tip "注意事项"
+    出现类似错误：`line8 column 6:cloud not find expected` 提示是**冒号：后面没加空格**
+
+    出现类似错误：`netplan found character that cannot start any token`，提示是没有按五个层次写配置文档，一定要**下一层比上一层多空一格或以上。**
+
+    出现类似错误： `Invalid YAML: inconsistent indentation:`  #缩进不对，就是**每一层没有严格缩进**
+
+
+```shell
+sudo apt install net-tools wireless-tools network-manager
+```
+### 校网验证
+`net2.zju.edu.cn`
+
+
+[QSCTech/zjunet: Command Line Scripts for ZJU (VPN / WLAN / DNS)](https://github.com/QSCTech/zjunet)
+
+w3m之类的命令行浏览器试试
+
+[比较简单的ubuntu 18.04 有线连接校园网的方法 - CC98论坛](https://www.cc98.org/topic/4899317/1#1)
+
+
 ### 路由
 [静态路由](https://blog.csdn.net/u010521062/article/details/114067036)
 
-[Linux 配置静态IP - chy_18883701161 - 博客园 (cnblogs.com)](https://www.cnblogs.com/chy18883701161/p/12396035.html#:~:text=配置静态IP 1 （1）先切换到网络管理的目录 cd %2Fetc%2Fsysconfig%2Fnetwork-scripts 看一下网络配置的文件： ls -l,8之前的版本，下面2条指令任一条都可以，都是重启network服务： service network restart systemctl restart network.service )
+[Linux 配置静态IP](https://www.cnblogs.com/chy18883701161/p/12396035.html)
 
 
 
