@@ -561,6 +561,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://www.philfan.cn/Robotics/Linux/</loc>
+         <lastmod>2024-09-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://www.philfan.cn/Robotics/ROS/</loc>
          <lastmod>2024-09-14</lastmod>
          <changefreq>daily</changefreq>
@@ -586,6 +591,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://www.philfan.cn/Robotics/settings-linux/</loc>
+         <lastmod>2024-09-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://www.philfan.cn/Tools/AdobeIllustrator/</loc>
          <lastmod>2024-09-14</lastmod>
          <changefreq>daily</changefreq>
@@ -597,11 +607,6 @@
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/Git/</loc>
-         <lastmod>2024-09-14</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://www.philfan.cn/Tools/Linux/</loc>
          <lastmod>2024-09-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -672,11 +677,6 @@
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/powerpoint/</loc>
-         <lastmod>2024-09-14</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://www.philfan.cn/Tools/settings-linux/</loc>
          <lastmod>2024-09-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
