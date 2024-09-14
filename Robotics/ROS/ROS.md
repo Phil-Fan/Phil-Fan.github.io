@@ -3,12 +3,25 @@
 
 [balenaEtcher已经烧录的u盘恢复](https://blog.csdn.net/A___LEi/article/details/117700660#:~:text=1、打开命令行cmd（win%2Br打开运行，在其中输入cmd就可以打开）； 2、在cmd下输入diskpart命令； 3、在diskpart里面，输入list disk命令查看当前系统挂载的磁盘（包括SATA、U盘、SD卡等）； balenaEtcher烧录U盘%2FSD卡恢复方法,4、找到要恢复的磁盘，比如我要恢复的是磁盘1，输入命令select disk 1； 5、输入命令clean就可以将4中所选的磁盘数据清空了，再次输入list disk可以看到磁盘的可用已经和大小一样了。)
 
+```shell
+wget http://fishros.com/install -O fishros && . fishros
+```
+[小鱼的一键安装系列 | 鱼香ROS](https://fishros.org.cn)
+
+!!! note "no directory"
+    切换到`bash`使用 可以把 `. fishros` 替换成 `bash fishros`
 
 
 [如何在树莓派 4 上安装 Ubuntu 桌面系统 | Linux 中国 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/413743940)
 
 注意安装desktop版本而不是sever版本
 
+测试代码
+```shell
+roscore
+rosrun turtlesim turtlesim_node
+rosrun turtlesmi turtle_teleop_key
+```
 
 
 

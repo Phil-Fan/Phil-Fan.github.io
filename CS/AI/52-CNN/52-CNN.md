@@ -10,7 +10,7 @@
 
 ![img](https://pic3.zhimg.com/v2-06b66ed455e6f94c1b0530fe5b0c1d4e_r.jpg)
 
-![在这里插入图片描述](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d98ea8e5969b4c86b3792c06830692e2~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp)
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240912164054.png)
 
 
 
@@ -46,7 +46,7 @@ feature在CNN中也被成为卷积核（filter），一般是3X3，或者5X5的�
 
 
 
-##激活函数
+## 激活函数
 
 最大熵原理
 
@@ -54,28 +54,24 @@ feature在CNN中也被成为卷积核（filter），一般是3X3，或者5X5的�
 
 转换到0-1
 
-### Rule
+### ReLU
+
+Rectified Linear Unit
 
 在神经网络中用到最多的非线性激活函数是Relu函数，它的公式定义如下：
 
 f(x)=max(0,x)
 
-### softmax
+leaky ReLU: 
+f(x) = ax\quad x < 0 ; x for x>>0
+### Tanh
 
-缺点：数值溢出
+$$
+ = \frac{2}{1+e^{-2x}}-1
+$$
+### linear function
 
-![image-20230330195944316](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20230330195944316.png)
-
-![image-20230330204141660](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20230330204141660.png)
-
-
-
-
-
-![image-20230330204232308](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20230330204232308.png)
-
-## 损失函数
-
+## 损失函数 loss function/objective function/cost function
 
 
 ### 交叉熵
@@ -112,19 +108,81 @@ Average Pooling平均池化
 
 ***“参数共享” ，\***参数指的就是filter
 
+### softmax
+
+logits: the values z inputted to the softmax layer 
+缺点：数值溢出
+
+![image-20230330195944316](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20230330195944316.png)
+
+![image-20230330204141660](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20230330204141660.png)
+
+
+
+
+
+![image-20230330204232308](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20230330204232308.png)
+
+
+
+
 ## 训练 
+
+$\theta$ represents all the perameters needed to be trained
+
+
+training is seen as one of the most challanging jobs
+
+
+
+
+- mini-batch:计算所有Loss_i(\theta) 很耗时，所以使用 mini-batch gradient descent
+- stochastic gradient descent 
+- gradient descent with momentum
+- nesterov accelerated momentum
+- adam:adapative moment estimation 
+
+- vanishing gradient problem: gradient is too large or too small
+- 
 
 ### BackProp反向传播算法
 
 ***梯度下降法\***
 
+
 定义优化器
+#### 超参数设置
+
+hyper parameter tuning
+
+- learning rate(initial,decay schedule)
+- number of layers , nujmber of neurons per layer
+- optimizer type
+- regularization parameters(l2 penalty , dropout rate)
+- batch size
+- activation functions
+- loss function
+
+
+- grid search
+- random search
+- bayesian hyper-parameter optimizetion
+- ensemble learning
+
+
+deep nn perform better than shallow nn
 
 
 
+### generalization
+- regularization : weight decay正则化，让模型更简单
+- dropout : introduce randomness during training 
 
 
+combine weak model into strong models
 
+- early stopping :stop when the validation accuracy has not improved after n epochs(n is called patience)
+- normize
 
 ## 学习资源
 
