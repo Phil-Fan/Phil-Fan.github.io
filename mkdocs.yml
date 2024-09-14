@@ -226,9 +226,7 @@ nav:
      
   
 - Robotics:
-  - Robotics/ROS.md
-  - Robotics/Drone.md
-  - Robotics/Drone_experiment.md
+  
   - Robotics/model.md
   - "机器人导论":
     - Robotics/Introduction-to-Robotics.md
@@ -240,15 +238,23 @@ nav:
     - Robotics/EmbeddedSystem-8051-experiment.md
     - Robotics/EmbeddedSystem-stm32.md
     - Robotics/EmbeddedSystem-experiment.md
-  - "嵌入式开发板学习":
+
+  - "系统配置":
+    - Robotics/Linux.md
+    - Robotics/settings-linux.md
+    - Robotics/ROS.md
     - Robotics/k210.md
     - Robotics/RespberryPi.md
 
+  - "空中机器人":
+    - Robotics/Drone.md
+    - Robotics/Drone_experiment.md
   - "传感与检测":
     - Robotics/sensor&detection.md
   - "通信相关":
     - Robotics/CC-NFC.md
     - Robotics/CC-bluetooth.md
+
 
 
 - "Computer Science":
@@ -350,7 +356,6 @@ nav:
 
 - Tools:
   - Tools/Git.md
-  - Tools/Linux.md
   - Tools/gdb.md
       
   - "效率":
@@ -368,7 +373,6 @@ nav:
   - Tools/sites.md
   
   - Tools/settings.md
-  - Tools/settings-linux.md
   - Tools/macos.md
   
 
