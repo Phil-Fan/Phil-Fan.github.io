@@ -6,6 +6,7 @@
 
 【VMware Workstation 17】
 VMware Workstation v17.x 永久许可证激活密钥：
+
 ```
 MC60H-DWHD5-H80U9-6V85M-8280D
 4A4RR-813DK-M81A9-4U35H-06KND
@@ -16,7 +17,6 @@ JU090-6039P-08409-8J0QH-2YR7F
 
 
 ## 系统烧录
-
 
 
 
@@ -91,6 +91,10 @@ vim /etc/apt/sources.list
 === "zju"
 
 
+=== "鱼香ros"
+```shell
+wget http://fishros.com/install -O fishros && . fishros
+```
 
 ```shell
 sudo apt-get update
@@ -109,8 +113,79 @@ sudo apt-get upgrade
     ```
 ### 中文系统
 
+#### 中文环境
+```shell
+sudo apt update
+sudo apt install locales
+```
 
+
+**安装中文语言包：**
+安装中文语言包，以支持中文显示和输入。在大多数基于Debian的系统（如Ubuntu、Kali Linux等）中，可以使用以下命令：
+```shell
+sudo apt-get install language-pack-zh-hans
+```
+
+**配置Locale：**
+
+设置系统的区域设置（Locale），以支持中文。可以通过编辑/etc/locale.gen文件（在一些系统中可能是/etc/locale.conf），然后添加或取消注释以下行：
+```shell
+zh_CN.UTF-8 UTF-8
+```
+然后运行以下命令来生成Locale：
+```shell
+sudo locale-gen
+```
+
+**更新环境变量：**
+编辑用户的.bashrc文件或全局的`/etc/environment`文件，设置环境变量以使用中文环境。
+在.bashrc文件中添加：
+
+```shell
+export LANG=zh_CN.UTF-8
+export LC_ALL=zh_CN.UTF-8
+```
+
+
+在`/etc/environment`文件中添加：
+
+```shell
+LANG=zh_CN.UTF-8
+LC_ALL=zh_CN.UTF-8
+```
+
+
+#### 中文输入法
+```shell
+sudo apt install ibus-libpinyin
+```
+然后配置ibus自动启动，并在ibus的设置中添加中文输入法。
+重启后生效，输入命令打开ibus控制台：
+```shell
+ibus-setup
+```
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240914223103.png)
+[Linux配置中文环境\_linux设置中文环境-CSDN博客](https://blog.csdn.net/LongL_GuYu/article/details/139860050)
 ### 分辨率
+
+```shell
+xrandr
+xrandr -s 1280x768
+xrandr -s 1 #(1是顺序号，即xrandr给出的2560ｘ1600。)
+```
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240914102150.png)
+
+
+
+在`/boot/grub/`下的`menu.lst`文件
+
+先cat menu.lst 查看文件内容。
+```shell
+gedit menu.lst
+vim menu.lst
+```
+等都可以改。其中这个vga=788就是控制你的分辨率与色彩模式的，你可以把它改成你的显示器支持的你喜欢的任意模式。
+
 [linux 下更改分辨率](https://blog.csdn.net/SueMagic/article/details/89399959)
 
 
@@ -131,6 +206,11 @@ sudo apt-get upgrade
 查看cpu信息
 ```bash
 cat /proc/cpuinfo
+```
+
+查看系统架构
+```bash
+uname - a
 ```
 [x86-64、amd64、arm、aarch64 都是些什么？-CSDN博客](https://blog.csdn.net/qq_24433609/article/details/125991550)
 
@@ -153,6 +233,11 @@ apt-get install vim
 - rg(ripgrep)：快速搜索
 - fzf ： 模糊搜索
 
+### 新立得 
+
+```shell
+sudo apt install -y synaptic
+```
 ### nano
 常见操作
 
@@ -256,6 +341,36 @@ update-rc.d ssh enable
 ## 外设与硬件
 ### 蓝牙操作
 
+打开系统蓝牙
+```shell
+systemctl status bluetooth
+```
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240914224410.png)
+```shell
+sudo service bluetooth start
+```
+
+```shell
+sudo /etc/init.d/bluetooth restart
+```
+
+```shell title="管理界面"
+bluetoothctl
+```
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240914224418.png)
+输入以下命令
+```shell
+list 
+scan on 
+devices
+power on
+agent on 
+default-agent
+pair yourDeviceMAC
+```
+
+其中pair后面跟上扫描出的键盘的MAC地址，根据提示输入密码，显示配对成功，此时，在桌面的设置界面“我的设备”中可以看到蓝牙中键盘为已配对状态，但此时可能依然无法成功连接。
 
 
 ## 网络
@@ -272,13 +387,14 @@ network:
     enp2s0:
       dhcp4: true
   wifis:
-    wlo1:
+    wlan0:
       dhcp4: true
       access-points:
         "<ssid>":
           password: "<passowrd>"
   version: 2
 ```
+
 
 设置好之后退出，重启网络
 ```shell
@@ -289,7 +405,7 @@ sudo netplan apply
 
 2.改文件的编辑必须严格按照格式来，**是分层的**，用空格来退格
 
-
+[启动 netplan-wpa-wlan0.sevice 失败：未找到单元 netplan-wpa-wlan0.service - ubuntu](https://askoverflow.dev/ubuntu/question/1291424/failed-to-start-netplan-wpa-wlan0-sevice-unit-netplan-wpa-wlan0-service-not-fou/)
 !!! tip "注意事项"
     出现类似错误：`line8 column 6:cloud not find expected` 提示是**冒号：后面没加空格**
 
@@ -354,6 +470,7 @@ w3m之类的命令行浏览器试试
     - **容器运行**：可以运行在任何支持Docker的环境中
 
 查看是否安装成功
+
 ```shell
 [root@localhost ~]# docker-compose --version
 Docker Compose version v2.16.0

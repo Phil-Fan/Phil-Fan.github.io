@@ -24,6 +24,32 @@ rosrun turtlesmi turtle_teleop_key
 ```
 
 
+## 软件安装
+### PlotJuggler 画图工具
+
+```shell
+sudo apt-get install ros-noetic-plotjuggler 
+```
+
+```shell
+roscore
+rosrun plotjuggler plotjuggler  
+```
+
+然后通过 `File–>Load Data` 导入`CSV`或`rosbags`数据，然后把对应的topic数据拖到右侧就可以了。
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/1e5581845afc87ff9dad1d79a4b33643.gif)
+如果加载 `.bag` 文件的时候不支持加载 `.bag` 文件，那么需要安装包`ros-noetic-plotjuggler-ros`
+
+```shell
+sudo apt-get install ros-kinetic-plotjuggler-ros
+```
+
+
+### htop 系统监控工具
+
+```shell
+sudo apt-get install htop
+```
 
 ## 硬件安装
 

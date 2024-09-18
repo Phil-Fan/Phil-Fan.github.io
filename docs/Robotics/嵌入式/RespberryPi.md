@@ -4,7 +4,6 @@
 
 ## 系统烧录
 
-[树莓派4B安装Ubuntu20.04桌面（详细教程）\_树莓派4b ubuntu-CSDN博客](https://blog.csdn.net/m0_70372760/article/details/140354298)
 
 sd卡格式化[SD Memory Card Formatter for Windows Download | SD Association](https://www.sdcard.org/downloads/formatter/sd-memory-card-formatter-for-windows-download/)
 
@@ -19,6 +18,17 @@ sd卡格式化[SD Memory Card Formatter for Windows Download | SD Association](h
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240914091604.png)
 
 [树莓派4B安装Ubuntu20.04桌面（详细教程）\_树莓派4b ubuntu-CSDN博客](https://blog.csdn.net/m0_70372760/article/details/140354298)
+
+20.04只有server版本，没有desktop版本，但是cli界面+校网简直无敌，所以还是选择了mate
+
+
+烧录的镜像应该是像这样的压缩包一样的，不要烧录iso，
+```shell
+ubuntu-mate-20.04-beta1-desktop-arm64+raspi.img.xz
+```
+
+
+[Ubuntu MATE Releases - /20.04/](https://releases.ubuntu-mate.org/20.04/)
 
 ## 遇到问题
 

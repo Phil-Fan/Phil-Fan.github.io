@@ -92,7 +92,6 @@ iid 保证了统计意义上可以使用机器学习
 |没有免费午餐|没有特效药，万能药|
 
 
-
 **inductive bias** | 归纳偏好: 机器学习算法对于某些假设的倾向性，存在多条曲线符合数据时候，算法的倾向性叫做inductive bias
 
 **Occam's Razor** | 奥卡姆剃刀原理：在所有可能的解释中，最简单的解释最有可能是正确的（大道至简）
@@ -105,6 +104,7 @@ iid 保证了统计意义上可以使用机器学习
 
 脱离数据分布和输出去谈学习算法，是没有意义的
 
+[NFL定理推导-CSDN博客](https://blog.csdn.net/qq_43246110/article/details/104617780)
 ### 什么时候使用机器学习
 
 **there should be some patterns in the data**
@@ -265,14 +265,13 @@ $Accuracy=\frac{T P+T N}{T P+F P+F N+T N}$
 - 真阳性率（True Positive Rate，TPR）通常也被称为敏感性（Sensitivity）或召回率（Recall）。它是指分类器正确识别正例的能力。真阳性率可以理解为所有阳性群体中被检测出来的比率(1-漏诊率)，因此TPR越接近1越好。它的计算公式如下：$precision=\frac{T P}{TP+FP}$
 
 
-- 召回率（查全率）：实际为正类的样本中，被预测正确的正类的比例。$recall=\frac{T P}{T P+F N}$
-
-
 
 - 假阳性率 (False Positive Rate, FPR)
 假阳性率（False Positive Rate，FPR）是指在所有实际为负例的样本中，模型错误地预测为正例的样本比例。假阳性率可以理解为所有阴性群体中被检测出来阳性的比率(误诊率)，因此FPR越接近0越好。它的计算公式如下 FP = \frac{FP}{FP+TN}
 
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240909154344.png)
+
+[P-R曲线绘制原理及代码实现\_求p-r曲线的代码-CSDN博客](https://blog.csdn.net/weixin_43298886/article/details/110696655)
 
 
 F1 度量：
@@ -585,18 +584,22 @@ $MSE(\omega) = \frac{1}{N}\sum_{i=1}^{N}(y_i - f(x_i,\omega))^2$
 
 只能用于线性回归
 
-!!! note "过程"
-    using matrix notation for convenience: $X = [1,x,x^2,x^3,...,x^n], y = [y_1,y_2,...,y_n]^T$
 
-    $Loss(\omega) = (y - X^T\omega)^T(y - X^T\omega)$
+using matrix notation for convenience: $X = [1,x,x^2,x^3,...,x^n], y = [y_1,y_2,...,y_n]^T$
 
-    梯度： $\nabla_{\omega}Loss(\omega) = -2X(y - X^T\omega)$
+$Loss(\omega) = (y - X^T\omega)^T(y - X^T\omega)$
 
-    令梯度为0，求解$\omega$，得到$\omega = (X^TX)^{-1}X^Ty$
+梯度： $\nabla_{\omega}Loss(\omega) = -2X(y - X^T\omega)$
 
-!!! tips "几何理解"
+令梯度为0，求解$\omega$，得到$\omega = (X^TX)^{-1}X^Ty$
 
+!!! tip "这里应该需要补充一下矩阵求导的一些知识"
+    [矩阵的导数运算](https://www.bilibili.com/video/BV1av4y1b7MM/?spm_id_from=333.788&vd_source=8b7a5460b512357b2cf80ce1cefc69f5)
     
+    矩阵求导广泛应用于最优控制、机器学习等领域
+    
+    [小白都能理解的矩阵与向量求导链式法则\_矩阵求导链式法则-CSDN博客](https://blog.csdn.net/bitcarmanlee/article/details/105668357)
+
 
 - Gradient Descent | 梯度下降法
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240806020009.png)

@@ -14,4 +14,4 @@
         - [A4 Healor](http://www-cc98-org-s.webvpn.zju.edu.cn:8001/topic/5826788)
         - [A4 Rainbow0](http://www-cc98-org-s.webvpn.zju.edu.cn:8001/topic/5658322)
 
-        
+[现代控制理论重点概念梳理 - 知乎](https://www.zhihu.com/column/c_1131936304564453376)

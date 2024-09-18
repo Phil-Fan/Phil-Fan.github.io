@@ -4,18 +4,6 @@
 
 [TOC]
 
-# 如何配置Linux
-
-## 软件
-
-- tldr：简易版man手册
-- fd-find：人性化的find
-- rg(ripgrep)：快速搜索
-- fzf ： 模糊搜索
-- vim
-
-[The big list of Vim-like software (reversed.top)](https://reversed.top/2014-08-13/big-list-of-vim-like-software/)
-
 # Linux简介
 
 linux通常在指的是**linux内核**
