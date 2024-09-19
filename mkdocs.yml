@@ -212,33 +212,6 @@ nav:
   
 - Robotics:
   
-  - Robotics/model.md
-  - "机器人导论":
-    - Robotics/Introduction-to-Robotics.md
-    - Robotics/Introduction-to-Robotics-exam.md
-  - "嵌入式系统 | Embbedded System":
-    - Robotics/EmbeddedSystem-intro.md
-    - Robotics/EmbeddedSystem-digitalcircuit.md
-    - Robotics/EmbeddedSystem-8051.md
-    - Robotics/EmbeddedSystem-8051-experiment.md
-    - Robotics/EmbeddedSystem-stm32.md
-    - Robotics/EmbeddedSystem-experiment.md
-
-  - "系统配置":
-    - Robotics/Linux.md
-    - Robotics/settings-linux.md
-    - Robotics/ROS.md
-    - Robotics/k210.md
-    - Robotics/RespberryPi.md
-
-  - "空中机器人":
-    - Robotics/Drone.md
-    - Robotics/Drone_experiment.md
-  - "传感与检测":
-    - Robotics/sensor&detection.md
-  - "通信相关":
-    - Robotics/CC-NFC.md
-    - Robotics/CC-bluetooth.md
 
 
 

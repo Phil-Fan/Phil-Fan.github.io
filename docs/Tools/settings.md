@@ -354,10 +354,23 @@ start explorer.exe
 
 清华镜像地址：`https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/`
 
-下载之后
+按照你系统的架构选择合适的下载
 ```shell
-bash Miniconda3-py39_4.10.3-Linux-x86_64.sh
+uname -m
 ```
+
+```shell
+wget https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/Miniconda3-py39_24.7.1-0-Linux-aarch64.sh
+```
+下载后执行得到的文件
+```shell
+bash Miniconda3-py39_24.7.1-0-Linux-aarch64.sh
+```
+
+一路点enter和yes，最后重启终端，得到带有`(base)`的提示符，说明安装成功
+
+
+
 
 [conda 使用指南](https://blog.csdn.net/miracleoa/article/details/106115730)
 

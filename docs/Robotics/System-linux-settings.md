@@ -16,6 +16,15 @@ JU090-6039P-08409-8J0QH-2YR7F
 ```
 
 
+- 虚拟机无法打开
+
+> 虚拟机使用的是此版本 [VMware](https://so.csdn.net/so/search?q=VMware&spm=1001.2101.3001.7020) Workstation 不支持的硬件版本。
+> 模块“Upgrade”启动失败。
+
+打开`.vmx`文件，修改` virtualHW.version = "19"`一行至` virtualHW.version = "16"` 
+
+
+
 ## 系统烧录
 
 
@@ -201,7 +210,7 @@ vim menu.lst
     
     杀死进程并切换到sudo权限[完美解决“无法获得锁 /var/lib/dpkg/lock-frontend - open (11: 资源暂时不可用)无法获取 dpkg 前端锁 (/var/lib/dpkg/lock-f”的问题](https://blog.csdn.net/diaodaa/article/details/104516036)
 
-## 查看系统信息
+### 查看系统信息
 
 查看cpu信息
 ```bash
@@ -219,6 +228,23 @@ uname - a
 sudo !4
 ```
 执行历史记录中第4条命令
+
+### 更改密码
+
+```shell
+passwd
+```
+更改其他用户密码
+```shell
+sudo passwd username
+```
+
+更改root密码
+```shell
+sudo passwd root
+```
+
+
 
 ## 通用软件
 
@@ -302,13 +328,14 @@ ifconfig
 ```shell
 sudo apt-get install openssh-server
 ssh user@remote
+ssh -X ldz@192.168.0.1  # 带图形化界面
+ssh -p 1234 ldz@192.168.0.1 # 指定端口
 ```
 
 
 
 ```shell
 vim /etc/ssh/sshd_config
-
 ```
 
 - 第33行:将 PermitRootLogin without-password（第33行） 改为 PermitRootLogin yes 并去掉前面的注释符号（#） 
@@ -335,9 +362,68 @@ update-rc.d ssh enable
 
 **配置免密登陆**
 
+```shell
+ssh-keygen -t rsa
+```
+然后根据提示一步步的按enter键即可（其中有一个提示是要求设置私钥口`passphrase`，不设置则为空，这里看心情吧，如果不放心私钥的安全可以设置一下）
+
+执行结束以后会在`/home/当前用户` 目录下生成一个 `.ssh` 文件夹,其中包含私钥文件 `id_rsa` 和公钥文件 `id_rsa.pub`。
+
+ssh-copy-id会将公钥写到远程主机的 `~/.ssh/authorized_key` 文件中
+
+```shell
+ssh-copy-id name@ip
+```
+
+注意，windows的cmd中不能直接执行ssh-copy-id命令，可以使用git bash或者其他linux终端工具
+
+当出现
+> Number of key(s) added: 1
+> Now try logging into the machine, with:   "ssh 'HAHA@127.0.0.1'" and check to make sure that only the key(s) you wanted were added.
+
+说明配置成功！
+
 
 [深入理解\~/.ssh/config和/etc/ssh/ssh\_config配置文件-百度开发者中心](https://developer.baidu.com/article/details/2922032)
 
+!!! failure "错误与解决方法"
+    === "WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!"
+        警告：远程主机标识已更改！
+
+        此报错是由于远程的主机的公钥发生了变化导致的。 ssh服务是通过公钥和私钥来进行连接的，它会把每个曾经访问过计算机或服务器的公钥（public key），记录在~/.ssh/known_hosts 中，当下次访问曾经访问过的计算机或服务器时，ssh就会核对公钥，如果和上次记录的不同，OpenSSH会发出警告。
+
+        ```shell title="解决方法"
+        ssh-keygen -R XX.XX.XX.XX 
+        ```
+    
+    === "连接IPV6地址"
+        ```shell
+        ssh -6 user@ipv6
+        ```
+
+### conda
+[conda换地址](https://blog.csdn.net/chengjinpei/article/details/119835339)
+
+
+清华镜像地址：`https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/`
+
+按照你系统的架构选择合适的下载
+```shell
+uname -m
+```
+
+```shell
+wget https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/Miniconda3-py39_24.7.1-0-Linux-aarch64.sh
+```
+下载后执行得到的文件
+```shell
+bash Miniconda3-py39_24.7.1-0-Linux-aarch64.sh
+```
+
+一路点enter和yes，最后重启终端，得到带有`(base)`的提示符，说明安装成功
+
+
+### nomachine
 ## 外设与硬件
 ### 蓝牙操作
 
@@ -436,18 +522,9 @@ w3m之类的命令行浏览器试试
 
 
 
-
-- fishros
-- 虚拟机无法打开
-
-> 虚拟机使用的是此版本 [VMware](https://so.csdn.net/so/search?q=VMware&spm=1001.2101.3001.7020) Workstation 不支持的硬件版本。
-> 模块“Upgrade”启动失败。
-
-打开`.vmx`文件，修改` virtualHW.version = "19"`一行至` virtualHW.version = "16"` 
-
-
-
-
+### 内网穿透
+[校园网内登录寝室电脑远程桌面和ssh连接WSL - 知乎](https://zhuanlan.zhihu.com/p/627393030)
+[干货 | 在校园网中用ssh连接宿舍电脑](https://kegalas.top/p/%E5%B9%B2%E8%B4%A7-%E5%9C%A8%E6%A0%A1%E5%9B%AD%E7%BD%91%E4%B8%AD%E7%94%A8ssh%E8%BF%9E%E6%8E%A5%E5%AE%BF%E8%88%8D%E7%94%B5%E8%84%91/)
 
 ## docker 
 [Docker Compose - 安装和基本使用\_docker-compose 安装-CSDN博客](https://blog.csdn.net/Que_art/article/details/135192479)
