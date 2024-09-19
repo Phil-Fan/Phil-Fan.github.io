@@ -51,6 +51,9 @@ Entropy(E)=-\sum_{s\in S}p(E,s)\log (p(E,s))\ge\log (l)
 $$
 
 ### t-closeness
+
+
+
 ## 差分隐私
 
 

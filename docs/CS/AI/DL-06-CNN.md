@@ -1,5 +1,3 @@
-
-
 # CNN
 
 神经网络：逼近任何一种概率模型，似然值最大
@@ -183,6 +181,17 @@ combine weak model into strong models
 
 - early stopping :stop when the validation accuracy has not improved after n epochs(n is called patience)
 - normize
+
+
+## Residual CNNs
+Introduce “identity” skip connections
+o Layer inputs are propagated and added to the layer output
+o Mitigate the problem of vanishing gradients during training
+o Allow training very deep NN (with over 1,000 layers)
+§ Several ResNet variants exist: 18, 34, 50, 101, 152, and 200
+layers
+§ Are used as base models of other state-of-the-art NNs
+o Other similar models: ResNeXT, DenseNet
 
 ## 学习资源
 

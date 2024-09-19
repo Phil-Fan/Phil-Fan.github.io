@@ -184,16 +184,6 @@ extra_javascript:
 # 注意左右下划线的写法
 nav:
 - Home: index.md
-
-- English:
-  - Oral:
-    - English/Oral-Practice.md
-    - English/Oral-Tips.md
-    - English/TOFEL-speaking-training.md
-    - English/TOFEL-speaking.md
-    - English/VocabularyForSpeaking.md
-
-
     
 - Class:
   - Class/signal.md
@@ -201,19 +191,56 @@ nav:
   - Class/马原.md
   - Class/毛概.md
   
+  - Oral:
+    - Class/English/Oral-Practice.md
+    - Class/English/Oral-Tips.md
+    - Class/English/TOFEL-speaking-training.md
+    - Class/English/TOFEL-speaking.md
+    - Class/English/VocabularyForSpeaking.md
 
   - "ITP课程" :
       - Class/ITP/ITP-Team-Communication-and-Leadership.md
       - Class/ITP/ITP-Management.md
       - Class/ITP/ITP-创业营销.md
       - Class/ITP/ITP-基于创新的创业.md
-      
+      - Class/ITP/ITP-商业模式.md   
      
   
 - Robotics:
-  
+  - "嵌入式":
+    - Robotics/嵌入式/EmbeddedSystem-intro.md
+    - Robotics/嵌入式/EmbeddedSystem-8051.md
+    - Robotics/嵌入式/EmbeddedSystem-8051-experiment.md
+    - Robotics/嵌入式/EmbeddedSystem-digitalcircuit.md
+    - Robotics/嵌入式/EmbeddedSystem-stm32.md
+    - Robotics/嵌入式/EmbeddedSystem-experiment.md
+    - Robotics/嵌入式/k210.md
+    - Robotics/嵌入式/RespberryPi.md
 
+  - "Control Theory":
+    - Robotics/Control/Control-01-自动控制原理.md
+    - Robotics/Control/Control-02-现代控制理论.md
+    - Robotics/Control/Control-03-经典控制方法.md
 
+  - "机器人":
+    - Robotics/Robo/Robo-00-Introduction-to-Robotics.md 
+    - Robotics/Robo/Robo-00-Introduction-to-Robotics-exam.md
+    - Notebook page: Robotics/Robo/Robo-00-model.ipynb
+    - Robotics/Robo/Robo-01-sensor&detection.md
+    - Robotics/Robo/Robo-02-localization.md
+    - Robotics/Robo/Robo-03-planning.md
+    - Robotics/Robo/Robo-Drone.md      
+    - Robotics/Robo/Robo-Drone_experiment.md
+
+  - "通信":
+    - Robotics/Communication/CC-bluetooth.md
+    - Robotics/Communication/CC-NFC.md 
+
+  - "环境配置":
+    - Robotics/Environment/System-Linux.md 
+    - Robotics/Environment/System-ROS.md   
+    - Robotics/Environment/System-linux-settings.md
+    
 
 - "Computer Science":
   - Language:
@@ -229,7 +256,6 @@ nav:
     - CS/Frontend/HTML.md
     - CS/Frontend/CSS.md
     - CS/Frontend/JavaScript.md
-    # - CS/Frontend/WeChat.md
 
   - BackEnd:
     - CS/Backend/SQL.md
@@ -249,13 +275,8 @@ nav:
       - Notebook page: CS/Statistic/08-Goodness_of_Fit.ipynb
       - Notebook page: CS/Statistic/09-Regression.ipynb
       - Notebook page: CS/Statistic/10-Multiple_Regression_and_Analysis_of_Variance.ipynb
-      - Notebook page: CS/AI/60-python_package.ipynb
       - CS/Statistic/big_data_security&privacy_protection.md
-
-  - "DM | 离散数学":
-    - CS/Discrete_mathematics.md
-    - CS/DataStructure-Graph.md
-    
+   
   - "DS | 数据结构":
     - CS/DataStructure.md
     - CS/DataStructure-Tree.md
@@ -284,15 +305,41 @@ nav:
     - CS/OR-GameTheoryModel.md
     - CS/OR-QueuingTheory.md
     
-  - "AI | 人工智能":
-    - CS/AI/01-AI_history&intro.md
-    - CS/AI/41-ML_intro.md
-    - CS/AI/HumanPoseEstimation.md
-  
+  - "AI | 人工智能": 
+    - "搜索 | Search": 
+      - CS/AI/01-AI_history&intro.md
+      - CS/AI/02-UninformedSearch.md     
+      - CS/AI/03-InformedSearch.md       
+      - CS/AI/04-OtherSearch.md
+      - CS/AI/05-MarkovDecision.md   
+
+    - "DL | 深度学习":
+      - CS/AI/DL-00-Lingo.md
+      - CS/AI/DL-00-python_package.ipynb 
+      - CS/AI/DL-01-NN.md
+      - CS/AI/DL-06-CNN.md
+      - CS/AI/DL-08-RNN.md
+      - CS/AI/DL-09-modernRNN.md
+      - CS/AI/DL-11-optimation.md        
+      - CS/AI/DL-12-setting.md
+      - CS/AI/DL-13-attack.md
+
+    - "ML | 机器学习":
+      - CS/AI/Discrete_mathematics.md    
+      - CS/AI/ML-00-math.md
+      - CS/AI/ML-01-intro.md
+      - CS/AI/ML-02-LinearRegression.md  
+      - CS/AI/ML-03-DecisionTree.md      
+      - CS/AI/ML-04-SVM.md
+      - CS/AI/ML-05-bayes.md
+      - CS/AI/ML-06-clustering.md        
+      - CS/AI/ML-07-DimensionalityReduction.md
+      - CS/AI/ML-08-EnsembleLearning.md  
+         
   - "CV | 计算机视觉":
     - CS/CV/CV-intro.md
     - CS/CV/OpenCV.md
-  
+    - CS/CV/HumanPoseEstimation.md  
   
   - "CTF相关知识":
     - CS/CTF-intro.md
@@ -324,7 +371,6 @@ nav:
     - Explore/Books/Marxist principles.md
     - Explore/Philosophy.md
     - Explore/Philosophy-by-topic.md
-  - Explore/Opensource.md
   
 
 - Tools:
@@ -358,6 +404,7 @@ nav:
   - "🏃运动":
     - else/exercise-fit.md
     - else/exercise-swimming.md
+    - else/exercise-tennis.md
 
   - "🥢食为天":
     - else/eat.md
