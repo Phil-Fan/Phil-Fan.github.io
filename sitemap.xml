@@ -2,772 +2,852 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://www.philfan.cn/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/classes_in_zju/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/CTF-CPS/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/CTF-crypto/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/CTF-intro/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/CTF-misc/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/CTF-pwn/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/CTF-reverse/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/CTF-web/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/ComputerNetwork-00-intro/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/ComputerNetwork-01-ApplicationLayer/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/ComputerNetwork-02-TransportLayer/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/ComputerNetwork-03-NetworkLayer/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/ComputerNetwork-04-LinkLayer/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/ComputerNetwork-05-PhysicalLayer/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/ComputerNetwork-06-experiment/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/ComputerNetwork-07-%E9%97%AE%E9%A2%98%E6%8E%A2%E7%A9%B6/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/ComputerNetwork-08-security/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/DataStructure-Graph/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/DataStructure-Hash/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/DataStructure-Sorting/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/DataStructure-Tree/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/DataStructure/</loc>
-         <lastmod>2024-09-14</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://www.philfan.cn/CS/Discrete_mathematics/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/OR-DP/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/OR-GameTheory/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/OR-GameTheoryModel/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/OR-QueuingTheory/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/OR-exercise/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/OR-nonlinear/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/OR/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/missing_knowledge/</loc>
-         <lastmod>2024-09-14</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://www.philfan.cn/CS/AI/00-LingoInAI/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/AI/01-AI_history%26intro/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/AI/02-UninformedSearch/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/AI/03-InformedSearch/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/AI/04-OtherSearch/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/AI/05-MarkovDecision/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.philfan.cn/CS/AI/41-ML_intro/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <loc>https://www.philfan.cn/CS/AI/DL-00-Lingo/</loc>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.philfan.cn/CS/AI/44-attack/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <loc>https://www.philfan.cn/CS/AI/DL-00-python_package/</loc>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.philfan.cn/CS/AI/51-NN/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <loc>https://www.philfan.cn/CS/AI/DL-01-NN/</loc>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.philfan.cn/CS/AI/52-CNN/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <loc>https://www.philfan.cn/CS/AI/DL-06-CNN/</loc>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.philfan.cn/CS/AI/53-RNN/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <loc>https://www.philfan.cn/CS/AI/DL-08-RNN/</loc>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.philfan.cn/CS/AI/60-python_package/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <loc>https://www.philfan.cn/CS/AI/DL-09-modernRNN/</loc>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.philfan.cn/CS/AI/HumanPoseEstimation/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <loc>https://www.philfan.cn/CS/AI/DL-11-optimation/</loc>
+         <lastmod>2024-09-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/CS/AI/DL-12-setting/</loc>
+         <lastmod>2024-09-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/CS/AI/DL-13-attack/</loc>
+         <lastmod>2024-09-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/CS/AI/Discrete_mathematics/</loc>
+         <lastmod>2024-09-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/CS/AI/ML-00-math/</loc>
+         <lastmod>2024-09-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/CS/AI/ML-01-intro/</loc>
+         <lastmod>2024-09-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/CS/AI/ML-02-LinearRegression/</loc>
+         <lastmod>2024-09-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/CS/AI/ML-03-DecisionTree/</loc>
+         <lastmod>2024-09-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/CS/AI/ML-04-SVM/</loc>
+         <lastmod>2024-09-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/CS/AI/ML-05-bayes/</loc>
+         <lastmod>2024-09-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/CS/AI/ML-06-clustering/</loc>
+         <lastmod>2024-09-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/CS/AI/ML-07-DimensionalityReduction/</loc>
+         <lastmod>2024-09-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/CS/AI/ML-08-EnsembleLearning/</loc>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/Backend/Nodejs/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/Backend/PHP/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/Backend/SQL/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/CV/CV-intro/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/CS/CV/HumanPoseEstimation/</loc>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/CV/OpenCV/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/Frontend/CSS/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/Frontend/HTML/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/Frontend/JavaScript/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/Language/Assembly/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/Language/C%2B%2B/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/Language/C/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/Language/Python/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/Language/Python_packages/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/Language/crawler/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/Statistic/00-intro/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/Statistic/01-probability/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/Statistic/02-Univariate_Random_Variable/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/Statistic/03-Multivariate_Random_Variable/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/Statistic/04-Numerical_Features/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/Statistic/05-Special_Functions/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/Statistic/06-Parameter_Estimation/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/Statistic/07-Hypothesis_Testing/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/Statistic/08-Goodness_of_Fit/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/Statistic/09-Regression/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/Statistic/10-Multiple_Regression_and_Analysis_of_Variance/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/CS/Statistic/ML-02-%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0/</loc>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/Statistic/big_data_security%26privacy_protection/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/Web3/blockchain/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/Web3/contract/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/Web3/lingo/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/Web3/solidity/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/Class/SocialSciences/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/Class/signal/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/Class/%E6%AF%9B%E6%A6%82/</loc>
-         <lastmod>2024-09-14</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://www.philfan.cn/Class/%E7%8E%B0%E4%BB%A3%E6%8E%A7%E5%88%B6%E7%90%86%E8%AE%BA/</loc>
-         <lastmod>2024-09-14</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://www.philfan.cn/Class/%E8%87%AA%E5%8A%A8%E6%8E%A7%E5%88%B6%E5%8E%9F%E7%90%86/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/Class/%E9%A9%AC%E5%8E%9F/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/Class/English/Oral-Practice/</loc>
+         <lastmod>2024-09-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/Class/English/Oral-Tips/</loc>
+         <lastmod>2024-09-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/Class/English/TOFEL-speaking-training/</loc>
+         <lastmod>2024-09-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/Class/English/TOFEL-speaking/</loc>
+         <lastmod>2024-09-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/Class/English/VocabularyForSpeaking/</loc>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/Class/ITP/ITP-Management/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/Class/ITP/ITP-Team-Communication-and-Leadership/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/Class/ITP/ITP-%E5%88%9B%E4%B8%9A%E8%90%A5%E9%94%80/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/Class/ITP/ITP-%E5%95%86%E4%B8%9A%E6%A8%A1%E5%BC%8F/</loc>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/Class/ITP/ITP-%E5%9F%BA%E4%BA%8E%E5%88%9B%E6%96%B0%E7%9A%84%E5%88%9B%E4%B8%9A/</loc>
-         <lastmod>2024-09-14</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://www.philfan.cn/English/Oral-Practice/</loc>
-         <lastmod>2024-09-14</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://www.philfan.cn/English/Oral-Tips/</loc>
-         <lastmod>2024-09-14</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://www.philfan.cn/English/TOFEL-speaking-training/</loc>
-         <lastmod>2024-09-14</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://www.philfan.cn/English/TOFEL-speaking/</loc>
-         <lastmod>2024-09-14</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://www.philfan.cn/English/VocabularyForSpeaking/</loc>
-         <lastmod>2024-09-14</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://www.philfan.cn/Explore/Opensource/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/Explore/Philosophy-by-topic/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/Explore/Philosophy/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/Explore/Books/Marxist%20principles/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/Explore/Books/The%20Innovator%60s%20Dilemma/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/Explore/Fin/Fintech/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/Explore/Fin/consulting/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/Explore/Fin/industry-analyze/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/Explore/Fin/welfare/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/Explore/Fin/%E6%94%BF%E6%B2%BB%E7%BB%8F%E6%B5%8E%E5%AD%A6/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.philfan.cn/Robotics/CC-NFC/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <loc>https://www.philfan.cn/Robotics/Control/Control-01-%E8%87%AA%E5%8A%A8%E6%8E%A7%E5%88%B6%E5%8E%9F%E7%90%86/</loc>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.philfan.cn/Robotics/CC-bluetooth/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <loc>https://www.philfan.cn/Robotics/Control/Control-02-%E7%8E%B0%E4%BB%A3%E6%8E%A7%E5%88%B6%E7%90%86%E8%AE%BA/</loc>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.philfan.cn/Robotics/Drone/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <loc>https://www.philfan.cn/Robotics/Control/Control-03-%E7%BB%8F%E5%85%B8%E6%8E%A7%E5%88%B6%E6%96%B9%E6%B3%95/</loc>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.philfan.cn/Robotics/Drone_experiment/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <loc>https://www.philfan.cn/Robotics/Environment/System-Linux/</loc>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.philfan.cn/Robotics/EmbeddedSystem-8051-experiment/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <loc>https://www.philfan.cn/Robotics/Environment/System-ROS/</loc>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.philfan.cn/Robotics/EmbeddedSystem-8051/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <loc>https://www.philfan.cn/Robotics/Environment/System-linux-settings/</loc>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.philfan.cn/Robotics/EmbeddedSystem-digitalcircuit/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <loc>https://www.philfan.cn/Robotics/Robo/Robo-00-Introduction-to-Robotics-exam/</loc>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.philfan.cn/Robotics/EmbeddedSystem-experiment/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <loc>https://www.philfan.cn/Robotics/Robo/Robo-00-Introduction-to-Robotics/</loc>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.philfan.cn/Robotics/EmbeddedSystem-intro/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <loc>https://www.philfan.cn/Robotics/Robo/Robo-00-model/</loc>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.philfan.cn/Robotics/EmbeddedSystem-stm32/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <loc>https://www.philfan.cn/Robotics/Robo/Robo-01-sensor%26detection/</loc>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.philfan.cn/Robotics/Introduction-to-Robotics-exam/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <loc>https://www.philfan.cn/Robotics/Robo/Robo-02-localization/</loc>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.philfan.cn/Robotics/Introduction-to-Robotics/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <loc>https://www.philfan.cn/Robotics/Robo/Robo-03-planning/</loc>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.philfan.cn/Robotics/Linux/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <loc>https://www.philfan.cn/Robotics/Robo/Robo-Drone/</loc>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.philfan.cn/Robotics/ROS/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <loc>https://www.philfan.cn/Robotics/Robo/Robo-Drone_experiment/</loc>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.philfan.cn/Robotics/RespberryPi/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <loc>https://www.philfan.cn/Robotics/communication/CC-NFC/</loc>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.philfan.cn/Robotics/k210/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <loc>https://www.philfan.cn/Robotics/communication/CC-bluetooth/</loc>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.philfan.cn/Robotics/model/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <loc>https://www.philfan.cn/Robotics/%E5%B5%8C%E5%85%A5%E5%BC%8F/EmbeddedSystem-8051-experiment/</loc>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.philfan.cn/Robotics/sensor%26detection/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <loc>https://www.philfan.cn/Robotics/%E5%B5%8C%E5%85%A5%E5%BC%8F/EmbeddedSystem-8051/</loc>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.philfan.cn/Robotics/settings-linux/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <loc>https://www.philfan.cn/Robotics/%E5%B5%8C%E5%85%A5%E5%BC%8F/EmbeddedSystem-digitalcircuit/</loc>
+         <lastmod>2024-09-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/Robotics/%E5%B5%8C%E5%85%A5%E5%BC%8F/EmbeddedSystem-experiment/</loc>
+         <lastmod>2024-09-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/Robotics/%E5%B5%8C%E5%85%A5%E5%BC%8F/EmbeddedSystem-intro/</loc>
+         <lastmod>2024-09-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/Robotics/%E5%B5%8C%E5%85%A5%E5%BC%8F/EmbeddedSystem-stm32/</loc>
+         <lastmod>2024-09-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/Robotics/%E5%B5%8C%E5%85%A5%E5%BC%8F/RespberryPi/</loc>
+         <lastmod>2024-09-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/Robotics/%E5%B5%8C%E5%85%A5%E5%BC%8F/k210/</loc>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/AdobeIllustrator/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/AdobePhotoshop/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/Git/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/Mkdocs/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/Photography-Landscape/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/Photography-Portrait/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/Photography-base/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/R/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/color/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/design/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/gdb/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/latex/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/macos/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/markdown/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/matlab/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/obsidian/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/powerpoint/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/settings/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/sites/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/solidworks/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/tableau/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/vim/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/else/C-Driving/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/else/C-journey/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/else/bean_knowledge/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/else/coffee/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/else/eat/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/else/exercise-fit/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/else/exercise-swimming/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/else/exercise-tennis/</loc>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/else/flower/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/else/interview/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/else/music_classification/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/else/music_theory/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/else/piano/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/else/rock_and_roll/</loc>
-         <lastmod>2024-09-14</lastmod>
+         <lastmod>2024-09-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>

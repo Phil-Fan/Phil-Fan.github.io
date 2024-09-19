@@ -2,9 +2,26 @@
 
 [TOC]
 
+## 安装与配置
+
+python与opencv的版本对应关系
+[Links for opencv-python](https://pypi.tuna.tsinghua.edu.cn/simple/opencv-python/)
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240914103526.png)
 
 
+```shell title="安装"
+pip install opencv-python==3.4.11.45 # 这里版本要和python对应
+pip install opencv-contrib-python==3.4.11.45
+```
 
+
+[OpenCV-python安装教程\_opencv python安装-CSDN博客](https://blog.csdn.net/qq_41627235/article/details/87692748)
+
+```shell title="验证方法"
+ipython
+import cv2
+```
+没有报错即可
 
 ## Image Formats
 
