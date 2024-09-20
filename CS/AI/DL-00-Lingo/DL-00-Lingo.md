@@ -1,4 +1,4 @@
-# 深度学习常见黑话
+# 00 | 常见黑话
 
 [深度学习常见名词概念：Sota、Benchmark、Baseline、端到端模型、迁移学习等的定义-CSDN博客](https://blog.csdn.net/qq_18555105/article/details/121345833)
 

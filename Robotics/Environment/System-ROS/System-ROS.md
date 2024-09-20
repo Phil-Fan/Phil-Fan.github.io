@@ -75,9 +75,6 @@ nano板子和stm32板子使用usb-b -》usb-c 链接
 
 [英伟达 Jetson Nano 新手必备：连接蓝牙音频_jetson nano 链接音响_许野平的博客-CSDN博客](https://blog.csdn.net/quicmous/article/details/115174779)
 
-## 
-
-
 
 ## `ROS`操作
 

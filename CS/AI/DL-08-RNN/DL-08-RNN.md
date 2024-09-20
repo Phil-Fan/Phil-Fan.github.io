@@ -1,4 +1,4 @@
-# Recurrent Neural Networks
+# 08 | Recurrent Neural Networks
 
 
 ## 
