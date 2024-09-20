@@ -1,4 +1,4 @@
-# 02 | linear Regression
+# 02 | Linear Regression
 y 是一个连续的值；
 区别于classification，y是一个离散的值
 
