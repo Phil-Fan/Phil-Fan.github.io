@@ -27,8 +27,9 @@
 
 - 翻译：[欧陆词典](https://www.eudic.net/v4/en/app/download),欧陆词典文件
 - 音乐：QQ音乐
-- 其他：[logi option+](https://www.logitech.com/zh-cn/setup/ergosetup/logi-options.html),[foldersize(快速测文件夹大小)](https://foldersize.sourceforge.net/?utm_source=appinn.com)
+- 其他：[logi option+](https://www.logitech.com/zh-cn/setup/ergosetup/logi-options.html),[Download WizTree](https://www.diskanalyzer.com/download)
 
+- 卸载工具[Geek Uninstaller - Download](https://geekuninstaller.com/download)
 ### 专业软件
 
 - Coding: [VSC](https://code.visualstudio.com/Download),PyCharm, WebStorm
@@ -339,11 +340,49 @@ start explorer.exe
 `win+x` - 设置 - 账户 - 登录选项 - 设置PIN和指纹登陆
 
 
-### onedrive
 ### onedrive账号解冻方法
 超过系统的免费额度，账号会被封禁，被封禁后，桌面端会无法登录，显示错误代码`0x8004def7`
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240814121753.png)
 
+
+### C盘爆了
+[Geek Uninstaller - Download](https://geekuninstaller.com/download)
+
+[DiskGenius – 正式版下载|免费下载](https://www.diskgenius.cn/download.php)
+#### 移动系统文件夹
+移动桌面、文档、下载等文件夹到其他盘
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240923144021.png)
+
+
+
+#### 移动`.vscode`
+
+
+- `ctrl + x `选择以管理员身份运行 cmd
+- 剪切原文件`.vscode`到`D:\.`vscode文件夹。
+```shell
+cmd /c mklink /D "%USERPROFILE%\.vscode" "D:\.vscode\"
+```
+[vscode修改默认扩展和用户文件夹目录到D盘\_.vscode文件怎么换盘-CSDN博客](https://blog.csdn.net/sg_knight/article/details/130258619)
+
+
+#### 移动`TEMP`和`TMP`文件夹
+把`TEMP`和`TMP`文件夹移动到其他盘
+
+
+#### c盘扩容
+[Diskgenius分区把c盘扩大操作方法-百度经验](https://jingyan.baidu.com/article/f7ff0bfc2b07076f26bb13bb.html)
+
+
+1、	依次点击：此电脑，右键C盘，属性，清理磁盘，清理系统文件（有时候电脑更新了，旧的安装包不会自动删除，就可能占用十几G）；
+2、	下载geek（认准官网，免费版就行），找到不用的软件，删除卸载，它能很干净得删除软件，包括所有有关文件夹和注册表，very nice，强推，注意：geek会删除该软件的所有文件夹，如果个人文件保存在这些文件夹里面，需要提前转移，否则将造成资料丢失！！；
+3、	下载ccleaner（认准官网，免费版就行），里面的清理注册表，扫描，修复，再扫描，修复，再扫描，修复，重复三次（无须备份）；然后自定义清理，运行清理程序（注意，该操作会导致你在浏览器里面登入的如哔哩哔哩账号这种，会给你下线从而需要重新登入，为了避免，可以仔细看看自定义清理里面勾选了哪些，然后选择性清理就行）；geek卸载不了的软件如VS，SW等，用cc卸载；
+4、	找到电脑管家（无论是啥都行），找到里面的清理垃圾功能，扫描，清理；如果有系统修复啥的，漏洞修复啥的，全部来一遍；
+5、	同时按下：“Esc”“Shift”“Ctrl”三个键，点里面的“启动”，把不需要的自启动项禁用；
+6、	下载treesize（一定要认准免费版，下载过程中会多次引诱你下载专业版，不要上当，下载的时候看仔细），每次用管理员身份运行，一个一个目录点开看看，是哪个文件夹占了空间，不知道是什么的就去百度一遍看看是什么，怎么删；
+7、	找到电脑设置、系统、存储，去里面查看C盘安装了哪些大软件，用geek卸载了安装到其他盘。
+8、	长久没有清理过导致电脑很卡以及文件系统很乱，建议重装。
 
 ## conda
 

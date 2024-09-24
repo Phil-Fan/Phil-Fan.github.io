@@ -14,7 +14,17 @@ NZ4RR-FTK5H-H81C1-Q30QH-1V2LA
 JU090-6039P-08409-8J0QH-2YR7F
 4Y09U-AJK97-089Z0-A3054-83KLA
 ```
+### VMware 无法复制问题的解决 
 
+### 安装VMware Tools选项显示灰色的正确解决办法  
+
+1.关闭虚拟机；  
+
+2.在虚拟机设置分别设置CD/DVD、CD/DVD2和软盘为自动检测三个步骤；  
+
+3.再重启虚拟机，灰色字即点亮。 
+
+4.重新安装vmware-tools  
 
 - 虚拟机无法打开
 
@@ -99,11 +109,17 @@ vim /etc/apt/sources.list
 
 === "zju"
 
-
+    ```shell
+    deb https://mirrors.zju.edu.cn/ubuntu/ focal main restricted universe multiverse
+    deb https://mirrors.zju.edu.cn/ubuntu/ focal-updates main restricted universe multiverse
+    deb https://mirrors.zju.edu.cn/ubuntu/ focal-backports main restricted universe multiverse
+    deb https://mirrors.zju.edu.cn/ubuntu/ focal-security main restricted universe multiverse
+    ```
+    
 === "鱼香ros"
-```shell
-wget http://fishros.com/install -O fishros && . fishros
-```
+    ```shell
+    wget http://fishros.com/install -O fishros && . fishros
+    ```
 
 ```shell
 sudo apt-get update
@@ -606,6 +622,12 @@ sudo vim /etc/docker/daemon.json
 docker-compose up
 ```
 
+
+## Q & A
+
+> sh: 0: getcwd() failed: No such file or directory
+
+一般来说是因为你 cd 到了某个目录之后 rm 了这个目录，这时去执行某些 service 脚本的时候就会报 get cwd 错误。 只需要 cd 到任何一个实际存在的目录下再执行就好了
 
 
 ## Kali

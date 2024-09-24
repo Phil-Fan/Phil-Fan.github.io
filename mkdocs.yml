@@ -221,6 +221,7 @@ nav:
     - Robotics/Control/Control-01-自动控制原理.md
     - Robotics/Control/Control-02-现代控制理论.md
     - Robotics/Control/Control-03-经典控制方法.md
+    - Robotics/Control/Control-电机.md
 
   - "机器人":
     - Robotics/Robo/Robo-00-Introduction-to-Robotics.md 
@@ -322,7 +323,7 @@ nav:
       - CS/AI/DL-09-modernRNN.md
       - CS/AI/DL-11-optimation.md        
       - CS/AI/DL-12-setting.md
-      - CS/AI/DL-13-attack.md
+      
 
     - "ML | 机器学习":
       - CS/AI/Discrete_mathematics.md    
@@ -335,6 +336,13 @@ nav:
       - CS/AI/ML-06-clustering.md        
       - CS/AI/ML-07-DimensionalityReduction.md
       - CS/AI/ML-08-EnsembleLearning.md  
+
+    - "SEC | 人工智能安全":
+      - CS/AI/SEC-01-attack.md
+      - CS/AI/SEC-02-whitebox.md
+      - CS/AI/SEC-03-blackbox.md
+      - CS/AI/SEC-04-GANS.md
+      
          
   - "CV | 计算机视觉":
     - CS/CV/CV-intro.md

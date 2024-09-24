@@ -1,3 +1,6 @@
+---
+comments: true
+---
 # 乐理
 
 [B站最通俗易懂的乐理课程（30集），零基础轻松学！适用于作曲编曲、钢琴、吉他、声乐。\_哔哩哔哩\_bilibili](https://www.bilibili.com/video/BV1Hg411w7n2/)

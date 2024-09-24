@@ -231,22 +231,6 @@ git lfs track "*.so"
 git add .gitattributes
 ```
 
-
-
-
-
-### VMware 无法复制问题的解决 
-
-### 安装VMware Tools选项显示灰色的正确解决办法  
-
-1.关闭虚拟机；  
-
-2.在虚拟机设置分别设置CD/DVD、CD/DVD2和软盘为自动检测三个步骤；  
-
-3.再重启虚拟机，灰色字即点亮。 
-
-4.重新安装vmware-tools  
-
 ### Host key verification failed.
 重新配置一下ssh，删除`~/.ssh`文件夹，重新生成ssh key，然后再次连接。
 

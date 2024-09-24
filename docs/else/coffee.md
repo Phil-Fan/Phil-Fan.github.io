@@ -1,3 +1,6 @@
+---
+comments: true
+---
 # Coffee
 
 > 参考资料

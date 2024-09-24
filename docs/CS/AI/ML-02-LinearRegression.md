@@ -104,4 +104,33 @@ pros:
 
 cons:
 - too simple:high bias & low variance
+## LDA
 
+[理解主成分分析（1）——最大方差投影与数据重建 - Fenrier Lab](https://seanwangjs.github.io/2017/12/21/principal-components-analysis.html)
+
+[简单理解线性判别分析 - 知乎](https://zhuanlan.zhihu.com/p/66088884)
+
+[LDA线性判别分析——投影的疑问解答\_lda投影-CSDN博客](https://blog.csdn.net/qq_41398808/article/details/100065314)
+
+最小化类内方差
+
+$$
+\begin{align*} &\quad \min\limits_w \left[\sum\limits_{x\in X_0}(w^Tx-w^T\mu_0)^2+\sum\limits_{x\in X_1}(w^Tx-w^T\mu_1)^2\right]\\ &=\min\limits_w w^T \left[\sum\limits_{x\in X_0}(x-\mu_0)(x-\mu_0)^T+\sum\limits_{x\in X_1}(x-\mu_1)(x-\mu_1)^T\right]w \\ &=\min\limits_w w^TS_ww \\ \end{align*}
+$$
+
+最大化类间方差
+
+
+$$
+\begin{align*} &\quad \max\limits_w \left[(w^T\mu_0-\frac{w^T\mu_0+w^T\mu_1}{2})^2+(w^T\mu_1-\frac{w^T\mu_0+w^T\mu_1}{2})^2\right]\\ &=\max\limits_w \frac{1}{2}w^T(\mu_0-\mu_1)(\mu_0-\mu_1)^Tw\\ &=\max\limits_w \frac{1}{2}w^TS_bw \\ \end{align*}
+$$
+
+因为自变量只有$w$，不一定二者都能同时达到最优，所以整合到一起取下式的最大值：
+
+$$
+J = \displaystyle \frac{w^TS_bw}{w^TS_ww}
+$$
+
+[LDA——线性判别分析基本推导与实验-CSDN博客](https://blog.csdn.net/qq_37189298/article/details/108656649)
+
+[二分类线性判别分析，看懂这篇就够了 - 知乎](https://zhuanlan.zhihu.com/p/488134514)
