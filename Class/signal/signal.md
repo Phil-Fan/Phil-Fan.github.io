@@ -217,6 +217,8 @@ $$
 
 !!! note "例子:求周期为$T_0$的周期性冲激串$\delta_T(t)$的傅里叶变换。"
 
+    **课本P42,P43**
+
     $$
     \begin{align*}
     \delta_T(t)&= \mathop{\sum}\limits_{n=-\infty}^{\infty}\delta(t-nT_0)\\

@@ -1,6 +1,6 @@
 # 05 | Bayes 贝叶斯分类器
 
-### 问题与定义
+## 问题与定义
 
 $x$ sample
 
@@ -84,7 +84,7 @@ Decide $y_1$, if $P(y_1|x)> P(y_2|x)$,otherwise $y_2$
 
 
 
-### Bayesian Risk | 贝叶斯风险
+## Bayesian Risk | 贝叶斯风险
 
 > 并不是所有的错误代价都是相同的
 
@@ -124,9 +124,7 @@ $$
 \end{align*}
 $$
 
-
-
-### 回顾
+## 回顾
 
 贝叶斯的框架
 - 知道先验概率P(yi)，知道似然P(x|yi)，我们就可以得到一个最优的分类器。
@@ -150,7 +148,7 @@ $$
 - 期望风险最小化：贝叶斯风险
 
 
-### 极大似然法 maximum likehood
+## 极大似然法 maximum likehood
 
 
 **Decision Regions and surfaces**
@@ -175,7 +173,7 @@ $$
 
 
 
-### 朴素贝叶斯
+## 朴素贝叶斯
 
 curse of dimensionality: feature space becomes sparse 
 
@@ -212,4 +210,40 @@ $$
     然后利用条件概率 $P(X|C)$与先验概率 $P(C)$计算后验概率 $P(C_0|X)$、 $P (C_1|X)$
     最终比较 $P(C_0|X)$、 $P (C_1|X)$大小得到 $X$ 属于 $C_0$ 类还是 $C_1$ 类
 
+## 半朴素贝叶斯
+常见方法
+- SPODE：super parent one-dependence estimator
+- TAN：tree-augmented naive bayes
+- AODE：averaged one-dependence estimator
 
+
+## 贝叶斯网络
+
+### 构建
+
+
+### 评分函数
+最小描述长度：MDL|minimal description length
+
+$$
+s(B|D) = f(\theta)|B| - LL(B|D)
+$$
+
+$|B|$是网络的大小，$LL(B|D)$是网络的似然度，$f(\theta)$是一个参数，用来平衡网络的大小和似然度
+
+
+### inference 推断
+
+精确推断：直接根据贝叶斯网的定义的联合分布计算
+
+近似推断
+- 吉布斯采样
+  - 进行T次采样，逐个考察每个非证据变量
+- 变分推断
+
+### EM算法
+极大似然估计：
+
+$$
+LL(\theta|x,z) - \nP(x,z|\mathcal{\theta})
+$$
