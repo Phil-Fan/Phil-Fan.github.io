@@ -228,8 +228,10 @@ nav:
     - Robotics/Robo/Robo-00-Introduction-to-Robotics-exam.md
     - Notebook page: Robotics/Robo/Robo-00-model.ipynb
     - Robotics/Robo/Robo-01-sensor&detection.md
-    - Robotics/Robo/Robo-02-localization.md
-    - Robotics/Robo/Robo-03-planning.md
+    - Robotics/Robo/Robo-02-0-navigation.md
+    - Robotics/Robo/Robo-02-1-localization.md
+    - Robotics/Robo/Robo-02-2-decide.md
+    - Robotics/Robo/Robo-02-3-planning.md
     - Robotics/Robo/Robo-Drone.md      
     - Robotics/Robo/Robo-Drone_experiment.md
 
@@ -295,6 +297,7 @@ nav:
     - CS/ComputerNetwork-06-experiment.md
     - CS/ComputerNetwork-07-问题探究.md
     - CS/ComputerNetwork-08-security.md
+    - CS/DingBot.md
     
   - "OR | 运筹学 ":
     - CS/OR-exercise.md
