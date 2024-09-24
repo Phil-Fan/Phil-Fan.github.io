@@ -35,3 +35,44 @@ comments: true
     整理电车行业相关<br>
     整理面试技巧<br>
     学一下cv的基础知识[智能工厂精品课](https://github.com/haodong2000/Vision2022/tree/2023)
+
+
+## left undone
+
+[ ] 机器学习:
+- LCA推导公式
+- 前几
+- 朴素贝叶斯公式推导
+- SVM公式推导
+- sklearn的使用
+- 基础线性分类的实战
+- 黑盒模型和白盒模型的整理
+- GANS的论文阅读
+
+[ ] 概率论：
+- seaborn库的使用
+- 女士品茶
+
+[ ] 空中机器人：
+- 旋翼的受力分析（画图）
+- 四旋翼的数学建模：牛顿-高斯方程
+- 四元数、欧拉角、旋转矩阵的转化
+- 物理知识补充，扭矩等
+
+[ ] 矩阵论：
+- 伪逆：pseudo inverse 
+- 协方差矩阵
+- 范数： norm
+- SVD
+- Tensors
+- Eigen decomposition
+- Jacobian Matrix
+- Hadamard product
+- Kullback–Leibler Divergence
+- Cross-entropy
+
+[ ] 现代控制理论：
+- 状态空间模型 与 脉冲传递函数 与 差分方程的转化整理笔记
+- A4纸搜集
+
+运动控制补充一点电机的知识
