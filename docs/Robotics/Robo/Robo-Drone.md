@@ -249,8 +249,7 @@ m\ddot{p} = \begin{bmatrix} 0 \\ 0 \\ -mg \end{bmatrix} + R \begin{bmatrix} 0 \\
 $$
 
 $$
-R = 
-\begin{bmatrix} c\psi c\theta - s\phi s\psi s\theta & -c\theta s\psi & c\psi s\theta + c\theta s\phi s\psi \\ c\theta s\psi + c\psi s\phi s\theta & c\phi c\psi & s\psi s\theta - c\theta c\phi s\phi \\ -c\theta s\theta & s\phi & c\theta c\phi \end{bmatrix} 
+R = \begin{bmatrix} c\psi c\theta - s\phi s\psi s\theta & -c\theta s\psi & c\psi s\theta + c\theta s\phi s\psi \\ c\theta s\psi + c\psi s\phi s\theta & c\phi c\psi & s\psi s\theta - c\theta c\phi s\phi \\ -c\theta s\theta & s\phi & c\theta c\phi \end{bmatrix} 
 $$
 
 $$
