@@ -514,6 +514,24 @@
       PID控制
     </span>
 </a>
+<nav aria-label="PID控制" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#tuning">
+<span class="md-ellipsis">
+      tuning
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+<span class="md-ellipsis">
+      可视化
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#lqr">
@@ -2169,6 +2187,24 @@
       PID控制
     </span>
 </a>
+<nav aria-label="PID控制" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#tuning">
+<span class="md-ellipsis">
+      tuning
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+<span class="md-ellipsis">
+      可视化
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#lqr">
@@ -2193,9 +2229,91 @@
 <article class="md-content__inner md-typeset">
 <h1 id="_1">经典控制方法<a class="headerlink" href="#_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>15<span class="heti-spacing"> </span></span>个字 </p>
+<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>1166<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>5<span class="heti-spacing"> </span></span>分钟</p>
 </div>
+<p>（1）<strong>镇定</strong>：状态<span class="heti-skip"><span class="heti-spacing"> </span>x(t)<span class="heti-spacing"> </span></span>渐近稳定，也就是当<span><span class="heti-spacing"> </span>t-&gt;</span>∞时，x(t)-&gt;0</p>
+<p>（2）<strong>跟踪</strong>：状态<span class="heti-skip"><span class="heti-spacing"> </span>x(t)<span class="heti-spacing"> </span></span>的跟踪误差<span class="heti-skip"><span class="heti-spacing"> </span>e(t)=z(t)-x(t)<span class="heti-spacing"> </span></span>或输出<span class="heti-skip"><span class="heti-spacing"> </span>y(t)<span class="heti-spacing"> </span></span>的跟踪误差<span class="heti-skip"><span class="heti-spacing"> </span>e(t)=z(t)-y(t)<span class="heti-spacing"> </span></span>镇定</p>
+<p>（3）<strong>调节</strong>（Regulation<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>：说到英语，其实在机器学习里这个英语单词被翻译为 正则化，而正则化的目的是为了 “避免过拟合”，通常有<span><span class="heti-spacing"> </span>L1</span>，<span>L2<span class="heti-spacing"> </span></span>等方法，其实在最优化里面，调节通常用的是输入的<span><span class="heti-spacing"> </span>L2</span></p>
 <h2 id="pid"><span>PID<span class="heti-spacing"> </span></span>控制<a class="headerlink" href="#pid" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<div class="arithmatex">\[
+u(t) = K_p e(t) + K_i \int_{0}^{t} e(\tau) d\tau + K_d \dot{e}(t)
+\]</div>
+<p>其中：
+- <span class="arithmatex">\( u(t) \)</span> 是控制量。
+- <span class="arithmatex">\( e(t) \)</span> 是误差，即设定值与实际值之间的差。
+- <span class="arithmatex">\( K_p \)</span> 是比例增益。
+- <span class="arithmatex">\( K_i \)</span> 是积分增益。
+- <span class="arithmatex">\( K_d \)</span> 是微分增益。
+- <span class="arithmatex">\( \Delta e(t) \)</span> 是误差的变化量。
+- <span class="arithmatex">\( \Delta t \)</span> 是时间间隔。</p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240925141821.png"/></p>
+<h3 id="tuning">tuning<a class="headerlink" href="#tuning" title="anchor link to this section for reference">¶</a></h3>
+<blockquote>
+<p>先是比例后积分，最后再把微分加，
+ 曲线振荡很频繁，比例度盘要放大，
+ 曲线漂浮绕大湾，比例度盘往小扳，
+ 曲线偏离回复慢，积分时间往下降，
+ 曲线波动周期长，积分时间再加长， 
+ 曲线振荡频率快，先把微分降下来， 
+ 动差大来波动慢，微分时间应加长， 
+ 理想曲线两个波，前高后低4比1，
+ 一看二调多分析，调节质量不会低 。</p>
+</blockquote>
+<div class="admonition tip">
+<p class="admonition-title">先调整<span><span class="heti-spacing"> </span>P</span>，再调整<span><span class="heti-spacing"> </span>D</span>，最后看着调整<span><span class="heti-spacing"> </span>I</span></p>
+<p>先只使用比例控制，增大<span class="heti-skip"><span class="heti-spacing"> </span>P<span class="heti-spacing"> </span></span>系数至系统震荡之后加入微分控制<span class="heti-skip"><span class="heti-spacing"> </span>D<span class="heti-spacing"> </span></span>以增大阻尼，抑制震荡，之后再结合系统对响应和静差等具体要求来调节比例<span class="heti-skip"><span class="heti-spacing"> </span>P<span class="heti-spacing"> </span></span>和积分<span class="heti-skip"><span class="heti-spacing"> </span>I<span class="heti-spacing"> </span></span>系数。</p>
+</div>
+<h4 id="kp">粗调<span><span class="heti-spacing"> </span>KP</span><a class="headerlink" href="#kp" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<ol>
+<li>先将积分、微分系数置零，这样系统就是纯比例控制。接着<strong>逐渐增大比例系数<span><span class="heti-spacing"> </span>P</span>，直至系统出现振荡</strong>；
+<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240925142009.png"/>
+<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240925142034.png"/>
+当然，看到上面这个现象，一定要先确认一下系统硬件是否出现问题，比如电机堵转，电压不稳等，先排除硬件问题。</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">常见现象</p>
+<ul>
+<li>水温的保持中表现为温度不断上下浮动，且浮动的频率一定，最大值与最小值相差较小，</li>
+<li>在平衡车的调节中会导致平衡车一点点偏角就导致舵机打角程度十分巨大，跑起来就是左右左右不断晃动，但又勉强能跑。</li>
+</ul>
+</div>
+<ol>
+<li>我们可以看到上面比例系数过大，导致系统震荡，超调量很大。接着再逐渐减小比例系数，直至系统振荡消失。
+<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240925142217.png"/></li>
+</ol>
+<h4 id="kd">调整<span><span class="heti-spacing"> </span>Kd</span><a class="headerlink" href="#kd" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<ol>
+<li>为了抑制这个小幅度超调，我们<strong>逐步增加微分比例系数<span class="heti-skip"><span class="heti-spacing"> </span>D,<span class="heti-spacing"> </span></span>直至超调量基本消失</strong>，如果此时效果较较佳，就不用考虑引入积分环节。
+<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240925142312.png"/></li>
+</ol>
+<p>如上图我们可以看到引入微分环节之后，上升时间很短，超调量没有了，但是出现了静态误差。</p>
+<div class="admonition note">
+<p class="admonition-title">现象</p>
+<p>当<span class="heti-skip"><span class="heti-spacing"> </span>KP<span class="heti-spacing"> </span></span>调好，<span>KI<span class="heti-spacing"> </span></span>为零，<span>KD<span class="heti-spacing"> </span></span>调节过大时，水温会在达到目标值后猛地上升一下，然后回降一些，平衡车则会在你倾斜车身后猛地打死舵机，然后回过来一点</p>
+<p>当你<span class="heti-skip"><span class="heti-spacing"> </span>KD<span class="heti-spacing"> </span></span>调好，那是什么情况？那就厉害了，水温可以保持一定温度挺久，平衡车可以跑得动了</p>
+</div>
+<h4 id="ki">调整<span><span class="heti-spacing"> </span>Ki</span><a class="headerlink" href="#ki" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<ol>
+<li>
+<p><strong>因为有了静态误差，我们就需要逐渐增大积分系数<span><span class="heti-spacing"> </span>I</span></strong>，并同时观察曲线的变化，如果消除静差的时间过长，则可以再适当增大积分系数，注意兼顾系统的最大超调量。</p>
+</li>
+<li>
+<p>如果引入积分项之后系统的又出现微幅度超调，还是要继续增大点微分项来抑制，直至出现较好效果。</p>
+</li>
+<li>
+<p>在工程实践中，不同的控制系统对控制效果要求不一样，比如平衡车对系统响应速度要求高，控制门窗的开合对快速性不高，但是对稳定性和准确性要求很高。所以我们要根据被控系统要求来调节参数，并不是所有系统都追求所有指标高。</p>
+</li>
+</ol>
+<p><a href="https://zhuanlan.zhihu.com/p/682201675"><span>PID<span class="heti-spacing"> </span></span>控制参数整定<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>调参<span class="heti-skip"><span class="heti-spacing"> </span>)<span class="heti-spacing"> </span></span>太高深莫测？一篇文章掌握通用调参思路<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>知乎</a></p>
+<h3 id="_2">可视化<a class="headerlink" href="#_2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p><a href="https://www.longluo.me/blog/2023/05/05/pid/">智能控制系统的灵魂：深入研究<span class="heti-skip"><span class="heti-spacing"> </span>PID<span class="heti-spacing"> </span></span>控制器的算法逻辑<span><span class="heti-spacing"> </span>| Long Luo's Life Notes</span></a></p>
+<p>使用教程讲述了单级<span class="heti-skip"><span class="heti-spacing"> </span>PID<span class="heti-spacing"> </span></span>和串级<span class="heti-skip"><span class="heti-spacing"> </span>PID<span class="heti-spacing"> </span></span>的基本实现。可以动态调节参数对小球进行控制
+<a href="https://pid-simulator-web.skythinker.top/">PID Simulator</a>
+<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240925140315.png"/></p>
+<p><a href="https://www.longluo.me/projects/pid/"><span>PID<span class="heti-spacing"> </span></span>小球</a></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240925143658.png"/></p>
+<p><a href="https://www.longluo.me/projects/pidcart/"><span>PID Balancer | PID<span class="heti-spacing"> </span></span>平衡车</a>
+<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240925134951.png"/></p>
 <h2 id="lqr"><span>LQR<span class="heti-spacing"> </span></span>控制<a class="headerlink" href="#lqr" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <h2 id="mpc"><span>MPC<span class="heti-spacing"> </span></span>控制<a class="headerlink" href="#mpc" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <aside class="md-source-file">
@@ -2203,7 +2321,7 @@
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年9月19日 19:51:07</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年9月25日 15:46:15</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">

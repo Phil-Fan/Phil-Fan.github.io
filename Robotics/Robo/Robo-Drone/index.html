@@ -661,16 +661,23 @@
 <nav aria-label="⚙️控制基础" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#pid">
+<a class="md-nav__link" href="#_18">
 <span class="md-ellipsis">
-      PID 控制
+      平面四旋翼模型
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_18">
+<a class="md-nav__link" href="#3d">
 <span class="md-ellipsis">
-      控制系统参数
+      3D四旋翼模型
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pid">
+<span class="md-ellipsis">
+      PID 控制
     </span>
 </a>
 </li>
@@ -2343,16 +2350,23 @@
 <nav aria-label="⚙️控制基础" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#pid">
+<a class="md-nav__link" href="#_18">
 <span class="md-ellipsis">
-      PID 控制
+      平面四旋翼模型
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_18">
+<a class="md-nav__link" href="#3d">
 <span class="md-ellipsis">
-      控制系统参数
+      3D四旋翼模型
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pid">
+<span class="md-ellipsis">
+      PID 控制
     </span>
 </a>
 </li>
@@ -2421,7 +2435,7 @@
 <article class="md-content__inner md-typeset">
 <h1 id="_1">空中机器人<a class="headerlink" href="#_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>2687<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>10<span class="heti-spacing"> </span></span>分钟</p>
+<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>3392<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>13<span class="heti-spacing"> </span></span>分钟</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">要求</p>
@@ -2501,8 +2515,10 @@
 <p><strong>鸭式布局</strong></p>
 <p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240918145831.png"/></p>
 <h2 id="_14">动态模型<a class="headerlink" href="#_14" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<p><a href="https://zhuanlan.zhihu.com/p/349306054">四旋翼飞行器建模（一）— 动力学及运动学方程<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>知乎</a></p>
-<p><a href="https://blog.csdn.net/weixin_36815313/article/details/121767869">【UAV】从单个螺旋桨到四旋翼无人机运动学分析<span class="heti-skip"><span class="heti-spacing"> </span>_<span class="heti-spacing"> </span></span>无人机螺旋桨 升力<span class="heti-skip"><span class="heti-spacing"> </span>-CSDN<span class="heti-spacing"> </span></span>博客</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/349306054">四旋翼飞行器建模（一）— 动力学及运动学方程<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>知乎</a>
+<a href="https://zhuanlan.zhihu.com/p/482780836">Robotics:Aerial Robotics (空中机器人) (二) - 知乎</a>
+<a href="https://blog.csdn.net/subtitle_/article/details/133827121">刚体动力学-牛顿欧拉方程（刚体旋转）_刚体动力学方程-CSDN博客</a>
+<a href="https://blog.csdn.net/weixin_36815313/article/details/121767869">【UAV】从单个螺旋桨到四旋翼无人机运动学分析_无人机螺旋桨 升力-CSDN博客</a></p>
 <h3 id="_15">坐标系<a class="headerlink" href="#_15" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:6"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><input id="__tabbed_1_3" name="__tabbed_1" type="radio"/><input id="__tabbed_1_4" name="__tabbed_1" type="radio"/><input id="__tabbed_1_5" name="__tabbed_1" type="radio"/><input id="__tabbed_1_6" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">惯性参考系</label><label for="__tabbed_1_2">地面坐标系</label><label for="__tabbed_1_3">地球中心坐标系<span class="heti-skip"><span class="heti-spacing"> </span>ECEF<span class="heti-spacing"> </span></span></label><label for="__tabbed_1_4"><span class="heti-skip"><span class="heti-spacing"> </span>WGS84<span class="heti-spacing"> </span></span>坐标系</label><label for="__tabbed_1_5"><span class="heti-skip"><span class="heti-spacing"> </span>NED<span class="heti-spacing"> </span></span>坐标系</label><label for="__tabbed_1_6">机体坐标系</label></div>
 <div class="tabbed-content">
@@ -2588,8 +2604,90 @@ Z 轴指向CTP方向。 Y轴与X、Z轴构成右手坐标系。
 <div class="admonition tip">
 <p class="admonition-title">奇数旋翼也是可以控制的</p>
 </div>
+<h3 id="_18">平面四旋翼模型<a class="headerlink" href="#_18" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240925150048.png"/></p>
+<p><span><span class="arithmatex">\(u_1\)</span><span class="heti-spacing"> </span></span>表示推力<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="arithmatex">\(u_2\)</span><span class="heti-spacing"> </span></span>表示力矩。</p>
+<ul>
+<li>Y:$ sum F_y = -u_1 sin(phi) = mddot{y} $</li>
+<li>Z：$ sum F_z = -mg + u_1 cos(phi) = mddot{z} $</li>
+<li>力矩：$ M = u_2 = I_{xx}ddot{phi} $</li>
+</ul>
+<div class="arithmatex">\[
+\begin{bmatrix} 
+\ddot{y} \\ \ddot{z} \\ \ddot{\phi} \end{bmatrix} = \begin{bmatrix} 0 \\ -g \\ 0 \end{bmatrix} + \begin{bmatrix} -\frac{1}{m} \sin \phi &amp; 0 &amp; 0 \\ \frac{1}{m} \cos \phi &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; \frac{1}{I_{xx}} \end{bmatrix} \begin{bmatrix} u_1 \\ u_2 
+\end{bmatrix} 
+\]</div>
+<ol>
+<li>平衡悬停态：</li>
+<li>$ y_0, z_0, phi_0 = 0 $</li>
+<li>$ u_{1,0} = mg $</li>
+<li>
+<p>$ u_{2,0} = 0 $</p>
+</li>
+<li>
+<p>所以近似线性化的动力学模型：</p>
+</li>
+<li><span class="arithmatex">\(\ddot{y} = -g\phi\)</span></li>
+<li><span class="arithmatex">\(\ddot{z} = -g + \frac{u_1}{m}\)</span></li>
+<li><span class="arithmatex">\(\ddot{\phi} = \frac{u_2}{I_{xx}}\)</span></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">线性化的方法</p>
+<p>角度近似<span><span class="heti-spacing"> </span>:</span> 
+<span class="arithmatex">\(\sin \theta \approx \theta,\cos \theta \approx 1,when \quad \theta \rightarrow 0\)</span></p>
+</div>
+<h3 id="3d"><span>3D<span class="heti-spacing"> </span></span>四旋翼模型<a class="headerlink" href="#3d" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>采用串级<span class="heti-skip"><span class="heti-spacing"> </span>PID<span class="heti-spacing"> </span></span>控制，内层控制姿态，外层控制位置。</p>
+<p><strong>线性化</strong>
+- 平衡悬停态：$ (phi_0 sim 0, theta_0 sim 0, u_{1,0} sim mg) $</p>
+<p><strong>牛顿方程</strong>：</p>
+<div class="arithmatex">\[
+m\ddot{p} = \begin{bmatrix} 0 \\ 0 \\ -mg \end{bmatrix} + R \begin{bmatrix} 0 \\ 0 \\ F_1 + F_2 + F_3 + F_4 \end{bmatrix} 
+\]</div>
+<div class="arithmatex">\[
+R = \begin{bmatrix} c\psi c\theta - s\phi s\psi s\theta &amp; -c\theta s\psi &amp; c\psi s\theta + c\theta s\phi s\psi \\ c\theta s\psi + c\psi s\phi s\theta &amp; c\phi c\psi &amp; s\psi s\theta - c\theta c\phi s\phi \\ -c\theta s\theta &amp; s\phi &amp; c\theta c\phi \end{bmatrix} 
+\]</div>
+<div class="arithmatex">\[
+\begin{cases}
+\dot{p}_1 = \dot{x} = a(t)c\psi s\theta + \phi s\psi \\
+\dot{p}_2 = \dot{y} = a(t)s\psi - \phi c\psi \\
+\dot{p}_3 = \dot{z} = -g + \frac{u_1}{m}
+\end{cases}
+\]</div>
+<p><strong>欧拉角微分：</strong></p>
+<div class="arithmatex">\[ 
+\begin{bmatrix} \dot{\phi} \\ \dot{\theta} \\ \dot{\psi} \end{bmatrix} = \begin{bmatrix} c\theta &amp; 0 &amp; -c\phi s\theta \\ 0 &amp; 1 &amp; s\phi \\ s\theta &amp; 0 &amp; c\phi s\theta \end{bmatrix} \begin{bmatrix} \omega_x \\ \omega_y \\ \omega_z \end{bmatrix} 
+\]</div>
+<p>线性化后</p>
+<div class="arithmatex">\[
+\begin{bmatrix} \omega_x \\ \omega_y \\ \omega_z \end{bmatrix} = \begin{bmatrix} u_2 \\ u_3 \\ u_4 \end{bmatrix} 
+\]</div>
+<p><strong>欧拉方程</strong>：</p>
+<div class="arithmatex">\[ 
+I \cdot \begin{bmatrix} \dot{\omega}_x \\ \dot{\omega}_y \\ \dot{\omega}_z \end{bmatrix} + \begin{bmatrix} \omega_x \\ \omega_y \\ \omega_z \end{bmatrix} \times I \cdot \begin{bmatrix} \omega_x \\ \omega_y \\ \omega_z \end{bmatrix} = \begin{bmatrix} u_{2x} \\ u_{2y} \\ u_{2z} \end{bmatrix} - \begin{bmatrix} l(F_2 - F_4) \\ l(F_3 - F_1) \\ M_1 - M_2 + M_3 - M_4 \end{bmatrix} 
+\]</div>
 <h3 id="pid"><span>PID<span class="heti-spacing"> </span></span>控制<a class="headerlink" href="#pid" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<h3 id="_18">控制系统参数<a class="headerlink" href="#_18" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p><strong>位置控制</strong></p>
+<div class="arithmatex">\[
+\ddot{p}_{i,c} = \ddot{p}_i^{des} + K_{d,i}(\dot{p}_i^{des} - \dot{p}_i) + K_{p,i}(p_i^{des} - p_i) 
+\]</div>
+<div class="arithmatex">\[
+u_1 = m(g + \ddot{p}_{3,c}) 
+\]</div>
+<ul>
+<li><span class="arithmatex">\(\phi_c = \frac{1}{g}(\ddot{p}_{1,c}s\theta - \ddot{p}_{2,c}c\theta)\)</span></li>
+<li><span class="arithmatex">\(\theta_c = \frac{1}{g}(\ddot{p}_{1,c}c\theta + \ddot{p}_{2,c}s\theta)\)</span></li>
+</ul>
+<p><strong>姿态控制</strong></p>
+<p><span>PID<span class="heti-spacing"> </span></span>控制</p>
+<div class="arithmatex">\[
+\begin{bmatrix} \ddot{\phi}_c \\ \ddot{\theta}_c \\ \ddot{\psi}_c \end{bmatrix} = \begin{bmatrix} K_{p,\phi}(\phi_c - \phi) + K_{d,\phi}(\dot{\phi}_c - \dot{\phi}) \\ K_{p,\theta}(\theta_c - \theta) + K_{d,\theta}(\dot{\theta}_c - \dot{\theta}) \\ K_{p,\psi}(\psi_c - \psi) + K_{d,\psi}(\dot{\psi}_c - \dot{\psi}) 
+\end{bmatrix} 
+\]</div>
+<p>模型</p>
+<div class="arithmatex">\[
+u_2 = I \begin{bmatrix} \ddot{\phi}_c \\ \ddot{\theta}_c \\ \ddot{\psi}_c \end{bmatrix} + \begin{bmatrix} \omega_x \\ \omega_y \\ \omega_z \end{bmatrix} \times I \begin{bmatrix} \omega_x \\ \omega_y \\ \omega_z \end{bmatrix} 
+\]</div>
 <h2 id="_19">🗺️导航及仓储<a class="headerlink" href="#_19" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p>将运载体从起始点引导到目的地的技术或方法称为 导航</p>
 <h3 id="_20">定位——我在哪里<a class="headerlink" href="#_20" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
@@ -2626,7 +2724,7 @@ Z 轴指向CTP方向。 Y轴与X、Z轴构成右手坐标系。
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年9月19日 19:51:07</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年9月25日 22:22:22</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">

@@ -104,7 +104,8 @@ HKUST
 ## 动态模型
 
 [四旋翼飞行器建模（一）— 动力学及运动学方程 - 知乎](https://zhuanlan.zhihu.com/p/349306054)
-
+[Robotics:Aerial Robotics (空中机器人) (二) - 知乎](https://zhuanlan.zhihu.com/p/482780836)
+[刚体动力学-牛顿欧拉方程（刚体旋转）\_刚体动力学方程-CSDN博客](https://blog.csdn.net/subtitle_/article/details/133827121)
 [【UAV】从单个螺旋桨到四旋翼无人机运动学分析\_无人机螺旋桨 升力-CSDN博客](https://blog.csdn.net/weixin_36815313/article/details/121767869)
 ### 坐标系
 === "惯性参考系"
@@ -197,9 +198,117 @@ HKUST
 
 !!! tip "奇数旋翼也是可以控制的"
 
+### 平面四旋翼模型
+
+
+
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240925150048.png)
+
+$u_1$ 表示推力,$u_2$ 表示力矩。
+
+- Y:$ \sum F_y = -u_1 \sin(\phi) = m\ddot{y} $
+- Z：$ \sum F_z = -mg + u_1 \cos(\phi) = m\ddot{z} $
+- 力矩：$ M = u_2 = I_{xx}\ddot{\phi} $
+
+
+
+$$
+\begin{bmatrix} 
+\ddot{y} \\ \ddot{z} \\ \ddot{\phi} \end{bmatrix} = \begin{bmatrix} 0 \\ -g \\ 0 \end{bmatrix} + \begin{bmatrix} -\frac{1}{m} \sin \phi & 0 & 0 \\ \frac{1}{m} \cos \phi & 0 & 0 \\ 0 & 0 & \frac{1}{I_{xx}} \end{bmatrix} \begin{bmatrix} u_1 \\ u_2 
+\end{bmatrix} 
+$$
+
+1. 平衡悬停态：
+   - $ y_0, z_0, \phi_0 = 0 $
+   - $ u_{1,0} = mg $
+   - $ u_{2,0} = 0 $
+
+2. 所以近似线性化的动力学模型：
+   - $\ddot{y} = -g\phi$
+   - $\ddot{z} = -g + \frac{u_1}{m}$
+   - $\ddot{\phi} = \frac{u_2}{I_{xx}}$
+
+!!! note "线性化的方法"
+    角度近似: 
+    $\sin \theta \approx \theta,\cos \theta \approx 1,when \quad \theta \rightarrow 0$
+
+
+### 3D四旋翼模型
+
+
+采用串级PID控制，内层控制姿态，外层控制位置。
+
+**线性化**
+- 平衡悬停态：$ (\phi_0 \sim 0, \theta_0 \sim 0, u_{1,0} \sim mg) $
+
+**牛顿方程**：
+
+$$
+m\ddot{p} = \begin{bmatrix} 0 \\ 0 \\ -mg \end{bmatrix} + R \begin{bmatrix} 0 \\ 0 \\ F_1 + F_2 + F_3 + F_4 \end{bmatrix} 
+$$
+
+$$
+R = \begin{bmatrix} c\psi c\theta - s\phi s\psi s\theta & -c\theta s\psi & c\psi s\theta + c\theta s\phi s\psi \\ c\theta s\psi + c\psi s\phi s\theta & c\phi c\psi & s\psi s\theta - c\theta c\phi s\phi \\ -c\theta s\theta & s\phi & c\theta c\phi \end{bmatrix} 
+$$
+
+$$
+\begin{cases}
+\dot{p}_1 = \dot{x} = a(t)c\psi s\theta + \phi s\psi \\
+\dot{p}_2 = \dot{y} = a(t)s\psi - \phi c\psi \\
+\dot{p}_3 = \dot{z} = -g + \frac{u_1}{m}
+\end{cases}
+$$
+
+**欧拉角微分：**
+
+$$ 
+\begin{bmatrix} \dot{\phi} \\ \dot{\theta} \\ \dot{\psi} \end{bmatrix} = \begin{bmatrix} c\theta & 0 & -c\phi s\theta \\ 0 & 1 & s\phi \\ s\theta & 0 & c\phi s\theta \end{bmatrix} \begin{bmatrix} \omega_x \\ \omega_y \\ \omega_z \end{bmatrix} 
+$$
+
+线性化后
+
+$$
+\begin{bmatrix} \omega_x \\ \omega_y \\ \omega_z \end{bmatrix} = \begin{bmatrix} u_2 \\ u_3 \\ u_4 \end{bmatrix} 
+$$
+
+**欧拉方程**：
+
+$$ 
+I \cdot \begin{bmatrix} \dot{\omega}_x \\ \dot{\omega}_y \\ \dot{\omega}_z \end{bmatrix} + \begin{bmatrix} \omega_x \\ \omega_y \\ \omega_z \end{bmatrix} \times I \cdot \begin{bmatrix} \omega_x \\ \omega_y \\ \omega_z \end{bmatrix} = \begin{bmatrix} u_{2x} \\ u_{2y} \\ u_{2z} \end{bmatrix} - \begin{bmatrix} l(F_2 - F_4) \\ l(F_3 - F_1) \\ M_1 - M_2 + M_3 - M_4 \end{bmatrix} 
+$$
+
+
 ### PID 控制
 
-### 控制系统参数
+**位置控制**
+
+$$
+\ddot{p}_{i,c} = \ddot{p}_i^{des} + K_{d,i}(\dot{p}_i^{des} - \dot{p}_i) + K_{p,i}(p_i^{des} - p_i) 
+$$
+
+$$
+u_1 = m(g + \ddot{p}_{3,c}) 
+$$
+
+- $\phi_c = \frac{1}{g}(\ddot{p}_{1,c}s\theta - \ddot{p}_{2,c}c\theta)$
+- $\theta_c = \frac{1}{g}(\ddot{p}_{1,c}c\theta + \ddot{p}_{2,c}s\theta)$
+
+**姿态控制**
+
+PID控制
+
+$$
+\begin{bmatrix} \ddot{\phi}_c \\ \ddot{\theta}_c \\ \ddot{\psi}_c \end{bmatrix} = \begin{bmatrix} K_{p,\phi}(\phi_c - \phi) + K_{d,\phi}(\dot{\phi}_c - \dot{\phi}) \\ K_{p,\theta}(\theta_c - \theta) + K_{d,\theta}(\dot{\theta}_c - \dot{\theta}) \\ K_{p,\psi}(\psi_c - \psi) + K_{d,\psi}(\dot{\psi}_c - \dot{\psi}) 
+\end{bmatrix} 
+$$
+
+
+模型
+
+$$
+u_2 = I \begin{bmatrix} \ddot{\phi}_c \\ \ddot{\theta}_c \\ \ddot{\psi}_c \end{bmatrix} + \begin{bmatrix} \omega_x \\ \omega_y \\ \omega_z \end{bmatrix} \times I \begin{bmatrix} \omega_x \\ \omega_y \\ \omega_z \end{bmatrix} 
+$$
 
 
 ## 🗺️导航及仓储
