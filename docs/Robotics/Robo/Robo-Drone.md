@@ -212,35 +212,9 @@ $u_1$ 表示推力,$u_2$ 表示力矩。
 - 力矩：$ M = u_2 = I_{xx}\ddot{\phi} $
 
 
-
-$$
-\begin{bmatrix} 
-\ddot{y} \\ \ddot{z} \\ \ddot{\phi} \end{bmatrix} = \begin{bmatrix} 0 \\ -g \\ 0 \end{bmatrix} + \begin{bmatrix} -\frac{1}{m} \sin \phi & 0 & 0 \\ \frac{1}{m} \cos \phi & 0 & 0 \\ 0 & 0 & \frac{1}{I_{xx}} \end{bmatrix} \begin{bmatrix} u_1 \\ u_2 
-\end{bmatrix} 
-$$
-
-1. 平衡悬停态：
-   - $ y_0, z_0, \phi_0 = 0 $
-   - $ u_{1,0} = mg $
-   - $ u_{2,0} = 0 $
-
-2. 所以近似线性化的动力学模型：
-   - $\ddot{y} = -g\phi$
-   - $\ddot{z} = -g + \frac{u_1}{m}$
-   - $\ddot{\phi} = \frac{u_2}{I_{xx}}$
-
-!!! note "线性化的方法"
-    角度近似: 
-    $\sin \theta \approx \theta,\cos \theta \approx 1,when \quad \theta \rightarrow 0$
-
-
-### 3D四旋翼模型
-
-
-采用串级PID控制，内层控制姿态，外层控制位置。
-
 **线性化**
-- 平衡悬停态：$ (\phi_0 \sim 0, \theta_0 \sim 0, u_{1,0} \sim mg) $
+
+- 平衡悬停态： $(\phi_0 \sim 0, \theta_0 \sim 0, u_{1,0} \sim mg)$
 
 **牛顿方程**：
 
@@ -249,66 +223,56 @@ m\ddot{p} = \begin{bmatrix} 0 \\ 0 \\ -mg \end{bmatrix} + R \begin{bmatrix} 0 \\
 $$
 
 $$
-R = \begin{bmatrix} c\psi c\theta - s\phi s\psi s\theta & -c\theta s\psi & c\psi s\theta + c\theta s\phi s\psi \\ c\theta s\psi + c\psi s\phi s\theta & c\phi c\psi & s\psi s\theta - c\theta c\phi s\phi \\ -c\theta s\theta & s\phi & c\theta c\phi \end{bmatrix} 
+其中R = \begin{bmatrix} c\psi c\theta - s\phi s\psi s\theta & -c\theta s\psi & c\psi s\theta + c\theta s\phi s\psi \\ c\theta s\psi + c\psi s\phi s\theta & c\phi c\psi & s\psi s\theta - c\theta c\phi s\phi \\ -c\theta s\theta & s\phi & c\theta c\phi \end{bmatrix}
 $$
 
 $$
-\begin{cases}
-\dot{p}_1 = \dot{x} = a(t)c\psi s\theta + \phi s\psi \\
-\dot{p}_2 = \dot{y} = a(t)s\psi - \phi c\psi \\
-\dot{p}_3 = \dot{z} = -g + \frac{u_1}{m}
+在小角度近似的情况下，得到\begin{cases}
+\ddot{p}_1 = \ddot{x} = g(\theta c\psi + \phi s\psi )\\
+\ddot{p}_2 = \ddot{y} = g(\theta s\psi - \phi c\psi) \\
+\ddot{p}_3 = \ddot{z} = -g + \frac{u_1}{m}
 \end{cases}
 $$
 
+!!! note "线性化的方法"
+    角度近似: 
+    $\sin \theta \approx \theta,\cos \theta \approx 1,when \quad \theta \rightarrow 0$
+
+
 **欧拉角微分：**
 
-$$ 
-\begin{bmatrix} \dot{\phi} \\ \dot{\theta} \\ \dot{\psi} \end{bmatrix} = \begin{bmatrix} c\theta & 0 & -c\phi s\theta \\ 0 & 1 & s\phi \\ s\theta & 0 & c\phi s\theta \end{bmatrix} \begin{bmatrix} \omega_x \\ \omega_y \\ \omega_z \end{bmatrix} 
+$$
+\begin{bmatrix} \omega_x \\ \omega_y \\ \omega_z \end{bmatrix} = \begin{bmatrix} c\theta & 0 & -c\phi s\theta \\ 0 & 1 & s\phi \\ s\theta & 0 & c\phi s\theta \end{bmatrix} \begin{bmatrix} \dot{\phi} \\ \dot{\theta} \\ \dot{\psi} \end{bmatrix}
 $$
 
 线性化后
 
 $$
-\begin{bmatrix} \omega_x \\ \omega_y \\ \omega_z \end{bmatrix} = \begin{bmatrix} u_2 \\ u_3 \\ u_4 \end{bmatrix} 
+\begin{bmatrix} \omega_x \\ \omega_y \\ \omega_z \end{bmatrix} = \begin{bmatrix} \dot{\phi} \\ \dot{\theta} \\ \dot{\psi} \end{bmatrix}
 $$
 
 **欧拉方程**：
 
-$$ 
-I \cdot \begin{bmatrix} \dot{\omega}_x \\ \dot{\omega}_y \\ \dot{\omega}_z \end{bmatrix} + \begin{bmatrix} \omega_x \\ \omega_y \\ \omega_z \end{bmatrix} \times I \cdot \begin{bmatrix} \omega_x \\ \omega_y \\ \omega_z \end{bmatrix} = \begin{bmatrix} u_{2x} \\ u_{2y} \\ u_{2z} \end{bmatrix} - \begin{bmatrix} l(F_2 - F_4) \\ l(F_3 - F_1) \\ M_1 - M_2 + M_3 - M_4 \end{bmatrix} 
+$$
+I\cdot \begin{bmatrix} \ddot{\phi} \\ \ddot{\theta} \\ \ddot{\psi} \end{bmatrix} + \begin{bmatrix} \omega_x \\ \omega_y \\ \omega_z \end{bmatrix} \times I \cdot \begin{bmatrix} \omega_x \\ \omega_y \\ \omega_z \end{bmatrix} = \begin{bmatrix} l(F_2 - F_4) \\ l(F_3 - F_1) \\ M_1 - M_2 + M_3 - M_4 \end{bmatrix}
 $$
 
-
-### PID 控制
+### PID控制
 
 **位置控制**
 
 $$
-\ddot{p}_{i,c} = \ddot{p}_i^{des} + K_{d,i}(\dot{p}_i^{des} - \dot{p}_i) + K_{p,i}(p_i^{des} - p_i) 
+\ddot{p}_{i,c} = \ddot{p}_i^{des} + K_{d,i}(\dot{p}_i^{des} - \dot{p}_i) + K_{p,i}(p_i^{des} - p_i) \\
 $$
 
-$$
-u_1 = m(g + \ddot{p}_{3,c}) 
-$$
+- 由上述方程可以求出$p_{i,c}$
+- 再带入牛顿方程的解的到预期的$\phi_c$、$\theta_c$和$u_1$
+  - $\phi_c = \frac{1}{g}(\ddot{p}_{1,c}s\psi - \ddot{p}_{2,c}c\psi)$
+  - $\theta_c = \frac{1}{g}(\ddot{p}_{1,c}c\psi + \ddot{p}_{2,c}s\psi)$
+  - $u_1 = m(g + \ddot{p}_{3,c})$
 
-- $\phi_c = \frac{1}{g}(\ddot{p}_{1,c}s\theta - \ddot{p}_{2,c}c\theta)$
-- $\theta_c = \frac{1}{g}(\ddot{p}_{1,c}c\theta + \ddot{p}_{2,c}s\theta)$
+!!! tip "注意：这些$\psi$是当前测量的yaw ，不是期望的 yaw"
 
-**姿态控制**
-
-PID控制
-
-$$
-\begin{bmatrix} \ddot{\phi}_c \\ \ddot{\theta}_c \\ \ddot{\psi}_c \end{bmatrix} = \begin{bmatrix} K_{p,\phi}(\phi_c - \phi) + K_{d,\phi}(\dot{\phi}_c - \dot{\phi}) \\ K_{p,\theta}(\theta_c - \theta) + K_{d,\theta}(\dot{\theta}_c - \dot{\theta}) \\ K_{p,\psi}(\psi_c - \psi) + K_{d,\psi}(\dot{\psi}_c - \dot{\psi}) 
-\end{bmatrix} 
-$$
-
-
-模型
-
-$$
-u_2 = I \begin{bmatrix} \ddot{\phi}_c \\ \ddot{\theta}_c \\ \ddot{\psi}_c \end{bmatrix} + \begin{bmatrix} \omega_x \\ \omega_y \\ \omega_z \end{bmatrix} \times I \begin{bmatrix} \omega_x \\ \omega_y \\ \omega_z \end{bmatrix} 
-$$
 
 
 ## 🗺️导航及仓储
