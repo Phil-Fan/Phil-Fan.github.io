@@ -33,6 +33,43 @@
 秩：rank
 求逆：inverse
 
+相似对角化：
+[全网最快速的特征向量暴力求法（纯干货技巧）\_哔哩哔哩\_bilibili](https://www.bilibili.com/video/BV1aT411E75Q/?spm_id_from=333.337.top_right_bar_window_history.content.click)
+[相似对角化太难算，哈-凯定理怒斩A的n次方！（细节拉满了）\_哔哩哔哩\_bilibili](https://www.bilibili.com/video/BV11P411w716/?spm_id_from=333.337.search-card.all.click&vd_source=8b7a5460b512357b2cf80ce1cefc69f5)
+
+!!! note "求解方法"
+     **求特征值**：
+    - 计算矩阵 \( A \) 的特征值 \(\lambda_i\)（\(i = 1, 2, \ldots, n\)），这些特征值将构成对角矩阵 \( \Lambda \) 的对角线元素。
+
+    **求特征向量**：
+    - 对于每个特征值 \(\lambda_i\)，求解特征向量 \( v_i \)，这些特征向量将构成矩阵 \( P \) 的列。
+
+    **构造对角矩阵和特征向量矩阵**：
+    - 对角矩阵 \( \Lambda \)：
+        
+        \[
+        \Lambda = \begin{bmatrix}
+        \lambda_1 & 0 & \cdots & 0 \\
+        0 & \lambda_2 & \cdots & 0 \\
+        \vdots & \vdots & \ddots & \vdots \\
+        0 & 0 & \cdots & \lambda_n
+        \end{bmatrix}
+        \]
+        
+    - 特征向量矩阵 \( P \)：
+  
+        \[
+        P = \begin{bmatrix}
+        | & | & & | \\
+        v_1 & v_2 & \cdots & v_n \\
+        | & | & & |
+        \end{bmatrix}
+        \]
+
+    **验证对角化**：
+    - 验证 \( A = P \Lambda P^{-1} \) 是否成立。
+
+
 
 矩阵求逆引理：matrix inverse lemma
 伪逆：pseudo inverse 
