@@ -422,8 +422,9 @@ nav:
     - else/coffee.md
 
   - "🗺️出行":
-    - else/C-Driving.md
-    - else/C-journey.md
+    - else/Travel/C-Driving.md
+    - else/Travel/C-journey.md
+    - else/Travel/C-J-江西.md
 
   - "🎶音乐":
     - else/music_theory.md
