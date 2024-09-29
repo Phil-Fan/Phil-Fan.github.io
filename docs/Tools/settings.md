@@ -710,3 +710,22 @@ PlatformIO is a cross-platform, cross-architecture, multiple framework, professi
 在qq邮箱设置处开启IMAP/SMTP服务，需要绑定手机号，然后手机发验证短信
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240814123902.png)
 发完验证短信后，会有一个授权码，这个授权码就是密码
+
+
+## 计算器
+- 设置自变量计算
+- 复数计算、幅角计算
+- 概统计算：正态分布；各种统计量；双变量统计；使用统计量进行计算；
+
+**相关资料**</br>
+- [统计基础篇](https://zhuanlan.zhihu.com/p/67842031)</br>
+- [统计提高篇](https://zhuanlan.zhihu.com/p/67942971)</br>
+- [正态相关](https://zhuanlan.zhihu.com/p/144720947)</br>
+- [电路中的应用,建议30min处开始食用](https://www.bilibili.com/video/BV1mh411d7yX)</br>
+
+
+另外，电脑上也是可以装计算器的，我有时候忘记带计算器就会用电脑上的模拟软件</br>
+可以免费用三个月，用完额度可以再安装一遍ac01</br>
+
+[官网模拟器下载地址](https://edu.casio.com/softwarelicense/index.php)</br>
+[官方说明书pdf文件](https://support.casio.com/storage/cn/manual/pdf/CN/004/fx-991CN_X_B_CN.pdf)
