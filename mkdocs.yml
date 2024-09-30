@@ -372,10 +372,10 @@ nav:
     
 - Explore:
   - Finance:
-    - Explore/Fin/Fintech.md
+    - Explore/Fin/finance.md
+    - Explore/Fin/invest.md
     - Explore/Fin/consulting.md
     - Explore/Fin/industry-analyze.md
-    - Explore/Fin/政治经济学.md
 
   - Books:
     - Explore/Books/The Innovator`s Dilemma.md 
@@ -403,7 +403,7 @@ nav:
   - Tools/sites.md
   
   - Tools/settings.md
-  - Tools/macos.md
+  - Tools/settings-macos.md
   
 
 - "生命因你而火热":
