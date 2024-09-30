@@ -29,7 +29,7 @@ print(sign)
 ```
 
 ```shell
-curl 'https://oapi.dingtalk.com/robot/send?access_token=e38c17665a9040accbf47ea92764cc4ec4329e44602f0740e0fe80b09714f94c' -H 'Content-Type: application/json'  -d '{"msgtype": "text","text": {"content":"我就是我, 是不一样的烟火"}}'
+curl 'https://oapi.dingtalk.com/robot/send?access_token=e4329714f94c' -H 'Content-Type: application/json'  -d '{"msgtype": "text","text": {"content":"我就是我, 是不一样的烟火"}}'
 ```
 ### 消息类型
 [自定义机器人接入 - 钉钉开放平台](https://open.dingtalk.com/document/orgapp/custom-robot-access)
