@@ -22,12 +22,15 @@
 [mkdocs-jupyter](https://pypi.org/project/mkdocs-jupyter/)
 [Jupytext demo (.py) - mkdocs-jupyter demo](https://mkdocs-jupyter.danielfrg.com/demo-script/)
 
+[mkdocs-jupyter/demo/mkdocs.yml at main · danielfrg/mkdocs-jupyter](https://github.com/danielfrg/mkdocs-jupyter/blob/main/demo/mkdocs.yml)
+
+
 ```shell
 pip install mkdocs-jupyter
 ```
 
 
-```yml
+```yml title="mkdocs.yml" hl_lines="11" linenums="1"
 nav:
     - Home: index.md
     - Notebook page: notebook.ipynb
@@ -38,9 +41,45 @@ plugins:
         kernel_name: python3
         theme: dark
         include_source: True
+        custom_mathjax_url: "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS_CHTML-full,Safe"
 ```
 
+!!! bug "遇到的问题"
+    1. 无法显示数学公式（解决方法：加上了js文件）
+    2. toc配置与之前的逻辑不同，导致自动配置123的时候出现错误
+    3. 奇怪的路径问题
 
+    ```
+      DeprecationWarning: Jupyter is migrating its paths to use standard platformdirs
+      given by the platformdirs library.  To remove this warning and
+      see the appropriate new directories, set the environment variable
+      `JUPYTER_PLATFORM_DIRS=1` and then run `jupyter --paths`.
+      The use of platformdirs will be the default in `jupyter_core` v6
+    ```
+
+    [DeprecationWarning: Jupyter is migrating its paths to use standard platformdirs · Issue #148 · danielfrg/mkdocs-jupyter](https://github.com/danielfrg/mkdocs-jupyter/issues/148)
+
+
+如果想要实现material中的某些功能，需要自己写html代码
+
+```html
+<details class="tip">
+    <summary>Extra: What are latent variables?</summary>
+    <p><br>
+    If you go about exploring any paper talking about Variational Inference, then most certainly, the papers mention about latent variables instead of parameters. The parameters are fixed quantities for the model whereas latent variables are  <strong>unobserved</strong> quantities of the model conditioned on parameters. Also, we model parameters by probability distributions. For simplicity, let's consider the running terminology of  <strong>parameters </strong> only.
+    </p>
+</details>
+```
+  
+
+```html
+<div class="admonition success">
+    <p class="admonition-title">Success</p>
+    <p>
+        The above ELBO equation is the final one which needs to be optimized.
+    </p>
+</div>
+```
 
 
 
