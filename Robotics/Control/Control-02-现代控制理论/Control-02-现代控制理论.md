@@ -1,6 +1,14 @@
 # 现代控制理论
+> 以此笔记致敬DR_CAN，感谢他的无私奉献
+
 
 !!! note "资源汇总"
+    === "学习路径"
+        - DR_CAN [现代控制理论系列课程](https://www.bilibili.com/video/BV1yx411u7iX/)+王崇卫笔记
+        - 课本阅读
+        - 作业题目
+        - 课件
+        - 历年题目
     === "历年卷"
         - [2023-2024 秋冬 回忆卷](http://www-cc98-org-s.webvpn.zju.edu.cn:8001/topic/5748670)
         - [2023-2024 秋 回忆卷](http://www-cc98-org-s.webvpn.zju.edu.cn:8001/topic/5748295)
@@ -14,6 +22,35 @@
         - [A4 Healor](http://www-cc98-org-s.webvpn.zju.edu.cn:8001/topic/5826788)
         - [A4 Rainbow0](http://www-cc98-org-s.webvpn.zju.edu.cn:8001/topic/5658322)
 
+
+## 总论
+
+首先要理解**状态空间模型**，求传递函数
+
+$$
+\begin{aligned}
+\dot{x} &= Ax + Bu \\
+y &= Cx + Du
+\end{aligned}
+$$
+
+其中，A是系统矩阵，B是输入矩阵，C是输出矩阵，D是直接传递矩阵；u是输入，y是输出，x是状态
+
+**Open Loop**：其次要理解系统状态矩阵$\mathbf{A}$
+
+- 特征值的实部决定了系统的稳定性，与$|\lambda I - A|$是一样的
+
+
+**Close Loop**：
+了解了稳定性之后，我们就可以通过设计闭环特征矩阵$\mathbf{A_{cl}}$来达到我们想要的效果：这里可以使用线性控制器、LQR来求解合适的K参数
+
+**能控性和能观性**
+- 能控性：是否可以从一个点控制到另一个点（不是路径控制）
+- 能观性：并不是所有的状态都可以被观测到，所以需要设计观测器来估计系统的状态
+- 可以根据observer观测的结果来设计控制器进而控制系统
+
+[现代控制理论串讲 - DR_CAN](https://www.bilibili.com/video/BV1jW411J729/)
+
 [现代控制理论重点概念梳理 - 知乎](https://www.zhihu.com/column/c_1131936304564453376)
 
 [现代控制理论-重点知识汇总\_现代控制理论知识点总结-CSDN博客](https://blog.csdn.net/qq_31274209/article/details/105156993)
@@ -23,14 +60,23 @@
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240922170358.png)
 
 
-反馈控制：跑步机上跑步 | 利用系统的输出量以参考数量的偏差进行控制，使系统的输出量与参考量之间的偏差尽可能小
-
-最优控制：田径赛跑 | 所谓最优控制就是寻找一个允许控制，使得被控系统在满足各种约束的条件下，使给定的性能指标达到最优
+=== "反馈控制"
+    跑步机上跑步 | 利用系统的输出量以参考数量的偏差进行控制，使系统的输出量与参考量之间的偏差尽可能小
+=== "最优控制"
+    田径赛跑 | 所谓最优控制就是寻找一个允许控制，使得被控系统在满足各种约束的条件下，使给定的性能指标达到最优
 
 ## 离散系统描述
 
 零输入分量： $x(t) = 0,f(0^+) = f(0^-)$
 零状态分量： $f^{n}(0^-) = 0$
+
+### 采样
+
+就像减肥过程称体重，比如说你每十分钟就测一次体重：这就会产生两个问题
+- 体重并不是一个快速响应的系统，需要时间体现变化，会采集到大量重复信息
+- 读取这个体重后开始参考制定计划，计划还没有制定出来，就需要进行下一次测量了
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241003142612.png)
 
 ### z变换
 - 留数法
@@ -222,10 +268,90 @@ $$
     $$
 
 
+## 稳定性
+
+### Lyapunov稳定性定义
+
+**Lyapunov: the origin(equilibrium point at the origin) is stable**（在于有界）
+
+$\forall t_0,\forall\epsilon>0, \exists \delta(t_0,\epsilon): ||x(t_0)||<\delta(t_0,\epsilon) \Rightarrow \forall t\ne t_0 ||x(t)||<\epsilon$
+
+$x(t_0)$是起始点，给定$\epsilon$和$\delta$不会出边界（蓝色线条）
+
+**asymptotically stable**（在于随着时间趋于零）
+
+$\exists \delta(t_0)>0: ||x(t_0)||<\delta(t_0) \Rightarrow \lim_{t\rightarrow\infty}||x(t)|| = 0$
+
+最后会回到原点（棕色线条）
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240926012538.png)
+
+### 稳定条件
+
+- 特征根具有负实部
+- A的特征值
+- z传递函数分布在单位圆内部
+
+引入采样器会降低稳定性
+
+!!! note "trick"
+    特征值之和等于矩阵的迹
+
+    特征值之积等于矩阵的行列式
+
+    可以用来迅速判断不稳定的情况
+
+|stability|$\lambda = a+bi$|
+|---|---|
+|lyapunov| $a \le 0$|
+|渐进| $a < 0$|
+|不稳定| $a>0$|
+
+
+### 处理非线性系统
+对于一个非线性系统，其状态方程可以表示为：
+$$\dot{x} = f(x,t)$$
+
+Lyapunov函数 $V(x)$ 是一个关于系统状态 $x$ 的标量函数，它满足以下条件：
+1. $V(x)$ 在系统平衡点 $x^*$ 处取得最小值，即 $V(x^*) = 0$。
+2. $V(x)$ 在系统状态空间中是正定的，即对于任意的 $x \neq x^*$，都有 $V(x) > 0$。
+3. 系统状态的导数 $\dot{V}(x)$ 在系统平衡点附近是负定的，即对于任意的 $x$ 在平衡点附近，都有 $\dot{V}(x) < 0$。
+
+根据Lyapunov稳定性理论，如果存在一个满足上述条件的Lyapunov函数，那么系统在平衡点 $x^*$ 处是稳定的。如果 $\dot{V}(x)$ 在系统状态空间中始终为负，那么系统在平衡点 $x^*$ 处是渐近稳定的。
+
+!!! tip "寻找v的过程是一门艺术"
 
 
 
-## 能控能观性（定性）
+PSD(positive simi definate)半正定
+
+NSD(negative semi definate)
+
+PD(positive definate)
+
+ND(negative definate)
+
+### 劳斯判据
+
+### 根轨迹
+
+### 频域方法
+
+
+## 系统设计
+### 状态矩阵（重中之重）
+$$
+\dot{x} = \mathbf{A_{cl}}x
+$$
+
+其中，$\mathbf{A}$ 的特征值$\lambda$
+
+1. $\lambda$的实部决定的了收敛性和收敛速度
+2. 如果极点是虚数，必定有共轭，且表示有振动
+
+!!! note "拿到一个系统之后，需要先判定这个系统是不是可控的"
+
+
 ### 能控性
 是否可以从一个点控制到另一个点（不是轨迹控制）
 
@@ -240,47 +366,137 @@ $$
 - $B$ 是输入矩阵。
 - $n$ 是系统的状态变量的维数。
 
-通过计算能控矩阵 $\mathbf{CO}$ 的秩，可以判断系统是否能控。如果 $rank(\mathbf{CO}) = n$，则系统是能控的；否则，系统不是能控的。
+通过计算能控矩阵 $\mathbf{CO}$ 的秩，可以判断系统是否能控。如果 $rank(\mathbf{CO}) = n$，则系统是能控的(行满秩)；否则，系统不是能控的。
+
+```matlab
+Co = ctrb(A,B) # return the controllability matrix
+```
+
+在现实中需要考虑物理因素，所以不一定完全可控
+
+#### 线性控制器
+
+
+
+线性控制器：
+
+选定k1和k2 $\rightarrow$ 设计闭环系统$A_{cl}$的特征值 $\rightarrow$ 控制系统表现
+
+lqr 控制器
+
+Q 侧重于系统状态
+R 更侧重于控制器输入
+
+
+
+
+
+??? note "例子"
+
+    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241003150854.png)
+
+    === "建立状态空间模型"
+
+        $$
+        \begin{cases}
+        \dot{x}_1 = \dot{\phi} = x_2 \\
+        \dot{x}_2 = \ddot{\phi} = \frac{g}{L} \phi - \frac{1}{L} \ddot\delta= \frac{g}{L} x_1 - u
+        \end{cases}
+        $$
+
+        其中，$\phi$ 是角度，$\delta$ 是控制输入，$g$ 是重力加速度，$L$ 是摆长。
+
+        $$
+        \begin{bmatrix}
+        \dot{x}_1 \\
+        \dot{x}_2
+        \end{bmatrix}=
+        \begin{bmatrix}
+        0 & 1 \\
+        \frac{g}{L} & 0
+        \end{bmatrix}
+        \begin{bmatrix}
+        x_1 \\
+        x_2
+        \end{bmatrix}
+        +
+        \begin{bmatrix}
+        0 \\
+        -1
+        \end{bmatrix}
+        u
+        $$
+
+
+    === "开环系统"
+
+        $$
+        A = \begin{bmatrix}
+        0 & 1 \\
+        \frac{g}{L} & 0
+        \end{bmatrix}, \quad |\lambda I - A| = 0 \implies \lambda^2 - \frac{g}{L} = 0 \implies \lambda = \pm \sqrt{\frac{g}{L}}
+        $$
+
+        由于特征值 $\lambda = \pm \sqrt{\frac{g}{L}}$ 是正实数，因此开环系统是不稳定的。
+
+    === "能控性矩阵$Co$"
+
+        $$
+        C_0 = \begin{bmatrix} B & AB \end{bmatrix} = \begin{bmatrix} 0 & -1 \\ -1 & 0 \end{bmatrix}
+        $$
+
+        $Rank(C_0) =2$,能控
+
+    === "设计线性控制器"
+
+        假设目标是设计一个反馈控制律，使得闭环系统的特征值 $\lambda_1$ 和 $\lambda_2$ 都等于 -1。
+
+        为了实现这个目标，我们选择一个状态反馈控制律 $ u = - [k_1 \quad k_2] \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} $。
+
+        $$
+        \dot{x} = \begin{bmatrix} 0 & 1 \\ \frac{g}{L} & 0 \end{bmatrix} x + \begin{bmatrix} 0 \\ -1 \end{bmatrix} [k_1 \quad k_2] \begin{bmatrix} x_1 \\ x_2 \end{bmatrix}= \begin{bmatrix} 0 & 1 \\ \frac{g}{L} + k_2 & 0 \end{bmatrix} x
+        $$
+
+        闭环系统的特征方程为：
+
+        $$
+        |\lambda I - A_{\text{cl}}| = 0 \implies \lambda^2 - (k_2 \lambda + \frac{g}{L} + k_1) = 0
+        $$
+
+        $$
+        k_1 = -1 - \frac{g}{L}, \quad k_2 = -2
+        $$
+
+        因此，反馈控制律为：
+
+        $$
+        u = - [-1 - \frac{g}{L} \quad -2] \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} = [1 + \frac{g}{L} \quad 2] \begin{bmatrix} \phi \\ \dot{\phi} \end{bmatrix}
+        $$
+
+
+!!! note "理解u"
+    u是控制器的输入，随着系统输出x的变化而变化，所以可以看作是闭环的系统
+    
+    理论上，u可以随便选，但实际应用当中要考虑执行器的情况。比如自动驾驶场景，输入u是方向盘的角度，就是有界的。
 
 
 
 ### 能观性
+!!! note ""
+    Kálmán published several seminal papers during the sixties, which rigorously established what is now known as the state-space representation of dynamical systems. He introduced the formal definition of a system, the notions of controllability and observability
+    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241003163103.png)
+
+**observer**: 通过系统的输入和输出来估计系统的状态
+
+luenberger observer 龙贝格
+
+卡尔曼滤波器就是随机系统的状态观测器
+
+### 分离原理
+
+最好观测器的收敛速度要比控制器要快
+
+### 根据观测器设计控制器
 
 
-## 系统的稳定性与李亚普诺夫稳定性(Lyapunov)
 
-### 定义
-
-Lyapunov: the origin(equilibrium point at the origin) is stable
-
-$\forall t_0,\forall\epsilon>0,\exist \delta(t_0,\epsilon): ||x(t_0)||<\delta(t_0,\epsilon) \Rightarrow \forall t\ne t_0 ||x(t)||<\epsilon$
-
-不会出边界（蓝色线条）
-
-asympotically stable
-
-$\exist\delta(t_0)>0: ||x(t_0)||<\delta(t_0) \Rightarrow \lim_{t\rightarrow\infty}||x(t)|| = 0$
-
-最后会回到原点（棕色线条）
-
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240926012538.png)
-
-### 稳定条件
-
-- 特征根具有负实部
-- A的特征值
-- z传递函数分布在单位圆内部
-
-引入采样器会降低稳定性
-
-
-### 劳斯判据
-
-### 根轨迹
-
-### 频域方法
-
-
-## 极点配置、镇定、解耦
-
-## 最优控制

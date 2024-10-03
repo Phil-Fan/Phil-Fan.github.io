@@ -5,12 +5,10 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="PhilFan的笔记本" name="description"/>
 <meta content="PhilFan" name="author"/>
-<link href="https://www.philfan.cn/CS/Statistic/01-probability/" rel="canonical"/>
-<link href="../00-intro/" rel="prev"/>
-<link href="../02-Univariate_Random_Variable/" rel="next"/>
+<link href="https://www.philfan.cn/CS/Statistic/Lab03-st/" rel="canonical"/>
 <link href="../../../logo.ico" rel="icon"/>
 <meta content="mkdocs-1.6.0, mkdocs-material-9.5.31" name="generator"/>
-<title>样本空间与概率 - PhilFan's Notebook</title>
+<title>Lab03 - PhilFan's Notebook</title>
 <link href="../../../assets/stylesheets/main.3cba04c6.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1 7.775V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 0 1 0 2.474l-5.026 5.026a1.75 1.75 0 0 1-2.474 0l-6.25-6.25A1.752 1.752 0 0 1 1 7.775Zm1.5 0c0 .066.026.13.073.177l6.25 6.25a.25.25 0 0 0 .354 0l5.025-5.025a.25.25 0 0 0 0-.354l-6.25-6.25a.25.25 0 0 0-.177-.073H2.75a.25.25 0 0 0-.25.25ZM6 5a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"/></svg>');--md-admonition-icon--abstract:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.5 1.75v11.5c0 .138.112.25.25.25h3.17a.75.75 0 0 1 0 1.5H2.75A1.75 1.75 0 0 1 1 13.25V1.75C1 .784 1.784 0 2.75 0h8.5C12.216 0 13 .784 13 1.75v7.736a.75.75 0 0 1-1.5 0V1.75a.25.25 0 0 0-.25-.25h-8.5a.25.25 0 0 0-.25.25Zm13.274 9.537v-.001l-4.557 4.45a.75.75 0 0 1-1.055-.008l-1.943-1.95a.75.75 0 0 1 1.062-1.058l1.419 1.425 4.026-3.932a.75.75 0 1 1 1.048 1.074ZM4.75 4h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM4 7.75A.75.75 0 0 1 4.75 7h2a.75.75 0 0 1 0 1.5h-2A.75.75 0 0 1 4 7.75Z"/></svg>');--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/></svg>');--md-admonition-icon--tip:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.499.75a.75.75 0 0 1 1.5 0v.996C5.9 2.903 6.793 3.65 7.662 4.376l.24.202c-.036-.694.055-1.422.426-2.163C9.1.873 10.794-.045 12.622.26 14.408.558 16 1.94 16 4.25c0 1.278-.954 2.575-2.44 2.734l.146.508.065.22c.203.701.412 1.455.476 2.226.142 1.707-.4 3.03-1.487 3.898C11.714 14.671 10.27 15 8.75 15h-6a.75.75 0 0 1 0-1.5h1.376a4.484 4.484 0 0 1-.563-1.191 3.835 3.835 0 0 1-.05-2.063 4.647 4.647 0 0 1-2.025-.293.75.75 0 0 1 .525-1.406c1.357.507 2.376-.006 2.698-.318l.009-.01a.747.747 0 0 1 1.06 0 .748.748 0 0 1-.012 1.074c-.912.92-.992 1.835-.768 2.586.221.74.745 1.337 1.196 1.621H8.75c1.343 0 2.398-.296 3.074-.836.635-.507 1.036-1.31.928-2.602-.05-.603-.216-1.224-.422-1.93l-.064-.221c-.12-.407-.246-.84-.353-1.29a2.425 2.425 0 0 1-.507-.441 3.075 3.075 0 0 1-.633-1.248.75.75 0 0 1 1.455-.364c.046.185.144.436.31.627.146.168.353.305.712.305.738 0 1.25-.615 1.25-1.25 0-1.47-.95-2.315-2.123-2.51-1.172-.196-2.227.387-2.706 1.345-.46.92-.27 1.774.019 3.062l.042.19a.884.884 0 0 1 .01.05c.348.443.666.949.94 1.553a.75.75 0 1 1-1.365.62c-.553-1.217-1.32-1.94-2.3-2.768L6.7 5.527c-.814-.68-1.75-1.462-2.692-2.619a3.737 3.737 0 0 0-1.023.88c-.406.495-.663 1.036-.722 1.508.116.122.306.21.591.239.388.038.797-.06 1.032-.19a.75.75 0 0 1 .728 1.31c-.515.287-1.23.439-1.906.373-.682-.067-1.473-.38-1.879-1.193L.75 5.677V5.5c0-.984.48-1.94 1.077-2.664.46-.559 1.05-1.055 1.673-1.353V.75Z"/></svg>');--md-admonition-icon--success:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"/></svg>');--md-admonition-icon--question:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.92 6.085h.001a.749.749 0 1 1-1.342-.67c.169-.339.436-.701.849-.977C6.845 4.16 7.369 4 8 4a2.756 2.756 0 0 1 1.637.525c.503.377.863.965.863 1.725 0 .448-.115.83-.329 1.15-.205.307-.47.513-.692.662-.109.072-.22.138-.313.195l-.006.004a6.24 6.24 0 0 0-.26.16.952.952 0 0 0-.276.245.75.75 0 0 1-1.248-.832c.184-.264.42-.489.692-.661.103-.067.207-.132.313-.195l.007-.004c.1-.061.182-.11.258-.161a.969.969 0 0 0 .277-.245C8.96 6.514 9 6.427 9 6.25a.612.612 0 0 0-.262-.525A1.27 1.27 0 0 0 8 5.5c-.369 0-.595.09-.74.187a1.01 1.01 0 0 0-.34.398ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>');--md-admonition-icon--warning:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>');--md-admonition-icon--failure:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.344 2.343h-.001a8 8 0 0 1 11.314 11.314A8.002 8.002 0 0 1 .234 10.089a8 8 0 0 1 2.11-7.746Zm1.06 10.253a6.5 6.5 0 1 0 9.108-9.275 6.5 6.5 0 0 0-9.108 9.275ZM6.03 4.97 8 6.94l1.97-1.97a.749.749 0 0 1 1.275.326.749.749 0 0 1-.215.734L9.06 8l1.97 1.97a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L8 9.06l-1.97 1.97a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734L6.94 8 4.97 6.03a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018Z"/></svg>');--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M9.504.43a1.516 1.516 0 0 1 2.437 1.713L10.415 5.5h2.123c1.57 0 2.346 1.909 1.22 3.004l-7.34 7.142a1.249 1.249 0 0 1-.871.354h-.302a1.25 1.25 0 0 1-1.157-1.723L5.633 10.5H3.462c-1.57 0-2.346-1.909-1.22-3.004L9.503.429Zm1.047 1.074L3.286 8.571A.25.25 0 0 0 3.462 9H6.75a.75.75 0 0 1 .694 1.034l-1.713 4.188 6.982-6.793A.25.25 0 0 0 12.538 7H9.25a.75.75 0 0 1-.683-1.06l2.008-4.418.003-.006a.036.036 0 0 0-.004-.009l-.006-.006-.008-.001c-.003 0-.006.002-.009.004Z"/></svg>');--md-admonition-icon--bug:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M4.72.22a.75.75 0 0 1 1.06 0l1 .999a3.488 3.488 0 0 1 2.441 0l.999-1a.748.748 0 0 1 1.265.332.75.75 0 0 1-.205.729l-.775.776c.616.63.995 1.493.995 2.444v.327c0 .1-.009.197-.025.292.408.14.764.392 1.029.722l1.968-.787a.75.75 0 0 1 .556 1.392L13 7.258V9h2.25a.75.75 0 0 1 0 1.5H13v.5c0 .409-.049.806-.141 1.186l2.17.868a.75.75 0 0 1-.557 1.392l-2.184-.873A4.997 4.997 0 0 1 8 16a4.997 4.997 0 0 1-4.288-2.427l-2.183.873a.75.75 0 0 1-.558-1.392l2.17-.868A5.036 5.036 0 0 1 3 11v-.5H.75a.75.75 0 0 1 0-1.5H3V7.258L.971 6.446a.75.75 0 0 1 .558-1.392l1.967.787c.265-.33.62-.583 1.03-.722a1.677 1.677 0 0 1-.026-.292V4.5c0-.951.38-1.814.995-2.444L4.72 1.28a.75.75 0 0 1 0-1.06Zm.53 6.28a.75.75 0 0 0-.75.75V11a3.5 3.5 0 1 0 7 0V7.25a.75.75 0 0 0-.75-.75ZM6.173 5h3.654A.172.172 0 0 0 10 4.827V4.5a2 2 0 1 0-4 0v.327c0 .096.077.173.173.173Z"/></svg>');--md-admonition-icon--example:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M5 5.782V2.5h-.25a.75.75 0 0 1 0-1.5h6.5a.75.75 0 0 1 0 1.5H11v3.282l3.666 5.76C15.619 13.04 14.543 15 12.767 15H3.233c-1.776 0-2.852-1.96-1.899-3.458Zm-2.4 6.565a.75.75 0 0 0 .633 1.153h9.534a.75.75 0 0 0 .633-1.153L12.225 10.5h-8.45ZM9.5 2.5h-3V6c0 .143-.04.283-.117.403L4.73 9h6.54L9.617 6.403A.746.746 0 0 1 9.5 6Z"/></svg>');--md-admonition-icon--quote:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1.75 2.5h10.5a.75.75 0 0 1 0 1.5H1.75a.75.75 0 0 1 0-1.5Zm4 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5ZM2.5 7.75v6a.75.75 0 0 1-1.5 0v-6a.75.75 0 0 1 1.5 0Z"/></svg>');}</style>
@@ -31,7 +29,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#_1">
+<a class="md-skip" href="#lab03">
           跳转至
         </a>
 </div>
@@ -55,7 +53,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              样本空间与概率
+              Lab03
             
           </span>
 </div>
@@ -152,7 +150,7 @@
 
         </a>
 </li>
-<li class="md-tabs__item md-tabs__item--active">
+<li class="md-tabs__item">
 <a class="md-tabs__link" href="../../Language/Assembly/">
           
   
@@ -665,15 +663,15 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
-<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
 <span class="md-ellipsis">
     CS
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="true" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_4">
 <span class="md-nav__icon md-icon"></span>
             CS
@@ -814,29 +812,29 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_4_4" type="checkbox"/>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_4" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
 <span class="md-ellipsis">
     数学基础
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="true" aria-labelledby="__nav_4_4_label" class="md-nav" data-md-level="2">
+<nav aria-expanded="false" aria-labelledby="__nav_4_4_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_4_4">
 <span class="md-nav__icon md-icon"></span>
             数学基础
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_4_4_1" type="checkbox"/>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_4_1" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4_4_1" id="__nav_4_4_1_label" tabindex="0">
 <span class="md-ellipsis">
     概率论
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="true" aria-labelledby="__nav_4_4_1_label" class="md-nav" data-md-level="3">
+<nav aria-expanded="false" aria-labelledby="__nav_4_4_1_label" class="md-nav" data-md-level="3">
 <label class="md-nav__title" for="__nav_4_4_1">
 <span class="md-nav__icon md-icon"></span>
             概率论
@@ -849,55 +847,12 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-<span class="md-ellipsis">
-    样本空间与概率
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../01-probability/">
 <span class="md-ellipsis">
     样本空间与概率
   </span>
 </a>
-<nav aria-label="目录" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_2">
-<span class="md-ellipsis">
-      条件概率
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_3">
-<span class="md-ellipsis">
-      全概率定理
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_4">
-<span class="md-ellipsis">
-      贝叶斯定理
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_5">
-<span class="md-ellipsis">
-      排列组合
-    </span>
-</a>
-</li>
-</ul>
-</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../02-Univariate_Random_Variable/">
@@ -2185,32 +2140,36 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_2">
+<a class="md-nav__link" href="#_1">
 <span class="md-ellipsis">
-      条件概率
+      解析
     </span>
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+<span class="md-ellipsis">
+      拓展
+    </span>
+</a>
+<nav aria-label="拓展" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
 <a class="md-nav__link" href="#_3">
 <span class="md-ellipsis">
-      全概率定理
+      风险厌恶与效用递减
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_4">
 <span class="md-ellipsis">
-      贝叶斯定理
+      大数定律
     </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_5">
-<span class="md-ellipsis">
-      排列组合
-    </span>
-</a>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -2660,17 +2619,22 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="">样本空间与概率<a class="anchor-link" href="#"><span><span class="heti-spacing"> </span>¶</span></a></h1>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h1 id="lab03">Lab03<a class="anchor-link" href="#lab03">¶</a></h1><p>这两节课的笔记记录在<a href="https://www.philfan.cn/CS/Statistic/04-Numerical_Features/">随机变量的数字特征<span class="heti-skip"><span class="heti-spacing"> </span>- PhilFan's Notebook<span class="heti-spacing"> </span></span></a>和<a href="https://www.philfan.cn/CS/Statistic/02-Univariate_Random_Variable/">一维随机变量<span class="heti-skip"><span class="heti-spacing"> </span>- PhilFan's Notebook<span class="heti-spacing"> </span></span></a>中</p>
+<p>一个人连续掷硬币，直到出现正面朝上的所用的次数记为<span><span class="heti-spacing"> </span>$n$</span>，他将赢得得<span class="heti-skip"><span class="heti-spacing"> </span>$2^n$<span class="heti-spacing"> </span></span>元。问他赢得的奖金期望值是？</p>
+<p>请用<span class="heti-skip"><span class="heti-spacing"> </span>Jupyter<span class="heti-spacing"> </span></span>的<span class="heti-skip"><span class="heti-spacing"> </span>markdown<span class="heti-spacing"> </span></span>先写出解析答案。若最多可以投掷<span class="heti-skip"><span class="heti-spacing"> </span>$k$<span class="heti-spacing"> </span></span>次，用<span class="heti-skip"><span class="heti-spacing"> </span>code<span class="heti-spacing"> </span></span>实现随着<span class="heti-skip"><span class="heti-spacing"> </span>$k$<span class="heti-spacing"> </span></span>的变化，奖金期望值的变化，用图形表示（<span>$x$<span class="heti-spacing"> </span></span>轴<span><span class="heti-spacing"> </span>$k$</span>，<span>$y$<span class="heti-spacing"> </span></span>轴对应的期望值<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。</p>
+<h2 id="">解析<a class="anchor-link" href="#"><span><span class="heti-spacing"> </span>¶</span></a></h2><p>假设抛到了第<span class="heti-skip"><span class="heti-spacing"> </span>n<span class="heti-spacing"> </span></span>次才出现正面</p>
+<p>前<span class="heti-skip"><span class="heti-spacing"> </span>n-1<span class="heti-spacing"> </span></span>次都是反面，概率为<span><span class="heti-spacing"> </span>$\frac{1}{2^{n-1}}$</span>，第<span class="heti-skip"><span class="heti-spacing"> </span>n<span class="heti-spacing"> </span></span>次是正面，概率为<span><span class="heti-spacing"> </span>$\frac{1}{2}$</span></p>
+<p>所以第<span class="heti-skip"><span class="heti-spacing"> </span>n<span class="heti-spacing"> </span></span>次才出现正面的概率是<span><span class="heti-spacing"> </span>$\frac{1}{2^n}$</span></p>
+<p>因此他赢得的奖金期望值可以表示为：</p>
+<p>$$
+\mathbb{E}(奖金) = \sum_{n=1}^{\infty} 2^n \cdot \frac{1}{2^n} = \sum_{n=1}^{\infty} 1 = \infty
+$$</p>
+<p>这个赌博游戏其实是无解的。</p>
+<p>如果加入最多可以投掷<span class="heti-skip"><span class="heti-spacing"> </span>k<span class="heti-spacing"> </span></span>次的条件，那么期望值可以有限地计算为：</p>
+<p>$$
+\mathbb{E}_k(奖金) = \sum_{n=1}^{k} 2^n \cdot \frac{1}{2^n} = k
+$$</p>
+<p>因此，随着<span class="heti-skip"><span class="heti-spacing"> </span>k<span class="heti-spacing"> </span></span>的增加，期望值线性增长。</p>
 </div>
 </div>
 </div>
@@ -2693,102 +2657,27 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
-<span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">b</span> <span class="o">=</span> <span class="mi">2</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)</span>
-</pre></div>
-<div class="clipboard-copy-txt" id="cell-1">import math
-a = 1
-b = 2
-print(a+b)</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>3
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="">条件概率<a class="anchor-link" href="#"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>例：一个班有<span class="heti-skip"><span class="heti-spacing"> </span>4<span class="heti-spacing"> </span></span>个本科生和<span class="heti-skip"><span class="heti-spacing"> </span>12<span class="heti-spacing"> </span></span>个研究生，随机将他们分成<span class="heti-skip"><span class="heti-spacing"> </span>4<span class="heti-spacing"> </span></span>个<span class="heti-skip"><span class="heti-spacing"> </span>4<span class="heti-spacing"> </span></span>人组，每组分到一个本科生的概率多大？</p>
-<p>先建立数组，再打乱数组，再统计满足条件的概率。</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="CodeMirror cm-s-jupyter">
-<div class="zeroclipboard-container">
-<clipboard-copy for="cell-2">
-<div>
-<span class="notice" hidden="">Copied!</span>
-<svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
-<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z" fill="currentColor" fill-rule="evenodd"></path>
-<path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z" fill="currentColor" fill-rule="evenodd"></path>
-</svg>
-</div>
-</clipboard-copy>
-</div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="n">a</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">s</span><span class="o">=</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">12</span><span class="p">]</span>
-<span class="n">result</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">s</span><span class="p">)</span>
-<span class="n">result</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
-<span class="n">k</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">sample</span><span class="o">=</span><span class="mi">10000</span>
-<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">sample</span><span class="p">):</span>
-    <span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">result</span><span class="p">)</span> <span class="c1">#随机排列，改变result的值</span>
-    <span class="n">result2d</span><span class="o">=</span><span class="n">result</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span> <span class="c1">#分为4组</span>
-    <span class="n">k</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">([</span><span class="n">i</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">result2d</span><span class="p">])</span> <span class="c1">#每组总和均为1时为真</span>
-<span class="nb">print</span> <span class="p">(</span><span class="n">k</span><span class="o">/</span><span class="n">sample</span><span class="p">)</span>
+<span class="n">k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">101</span><span class="p">)</span>
+<span class="n">profit</span> <span class="o">=</span> <span class="n">k</span>  <span class="c1"># 期望值直接等于 k</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">profit</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">"o"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'K'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Expected Profit'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-2">import random
-import numpy as np
-a=[1,0]
-s=[4,12]
-result=np.repeat(a,s)
-result.reshape(4,4)
+<div class="clipboard-copy-txt" id="cell-1">import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
 
-k=0;sample=10000
-for j in range(sample):
-    random.shuffle(result) #随机排列，改变result的值
-    result2d=result.reshape(4,4) #分为4组
-    k += np.prod([i.sum() for i in result2d]) #每组总和均为1时为真
-print (k/sample)</div>
+k = np.arange(1, 101)
+profit = k  # 期望值直接等于 k
+sns.lineplot(x=k, y=profit, marker="o")
+plt.xlabel('K')
+plt.ylabel('Expected Profit')
+plt.show()</div>
 </div>
 </div>
 </div>
@@ -2799,9 +2688,8 @@ print (k/sample)</div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>0.1408
-</pre>
+<div class="jp-RenderedImage jp-OutputArea-output" tabindex="0">
+<img alt="No description has been provided for this image" class="" src="data:image/png;base64,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"/>
 </div>
 </div>
 </div>
@@ -2814,191 +2702,19 @@ print (k/sample)</div>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="">全概率定理<a class="anchor-link" href="#"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="">贝叶斯定理<a class="anchor-link" href="#"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="">排列组合<a class="anchor-link" href="#"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="CodeMirror cm-s-jupyter">
-<div class="zeroclipboard-container">
-<clipboard-copy for="cell-3">
-<div>
-<span class="notice" hidden="">Copied!</span>
-<svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
-<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z" fill="currentColor" fill-rule="evenodd"></path>
-<path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z" fill="currentColor" fill-rule="evenodd"></path>
-</svg>
-</div>
-</clipboard-copy>
-</div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># 法一： math 库</span>
-<span class="kn">import</span> <span class="nn">math</span>
-<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
-    <span class="n">p0</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">perm</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span> <span class="c1"># permutation 排列</span>
-    <span class="n">p1</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">comb</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span> <span class="c1"># combination 组合</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"5选"</span><span class="p">,</span><span class="n">k</span><span class="p">,</span> <span class="s2">", 排列 "</span><span class="p">,</span> <span class="n">p0</span><span class="p">,</span> <span class="s2">", 组合 "</span><span class="p">,</span> <span class="n">p1</span><span class="p">)</span>
-</pre></div>
-<div class="clipboard-copy-txt" id="cell-3"><span>#<span class="heti-spacing"> </span></span>法一： <span>math<span class="heti-spacing"> </span></span>库
-import math
-for k in range(5):
-    p0 = math.perm(5, k) # permutation 排列
-    p1 = math.comb(5, k) # combination 组合
-    print("5选",k, ", 排列 ", p0, ", 组合 ", p1)</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>5选 0 , 排列  1 , 组合  1
-5选 1 , 排列  5 , 组合  5
-5选 2 , 排列  20 , 组合  10
-5选 3 , 排列  60 , 组合  10
-5选 4 , 排列  120 , 组合  5
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="CodeMirror cm-s-jupyter">
-<div class="zeroclipboard-container">
-<clipboard-copy for="cell-4">
-<div>
-<span class="notice" hidden="">Copied!</span>
-<svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
-<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z" fill="currentColor" fill-rule="evenodd"></path>
-<path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z" fill="currentColor" fill-rule="evenodd"></path>
-</svg>
-</div>
-</clipboard-copy>
-</div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># 法二： itertools 库</span>
-<span class="kn">import</span> <span class="nn">itertools</span>
-<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
-    <span class="n">p0</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">permutations</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="n">k</span><span class="p">)))</span>
-    <span class="n">p1</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">combinations</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="n">k</span><span class="p">)))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"5选"</span><span class="p">,</span><span class="n">k</span><span class="p">,</span> <span class="s2">", 排列 "</span><span class="p">,</span> <span class="n">p0</span><span class="p">,</span> <span class="s2">", 组合 "</span><span class="p">,</span> <span class="n">p1</span><span class="p">)</span>
-</pre></div>
-<div class="clipboard-copy-txt" id="cell-4"><span>#<span class="heti-spacing"> </span></span>法二： <span>itertools<span class="heti-spacing"> </span></span>库
-import itertools
-for k in range(5):
-    p0 = len(list(itertools.permutations(range(5), k)))
-    p1 = len(list(itertools.combinations(range(5), k)))
-    print("5选",k, ", 排列 ", p0, ", 组合 ", p1)</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>5选 0 , 排列  1 , 组合  1
-5选 1 , 排列  5 , 组合  5
-5选 2 , 排列  20 , 组合  10
-5选 3 , 排列  60 , 组合  10
-5选 4 , 排列  120 , 组合  5
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="CodeMirror cm-s-jupyter">
-<div class="zeroclipboard-container">
-<clipboard-copy for="cell-5">
-<div>
-<span class="notice" hidden="">Copied!</span>
-<svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
-<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z" fill="currentColor" fill-rule="evenodd"></path>
-<path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z" fill="currentColor" fill-rule="evenodd"></path>
-</svg>
-</div>
-</clipboard-copy>
-</div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># 法3： scipy 库</span>
-<span class="kn">import</span> <span class="nn">scipy.special</span> <span class="k">as</span> <span class="nn">sp</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">binom</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span> <span class="c1"># 5选2</span>
-</pre></div>
-<div class="clipboard-copy-txt" id="cell-5"><span>#<span class="heti-spacing"> </span></span>法<span><span class="heti-spacing"> </span>3</span>： <span>scipy<span class="heti-spacing"> </span></span>库
-import scipy.special as sp
-print(sp.binom(4, 3)) # 5选2</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>4.0
-</pre>
-</div>
-</div>
+<h2 id="">拓展<a class="anchor-link" href="#"><span><span class="heti-spacing"> </span>¶</span></a></h2><h3 id="">风险厌恶与效用递减<a class="anchor-link" href="#"><span><span class="heti-spacing"> </span>¶</span></a></h3><p>但是给<span class="heti-skip"><span class="heti-spacing"> </span>$2^n$<span class="heti-spacing"> </span></span>可能是一个慈善家开的赌场（x<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，查到的资料说这个是经典的<a href="https://zh.wikipedia.org/wiki/%E5%9C%A3%E5%BD%BC%E5%BE%97%E5%A0%A1%E6%82%96%E8%AE%BA">圣彼得堡悖论<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>维基百科，自由的百科全书</a></p>
+<p>原问题是给<span><span class="heti-spacing"> </span>$2^{n-1}$</span>，也就是限定<span class="heti-skip"><span class="heti-spacing"> </span>k<span class="heti-spacing"> </span></span>次，期望是<span><span class="heti-spacing"> </span>$\frac{k}{2}$</span></p>
+<p><strong>所以这个问题的核心就是，只允许玩一次的前提下，你愿意出多少钱（是否应该根据期望做决策）</strong></p>
+<p>当然答案是否定的，伯努利也提出了效用、边际效用递减等概念，这个问题也是经济学中的一个经典问题。</p>
+<p>简单来说，对于拥有不同财富的人来说，不同奖金的吸引度是不一样的。比如给你一百万的快乐如果是<span class="heti-skip"><span class="heti-spacing"> </span>100<span class="heti-spacing"> </span></span>分，那么给你一千万的快乐并不会是<span class="heti-skip"><span class="heti-spacing"> </span>1000<span class="heti-spacing"> </span></span>分，而是小于<span><span class="heti-spacing"> </span>1000</span></p>
+<h3 id="">大数定律<a class="anchor-link" href="#"><span><span class="heti-spacing"> </span>¶</span></a></h3><p>如果考虑玩<span class="heti-skip"><span class="heti-spacing"> </span>n<span class="heti-spacing"> </span></span>次这个游戏的话，每局游戏的期望值是会收敛到</p>
+<p>$$
+S_n = X_1 + X_2 + \dots + X_n \longrightarrow n \log_2 n
+$$</p>
+<p>也就意味着，如果我想要赚到<span class="heti-skip"><span class="heti-spacing"> </span>m<span class="heti-spacing"> </span></span>元，需要玩的次数是<span class="heti-skip"><span class="heti-spacing"> </span>$2^m$<span class="heti-spacing"> </span></span>次</p>
+<p>但是其收敛速度特别慢，具体证明可以参考这一篇文章</p>
+<p><a href="https://zhuanlan.zhihu.com/p/579732711">数学期望大于零的游戏一定能赚钱吗<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>知乎</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/454581541">圣彼得堡悖论与大数定律<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>知乎</a></p>
 </div>
 </div>
 </div>
@@ -3013,13 +2729,13 @@ print(sp.binom(4, 3)) # 5选2</div>
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年10月3日 00:03:06</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年10月3日 17:45:07</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年8月8日 17:16:51</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年10月3日 17:45:07</span>
 </span>
 </aside>
 </article>
@@ -3033,34 +2749,6 @@ print(sp.binom(4, 3)) # 5选2</div>
 </button>
 </main>
 <footer class="md-footer">
-<nav aria-label="页脚" class="md-footer__inner md-grid">
-<a aria-label="上一页: 统计" class="md-footer__link md-footer__link--prev" href="../00-intro/">
-<div class="md-footer__button md-icon">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
-</div>
-<div class="md-footer__title">
-<span class="md-footer__direction">
-                上一页
-              </span>
-<div class="md-ellipsis">
-                统计
-              </div>
-</div>
-</a>
-<a aria-label="下一页: 一维随机变量" class="md-footer__link md-footer__link--next" href="../02-Univariate_Random_Variable/">
-<div class="md-footer__title">
-<span class="md-footer__direction">
-                下一页
-              </span>
-<div class="md-ellipsis">
-                一维随机变量
-              </div>
-</div>
-<div class="md-footer__button md-icon">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
-</div>
-</a>
-</nav>
 <div class="md-footer-meta md-typeset">
 <div class="md-footer-meta__inner md-grid">
 <div class="md-copyright">
