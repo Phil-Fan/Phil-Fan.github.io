@@ -38,6 +38,8 @@ Step2. 找到自己的琴房，打开门禁卡，进入琴房，打开空调，�
 ### 音阶训练
 
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240924171307.png)
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241008095233.png)
 ### 小星星
 
 ### 铃儿响叮当
@@ -59,6 +61,15 @@ Step2. 找到自己的琴房，打开门禁卡，进入琴房，打开空调，�
 
 ### 小谐谑曲
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240924171521.png)
+
+### 土耳其进行曲
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241008095248.png)
+
+
+弗朗茨·约瑟夫·海顿
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241008095408.png)
+
 
 ## 听歌识曲
 [网易云歌单](http://163cn.tv/xE63rhC)

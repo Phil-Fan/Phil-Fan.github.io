@@ -319,7 +319,7 @@ nav:
 
     - "DL | 深度学习":
       - CS/AI/DL-00-Lingo.md
-      - CS/AI/DL-00-python_package.ipynb 
+      - Notebook page: CS/AI/DL-00-python_package.ipynb 
       - CS/AI/DL-01-NN.md
       - CS/AI/DL-06-CNN.md
       - CS/AI/DL-08-RNN.md
@@ -336,7 +336,7 @@ nav:
       - CS/AI/ML-03-DecisionTree.md      
       - CS/AI/ML-04-SVM.md
       - CS/AI/ML-05-bayes.md
-      - CS/AI/ML-06-clustering.md        
+      - Notebook page:  CS/AI/ML-06-clustering.ipynb
       - CS/AI/ML-07-DimensionalityReduction.md
       - CS/AI/ML-08-EnsembleLearning.md  
 
