@@ -664,6 +664,9 @@ ssh -p 15821 root@connect.westb.seetacloud.com
 
 
 
+
+
+
 ## vscode
 ### 使用
 
@@ -699,6 +702,40 @@ PlatformIO is a cross-platform, cross-architecture, multiple framework, professi
 
 
 [VSCode 下 PlatformIO 的安装教程-CSDN博客](https://blog.csdn.net/qq_40018676/article/details/128680677)
+
+## c环境
+[MSVC、MINGW，gcc、g++，qmake、cmake的联系和区别是什么？ - 知乎](https://www.zhihu.com/question/333560253)
+
+
+### MinGW安装
+[Download MinGW - Minimalist GNU for Windows](https://sourceforge.net/projects/mingw/files/latest/download)
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241010103943.png)
+
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241010104231.png)
+
+勾选base 和 g++两个，然后点击左上角的Installation，选择Apply Changes
+
+设置path环境变量，将`....\MinGW\bin`添加到path中
+
+验证安装
+```shell
+gcc -v
+g++ -v
+
+```
+> [参考博客:MinGW下载安装教程 傻瓜式操作](https://blog.csdn.net/qq_38196449/article/details/136125995)
+
+
+### vscode 环境
+
+[VS Code 配置 C/C++ 编程运行环境](https://blog.csdn.net/qq_42417071/article/details/137438374)
+
+
+安装c/c++插件：
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241010110358.png)
+
+
 
 
 ## Mail
@@ -744,3 +781,9 @@ PlatformIO is a cross-platform, cross-architecture, multiple framework, professi
 
 [官网模拟器下载地址](https://edu.casio.com/softwarelicense/index.php)</br>
 [官方说明书pdf文件](https://support.casio.com/storage/cn/manual/pdf/CN/004/fx-991CN_X_B_CN.pdf)
+
+
+## 模拟器
+
+### 雷电模拟器
+[雷电安卓模拟器-手游模拟器安卓版\_android手机模拟器电脑版\_雷电模拟器官网](https://www.ldmnq.com/)

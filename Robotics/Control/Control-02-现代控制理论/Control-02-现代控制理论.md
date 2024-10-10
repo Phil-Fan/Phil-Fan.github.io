@@ -73,7 +73,9 @@ $$
 零输入分量： $x(t) = 0,f(0^+) = f(0^-)$
 零状态分量： $f^{n}(0^-) = 0$
 
-### 采样
+### 数学模型
+
+#### 采样
 
 就像减肥过程称体重，比如说你每十分钟就测一次体重：这就会产生两个问题
 - 体重并不是一个快速响应的系统，需要时间体现变化，会采集到大量重复信息
@@ -81,7 +83,7 @@ $$
 
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241003142612.png)
 
-### z变换
+#### z变换
 - 留数法
 - 超前滞后定理
 
@@ -110,7 +112,7 @@ $$
 !!! note "要注意微分方程的离散化 x(t)变成x(nT)才可以"
 
 
-### 脉冲传递函数
+#### 脉冲传递函数
 
 
 脉冲传递函数：$G(z) = \frac{Y(z)}{U(z)}$ ，零初始条件下，系统的输出采样函数的z变换和输入采样函数的z变换的比值
@@ -126,7 +128,7 @@ G_h(s)\cdot G_p(s) = \frac{1-e^{-Ts}}{s} G_p(s) = (1-z^{-1})(\frac{G_p(s)}{s})
 $$
 
 
-#### 推导法
+**推导法**
 
 > 一个讲的很好的视频：[离散系统关于脉冲传递函数求法\_哔哩哔哩\_bilibili](https://www.bilibili.com/video/BV1fQ4y1k7p9/)
 
@@ -137,7 +139,8 @@ $$
 
 要注意 $G_1G_2(z) \ne G_1(z)G_2(z)$
 
-#### Mason增益公式法
+**Mason增益公式法**
+
 回路只要有连在一起，就不能分开算z变换
 
 !!! note "离散系统例子"
@@ -145,6 +148,77 @@ $$
     控制体重的例子
 
     如果测体重测得太频繁，那么根本来不及计划
+
+
+### 控制器设计
+
+#### 模拟化设计
+
+
+
+```matlab
+s = tf('s');
+z = tf('z',0.015);
+D = 20*(s+4)/(s+10);
+Back = (21.2-20*z^(-1))/(1.15-z^(-1)); %后向差分
+zeroholder = c2d(D,0.015); %0阶保持器
+Forward = 20*(z-0.94)/(z-0.85); %前向差分
+Tustin = (19.16-18.05*z^(-1))/(1-0.86*z^(-1));%双线性变换
+
+k = 8*(1-exp(-0.15))/(1-exp(-0.06));
+P_Z = k*(1-z^(-1)*exp(-0.06))/(1-z^(-1)*exp(-0.15));%零极点配置法
+step(Back,zeroholder,'--',Forward,'-',Tustin,'r--',P_Z,'y-',D,'g-');
+legend;
+```
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241009143613.png)
+
+??? note "z域根轨迹设计"
+    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241009150404.png)
+    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241009150424.png)
+    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241009150442.png)
+    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241009150510.png)
+
+
+#### 数字化设计
+
+!!! note "z域解析设计的方法主要有最少拍系统设计、无波纹最少拍系统设计、最小均方差系统设计等"
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241009150948.png)
+
+z域解析设计的方法关键是根据性能指标的需要选择合适的闭环脉冲传递函数$\Phi(z)$或闭环误差脉冲传递函数$\Phi_e(z)$。
+
+1. 根据控制系统的性能指标要求和其它约束条件，确定所需的闭环脉冲传递函数 $\Phi(z)$
+
+2. 求广义对象的脉冲传递函数 $G(z)$
+
+$$
+\begin{aligned}
+G(z) &= \frac{B(z)}{A(z)} = Z\left[H(s)G_c(s)\right] = Z\left[\frac{1 - e^{-Ts}}{S}G_c(s)\right]
+\end{aligned}
+$$
+
+3. 求取数字控制器的脉冲传递函数 $D(z)$
+
+$$
+\begin{aligned}
+\Phi(z) &= \frac{D(z)G(z)}{1 + D(z)G(z)} \\
+\Rightarrow \quad D(z) &= \frac{1}{G(z)} \cdot \frac{\Phi(z)}{1 - \Phi(z)}
+\end{aligned}
+$$
+
+4. 根据 $D(z)$ 求取控制算法的递推计算公式
+
+$$
+\begin{aligned}
+D(z) &= \frac{U(z)}{E(z)} = \frac{\sum_{i=0}^{m} b_i z^{-i}}{1 + \sum_{i=1}^{n} a_i z^{-i}}, \quad (n \geq m)
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+U(z) &= \sum_{i=0}^{m} b_i z^{-i} E(z) - \sum_{i=1}^{n} a_i z^{-i} U(z) \\
+\Rightarrow \quad u(k) &= \sum_{i=0}^{m} b_i e(k-i) - \sum_{i=1}^{n} a_i u(k-i)
+\end{aligned}
+$$
 
 ## 状态空间法
 

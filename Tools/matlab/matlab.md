@@ -758,8 +758,11 @@ disp(['对应增益 K: ', num2str(min_zeta_K)])
 - 添加零点、极点、积分器
 - 去除零点、极点、积分器
 - 移动零极点
-- 添加`requirement`<br><img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240424103552781.png" alt="image-20240424103552781" style="zoom:50%;" />
-
+- 添加`requirement`<br>
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241009145358.png) 
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240424103552781.png" alt="image-20240424103552781" style="zoom:50%;" />
+- 查看阶跃图像特征点
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241009145809.png)
 
 
 ## 图像绘制
