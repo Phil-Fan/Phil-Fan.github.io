@@ -765,25 +765,38 @@ g++ -v
 
 
 ## 计算器
-- 设置自变量计算
-- 复数计算、幅角计算
-- 概统计算：正态分布；各种统计量；双变量统计；使用统计量进行计算；
-
-**相关资料**</br>
-- [统计基础篇](https://zhuanlan.zhihu.com/p/67842031)</br>
-- [统计提高篇](https://zhuanlan.zhihu.com/p/67942971)</br>
-- [正态相关](https://zhuanlan.zhihu.com/p/144720947)</br>
-- [电路中的应用,建议30min处开始食用](https://www.bilibili.com/video/BV1mh411d7yX)</br>
-
-
-另外，电脑上也是可以装计算器的，我有时候忘记带计算器就会用电脑上的模拟软件</br>
+电脑上可以装计算器的，我有时候忘记带计算器就会用电脑上的模拟软件</br>
 可以免费用三个月，用完额度可以再安装一遍ac01</br>
 
 [官网模拟器下载地址](https://edu.casio.com/softwarelicense/index.php)</br>
 [官方说明书pdf文件](https://support.casio.com/storage/cn/manual/pdf/CN/004/fx-991CN_X_B_CN.pdf)
 
 
+### 变量设置
+### 统计计算
+正态分布；各种统计量；双变量统计；使用统计量进行计算；
+
+- [统计基础篇](https://zhuanlan.zhihu.com/p/67842031)</br>
+- [统计提高篇](https://zhuanlan.zhihu.com/p/67942971)</br>
+- [正态相关](https://zhuanlan.zhihu.com/p/144720947)</br>
+
+### 复数计算
+复数计算、幅角计算
+- [电路中的应用,建议30min处开始食用](https://www.bilibili.com/video/BV1mh411d7yX)</br>
+
+
+### 矩阵计算
+以fx-cn991为例，
+
+先按矩阵，可以自定义MatA，B，C，D四个矩阵（最高4x4）
+- 设置好数字，按AC确认
+- OPTN选择矩阵运算
+- $x^{-1}$ 进行矩阵求逆
+- OPTN中还有转置矩阵、行列式等运算
+
 ## 模拟器
 
 ### 雷电模拟器
 [雷电安卓模拟器-手游模拟器安卓版\_android手机模拟器电脑版\_雷电模拟器官网](https://www.ldmnq.com/)
+
+可以使用设置墨墨背单词

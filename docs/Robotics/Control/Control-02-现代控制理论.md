@@ -417,6 +417,8 @@ ND(negative definate)
 
 ## 系统设计
 ### 状态矩阵（重中之重）
+
+
 $$
 \dot{x} = \mathbf{A_{cl}}x
 $$
@@ -427,6 +429,17 @@ $$
 2. 如果极点是虚数，必定有共轭，且表示有振动
 
 !!! note "拿到一个系统之后，需要先判定这个系统是不是可控的"
+
+### 极点配置
+
+$$
+A_{cl} = \mathbf{A-Bk}
+$$
+
+闭环特征矩阵
+
+展开 $A_{cl}$ 得到特征多项式，与期望极点的特征多项式进行比较，得到 $k$
+
 
 
 ### 能控性
@@ -563,11 +576,16 @@ R 更侧重于控制器输入
     Kálmán published several seminal papers during the sixties, which rigorously established what is now known as the state-space representation of dynamical systems. He introduced the formal definition of a system, the notions of controllability and observability
     ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241003163103.png)
 
-**observer**: 通过系统的输入和输出来估计系统的状态
+### **observer**
+
+通过系统的输入和输出来估计系统的状态
 
 luenberger observer 龙贝格
 
 卡尔曼滤波器就是随机系统的状态观测器
+
+
+
 
 ### 分离原理
 

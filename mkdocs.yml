@@ -204,6 +204,18 @@ nav:
       - Class/ITP/ITP-创业营销.md
       - Class/ITP/ITP-基于创新的创业.md
       - Class/ITP/ITP-商业模式.md   
+
+  - Finance:
+    - Class/Fin/finance.md
+    - Class/Fin/invest.md
+    - Class/Fin/consulting.md
+    - Class/Fin/industry-analyze.md
+
+  - Books:
+    - Class/Books/The Innovator`s Dilemma.md 
+    - Class/Books/Marxist principles.md
+    - Class/Philosophy.md
+    - Class/Philosophy-by-topic.md
      
   
 - Robotics:
@@ -278,6 +290,7 @@ nav:
       - Notebook page: CS/Statistic/08-Goodness_of_Fit.ipynb
       - Notebook page: CS/Statistic/09-Regression.ipynb
       - Notebook page: CS/Statistic/10-Multiple_Regression_and_Analysis_of_Variance.ipynb
+      - Notebook page: CS/Statistic/11-error.ipynb
       - CS/Statistic/big_data_security&privacy_protection.md
    
   - "DS | 数据结构":
@@ -368,21 +381,6 @@ nav:
     - CS/Web3/lingo.md
 
   - CS/missing_knowledge.md
-
-    
-- Explore:
-  - Finance:
-    - Explore/Fin/finance.md
-    - Explore/Fin/invest.md
-    - Explore/Fin/consulting.md
-    - Explore/Fin/industry-analyze.md
-
-  - Books:
-    - Explore/Books/The Innovator`s Dilemma.md 
-    - Explore/Books/Marxist principles.md
-    - Explore/Philosophy.md
-    - Explore/Philosophy-by-topic.md
-  
 
 - Tools:
   - Tools/Git.md
