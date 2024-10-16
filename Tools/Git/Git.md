@@ -17,10 +17,10 @@ git remote -v
 git remote add origin + ssh
 git remote rm origin 
 
-git pull origin master
+git pull origin [branch]:[master]
 git add .
 git commit -m ""
-git push origin master
+git push origin [master]:[branch]
 
 # 本地初始化项目
 git config --global user.name "你的名字或昵称"
@@ -31,7 +31,11 @@ git config --global user.email "你的邮箱"
 ![3a2a4da685d8aaa34d486ac6](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/3a2a4da685d8aaa34d486ac6.png)
 
 
+
+
+
 ### 分支操作: branch、checkout、merge
+
 ```shell
 # 创建分支、更改
 git checkout -b <branch_name>
@@ -49,14 +53,15 @@ PR,全称Pull Request（拉取请求），是一种非常重要的协作机制
 2. 将仓库B clone到我本地电脑
 3. 在本地创建一个分支，如bugfix/issue-12，该分支用于存放我的代码修改。同时在我的github上的仓库B也创建一个同名的该分支
 4. 切换到该分支bugfix/issue-12，修改代码
+  
 ```shell
 git checkout -b bugfix/issue-12
 ```
-5. 修改好了，add，commit，然后push到我远程的仓库B的bugfix/issue-12分支
+1. 修改好了，add，commit，然后push到我远程的仓库B的bugfix/issue-12分支
 ```shell
 git push -u origin bugfix/issue-12
 ```
-6. 在我的github的仓库B中创建pull request。选择仓库B的该分支，推送到原仓库A的某一个分支。具体是哪个分支，参考仓库A的contributing说明，一般是dev分支；如果没说，就只能选择master分支咯
+1. 在我的github的仓库B中创建pull request。选择仓库B的该分支，推送到原仓库A的某一个分支。具体是哪个分支，参考仓库A的contributing说明，一般是dev分支；如果没说，就只能选择master分支咯
 
 
 [【Git】PR是啥？一篇文章学会Pull Request到底是干嘛的\_github pull request-CSDN博客](https://blog.csdn.net/Supreme7/article/details/136813376)
