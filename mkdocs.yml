@@ -278,6 +278,7 @@ nav:
     - CS/Backend/PHP.md
 
   - "数学基础":
+    - CS/AI/ML-00-math.md
     - "概率论":
       - CS/Statistic/00-intro.md
       - Notebook page: CS/Statistic/01-probability.ipynb
@@ -343,7 +344,6 @@ nav:
 
     - "ML | 机器学习":
       - CS/AI/Discrete_mathematics.md    
-      - CS/AI/ML-00-math.md
       - CS/AI/ML-01-intro.md
       - CS/AI/ML-02-LinearRegression.md  
       - CS/AI/ML-03-DecisionTree.md      
@@ -351,7 +351,8 @@ nav:
       - CS/AI/ML-05-bayes.md
       - Notebook page:  CS/AI/ML-06-clustering.ipynb
       - CS/AI/ML-07-DimensionalityReduction.md
-      - CS/AI/ML-08-EnsembleLearning.md  
+      - CS/AI/ML-08-EnsembleLearning.md
+      - CS/AI/ML-09-else.md
 
     - "SEC | 人工智能安全":
       - CS/AI/SEC-01-attack.md
