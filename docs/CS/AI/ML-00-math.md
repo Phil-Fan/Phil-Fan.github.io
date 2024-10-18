@@ -546,12 +546,186 @@ $$
 
 ## 特殊矩阵
 
+### Hermitian 矩阵
+
+复共轭对称矩阵 $R = R^{H}$
+
+- 满足线性关系
+- 相关矩阵、协方差矩阵
+### 置换矩阵 | permutation matrix
+每一行以及每一列只有一个元素为1，其他元素为0
 
 
 
 
+性质
+- 右乘是对列重新排列
+- 左乘是对行进行重新排列
 
 
+1. $(P_{m \times n})^T = P_{n \times m}$
+2. $P^T P = P P^T = I$，这说明置换矩阵是正交矩阵。
+3. $P^T = P^{-1}$
+
+
+
+### 广义置换矩阵
+
+$$
+G = \begin{bmatrix} 0 & 0 & 0 & 0 & \alpha \\ 0 & \beta & 0 & 0 & 0 \\ 0 & \gamma & 0 & 0 & 0 \\ 0 & 0 & 0 & \lambda & 0 \\ \rho & 0 & 0 & 0 & 0 \end{bmatrix} = \begin{bmatrix} 0 & 0 & 0 & 0 & 1 \\ 0 & 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 & 0 \\ 0 & 0 & 0 & 1 & 0 \\ 1 & 0 & 0 & 0 & 0 \end{bmatrix} \begin{bmatrix} \rho & 0 \\ \gamma & \beta \\ \beta & \lambda \\ 0 & \alpha \end{bmatrix}
+$$
+
+一个正方矩阵称为广义置换矩阵，简称 g 矩阵，若其每行和每列有一个并且仅有一个非零元素
+
+$G = P\Lambda$
+
+G 可写为一个置换矩阵和一个非奇异对角阵的乘积
+
+可用于观测数据模型和对信号进行恢复
+广义置换矩阵可以用于描述：
+- 累加导致信号顺序不确定
+- 信号幅度不确定
+这两种不确定性。
+
+### 酉矩阵 | Unitary matrix
+
+- 方阵
+- $U U^{H} = U^{H} U = I$
+- 向量内积、向量范数、向量夹角在酉变换下不变
+- 正交矩阵在实数域而酉矩阵在复数域
+
+
+| 实向量、实矩阵 | 复向量、复矩阵 |
+|----------------|----------------|
+| $\|x\| = \sqrt{x_1^2 + x_2^2 + \cdots + x_n^2}$ | $\|x\| = \sqrt{\|x_1\|^2 + \|x_2\|^2 + \cdots + \|x_n\|^2}$ |
+| 转置 $A^T = [a_{ji}]$， $(AB)^T = B^T A^T$ | 共轭转置 $A^H = [a_{ji}]$， $(AB)^H = B^H A^H$ |
+| 内积 $(x, y) = x^T y$ | 内积 $(x, y) = x^H y$ |
+| 正交性 $x^T y = 0$ | 正交性 $x^H y = 0$ |
+| 对称矩阵 $A^T = A$ | Hermitian矩阵 $A^H = A$ |
+| 正交矩阵 $Q^T = Q^{-1}$ | 酉矩阵 $U^H = U^{-1}$ |
+| 特征值分解 $A = Q \Lambda Q^{-1} = Q \Lambda Q^T$ | 特征值分解 $A = U \Sigma U^H = U \Sigma U^{-1}$ |
+| 范数的正交不变性 $\|Qx\| = \|x\|$ | 范数的酉不变性 $\|Ux\| = \|x\|$ |
+| 内积的正交不变性 $(Qx, Qy) = (x, y)$ | 内积的酉不变性 $(Ux, Uy) = (x, y)$ |
+
+
+### 正交矩阵
+
+### 三角矩阵
+
+### 相似矩阵
+
+若存在非奇异矩阵S, 使得$B = S^{-1}AS$，则称为$B$ 相似与$A$
+
+- 相似矩阵的特征值相同，特征向量存在线性变换关系
+- $det(B)=det(A)$
+- $tr(B)=tr(A)$
+
+### 合同矩阵
+
+
+### Vandermonde 矩阵
+
+Vandermonde 矩阵的每行或每列的元素组成一个等比数列。
+
+$$
+A = \begin{bmatrix} 1 & 1 & \cdots & 1 \\ x_1 & x_2 & \cdots & x_n \\ x_1^2 & x_2^2 & \cdots & x_n^2 \\ \vdots & \vdots & \ddots & \vdots \\ x_1^{n-1} & x_2^{n-1} & \cdots & x_n^{n-1} \end{bmatrix} 
+$$
+
+或者写成：
+
+$$
+A = \begin{bmatrix} 1 & x_1 & x_1^2 & \cdots & x_1^{n-1} \\ 1 & x_2 & x_2^2 & \cdots & x_2^{n-1} \\ \vdots & \vdots & \vdots & \ddots & \vdots \\ 1 & x_n & x_n^2 & \cdots & x_n^{n-1} \end{bmatrix} 
+$$
+
+若第二行元素各不相同，则矩阵非奇异。
+
+
+
+
+DFT:有限长离散序列，时域离散，频域离散
+
+=== "DFT正变换"
+    $X_k = \sum_{n=0}^{N-1} x_n e^{-j \frac{2\pi kn}{N}} = \sum_{n=0}^{N-1} x_n \omega^{nk}$，其中 $k = 0, 1, \ldots, N-1$
+    $\hat{x} = F x$
+
+    $F = \begin{bmatrix} 1 & 1 & \cdots & 1 \\ 1 & \omega & \cdots & \omega^{N-1} \\ \vdots & \vdots & \ddots & \vdots \\ 1 & \omega^{N-1} & \cdots & \omega^{(N-1)(N-1)} \end{bmatrix}$，其中 $\omega = e^{-j \frac{2\pi}{N}}$，称为Fourier矩阵
+
+    - $F^H F = F F^H = N I$
+    - $F^{-1} = \frac{1}{N} F^H = \frac{1}{N} F^*$
+
+=== "DFT逆变换"
+    $x = F^{-1} \hat{x} = \frac{1}{N} F^* \hat{x}$
+   
+    $$
+    \begin{bmatrix} x_0 \\ x_1 \\ \vdots \\ x_{N-1} \end{bmatrix} = \frac{1}{N} \begin{bmatrix} 1 & 1 & \cdots & 1 \\ 1 & \omega^* & \cdots & (\omega^{N-1})^* \\ \vdots & \vdots & \ddots & \vdots \\ 1 & (\omega^{N-1})^* & \cdots & (\omega^{(N-1)(N-1)})^* \end{bmatrix} \begin{bmatrix} X_0 \\ X_1 \\ \vdots \\ X_{N-1} \end{bmatrix}
+    $$
+
+    $x_n = \frac{1}{N} \sum_{k=0}^{N-1} X_k e^{j \frac{2\pi kn}{N}}$，其中 $n = 0, 1, \ldots, N-1$
+
+**傅里叶矩阵是一个酉矩阵**
+
+
+### Hadamard 矩阵
+
+$H_n \in \mathbb{R}^{n \times n}$ 所有元素取+1或者-1，且满足 $H_n H_n^T = H_n^T H_n = nI_n$。
+
+性质
+- 只有当 $n = 2^k$ 或者 $n$ 是4的整数倍时，Hadamard矩阵才存在。
+- 容易验证 $\frac{1}{\sqrt{n}} H_n$ 为标准正交矩阵。
+- $n \times n$ Hadamard矩阵 $H_n$ 的行列式 $\det(H_n) = n^{n/2}$。
+
+
+
+规范化的标准正交Hadamard矩阵具有通用构造公式：
+
+$$
+\tilde{H}_n = \frac{1}{\sqrt{2}} \begin{bmatrix} \tilde{H}_{n/2} & \tilde{H}_{n/2} \\ \tilde{H}_{n/2} & -\tilde{H}_{n/2} \end{bmatrix}
+$$
+
+其中：
+
+$$
+\tilde{H}_2 = \frac{1}{\sqrt{2}} \begin{bmatrix} 1 & 1 \\ 1 & -1 \end{bmatrix}
+$$
+
+### Toeplitz 矩阵
+
+任何一条对角线的元素取相同值：
+
+$$ 
+A = \begin{bmatrix} a_0 & a_{-1} & a_{-2} & \cdots & a_{-n} \\ a_1 & a_0 & a_{-1} & \cdots & a_{-n+1} \\ a_2 & a_1 & a_0 & \cdots & a_{-n+2} \\ \vdots & \vdots & \vdots & \ddots & \vdots \\ a_n & a_{n-1} & a_{n-2} & \cdots & a_0 \end{bmatrix} = [a_{i-j}]_{i,j=0}^n 
+$$
+
+对称 Toeplitz 矩阵 $A = [a_{i-j}]_{i,j=0}^n$
+
+若一个复 Toeplitz 矩阵的元素满足复共轭对称关系 $ a_{-i} = a_i^* $，则称为 Hermitian Toeplitz 矩阵：
+
+$$ 
+A = \begin{bmatrix} a_0 & a_1^* & a_2^* & \cdots & a_n^* \\ a_1 & a_0 & a_1^* & \cdots & a_{n-1}^* \\ a_2 & a_1 & a_0 & \cdots & a_{n-2}^* \\ \vdots & \vdots & \vdots & \ddots & \vdots \\ a_n & a_{n-1} & a_{n-2} & \cdots & a_0 \end{bmatrix} 
+$$
+
+!!! note "卷积操作是Toplitz矩阵"
+    卷积操作 $y = x \ast h$ 可以表示为：
+
+    $$
+    y[n] = \sum_{k=0}^{K-1} h[k] \cdot x[n-k] 
+    $$
+
+
+    $y = H \cdot x$
+
+    $$ 
+    H = \begin{bmatrix} h_0 & 0 & 0 & \cdots & 0 \\ h_1 & h_0 & 0 & \cdots & 0 \\ h_2 & h_1 & h_0 & \cdots & 0 \\ \vdots & \vdots & \vdots & \ddots & \vdots \\ h_{K-1} & h_{K-2} & h_{K-3} & \cdots & h_0 \end{bmatrix} 
+    $$
+
+### Hankel矩阵
+
+
+正方矩阵 $A \in \mathbb{C}^{(n+1) \times (n+1)}$ 称为 Hankel 矩阵，若：
+
+$$ 
+A = \begin{bmatrix} a_0 & a_1 & a_2 & \cdots & a_n \\ a_1 & a_2 & a_3 & \cdots & a_{n+1} \\ a_2 & a_3 & a_4 & \cdots & a_{n+2} \\ \vdots & \vdots & \vdots & \ddots & \vdots \\ a_n & a_{n+1} & a_{n+2} & \cdots & a_{2n} \end{bmatrix} 
+$$
 
 ## 方程求解
 奇异的意思是：冗余、重复、线性相关
@@ -628,6 +802,11 @@ $$
 $$
 \frac{\mathrm{d}}{\mathrm{d} t} (\mathbf{A} \mathbf{B}) = \frac{\mathrm{d} \mathbf{A}}{\mathrm{d} t} \mathbf{B} + \mathbf{A} \frac{\mathrm{d} \mathbf{B}}{\mathrm{d} t}
 $$
+
+### 行偏导
+
+### 列偏导（梯度）
+
 
 
 ### Higher Order Derivatives
