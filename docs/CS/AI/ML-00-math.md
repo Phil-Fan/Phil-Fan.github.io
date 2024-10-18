@@ -1,115 +1,27 @@
 # 00 | Math in ML
 !!! note "相关课程"
     === "矩阵论 | 程磊"
-        智云链接：
-        教师：程磊（老师特别有意思hhh）
-        上课风格：课前会有同学来帮助回顾上节课的内容，老师推导也特别清楚，会联系到一些与其他课程相关联的例子
-        旁听友好
+        智云链接：[2024秋冬](https://classroom.zju.edu.cn/livingroom?course_id=66128&sub_id=1264000)<br>
+        教师：程磊（老师特别有意思hhh）<br>
+        上课风格：课前会有同学来帮助回顾上节课的内容，老师推导也特别清楚，会联系到一些与其他课程相关联的例子<br>
+        旁听友好<br>
 
     === "MIT 18.065 | Gilbert Strang"
-        链接：
-        教师：Gilbert Strang
-        还没上过
+        链接：<br>
+        教师：Gilbert Strang<br>
+        还没上过<br>
 
-## Linear algebra
-
-矩阵：Matrix
-向量：Vector
-转置：Transpose
-共轭：Conjugate
-导数：Gradient
-转置共轭：Hermitian
-求逆：Inverse
-线性组合：Linear Combination 
-
-线性无关：Linear Independece 
-奇异性：Singular 
-向量空间：Vector Space
-内积：inner product
-外积：outer product
-范数： norm
-
-概率密度函数：probabiity density function (pdf)
-累计分布函数： cumulative distribution function (cdf)
-均值向量：mean vector 
-相关矩阵：correlation matrix
-协方差矩阵：covariance matrix
-自相关：auto-correlation
-互相关：cross-correlation
-二次型 ： quadratic form
-行列式：determinant
-特征值： eigenvalue
-迹：trace
-秩：rank
-求逆：inverse
-
-相似对角化：
-[全网最快速的特征向量暴力求法（纯干货技巧）\_哔哩哔哩\_bilibili](https://www.bilibili.com/video/BV1aT411E75Q/?spm_id_from=333.337.top_right_bar_window_history.content.click)
-[相似对角化太难算，哈-凯定理怒斩A的n次方！（细节拉满了）\_哔哩哔哩\_bilibili](https://www.bilibili.com/video/BV11P411w716/?spm_id_from=333.337.search-card.all.click&vd_source=8b7a5460b512357b2cf80ce1cefc69f5)
-
-!!! note "求解方法"
-     **求特征值**：
-    - 计算矩阵 \( A \) 的特征值 \(\lambda_i\)（\(i = 1, 2, \ldots, n\)），这些特征值将构成对角矩阵 \( \Lambda \) 的对角线元素。
-
-    **求特征向量**：
-    - 对于每个特征值 \(\lambda_i\)，求解特征向量 \( v_i \)，这些特征向量将构成矩阵 \( P \) 的列。
-
-    **构造对角矩阵和特征向量矩阵**：
-    - 对角矩阵 \( \Lambda \)：
-        
-        \[
-        \Lambda = \begin{bmatrix}
-        \lambda_1 & 0 & \cdots & 0 \\
-        0 & \lambda_2 & \cdots & 0 \\
-        \vdots & \vdots & \ddots & \vdots \\
-        0 & 0 & \cdots & \lambda_n
-        \end{bmatrix}
-        \]
-        
-    - 特征向量矩阵 \( P \)：
-  
-        \[
-        P = \begin{bmatrix}
-        | & | & & | \\
-        v_1 & v_2 & \cdots & v_n \\
-        | & | & & |
-        \end{bmatrix}
-        \]
-
-    **验证对角化**：
-    - 验证 \( A = P \Lambda P^{-1} \) 是否成立。
-
-
-
-矩阵求逆引理：matrix inverse lemma
-伪逆：pseudo inverse 
-直和：direct sum
-Hadamard积： Hadamard product 
-Kronecker 积：Kronecker product 
-稀疏：sparse 
-压缩感知：compressive sensing 
-
-
-Hermitian matrix
-Permutation matrix
-Communication matrix
-Generalized permutation matrix 
-Scale and permutation ambiguities 
-Orthogonal matrix
-Unitary matrix
-Upper triangular matrix
-Lower  triangular matrix 
-LU decomposition 
-Vandemonde matrix 
-Similar matrix (with respect to eigenvalues/vectors -> the same determinant and trace)
 ## Vectors
 ### Norm | 范数
 [什么是范数（norm）？以及L1,L2范数的简单介绍\_l1 norm-CSDN博客](https://blog.csdn.net/qq_37466121/article/details/87855185)
 
 
+应用：聚类、流行学习、特征学习的重点就是设计一种合理的范数
+
+
 === "$L_0$ 范数（也称 0 范数）"
 
-$$
+    $$
     \|x\|_0 \stackrel{\text{def}}{=} \text{非零元素的个数}
     $$
 
@@ -144,20 +56,15 @@ $$
 
 === "随机向量范数"
 
-$$
-\|x(\xi)\|^2 \stackrel{\text{def}}{=} \mathbb{E}\{x^H(\xi) x(\xi)\}
-$$
+    $$
+    \|x(\xi)\|^2 \stackrel{\text{def}}{=} \mathbb{E}\{x^H(\xi) x(\xi)\}
+    $$
 
 
 ### inner Product | 内积
 
 内积把向量降维成为标量
 
-应用：聚类、流行学习、特征学习的重点就是设计一种合理的范数
-
-$$
-\langle x(t), y(t) \rangle \stackrel{\text{def}}{=} \int_a^b x^H(t) y(t) \, dt
-$$
 
 
 
@@ -230,11 +137,11 @@ $$
 ## 矩阵
 ### norm
 1. **诱导范数（Induced Norm）**：
-   - 诱导范数定义为：$$ \|A\| = \max \{\|Ax\| : x \in K^n, \|x\| = 1 \} $$
-   - 或者等价地定义为：$$ \|A\| = \max \left\{ \frac{\|Ax\|}{\|x\|} : x \in K^n, x \neq 0 \right\} $$
+   - 诱导范数定义为：$\|A\| = \max \{\|Ax\| : x \in K^n, \|x\| = 1 \}$
+   - 或者等价地定义为：$\|A\| = \max \left\{ \frac{\|Ax\|}{\|x\|} : x \in K^n, x \neq 0 \right\}$
 
 2. **常用的诱导范数 - p 范数（p-Norm）**：
-   - p 范数定义为：$$ \|A\|_p = \max_{x \neq 0} \frac{\|Ax\|_p}{\|x\|_p} $$
+   - p 范数定义为：$\|A\|_p = \max_{x \neq 0} \frac{\|Ax\|_p}{\|x\|_p}$
 
 === "当 $p = 1$"
     得到绝对列和范数
@@ -270,28 +177,36 @@ $$
 
 ### quadratic form | 二次型
 
-对于任意一个二次型函数 $f(x_1, \ldots, x_n) = \sum_{i=1}^n \alpha_{ii} x_i^2 + \sum_{i=1, i \neq j}^n \sum_{j=1}^n \alpha_{ij} x_i x_j$，存在许多矩阵 $A$，它们的二次型 $x^T A x = f(x_1, \ldots, x_n)$ 相同。
+对于任意一个二次型函数 $f(x_1, \ldots, x_n) = \sum_{i=1}^n \sum_{j=1}^n \alpha_{ij} x_i x_j$，存在许多矩阵 $A$，它们的二次型 $x^T A x = f(x_1, \ldots, x_n)$ 相同。
+
+> 二次型一般用两个sum来表示
 
 **唯一性条件**：
 - 只有实对称矩阵或复共轭对称矩阵满足唯一性，即 $x^T A x = f(x_1, \ldots, x_n)$。
 - 二次型函数一定是实值函数。
 
 
-二次型可以刻画矩阵是正定、半正定、负定、半负定还是不定
+**二次型理论**
+- $\mathbf{H(f)}$负定，有极大值： 奇数阶主子式为负数，偶数阶为正数
+- $\mathbf{H(f)}$正定，有极小值：顺序主子式都为正数
+- $\mathbf{H(f)}$不定，鞍点：特征值有正有负
+- $\mathbf{H(f)}$不可逆，无法判断：特征值有0
 
-正定的话，所有特征值都偶大于零
-
-$$
-x_i^T A x_i > 0 \implies x_i^T \lambda_i x_i > 0 \implies \lambda_i \|x_i\|^2 > 0 \implies \lambda_i > 0
-$$
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/b05544056c037bc56f9070e45533f02.jpg" alt="b05544056c037bc56f9070e45533f02" style="zoom: 33%;" />
 
 
 !!! note "正定的理解"
-    假设 $\boldsymbol{A}x = m$, $则$\langle x,m \rangle = x^\boldsymbol{H} m = x^\boldsymbol{H} \boldsymbol{A} x$
+    假设 $\mathbf{A}x = m$, 则 $\langle x,m \rangle = x^{\mathbf{H}} m = x^{\mathbf{H}} \mathbf{A} x$
 
     所以正定意味着x,m夹角小于90度
 
     任意输入，输出偏离都不会太大，都是一个锐角
+
+    正定的话，所有特征值都大于零
+
+    $$
+    x_i^T A x_i > 0 \implies x_i^T \lambda_i x_i > 0 \implies \lambda_i \|x_i\|^2 > 0 \implies \lambda_i > 0
+    $$
 
 ### determinant
 
@@ -301,18 +216,17 @@ $$
 
 
 
-??? note "$det = \Pi eigenvalues$"
-
-    矩阵的行列式等于其特征值的乘积
-
+??? note "$det = \Pi_i^n \lambda_i$"
+    矩阵的行列式等于其特征值的乘积<br>
+    
     对于一个 $n \times n$ 的方阵 $A$，如果它有 $n$ 个线性无关的特征向量 $v_1, v_2, \ldots, v_n$，那么 $A$ 可以表示为：
 
     $$ 
-    A = V \Lambda V^{-\boldsymbol{H}}\\
-    det(A) = det(V) \cdot det(\Lambda) \cdot det(V^{-\boldsymbol{H}}) = det(\Lambda) 
+    A = V \Lambda V^{\mathbf{H}}\\
+    det(A) = det(V) \cdot det(\Lambda) \cdot det(V^{\mathbf{H}}) = det(\Lambda) 
     $$
 
-    而特征向量矩阵 $V$ 是正交矩阵$V\cdot V^{\boldsymbol{H}} = I$；所以 $det(V) = 1$
+    而特征向量矩阵 $V$ 是正交矩阵$V\cdot V^{\mathbf{H}} = I$；所以 $det(V) = 1$
 
     又因为 $det(\Lambda) = \lambda_1 \lambda_2 \cdots \lambda_n$，所以 $A$ 的行列式等于它的特征值的乘积。
 
@@ -342,11 +256,11 @@ $$
 ### Eigenvalues | 特征值
 
 $$
-\boldsymbol{A} \boldsymbol{v} = \lambda \boldsymbol{v}
+\mathbf{A} \mathbf{v} = \lambda \mathbf{v}
 $$
 
 $$
-det(\boldsymbol{A} - \lambda \boldsymbol{I}) = 0
+det(\mathbf{A} - \lambda \mathbf{I}) = 0
 $$
 
 ### Eigenvectors | 特征向量
@@ -436,13 +350,19 @@ $A^\dagger$
 
 三维到二维的变换 $T : \mathbb{R}^3 \mapsto \mathbb{R}^2$
 
-$$T_1(x) = \begin{bmatrix} x_1 + x_2 \\ x_1 - x_2 \end{bmatrix}, \quad \text{其中}, \quad x = \begin{bmatrix} x_1 \\ x_2 \\ x_3 \end{bmatrix}$$
+$$
+T_1(x) = \begin{bmatrix} x_1 + x_2 \\ x_1 - x_2 \end{bmatrix}, \quad \text{其中}, \quad x = \begin{bmatrix} x_1 \\ x_2 \\ x_3 \end{bmatrix}
+$$
 
-$$T_2(x) = \begin{bmatrix} x_1 - x_2 \\ x_2 + x_3 \end{bmatrix}, \quad \text{其中}, \quad x = \begin{bmatrix} x_1 \\ x_2 \\ x_3 \end{bmatrix}$$
+$$
+T_2(x) = \begin{bmatrix} x_1 - x_2 \\ x_2 + x_3 \end{bmatrix}, \quad \text{其中}, \quad x = \begin{bmatrix} x_1 \\ x_2 \\ x_3 \end{bmatrix}
+$$
 
 正交投影算子 $w = T(x)$
 
-$$\begin{bmatrix} w_1 \\ w_2 \end{bmatrix} = \begin{bmatrix} 0 & 0 \\ 0 & 1 \end{bmatrix} \begin{bmatrix} x \\ y \end{bmatrix}$$
+$$
+\begin{bmatrix} w_1 \\ w_2 \end{bmatrix} = \begin{bmatrix} 0 & 0 \\ 0 & 1 \end{bmatrix} \begin{bmatrix} x \\ y \end{bmatrix}
+$$
 
 ## 矩阵运算
 !!! note "要关注矩阵运算对于矩阵维度的影响"
@@ -482,21 +402,23 @@ $$
 
 ### Kronecker product
 
-**定义(右 Kronecker 积)** 
+每个元素都乘一个矩阵
 
-$m \times n$ 矩阵 $A = [a_{11}, \cdots, a_{mn}]$ 和 $p \times q$ 矩阵 $B$ 的右 Kronecker 积记作 $A \otimes B$，是一个 $mp \times nq$ 矩阵，定义为
+=== "右 Kronecker 积"
 
-$$
-A \otimes B = [a_{ij}B]_{m \times n}^{p \times q} = \begin{bmatrix} a_{11}B & a_{12}B & \cdots & a_{1n}B \\ a_{21}B & a_{22}B & \cdots & a_{2n}B \\ \vdots & \vdots & \ddots & \vdots \\ a_{m1}B & a_{m2}B & \cdots & a_{mn}B \end{bmatrix}
-$$
+    $m \times n$ 矩阵 $A = [a_{11}, \cdots, a_{mn}]$ 和 $p \times q$ 矩阵 $B$ 的右 Kronecker 积记作 $A \otimes B$，是一个 $mp \times nq$ 矩阵，定义为
 
-**定义 (左 Kronecker 积)**
+    $$
+    A \otimes B = [a_{ij}B]_{m \times n}^{p \times q} = \begin{bmatrix} a_{11}B & a_{12}B & \cdots & a_{1n}B \\ a_{21}B & a_{22}B & \cdots & a_{2n}B \\ \vdots & \vdots & \ddots & \vdots \\ a_{m1}B & a_{m2}B & \cdots & a_{mn}B \end{bmatrix}
+    $$
 
-$m \times n$ 矩阵 $A$ 和 $p \times q$ 矩阵 $B = [b_{11}, \cdots, b_{pq}]$ 的左 Kronecker 积 $A \otimes B$ 是一个 $mp \times nq$ 矩阵，定义为
+=== "左 Kronecker 积"
 
-$$
-[A \otimes B]_{\text{left}} = [Ab_{ij}]_{m \times n}^{p \times q} = [b_{ij}A]_{p \times q}^{m \times n} = \begin{bmatrix} Ab_{11} & Ab_{12} & \cdots & Ab_{1q} \\ Ab_{21} & Ab_{22} & \cdots & Ab_{2q} \\ \vdots & \vdots & \ddots & \vdots \\ Ab_{p1} & Ab_{p2} & \cdots & Ab_{pq} \end{bmatrix}
-$$
+    $m \times n$ 矩阵 $A$ 和 $p \times q$ 矩阵 $B = [b_{11}, \cdots, b_{pq}]$ 的左 Kronecker 积 $A \otimes B$ 是一个 $mp \times nq$ 矩阵，定义为
+
+    $$
+    [A \otimes B]_{\text{left}} = [Ab_{ij}]_{m \times n}^{p \times q} = [b_{ij}A]_{p \times q}^{m \times n} = \begin{bmatrix} Ab_{11} & Ab_{12} & \cdots & Ab_{1q} \\ Ab_{21} & Ab_{22} & \cdots & Ab_{2q} \\ \vdots & \vdots & \ddots & \vdots \\ Ab_{p1} & Ab_{p2} & \cdots & Ab_{pq} \end{bmatrix}
+    $$
 
 显然，无论左或右 Kronecker 积都是一一映射：$\mathbb{R}^{m \times n} \times \mathbb{R}^{p \times q} \rightarrow \mathbb{R}^{mp \times nq}$
 
@@ -572,20 +494,23 @@ $$
 ### 广义置换矩阵
 
 $$
-G = \begin{bmatrix} 0 & 0 & 0 & 0 & \alpha \\ 0 & \beta & 0 & 0 & 0 \\ 0 & \gamma & 0 & 0 & 0 \\ 0 & 0 & 0 & \lambda & 0 \\ \rho & 0 & 0 & 0 & 0 \end{bmatrix} = \begin{bmatrix} 0 & 0 & 0 & 0 & 1 \\ 0 & 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 & 0 \\ 0 & 0 & 0 & 1 & 0 \\ 1 & 0 & 0 & 0 & 0 \end{bmatrix} \begin{bmatrix} \rho & 0 \\ \gamma & \beta \\ \beta & \lambda \\ 0 & \alpha \end{bmatrix}
+G = \begin{bmatrix} 0 & 0 & 0 & 0 & \alpha \\ 0 & 0& \beta  & 0 & 0 \\ 0 & \gamma & 0 & 0 & 0 \\ 0 & 0 & 0 & \lambda & 0 \\ \rho & 0 & 0 & 0 & 0 \end{bmatrix} = \begin{bmatrix} 0 & 0 & 0 & 0 & 1 \\ 0 & 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 & 0 \\ 0 & 0 & 0 & 1 & 0 \\ 1 & 0 & 0 & 0 & 0 \end{bmatrix} 
+\begin{bmatrix} 
+\rho & & & & 0\\
+ &\gamma & & & \\
+ & &\beta & & \\
+& & & \lambda& \\
+0& & & & \alpha\\
+\end{bmatrix}
 $$
 
 一个正方矩阵称为广义置换矩阵，简称 g 矩阵，若其每行和每列有一个并且仅有一个非零元素
 
-$G = P\Lambda$
+G 可写为一个置换矩阵和一个非奇异对角阵的乘积,$G = P\Lambda$
 
-G 可写为一个置换矩阵和一个非奇异对角阵的乘积
-
-可用于观测数据模型和对信号进行恢复
-广义置换矩阵可以用于描述：
+可用于观测数据模型和对信号进行恢复,可用于描述：
 - 累加导致信号顺序不确定
 - 信号幅度不确定
-这两种不确定性。
 
 ### 酉矩阵 | Unitary matrix
 
@@ -595,17 +520,18 @@ G 可写为一个置换矩阵和一个非奇异对角阵的乘积
 - 正交矩阵在实数域而酉矩阵在复数域
 
 
-| 实向量、实矩阵 | 复向量、复矩阵 |
-|----------------|----------------|
-| $\|x\| = \sqrt{x_1^2 + x_2^2 + \cdots + x_n^2}$ | $\|x\| = \sqrt{\|x_1\|^2 + \|x_2\|^2 + \cdots + \|x_n\|^2}$ |
-| 转置 $A^T = [a_{ji}]$， $(AB)^T = B^T A^T$ | 共轭转置 $A^H = [a_{ji}]$， $(AB)^H = B^H A^H$ |
-| 内积 $(x, y) = x^T y$ | 内积 $(x, y) = x^H y$ |
-| 正交性 $x^T y = 0$ | 正交性 $x^H y = 0$ |
-| 对称矩阵 $A^T = A$ | Hermitian矩阵 $A^H = A$ |
-| 正交矩阵 $Q^T = Q^{-1}$ | 酉矩阵 $U^H = U^{-1}$ |
-| 特征值分解 $A = Q \Lambda Q^{-1} = Q \Lambda Q^T$ | 特征值分解 $A = U \Sigma U^H = U \Sigma U^{-1}$ |
-| 范数的正交不变性 $\|Qx\| = \|x\|$ | 范数的酉不变性 $\|Ux\| = \|x\|$ |
-| 内积的正交不变性 $(Qx, Qy) = (x, y)$ | 内积的酉不变性 $(Ux, Uy) = (x, y)$ |
+!!! note "并不是将实数域的Transpose扩展到复数域改成Hermitian"
+    | 实向量、实矩阵 | 复向量、复矩阵 |
+    |----------------|----------------|
+    | $\|x\| = \sqrt{x_1^2 + x_2^2 + \cdots + x_n^2}$ | $\|x\| = \sqrt{\|x_1\|^2 + \|x_2\|^2 + \cdots + \|x_n\|^2}$ |
+    | 转置 $A^T = [a_{ji}]$， $(AB)^T = B^T A^T$ | 共轭转置 $A^H = [a_{ji}]$， $(AB)^H = B^H A^H$ |
+    | 内积 $(x, y) = x^T y$ | 内积 $(x, y) = x^H y$ |
+    | 正交性 $x^T y = 0$ | 正交性 $x^H y = 0$ |
+    | 对称矩阵 $A^T = A$ | Hermitian矩阵 $A^H = A$ |
+    | 正交矩阵 $Q^T = Q^{-1}$ | 酉矩阵 $U^H = U^{-1}$ |
+    | 特征值分解 $A = Q \Lambda Q^{-1} = Q \Lambda Q^T$ | 特征值分解 $A = U \Sigma U^H = U \Sigma U^{-1}$ |
+    | 范数的正交不变性 $\|Qx\| = \|x\|$ | 范数的酉不变性 $\|Ux\| = \|x\|$ |
+    | 内积的正交不变性 $(Qx, Qy) = (x, y)$ | 内积的酉不变性 $(Ux, Uy) = (x, y)$ |
 
 
 ### 正交矩阵
@@ -704,7 +630,7 @@ $$
 A = \begin{bmatrix} a_0 & a_1^* & a_2^* & \cdots & a_n^* \\ a_1 & a_0 & a_1^* & \cdots & a_{n-1}^* \\ a_2 & a_1 & a_0 & \cdots & a_{n-2}^* \\ \vdots & \vdots & \vdots & \ddots & \vdots \\ a_n & a_{n-1} & a_{n-2} & \cdots & a_0 \end{bmatrix} 
 $$
 
-!!! note "卷积操作是Toplitz矩阵"
+??? note "卷积操作是Toplitz矩阵"
     卷积操作 $y = x \ast h$ 可以表示为：
 
     $$
@@ -777,6 +703,44 @@ $$
 
 ## 矩阵分解
 ### LU decomposition
+
+### 相似对角化
+[全网最快速的特征向量暴力求法（纯干货技巧）\_哔哩哔哩\_bilibili](https://www.bilibili.com/video/BV1aT411E75Q/?spm_id_from=333.337.top_right_bar_window_history.content.click)
+
+[相似对角化太难算，哈-凯定理怒斩A的n次方！（细节拉满了）\_哔哩哔哩\_bilibili](https://www.bilibili.com/video/BV11P411w716/?spm_id_from=333.337.search-card.all.click&vd_source=8b7a5460b512357b2cf80ce1cefc69f5)
+
+!!! note "求解方法"
+     **求特征值**：
+    - 计算矩阵 $A$ 的特征值 $\lambda_i$ ，这些特征值将构成对角矩阵 $\Lambda$ 的对角线元素。
+
+    **求特征向量**：
+    - 对于每个特征值 $\lambda_i$，求解特征向量 $v_i$，这些特征向量将构成矩阵 $P$ 的列。
+
+    **构造对角矩阵和特征向量矩阵**：
+    - 对角矩阵 $\Lambda$：
+        
+    $$
+    \Lambda = \begin{bmatrix}
+    \lambda_1 & 0 & \cdots & 0 \\
+    0 & \lambda_2 & \cdots & 0 \\
+    \vdots & \vdots & \ddots & \vdots \\
+    0 & 0 & \cdots & \lambda_n
+    \end{bmatrix}
+    $$
+        
+    - 特征向量矩阵 $P$：
+
+    $$
+    P = \begin{bmatrix}
+    | & | & & | \\
+    v_1 & v_2 & \cdots & v_n \\
+    | & | & & |
+    \end{bmatrix}
+    $$
+
+    **验证对角化**：
+    - 验证 $A = P \Lambda P^{-1}$ 是否成立。
+
 
 
 ### Eigen decomposition
@@ -880,7 +844,7 @@ $$
 其中，$c_{ij}$ 表示 $x_i(\xi)$ 和 $x_j(\xi)$ 之间的协方差。自协方差矩阵也是复共轭对称矩阵。
 
 $$
-\boldsymbol{C_x} = \boldsymbol{R_x} - \boldsymbol{\mu_x} \boldsymbol{\mu_x}^H
+\mathbf{C_x} = \mathbf{R_x} - \mathbf{\mu_x} \mathbf{\mu_x}^H
 $$
 
 
@@ -933,3 +897,79 @@ $$\rho_{ij} = \frac{E\{[x_i(\xi) - \mu_i][x_j(\xi) - \mu_j]^*\}}{\sqrt{E\{[x_i(\
 
 
 ## Optimization algorithms
+
+
+## 名词
+
+### 矩阵与向量
+
+| 中文名         | 英文名                        |
+|----------------|-------------------------------|
+| 矩阵           | Matrix                        |
+| 向量           | Vector                        |
+| 转置           | Transpose                     |
+| 共轭           | Conjugate                     |
+| 导数           | Gradient                      |
+| 转置共轭       | Hermitian                     |
+| 求逆           | Inverse                       |
+| 线性组合       | Linear Combination            |
+| 线性无关       | Linear Independence           |
+| 奇异性         | Singular                      |
+| 向量空间       | Vector Space                  |
+| 内积           | Inner Product                 |
+| 外积           | Outer Product                 |
+| 范数           | Norm                          |
+| 行列式         | Determinant                   |
+| 特征值         | Eigenvalue                    |
+| 迹             | Trace                         |
+| 秩             | Rank                          |
+| 二次型             | Quadratic Form                |
+| 求逆           | Inverse                       |
+| 矩阵求逆引理   | Matrix Inverse Lemma          |
+| 伪逆           | Pseudo Inverse                |
+| 直和           | Direct Sum                    |
+| Hadamard积     | Hadamard Product              |
+| Kronecker积    | Kronecker Product             |
+| 稀疏           | Sparse                        |
+| 压缩感知       | Compressive Sensing           |
+| Hermitian矩阵  | Hermitian Matrix              |
+| 置换矩阵       | Permutation Matrix            |
+| 通信矩阵       | Communication Matrix          |
+| 广义置换矩阵   | Generalized Permutation Matrix|
+| 正交矩阵       | Orthogonal Matrix             |
+| 酉矩阵         | Unitary Matrix                |
+| 上三角矩阵     | Upper Triangular Matrix       |
+| 下三角矩阵     | Lower Triangular Matrix       |
+| LU分解         | LU Decomposition              |
+| Vandemonde矩阵 | Vandemonde Matrix             |
+| 相似矩阵       | Similar Matrix                |
+
+### 概率与统计
+
+| 中文名             | 英文名                        |
+|--------------------|-------------------------------|
+| 概率密度函数       | Probability Density Function (pdf) |
+| 累计分布函数       | Cumulative Distribution Function (cdf) |
+| 均值向量           | Mean Vector                   |
+| 相关矩阵           | Correlation Matrix            |
+| 协方差矩阵         | Covariance Matrix             |
+
+
+### 信息论
+
+| 中文名             | 英文名                        |
+|--------------------|-------------------------------|
+| 熵                 | Entropy                       |
+| Kullback–Leibler散度 | Kullback–Leibler Divergence   |
+| 交叉熵             | Cross-entropy                 |
+
+### 优化算法
+
+| 中文名             | 英文名                        |
+|--------------------|-------------------------------|
+| 梯度下降           | Gradient Descent              |
+| 牛顿法             | Newton's Method               |
+| 共轭梯度法         | Conjugate Gradient Method     |
+| 拉格朗日乘数法     | Lagrange Multipliers          |
+| 约束优化           | Constrained Optimization      |
+| 无约束优化         | Unconstrained Optimization    |
