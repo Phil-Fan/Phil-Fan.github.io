@@ -13,6 +13,10 @@ y = Ax
 
 
 ### 稀疏表示 | Sparse Representation
+
+L1正则化，一般交叉位置在坐标轴上，可解释性增强
+
+
 权重变稀疏，可以让可解释性变高
 
 [Indian Buffet Process(印度自助餐过程)介绍-CSDN博客](https://blog.csdn.net/qy20115549/article/details/78532939)

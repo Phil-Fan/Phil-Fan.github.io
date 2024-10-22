@@ -101,7 +101,15 @@ Step2. 找到自己的琴房，打开门禁卡，进入琴房，打开空调，�
 3. 注意连音的处理
 4. 最后一小节左手的移动需要练一下
 
+### 风笛舞曲
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241022080436.png)
+
+### 春
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241022080525.png)
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241022080551.png)
+
 ## 听歌识曲
+
 [网易云歌单](http://163cn.tv/xE63rhC)
 
 

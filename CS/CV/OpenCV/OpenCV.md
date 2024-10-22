@@ -1,6 +1,6 @@
 # OpenCV学习
 
-[TOC]
+[OpenCV计算机视觉（Python）- - 一路狂奔的乌龟 - 博客园](https://www.cnblogs.com/GYH2003/collections/5918)
 
 ## 安装与配置
 
