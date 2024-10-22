@@ -385,15 +385,25 @@ zplane(num,den)
 
 - `Ctrl + R`：顺时针旋转
 - `Ctrl + Shift + R` 逆时针旋转
+- 按住`Ctrl`键并连接线，可以从一条线中分支
 
-
+[MATLAB的Simulink的信号线 - 知乎](https://zhuanlan.zhihu.com/p/615160855)
 ### 常用元件
 
 mux：多路复用器，可以实现多个输入信号的选择
 
-scope：示波器，用于显示信号波形
+scope：示波器，用于显示信号波形；设置里可以更改输入端口的个数
 
+transfer function：传递函数，用于建立系统的传递函数模型
 
+step：阶跃信号，用于产生阶跃信号
+
+add：加法器，用于实现信号的加法运算；设置里可以更改输入端口的个数
+
+!!! note "例子"
+    === "搭建二阶系统"
+        ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241020131407.png)
+        [MATLAB——Simulink二阶系统 - 哔哩哔哩](https://www.bilibili.com/read/cv9223784/)
 
 ## Control System Toolbox
 

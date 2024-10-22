@@ -153,8 +153,23 @@ PoseTrack 是一个大规模的人体姿态估计和跟踪数据集，PoseTrack1
 
 [mmdet代码复现：安装指定版本的mmcv和mmdet以及版本匹配问题。-CSDN博客](https://blog.csdn.net/shysea2019/article/details/129818430)
 
-1. 安装`pytorch`
-2. 下载`mmpose 0.28`代码
+
+
+
+
+
+#### 安装`pytorch`
+
+> MMPose 适用于 Linux、Windows 和 macOS。它需要 Python 3.6+、CUDA 9.2+ 和 PyTorch 1.5+
+
+
+```shell
+conda create --name openmmlab python=3.8 -y
+conda activate mmpose.28
+```
+
+
+#### 下载`mmpose 0.28`代码
 
 ```shell
 pip install -U openmim
