@@ -1,4 +1,4 @@
-# interpretable ML
+# Interpretable ML
 
 !!! note "Challenges"
     - Do we understand the decisions suggested by ML models?
@@ -175,3 +175,5 @@ $$
 change the input feature vectors
 
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241022093144.png)
+
+[因果推断可解释性 之 反事实解释综述（三） - 知乎](https://zhuanlan.zhihu.com/p/464194306)
