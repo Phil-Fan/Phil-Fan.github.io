@@ -137,60 +137,8 @@ sudo apt-get upgrade
     sudo apt install ca-certificates
     ```
 ### 中文系统
+在系統中添加中文語言，既可以顯示中文，也可以輸入中文。
 
-#### 中文环境
-```shell
-sudo apt update
-sudo apt install locales
-```
-
-
-**安装中文语言包：**
-安装中文语言包，以支持中文显示和输入。在大多数基于Debian的系统（如Ubuntu、Kali Linux等）中，可以使用以下命令：
-```shell
-sudo apt-get install language-pack-zh-hans
-```
-
-**配置Locale：**
-
-设置系统的区域设置（Locale），以支持中文。可以通过编辑/etc/locale.gen文件（在一些系统中可能是/etc/locale.conf），然后添加或取消注释以下行：
-```shell
-zh_CN.UTF-8 UTF-8
-```
-然后运行以下命令来生成Locale：
-```shell
-sudo locale-gen
-```
-
-**更新环境变量：**
-编辑用户的.bashrc文件或全局的`/etc/environment`文件，设置环境变量以使用中文环境。
-在.bashrc文件中添加：
-
-```shell
-export LANG=zh_CN.UTF-8
-export LC_ALL=zh_CN.UTF-8
-```
-
-
-在`/etc/environment`文件中添加：
-
-```shell
-LANG=zh_CN.UTF-8
-LC_ALL=zh_CN.UTF-8
-```
-
-
-#### 中文输入法
-```shell
-sudo apt install ibus-libpinyin
-```
-然后配置ibus自动启动，并在ibus的设置中添加中文输入法。
-重启后生效，输入命令打开ibus控制台：
-```shell
-ibus-setup
-```
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240914223103.png)
-[Linux配置中文环境\_linux设置中文环境-CSDN博客](https://blog.csdn.net/LongL_GuYu/article/details/139860050)
 ### 分辨率
 
 ```shell
