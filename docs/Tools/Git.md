@@ -45,6 +45,46 @@ git branch -d <branch_name> //删除分支
 
 ![a16f42f5af389230d4b27c7c](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/a16f42f5af389230d4b27c7c.png)
 
+### 回退
+
+```shell title="查看详细历史记录"
+git log
+```
+
+
+```shell
+git log --pretty=oneline
+```
+格式化log形式，每条log只有一行，只包含 完整的hash值 和 提交的备注；
+
+
+```shell title="只展示最新的几条日志"
+git log -n 3
+```
+
+```shell title="展示历史分支路线"
+git log --graph
+```
+
+```shell title="回退任意版本"
+git reset --hard + commit_id
+```
+
+
+```shell
+git reset --hard HEAD^ 
+```
+
+只能后退，一个 ^ 表示回退一个版本，两个^ 表示回退两个版本，依次类推
+
+```shell title="回退n个版本"
+git reset --hard HEAD~n
+```
+
+
+
+
+
 ### Pull Request
 PR,全称Pull Request（拉取请求），是一种非常重要的协作机制
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240926134813.png)
