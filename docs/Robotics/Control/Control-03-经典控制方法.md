@@ -2,6 +2,15 @@
 comments: true
 ---
 # 经典控制方法
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241025103707.png)
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241025103623.png)
+
+
+[打通你任督二脉的自动控制领域知名博主-西门子工程师推荐\_哔哩哔哩\_bilibili](https://www.bilibili.com/video/BV1Bu411e762)
+
+
+
 
 （1）**镇定**：状态x(t)渐近稳定，也就是当t->∞时，x(t)->0
 

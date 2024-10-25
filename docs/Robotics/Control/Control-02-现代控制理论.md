@@ -4,6 +4,7 @@ comments: true
 # 现代控制理论
 > 以此笔记致敬DR_CAN，感谢他的无私奉献
 
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241025103426.png)
 
 !!! note "资源汇总"
     === "学习路径"
@@ -13,17 +14,19 @@ comments: true
         - 课件
         - 历年题目
     === "历年卷"
-        - [2023-2024 秋冬 回忆卷](http://www-cc98-org-s.webvpn.zju.edu.cn:8001/topic/5748670)
-        - [2023-2024 秋 回忆卷](http://www-cc98-org-s.webvpn.zju.edu.cn:8001/topic/5748295)
-        - [2022-2023 秋 回忆卷](http://www-cc98-org-s.webvpn.zju.edu.cn:8001/topic/5454547)
-        - [2021-2022 秋 回忆卷](http://www-cc98-org-s.webvpn.zju.edu.cn:8001/topic/5197292)
-        - [2019-2020 春夏 回忆卷](http://www-cc98-org-s.webvpn.zju.edu.cn:8001/topic/4960302/1#1)
-        - [2019-2020 春夏 回忆卷](http://www-cc98-org-s.webvpn.zju.edu.cn:8001/topic/4856718)
-        - [2020 回忆卷](http://www-cc98-org-s.webvpn.zju.edu.cn:8001/topic/5040332)
+        - [2023-2024 秋冬 回忆卷](https://www.cc98.org/topic/5748670)
+        - [2023-2024 秋 回忆卷](https://www.cc98.org/topic/5748295)
+        - [2022-2023 秋 回忆卷](https://www.cc98.org/topic/5454547)
+        - [2021-2022 秋 回忆卷](https://www.cc98.org/topic/5197292)
+        - [2019-2020 春夏 回忆卷](https://www.cc98.org/topic/4960302/1#1)
+        - [2019-2020 春夏 回忆卷](https://www.cc98.org/topic/4856718)
+        - [2020 回忆卷](https://www.cc98.org/topic/5040332)
     === "A4"
-        - [A4 梁毅浩](http://www-cc98-org-s.webvpn.zju.edu.cn:8001/topic/5197981)
-        - [A4 Healor](http://www-cc98-org-s.webvpn.zju.edu.cn:8001/topic/5826788)
-        - [A4 Rainbow0](http://www-cc98-org-s.webvpn.zju.edu.cn:8001/topic/5658322)
+        - [A4 梁毅浩](https://www.cc98.org/topic/5197981)
+        - [A4 Healor](https://www.cc98.org/topic/5826788)
+        - [A4 Rainbow0](https://www.cc98.org/topic/5658322)
+    
+    === "作业答案"
 
 
 ## 总论
@@ -45,7 +48,7 @@ $$
 
 
 **Close Loop**：
-了解了稳定性之后，我们就可以通过设计闭环特征矩阵$\mathbf{A_{cl}}$来达到我们想要的效果：这里可以使用线性控制器、LQR来求解合适的K参数
+了解了稳定性之后，我们就可以通过设计闭环特征矩阵$\mathbf{A_{cl}}$来达到我们想要的效果：这里可以使用线性控制器来求解合适的K参数，也可以使用LQR控制器来配置极点达到不同的目标效果
 
 **能控性和能观性**
 - 能控性：是否可以从一个点控制到另一个点（不是路径控制）
@@ -220,7 +223,7 @@ U(z) &= \sum_{i=0}^{m} b_i z^{-i} E(z) - \sum_{i=1}^{n} a_i z^{-i} U(z) \\
 \end{aligned}
 $$
 
-## 状态空间法
+### 状态空间法
 
 状态空间是一组将输入、输出、状态联系在一起的一阶微分方程。
 
@@ -240,25 +243,10 @@ A的特征值就是$G(s)$的极点
 
 
 !!! note "状态空间与极点的关系"
-  - **特征向量:** $Av = \lambda v$ 在一条直线上
-  - 对角化的方法
-  - $P^{-1}A P = \Lambda$
-  - $\dot{X} = AX,X = PY,\dot{Y} = \Lambda Y$
-
-### 使用phase图进行分析
-
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240926011802.png)
-
-### matlab分析
-
-```matlab
-A = [0 1; -.5 -.5]
-B = [1;0]
-C = [1 0]
-sys = ss(A,B,C)
-sys_d = c2d(sys,0,1)
-```
-
+     - **特征向量:** $Av = \lambda v$ 在一条直线上
+     - 对角化的方法
+     - $P^{-1}A P = \Lambda$
+     - $\dot{X} = AX,X = PY,\dot{Y} = \Lambda Y$
 
 
 ### 状态空间的解（定量）
@@ -347,21 +335,27 @@ $$
 
 ## 稳定性
 
-### Lyapunov稳定性定义
+对于$(A,b,c,d)$,$G(s) = c(sI-A)^{-1}b+d$的极点是能控能观子系统的极点，G(s)稳定称为外稳定
 
-**Lyapunov: the origin(equilibrium point at the origin) is stable**（在于有界）
+$(A,b,c,d)$所有极点位于S左半开平面称为内稳定
 
-$\forall t_0,\forall\epsilon>0, \exists \delta(t_0,\epsilon): ||x(t_0)||<\delta(t_0,\epsilon) \Rightarrow \forall t\ne t_0 ||x(t)||<\epsilon$
 
-$x(t_0)$是起始点，给定$\epsilon$和$\delta$不会出边界（蓝色线条）
+### phase portrait
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241023191419.png)
 
-**asymptotically stable**（在于随着时间趋于零）
 
-$\exists \delta(t_0)>0: ||x(t_0)||<\delta(t_0) \Rightarrow \lim_{t\rightarrow\infty}||x(t)|| = 0$
+$$
+A = \begin{bmatrix}a &b\\
+c&d\end{bmatrix}
+$$
+- sink: 槽; $a<0\ and\ d<0$
+- source $a>0 \ and \ d > 0$
+- saddle $ad < 0$
 
-最后会回到原点（棕色线条）
+非常无敌的视频 [Advanced控制理论\_4\_爱情中的数学\_Phase Portrait 动态系统分析\_哔哩哔哩\_bilibili](https://www.bilibili.com/video/BV19x41177Mo?spm_id_from=333.788.videopod.sections&vd_source=8b7a5460b512357b2cf80ce1cefc69f5)
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240926012538.png)
+> 绘制相平面图像[MathWorks-Teaching-Resources/Phase-Plane-and-Slope-Field: Apps for qualitative ODE analysis.](https://github.com/MathWorks-Teaching-Resources/Phase-Plane-and-Slope-Field)
+性
 
 ### 稳定条件
 
@@ -384,36 +378,104 @@ $\exists \delta(t_0)>0: ||x(t_0)||<\delta(t_0) \Rightarrow \lim_{t\rightarrow\in
 |渐进| $a < 0$|
 |不稳定| $a>0$|
 
-
-### 处理非线性系统
-对于一个非线性系统，其状态方程可以表示为：
-$$\dot{x} = f(x,t)$$
-
-Lyapunov函数 $V(x)$ 是一个关于系统状态 $x$ 的标量函数，它满足以下条件：
-1. $V(x)$ 在系统平衡点 $x^*$ 处取得最小值，即 $V(x^*) = 0$。
-2. $V(x)$ 在系统状态空间中是正定的，即对于任意的 $x \neq x^*$，都有 $V(x) > 0$。
-3. 系统状态的导数 $\dot{V}(x)$ 在系统平衡点附近是负定的，即对于任意的 $x$ 在平衡点附近，都有 $\dot{V}(x) < 0$。
-
-根据Lyapunov稳定性理论，如果存在一个满足上述条件的Lyapunov函数，那么系统在平衡点 $x^*$ 处是稳定的。如果 $\dot{V}(x)$ 在系统状态空间中始终为负，那么系统在平衡点 $x^*$ 处是渐近稳定的。
-
-!!! tip "寻找v的过程是一门艺术"
+### Lyapunov稳定性定义
 
 
+!!! tip "稳定性都是相对于某个稳定状态$x_e$而言"
 
-PSD(positive simi definate)半正定
 
-NSD(negative semi definate)
+**Lyapunov: the origin(equilibrium point at the origin) is stable**（在于有界）
 
-PD(positive definate)
+$\forall t_0,\forall\epsilon>0, \exists \delta(t_0,\epsilon): ||x(t_0)||<\delta(t_0,\epsilon) \Rightarrow \forall t\ne t_0 ||x(t)||<\epsilon$
 
-ND(negative definate)
+> 出发点$x_0$有限制，轨迹线有限制
 
-### 劳斯判据
+$x(t_0)$是起始点，给定$\epsilon$和$\delta$不会出边界（蓝色线条）
 
-### 根轨迹
+**asymptotically stable**（在于随着时间趋于零）
 
-### 频域方法
+$\exists \delta(t_0)>0: ||x(t_0)||<\delta(t_0) \Rightarrow \lim_{t\rightarrow\infty}||x(t)|| = 0$
 
+最后会回到原点（棕色线条）
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240926012538.png)
+
+
+第一方法是求解微分方程的方法
+第二方法不需要求微分方程，就可以判断系统稳定
+
+大范围渐进稳定：
+
+必要条件：只有一个平衡状态；出发点$x_0$没有限制；对于线性系统，平衡状态渐近稳定则必然大范围渐进稳定
+
+
+
+
+
+### Lyapunov第一方法——间接法
+
+1. 求解平衡状态
+2. 写出雅可比矩阵
+3. 求解$A|_{x_{e1}},A|_{x_{e2}}$的特征值
+- 都为负，渐近稳定
+- 存在正，不稳定
+- 含有0，该法失效
+
+
+[李雅普诺夫稳定性解题方法总结](https://www.bilibili.com/video/BV1cR4y1Q7ra)
+
+### Lyapunov第二方法——直接法
+
+1. 选择一个Lyapunov函数
+2. 求导数
+
+- 稳定： $V$ 正定，$\dot{V}$ 半负定；
+- 渐进稳定: $V$正定，$\dot{V}$负定；或者$\dot{V}$半负定，且$x\ne 0$时候，$\dot{V}$不恒为0
+- 全局渐进稳定：如果$||x||\rightarrow \infty,V(x) \rightarrow \infty$
+- 不稳定：$\dot{V(x)}$正定
+
+
+
+
+$$
+\begin{aligned}
+\dot{V} &= \begin{bmatrix} \frac{\partial V}{\partial x_1} & \frac{\partial V}{\partial x_2} \end{bmatrix} \begin{bmatrix} f_1 \\ f_2 \end{bmatrix} \\
+&= \nabla V \cdot f(x) = L_f V(x)
+\end{aligned}
+$$
+
+
+#### V的寻找
+寻找v的过程是一门艺术
+- 物理系统：使用能量作为$V$函数
+- 其他：
+
+满足条件：
+1. 对所有的x具有连续的一阶偏导数
+2. $V(x)$正定
+
+正定性判定：
+- 西尔韦斯特判据：n阶主子式大于0：正定
+- 偶正奇负：负定
+
+#### lyaponov方程
+线性定常连续系统的渐进稳定判据
+
+对于任意给定的正定实对称矩阵$Q$,存在正定实对称矩阵$P$，使得下列方程成立
+
+$$
+A^TP + PA = -Q
+$$
+
+可取$V(x) = x^T P x$为Lyapunov函数，有$\dot{V} = -x^TQx$
+
+1. 选取$Q=I$
+2. 带入lyaponov方程，求解$P$
+3. 判断P的符号性质
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241025101127.png)
+
+#### 克拉索夫斯基稳定性判据
 
 ## 系统设计
 ### 状态矩阵（重中之重）
@@ -429,17 +491,6 @@ $$
 2. 如果极点是虚数，必定有共轭，且表示有振动
 
 !!! note "拿到一个系统之后，需要先判定这个系统是不是可控的"
-
-### 极点配置
-
-$$
-A_{cl} = \mathbf{A-Bk}
-$$
-
-闭环特征矩阵
-
-展开 $A_{cl}$ 得到特征多项式，与期望极点的特征多项式进行比较，得到 $k$
-
 
 
 ### 能控性
@@ -464,18 +515,80 @@ Co = ctrb(A,B) # return the controllability matrix
 
 在现实中需要考虑物理因素，所以不一定完全可控
 
-#### 线性控制器
+
+#### 能控标准型变换
+
+$$ 
+A_c = T_c^{-1} A T_c = \begin{bmatrix} 0 & 1 & \cdots & 0 \\ \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & \cdots & 1 \\ -\alpha_0 & -\alpha_1 & \cdots & -\alpha_{n-1} \end{bmatrix}\\
+b_c = T_c^{-1} b = \begin{bmatrix} 0 \\ 0 \\ \vdots \\ 1 \end{bmatrix} 
+$$
+
+- 首先要注意能控标准型中，最后一行里面系数的顺序
+- 其次要注意，构造的是变换矩阵$T_c$，而不是$T_c^{-1}$
+
+$$ T_c = Q_c L = \begin{bmatrix} b & Ab & A^2 b & \cdots & A^{n-1} b \end{bmatrix} \begin{bmatrix} \alpha_1 & \alpha_2 & \cdots & \alpha_{n-1} & 1 \\ \alpha_2 & \alpha_3 & \cdots & 1 & 0 \\ \vdots & \vdots & \ddots & \vdots & \vdots \\ \alpha_{n-1} & 1 & \cdots & 0 & 0 \\ 1 & 0 & \cdots & 0 & 0 \end{bmatrix} $$
+
+#### 能控子空间分解
+
+
+最后的$$是一个块上三角矩阵
+不能控子空间也会对能控子空间产生影响
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/%E6%9C%AA%E5%91%BD%E5%90%8D%E7%BB%98%E5%9B%BE.drawio.svg)
 
 
 
-线性控制器：
+### 极点配置
+
+- 状态反馈不会改变系统的零点；不改变不能控子系统的极点；可任意改变能控子系统的极点
+- 对于系统$(A,B)$,若存在矩阵K使得$(A+BK,B)$稳定，则称系统$(A,B)$是可镇定的；
+- $(A,B)$可镇定的充要条件：$(A,B)$的不能控子系统稳定
+- 极点任意配置条件：系统完全能控（否则只能在根轨迹线上移动）
+- 静态输出反馈控制$u=r+Ky = r+KCx$不改变能控性和能观性
+
+
+!!! tip "控制器u的两大作用"
+    - 稳定系统
+    - 调整平衡点
+
+
+#### 线性控制器：
 
 选定k1和k2 $\rightarrow$ 设计闭环系统$A_{cl}$的特征值 $\rightarrow$ 控制系统表现
 
-lqr 控制器
+$$
+A_{cl} = \mathbf{A+Bk}
+$$
 
-Q 侧重于系统状态
-R 更侧重于控制器输入
+闭环特征矩阵
+
+展开 $A_{cl}$ 得到特征多项式，与期望极点的特征多项式进行比较，得到 $k$
+
+!!! note "一般步骤"
+    - 确定能控性：写出Co矩阵，秩判据
+    - 直接法：判断矩阵 $A_{cl}=(A+Bk)$的性质
+    - 间接法：化成能控标准型
+    - 一般需要解$n$个方程：简便做法：都转化到能控标准型的形式
+
+
+
+
+
+
+#### lqr 控制器
+
+如何确定$\lambda$,什么样的$\lambda$是最优的？
+
+引入cost function：
+
+$$
+J = \int_0^{\infty} (x^TQx + u^TRu)dt
+$$
+
+在满足稳定性的情况下，找到cost function的最小值
+
+- Q 侧重于系统状态
+- R 更侧重于控制器输入
 
 
 
@@ -569,14 +682,37 @@ R 更侧重于控制器输入
     
     理论上，u可以随便选，但实际应用当中要考虑执行器的情况。比如自动驾驶场景，输入u是方向盘的角度，就是有界的。
 
+#### 阿克曼公式
+不需要系数对应
 
+[阿克曼公式-CSDN博客](https://blog.csdn.net/weixin_58399148/article/details/131345373)
 
 ### 能观性
-!!! note ""
+??? note ""
     Kálmán published several seminal papers during the sixties, which rigorously established what is now known as the state-space representation of dynamical systems. He introduced the formal definition of a system, the notions of controllability and observability
     ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241003163103.png)
 
-### **observer**
+
+#### 能观标准型构造
+
+
+$$ 
+A_o = T_o^{-1} A T_o = \begin{bmatrix} 0 & \cdots & 0 & -\alpha_0 \\ 1 & \cdots & 0 & -\alpha_1 \\ \vdots & \ddots & \vdots & \vdots \\ 0 & \cdots & 1 & -\alpha_{n-1} \end{bmatrix}\\
+c_o = c T_o = \begin{bmatrix} 0 & \cdots & 0 & 1 \end{bmatrix} 
+$$
+
+
+$$ 
+\begin{aligned}
+T_o &= (L Q_o)^{-1} \\
+T_o^{-1} &= L Q_o = \begin{bmatrix} \alpha_1 & \alpha_2 & \cdots & \alpha_{n-1} & 1 \\ \alpha_2 & \alpha_3 & \cdots & 1 & 0 \\ \vdots & \vdots & \ddots & \vdots & \vdots \\ \alpha_{n-1} & 1 & \cdots & 0 & 0 \\ 1 & 0 & \cdots & 0 & 0 \end{bmatrix} \begin{bmatrix} c \\ cA \\ \vdots \\ cA^{n-1} \end{bmatrix} 
+\end{aligned}
+$$
+
+要注意的是能观标准形的转化是先求$T_o^{-1}$
+
+#### 全维观测器
+
 
 通过系统的输入和输出来估计系统的状态
 
@@ -584,14 +720,68 @@ luenberger observer 龙贝格
 
 卡尔曼滤波器就是随机系统的状态观测器
 
+$$
+\dot{e_x} = (A - LC)e_x
+$$
+
+实际上，建立新的反馈系统，使得 $e_x = x - \hat{x} \to 0$
+
+$$
+\dot{\hat{x}}=(A - LC)\hat{x} + (B - LD)u + Ly
+$$
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/3399df009b8bea13f457a685ae69d88.png)
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241023200752.png)
 
 
+
+
+??? tip "推导过程"
+    $$
+    \begin{aligned}
+    1.\quad \dot{x} &= Ax + Bu \\
+    2.\quad y &= Cx + Du  
+    \end{aligned}
+    $$
+
+    设$\hat{x}$为估计值，$\hat{y}$为估计的输出
+
+    $$
+    \begin{aligned}
+    3. \quad \dot{\hat{x}} &= A\hat{x} + Bu + L(y - \hat{y}) \\
+    4. \quad \hat{y} &= C\hat{x} + Du 
+    \end{aligned}
+    $$
+
+    代入3
+
+    $$
+    \begin{aligned}
+    \dot{\hat{x}} &= A\hat{x} + Bu + Ly - L(C\hat{x} + Du) \\
+    &= (A - LC)\hat{x} + (B - LD)u + Ly
+    \end{aligned}
+    $$
+
+    1-5,代入②
+
+    $$
+    \begin{aligned}
+    \dot{x}-\dot{\hat{x}}  &= Ax + Bu - (A - LC)\hat{x} - (B - LD)u - LCx - LDu \\
+    &= (A - LC)(x-\hat{x})
+    \end{aligned}
+    $$
+
+    令$x-\hat{x}= e_x$，error误差，是估计值与实际值间的误差
+
+    目标$e_x \to 0$
+
+#### 降维观测器
+
+[降维观测器 - 知乎](https://zhuanlan.zhihu.com/p/473178978)
+
+[降维观测器一道题直接学会\_哔哩哔哩\_bilibili](https://www.bilibili.com/video/BV1FW4y1N7aA)
 
 ### 分离原理
 
-最好观测器的收敛速度要比控制器要快
-
-### 根据观测器设计控制器
-
-
+最好观测器的收敛速度要比控制器要快，需要有一个准确的观测的值指导控制器的输入
 

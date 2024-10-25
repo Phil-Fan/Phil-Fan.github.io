@@ -131,7 +131,8 @@ dingtalk://dingtalkclient/page/link?url=https%3A%2F%2Fyqfkgl.zju.edu.cn%2F_web%2
 
 [x-callback-URL 的使用方法 - InfoCG](https://www.infocg.cn/jishufenxiang/155012.html)<br>
 
-[开放能力 / 获取小程序链接 / 获取 URL Scheme (qq.com)](https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/url-scheme.html)<br>
+[开放能力 / 获取小程序链接 / 获取 URL Scheme (qq.com)](https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/url-scheme.html)
+
 
 ### 把校园卡“变小”
 

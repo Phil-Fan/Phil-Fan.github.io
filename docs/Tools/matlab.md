@@ -541,6 +541,15 @@ Method:
 - `prewarp`——采用改进的tustin方法
 - `matched`——采用SISO系统的零极点匹配法。
 
+!!! note "例子"
+    ```matlab
+    A = [0 1; -.5 -.5]
+    B = [1;0]
+    C = [1 0]
+    sys = ss(A,B,C)
+    sys_d = c2d(sys,0,1)
+    ```
+
 
 #### 离散系统连续化
 ```matlab
@@ -775,8 +784,16 @@ disp(['对应增益 K: ', num2str(min_zeta_K)])
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241009145809.png)
 
 
-## 图像绘制
+### 现代控制
 
+#### 能控性
+```matlab
+Co = ctrb(A,B) # return the controllability matrix
+```
+
+
+## 图像绘制
+> 绘制相平面图像[MathWorks-Teaching-Resources/Phase-Plane-and-Slope-Field: Apps for qualitative ODE analysis.](https://github.com/MathWorks-Teaching-Resources/Phase-Plane-and-Slope-Field)
 
 
 ## 程序设计

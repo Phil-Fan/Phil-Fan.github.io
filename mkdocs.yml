@@ -248,8 +248,10 @@ nav:
     - Robotics/Robo/Robo-Drone_experiment.md
 
   - "通信":
-    - Robotics/Communication/CC-bluetooth.md
-    - Robotics/Communication/CC-NFC.md 
+    - Robotics/Communication/CC-NFC.md
+    # - Robotics/Communication/CC-bluetooth.md
+
+
 
   - "环境配置":
     - Robotics/Environment/System-Linux.md 
@@ -279,6 +281,7 @@ nav:
 
   - "数学基础":
     - CS/AI/ML-00-math.md
+    - CS/AI/logic.md
     - "概率论":
       - CS/Statistic/00-intro.md
       - Notebook page: CS/Statistic/01-probability.ipynb
@@ -393,6 +396,7 @@ nav:
     - Tools/Mkdocs.md
     - Tools/obsidian.md
     - Tools/latex.md
+    - "Latex公式速查": https://latex.emoryhuang.cn/posts/
     - Tools/vim.md
     - Tools/markdown.md
 

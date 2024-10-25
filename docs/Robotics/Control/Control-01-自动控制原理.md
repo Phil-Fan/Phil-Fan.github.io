@@ -1,5 +1,7 @@
 # 自动控制原理
 
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241025103426.png)
+
 ???+note "课程信息"
     === "回忆卷"
       [自动控制原理（甲）2023-2024 春夏回忆卷 自控](https://www.cc98.org/topic/5926127)<br>
