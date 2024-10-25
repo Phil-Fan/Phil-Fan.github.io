@@ -688,13 +688,6 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../Robotics/Communication/CC-bluetooth.md">
-<span class="md-ellipsis">
-    None
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
 <a class="md-nav__link" href="../../../Robotics/Communication/CC-NFC.md">
 <span class="md-ellipsis">
     None
@@ -915,16 +908,23 @@
   </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../logic/">
+<span class="md-ellipsis">
+    Logic
+  </span>
+</a>
+</li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_4_4_2" type="checkbox"/>
-<label class="md-nav__link" for="__nav_4_4_2" id="__nav_4_4_2_label" tabindex="0">
+<input class="md-nav__toggle md-toggle" id="__nav_4_4_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_4_3" id="__nav_4_4_3_label" tabindex="0">
 <span class="md-ellipsis">
     概率论
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="false" aria-labelledby="__nav_4_4_2_label" class="md-nav" data-md-level="3">
-<label class="md-nav__title" for="__nav_4_4_2">
+<nav aria-expanded="false" aria-labelledby="__nav_4_4_3_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_4_3">
 <span class="md-nav__icon md-icon"></span>
             概率论
           </label>
@@ -1467,6 +1467,24 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#pca">
+<span class="md-ellipsis">
+      PCA
+    </span>
+</a>
+<nav aria-label="PCA" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#kernel-pca">
+<span class="md-ellipsis">
+      kernel PCA
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#_1">
 <span class="md-ellipsis">
       流形学习
@@ -1820,6 +1838,13 @@
 <a class="md-nav__link" href="../../../Tools/latex/">
 <span class="md-ellipsis">
     Latex备忘录
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="https://latex.emoryhuang.cn/posts/">
+<span class="md-ellipsis">
+    Latex公式速查
   </span>
 </a>
 </li>
@@ -2201,6 +2226,24 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#pca">
+<span class="md-ellipsis">
+      PCA
+    </span>
+</a>
+<nav aria-label="PCA" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#kernel-pca">
+<span class="md-ellipsis">
+      kernel PCA
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#_1">
 <span class="md-ellipsis">
       流形学习
@@ -2252,9 +2295,58 @@
 <article class="md-content__inner md-typeset">
 <h1 id="07"><span>07 |<span class="heti-spacing"> </span></span>降维<a class="headerlink" href="#07" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>62<span class="heti-spacing"> </span></span>个字 </p>
+<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>350<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"></path></svg></span> <span>26<span class="heti-spacing"> </span></span>行代码 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>2<span class="heti-spacing"> </span></span>分钟</p>
 </div>
+<ul>
+<li>dimensionality reduction tries to transform high-demensional data into a low-dimensioanl space while preserving the data structure.</li>
+<li>data might lie on low-dimensional manifolds.</li>
+</ul>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241022172142.png"/>
+维数诅咒</p>
 <h2 id="mds-multiple-dimensional-scaling">MDS | Multiple dimensional Scaling<a class="headerlink" href="#mds-multiple-dimensional-scaling" title="anchor link to this section for reference">¶</a></h2>
+<p>第一步——求解距离矩阵<span><span class="heti-spacing"> </span>D</span></p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get_distance_matrix</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+	<span class="n">expand_</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,</span> <span class="p">:]</span>
+	<span class="n">repeat1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">expand_</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+	<span class="n">repeat2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">swapaxes</span><span class="p">(</span><span class="n">repeat1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+	<span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">repeat1</span> <span class="o">-</span> <span class="n">repeat2</span><span class="p">,</span> <span class="nb">ord</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+	<span class="k">return</span> <span class="n">D</span>
+</code></pre></div>
+<p>第二步——求解内积矩阵<span><span class="heti-spacing"> </span>B</span></p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get_matrix_B</span><span class="p">(</span><span class="n">D</span><span class="p">):</span>
+	<span class="k">assert</span> <span class="n">D</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">D</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+	<span class="n">DD</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
+	<span class="n">sum_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">DD</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">D</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+	<span class="n">Di</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">sum_</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">],</span> <span class="n">D</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+	<span class="n">Dj</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">sum_</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,</span> <span class="p">:],</span> <span class="n">D</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+	<span class="n">Dij</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">DD</span><span class="p">)</span> <span class="o">/</span> <span class="p">((</span><span class="n">D</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">([</span><span class="n">D</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">D</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
+	<span class="n">B</span> <span class="o">=</span> <span class="p">(</span><span class="n">Di</span> <span class="o">+</span> <span class="n">Dj</span> <span class="o">-</span> <span class="n">DD</span><span class="o">-</span> <span class="n">Dij</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+	<span class="k">return</span> <span class="n">B</span>
+</code></pre></div>
+<p>第三步——求解<span class="heti-skip"><span class="heti-spacing"> </span>Z<span class="heti-spacing"> </span></span>矩阵</p>
+<p><span class="arithmatex">\(B = Z^T Z\)</span></p>
+<p></p><div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">MDS</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+	<span class="n">D</span> <span class="o">=</span> <span class="n">get_distance_matrix</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+	<span class="n">B</span> <span class="o">=</span> <span class="n">get_matrix_B</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
+	<span class="n">B_value</span><span class="p">,</span> <span class="n">B_vector</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigh</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+	<span class="n">Be_sort</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="o">-</span><span class="n">B_value</span><span class="p">)</span>
+	<span class="n">B_value</span> <span class="o">=</span> <span class="n">B_value</span><span class="p">[</span><span class="n">Be_sort</span><span class="p">]</span>               <span class="c1"># 降序排列的特征值</span>
+	<span class="n">B_vector</span> <span class="o">=</span> <span class="n">B_vector</span><span class="p">[:,</span><span class="n">Be_sort</span><span class="p">]</span>           <span class="c1"># 降序排列的特征值对应的特征向量</span>
+	<span class="n">Bez</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">B_value</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">n</span><span class="p">])</span>
+	<span class="n">Bvz</span> <span class="o">=</span> <span class="n">B_vector</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="n">n</span><span class="p">]</span>
+	<span class="n">Z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">Bez</span><span class="p">),</span> <span class="n">Bvz</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+	<span class="k">return</span> <span class="n">Z</span>
+</code></pre></div>
+<a href="https://blog.csdn.net/weixin_38053887/article/details/104700192">多维缩放(MDS)算法的详细推导及Python实现_多维缩放算法证明 知乎-CSDN博客</a>
+<h2 id="pca">PCA<a class="headerlink" href="#pca" title="anchor link to this section for reference">¶</a></h2>
+<p><a href="https://www.bilibili.com/video/BV1aF4m1u789">降维技巧<span class="heti-skip"><span class="heti-spacing"> </span>|<span class="heti-spacing"> </span></span>导论与流形学习：⅕ </a></p>
+<p>第一阶段找了一个新的坐标系来表示数据，这个新的坐标系不是随便找的，是要求能最大限度的看出每个轴上的数据变化大小</p>
+<p>第二阶段在新坐标系下取前<span class="heti-skip"><span class="heti-spacing"> </span>k<span class="heti-spacing"> </span></span>个变化最大的轴上的数据（最大特征值对应的轴<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，从而实现降维。</p>
+<p><a href="https://blog.csdn.net/MoreAction_/article/details/107463336">一文让你彻底搞懂主成成分分析<span class="heti-skip"><span class="heti-spacing"> </span>PCA<span class="heti-spacing"> </span></span>的原理及代码实现<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>超详细推导<span class="heti-skip"><span class="heti-spacing"> </span>)_pca<span class="heti-spacing"> </span></span>主成分分析图解释<span class="heti-skip"><span class="heti-spacing"> </span>-CSDN<span class="heti-spacing"> </span></span>博客</a></p>
+<p><a href="https://www.zhihu.com/tardis/zm/art/37609917?source_id=1005">如何直观地理解「协方差矩阵<heti-adjacent class="heti-adjacent-half">」</heti-adjacent>？</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/618906910">【数据降维<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>第<span class="heti-skip"><span class="heti-spacing"> </span>4<span class="heti-spacing"> </span></span>篇】多维尺度变换（MDS）快速理解，及<span class="heti-skip"><span class="heti-spacing"> </span>MATLAB<span class="heti-spacing"> </span></span>实现<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>知乎</a></p>
+<h3 id="kernel-pca">kernel PCA<a class="headerlink" href="#kernel-pca" title="anchor link to this section for reference">¶</a></h3>
+<p>协方差矩阵告诉我们变量的方差和联合方向</p>
 <h2 id="_1">流形学习<a class="headerlink" href="#_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <h3 id="lle">LLE<a class="headerlink" href="#lle" title="anchor link to this section for reference">¶</a></h3>
 <p>原始空间到子空间</p>
@@ -2268,7 +2360,7 @@
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年10月22日 08:13:43</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年10月25日 18:03:19</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">

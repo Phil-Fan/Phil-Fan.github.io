@@ -641,6 +641,8 @@ required to use pdflatex/xelatex/lualatex.
 
 ## 公式与符号
 
+[https://latex.emoryhuang.cn/posts/](公式快查)
+
 ### 希腊符号
 
 | LaTeX 代码 | 希腊字母   | LaTeX 代码 | 希腊字母   |

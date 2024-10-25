@@ -794,6 +794,8 @@ g++ -v
 - $x^{-1}$ 进行矩阵求逆
 - OPTN中还有转置矩阵、行列式等运算
 
+[CASIO卡西欧991如何求逆矩阵-百度经验](https://jingyan.baidu.com/article/380abd0aa0a5c95d90192cba.html)
+
 ## 模拟器
 
 ### 雷电模拟器
