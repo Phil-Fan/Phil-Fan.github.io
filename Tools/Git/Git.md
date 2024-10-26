@@ -97,7 +97,10 @@ PR,全称Pull Request（拉取请求），是一种非常重要的协作机制
 ```shell
 git checkout -b bugfix/issue-12
 ```
+
+
 1. 修改好了，add，commit，然后push到我远程的仓库B的bugfix/issue-12分支
+
 ```shell
 git push -u origin bugfix/issue-12
 ```
