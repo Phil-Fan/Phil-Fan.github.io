@@ -206,10 +206,18 @@ nav:
       - Class/ITP/ITP-商业模式.md   
 
   - Finance:
-    - Class/Fin/finance.md
     - Class/Fin/invest.md
     - Class/Fin/consulting.md
+    
+
+  - "行业研习":
     - Class/Fin/industry-analyze.md
+    - Class/Fin/internet.md
+    - Class/Fin/car.md
+    - Class/Fin/finance.md
+    - Class/Fin/game.md
+    - Class/Fin/hotel.md
+    - Class/Fin/welfare.md
 
   - Books:
     - Class/Books/The Innovator`s Dilemma.md 
@@ -227,7 +235,7 @@ nav:
     - Robotics/嵌入式/EmbeddedSystem-stm32.md
     - Robotics/嵌入式/EmbeddedSystem-experiment.md
     - Robotics/嵌入式/k210.md
-    - Robotics/嵌入式/RespberryPi.md
+    - Robotics/嵌入式/RaspberryPi.md
 
   - "Control Theory":
     - Robotics/Control/Control-01-自动控制原理.md
@@ -383,8 +391,11 @@ nav:
     - CS/Web3/contract.md
     - CS/Web3/solidity.md
     - CS/Web3/lingo.md
+  - "Dev":
+    - CS/missing_knowledge.md
+    - CS/Dev/rules.md
+    - CS/Dev/tampermonkey.md
 
-  - CS/missing_knowledge.md
 
 - Tools:
   - Tools/Git.md

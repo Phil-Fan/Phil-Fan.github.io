@@ -675,6 +675,14 @@ ssh -p 15821 root@connect.westb.seetacloud.com
 - `ctrl + F` 搜索内容
 - 搜索工作区内容的快捷键是`Ctrl + Shift + F`，或者在菜单栏中选择 `查看 (View)` -> `搜索 (Search)`
 
+### 内存占用过大问题
+
+1. 找到文件-首选项-设置：禁用自动保存
+2. 找到文件-首选项-设置，搜索`git.enabled`,禁用git
+3. 禁用`search.followSymlinks`：控制是否在搜索中跟踪符号链接
+4. 按`f1`，输入`developer: open process explorer`，会打开一个任务管理器一样的窗口，查看里面cpu和内存占用最高的进程，然后一个个禁用你的扩展插件，直到cpu和内存占用正常，这样就可以找出耗内存的扩展然后按照你的开发需求更换或者禁用
+
+
 ### 插件
 **markdown 插件 —— Markdown Preview Enhanced**
 
@@ -802,3 +810,11 @@ g++ -v
 [雷电安卓模拟器-手游模拟器安卓版\_android手机模拟器电脑版\_雷电模拟器官网](https://www.ldmnq.com/)
 
 可以使用设置墨墨背单词
+
+
+## ZJU
+### 智云课堂
+对于录播视频，这就很简单粗暴了，直接找到div class = `cmc-base cmc-video`行并展开，下面有一个`https://vod.cmc.zju.edu.cn/`开头网址
+
+
+[智云课堂加载不出来解决办法 - CC98论坛](https://www.cc98.org/topic/5902398)

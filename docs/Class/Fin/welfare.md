@@ -1,6 +1,6 @@
 # 公益通识
 
-##
+## 简介
 - 公益组织的起点是社会问题
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240825105823.png)
 

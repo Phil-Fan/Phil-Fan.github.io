@@ -41,6 +41,20 @@ document.getElementById("myButton").addEventListener("click", function() {
   alert("Button clicked!");
 });
 ```
+## 三方库
+### jQuery
+曾经风光无限的JavaScript库，它简化了HTML与JavaScript之间的操作。
+
+近些年来越来越少的开发者会用到它，因为现在几乎都是使用的Vue和React前端框架，这些前端框架提出了一个概念叫做虚拟DOM，通过虚拟DOM技术，我们在实际的开发中减少了大量的DOM操作，自然就不需要使用简化DOM操作的jQuery。
+
+由于jQuery过去的风光，所以现在很多前端项目依然还在使用jQuery进行维护，同时由于编写油猴脚本需要大量操作DOM，所以如果需要编写油猴脚本，还是要学一学jQuery。
+
+那么说了这么多，通过下面的例子我们来看看jQuery到底起了什么作用：
+
+比如我们要通过ID获取到一个DOM元素，使用原生JavaScript进行获取就是document.getElementById("app");，而通过jQuery获取就可以简化为$("#app")。
+
+通过上面的例子可以看到jQuery在操作DOM元素时大大的简化了代码量。
+
 
 ## Beyond
 - JavaScript 的缺点：性能不足（解释型）、弱类型
@@ -61,7 +75,7 @@ let message: string = "Hello, TypeScript!";
 ​
 **类和接口：** 支持面向对象编程，增强代码结构性。
 
-```
+```typescript
 class Person {
   name: string;
   constructor(name: string) {
@@ -80,7 +94,7 @@ console.log(add(2, 3));
 ```
 ​
 **模块化：** 支持模块化编程，提高代码复用性和组织性。
-```
+```typescript
 import { add } from './math';
 console.log(add(2, 3));
 ```
