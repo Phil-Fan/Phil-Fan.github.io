@@ -14,6 +14,11 @@ pip install opencv-python==3.4.11.45 # 这里版本要和python对应
 pip install opencv-contrib-python==3.4.11.45
 ```
 
+```
+numpy.core.multiarray failed to import
+```
+
+解决方案：修改numpy版本
 
 [OpenCV-python安装教程\_opencv python安装-CSDN博客](https://blog.csdn.net/qq_41627235/article/details/87692748)
 
