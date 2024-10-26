@@ -1,4 +1,4 @@
-# RespbeeryPi
+# Raspberry Pi
 [树莓派中文文档](https://hackpi.fun/docs/)
 
 
@@ -56,7 +56,7 @@ raspi-config
 
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241026005032.png)
 
-重启电脑
+重启电脑`reboot`
 
 
 ```shell title="查看设备列表"
@@ -64,6 +64,23 @@ sudo apt install v4l-utils
 
 v4l2-ctl --list-devices
 ```
+
+```shell title="设置"
+sudo vim /boot/config
+```
+找到以`config`开头的文件，再最后一行加入与相机对应的代码
+```
+dtoverlay=ov5647
+```
+
+| Camera Module | In /boot/config.txt |
+|----------------|----------------------|
+| V1 camera (OV5647) | `dtoverlay=ov5647` |
+| V2 camera (IMX219) | `dtoverlay=imx219` |
+| HQ camera (IMX477) | `dtoverlay=imx477` |
+| IMX290 and IMX327 | `dtoverlay=imx290,clock-frequency=74250000` or `dtoverlay=imx290,clock-frequency=37125000` (both modules share the imx290 kernel driver, please refer to instructions from the module vendor for the correct frequency) |
+| IMX378 | `dtoverlay=imx378` |
+| OV9281 | `dtoverlay=ov9281` |
 
 
 
@@ -78,23 +95,25 @@ raspistill -o a.jpg -t 1000
 
 
 #### motion
+
 ```shell
 sudo apt-get install motion
 ```
 
 
 首先将motion软件的后台进程改为开启，让它能够一直在后台运行。输入以下命令，将文件中 `start_motion_daemon=no` 的no改为yes。
+
 ```shell
 sudo nano /etc/default/motion
 ```
+
 之后输入命令打开motion的配置文件：
+
 ```shell
 sudo nano /etc/motion/motion.conf
 ```
-这个文件中保存了许多motion的基本设置，文件内容很多，感兴趣的话可以慢慢研究。因为选项比较多，下面只写出一些比较重要的选项的值，其他可以用默认值，或者参考motion官网上的documents，那里面写得很详尽，每个参数的解释都有。motion.conf里自带的注释也很完整。
 
-需要更改的参数有以下几行，在nano编辑器环境下可以使用快捷键ctrl+w对关键字进行查找。
-```shell
+```shell title="motion.conf设置"
 daemon on  #off改成on
 width 640  
 height 480 #根据摄像头像素自行更改
@@ -103,39 +122,129 @@ stream_maxrate 200
 stream_localhost off    #设为off
 ```
 
-当然要想获得最佳的效果，文档中的参数需要多次根据自己的设备进行相应的调整。
-修改完成后保存并退出。
-
-若你之前打开过motion，那么在每次更改完配置后，需要先关闭motion进程，并再次打开，相当于对motion进行一次重启。关闭motion服务的命令如下：
-```shell
+```shell title="关闭motion服务"
 sudo killall -TERM motion
 ```
-接着输入命令重新打开motion：
-```shell
+
+```shell title="打开motion"
 sudo motion
 ```
 
+接着就可以在`http://<本机ip>:8081`看到你的视频流了
+
 #### opencv
 
-```python
+
+```python title="测试能用的相机接口"
 import cv2
+
+def test_open_cam():
+    connected_cam = []
+    for port in range(0, 20):
+        try:
+            cam = cv2.VideoCapture(port)
+            if cam.isOpened():
+                connected_cam.append(port)
+            cam.release()
+            cv2.destroyAllWindows()
+        except:
+            cam.release()
+            cv2.destroyAllWindows()
+    print(f'=> list of found cameras: {connected_cam}')
+    return(connected_cam)
+
+test_open_cam()
+```
+
+```shell title="结果"
+[ WARN:0] VIDEOIO(V4L2:/dev/video16): can't open camera by index
+[ WARN:0] VIDEOIO(V4L2:/dev/video17): can't open camera by index
+[ WARN:0] VIDEOIO(V4L2:/dev/video18): can't open camera by index
+[ WARN:0] VIDEOIO(V4L2:/dev/video19): can't open camera by index
+=> list of found cameras: [0, 14, 15]
+```
+
+
+```python title="openCV拍单帧照片例程"
+import cv2
+cap = cv2.VideoCapture(0) # 打开摄像头
+if not cap.isOpened(): # 检查摄像头是否成功打开
+    print("无法打开摄像头")
+    exit()
+
+cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640) # 设置摄像头分辨率
+cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
+ret, frame = cap.read() # 读取一帧图像
+
+if not ret:
+    print("无法读取图像") # 检查是否成功读取图像
+    exit()
+
+cv2.imwrite("photo.jpg", frame) # 保存图像
+cap.release() # 释放摄像头
+```
+
+```python title="RGB & 灰度图例程"
 import numpy as np
+import cv2
  
 cap = cv2.VideoCapture(0)
-while(1):
- # get a frame
- ret, frame = cap.read()
- # show a frame
- cv2.imshow("capture", frame)
+cap.set(3,640) # set Width
+cap.set(4,480) # set Height
+  
+while(True):
+    ret, frame = cap.read()
+    frame = cv2.flip(frame, -1) # Flip camera vertically
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+     
+    cv2.imshow('frame', frame)
+    cv2.imshow('gray', gray)
+     
+    k = cv2.waitKey(30) & 0xff
+    if k == 27: # press 'ESC' to quit
+        break
  
- if cv2.waitKey(1) & 0xFF == ord('q'):
- #退出并拍照
-  cv2.imwrite("takephoto2.jpg", frame)
-  print("take Photo Ok")
-  break
 cap.release()
 cv2.destroyAllWindows()
 ```
+
+
+[用树莓派实现实时的人脸检测 | 树莓派实验室](https://shumeipai.nxez.com/2018/03/09/real-time-face-recognition-an-end-to-end-project-with-raspberry-pi.html)
+
+
+## 
+### 共享文件夹
+```shell
+apt-get install -y cifs-utils
+```
+
+[在windows上共享文件夹](https://zhuanlan.zhihu.com/p/402820328)
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241026225133.png)
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241026225143.png)
+
+
+**挂载文件系统**
+
+将 `//<ip>/test` 挂载到 `/mnt/` 目录上，如果不需要认证，则无需指定用户名和密码。
+
+```shell
+sudo mount -t cifs //<ip>/test /mnt/test_shared -o dir_mode=0777,file_mode=0777
+```
+
+[linux mount挂载文件夹设置权限 - 秋声梧叶 - 博客园](https://www.cnblogs.com/sctrkb/articles/15407736.html)
+
+
+开机自动挂载（修改 `/etc/fstab` 文件）：
+
+将`//192.168.xx.xx/sharedir`挂载到`/mnt/cifs`上，并指定了用户名和密码;如果不需要认证，可以不指定用户名和密码。
+```shell
+//192.168.3.4/sharedir /mnt/cifs cifs username=demo,password=demo 0 0
+```
+
+然后可以把`/mnt/folder`直接当作linux中的文件夹进行文件的操作
+
+> pywin32库没有安装好 [Python 如何通过Python访问Windows网络上的共享文件夹|极客教程](https://geek-docs.com/python/python-ask-answer/311_python_using_python_how_can_i_access_a_shared_folder_on_windows_network.html)
+
 
 ## 遇到问题
 
@@ -148,3 +257,14 @@ cv2.destroyAllWindows()
 ### 无法进入图形界面
 
 [树莓派开机黑屏只有光标无法进入图形界面桌面\_树莓派开机后一直进不去系统-CSDN博客](https://blog.csdn.net/df1445/article/details/124310115)
+
+
+### `Warning: Ignoring XDG_SESSION_TYPE=wayland on Gnome. Use QT_QPA_PLATFORM=wayland to run on Wayland anyway.`
+
+```shell
+sudo vim /etc/gdm3/custom.conf
+```
+按下`/` ，寻找 `#WaylandEnable=false`
+
+将`#`删除，重启系统
+
