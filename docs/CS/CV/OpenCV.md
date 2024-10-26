@@ -2,6 +2,8 @@
 
 [OpenCV计算机视觉（Python）- - 一路狂奔的乌龟 - 博客园](https://www.cnblogs.com/GYH2003/collections/5918)
 
+[OpenCV Python Tutorials](https://opencv-python-tutorials.readthedocs.io/zh/latest/)
+
 ## 安装与配置
 
 python与opencv的版本对应关系

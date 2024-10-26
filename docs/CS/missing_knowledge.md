@@ -38,3 +38,57 @@ D ：十进制数
 H ：十六进制数
 
 对于十进制数通常不加后缀，也即十进制数后的字母 D 可省略。
+
+
+## 斜杠
+
+### 路径问题
+
+!!! failure "linux和win的斜杠"
+
+
+**网址路径：**
+
+任何OS ：均使用`\`  例子：`http://www.cnblogs.com/sopic/`
+
+ 
+
+**文件路径：**
+
+=== "linux使用`/`"
+
+    例子：`/home/user/XXX`
+
+    特例：路径中某目录名包含空格，在命令行中使用cd等命令书写路径时，则要在空格前加`\`
+
+    主目录（`/home/student`）下有一个文件夹叫"student 01"
+
+    ```shell title="cd 命令可以用\转义空格"
+    cd /home/student/student\ 01
+    ```
+
+
+
+=== "windows使用`\` "
+    例子：`C:\Program Files`
+
+ 
+
+**共享路径**
+
+在windows OS上访问其他windows或者linux终端：使用`\` 
+  
+例子： `\\电脑名\文件名`
+
+在linux OS上访问其他windows或者linux终端：使用`/`  
+
+例子：`//电脑名/文件名`
+
+ 
+
+**总结：**
+- windows OS中，用`\`隔开
+- linux OS中，用`/`隔开
+- 网址中，用`/`隔开
+
+小提示：在路径书写时，尽量不要包含空格（用`_`代替），否则容易出错（linux中空格后内容被自动丢弃）。
