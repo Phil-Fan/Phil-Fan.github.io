@@ -61,6 +61,7 @@ theme:
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
+      primary: deep purple
       toggle:
         icon: material/weather-sunny
         name: Switch to dark mode
@@ -68,6 +69,7 @@ theme:
     # Palette toggle for dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
+      primary: deep purple
       toggle:
         icon: material/weather-night
         name: Switch to light mode
@@ -155,6 +157,24 @@ extra:
       link: https://github.com/Phil-Fan
       name: PhilFan's Profile
 
+  analytics:
+    provider: google
+    property: G-2QNP7S5RJ8 # 请勿复制这一行
+
+    feedback:
+      title: Was this note helpful?
+      ratings:
+        - icon: material/emoticon-happy-outline
+          name: This page was helpful
+          data: 1
+          note: >-
+            感谢支持~
+        - icon: material/emoticon-sad-outline
+          name: This page could be improved
+          data: 0
+          note: >- 
+            感谢指出，有任何问题可以直接评论~
+
 extra_css:
   # - style/css/extra.css
   # source: MinJoker.github.io/docs/stylesheets
@@ -212,12 +232,12 @@ nav:
 
   - "行业研习":
     - Class/Fin/industry-analyze.md
-    - Class/Fin/internet.md
-    - Class/Fin/car.md
-    - Class/Fin/finance.md
-    - Class/Fin/game.md
-    - Class/Fin/hotel.md
-    - Class/Fin/welfare.md
+    - Class/Fin/industry-internet.md
+    - Class/Fin/industry-car.md
+    - Class/Fin/industry-finance.md
+    - Class/Fin/industry-game.md
+    - Class/Fin/industry-hotel.md
+    - Class/Fin/industry-welfare.md
 
   - Books:
     - Class/Books/The Innovator`s Dilemma.md 
