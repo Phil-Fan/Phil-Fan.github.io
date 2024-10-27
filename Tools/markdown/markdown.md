@@ -5,8 +5,7 @@
 
 
 ## Emoji
-摘录自[markdown-emoji
-](https://github.com/zhouie/markdown-emoji)
+摘录自[markdown-emoji](https://github.com/zhouie/markdown-emoji)
 
 ### 人物
 
