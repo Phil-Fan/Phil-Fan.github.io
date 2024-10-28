@@ -1,4 +1,11 @@
-# 图形学
+# CV
+
+!!! note "简介"
+    === "来源课程"
+        - CS231n
+        - DIP 图像信息处理
+        - 计算机视觉 宋明黎
+
 
 **功能**
 
@@ -9,6 +16,8 @@
 
 
 [三维视觉测量技术：“被动”和“主动”视觉测量 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/590263368)
+
+[Stanford University CS231n: Deep Learning for Computer Vision](https://cs231n.stanford.edu/assignments.html)
 
 ### 被动视觉传感器
 

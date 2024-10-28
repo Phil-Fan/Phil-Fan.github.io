@@ -276,8 +276,8 @@ nav:
     - Robotics/Robo/Robo-Drone_experiment.md
 
   - "通信":
-    - Robotics/Communication/CC-NFC.md
-    # - Robotics/Communication/CC-bluetooth.md
+    - Robotics/communication/CC-NFC.md
+    - Robotics/communication/CC-bluetooth.md
 
 
 
@@ -384,6 +384,7 @@ nav:
       - CS/AI/ML-07-DimensionalityReduction.md
       - CS/AI/ML-08-EnsembleLearning.md
       - CS/AI/ML-09-else.md
+      - CS/AI/ML-10-interpretable_models.md
 
     - "SEC | 人工智能安全":
       - CS/AI/SEC-01-attack.md
@@ -393,10 +394,18 @@ nav:
       
          
   - "CV | 计算机视觉":
-    - CS/CV/CV-intro.md
+    - "图像处理":
+        - CS/CV/color.md
+        - CS/CV/format.md
+    - "基本任务":
+        - CS/CV/CV-00-intro.md
+        - CS/CV/CV-01-classification.md
+        - CS/CV/CV-02-Image-location.md
+        - CS/CV/CV-03-Object-Recognition.md
+        - CS/CV/CV-04-Segmentation.md
     - CS/CV/OpenCV.md
     - CS/CV/HumanPoseEstimation.md  
-  
+
   - "CTF相关知识":
     - CS/CTF-intro.md
     - CS/CTF-web.md
@@ -464,11 +473,11 @@ nav:
   - "🎶音乐":
     - else/music_theory.md
     - else/piano.md
+    - else/piano_songs.md
     - else/music_classification.md
     - else/rock_and_roll.md
 
   - "🎨设计":
-    - Tools/color.md
     - Tools/design.md
     - Tools/powerpoint.md
     - Tools/AdobePhotoshop.md
