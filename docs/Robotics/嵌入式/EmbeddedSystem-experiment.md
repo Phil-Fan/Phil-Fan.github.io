@@ -78,3 +78,32 @@ Set_PWM
 [腾讯轮腿式机器人Ollie](https://www.zhihu.com/question/462906299)
 
 ![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-e729a367adb27910f79f9b112b4b6bfd_1440w.webp)
+
+
+## RC小车
+
+### 
+[Optimization‐based autonomous racing of 1:43 scale RC cars - Liniger - 2015 - Optimal Control Applications and Methods - Wiley Online Library](https://onlinelibrary.wiley.com/doi/full/10.1002/oca.2123)
+
+[ミニッツRWD MR-04 レディセット シボレー コルベット C8.R ガンメタル / レッド 32356GMR - KYOSHO RC](https://rc.kyosho.com/en/rccar/miniz/mini-zrwd/32356gmr.html)
+
+[MPC and MHE implementation in Matlab using Casadi - Workshop\_哔哩哔哩\_bilibili](https://www.bilibili.com/video/BV1LE411j75o/?spm_id_from=333.337.search-card.all.click&vd_source=e720e65e2dd33b661142321b2d818921)
+
+
+[[MPCC in FSAC]基于MPCC的无人系统控制设计思路-CSDN博客](https://blog.csdn.net/vonct/article/details/134781569)
+
+
+https://github.com/MMehrez/MPC-and-MHE-implementation-in-MATLAB-using-Casadi
+
+
+[硬核 WiFi/4G/5G 网络遥控车制作教程 | 树莓派实验室](https://shumeipai.nxez.com/2021/01/28/wifi-4g-5g-network-remote-control-car-making-tutorial.html)
+
+[RCFans论坛 【自建赛道】 完成 【制作全过程分享】 - Powered by Discuz!](https://www.rcfans.com/thread-807710-1-1.html)
+
+[开源！手把手教你搭建阿克曼自动驾驶小车（上） - 知乎](https://zhuanlan.zhihu.com/p/499251426)
+
+
+
+
+
+
