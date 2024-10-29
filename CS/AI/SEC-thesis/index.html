@@ -2311,17 +2311,10 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_1">
 <span class="md-ellipsis">
-      论文内容
+      相关背景问题是什么？
     </span>
 </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_2">
-<span class="md-ellipsis">
-      概念辨析
-    </span>
-</a>
-<nav aria-label="概念辨析" class="md-nav">
+<nav aria-label="相关背景问题是什么？" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#black-box">
@@ -2338,7 +2331,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_3">
+<a class="md-nav__link" href="#_2">
 <span class="md-ellipsis">
       端到端
     </span>
@@ -2348,14 +2341,14 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_4">
+<a class="md-nav__link" href="#_3">
 <span class="md-ellipsis">
       现有难点
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_5">
+<a class="md-nav__link" href="#_4">
 <span class="md-ellipsis">
       解决方案
     </span>
@@ -2363,21 +2356,21 @@
 <nav aria-label="解决方案" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_6">
+<a class="md-nav__link" href="#_5">
 <span class="md-ellipsis">
       多替代模型
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_7">
+<a class="md-nav__link" href="#_6">
 <span class="md-ellipsis">
       初始化
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_8">
+<a class="md-nav__link" href="#_7">
 <span class="md-ellipsis">
       集成优化
     </span>
@@ -2394,9 +2387,16 @@
 </nav>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#_8">
+<span class="md-ellipsis">
+      实验验证
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#_9">
 <span class="md-ellipsis">
-      实验设计
+      对你的启发
     </span>
 </a>
 </li>
@@ -2409,56 +2409,96 @@
 <article class="md-content__inner md-typeset">
 <h1 id="zero-query-adversarial-attack-on-black-box-automatic-speech-recognition-systems">Zero-Query Adversarial Attack on Black-box Automatic Speech Recognition Systems<a class="headerlink" href="#zero-query-adversarial-attack-on-black-box-automatic-speech-recognition-systems" title="anchor link to this section for reference">¶</a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>740<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>3<span class="heti-spacing"> </span></span>分钟</p>
+<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>1786<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>7<span class="heti-spacing"> </span></span>分钟</p>
 </div>
 <p><a href="https://news.whu.edu.cn/info/1015/455257.htm">珞珈学子成果被<span class="heti-skip"><span class="heti-spacing"> </span>ACM CCS 2024<span class="heti-spacing"> </span></span>录用<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>武汉大学新闻网</a></p>
 <p><a href="https://arxiv.org/html/2406.19311v1">Zero-Query Adversarial Attack on Black-box Automatic Speech Recognition Systems</a></p>
-<h2 id="_1">论文内容<a class="headerlink" href="#_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<h2 id="_2">概念辨析<a class="headerlink" href="#_2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<p>迁移性：假设对抗样本具有迁移性，即当一个对抗样本可以成功攻击一个模型时，它也很有可能成功攻击另一个相似的模型。</p>
-<p>替代模型：当我们想对一个平台提供的黑盒模型进行攻击时，一种可行的方法是先训练一个与目标模型具有相似决策边界的本地模型，之后对本地模型进行白盒攻击得到对抗样本，再利用迁移性实现对目标模型的攻击，这个部署在本地的模型即为替代模型。</p>
+<h2 id="_1">相关背景问题是什么？<a class="headerlink" href="#_1" title="anchor link to this section for reference">¶</a></h2>
+<p>Adversarial Attack: change behavior to avoid detection</p>
 <h3 id="black-box">Black Box<a class="headerlink" href="#black-box" title="anchor link to this section for reference">¶</a></h3>
+<p>White-box attack
+    – Attackers have full knowledge about the ML model.</p>
+<p>Black-box attack
+    – Attackers don’t have access to the ML model parameters, gradients,architecture
+    – Know about used ML algorithm</p>
+<p>Zero-Query:Don’t get query samples and query results</p>
+<p>对于黑盒模型来说，需要考虑两方面的问题</p>
+<p>一个是替代模型：当我们想对一个平台提供的黑盒模型进行攻击时，一种可行的方法是先训练一个与目标模型具有相似决策边界的本地模型，之后对本地模型进行白盒攻击得到对抗样本，再利用迁移性实现对目标模型的攻击，这个部署在本地的模型即为替代模型。</p>
+<p>迁移性：假设对抗样本具有迁移性，即当一个对抗样本可以成功攻击一个模型时，它也很有可能成功攻击另一个相似的模型。</p>
 <h3 id="asr-automatic-speech-recognition-systems">ASR | Automatic Speech Recognition Systems<a class="headerlink" href="#asr-automatic-speech-recognition-systems" title="anchor link to this section for reference">¶</a></h3>
+<p><span>ASR<span class="heti-spacing"> </span></span>不解决听不听懂的问题，而更关心听没听清的问题</p>
 <p>作者研究发现，当前的智能语音识别系统主要基于注意力机制或卷积神经网络两类深度学习模型实现。</p>
-<h3 id="_3">端到端<a class="headerlink" href="#_3" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_2">端到端<a class="headerlink" href="#_2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>端到端模型直接将原始数据作为输出返回输出结果，非端到端模型需要使用经过数据处理后的处理数据作为模型输入</p>
-<h2 id="_4">现有难点<a class="headerlink" href="#_4" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_3">现有难点<a class="headerlink" href="#_3" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <ul>
 <li>目标模型是个黑盒，我们得不到相关的模型结构、参数或者训练数据；</li>
 <li>在使用目标模型进行图像分类时，通常只能得到该图像的唯一标签，并且没有准确率；</li>
 <li>调用<span class="heti-skip"><span class="heti-spacing"> </span>API<span class="heti-spacing"> </span></span>接口的查询次数有限，过多的查询除了带来成本上的负担外，还有可能被平台的异常检测程序制裁。</li>
 </ul>
 <p>语音系统需要处理时间维度上的信息变化，这比图像分类系统要复杂得多。其次，音频采样率通常很高（例如<span><span class="heti-spacing"> </span>16kHz</span>，这意味着每秒采样<span class="heti-skip"><span class="heti-spacing"> </span>16,000<span class="heti-spacing"> </span></span>个点<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，但是图像总共只有数百<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>数千个像素（例如，最流行的数据集中图像的大小，即，<span>MNIST<span class="heti-spacing"> </span></span>和<span><span class="heti-spacing"> </span>CIFAR-10</span>，分别为<span class="heti-skip"><span class="heti-spacing"> </span>28×28<span class="heti-spacing"> </span></span>和<span><span class="heti-spacing"> </span>32×32</span><heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。因此，与图像相比，制作对抗性音频更加困难，因为向音频添加少量噪声不太可能影响局部特征。</p>
-<p>不可察觉性质</p>
-<h2 id="_5">解决方案<a class="headerlink" href="#_5" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<p>最后产生的变化需要让用户感知尽可能小</p>
+<p>Prior works on black-box adversarial attacks on ASR systems do not require the attacker to know internal information about the target ASR system, but they still assume that the attacker can interact with the target system. In this paper, we consider a more realistic and challenging scenario where the attacker also cannot query the target ASR system during the generation of adversarial examples</p>
+<h2 id="_4">解决方案<a class="headerlink" href="#_4" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241027183631.png"/></p>
-<h3 id="_6">多替代模型<a class="headerlink" href="#_6" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<p>既用<span class="heti-skip"><span class="heti-spacing"> </span>CNN<span class="heti-spacing"> </span></span>又用<span><span class="heti-spacing"> </span>transformer</span></p>
+<h3 id="_5">多替代模型<a class="headerlink" href="#_5" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p><span>intuiitve way<span class="heti-spacing"> </span></span>既用<span class="heti-skip"><span class="heti-spacing"> </span>CNN<span class="heti-spacing"> </span></span>又用<span><span class="heti-spacing"> </span>transformer</span></p>
+<p>We investigate modern ASR systems and categorize them into two main types: CNN-based and Transformer-based. While CNNs are more adept at capturing local features, Transformers excel at capturing global contexts. Therefore, an intuitive approach is to select surrogate ASRs that include both CNN-based and Transformer-based architectures, ensuring that the adversarial perturbations optimized on these surrogate ASRs concurrently possess both local and global features of the target command.</p>
 <p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241027183654.png"/></p>
-<h3 id="_7">初始化<a class="headerlink" href="#_7" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<p>在此基础上，作者提出了动态的对抗扰动初始化方法</p>
-<p>对所有代理<span><span class="heti-spacing"> </span>ASR</span>，求解最优的<span><span class="heti-spacing"> </span>padding</span></p>
-<p>在音量较大的部分，允许的扰动更大，而在音量较小的部分，扰动被严格限制，从而减少了人耳对小扰动的察觉。这种自适应扰动可以减少对原音频的可感知干扰。</p>
-<h3 id="_8">集成优化<a class="headerlink" href="#_8" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_6">初始化<a class="headerlink" href="#_6" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>首先使用<span class="heti-skip"><span class="heti-spacing"> </span>TTS<span class="heti-spacing"> </span></span>方法生成扰动<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(x_t\)</span>,<span class="heti-spacing"> </span></span>其次对<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(x\)</span><span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(x_t\)</span><span class="heti-spacing"> </span></span>应用缩放</p>
+<p>其次使用了一种自己设计的动态的对抗扰动初始化方法</p>
+<p>the adaptive search algorithm searches for the smallest value of scaling factor μ, and δ is initialized using the scaled target command audio μ · xt , ensuring that the corresponding initial adversarial example is recognized by all surrogate ASRs as the target command</p>
+<p>I've made a chart to understand this process.</p>
+<h3 id="_7">集成优化<a class="headerlink" href="#_7" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>Following the perturbation initialization stage, ZQ-Attack employs a sequential ensemble optimization algorithm to collaboratively optimize the adversarial perturbation on the ordered set of surrogate ASRs. This algorithm consists of an inner loop and an outer loop. In each iteration, the ordered set of surrogate ASRs is randomly shuffled in the outer loop. </p>
+<p>考虑每个之间的影响</p>
+<div class="arithmatex">\[
+\delta = \eta \cdot \frac{1}{K} \sum_{j=1}^{K} \delta_j + (1 - \eta) \cdot \delta_0,
+\]</div>
+<p>这个公式有记忆功能，调整<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\eta\)</span><span class="heti-spacing"> </span></span>的值就可以决定每轮<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\delta_0\)</span><span class="heti-spacing"> </span></span>的影响的占比</p>
+<p>Then, the sequential ensemble optimization takes place within the inner loop. For each surrogate ASR, this algorithm integrates collaborative information from all preceding surrogate ASRs in the ordered set, facilitating collaborative optimization</p>
 <p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241027183827.png"/></p>
 <p>序列化的集成优化算法</p>
-<p>考虑每个之间的影响</p>
-<ul>
-<li>外环：每次对进行交换</li>
-<li>内环</li>
-</ul>
+<p>$$
+text{clip}_epsilon(delta, x) = max(min(delta, epsilon cdot |x|), -epsilon cdot |x|),
+$$
+这个函数看起来比较复杂，但其实就是在音量较大的部分，允许的扰动更大，而在音量较小的部分，扰动被严格限制，从而减少了人耳对小扰动的察觉。这种自适应扰动可以减少对原音频的可感知干扰。</p>
+<div class="arithmatex">\[
+\delta_j = \delta_0 - \alpha \cdot \frac{1}{j} \sum_{\delta' \in \Delta_j} \nabla_{\delta'} \mathcal{L}(x, \delta' + \sigma, t, f_j),
+\]</div>
+<p>这里加入了高斯扰动项目，在内环的时候，使用梯度进行<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\delta\)</span><span class="heti-spacing"> </span></span>值的更新</p>
 <h3 id="loss-function">loss function<a class="headerlink" href="#loss-function" title="anchor link to this section for reference">¶</a></h3>
-<p>考虑了三重因素，加权求和
-- adversial attack
-- 不可感知
-- 特征提取</p>
-<h2 id="_9">实验设计<a class="headerlink" href="#_9" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<p>考虑了三重因素，加权求和</p>
+<ul>
+<li>adversial attack</li>
+<li>不可感知性：设计一种新的度量方式：</li>
+<li>特征提取：使用了<span><span class="heti-spacing"> </span><span class="arithmatex">\(L_2\)</span>norm</span></li>
+</ul>
+<h2 id="_8">实验验证<a class="headerlink" href="#_8" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<p>实验设计：本文在两种设置下进行了广泛的实验，包括在线语音识别服务、商业<span class="heti-skip"><span class="heti-spacing"> </span>IVC<span class="heti-spacing"> </span></span>设备和开源<span><span class="heti-spacing"> </span>ASR</span>。在每种设置下，都选择了不同的目标<span class="heti-skip"><span class="heti-spacing"> </span>ASR<span class="heti-spacing"> </span></span>系统，并使用<span class="heti-skip"><span class="heti-spacing"> </span>ZQ-Attack<span class="heti-spacing"> </span></span>生成音频对抗示例来攻击它们。</p>
+<p>实验数据和结果：</p>
+<ul>
+<li>在线语音识别服务：在在线语音识别服务设置下，<span>ZQ-Attack<span class="heti-spacing"> </span></span>在<span class="heti-skip"><span class="heti-spacing"> </span>4<span class="heti-spacing"> </span></span>个不同的服务上取得了<span class="heti-skip"><span class="heti-spacing"> </span>100%<span class="heti-spacing"> </span></span>的成功率，平均信号噪声比<span class="heti-skip"><span class="heti-spacing"> </span>(SNR)<span class="heti-spacing"> </span></span>为<span><span class="heti-spacing"> </span>21.91dB</span>。</li>
+<li>商业<span class="heti-skip"><span class="heti-spacing"> </span>IVC<span class="heti-spacing"> </span></span>设备：在商业<span class="heti-skip"><span class="heti-spacing"> </span>IVC<span class="heti-spacing"> </span></span>设备设置下，<span>ZQ-Attack<span class="heti-spacing"> </span></span>在<span class="heti-skip"><span class="heti-spacing"> </span>2<span class="heti-spacing"> </span></span>个不同的设备上取得了<span class="heti-skip"><span class="heti-spacing"> </span>100%<span class="heti-spacing"> </span></span>的成功率，平均<span class="heti-skip"><span class="heti-spacing"> </span>SNR<span class="heti-spacing"> </span></span>为<span><span class="heti-spacing"> </span>15.77dB</span>。</li>
+<li>开源<span><span class="heti-spacing"> </span>ASR</span>：在开源<span class="heti-skip"><span class="heti-spacing"> </span>ASR<span class="heti-spacing"> </span></span>设置下，<span>ZQ-Attack<span class="heti-spacing"> </span></span>在<span class="heti-skip"><span class="heti-spacing"> </span>16<span class="heti-spacing"> </span></span>个不同的<span class="heti-skip"><span class="heti-spacing"> </span>ASR<span class="heti-spacing"> </span></span>上取得了<span class="heti-skip"><span class="heti-spacing"> </span>100%<span class="heti-spacing"> </span></span>的成功率，平均<span class="heti-skip"><span class="heti-spacing"> </span>SNR<span class="heti-spacing"> </span></span>为<span><span class="heti-spacing"> </span>19.67dB</span>。
+这些实验结果表明，ZQ-Attack可以生成具有高转移性和高成功率的音频对抗示例，以攻击各种ASR系统。</li>
+</ul>
+<p>不足：</p>
+<p>计算成本：<span>ZQ-Attack<span class="heti-spacing"> </span></span>需要在多个代理模型上优化对抗扰动，这可能会导致较高的计算成本。
+不可感知性：尽管ZQ-Attack在over-the-line设置下具有较好的不可感知性，但在over-the-air设置下可能仍然可以被人类察觉。</p>
+<h2 id="_9">对你的启发<a class="headerlink" href="#_9" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<p>Through the process of this class, I have adopted the fundamental methods of reading papers at first,by the way , it's also my first experience to read a paper in English for begining to end and figure out each formula. </p>
+<p>I download paper managing tools like Zotero, and i have also learned how to gather information through platforms like Google Scholar and Arxiv.</p>
+<p>Furthermore, I've discovered that most of the latest thesis and information in frontier areas are in English, as few thesis themselves are mostly in English and there isn't an atmosphere of sharing up-to-date on Today's Chinese Internet. Therefore, I appreciate this opprotunity to learn and </p>
+<p>零查询黑盒攻击：本文展示了在零查询黑盒设置下，如何生成具有高转移性的音频对抗示例以攻击各种<span class="heti-skip"><span class="heti-spacing"> </span>ASR<span class="heti-spacing"> </span></span>系统。这为其他类型的黑盒攻击提供了新的思路。</p>
+<p>集成优化：本文提出的序列集成优化算法可以应用于其他类型的集成模型，以提高其性能和鲁棒性。</p>
 <aside class="md-source-file">
 <span class="md-source-file__fact">
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年10月27日 19:10:28</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年10月29日 15:43:58</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">
