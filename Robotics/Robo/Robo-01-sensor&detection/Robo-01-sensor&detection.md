@@ -28,17 +28,7 @@
 
 !!! tip "本笔记只记录知识框架的思维导图和具体难理解的点，不做细节完全整理"
 
-### 陀螺仪
 
-
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240925003502.png)
-在陀螺仪中，两个质量块运动速度方向相反，而大小相同。它们产生的科式力相反，从而压迫两块对应的电容板移动，产生电容差分变化。 电容的变化正比于旋转角速度
-
-
-### 加速度计
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240925003435.png)
-
-三轴加速度计是一种惯性传感器，能够测量物体的 比力 ，即去掉重力后的整体加速度或者单位质量上作用的非引力。
 
 ## 计算题整理
 
@@ -47,7 +37,28 @@
 量程迁移
 
 
-## 第二章
+
+
+## 第二章——检测技术与检测元件
+### 热电
+两种原理：接触电势 & 温差电势
+
+
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=294913421&bvid=BV16F411q7uS&cid=463225721&p=1&autoplay=0" width="600" height="450" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+
+
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=537416266&bvid=BV1Ni4y1a7sN&cid=1372016762&p=1&autoplay=0" width="600" height="450" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+
+- 对应关系加减法
+- 非线性，不能直接对应
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241031181717.png)
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241031181647.png)
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241031181700.png)
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241031181749.png)
 
 ### 光电
 
@@ -132,7 +143,7 @@ ex:负磁滞材料，受到正压力，磁畴向磁矢量垂直于正压力方�
 大气窗口：吸收比较弱的区域
 
 
-## 超声波
+### 超声波
 
 人耳 20-20KHz
 
@@ -143,3 +154,16 @@ ex:负磁滞材料，受到正压力，磁畴向磁矢量垂直于正压力方�
 
 横波不能在液体或气体介质中传播
 表面波不能在液体或者气体介质中传播
+
+## 仪器
+### 陀螺仪
+
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240925003502.png)
+在陀螺仪中，两个质量块运动速度方向相反，而大小相同。它们产生的科式力相反，从而压迫两块对应的电容板移动，产生电容差分变化。 电容的变化正比于旋转角速度
+
+
+### 加速度计
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240925003435.png)
+
+三轴加速度计是一种惯性传感器，能够测量物体的 比力 ，即去掉重力后的整体加速度或者单位质量上作用的非引力。

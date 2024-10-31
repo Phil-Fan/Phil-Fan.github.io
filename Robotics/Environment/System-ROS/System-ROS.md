@@ -71,6 +71,10 @@ cd ~/catkin_ws
 catkin_make
 ```
 
+如果出现时间问题
+- 删除`devel`与`build`文件夹
+- 先进入系统设置调整时区
+- 
 
 ### 执行
 
