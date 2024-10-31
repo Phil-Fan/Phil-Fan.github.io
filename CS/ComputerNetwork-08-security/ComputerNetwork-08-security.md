@@ -8,13 +8,40 @@
 
 
 
-
 [8.6 各个层次的安全性_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1JV411t7ow?p=53&vd_source=8b7a5460b512357b2cf80ce1cefc69f5)
 
 ![image-20240611204450499](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240611204450499.png)
 
 
+## 安全
 
+!!! note "What is Security? "
+	Confidentiality, Integrity, Availability (CIA triad)
+
+"CIA三元组"，它由保密性（Confidentiality）、完整性（Integrity）和可用性（Availability）三个要素组成，用于描述一个安全系统所需的基本属性。
+
+保密性是指保护系统和数据不被未授权的访问或泄露；
+
+完整性是指确保数据的准确性和一致性，防止未经授权的修改或破坏；
+
+可用性是指确保系统和数据在需要时可被授权用户访问和使用。
+
+
+
+!!! note "What Security Do We Need? "
+	Integrity, Confidentiality, Authenticity, Non-repudiation (I-CAN)
+
+"I-CAN"，它由完整性（Integrity）、保密性（Confidentiality）、认证性（Authenticity）和不可否认性（Non-repudiation）四个要素组成，用于描述一个安全系统所需的具体要求。
+
+Integrity | 完整性 : implementation using **message signature**
+
+Confidentiality | 保密性 : implementation using data encryption
+
+Authenticity | 认证性 : implementation using **challenge - response**,登录
+
+> 两个特工：天王盖地虎-宝塔镇河妖
+
+Non-repudiation | 不可否认性 : implementation using **message signature**。用私钥加密，公钥解密
 
 
 
@@ -63,11 +90,7 @@
 
 
 
-
-
-## 防御措施
-
-### 防火墙
+## 防火墙
 
 将组织内部网络和互联网络隔离开来，按照规则进行分组过滤
 
@@ -98,7 +121,7 @@ SYN flooding: 攻击者建立很多伪造TCP链接，对于真正用户而言已
 
 
 
-#### 无状态规则
+### 无状态规则
 
 防火墙不维持通讯状态
 
@@ -114,7 +137,7 @@ SYN flooding: 攻击者建立很多伪造TCP链接，对于真正用户而言已
 
 
 
-#### 有状态规则
+### 有状态规则
 
 无状态分组过滤根据每个分组独立地检查和行动
 有状态的分组过滤联合分组状态表检查和行动
@@ -127,7 +150,7 @@ SYN flooding: 攻击者建立很多伪造TCP链接，对于真正用户而言已
 
 
 
-#### ACL `access control list`
+### ACL `access control list`
 
 最后一条规则，默认规则匹配所有
 
@@ -153,7 +176,7 @@ SYN flooding: 攻击者建立很多伪造TCP链接，对于真正用户而言已
 
 
 
-### 入侵检测系统 IDS intrusion detection system
+## 入侵检测系统 IDS intrusion detection system
 
 multiple IDSs: 在不同的地点进行不同类型的检查
 
@@ -201,6 +224,15 @@ Denial of service (DOS): 对策
 - 在到达主机之前过滤掉这些泛洪的分组(e.g., SYN): throw out good with bad
 - 回溯到源主机(most likely an innocent,compromised machine)
 
+
+
+## 虚拟专用网络技术
+
+## 访问控制技术
+
+## 网络安全技术
+
+
 ## 安全场景
 
 
@@ -208,36 +240,6 @@ Denial of service (DOS): 对策
 
 
 
-
-### 安全
-
-!!! note "What is Security? "
-	Confidentiality, Integrity, Availability (CIA triad)
-
-"CIA三元组"，它由保密性（Confidentiality）、完整性（Integrity）和可用性（Availability）三个要素组成，用于描述一个安全系统所需的基本属性。
-
-保密性是指保护系统和数据不被未授权的访问或泄露；
-
-完整性是指确保数据的准确性和一致性，防止未经授权的修改或破坏；
-
-可用性是指确保系统和数据在需要时可被授权用户访问和使用。
-
-
-
-!!! note "What Security Do We Need? "
-	Integrity, Confidentiality, Authenticity, Non-repudiation (I-CAN)
-
-"I-CAN"，它由完整性（Integrity）、保密性（Confidentiality）、认证性（Authenticity）和不可否认性（Non-repudiation）四个要素组成，用于描述一个安全系统所需的具体要求。
-
-Integrity | 完整性 : implementation using **message signature**
-
-Confidentiality | 保密性 : implementation using data encryption
-
-Authenticity | 认证性 : implementation using **challenge - response**,登录
-
-> 两个特工：天王盖地虎-宝塔镇河妖
-
-Non-repudiation | 不可否认性 : implementation using **message signature**。用私钥加密，公钥解密
 
 
 

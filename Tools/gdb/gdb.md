@@ -110,6 +110,7 @@ c(continue) —— 从一个断点处，直接运行至下一个断点处【VS�
 ## 自动化脚本
 
 [GDB自动化脚本编写笔记一\_gdb 脚本-CSDN博客](https://blog.csdn.net/kelxLZ/article/details/112411761)
+
 [用gdb脚本进行自动化调试\_gdb本来就支持自定义脚本辅助调试-CSDN博客](https://blog.csdn.net/nirendao/article/details/105910753)
 
 1. 井号 # 表示注释

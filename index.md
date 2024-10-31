@@ -15,6 +15,7 @@ comments: true
     现代控制理论<br>
     制作一个有意思的小玩意<br>
     做一个CV和简介网站<br>
+    搞一下cursor
     
 !!! tip "课外目标"
     阅读《倾城之恋》<br>
