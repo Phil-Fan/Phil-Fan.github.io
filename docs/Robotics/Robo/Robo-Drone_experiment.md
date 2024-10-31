@@ -305,3 +305,8 @@ rosbag record /sim/odom
 
 https://github.com/facontidavide/PlotJuggler
 
+
+## 结果
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241031223517.png)
+![type:video](https://philfan-pic.oss-cn-beijing.aliyuncs.com/video/drone.mp4)
+

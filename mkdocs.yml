@@ -78,10 +78,6 @@ theme:
     text: Noto Serif SC # Roboto
     code: JetBrains Mono
 
-
-
-
-
 markdown_extensions:
   # 基础Markdown扩展
   - abbr  # 支持缩写
@@ -148,9 +144,6 @@ markdown_extensions:
   - pymdownx.striphtml  # 去除HTML标签
   - pymdownx.saneheaders  # 优化标题解析，避免冲突
 
-
-# todo: extra & analysis & social 
-
 extra:
   social:
     - icon: fontawesome/brands/github
@@ -188,7 +181,6 @@ extra_css:
   - https://cdn.tonycrane.cc/lxgw/lxgwscreen.css
   # - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css
 
-
 extra_javascript:
   - style/js/toc.js
   # - style/js/katex.js
@@ -200,8 +192,7 @@ extra_javascript:
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
 
-# navigation
-# 注意左右下划线的写法
+# navigation: 注意左右下划线的写法
 nav:
 - Home: index.md
     
@@ -467,8 +458,13 @@ nav:
   - "🗺️出行":
     - else/Travel/C-Driving.md
     - else/Travel/C-journey.md
+    - else/Travel/C-J-杭州.md
     - else/Travel/C-J-浙江.md
     - else/Travel/C-J-江西.md
+    - else/Travel/C-J-四川.md
+    - else/Travel/C-J-安徽.md
+    - else/Travel/C-J-HK.md
+    - else/Travel/C-J-Japan.md
 
   - "🎶音乐":
     - else/music_theory.md
@@ -509,6 +505,7 @@ plugins:
   # https://github.com/TonyCrane/mkdocs-heti-plugin
   - heti:
       disable_serve: false
+  
   # https://github.com/TonyCrane/mkdocs-statistics-plugin
   - statistics:
       words_per_minute: 256
@@ -520,7 +517,7 @@ plugins:
   #     minify_html: true
 
   # 显示文件的最后修改时间，基于git提交记录
-  # https://github.com/timvink/mkdocs-git-revision-date-localized-plugin
+    # https://github.com/timvink/mkdocs-git-revision-date-localized-plugin
   - git-revision-date-localized:
       type: datetime
       timezone: Asia/Shanghai
@@ -537,3 +534,11 @@ plugins:
       theme: dark
       include_source: True
       custom_mathjax_url: "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS_CHTML-full,Safe"
+  # todo: 修复数学公式问题
+
+  - mkdocs-video:
+      is_video: True
+      video_muted: True
+      video_controls: True
+      css_style:
+        width: "50%"
