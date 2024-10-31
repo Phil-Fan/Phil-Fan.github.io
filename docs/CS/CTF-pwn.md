@@ -284,6 +284,15 @@ mov rbp, rsp ; 这个时候rbp=rsp
 可以劫持函数的返回地址，实现在函数间的任意跳转
 
 
+https://classroom.zju.edu.cn/livingroom?course_id=54544&sub_id=1011516&tenant_code=112
+
+[CTF PWN练习之返回地址覆盖 - FreeBuf网络安全行业门户](https://www.freebuf.com/articles/network/267051.html)
+
+[pwn lab 2: ROP / FSB - CTF101-Labs-2024](https://courses.zjusec.com/topic/pwn-lab2/#task-1-20)
+
+[pwn lab 3: glibc heap exploitation - CTF101-Labs-2024](https://courses.zjusec.com/topic/pwn-lab3/)
+
+
 ### PIE保护
 
 !!! note "Check PIE"

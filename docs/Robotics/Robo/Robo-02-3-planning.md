@@ -178,3 +178,6 @@ BVP | Boundary Value Problem 边值问题
 
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241023183547.png)
 [动力学约束下的运动规划算法——Hybrid A\*算法（附程序实现及详细解释）\_pythonrobotics hybrida\*-CSDN博客](https://blog.csdn.net/qq_44339029/article/details/132466521)
+
+
+## 轨迹优化
