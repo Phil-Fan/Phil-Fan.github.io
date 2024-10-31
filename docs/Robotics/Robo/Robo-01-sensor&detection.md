@@ -43,11 +43,11 @@
 ### 热电
 两种原理：接触电势 & 温差电势
 
-[十分钟带你了解热电偶原理及其四大定律\_哔哩哔哩\_bilibili](https://www.bilibili.com/video/BV16F411q7uS/?spm_id_from=333.337.search-card.all.click)
+
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=294913421&bvid=BV16F411q7uS&cid=463225721&p=1&autoplay=0" width="600" height="450" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
 
 
-[温度传感器是如何工作的，热电偶工作原理\_哔哩哔哩\_bilibili](https://www.bilibili.com/video/BV1Ni4y1a7sN/?spm_id_from=333.337.search-card.all.click&vd_source=8b7a5460b512357b2cf80ce1cefc69f5)
-
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=537416266&bvid=BV1Ni4y1a7sN&cid=1372016762&p=1&autoplay=0" width="600" height="450" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
 
 - 对应关系加减法
 - 非线性，不能直接对应
