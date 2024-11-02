@@ -1,3 +1,6 @@
+---
+comments: true
+---
 # 传输层 | `Transport Layer`
 
 ![传输层](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/%E4%BC%A0%E8%BE%93%E5%B1%82.svg)

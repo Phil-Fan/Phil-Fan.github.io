@@ -1,9 +1,12 @@
+---
+comments: true
+---
 # 网络安全
 
 !!! note "来源"
     - USTC《计算机网络》
     - 《人工智能与安全》 | 陈艳姣
-    - 《信息安全导论》 | 程磊：[智云链接](https://classroom.zju.edu.cn/livingpage?course_id=53572&sub_id=917457&tenant_code=112)
+    - 《信息安全导论》：[智云链接](https://classroom.zju.edu.cn/livingpage?course_id=53572&sub_id=917457&tenant_code=112)
 
 
 

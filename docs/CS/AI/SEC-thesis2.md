@@ -29,9 +29,7 @@ End-to-end models directly process raw data to produce output, whereas non-end-t
 
 ## Existing Challenges
 
-The target model is a black box, with no access to its structure, parameters, or training data. When using the target model for image classification, typically only a single label is provided without accuracy information. Additionally, API query limits impose cost constraints and potential detection by platform anomaly programs.
-
-Speech systems must handle temporal information changes, which is more complex than image classification. Audio sampling rates are usually high (e.g., 16kHz, implying 16,000 samples per second), whereas images have only hundreds or thousands of pixels (e.g., 28×28 for MNIST and 32×32 for CIFAR-10). Consequently, creating adversarial audio is more challenging than images because adding small noise to audio is less likely to affect local features. The resulting changes should be minimally perceptible to users.
+z'dConsequently, creating adversarial audio is more challenging than images because adding small noise to audio is less likely to affect local features. The resulting changes should be minimally perceptible to users.
 
 Previous works on black-box adversarial attacks against ASR systems do not require internal knowledge of the target ASR system but assume the attacker can interact with it. In contrast, this paper considers a more realistic and challenging scenario where the attacker cannot query the target ASR system during adversarial example generation.
 ## Solution Approach

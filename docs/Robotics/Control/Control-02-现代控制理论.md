@@ -13,6 +13,8 @@ comments: true
         - 作业题目
         - 课件
         - 历年题目
+    === "资料合集"
+        可以看[awslasasd](https://github.com/awslasasd/Modern-control-principles/tree/main)的仓库
     === "历年卷"
         - [2023-2024 秋冬 回忆卷](https://www.cc98.org/topic/5748670)
         - [2023-2024 秋 回忆卷](https://www.cc98.org/topic/5748295)
@@ -25,8 +27,6 @@ comments: true
         - [A4 梁毅浩](https://www.cc98.org/topic/5197981)
         - [A4 Healor](https://www.cc98.org/topic/5826788)
         - [A4 Rainbow0](https://www.cc98.org/topic/5658322)
-    
-    === "作业答案"
 
 
 ## 总论
