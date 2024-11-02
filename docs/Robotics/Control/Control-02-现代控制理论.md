@@ -14,7 +14,8 @@ comments: true
         - 课件
         - 历年题目
     === "资料合集"
-        可以看[awslasasd](https://github.com/awslasasd/Modern-control-principles/tree/main)的仓库
+
+        也可以看[awslasasd](https://github.com/awslasasd/Modern-control-principles/tree/main)的仓库
     === "历年卷"
         - [2023-2024 秋冬 回忆卷](https://www.cc98.org/topic/5748670)
         - [2023-2024 秋 回忆卷](https://www.cc98.org/topic/5748295)
@@ -23,10 +24,12 @@ comments: true
         - [2019-2020 春夏 回忆卷](https://www.cc98.org/topic/4960302/1#1)
         - [2019-2020 春夏 回忆卷](https://www.cc98.org/topic/4856718)
         - [2020 回忆卷](https://www.cc98.org/topic/5040332)
+
     === "A4"
         - [A4 梁毅浩](https://www.cc98.org/topic/5197981)
         - [A4 Healor](https://www.cc98.org/topic/5826788)
         - [A4 Rainbow0](https://www.cc98.org/topic/5658322)
+        - [现代控制理论A4&资料分享 - 追风Holy](https://www.cc98.org/topic/6025482/1#7)
 
 
 ## 总论
@@ -41,6 +44,8 @@ y &= Cx + Du
 $$
 
 其中，A是系统矩阵，B是输入矩阵，C是输出矩阵，D是直接传递矩阵；u是输入，y是输出，x是状态
+
+因为计算机只能处理离散数据，所以需要将连续系统离散化，这里使用的工具是$\mathscr{z}$变换
 
 **Open Loop**：其次要理解系统状态矩阵$\mathbf{A}$
 
@@ -185,6 +190,8 @@ legend;
 #### 数字化设计
 
 !!! note "z域解析设计的方法主要有最少拍系统设计、无波纹最少拍系统设计、最小均方差系统设计等"
+
+
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241009150948.png)
 
 z域解析设计的方法关键是根据性能指标的需要选择合适的闭环脉冲传递函数$\Phi(z)$或闭环误差脉冲传递函数$\Phi_e(z)$。

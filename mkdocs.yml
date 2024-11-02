@@ -251,8 +251,11 @@ nav:
   - "Control Theory":
     - Robotics/Control/Control-01-自动控制原理.md
     - Robotics/Control/Control-02-现代控制理论.md
-    - Robotics/Control/Control-03-经典控制方法.md
-    - Robotics/Control/Control-电机.md
+    - Robotics/Control/Control-03-nonlinear.md
+    - Robotics/Control/Control-04-optimal.md
+    - Robotics/Control/Control-10-经典控制方法.md
+    - Robotics/Control/Control-11-智能控制方法.md
+    - Robotics/Control/Control-12-电气控制.md
 
   - "机器人":
     - Robotics/Robo/Robo-00-Introduction-to-Robotics.md 
@@ -425,6 +428,7 @@ nav:
     - Markdown:
       - https://minjoker.github.io/cs/tools/markdown/
     - Tools/Mkdocs.md
+    - Tools/JekyII.md
     - Tools/obsidian.md
     - Tools/latex.md
     - "Latex公式速查": https://latex.emoryhuang.cn/posts/
