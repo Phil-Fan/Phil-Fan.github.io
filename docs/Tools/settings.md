@@ -469,7 +469,15 @@ pip install <package>==<version>
 在系统路径path（高级系统系统设置——环境变量）中加入python.exe所在目录（打开文件所在位置——属性——打开文件所在位置）（因为是快捷方式，所以需要先找到快捷方式所在目录，再找到原exe文件所在位置）
 
 **注：应考虑到优先级的问题，将想要通过命令行直接进入的python版本所对应的路径放在上面**
+### pip换源
 
+```shell title="临时换源"
+pip install package_name -i https://pypi.tuna.tsinghua.edu.cn/simple 
+```
+
+```shell title="清华源 永久换源"
+pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+```
 
 ### 使用
 
@@ -681,6 +689,7 @@ ssh -p 15821 root@connect.westb.seetacloud.com
 - `ctrl + P` 搜索文件名打开文件
 - `ctrl + F` 搜索内容
 - 搜索工作区内容的快捷键是`Ctrl + Shift + F`，或者在菜单栏中选择 `查看 (View)` -> `搜索 (Search)`
+- 
 
 ### 内存占用过大问题
 
@@ -843,6 +852,22 @@ vlc --rate <speed> <address> # 倍速播放
 
 
 [vlc的命令行使用方式\_vlc用控制台播放音频-CSDN博客](https://blog.csdn.net/fengmm521/article/details/79596447)
+
+
+https://interactivemeta.cmc.zju.edu.cn/#/studentsrs?course_id=63546&sub_id=1393805&tenant_code=112
+
+https://interactivemeta.cmc.zju.edu.cn/#/replay?course_id=63546&sub_id=1301338&tenant_code=112
+
+course_id 是课程id
+sub_id 是章节id
+tenant_code 是租户id
+
+sub_id  貌似是根据一定规则进行生成的，不清楚后台的hash算法
+
+但观察发现，有连续
+
+
+查询`https://classroom.zju.edu.cn/courseapi/v3/multi-search/get-course-detail?course_id=67855&student=<student_id>`即可获得课程详细信息
 
 
 ## 嵌入b站视频

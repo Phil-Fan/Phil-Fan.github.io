@@ -4,7 +4,34 @@
 路径规划(我如何去)
 
 
+
+基本要求：
+
+- 安全：避免碰撞
+- 光滑性：节能、平稳
+- 动力学可行性：可执行、可控
+
+
+
+前端-路径搜索
+
+- 低维
+- 离散空间
+- 搜索初始安全路径
+
+后端-轨迹优化
+
+- 高维
+- 连续空间
+- 生成可执行轨迹
+
+
+
 ## 基于搜索的路径规划
+
+### graph search
+
+
 
 ### Dijkstra’s   
 
@@ -111,7 +138,17 @@ RRT没有遗忘机制，对已知路径没有更新，对错误连接没有修�
 
 [路径规划 | 随机采样算法：Informed-RRT\* - 知乎](https://zhuanlan.zhihu.com/p/372315811)
 
-## Kinodynamic
+
+
+### Optimal Sampling-based Methods
+
+### Advanced Sampling-based Methods
+
+
+
+
+
+## Kinodynamic 满足动力学
 运动动力学
 
 - **控制空间采样**：选择一个输入$u$，固定一个持续时间$T$，前向模拟系统（数值积分）；一般都是幂0矩阵
@@ -125,15 +162,14 @@ RRT没有遗忘机制，对已知路径没有更新，对错误连接没有修�
 - Dubins car model
 - Reeds-Shepp car model
 
-### State-state Boundary Value Optimal Control Problem
+### State-state Boundary  Value
 
 ### State Lattice Search
 lattice: 广义的栅格
 
 构成状态和状态之间的搜索图
 
-
-
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241102204243.png)
 
 9-discretization & 25-discretization 
 
@@ -167,6 +203,12 @@ BVP | Boundary Value Problem 边值问题
 
 ### Kinodynamic RRT*
 
+1. Follow RRT* algorithm
+2. Sample a random state
+3. solve two state boundary optimal control problem
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241102204411.png)
+
 
 ### Hybrid A*
 
@@ -175,9 +217,36 @@ BVP | Boundary Value Problem 边值问题
    传统的A * 算法是在栅格地图中进行搜索，可行路径中的点，都是栅格地图的中心点，如下面的第一幅图所示，lattice planner算法是先构建一个用于搜索的lattice图，如下面的第二幅图所示，Hybrid A* 算法结合了A * 算法和lattice planner算法的思想，将栅格地图的路径搜索与lattice图结合起来，在搜索过程中选取不同的控制量预演一段轨迹，且保持在每个栅格中仅保留一个可行的状态，如下面的第三幅图所示
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241023190050.png)
 
+1. Follow A* algorithm
+
+2. Forward simulate states with different discrete control inputs
+
+3. Keep only 1 state in each grid
 
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241023183547.png)
 [动力学约束下的运动规划算法——Hybrid A\*算法（附程序实现及详细解释）\_pythonrobotics hybrida\*-CSDN博客](https://blog.csdn.net/qq_44339029/article/details/132466521)
 
 
 ## 轨迹优化
+
+### Minimum Snap轨迹优化
+
+#### Differential Flatness
+
+#### Minimum Snap Optimization
+
+#### Closed-form Solution to Minimum Snap
+
+#### Time Allocation
+
+#### Implementation in Practice
+
+
+
+
+
+### 硬约束与软约束轨迹优化
+
+#### Soft Constrained Trajectory Optimization
+
+#### Hard Constrained Trajectory Optimization

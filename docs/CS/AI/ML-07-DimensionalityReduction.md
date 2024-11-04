@@ -67,6 +67,16 @@ def MDS(data, n=2):
 [【数据降维-第4篇】多维尺度变换（MDS）快速理解，及MATLAB实现 - 知乎](https://zhuanlan.zhihu.com/p/618906910)
 
 ### kernel PCA
+PCA 和SVD的关系：
+
+
+SVD：
+
+$$
+A = US V^T
+$$
+U是特征向量，S是特征值，V是特征向量
+
 
 
 协方差矩阵告诉我们变量的方差和联合方向

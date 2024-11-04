@@ -1,7 +1,7 @@
 ---
 comments: true
 ---
-# JekyII 
+# Jekyll
 
 [Jekyll • 简单静态博客网站生成器 - 将纯文本转换为静态博客网站](https://jekyllcn.com/)
 
