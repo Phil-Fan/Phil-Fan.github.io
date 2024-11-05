@@ -274,6 +274,7 @@ nav:
   - "通信":
     - Robotics/communication/CC-NFC.md
     - Robotics/communication/CC-bluetooth.md
+  - Robotics/Calculator.md
 
 
 
