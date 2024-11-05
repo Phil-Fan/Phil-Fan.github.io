@@ -258,13 +258,15 @@ nav:
     - Robotics/Control/Control-12-电气控制.md
 
   - "机器人":
+    - Robotics/Robo/Robo-00-intro.md
+    - Robotics/Robo/Robo-00-model.md
     - Robotics/Robo/Robo-00-Introduction-to-Robotics.md 
     - Robotics/Robo/Robo-00-Introduction-to-Robotics-exam.md
-    - Notebook page: Robotics/Robo/Robo-00-model.ipynb
     - Robotics/Robo/Robo-01-sensor&detection.md
     - Robotics/Robo/Robo-02-0-navigation.md
     - Robotics/Robo/Robo-02-1-localization.md
     - Robotics/Robo/Robo-02-2-decide.md
+    - Robotics/Robo/Robo-02-2-mapping.md
     - Robotics/Robo/Robo-02-3-planning.md
     - Robotics/Robo/Robo-Drone.md      
     - Robotics/Robo/Robo-Drone_experiment.md
@@ -385,18 +387,21 @@ nav:
       - CS/AI/SEC-02-whitebox.md
       - CS/AI/SEC-03-blackbox.md
       - CS/AI/SEC-04-GANS.md
+      - CS/AI/SEC-thesis.md
       
          
   - "CV | 计算机视觉":
+    - CS/CV/CV-00-0-intro.md
     - "图像处理":
-        - CS/CV/color.md
-        - CS/CV/format.md
+        - CS/CV/CV-00-2-camera.md
+        - CS/CV/CV-00-3-format.md
     - "基本任务":
-        - CS/CV/CV-00-intro.md
         - CS/CV/CV-01-classification.md
         - CS/CV/CV-02-Image-location.md
+        - CS/CV/CV-03-face-Recognition.md
         - CS/CV/CV-03-Object-Recognition.md
         - CS/CV/CV-04-Segmentation.md
+        - CS/CV/CV-10-3D.md
     - CS/CV/OpenCV.md
     - CS/CV/HumanPoseEstimation.md  
 
