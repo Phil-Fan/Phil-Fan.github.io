@@ -788,37 +788,6 @@ g++ -v
 发完验证短信后，会有一个授权码，这个授权码就是密码
 
 
-## 计算器
-电脑上可以装计算器的，我有时候忘记带计算器就会用电脑上的模拟软件</br>
-可以免费用三个月，用完额度可以再安装一遍ac01</br>
-
-[官网模拟器下载地址](https://edu.casio.com/softwarelicense/index.php)</br>
-[官方说明书pdf文件](https://support.casio.com/storage/cn/manual/pdf/CN/004/fx-991CN_X_B_CN.pdf)
-
-
-### 变量设置
-### 统计计算
-正态分布；各种统计量；双变量统计；使用统计量进行计算；
-
-- [统计基础篇](https://zhuanlan.zhihu.com/p/67842031)</br>
-- [统计提高篇](https://zhuanlan.zhihu.com/p/67942971)</br>
-- [正态相关](https://zhuanlan.zhihu.com/p/144720947)</br>
-
-### 复数计算
-复数计算、幅角计算
-- [电路中的应用,建议30min处开始食用](https://www.bilibili.com/video/BV1mh411d7yX)</br>
-
-
-### 矩阵计算
-以fx-cn991为例，
-
-先按矩阵，可以自定义MatA，B，C，D四个矩阵（最高4x4）
-- 设置好数字，按AC确认
-- OPTN选择矩阵运算
-- $x^{-1}$ 进行矩阵求逆
-- OPTN中还有转置矩阵、行列式等运算
-
-[CASIO卡西欧991如何求逆矩阵-百度经验](https://jingyan.baidu.com/article/380abd0aa0a5c95d90192cba.html)
 
 ## 模拟器
 

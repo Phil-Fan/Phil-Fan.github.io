@@ -13,9 +13,11 @@ comments: true
         - 作业题目
         - 课件
         - 历年题目
+
     === "资料合集"
 
         也可以看[awslasasd](https://github.com/awslasasd/Modern-control-principles/tree/main)的仓库
+
     === "历年卷"
         - [2023-2024 秋冬 回忆卷](https://www.cc98.org/topic/5748670)
         - [2023-2024 秋 回忆卷](https://www.cc98.org/topic/5748295)
@@ -31,8 +33,35 @@ comments: true
         - [A4 Rainbow0](https://www.cc98.org/topic/5658322)
         - [现代控制理论A4&资料分享 - 追风Holy](https://www.cc98.org/topic/6025482/1#7)
 
+    === "其他资料"
+        ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240922170358.png)
+        - [现代控制理论重点概念梳理 - 知乎](https://www.zhihu.com/column/c_1131936304564453376)
+        - [现代控制理论-重点知识汇总\_现代控制理论知识点总结-CSDN博客](https://blog.csdn.net/qq_31274209/article/details/105156993)
+        - [控制理论——一小时从劝退到入门 - 知乎](https://zhuanlan.zhihu.com/p/683044170)
+
+
+## 课程感想
+
+现代控制理论算是大三秋冬还算学到东西的一门主修课了，个人大部分内容都是自学的，因为上课容易走神，而且每次早八都有点困困的:sleeping:。（在室友的推荐下看了[现代控制理论系列课程](https://www.bilibili.com/video/BV1yx411u7iX/)，DR_CAN博士的课程讲的很好，深入浅出地串讲了现控的大部分内容，算是中文控制理论yyds了。没有覆盖的部分，可以通过搜索其他视频或者根据题目进行拟合。）
+
+现控上课时间只有半个学期，也就意味着课程节奏是很快的。最后一章甚至都是在考试前一天才讲完:weary:，这就意味着提前学习是必须的。
+
+从**考试**来看，笔者和朋友们都感觉题目计算量很大（尤其是涉及到矩阵的计算、z变换的化简等题目），虽然现控的题目套路比较固定，但是计算量确实不小，一定要提前掌握计算器求解矩阵的方法，也需要在平时的作业中注意化简的速度，要提前练习。（之后如果使用相关方法，肯定也是计算机求解啊，出这么大计算量是为了难而难吗hhhh）
+
+本门课程的**实验**可以用依托答辩来形容，实验分为三次线下实验箱实验与两次线上matlab实验。线下可以说与现代控制这学期所学的内容关联不大，甚至把它放在模电实验中我觉得也没有什么违和感:sweat_smile:。大家一般都有学长姐往年的数据，所以很多人做一节课多就走了，但是笔者每次做实验，实验实验箱都会发生各种各样的神奇问题，所以实验还是花了一些时间的。但是最后实验成绩其实都是按照实验报告给的，所以ROI很低，~~甚至直接去签完到回去写实验报告都不一定比别人低~~:innocent:。希望之后实验课可以进行一些优化和调整。
+
+
 
 ## 总论
+
+!!! note "以下内容均为笔者个人理解，如有错误，先滑跪"
+    纯为了搭一个大致的框架，肯定会有很多表述不太严谨的地方
+
+现代控制理论是经典控制理论的延续。更关注于离散系统和多输入系统。
+
+可以先听一下这个串讲，对整体有一个了解
+[现代控制理论串讲 - DR_CAN](https://www.bilibili.com/video/BV1jW411J729/)
+
 
 首先要理解**状态空间模型**，求传递函数
 
@@ -49,49 +78,59 @@ $$
 
 **Open Loop**：其次要理解系统状态矩阵$\mathbf{A}$
 
-- 特征值的实部决定了系统的稳定性，与$|\lambda I - A|$是一样的
+- 矩阵$\mathbf{A}$特征值的实部决定了系统的稳定性，与$|\lambda I - A|$判定方法是一样的
 
 
 **Close Loop**：
-了解了稳定性之后，我们就可以通过设计闭环特征矩阵$\mathbf{A_{cl}}$来达到我们想要的效果：这里可以使用线性控制器来求解合适的K参数，也可以使用LQR控制器来配置极点达到不同的目标效果
+
+了解了稳定性之后，我们就可以通过设计闭环特征矩阵$\mathbf{A_{cl}} = \mathbf{A} - \mathbf{B}\mathbf{K}$ 来把极点配置到我们想要的位置：
+- 先列出期望系统的特征多项式，再列出$\mathbf{A_{cl}}$的特征多项式，系数对应，求解合适的K参数
+- 可以使用LQR控制器来配置极点达到不同的目标效果
 
 **能控性和能观性**
-- 能控性：是否可以从一个点控制到另一个点（不是路径控制）
-- 能观性：并不是所有的状态都可以被观测到，所以需要设计观测器来估计系统的状态
+
+- 能控性：是否可以从一个点控制到另一个点（不是路径控制），如果能控，就可以使用上边的方法任意配置极点。
+- 能观性：并不是所有的状态都可以被观测到，所以需要设计观测器来估计系统的状态，即能否利用输入输出量把状态计算出来，就不用使用传感器了。
 - 可以根据observer观测的结果来设计控制器进而控制系统
 
-[现代控制理论串讲 - DR_CAN](https://www.bilibili.com/video/BV1jW411J729/)
-
-[现代控制理论重点概念梳理 - 知乎](https://www.zhihu.com/column/c_1131936304564453376)
-
-[现代控制理论-重点知识汇总\_现代控制理论知识点总结-CSDN博客](https://blog.csdn.net/qq_31274209/article/details/105156993)
-
-[控制理论——一小时从劝退到入门 - 知乎](https://zhuanlan.zhihu.com/p/683044170)
-
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240922170358.png)
+这里需要掌握的知识点还有：能控性的判断（$Co$矩阵），能观性的判断（$Q$矩阵），能控能观标准型的构建，能控、能观子空间的分解、分离原理等。这些方法的核心目的都是对系统的能观能控性质进行估计，进而进行控制器的设计。抄下来公式、知道怎么使用就可以了。
 
 
-=== "反馈控制"
-    跑步机上跑步 | 利用系统的输出量以参考数量的偏差进行控制，使系统的输出量与参考量之间的偏差尽可能小
-=== "最优控制"
-    田径赛跑 | 所谓最优控制就是寻找一个允许控制，使得被控系统在满足各种约束的条件下，使给定的性能指标达到最优
+## 最常用公式
+| 采样函数 $y(kT)$ | Z变换 $Y(z)$ | 拉氏变换 $Y(s)$ |时域原函数|
+| ------------------- | -------------- | --------------- |---|
+| $\delta(kT)$     | 1              | 1               |$\delta(t)$|
+| $\delta[(k-n)T]$ | $z^{-n}$     | $e^{-nTs}$    |$\delta(t-nT)$|
+| 1                   | $\frac{z}{z-1}$ | $\frac{1}{s}$ |$u(t)$|
+| $kT$              | $\frac{Tz}{(z-1)^2}$ | $\frac{1}{s^2}$ |$t$|
+| $\frac{1}{2!}(kT)^2$ | $\frac{T^2z(z+1)}{2(z-1)^3}$ | $\frac{1}{s^3}$ |$\frac{1}{2}t^2$|
+| $e^{-akT}$       | $\frac{z}{z - e^{-aT}}$ | $\frac{1}{s + a}$ |$e^{-at}$|
+| $kTe^{-akT}$     | $\frac{Tze^{-aT}}{(z - e^{-aT})^2}$ | $\frac{1}{(s + a)^2}$ |$t e^{-at}$|
+| $1 - e^{-akT}$   | $\frac{z(1 - e^{-aT})}{(z - 1)(z - e^{-aT})}$ | $\frac{a}{s(s + a)}$ |$1-e^{-at}$|
+
+
+
 
 ## 离散系统描述
 
 零输入分量： $x(t) = 0,f(0^+) = f(0^-)$
 零状态分量： $f^{n}(0^-) = 0$
 
-### 数学模型
-
-#### 采样
+### 采样
 
 就像减肥过程称体重，比如说你每十分钟就测一次体重：这就会产生两个问题
 - 体重并不是一个快速响应的系统，需要时间体现变化，会采集到大量重复信息
 - 读取这个体重后开始参考制定计划，计划还没有制定出来，就需要进行下一次测量了
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241003142612.png)
 
-#### z变换
+!!! example "离散系统例子"
+    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241003142612.png)
+    控制体重的例子
+
+    如果测体重测得太频繁，那么根本来不及计划
+
+### z变换
+
 - 留数法
 - 超前滞后定理
 
@@ -117,10 +156,13 @@ $$
 
 - 差分方程求解
 
-!!! note "要注意微分方程的离散化 x(t)变成x(nT)才可以"
+!!! tip "要注意微分方程的离散化 x(t)变成x(nT)才可以"
 
 
-#### 脉冲传递函数
+
+
+
+### 脉冲传递函数
 
 
 脉冲传递函数：$G(z) = \frac{Y(z)}{U(z)}$ ，零初始条件下，系统的输出采样函数的z变换和输入采样函数的z变换的比值
@@ -138,29 +180,21 @@ $$
 
 **推导法**
 
-> 一个讲的很好的视频：[离散系统关于脉冲传递函数求法\_哔哩哔哩\_bilibili](https://www.bilibili.com/video/BV1fQ4y1k7p9/)
-
 闭环脉冲传递函数 $\Phi(z) = \frac{C(z)}{R(z)}$,如果前向通道第一个传递函数之前没有采样开关，就没有办法求解，只能求$C(z)$
 
 - $\mathcal{Z}[A(s)B(z)] = A(z)\cdot B(z)$
 - $\mathcal{Z}[A(s)B(s)] = AB(z) \ne A(z)B(z)$
 
-要注意 $G_1G_2(z) \ne G_1(z)G_2(z)$
 
 **Mason增益公式法**
 
+> 一个讲的很好的视频：[离散系统关于脉冲传递函数求法\_哔哩哔哩\_bilibili](https://www.bilibili.com/video/BV1fQ4y1k7p9/)
+> 相连的写一起，有开关的分开写
+
 回路只要有连在一起，就不能分开算z变换
 
-!!! note "离散系统例子"
-    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240926011136.png)
-    控制体重的例子
 
-    如果测体重测得太频繁，那么根本来不及计划
-
-
-### 控制器设计
-
-#### 模拟化设计
+### 模拟化设计
 
 
 
@@ -187,50 +221,61 @@ legend;
     ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241009150510.png)
 
 
-#### 数字化设计
+### 数字化设计
 
 !!! note "z域解析设计的方法主要有最少拍系统设计、无波纹最少拍系统设计、最小均方差系统设计等"
-
+    如下图的系统，我们只能设计D(z)部分，而$H(s)$与$G_c(s)$是给定的。
 
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241009150948.png)
 
 z域解析设计的方法关键是根据性能指标的需要选择合适的闭环脉冲传递函数$\Phi(z)$或闭环误差脉冲传递函数$\Phi_e(z)$。
 
-1. 根据控制系统的性能指标要求和其它约束条件，确定所需的闭环脉冲传递函数 $\Phi(z)$
-
-2. 求广义对象的脉冲传递函数 $G(z)$
-
 $$
 \begin{aligned}
-G(z) &= \frac{B(z)}{A(z)} = Z\left[H(s)G_c(s)\right] = Z\left[\frac{1 - e^{-Ts}}{S}G_c(s)\right]
+\Phi_e(z) &= \frac{Y(z)}{R(z)} = \frac{D(z)G(z)}{1 + D(z)G(z)}\\
+\Phi_e(z) &= \frac{E(z)}{R(z)} = \frac{1}{1 + D(z)G(z)} = 1 - \Phi_e(z)\\
+\Rightarrow D(z) &= \frac{\Phi(z)}{G(z)(1 - \Phi(z))} = \frac{\Phi(z)}{G(z)\Phi_e(z)}
 \end{aligned}
 $$
 
-3. 求取数字控制器的脉冲传递函数 $D(z)$
+
+#### 求无稳态误差最小拍系统
+
+1. 求解输入：$A(z^{-1})$为不含 $(1 - z^{-1})$ 的 $z^{-1}$ 多项式
 
 $$
-\begin{aligned}
-\Phi(z) &= \frac{D(z)G(z)}{1 + D(z)G(z)} \\
-\Rightarrow \quad D(z) &= \frac{1}{G(z)} \cdot \frac{\Phi(z)}{1 - \Phi(z)}
-\end{aligned}
-$$
+R(z) = \frac{A(z)}{(1 - z^{-1})^m} (m=1,2,\cdots)
+$$ 
 
-4. 根据 $D(z)$ 求取控制算法的递推计算公式
+2. 求解 $\Phi_e(z)$
+$\Phi_e(z) = (1 - z^{-1})^mF(z)$ ,取 $F(z) = 1$
 
-$$
-\begin{aligned}
-D(z) &= \frac{U(z)}{E(z)} = \frac{\sum_{i=0}^{m} b_i z^{-i}}{1 + \sum_{i=1}^{n} a_i z^{-i}}, \quad (n \geq m)
-\end{aligned}
-$$
+3. 按照公式求解 $D(z)$
 
-$$
-\begin{aligned}
-U(z) &= \sum_{i=0}^{m} b_i z^{-i} E(z) - \sum_{i=1}^{n} a_i z^{-i} U(z) \\
-\Rightarrow \quad u(k) &= \sum_{i=0}^{m} b_i e(k-i) - \sum_{i=1}^{n} a_i u(k-i)
-\end{aligned}
-$$
+| 典型输入 | 闭环脉冲传递函数 | 数字控制器D(z) | 最少拍 (T) |
+| -------- | ----------------- | -------------- | ---------- |
+| $1(t)$     | $\frac{1}{1 - z^{-1}}$ | $\frac{z^{-1}}{G(z)(1 - z^{-1})}$ | 1T         |
+| $t$        | $\frac{Tz^{-1}}{(1 - z^{-1})^2}$ | $\frac{z^{-1}(2 - z^{-1})}{G(z)(1 - z^{-1})^2}$ | 2T         |
+| $t^2$      | $\frac{T^2z^{-1}(1 + z^{-1})}{(1 - z^{-1})^3}$ | $\frac{3z^{-1} - 3z^{-2} + z^{-3}}{G(z)(1 - z^{-1})^3}$ | 3T         |
 
-### 状态空间法
+
+!!! example "例子"
+    === "例1"
+        ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241105111320.png)
+        ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241105111333.png)
+
+    === "例2"
+        ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241105111523.png)
+        ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241105111540.png)
+        ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241105111554.png)
+
+    === "例3"
+        ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241105111638.png)
+        ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241105111649.png)
+
+
+
+### 状态空间求解
 
 状态空间是一组将输入、输出、状态联系在一起的一阶微分方程。
 
@@ -256,12 +301,9 @@ A的特征值就是$G(s)$的极点
      - $\dot{X} = AX,X = PY,\dot{Y} = \Lambda Y$
 
 
-### 状态空间的解（定量）
 
 **递推法求解**
 
-
----
 **$\mathscr{z}$变换**
 
 $$
@@ -315,6 +357,8 @@ $$
     - Laplace
     - 矩阵A对角化
     - Cayley-hamilton
+    
+    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241105112949.png)
 
 
 ??? tip "推导"
@@ -408,10 +452,7 @@ $\exists \delta(t_0)>0: ||x(t_0)||<\delta(t_0) \Rightarrow \lim_{t\rightarrow\in
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240926012538.png)
 
 
-第一方法是求解微分方程的方法
-第二方法不需要求微分方程，就可以判断系统稳定
-
-大范围渐进稳定：
+**大范围渐进稳定：**
 
 必要条件：只有一个平衡状态；出发点$x_0$没有限制；对于线性系统，平衡状态渐近稳定则必然大范围渐进稳定
 
@@ -485,23 +526,12 @@ $$
 #### 克拉索夫斯基稳定性判据
 
 ## 系统设计
-### 状态矩阵（重中之重）
-
-
-$$
-\dot{x} = \mathbf{A_{cl}}x
-$$
-
-其中，$\mathbf{A}$ 的特征值$\lambda$
-
-1. $\lambda$的实部决定的了收敛性和收敛速度
-2. 如果极点是虚数，必定有共轭，且表示有振动
-
-!!! note "拿到一个系统之后，需要先判定这个系统是不是可控的"
 
 
 ### 能控性
 是否可以从一个点控制到另一个点（不是轨迹控制）
+
+#### 能控性判断
 
 
 $$
@@ -514,7 +544,9 @@ $$
 - $B$ 是输入矩阵。
 - $n$ 是系统的状态变量的维数。
 
-通过计算能控矩阵 $\mathbf{CO}$ 的秩，可以判断系统是否能控。如果 $rank(\mathbf{CO}) = n$，则系统是能控的(行满秩)；否则，系统不是能控的。
+通过计算能控矩阵 $\mathbf{CO}$ 的秩，可以判断系统是否能控。
+- 直接求解秩
+- 求行列式，不为0，则满秩
 
 ```matlab
 Co = ctrb(A,B) # return the controllability matrix
@@ -537,15 +569,26 @@ $$ T_c = Q_c L = \begin{bmatrix} b & Ab & A^2 b & \cdots & A^{n-1} b \end{bmatri
 
 #### 能控子空间分解
 
+能控矩阵$Rank(Co) = p < n$,在$Co$中找出p个线性无关的列向量，再配$n-p$个线性无关的列向量，构成变换矩阵$T_c$
 
-最后的$$是一个块上三角矩阵
-不能控子空间也会对能控子空间产生影响
-
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/%E6%9C%AA%E5%91%BD%E5%90%8D%E7%BB%98%E5%9B%BE.drawio.svg)
-
+> 不能控子空间也会对能控子空间产生影响
+> ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/%E6%9C%AA%E5%91%BD%E5%90%8D%E7%BB%98%E5%9B%BE.drawio.svg)
 
 
-### 极点配置
+
+### 状态反馈
+!!! note "拿到一个系统之后，需要先判定这个系统是不是可控的"
+
+$$
+\dot{x} = \mathbf{A_{cl}}x
+$$
+
+其中，$\mathbf{A}$ 的特征值$\lambda$
+
+1. $\lambda$的实部决定的了收敛性和收敛速度
+2. 如果极点是虚数，必定有共轭，且表示有振动
+
+
 
 - 状态反馈不会改变系统的零点；不改变不能控子系统的极点；可任意改变能控子系统的极点
 - 对于系统$(A,B)$,若存在矩阵K使得$(A+BK,B)$稳定，则称系统$(A,B)$是可镇定的；
@@ -567,38 +610,14 @@ $$
 A_{cl} = \mathbf{A+Bk}
 $$
 
-闭环特征矩阵
 
 展开 $A_{cl}$ 得到特征多项式，与期望极点的特征多项式进行比较，得到 $k$
 
-!!! note "一般步骤"
-    - 确定能控性：写出Co矩阵，秩判据
-    - 直接法：判断矩阵 $A_{cl}=(A+Bk)$的性质
-    - 间接法：化成能控标准型
-    - 一般需要解$n$个方程：简便做法：都转化到能控标准型的形式
+**一般步骤**
 
-
-
-
-
-
-#### lqr 控制器
-
-如何确定$\lambda$,什么样的$\lambda$是最优的？
-
-引入cost function：
-
-$$
-J = \int_0^{\infty} (x^TQx + u^TRu)dt
-$$
-
-在满足稳定性的情况下，找到cost function的最小值
-
-- Q 侧重于系统状态
-- R 更侧重于控制器输入
-
-
-
+- 确定能控性：写出Co矩阵，秩判据
+- 直接法：判断矩阵 $A_{cl}=(A+Bk)$的性质
+- 间接法：不解n个系数方程的方法——化成能控标准型
 
 
 ??? note "例子"
@@ -684,7 +703,25 @@ $$
         $$
 
 
-!!! note "理解u"
+
+#### lqr 控制器
+
+如何确定$\lambda$,什么样的$\lambda$是最优的？
+
+引入cost function：
+
+$$
+J = \int_0^{\infty} (x^TQx + u^TRu)dt
+$$
+
+在满足稳定性的情况下，找到cost function的最小值
+
+- Q 侧重于系统状态
+- R 更侧重于控制器输入
+
+
+
+??? tip "理解u"
     u是控制器的输入，随着系统输出x的变化而变化，所以可以看作是闭环的系统
     
     理论上，u可以随便选，但实际应用当中要考虑执行器的情况。比如自动驾驶场景，输入u是方向盘的角度，就是有界的。
@@ -695,9 +732,23 @@ $$
 [阿克曼公式-CSDN博客](https://blog.csdn.net/weixin_58399148/article/details/131345373)
 
 ### 能观性
-??? note ""
+
+??? note "卡尔曼与能观性"
+
     Kálmán published several seminal papers during the sixties, which rigorously established what is now known as the state-space representation of dynamical systems. He introduced the formal definition of a system, the notions of controllability and observability
     ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241003163103.png)
+
+    卡尔曼滤波器就是随机系统的状态观测器
+
+
+#### 能观性判断
+
+$$
+\mathbf{Q} = \begin{bmatrix} C \\ CA \\ CA^2 \\ \vdots \\ CA^{n-1} \end{bmatrix}
+$$
+
+- 直接求解秩
+- 求行列式，不为0，则满秩
 
 
 #### 能观标准型构造
@@ -716,16 +767,19 @@ T_o^{-1} &= L Q_o = \begin{bmatrix} \alpha_1 & \alpha_2 & \cdots & \alpha_{n-1} 
 \end{aligned}
 $$
 
-要注意的是能观标准形的转化是先求$T_o^{-1}$
+要注意的是能观标准形的转化是**先求$T_o^{-1}$**
 
-#### 全维观测器
 
+#### 能观子空间的分解
+
+从能观矩阵$Q$中找出$n-p$个线性无关的行向量，配$p$个线性无关的行向量，构成变换矩阵$T_o^{-1}$
+
+
+### 观测器
+#### 全维观测器（luenberger observer 龙贝格）
 
 通过系统的输入和输出来估计系统的状态
 
-luenberger observer 龙贝格
-
-卡尔曼滤波器就是随机系统的状态观测器
 
 $$
 \dot{e_x} = (A - LC)e_x
@@ -743,7 +797,14 @@ $$
 
 
 
+
+
+
+
+
+
 ??? tip "推导过程"
+
     $$
     \begin{aligned}
     1.\quad \dot{x} &= Ax + Bu \\
