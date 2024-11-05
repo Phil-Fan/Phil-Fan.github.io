@@ -259,6 +259,12 @@ picgo中的设置如下
 
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240813014140.png)
 
+#### 图床的迁移
+
+[利用 PicGo 快速迁移 Gitee 图床外链图片到服务器-腾讯云开发者社区-腾讯云](https://cloud.tencent.com/developer/article/1975652)
+
+
+
 
 ### 显示音乐符号
 

@@ -7,7 +7,7 @@
 <meta content="PhilFan" name="author"/>
 <link href="https://www.philfan.cn/Robotics/Robo/Robo-02-1-localization/" rel="canonical"/>
 <link href="../Robo-02-0-navigation/" rel="prev"/>
-<link href="../Robo-02-2-decide/" rel="next"/>
+<link href="../Robo-02-3-planning/" rel="next"/>
 <link href="../../../logo.ico" rel="icon"/>
 <meta content="mkdocs-1.6.0, mkdocs-material-9.5.31" name="generator"/>
 <title>定位 - PhilFan's Notebook</title>
@@ -581,7 +581,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../%E5%B5%8C%E5%85%A5%E5%BC%8F/k210/">
 <span class="md-ellipsis">
-    K210
+    k210 记录
   </span>
 </a>
 </li>
@@ -624,16 +624,37 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../Control/Control-03-%E7%BB%8F%E5%85%B8%E6%8E%A7%E5%88%B6%E6%96%B9%E6%B3%95/">
+<a class="md-nav__link" href="../../Control/Control-03-nonlinear/">
+<span class="md-ellipsis">
+    非线性系统
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Control/Control-04-optimal/">
+<span class="md-ellipsis">
+    最优控制
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Control/Control-10-%E7%BB%8F%E5%85%B8%E6%8E%A7%E5%88%B6%E6%96%B9%E6%B3%95/">
 <span class="md-ellipsis">
     经典控制方法
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../Control/Control-%E7%94%B5%E6%9C%BA/">
+<a class="md-nav__link" href="../../Control/Control-11-%E6%99%BA%E8%83%BD%E6%8E%A7%E5%88%B6%E6%96%B9%E6%B3%95/">
 <span class="md-ellipsis">
-    电机
+    智能控制技术
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Control/Control-12-%E7%94%B5%E6%B0%94%E6%8E%A7%E5%88%B6/">
+<span class="md-ellipsis">
+    电气控制技术
   </span>
 </a>
 </li>
@@ -669,9 +690,9 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../Robo-00-model/">
+<a class="md-nav__link" href="../Robo-00-model.ipynb">
 <span class="md-ellipsis">
-    机器人建模
+    Notebook page
   </span>
 </a>
 </li>
@@ -829,9 +850,9 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../Robo-02-2-decide/">
+<a class="md-nav__link" href="../Robo-02-2-decide.md">
 <span class="md-ellipsis">
-    决策
+    None
   </span>
 </a>
 </li>
@@ -1748,9 +1769,9 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../CS/CV/format/">
+<a class="md-nav__link" href="../../../CS/CV/format.md">
 <span class="md-ellipsis">
-    图片格式
+    None
   </span>
 </a>
 </li>
@@ -1772,9 +1793,9 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../CS/CV/CV-00-intro/">
+<a class="md-nav__link" href="../../../CS/CV/CV-00-intro.md">
 <span class="md-ellipsis">
-    CV
+    None
   </span>
 </a>
 </li>
@@ -1795,7 +1816,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../CS/CV/CV-03-Object-Recognition/">
 <span class="md-ellipsis">
-    CV 03 Object Recognition
+    物体识别
   </span>
 </a>
 </li>
@@ -2048,6 +2069,13 @@
 <a class="md-nav__link" href="../../../Tools/Mkdocs/">
 <span class="md-ellipsis">
     Mkdocs
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Tools/JekyII/">
+<span class="md-ellipsis">
+    Jekyll
   </span>
 </a>
 </li>
@@ -2648,7 +2676,7 @@
 <article class="md-content__inner md-typeset">
 <div><h1 id="_1">定位<a class="headerlink" href="#_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>2486<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>10<span class="heti-spacing"> </span></span>分钟</p>
+<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>2524<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>10<span class="heti-spacing"> </span></span>分钟</p>
 </div>
 <table>
 <thead>
@@ -2672,6 +2700,13 @@
 </tr>
 </tbody>
 </table>
+<div class="admonition note">
+<p class="admonition-title">本质上是状态估计问题</p>
+</div>
+<ul>
+<li>单一传感器的估计 视觉 激光 </li>
+<li>多传感器融合的估计 卡尔曼滤波等</li>
+</ul>
 <h2 id="slam-simultaneous-localization-and-mapping">SLAM | Simultaneous Localization and Mapping<a class="headerlink" href="#slam-simultaneous-localization-and-mapping" title="anchor link to this section for reference">¶</a></h2>
 <p>两大任务：定位<span class="heti-skip"><span class="heti-spacing"> </span>&amp;<span class="heti-spacing"> </span></span>建图</p>
 <p>机器人在 <strong>未知环境</strong> 中从一个 <strong>未知位置</strong> 开始移动 在移动过程中根据 <strong>位置估计 和 地图</strong> 进行<strong>自身定位</strong><span>.<span class="heti-spacing"> </span></span>同时在自身定位的基础上<strong>建造增量式地图</strong>实现机器人的自主定位和导航</p>
@@ -2945,7 +2980,7 @@ BA的本质是一个优化模型，其目的是最小化重投影误差</p>
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年9月25日 01:17:32</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年11月4日 23:20:57</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">
@@ -3012,13 +3047,13 @@ BA的本质是一个优化模型，其目的是最小化重投影误差</p>
               </div>
 </div>
 </a>
-<a aria-label="下一页: 决策" class="md-footer__link md-footer__link--next" href="../Robo-02-2-decide/">
+<a aria-label="下一页: 规划" class="md-footer__link md-footer__link--next" href="../Robo-02-3-planning/">
 <div class="md-footer__title">
 <span class="md-footer__direction">
                 下一页
               </span>
 <div class="md-ellipsis">
-                决策
+                规划
               </div>
 </div>
 <div class="md-footer__button md-icon">

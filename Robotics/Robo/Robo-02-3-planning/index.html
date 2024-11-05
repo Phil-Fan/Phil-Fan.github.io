@@ -6,7 +6,7 @@
 <meta content="PhilFan的笔记本" name="description"/>
 <meta content="PhilFan" name="author"/>
 <link href="https://www.philfan.cn/Robotics/Robo/Robo-02-3-planning/" rel="canonical"/>
-<link href="../Robo-02-2-decide/" rel="prev"/>
+<link href="../Robo-02-1-localization/" rel="prev"/>
 <link href="../Robo-Drone/" rel="next"/>
 <link href="../../../logo.ico" rel="icon"/>
 <meta content="mkdocs-1.6.0, mkdocs-material-9.5.31" name="generator"/>
@@ -581,7 +581,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../%E5%B5%8C%E5%85%A5%E5%BC%8F/k210/">
 <span class="md-ellipsis">
-    K210
+    k210 记录
   </span>
 </a>
 </li>
@@ -624,16 +624,37 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../Control/Control-03-%E7%BB%8F%E5%85%B8%E6%8E%A7%E5%88%B6%E6%96%B9%E6%B3%95/">
+<a class="md-nav__link" href="../../Control/Control-03-nonlinear/">
+<span class="md-ellipsis">
+    非线性系统
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Control/Control-04-optimal/">
+<span class="md-ellipsis">
+    最优控制
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Control/Control-10-%E7%BB%8F%E5%85%B8%E6%8E%A7%E5%88%B6%E6%96%B9%E6%B3%95/">
 <span class="md-ellipsis">
     经典控制方法
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../Control/Control-%E7%94%B5%E6%9C%BA/">
+<a class="md-nav__link" href="../../Control/Control-11-%E6%99%BA%E8%83%BD%E6%8E%A7%E5%88%B6%E6%96%B9%E6%B3%95/">
 <span class="md-ellipsis">
-    电机
+    智能控制技术
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Control/Control-12-%E7%94%B5%E6%B0%94%E6%8E%A7%E5%88%B6/">
+<span class="md-ellipsis">
+    电气控制技术
   </span>
 </a>
 </li>
@@ -669,9 +690,9 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../Robo-00-model/">
+<a class="md-nav__link" href="../Robo-00-model.ipynb">
 <span class="md-ellipsis">
-    机器人建模
+    Notebook page
   </span>
 </a>
 </li>
@@ -697,9 +718,9 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../Robo-02-2-decide/">
+<a class="md-nav__link" href="../Robo-02-2-decide.md">
 <span class="md-ellipsis">
-    决策
+    None
   </span>
 </a>
 </li>
@@ -730,6 +751,13 @@
 </a>
 <nav aria-label="基于搜索的路径规划" class="md-nav">
 <ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#graph-search">
+<span class="md-ellipsis">
+      graph search
+    </span>
+</a>
+</li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#dijkstras">
 <span class="md-ellipsis">
@@ -783,16 +811,30 @@
     </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#optimal-sampling-based-methods">
+<span class="md-ellipsis">
+      Optimal Sampling-based Methods
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#advanced-sampling-based-methods">
+<span class="md-ellipsis">
+      Advanced Sampling-based Methods
+    </span>
+</a>
+</li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#kinodynamic">
 <span class="md-ellipsis">
-      Kinodynamic
+      Kinodynamic 满足动力学
     </span>
 </a>
-<nav aria-label="Kinodynamic" class="md-nav">
+<nav aria-label="Kinodynamic 满足动力学" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_6">
@@ -802,9 +844,9 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#state-state-boundary-value-optimal-control-problem">
+<a class="md-nav__link" href="#state-state-boundary-value">
 <span class="md-ellipsis">
-      State-state Boundary Value Optimal Control Problem
+      State-state Boundary Value
     </span>
 </a>
 </li>
@@ -852,6 +894,24 @@
       轨迹优化
     </span>
 </a>
+<nav aria-label="轨迹优化" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#minimum-snap">
+<span class="md-ellipsis">
+      Minimum Snap轨迹优化
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_10">
+<span class="md-ellipsis">
+      硬约束与软约束轨迹优化
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -1762,9 +1822,9 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../CS/CV/format/">
+<a class="md-nav__link" href="../../../CS/CV/format.md">
 <span class="md-ellipsis">
-    图片格式
+    None
   </span>
 </a>
 </li>
@@ -1786,9 +1846,9 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../CS/CV/CV-00-intro/">
+<a class="md-nav__link" href="../../../CS/CV/CV-00-intro.md">
 <span class="md-ellipsis">
-    CV
+    None
   </span>
 </a>
 </li>
@@ -1809,7 +1869,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../CS/CV/CV-03-Object-Recognition/">
 <span class="md-ellipsis">
-    CV 03 Object Recognition
+    物体识别
   </span>
 </a>
 </li>
@@ -2062,6 +2122,13 @@
 <a class="md-nav__link" href="../../../Tools/Mkdocs/">
 <span class="md-ellipsis">
     Mkdocs
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Tools/JekyII/">
+<span class="md-ellipsis">
+    Jekyll
   </span>
 </a>
 </li>
@@ -2545,6 +2612,13 @@
 <nav aria-label="基于搜索的路径规划" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#graph-search">
+<span class="md-ellipsis">
+      graph search
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#dijkstras">
 <span class="md-ellipsis">
       Dijkstra’s
@@ -2597,16 +2671,30 @@
     </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#optimal-sampling-based-methods">
+<span class="md-ellipsis">
+      Optimal Sampling-based Methods
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#advanced-sampling-based-methods">
+<span class="md-ellipsis">
+      Advanced Sampling-based Methods
+    </span>
+</a>
+</li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#kinodynamic">
 <span class="md-ellipsis">
-      Kinodynamic
+      Kinodynamic 满足动力学
     </span>
 </a>
-<nav aria-label="Kinodynamic" class="md-nav">
+<nav aria-label="Kinodynamic 满足动力学" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_6">
@@ -2616,9 +2704,9 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#state-state-boundary-value-optimal-control-problem">
+<a class="md-nav__link" href="#state-state-boundary-value">
 <span class="md-ellipsis">
-      State-state Boundary Value Optimal Control Problem
+      State-state Boundary Value
     </span>
 </a>
 </li>
@@ -2666,6 +2754,24 @@
       轨迹优化
     </span>
 </a>
+<nav aria-label="轨迹优化" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#minimum-snap">
+<span class="md-ellipsis">
+      Minimum Snap轨迹优化
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_10">
+<span class="md-ellipsis">
+      硬约束与软约束轨迹优化
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -2676,12 +2782,31 @@
 <article class="md-content__inner md-typeset">
 <div><h1 id="_1">规划<a class="headerlink" href="#_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>1248<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>5<span class="heti-spacing"> </span></span>分钟</p>
+<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>1397<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>5<span class="heti-spacing"> </span></span>分钟</p>
 </div>
 <p>轨迹规划：考虑速度
 运动规划：
 路径规划(我如何去)</p>
+<p>基本要求：</p>
+<ul>
+<li>安全：避免碰撞</li>
+<li>光滑性：节能、平稳</li>
+<li>动力学可行性：可执行、可控</li>
+</ul>
+<p>前端<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>路径搜索</p>
+<ul>
+<li>低维</li>
+<li>离散空间</li>
+<li>搜索初始安全路径</li>
+</ul>
+<p>后端<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>轨迹优化</p>
+<ul>
+<li>高维</li>
+<li>连续空间</li>
+<li>生成可执行轨迹</li>
+</ul>
 <h2 id="_2">基于搜索的路径规划<a class="headerlink" href="#_2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h3 id="graph-search">graph search<a class="headerlink" href="#graph-search" title="anchor link to this section for reference">¶</a></h3>
 <h3 id="dijkstras">Dijkstra’s<a class="headerlink" href="#dijkstras" title="anchor link to this section for reference">¶</a></h3>
 <p>加了权重的广度优先算法</p>
 <div class="admonition note">
@@ -2747,7 +2872,9 @@ RRT没有遗忘机制，对已知路径没有更新，对错误连接没有修�
 <p>在之后的迭代中，没找到一次更短的路径，就用这条更短路径的长度作为新的<span><span class="heti-spacing"> </span><span class="arithmatex">\(c_{best}\)</span></span>，更新采样椭圆。</p>
 <p>然后<strong>在椭圆采样区域中进行采样</strong>。</p>
 <p><a href="https://zhuanlan.zhihu.com/p/372315811">路径规划<span class="heti-skip"><span class="heti-spacing"> </span>|<span class="heti-spacing"> </span></span>随机采样算法：<span>Informed-RRT* -<span class="heti-spacing"> </span></span>知乎</a></p>
-<h2 id="kinodynamic">Kinodynamic<a class="headerlink" href="#kinodynamic" title="anchor link to this section for reference">¶</a></h2>
+<h3 id="optimal-sampling-based-methods">Optimal Sampling-based Methods<a class="headerlink" href="#optimal-sampling-based-methods" title="anchor link to this section for reference">¶</a></h3>
+<h3 id="advanced-sampling-based-methods">Advanced Sampling-based Methods<a class="headerlink" href="#advanced-sampling-based-methods" title="anchor link to this section for reference">¶</a></h3>
+<h2 id="kinodynamic"><span>Kinodynamic<span class="heti-spacing"> </span></span>满足动力学<a class="headerlink" href="#kinodynamic" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p>运动动力学</p>
 <ul>
 <li><strong>控制空间采样</strong>：选择一个输入<span><span class="heti-spacing"> </span><span class="arithmatex">\(u\)</span></span>，固定一个持续时间<span><span class="heti-spacing"> </span><span class="arithmatex">\(T\)</span></span>，前向模拟系统（数值积分<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>；一般都是幂<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>矩阵
@@ -2761,10 +2888,11 @@ RRT没有遗忘机制，对已知路径没有更新，对错误连接没有修�
 <li>Dubins car model</li>
 <li>Reeds-Shepp car model</li>
 </ul>
-<h3 id="state-state-boundary-value-optimal-control-problem">State-state Boundary Value Optimal Control Problem<a class="headerlink" href="#state-state-boundary-value-optimal-control-problem" title="anchor link to this section for reference">¶</a></h3>
+<h3 id="state-state-boundary-value">State-state Boundary  Value<a class="headerlink" href="#state-state-boundary-value" title="anchor link to this section for reference">¶</a></h3>
 <h3 id="state-lattice-search">State Lattice Search<a class="headerlink" href="#state-lattice-search" title="anchor link to this section for reference">¶</a></h3>
 <p><span>lattice:<span class="heti-spacing"> </span></span>广义的栅格</p>
 <p>构成状态和状态之间的搜索图</p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241102204243.png"/></p>
 <p>9-discretization &amp; 25-discretization </p>
 <p>a_x = [-a_m,0,a_m]
 a_y = [-a_m,0,a_m]
@@ -2787,19 +2915,45 @@ a_y = [-a_m,0,a_m]
 </ul>
 <p><a href="https://blog.csdn.net/weixin_44673253/article/details/125114116"><span>Boundary Value Problem (BVP)<span class="heti-spacing"> </span></span>两点边界最优控制问题<span class="heti-skip"><span class="heti-spacing"> </span>-CSDN<span class="heti-spacing"> </span></span>博客</a></p>
 <h3 id="kinodynamic-rrt">Kinodynamic RRT*<a class="headerlink" href="#kinodynamic-rrt" title="anchor link to this section for reference">¶</a></h3>
+<ol>
+<li>Follow RRT* algorithm</li>
+<li>Sample a random state</li>
+<li>solve two state boundary optimal control problem</li>
+</ol>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241102204411.png"/></p>
 <h3 id="hybrid-a">Hybrid A*<a class="headerlink" href="#hybrid-a" title="anchor link to this section for reference">¶</a></h3>
 <p>运用<span class="heti-skip"><span class="heti-spacing"> </span>A*<span class="heti-spacing"> </span></span>对<span class="heti-skip"><span class="heti-spacing"> </span>lattice graph<span class="heti-spacing"> </span></span>进行剪枝</p>
 <p>传统的<span class="heti-skip"><span class="heti-spacing"> </span>A *<span class="heti-spacing"> </span></span>算法是在栅格地图中进行搜索，可行路径中的点，都是栅格地图的中心点，如下面的第一幅图所示，<span>lattice planner<span class="heti-spacing"> </span></span>算法是先构建一个用于搜索的<span class="heti-skip"><span class="heti-spacing"> </span>lattice<span class="heti-spacing"> </span></span>图，如下面的第二幅图所示，<span>Hybrid A*<span class="heti-spacing"> </span></span>算法结合了<span class="heti-skip"><span class="heti-spacing"> </span>A *<span class="heti-spacing"> </span></span>算法和<span class="heti-skip"><span class="heti-spacing"> </span>lattice planner<span class="heti-spacing"> </span></span>算法的思想，将栅格地图的路径搜索与<span class="heti-skip"><span class="heti-spacing"> </span>lattice<span class="heti-spacing"> </span></span>图结合起来，在搜索过程中选取不同的控制量预演一段轨迹，且保持在每个栅格中仅保留一个可行的状态，如下面的第三幅图所示
 <img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241023190050.png"/></p>
+<ol>
+<li>
+<p>Follow A* algorithm</p>
+</li>
+<li>
+<p>Forward simulate states with different discrete control inputs</p>
+</li>
+<li>
+<p>Keep only 1 state in each grid</p>
+</li>
+</ol>
 <p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241023183547.png"/>
 <a href="https://blog.csdn.net/qq_44339029/article/details/132466521">动力学约束下的运动规划算法——Hybrid A*算法（附程序实现及详细解释）_pythonrobotics hybrida*-CSDN博客</a></p>
-<h2 id="_9">轨迹优化<a class="headerlink" href="#_9" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2></div>
+<h2 id="_9">轨迹优化<a class="headerlink" href="#_9" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h3 id="minimum-snap"><span>Minimum Snap<span class="heti-spacing"> </span></span>轨迹优化<a class="headerlink" href="#minimum-snap" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h4 id="differential-flatness">Differential Flatness<a class="headerlink" href="#differential-flatness" title="anchor link to this section for reference">¶</a></h4>
+<h4 id="minimum-snap-optimization">Minimum Snap Optimization<a class="headerlink" href="#minimum-snap-optimization" title="anchor link to this section for reference">¶</a></h4>
+<h4 id="closed-form-solution-to-minimum-snap">Closed-form Solution to Minimum Snap<a class="headerlink" href="#closed-form-solution-to-minimum-snap" title="anchor link to this section for reference">¶</a></h4>
+<h4 id="time-allocation">Time Allocation<a class="headerlink" href="#time-allocation" title="anchor link to this section for reference">¶</a></h4>
+<h4 id="implementation-in-practice">Implementation in Practice<a class="headerlink" href="#implementation-in-practice" title="anchor link to this section for reference">¶</a></h4>
+<h3 id="_10">硬约束与软约束轨迹优化<a class="headerlink" href="#_10" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h4 id="soft-constrained-trajectory-optimization">Soft Constrained Trajectory Optimization<a class="headerlink" href="#soft-constrained-trajectory-optimization" title="anchor link to this section for reference">¶</a></h4>
+<h4 id="hard-constrained-trajectory-optimization">Hard Constrained Trajectory Optimization<a class="headerlink" href="#hard-constrained-trajectory-optimization" title="anchor link to this section for reference">¶</a></h4></div>
 <aside class="md-source-file">
 <span class="md-source-file__fact">
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年10月31日 13:35:36</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年11月4日 23:20:57</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">
@@ -2853,7 +3007,7 @@ a_y = [-a_m,0,a_m]
 </main>
 <footer class="md-footer">
 <nav aria-label="页脚" class="md-footer__inner md-grid">
-<a aria-label="上一页: 决策" class="md-footer__link md-footer__link--prev" href="../Robo-02-2-decide/">
+<a aria-label="上一页: 定位" class="md-footer__link md-footer__link--prev" href="../Robo-02-1-localization/">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
 </div>
@@ -2862,7 +3016,7 @@ a_y = [-a_m,0,a_m]
                 上一页
               </span>
 <div class="md-ellipsis">
-                决策
+                定位
               </div>
 </div>
 </a>

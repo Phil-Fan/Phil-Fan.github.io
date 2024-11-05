@@ -23,6 +23,7 @@ sd卡格式化[SD Memory Card Formatter for Windows Download | SD Association](h
 
 
 烧录的镜像应该是像这样的压缩包一样的，不要烧录iso，
+
 ```shell
 ubuntu-mate-20.04-beta1-desktop-arm64+raspi.img.xz
 ```
@@ -31,6 +32,15 @@ ubuntu-mate-20.04-beta1-desktop-arm64+raspi.img.xz
 [Ubuntu MATE Releases - /20.04/](https://releases.ubuntu-mate.org/20.04/)
 
 ## 硬件
+
+### 风扇
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241031231019.png)
+
+### 显示屏
+
+如果显示屏黑屏的话，考虑电压是不是太低了，电压过低会驱动不了显示屏
+
 
 ### 摄像头
 [树莓派4B摄像头的详细使用教程（拍照+录像+监控）\_树莓派拍照-CSDN博客](https://blog.csdn.net/weixin_45994747/article/details/109605765)
@@ -212,7 +222,7 @@ cv2.destroyAllWindows()
 [用树莓派实现实时的人脸检测 | 树莓派实验室](https://shumeipai.nxez.com/2018/03/09/real-time-face-recognition-an-end-to-end-project-with-raspberry-pi.html)
 
 
-## 
+## 操作
 ### 共享文件夹
 ```shell
 apt-get install -y cifs-utils

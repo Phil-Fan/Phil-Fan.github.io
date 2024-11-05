@@ -1,3 +1,6 @@
+---
+comments: true
+---
 # 链路层与局域网 | `Link Layer`
 
 ![链路层与局域网](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/%E9%93%BE%E8%B7%AF%E5%B1%82%E4%B8%8E%E5%B1%80%E5%9F%9F%E7%BD%91.svg)

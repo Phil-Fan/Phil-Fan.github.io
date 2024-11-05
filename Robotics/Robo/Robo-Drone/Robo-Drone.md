@@ -1,22 +1,43 @@
 # 空中机器人
-!!! note "要求"
-    - 试验课程报告 40%
-    - 期末考试 30%
-    - MOOC 20%
-    - 平时点到 10%
+!!! note "课程简介"
+	=== "课程要求"
+        - 试验课程报告 40%
+        - 期末考试 30%
+        - MOOC 20%
+        - 平时点到 10%
+	=== "回忆卷"
+        [控院《空中机器人》2022-2023春 期末回忆卷 - CC98论坛](https://www.cc98.org/topic/5587505)<br>
+        [空中机器人 2023-2024春 回忆卷 - CC98论坛](https://www.cc98.org/topic/5870695)<br>
+        [空中机器人期末考试 - CC98论坛](http://www-cc98-org/topic/4961864)
+
+	=== "课程资料"
+		[空中机器人_高飞_智云课堂 (zju.edu.cn)](https://classroom.zju.edu.cn/coursedetail?course_id=59917&tenant_code=112)
+
+
+
+
+
+
+
+
 
 ## 概论
+
 期望有自制和自主能力，遥控飞机也算的
+
 ### Lab
-MIT
-
-ETH
-
-ZJU
-
-HKUST
+MIT、ETH、ZJU、HKUST
 
 ### 分类
+
+!!! note "关于“飞翔”"
+	代达罗斯和伊卡洛斯
+	![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241102205126.png)
+
+
+
+
+
 #### 固定翼
 
 #### 旋翼
@@ -71,6 +92,11 @@ HKUST
 
 马赫数小于 1 者为亚音速，马赫数大于 5 左右为超高音速
 
+
+马赫锥
+超音速飞行时，激波后的空气压力和温度急剧下降,导致水汽冷凝，形成雾化现象
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241102205256.png)
+
 #### 激波
 飞机飞行--> 对空气产生扰动，扰动以扰动波的形式 以音速传播 积聚
 
@@ -82,34 +108,32 @@ HKUST
 #### 气动布局
 飞机外部总体形态布局与位置安排称作气动布局
 
-**常规布局**
-
-特点是有主机翼和水平尾翼，大的主机翼在前，小机翼也就是水平尾翼在后，有一个或者两个垂直尾翼
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240911135816.png)
-
-
-**变后掠翼布**
-
-主翼的后掠角度可以改变，高速飞行可以加大后掠角，相当于飞鸟收起翅膀，低速飞行时减小后掠角，展开翅膀。
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240911135845.png)
-
-**无尾布局**
-
-**鸭式布局**
-
-
-
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240918145831.png)
+=== "常规布局"
+    特点是有主机翼和水平尾翼，大的主机翼在前，小机翼也就是水平尾翼在后，有一个或者两个垂直尾翼
+    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240911135816.png)
+=== "变后掠翼布局”
+    主翼的后掠角度可以改变，高速飞行可以加大后掠角，相当于飞鸟收起翅膀，低速飞行时减小后掠角，展开翅膀。
+    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240911135845.png)
+=== "无尾布局"
+    没有水平尾翼，无尾布局大大减少了空气阻力，无尾布局的缺点是低速性能不好，这影响到飞机的低速机动性能和起降能力。另外无尾布局因为只能依靠主翼控制飞行，所以稳定性也不理想。
+    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241102205328.png)
+=== "鸭式布局"
+    这种气动布局其实就是无尾布局加个鸭翼。有了这个鸭翼，无尾布局的缺点得到明显改善，高速飞行时更加稳定，起降距离明显缩短，甚至机动性能比常规布局更加出色。
+    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241102205428.png)
+=== "飞翼布局"
+    只有飞机翅膀的布局，看上去只有机翼，没有机身，机身和机翼融为一体。
+    无疑这种布局是空气动力效率最高的布局，因为所有机身结构都是机翼，都是用
+    于产生升力，而且最大程度低降低了阻力。空气阻力最小所以雷达波反射自然也
+    是最小，所以飞翼布局是隐身性能最好的气动布局。飞翼布局的最大缺陷是操控
+    性能极差，完全依赖电子传感控制机翼和发动机的矢量推力。
+    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241102205518.png)
 
 ## 动态模型
 
-[四旋翼飞行器建模（一）— 动力学及运动学方程 - 知乎](https://zhuanlan.zhihu.com/p/349306054)
-[Robotics:Aerial Robotics (空中机器人) (二) - 知乎](https://zhuanlan.zhihu.com/p/482780836)
-[刚体动力学-牛顿欧拉方程（刚体旋转）\_刚体动力学方程-CSDN博客](https://blog.csdn.net/subtitle_/article/details/133827121)
-[【UAV】从单个螺旋桨到四旋翼无人机运动学分析\_无人机螺旋桨 升力-CSDN博客](https://blog.csdn.net/weixin_36815313/article/details/121767869)
+
 ### 坐标系
 === "惯性参考系"
-    $O_g$为地面任意点，$O_g x_g$为水平面任意方向，$O_g z_g$垂直地面指向地心，xyz轴右手坐标系
+    $O_g$为地面任意点，$O_g x_g$ 为水平面任意方向，$O_g z_g$垂直地面指向地心，xyz轴右手坐标系
 === "地面坐标系"
     常用于指示飞机的方位近距离导航和航迹控制
 === "地球中心坐标系ECEF"
@@ -124,6 +148,7 @@ HKUST
     NED 坐标系是在导航计算时使用的坐标系，向量分别指向北，东，地，因此 NED 坐标系也经常称为**北东地坐标系**![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240918134709.png)
 === "机体坐标系"
     原点在飞行器重心处 $X$ 轴指向飞行器机头前进方向,$Y$ 轴由原点指向飞行器右侧,$Z$ 轴方向根据 $X$,$Y$轴由右手法则确定。
+	![image-20241102205822857](assets/image-20241102205822857.png)
 
 !!! note "为什么有了GPS输出的海拔高度，我们还是要用气压计等其它设备来辅助定高呢?"
     GPS地貌不精确；
@@ -160,8 +185,8 @@ HKUST
 
 
 
+## ⚙️控制
 
-## ⚙️控制基础
 === "遥控飞行（ Remote Control Flying）"
     航向、速度、高度等参数由地面操作人员通过通信数据链路遥控控制
 === "程控飞行（ Autopilot Flying）"
@@ -173,7 +198,7 @@ HKUST
     **桨叶直径** ：桨叶直径增大，一方面增加了桨叶面积，另一方面增大了桨尖的切向速度，增加了桨叶的空气动力。直升机一般旋翼少，桨叶直径就会很大，会远超飞机机体的覆盖范围。多旋翼旋翼数量4个起步（3个的也有），桨叶直径就可以做的比较小；
 
     **桨叶迎角** ：桨叶迎角增加，增加桨叶的迎风面积，从而增加桨叶的空气动力；
-
+    
     **桨速** ：桨速自然是越大，越能提供更强的升力；
 
 ■ 垂直升降
@@ -201,8 +226,6 @@ HKUST
 ### 平面四旋翼模型
 
 
-
-
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240925150048.png)
 
 $u_1$ 表示推力,$u_2$ 表示力矩。
@@ -211,13 +234,11 @@ $u_1$ 表示推力,$u_2$ 表示力矩。
 - Z：$ \sum F_z = -mg + u_1 \cos(\phi) = m\ddot{z} $
 - 力矩：$ M = u_2 = I_{xx}\ddot{\phi} $
 
-
 **线性化**
 
 - 平衡悬停态： $(\phi_0 \sim 0, \theta_0 \sim 0, u_{1,0} \sim mg)$
 
 **牛顿方程**：
-
 $$
 m\ddot{p} = \begin{bmatrix} 0 \\ 0 \\ -mg \end{bmatrix} + R \begin{bmatrix} 0 \\ 0 \\ F_1 + F_2 + F_3 + F_4 \end{bmatrix} 
 $$
@@ -238,9 +259,7 @@ $$
     角度近似: 
     $\sin \theta \approx \theta,\cos \theta \approx 1,when \quad \theta \rightarrow 0$
 
-
 **欧拉角微分：**
-
 $$
 \begin{bmatrix} \omega_x \\ \omega_y \\ \omega_z \end{bmatrix} = \begin{bmatrix} c\theta & 0 & -c\phi s\theta \\ 0 & 1 & s\phi \\ s\theta & 0 & c\phi s\theta \end{bmatrix} \begin{bmatrix} \dot{\phi} \\ \dot{\theta} \\ \dot{\psi} \end{bmatrix}
 $$
@@ -281,40 +300,20 @@ $$
 
 
 
-## 🗺️导航及仓储
-将运载体从起始点引导到目的地的技术或方法称为 导航
-### 定位——我在哪里
-!!! note "本质上是状态估计问题"
-
-- 单一传感器的估计 视觉 激光 
-- 多传感器融合的估计 卡尔曼滤波等
-
-### 航行决策——我要去哪里
-决定运载体运动的方向、速度
-### 路径规划——我如何去
-确定运载体从当前位置到达目的地的可行路径或最优路径
-
+### MPC控制
 
 !!! note "SLAM : Simultaneous Localization and Mapping"
+
   - Localization: 定位
   - Mapping: 建图
 
-## 运动规划
-搜索式规划
-采样式规划
-
-## 感知技术
 
 
-## 集群技术
 
-[控院《空中机器人》2022-2023春 期末回忆卷 - CC98论坛](https://www.cc98.org/topic/5587505)
 
-[空中机器人 2023-2024春 回忆卷 - CC98论坛](https://www.cc98.org/topic/5870695)
 
-[空中机器人期末考试 - CC98论坛](http://www-cc98-org/topic/4961864)
 
-课程资料
-
-[空中机器人_高飞_智云课堂 (zju.edu.cn)](https://classroom.zju.edu.cn/coursedetail?course_id=59917&tenant_code=112)
-
+[四旋翼飞行器建模（一）— 动力学及运动学方程 - 知乎](https://zhuanlan.zhihu.com/p/349306054)
+[Robotics:Aerial Robotics (空中机器人) (二) - 知乎](https://zhuanlan.zhihu.com/p/482780836)
+[刚体动力学-牛顿欧拉方程（刚体旋转）\_刚体动力学方程-CSDN博客](https://blog.csdn.net/subtitle_/article/details/133827121)
+[【UAV】从单个螺旋桨到四旋翼无人机运动学分析\_无人机螺旋桨 升力-CSDN博客](https://blog.csdn.net/weixin_36815313/article/details/121767869)

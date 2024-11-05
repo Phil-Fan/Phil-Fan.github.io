@@ -168,7 +168,12 @@ overfitting 过拟合
 - 优化目标，加入正则化项，使得模型更简单
 - early stopping
 
+Ridge Regression: 
 
+$$
+\min_{\omega} \sum_{i=1}^n (y_i - \omega^T x_i)^2 + \lambda \|\omega\|^2
+$$
+简介：岭回归
 
 
 

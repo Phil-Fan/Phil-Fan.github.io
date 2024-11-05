@@ -1,3 +1,6 @@
+---
+comments: true
+---
 # 应用层 | Application Layer
 
 > Perhaps what appeals the most to users is that the Web operates on demand. Users receive what they want, when they want it.
