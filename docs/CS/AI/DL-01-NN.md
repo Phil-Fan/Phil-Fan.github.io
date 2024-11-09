@@ -15,6 +15,8 @@
 
 ## activation function
 
+!!! note "神经网络有了激活函数，才能进行非线性变换"
+
 ### sigmoid
 s形函数
 

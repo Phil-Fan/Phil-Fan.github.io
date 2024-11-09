@@ -368,6 +368,9 @@ nav:
       - CS/AI/DL-09-modernRNN.md
       - CS/AI/DL-11-optimation.md        
       - CS/AI/DL-12-setting.md
+
+    - "RL | 强化学习":
+      - CS/AI/RL-01.md
       
 
     - "ML | 机器学习":

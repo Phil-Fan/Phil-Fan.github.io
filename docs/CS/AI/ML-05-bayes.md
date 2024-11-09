@@ -11,8 +11,6 @@
 
 
 
-## 问题与定义
-
 $x$ sample
 
 $y$ state of the nature
@@ -253,6 +251,11 @@ $|B|$是网络的大小，$LL(B|D)$是网络的似然度，$f(\theta)$是一个�
 - 变分推断
         - 相互独立 ，同种机制生成
         - 盘式jis
+
+
+
+
+
 ## EM算法
 极大似然估计：
 
@@ -277,3 +280,14 @@ $$
 EM算法，全称Expectation Maximization Algorithm，译作最大期望化算法或期望最大算法，它是一种迭代算法，用于含有隐变量（hidden variable）的概率参数模型的最大似然估计或极大后验概率估计。
 
 ### 收敛性分析
+
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=70839977&bvid=BV1aE411o7qd&cid=124421145&p=60&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="500" height="300"></iframe>
+
+### EM推导
+
+### 广义EM
+
+### 扩展
+
+[用EM算法求解多项分布混合主题模型 - 知乎](https://zhuanlan.zhihu.com/p/133468343)
+

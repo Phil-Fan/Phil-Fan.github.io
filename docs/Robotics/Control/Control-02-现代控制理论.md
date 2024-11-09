@@ -104,6 +104,7 @@ comments: true
 
 
     === "历年卷"
+        - [2024-2025 秋 回忆卷 现控](https://www.cc98.org/topic/6025323/1#1)
         - [2023-2024 秋冬 回忆卷](https://www.cc98.org/topic/5748670)
         - [2023-2024 秋 回忆卷](https://www.cc98.org/topic/5748295)
         - [2022-2023 秋 回忆卷](https://www.cc98.org/topic/5454547)
