@@ -2,7 +2,9 @@
 
 CS188
 
-
+!!! note "笔记来源"
+    人工智能与机器学习课程
+    [Y_lz的笔记本](https://skillful-vest-b8d.notion.site/AI-edb0292f25db4b428b34042aff7bef0c#ce0fffc50e57478d802af27eb41d1ff1)
 
 
 
@@ -16,7 +18,14 @@ https://mo.zju.edu.cn/
 
 
 
-## 历史
+
+
+
+## 基础
+
+
+## 发展史
+
 
 人工智能的起源
 
@@ -27,10 +36,8 @@ https://mo.zju.edu.cn/
 新一代人工智能
 
 
-
-## 人工智能架构与系统
-
+## 研究与应用
 
 
-## 应用
+
 

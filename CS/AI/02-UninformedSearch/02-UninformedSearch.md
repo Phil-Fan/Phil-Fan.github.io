@@ -11,6 +11,15 @@
 *注：DFS不完备是因为可能陷入无穷循环，不满足最优性是因为默认*
 
 
+## 搜索基本概念
+
+
+[图搜索与数搜索](https://qiqi789.netlify.app/lecture/ai/slides/lecture3_part2.pdf)
+
+
+OPEN表：存放待扩展的节点
+CLOSE表：存放已扩展的节点
+
 
 ## BFS
 Breadth-first Search （宽度优先搜索）
@@ -52,7 +61,38 @@ Breadth-first Search Algoruthm on a Graph （图的宽度优先搜索算法）
 
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/a88bbfac61dbfa8e000f6bd9c5a0040d.gif)
 
+```c++ title="DFS递归模板——使用系统栈"
+boolean DFS(Node cur, Node target, Set<Node> visited) {
+    return true if cur is target;
+    for (next : each neighbor of cur) {
+        if (next is not in visited) {
+            add next to visted;
+            return true if DFS(next, target, visited) == true;
+        }
+    }
+    return false;
+}
+```
 
+```c title="DFS 栈模板"
+boolean DFS(int root, int target) {
+    Set<Node> visited;
+    Stack<Node> s;
+    add root to s;
+    while (s is not empty) {
+        Node cur = the top element in s;
+        return true if cur is target;
+        for (Node next : the neighbors of cur) {
+            if (next is not in visited) {
+                add next to s;
+                add next to visited;
+            }
+        }
+        remove cur from s;
+    }
+    return false;
+}
+```
 
 
 ### 剪枝
