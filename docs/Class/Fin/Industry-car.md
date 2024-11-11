@@ -31,3 +31,36 @@
 
 
 ### 理想
+
+
+## 小米
+
+[盘点小米投资版图：AloT与造车双核驱动 ，核心布局逻辑何在-36氪](https://www.36kr.com/p/1639867380872199)
+
+[激情三十年：“创业者”雷军与他的三次蜕变\_澎湃号·湃客\_澎湃新闻-The Paper](https://www.thepaper.cn/newsDetail_forward_11979638)
+
+[流水的高管，铁打的雷军：谁陪他走完小米下个十年？-36氪](https://www.36kr.com/p/665719215704583)
+
+[小米解读（深度）：小米的商业逻辑是什么？小米如何构建起自己的竞争力？](https://mp.weixin.qq.com/s/xD13Rz3qJ5Mm3sgeU0kHmQ)
+
+[一文带你了解小米汽车投资布局 已构成汽车产业宏大投资版图\_腾讯新闻](https://news.qq.com/rain/a/20240402A07PIW00)
+
+[【盘点】小米家族的投资版图：一年投了134个项目 收获11家上市公司 导读 刚刚过去的2018年，对于创业者雷军来说，是里程碑式的一年；对于投资人雷军来说，是硕果累累的一年。据投资界完全统计... - 雪球](https://xueqiu.com/4700839113/120699116)
+
+[小米集团商业模式分析：从流量平台到IoT生态系统](https://mp.weixin.qq.com/s/ZVYVUsV6qfNXeoxNlDxyvA)
+
+[市值蒸发3000亿后，从生态链底层逻辑看小米-虎嗅网](https://www.huxiu.com/article/500322.html)
+
+[最擅长营销的小米，困于营销\_腾讯新闻](https://news.qq.com/rain/a/20240322A08T7F00)
+
+[雷军早期创业采访视频完整版：画质越糊，质量越高，时长59分53秒\_哔哩哔哩\_bilibili](https://www.bilibili.com/video/BV1bYDaYMEva/?spm_id_from=333.337.search-card.all.click&vd_source=8b7a5460b512357b2cf80ce1cefc69f5)
+
+[如果你感觉到焦虑，觉得很迷茫，请看看雷军2023年度的演讲：成长。\_哔哩哔哩\_bilibili](https://www.bilibili.com/video/BV1Cg4y167YG/?spm_id_from=333.337.search-card.all.click&vd_source=8b7a5460b512357b2cf80ce1cefc69f5)
+
+[【雷军】 关于造车，雷军近年唯一深度专访，206分钟完整无删节版\_哔哩哔哩\_bilibili](https://www.bilibili.com/video/BV1LT421r7vn/?spm_id_from=333.337.search-card.all.click&vd_source=8b7a5460b512357b2cf80ce1cefc69f5)
+
+[小米科技有限责任公司 ](https://www.mi.com/about/index.html)
+
+[6分46秒874！纽北最速四门车！小米SU7 Ultra原型车纽北圈速出炉\_懂车帝](https://www.dongchedi.com/article/7431034868853555724)
+
+https://boardmix.cn/app/editor/aouyPuPWM-DfeXEK3uWFaw

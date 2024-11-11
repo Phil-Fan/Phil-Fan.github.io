@@ -497,6 +497,9 @@ nav:
     - Tools/Photography-Landscape.md
     - Tools/Photography-Portrait.md
 
+  - "游戏":
+    - else/
+
   - "常识":
     - else/common_knowledge/社会机构.md
     - else/common_knowledge/social_insurance.md

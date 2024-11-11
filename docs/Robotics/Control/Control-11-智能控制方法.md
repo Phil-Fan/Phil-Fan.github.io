@@ -8,16 +8,16 @@ comments: true
 
 
 !!! note "课程介绍"
-    === ""
-        **机制**
+
+    === "简介"
 
         - 一般不依据数学模型 进行处理。
         - 根据积累的经验和知识进行在线推理，确定控制策略。
         - 在 **精度和不确定性** 之间 折中
 
-    === ""
-        ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241107134330.png)
+    === "知识框架"
 
+        ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241107134330.png)
         ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241107135609.png)
 
 |               | 第一阶段         | 第二阶段         | 第三阶段         |
@@ -43,7 +43,7 @@ comments: true
 
 ## 递阶控制 | Hierarchical Control
 ### 原理与结构
-![![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241107135216.png)](image.png)
+
 
 **第一级： 组织级**
 
