@@ -239,6 +239,8 @@ nav:
   
 - Robotics:
   - "嵌入式":
+    - Robotics/嵌入式/Analog.md
+    - Robotics/嵌入式/Digital.md
     - Robotics/嵌入式/EmbeddedSystem-intro.md
     - Robotics/嵌入式/EmbeddedSystem-8051.md
     - Robotics/嵌入式/EmbeddedSystem-8051-experiment.md

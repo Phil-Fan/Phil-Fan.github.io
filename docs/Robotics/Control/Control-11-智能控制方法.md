@@ -69,7 +69,7 @@ This browser does not support PDFs
 
 代表系统的主导思想，人工智能起控制作用。
 
-执行级为直接控制级，其各个控制器分别控制被控对象的一部分；
+组织级为决策控制级，其接受控制期望目标和协调级反馈信息，制定最优决策，对协调级下达决策指令。
 
 推理，规划，决策，记忆，数据存取
 
@@ -84,7 +84,9 @@ This browser does not support PDFs
 
 智能控制系统的最低层级，要求具有很高的精度，并由控制理论进行控制。
 
-组织级为决策控制级，其接受控制期望目标和协调级反馈信息，制定最优决策，对协调级下达决策指令。
+
+执行级为直接控制级，其各个控制器分别控制被控对象的一部分；
+
 
 
 
@@ -217,8 +219,96 @@ SMR1、SMR2和GMR都有自己独立的控制计算机，系统中另有一台独
 ### 概念
 应用专家系统概念和技术，模拟人类专家的控制知识与经验而建造的控制系统，称为专家控制系统。
 
+专家系统的基本功能取决于它所含有的知识，因此，专家系统称为基于知识的系统（ knowledge based system ）
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241115215810.png)
 ### 结构、类型与设计
+
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241107135241.png)
+
+
+
+1. **知识库**：
+   - 存储专家系统的专门知识，包括事实、可行操作和规则等。
+
+2. **推理机**：
+   - **解释程序**：能够根据知识进行推理和导出结论，而不是简单地搜索现成的答案。
+   - **调度程序**：用于记忆所采用的规则和控制策略的程序，使整个专家系统能够以逻辑方式协调地工作。
+
+3. **综合数据库**：
+   - 又称全局数据库或总数据库，用于存储领域或问题的初始数据和推理过程中得到的中间数据（信息），即被处理对象的一些当前事实。
+
+4. **解释接口**：
+   - 能够使系统与用户进行对话的接口，使用户能够输入数据和提出问题并获得答案，了解推理过程。
+
+专家系统将知识组织成三级：数据、知识库、控制
+
+
+
+### 专家PID控制
+
+### 应用
+
+
+### HW02-专家控制
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241115215028.png)
+
+如图所示为车载倒立摆系统，一辆小车在水平轨道上移动，小车上有一个可绕固定点转动的倒立摆。控制小车在水平方向的移动可使摆杆维持直立不倒，这和手掌移动可使直立木棒不倒的现象类似。
+
+忽略车轮与地面的摩擦力等阻力，可推导出车载倒立摆的动力学方程如下：
+
+$$
+\begin{cases}
+(M + m) \ddot{x} + m l (\ddot{\theta} \cos \theta + ml \dot{\theta}^2 \sin \theta) = F \\
+ml^2 \ddot{\theta} + ml \ddot{x} \cos \theta - mgl \sin \theta = 0
+\end{cases}
+$$
+
+其中的参数如表所示：
+
+| 参数 | 大小 |
+| --- | --- |
+| 摆杆质量 $m$ | 0.5kg |
+| 小车质量 $M$ | 1kg |
+| 摆杆转动轴心到摆杆质心的长度 $l$ | 0.5m |
+| 摆杆与垂直向上方向的夹角 $\theta$ | $[0, \pi]$ rad |
+| 重力加速度 $g$ | 9.8m/s² |
+| 施加在小车上的水平外力 $F$ | $[-F_m, F_m]$ N |
+| 小车在水平方向的位移 $x$ | 不限制 |
+
+增量型离散PID控制算法如下：
+
+$$
+F(k) = F(k-1) + K \left[ K_p \Delta \theta (k) + \frac{T}{T_i} \theta (k) + \frac{T}{T_d} (\Delta \theta (k) - \Delta \theta (k-1)) \right]
+$$
+
+其中 $T$ 为采样时间，$\Delta \theta (k) = \theta (k) - \theta (k-1)$
+
+若 $F_m = 25$，取 $T = 0.0001s$，$K_p = 20$，$K_i = 3$，$K_d = 1$，设计 $0 < \theta_1 < \theta_2 < \theta_m$，$0 < K_s < 1 < K_b$
+
+
+在离散PID控制基础上，采用专家PID控制方案，规则如下：
+
+1. 若 $|\theta (k)| \geq \theta_m$ 时，则 $F(k) = \text{sgn}(\theta) F_m$
+2. 若 $\theta_2 \leq |\theta (k)| < \theta_m$ 时，
+    1. 若 $\theta (k) \Delta \theta (k) > 0$ 时，则 $K = K_b$
+    2. 若 $\theta (k) \Delta \theta (k) < 0$ 时，
+        a. 若 $\Delta \theta (k) \Delta \theta (k-1) > 0$ 时，则 $K = 1$
+        b. 若 $\Delta \theta (k) \Delta \theta (k-1) < 0$ 时，则 $K = K_b$
+3. 若 $\theta_1 \leq |\theta (k)| < \theta_2$ 时，
+    1. 若 $\theta (k) \Delta \theta (k) > 0$ 时，则 $K = 1$
+    2. 若 $\theta (k) \Delta \theta (k) < 0$ 时，
+        a. 若 $\Delta \theta (k) \Delta \theta (k-1) > 0$ 时，则 $K = K_s$
+        b. 若 $\Delta \theta (k) \Delta \theta (k-1) < 0$ 时，则 $K = 1$
+4. 若 $|\theta (k)| < \theta_1$ 时，则 $K = 1$
+
+
+
+若小车和摆杆静止，摆杆与垂直向上方向的初始夹角 $\theta(0) = \frac{\pi}{4} \text{ rad}$，请：
+
+1. 给出上述专家PID控制方案的合适参数 $\theta_1, \theta_2, \theta_m$ 和 $K_s, K_b$，通过调节 $F$ 使倒立摆的摆杆夹角 $\theta$ 恢复并维持在期望值（$\theta_d = 0$），在 matlab 中进行仿真，给出位移 $x$、夹角 $\theta$ 和水平力 $F$ 的变化曲线，并比较专家PID控制与常规PID控制的结果（可尝试参数 $\theta_1 = 0.5, \theta_2 = 0.3, \theta_m = 0.1$ 和 $K_s = 0.85, K_b = 1.4$）。
+
+2. 针对不同的初始夹角 $\theta(0)$，给出专家PID控制的结果。（可能需要调整相关参数 $\theta_1, \theta_2, \theta_m$ 和 $K_s, K_b$）
 
 ## 模糊控制 | Fuzzy Control
 
