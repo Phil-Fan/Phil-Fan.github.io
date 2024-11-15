@@ -662,12 +662,8 @@ $$
     > tonight Ethan will arrive here please lure him to the abandoned warehouse near the police station where the professional assassin reese hired will eliminate him
     >
     > tomorrow she will go to the warehouse and become the first person to discover his corpse with a strong alibi these police officers absolutely cannot arrest her
-
-
-
-
-
-![image-20240605182302624](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240605182302624.png)
+    
+    ![image-20240605182302624](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240605182302624.png)
 
 
 #### 多表替换密码——维吉尼亚密码

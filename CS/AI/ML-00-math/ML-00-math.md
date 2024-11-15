@@ -893,6 +893,9 @@ $$\rho_{ij} = \frac{E\{[x_i(\xi) - \mu_i][x_j(\xi) - \mu_j]^*\}}{\sqrt{E\{[x_i(\
 ## Information theory
 ### Entropy
 
+不确定性函数$f$是概率$P$的减函数；两个独立符号所产生的不确定性应等于各自不确定性之和，即$f(P1,P2)=f(P1)+f(P2)$，这称为可加性。同时满足这两个条件的函数$f$是对数函数，即$f(P)=\log\frac{1}{P} = -\log P$。
+
+
 ### Kullback–Leibler Divergence（todo）
 
 ### Cross-entropy（todo）

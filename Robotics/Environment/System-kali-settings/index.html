@@ -5,10 +5,12 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="PhilFan的笔记本" name="description"/>
 <meta content="PhilFan" name="author"/>
-<link href="https://www.philfan.cn/Robotics/%E5%B5%8C%E5%85%A5%E5%BC%8F/%E6%A8%A1%E7%94%B5/" rel="canonical"/>
+<link href="https://www.philfan.cn/Robotics/Environment/System-kali-settings/" rel="canonical"/>
+<link href="../System-linux-settings/" rel="prev"/>
+<link href="../System-python-settings/" rel="next"/>
 <link href="../../../logo.ico" rel="icon"/>
 <meta content="mkdocs-1.6.0, mkdocs-material-9.5.31" name="generator"/>
-<title>模电 - PhilFan's Notebook</title>
+<title>Kali Linux配置 - PhilFan's Notebook</title>
 <link href="../../../assets/stylesheets/main.3cba04c6.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1 7.775V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 0 1 0 2.474l-5.026 5.026a1.75 1.75 0 0 1-2.474 0l-6.25-6.25A1.752 1.752 0 0 1 1 7.775Zm1.5 0c0 .066.026.13.073.177l6.25 6.25a.25.25 0 0 0 .354 0l5.025-5.025a.25.25 0 0 0 0-.354l-6.25-6.25a.25.25 0 0 0-.177-.073H2.75a.25.25 0 0 0-.25.25ZM6 5a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"/></svg>');--md-admonition-icon--abstract:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.5 1.75v11.5c0 .138.112.25.25.25h3.17a.75.75 0 0 1 0 1.5H2.75A1.75 1.75 0 0 1 1 13.25V1.75C1 .784 1.784 0 2.75 0h8.5C12.216 0 13 .784 13 1.75v7.736a.75.75 0 0 1-1.5 0V1.75a.25.25 0 0 0-.25-.25h-8.5a.25.25 0 0 0-.25.25Zm13.274 9.537v-.001l-4.557 4.45a.75.75 0 0 1-1.055-.008l-1.943-1.95a.75.75 0 0 1 1.062-1.058l1.419 1.425 4.026-3.932a.75.75 0 1 1 1.048 1.074ZM4.75 4h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM4 7.75A.75.75 0 0 1 4.75 7h2a.75.75 0 0 1 0 1.5h-2A.75.75 0 0 1 4 7.75Z"/></svg>');--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/></svg>');--md-admonition-icon--tip:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.499.75a.75.75 0 0 1 1.5 0v.996C5.9 2.903 6.793 3.65 7.662 4.376l.24.202c-.036-.694.055-1.422.426-2.163C9.1.873 10.794-.045 12.622.26 14.408.558 16 1.94 16 4.25c0 1.278-.954 2.575-2.44 2.734l.146.508.065.22c.203.701.412 1.455.476 2.226.142 1.707-.4 3.03-1.487 3.898C11.714 14.671 10.27 15 8.75 15h-6a.75.75 0 0 1 0-1.5h1.376a4.484 4.484 0 0 1-.563-1.191 3.835 3.835 0 0 1-.05-2.063 4.647 4.647 0 0 1-2.025-.293.75.75 0 0 1 .525-1.406c1.357.507 2.376-.006 2.698-.318l.009-.01a.747.747 0 0 1 1.06 0 .748.748 0 0 1-.012 1.074c-.912.92-.992 1.835-.768 2.586.221.74.745 1.337 1.196 1.621H8.75c1.343 0 2.398-.296 3.074-.836.635-.507 1.036-1.31.928-2.602-.05-.603-.216-1.224-.422-1.93l-.064-.221c-.12-.407-.246-.84-.353-1.29a2.425 2.425 0 0 1-.507-.441 3.075 3.075 0 0 1-.633-1.248.75.75 0 0 1 1.455-.364c.046.185.144.436.31.627.146.168.353.305.712.305.738 0 1.25-.615 1.25-1.25 0-1.47-.95-2.315-2.123-2.51-1.172-.196-2.227.387-2.706 1.345-.46.92-.27 1.774.019 3.062l.042.19a.884.884 0 0 1 .01.05c.348.443.666.949.94 1.553a.75.75 0 1 1-1.365.62c-.553-1.217-1.32-1.94-2.3-2.768L6.7 5.527c-.814-.68-1.75-1.462-2.692-2.619a3.737 3.737 0 0 0-1.023.88c-.406.495-.663 1.036-.722 1.508.116.122.306.21.591.239.388.038.797-.06 1.032-.19a.75.75 0 0 1 .728 1.31c-.515.287-1.23.439-1.906.373-.682-.067-1.473-.38-1.879-1.193L.75 5.677V5.5c0-.984.48-1.94 1.077-2.664.46-.559 1.05-1.055 1.673-1.353V.75Z"/></svg>');--md-admonition-icon--success:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"/></svg>');--md-admonition-icon--question:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.92 6.085h.001a.749.749 0 1 1-1.342-.67c.169-.339.436-.701.849-.977C6.845 4.16 7.369 4 8 4a2.756 2.756 0 0 1 1.637.525c.503.377.863.965.863 1.725 0 .448-.115.83-.329 1.15-.205.307-.47.513-.692.662-.109.072-.22.138-.313.195l-.006.004a6.24 6.24 0 0 0-.26.16.952.952 0 0 0-.276.245.75.75 0 0 1-1.248-.832c.184-.264.42-.489.692-.661.103-.067.207-.132.313-.195l.007-.004c.1-.061.182-.11.258-.161a.969.969 0 0 0 .277-.245C8.96 6.514 9 6.427 9 6.25a.612.612 0 0 0-.262-.525A1.27 1.27 0 0 0 8 5.5c-.369 0-.595.09-.74.187a1.01 1.01 0 0 0-.34.398ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>');--md-admonition-icon--warning:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>');--md-admonition-icon--failure:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.344 2.343h-.001a8 8 0 0 1 11.314 11.314A8.002 8.002 0 0 1 .234 10.089a8 8 0 0 1 2.11-7.746Zm1.06 10.253a6.5 6.5 0 1 0 9.108-9.275 6.5 6.5 0 0 0-9.108 9.275ZM6.03 4.97 8 6.94l1.97-1.97a.749.749 0 0 1 1.275.326.749.749 0 0 1-.215.734L9.06 8l1.97 1.97a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L8 9.06l-1.97 1.97a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734L6.94 8 4.97 6.03a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018Z"/></svg>');--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M9.504.43a1.516 1.516 0 0 1 2.437 1.713L10.415 5.5h2.123c1.57 0 2.346 1.909 1.22 3.004l-7.34 7.142a1.249 1.249 0 0 1-.871.354h-.302a1.25 1.25 0 0 1-1.157-1.723L5.633 10.5H3.462c-1.57 0-2.346-1.909-1.22-3.004L9.503.429Zm1.047 1.074L3.286 8.571A.25.25 0 0 0 3.462 9H6.75a.75.75 0 0 1 .694 1.034l-1.713 4.188 6.982-6.793A.25.25 0 0 0 12.538 7H9.25a.75.75 0 0 1-.683-1.06l2.008-4.418.003-.006a.036.036 0 0 0-.004-.009l-.006-.006-.008-.001c-.003 0-.006.002-.009.004Z"/></svg>');--md-admonition-icon--bug:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M4.72.22a.75.75 0 0 1 1.06 0l1 .999a3.488 3.488 0 0 1 2.441 0l.999-1a.748.748 0 0 1 1.265.332.75.75 0 0 1-.205.729l-.775.776c.616.63.995 1.493.995 2.444v.327c0 .1-.009.197-.025.292.408.14.764.392 1.029.722l1.968-.787a.75.75 0 0 1 .556 1.392L13 7.258V9h2.25a.75.75 0 0 1 0 1.5H13v.5c0 .409-.049.806-.141 1.186l2.17.868a.75.75 0 0 1-.557 1.392l-2.184-.873A4.997 4.997 0 0 1 8 16a4.997 4.997 0 0 1-4.288-2.427l-2.183.873a.75.75 0 0 1-.558-1.392l2.17-.868A5.036 5.036 0 0 1 3 11v-.5H.75a.75.75 0 0 1 0-1.5H3V7.258L.971 6.446a.75.75 0 0 1 .558-1.392l1.967.787c.265-.33.62-.583 1.03-.722a1.677 1.677 0 0 1-.026-.292V4.5c0-.951.38-1.814.995-2.444L4.72 1.28a.75.75 0 0 1 0-1.06Zm.53 6.28a.75.75 0 0 0-.75.75V11a3.5 3.5 0 1 0 7 0V7.25a.75.75 0 0 0-.75-.75ZM6.173 5h3.654A.172.172 0 0 0 10 4.827V4.5a2 2 0 1 0-4 0v.327c0 .096.077.173.173.173Z"/></svg>');--md-admonition-icon--example:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M5 5.782V2.5h-.25a.75.75 0 0 1 0-1.5h6.5a.75.75 0 0 1 0 1.5H11v3.282l3.666 5.76C15.619 13.04 14.543 15 12.767 15H3.233c-1.776 0-2.852-1.96-1.899-3.458Zm-2.4 6.565a.75.75 0 0 0 .633 1.153h9.534a.75.75 0 0 0 .633-1.153L12.225 10.5h-8.45ZM9.5 2.5h-3V6c0 .143-.04.283-.117.403L4.73 9h6.54L9.617 6.403A.746.746 0 0 1 9.5 6Z"/></svg>');--md-admonition-icon--quote:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1.75 2.5h10.5a.75.75 0 0 1 0 1.5H1.75a.75.75 0 0 1 0-1.5Zm4 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5ZM2.5 7.75v6a.75.75 0 0 1-1.5 0v-6a.75.75 0 0 1 1.5 0Z"/></svg>');}</style>
@@ -31,7 +33,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#_1">
+<a class="md-skip" href="#kali-linux">
           跳转至
         </a>
 </div>
@@ -55,7 +57,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              模电
+              Kali Linux配置
             
           </span>
 </div>
@@ -142,8 +144,8 @@
 
         </a>
 </li>
-<li class="md-tabs__item">
-<a class="md-tabs__link" href="../EmbeddedSystem-intro/">
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="../../%E5%B5%8C%E5%85%A5%E5%BC%8F/Analog/">
           
   
     
@@ -506,15 +508,15 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
-<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
 <span class="md-ellipsis">
     Robotics
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<nav aria-expanded="true" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_3">
 <span class="md-nav__icon md-icon"></span>
             Robotics
@@ -535,56 +537,70 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../EmbeddedSystem-intro/">
+<a class="md-nav__link" href="../../%E5%B5%8C%E5%85%A5%E5%BC%8F/Analog/">
 <span class="md-ellipsis">
-    嵌入式
+    模电
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../EmbeddedSystem-8051/">
-<span class="md-ellipsis">
-    80C51
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../EmbeddedSystem-8051-experiment/">
-<span class="md-ellipsis">
-    8051 实验
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../EmbeddedSystem-digitalcircuit/">
+<a class="md-nav__link" href="../../%E5%B5%8C%E5%85%A5%E5%BC%8F/Digital/">
 <span class="md-ellipsis">
     数电
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../EmbeddedSystem-stm32/">
+<a class="md-nav__link" href="../../%E5%B5%8C%E5%85%A5%E5%BC%8F/EmbeddedSystem-intro/">
+<span class="md-ellipsis">
+    嵌入式
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E5%B5%8C%E5%85%A5%E5%BC%8F/EmbeddedSystem-8051/">
+<span class="md-ellipsis">
+    80C51
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E5%B5%8C%E5%85%A5%E5%BC%8F/EmbeddedSystem-8051-experiment/">
+<span class="md-ellipsis">
+    8051 实验
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E5%B5%8C%E5%85%A5%E5%BC%8F/EmbeddedSystem-digitalcircuit/">
+<span class="md-ellipsis">
+    数电
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E5%B5%8C%E5%85%A5%E5%BC%8F/EmbeddedSystem-stm32/">
 <span class="md-ellipsis">
     STM32
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../EmbeddedSystem-experiment/">
+<a class="md-nav__link" href="../../%E5%B5%8C%E5%85%A5%E5%BC%8F/EmbeddedSystem-experiment/">
 <span class="md-ellipsis">
     嵌入式小玩具
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../k210/">
+<a class="md-nav__link" href="../../%E5%B5%8C%E5%85%A5%E5%BC%8F/k210/">
 <span class="md-ellipsis">
     k210 记录
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../RaspberryPi/">
+<a class="md-nav__link" href="../../%E5%B5%8C%E5%85%A5%E5%BC%8F/RaspberryPi/">
 <span class="md-ellipsis">
     Raspberry Pi
   </span>
@@ -723,13 +739,6 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../Robo/Robo-02-2-decide.md">
-<span class="md-ellipsis">
-    None
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
 <a class="md-nav__link" href="../../Robo/Robo-02-2-mapping/">
 <span class="md-ellipsis">
     建图
@@ -798,38 +807,212 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_3_6" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_3_6" type="checkbox"/>
 <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
 <span class="md-ellipsis">
     环境配置
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="false" aria-labelledby="__nav_3_6_label" class="md-nav" data-md-level="2">
+<nav aria-expanded="true" aria-labelledby="__nav_3_6_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_3_6">
 <span class="md-nav__icon md-icon"></span>
             环境配置
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../Environment/System-Linux/">
+<a class="md-nav__link" href="../System-Linux/">
 <span class="md-ellipsis">
     Linux 应用技术基础
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../Environment/System-ROS/">
+<a class="md-nav__link" href="../System-ROS/">
 <span class="md-ellipsis">
     ROS 操作
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../Environment/System-linux-settings/">
+<a class="md-nav__link" href="../System-linux-settings/">
 <span class="md-ellipsis">
     Linux 系统设置
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    Kali Linux配置
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    Kali Linux配置
+  </span>
+</a>
+<nav aria-label="目录" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_1">
+<span class="md-ellipsis">
+      系统烧录
+    </span>
+</a>
+<nav aria-label="系统烧录" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+<span class="md-ellipsis">
+      换源
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#linux">
+<span class="md-ellipsis">
+      linux安装软件的方式
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#conda">
+<span class="md-ellipsis">
+      conda环境
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#web">
+<span class="md-ellipsis">
+      Web软件
+    </span>
+</a>
+<nav aria-label="Web软件" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#php">
+<span class="md-ellipsis">
+      php
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#nodejs">
+<span class="md-ellipsis">
+      nodejs
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#phpstudy">
+<span class="md-ellipsis">
+      phpstudy
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#dirsearch">
+<span class="md-ellipsis">
+      dirsearch
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#weevely">
+<span class="md-ellipsis">
+      菜刀 weevely
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+<span class="md-ellipsis">
+      中国蚁剑
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#misc">
+<span class="md-ellipsis">
+      Misc 软件
+    </span>
+</a>
+<nav aria-label="Misc 软件" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+<span class="md-ellipsis">
+      文件泄露分析
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#strace-ltrace">
+<span class="md-ellipsis">
+      strace &amp; ltrace
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#stegsolve">
+<span class="md-ellipsis">
+      Stegsolve
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_5">
+<span class="md-ellipsis">
+      其他隐写工具
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#go">
+<span class="md-ellipsis">
+      go环境搭建
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#geth">
+<span class="md-ellipsis">
+      geth
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#volatility">
+<span class="md-ellipsis">
+      volatility
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../System-python-settings/">
+<span class="md-ellipsis">
+    Python 相关配置
   </span>
 </a>
 </li>
@@ -1111,6 +1294,20 @@
 <a class="md-nav__link" href="../../../CS/Statistic/11-error/">
 <span class="md-ellipsis">
     误差
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../CS/Statistic/11-anova/">
+<span class="md-ellipsis">
+    方差分析 | ANOVA
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../CS/Statistic/12-data_mining/">
+<span class="md-ellipsis">
+    数据挖掘
   </span>
 </a>
 </li>
@@ -1666,9 +1863,9 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../CS/CV/CV-00-0-intro.md">
+<a class="md-nav__link" href="../../../CS/CV/CV-00-1-intro/">
 <span class="md-ellipsis">
-    None
+    CV
   </span>
 </a>
 </li>
@@ -1686,6 +1883,20 @@
             图像处理
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../CS/CV/CV-00-base/">
+<span class="md-ellipsis">
+    基础知识
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../CS/CV/color/">
+<span class="md-ellipsis">
+    色彩 | 从入门到入土
+  </span>
+</a>
+</li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../CS/CV/CV-00-2-camera/">
 <span class="md-ellipsis">
@@ -1756,6 +1967,13 @@
 <a class="md-nav__link" href="../../../CS/CV/CV-10-3D/">
 <span class="md-ellipsis">
     CV 10 3D
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../CS/CV/CV-11-motion_estimation/">
+<span class="md-ellipsis">
+    运动估计
   </span>
 </a>
 </li>
@@ -2316,7 +2534,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../else/piano_songs/">
 <span class="md-ellipsis">
-    钢琴曲
+    Piano songs
   </span>
 </a>
 </li>
@@ -2435,9 +2653,9 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../else/">
+<a class="md-nav__link" href="../../../else/fifa/">
 <span class="md-ellipsis">
-    None
+    FIFA 19
   </span>
 </a>
 </li>
@@ -2507,18 +2725,149 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#_1">
+<span class="md-ellipsis">
+      系统烧录
+    </span>
+</a>
+<nav aria-label="系统烧录" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
 <a class="md-nav__link" href="#_2">
 <span class="md-ellipsis">
-      三极管
+      换源
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#linux">
+<span class="md-ellipsis">
+      linux安装软件的方式
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#conda">
+<span class="md-ellipsis">
+      conda环境
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#web">
+<span class="md-ellipsis">
+      Web软件
+    </span>
+</a>
+<nav aria-label="Web软件" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#php">
+<span class="md-ellipsis">
+      php
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#nodejs">
+<span class="md-ellipsis">
+      nodejs
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#phpstudy">
+<span class="md-ellipsis">
+      phpstudy
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#dirsearch">
+<span class="md-ellipsis">
+      dirsearch
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#weevely">
+<span class="md-ellipsis">
+      菜刀 weevely
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_3">
 <span class="md-ellipsis">
-      运放
+      中国蚁剑
     </span>
 </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#misc">
+<span class="md-ellipsis">
+      Misc 软件
+    </span>
+</a>
+<nav aria-label="Misc 软件" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+<span class="md-ellipsis">
+      文件泄露分析
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#strace-ltrace">
+<span class="md-ellipsis">
+      strace &amp; ltrace
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#stegsolve">
+<span class="md-ellipsis">
+      Stegsolve
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_5">
+<span class="md-ellipsis">
+      其他隐写工具
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#go">
+<span class="md-ellipsis">
+      go环境搭建
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#geth">
+<span class="md-ellipsis">
+      geth
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#volatility">
+<span class="md-ellipsis">
+      volatility
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -2527,24 +2876,302 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<div><h1 id="_1">模电<a class="headerlink" href="#_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h1>
+<div><h1 id="kali-linux"><span>Kali Linux<span class="heti-spacing"> </span></span>配置<a class="headerlink" href="#kali-linux" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>7<span class="heti-spacing"> </span></span>个字 </p>
+<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>839<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"></path></svg></span> <span>85<span class="heti-spacing"> </span></span>行代码 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>4<span class="heti-spacing"> </span></span>分钟</p>
 </div>
-<h2 id="_2">三极管<a class="headerlink" href="#_2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<h2 id="_3">运放<a class="headerlink" href="#_3" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2></div>
+<div class="admonition note">
+<p class="admonition-title">本篇记录一下<span class="heti-skip"><span class="heti-spacing"> </span>Kali Linux<span class="heti-spacing"> </span></span>的配置</p>
+</div>
+<h2 id="_1">系统烧录<a class="headerlink" href="#_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<div class="admonition note">
+<p class="admonition-title">准备</p>
+<ul>
+<li>下载<a href="https://www.kali.org/get-kali/#kali-platforms"><span class="heti-skip"><span class="heti-spacing"> </span>kali<span class="heti-spacing"> </span></span></a>也可以在镜像站上下载<a href="https://mirror.zju.edu.cn/"><span><span class="heti-spacing"> </span>ZJU Mirror</span></a></li>
+<li>下载烧录工具<a href="https://etcher.balena.io/#download-etcher"><span><span class="heti-spacing"> </span>Etcher</span></a></li>
+<li>准备<span class="heti-skip"><span class="heti-spacing"> </span>sd<span class="heti-spacing"> </span></span>卡</li>
+<li>准备读卡器</li>
+<li>电脑</li>
+</ul>
+</div>
+<h3 id="_2">换源<a class="headerlink" href="#_2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p><a href="https://www.cnblogs.com/u-damowang1/p/14729017.html"><span>apt<span class="heti-spacing"> </span></span>换源</a></p>
+<p><a href="https://reversed.top/2014-08-13/big-list-of-vim-like-software/">The big list of Vim-like software (reversed.top)</a></p>
+<div class="highlight"><pre><span></span><code>vim<span class="w"> </span>/etc/apt/sources.list
+</code></pre></div>
+<p><a href="https://mirrors.zju.edu.cn/docs/kali/">Kali Linux | ZJU Mirror</a>
+</p><div class="highlight"><pre><span></span><code># zju source
+deb https://mirrors.zju.edu.cn/kali kali-rolling main non-free contrib
+#deb-src https://mirrors.zju.edu.cn/kali kali-rolling main non-free contrib
+
+#中科大
+deb http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib
+deb-src http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib
+
+#阿里云
+deb http://mirrors.aliyun.com/kali kali-rolling main non-free contrib
+deb-src http://mirrors.aliyun.com/kali kali-rolling main non-free contrib
+
+#清华大学
+deb http://mirrors.tuna.tsinghua.edu.cn/kali kali-rolling main contrib non-free
+deb-src https://mirrors.tuna.tsinghua.edu.cn/kali kali-rolling main contrib non-free
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>apt-get<span class="w"> </span>update
+apt-get<span class="w"> </span>upgrade
+</code></pre></div>
+<h2 id="linux"><span>linux<span class="heti-spacing"> </span></span>安装软件的方式<a class="headerlink" href="#linux" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<p>[deb]
+<a href="https://cn.linux-console.net/?p=19002">Appimage</a></p>
+<h2 id="conda"><span>conda<span class="heti-spacing"> </span></span>环境<a class="headerlink" href="#conda" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<p><a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/"><span>Index of /anaconda/miniconda/ |<span class="heti-spacing"> </span></span>清华大学开源软件镜像站<span><span class="heti-spacing"> </span>| Tsinghua Open Source Mirror</span></a></p>
+<h2 id="web"><span>Web<span class="heti-spacing"> </span></span>软件<a class="headerlink" href="#web" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h3 id="php">php<a class="headerlink" href="#php" title="anchor link to this section for reference">¶</a></h3>
+<p><a href="https://blog.chaos.run/dreams/kali-linux-ppa/index.html"><span>Kali Linux<span class="heti-spacing"> </span></span>添加<span><span class="heti-spacing"> </span>add-apt-repository | Silearner</span></a></p>
+<p></p><div class="highlight"><pre><span></span><code>File<span class="w"> </span><span class="s2">"/usr/lib/python3/dist-packages/softwareproperties/ppa.py"</span>,<span class="w"> </span>line<span class="w"> </span><span class="m">129</span>,<span class="w"> </span><span class="k">in</span><span class="w"> </span>lpppa
+<span class="w">    </span>self._lpppa<span class="w"> </span><span class="o">=</span><span class="w"> </span>self.lpteam.getPPAByName<span class="o">(</span><span class="nv">name</span><span class="o">=</span>self.ppaname<span class="o">)</span>
+<span class="w">                  </span>^^^^^^^^^^^
+<span class="w">  </span>File<span class="w"> </span><span class="s2">"/usr/lib/python3/dist-packages/softwareproperties/ppa.py"</span>,<span class="w"> </span>line<span class="w"> </span><span class="m">116</span>,<span class="w"> </span><span class="k">in</span><span class="w"> </span>lpteam
+<span class="w">    </span>self._lpteam<span class="w"> </span><span class="o">=</span><span class="w"> </span>self.lp.people<span class="o">(</span>self.teamname<span class="o">)</span>
+<span class="w">                   </span>^^^^^^^^^^^^^^
+AttributeError:<span class="w"> </span><span class="s1">'NoneType'</span><span class="w"> </span>object<span class="w"> </span>has<span class="w"> </span>no<span class="w"> </span>attribute<span class="w"> </span><span class="s1">'people'</span>
+</code></pre></div>
+遇到的问题
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>launchpadlib
+</code></pre></div>
+<p>发现是<span class="heti-skip"><span class="heti-spacing"> </span>ppa.py<span class="heti-spacing"> </span></span>文件的问题，所以修改一下文件导入的路径</p>
+<div class="highlight"><pre><span></span><code>find<span class="w"> </span>/<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>launchpadlib
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>import<span class="w"> </span>sys
+sys.path.append<span class="o">(</span>r<span class="s1">'这里填入上一步搜出来的路径'</span><span class="o">)</span>
+</code></pre></div>
+<h3 id="nodejs">nodejs<a class="headerlink" href="#nodejs" title="anchor link to this section for reference">¶</a></h3>
+<p><a href="https://www.cnblogs.com/hirak0/p/16133730.html">nodejs on Kali</a>
+按照这个安装即可</p>
+<div class="highlight"><pre><span></span><code>wget<span class="w">  </span>https://nodejs.org/dist/v16.14.2/node-v16.14.2-linux-x64.tar.xz
+
+tar<span class="w"> </span>-xvf<span class="w"> </span>node-v16.14.2-linux-x64.tar.xz
+
+mv<span class="w"> </span>node-v16.14.2-linux-x64<span class="w"> </span>nodejs
+
+sudo<span class="w"> </span>mv<span class="w"> </span>nodejs/<span class="w"> </span>/usr/local/sbin/
+</code></pre></div>
+<p>创建软链接的方式
+</p><div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>ln<span class="w"> </span>-s<span class="w"> </span>/usr/local/sbin/nodejs/bin/node<span class="w"> </span>/usr/local/bin/
+sudo<span class="w"> </span>ln<span class="w"> </span>-s<span class="w"> </span>/usr/local/sbin/nodejs/bin/npm<span class="w"> </span>/usr/local/bin/
+</code></pre></div>
+很奇怪这里不输入绝对路径会有错误
+<h3 id="phpstudy">phpstudy<a class="headerlink" href="#phpstudy" title="anchor link to this section for reference">¶</a></h3>
+<p><a href="https://blog.csdn.net/weixin_54358903/article/details/127698009">phpstudy on Kali</a></p>
+<p><span>phpStudy<span class="heti-spacing"> </span></span>是一个<span class="heti-skip"><span class="heti-spacing"> </span>PHP<span class="heti-spacing"> </span></span>调试环境的程序集成包。该程序包集成最新的<span><span class="heti-spacing"> </span>Apache+PHP+MySQL+phpMyAdmin+ZendOptimizer</span>，一次性安装，无须配置即可使用，是非常方便、好用的<span class="heti-skip"><span class="heti-spacing"> </span>PHP<span class="heti-spacing"> </span></span>调试环境。</p>
+<div class="highlight"><pre><span></span><code>wget<span class="w"> </span>-O<span class="w"> </span>install.sh<span class="w"> </span>https://notdocker.xp.cn/install.sh<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>bash<span class="w"> </span>install.sh
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>phpstudy<span class="w"> </span>start<span class="w"> </span><span class="c1"># 启动</span>
+</code></pre></div>
+<p><a href="https://nmap.org/ncat/">ncat</a></p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>ncat
+</code></pre></div>
+<h3 id="dirsearch">dirsearch<a class="headerlink" href="#dirsearch" title="anchor link to this section for reference">¶</a></h3>
+<div class="highlight"><pre><span></span><code>sudo apt-get install dirsearch
+</code></pre></div>
+<p>有很多依赖是没有安装的，这里手动安装一下</p>
+<p>要注意<code>defusedxml</code>这个库不叫<code>defusexml</code><span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>安装带<span class="heti-skip"><span class="heti-spacing"> </span>d<span class="heti-spacing"> </span></span>的这一版才可以
+</p><div class="highlight"><pre><span></span><code>pip install requests_ntlm
+pip install defusedxml
+pip install bs4
+pip install jinja2
+pip install colorama
+</code></pre></div>
+<h3 id="weevely">菜刀<span><span class="heti-spacing"> </span>weevely</span><a class="headerlink" href="#weevely" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p><a href="https://github.com/epinna/weevely3/archive/master.zip"><span>weevely3<span class="heti-spacing"> </span></span>下载</a></p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>weevely3/
+sudo<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt<span class="w"> </span>--upgrade
+</code></pre></div>
+<h3 id="_3">中国蚁剑<a class="headerlink" href="#_3" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p><a href="https://blog.csdn.net/weixin_42474304/article/details/116376746">中国蚁剑<span class="heti-skip"><span class="heti-spacing"> </span>(antSword)<span class="heti-spacing"> </span></span>下载、安装、使用教程<span class="heti-skip"><span class="heti-spacing"> </span>-CSDN<span class="heti-spacing"> </span></span>博客</a></p>
+<p><a href="https://github.com/AntSwordProject/AntSword-Loader?tab=readme-ov-file"><span>AntSwordProject/AntSword-Loader: AntSword<span class="heti-spacing"> </span></span>加载器</a></p>
+<p><a href="https://www.yuque.com/antswordproject/antsword">官方文档</a></p>
+<h2 id="misc"><span>Misc<span class="heti-spacing"> </span></span>软件<a class="headerlink" href="#misc" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h3 id="_4">文件泄露分析<a class="headerlink" href="#_4" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h4 id="githack">GitHack<a class="headerlink" href="#githack" title="anchor link to this section for reference">¶</a></h4>
+<p><a href="https://github.com/lijiejie/GitHack">lijiejie/GitHack: A `.git` folder disclosure exploit</a></p>
+<div class="highlight"><pre><span></span><code>GitHack.py<span class="w"> </span>http://www.example.com/.git/
+</code></pre></div>
+<h4 id="dvcs-ripper">dvcs-ripper<a class="headerlink" href="#dvcs-ripper" title="anchor link to this section for reference">¶</a></h4>
+<p><a href="https://github.com/kost/dvcs-ripper#dvcs-ripper">dvcs-ripper</a></p>
+<p>依赖安装
+</p><div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>perl<span class="w"> </span>libio-socket-ssl-perl<span class="w"> </span>libdbd-sqlite3-perl<span class="w"> </span>libclass-dbi-perl<span class="w"> </span>libio-all-lwp-perl
+
+sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>libparallel-forkmanager-perl<span class="w"> </span>libredis-perl<span class="w"> </span>libalgorithm-combinatorics-perl
+
+sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>cvs<span class="w"> </span>subversion<span class="w"> </span>git<span class="w"> </span>bzr<span class="w"> </span>mercurial
+</code></pre></div>
+<p>使用方法</p>
+<div class="highlight"><pre><span></span><code>rip-git.pl<span class="w"> </span>-s<span class="w"> </span>-v<span class="w"> </span>-u<span class="w"> </span>http://www.example.com/.git/
+</code></pre></div>
+<h3 id="strace-ltrace">strace &amp; ltrace<a class="headerlink" href="#strace-ltrace" title="anchor link to this section for reference">¶</a></h3>
+<p>调试工具
+</p><div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>strace<span class="w"> </span>ltrace
+</code></pre></div>
+<h3 id="stegsolve">Stegsolve<a class="headerlink" href="#stegsolve" title="anchor link to this section for reference">¶</a></h3>
+<p><a href="https://www.cnblogs.com/hardcoreYutian/p/10613036.html">在<span class="heti-skip"><span class="heti-spacing"> </span>Kali Linux<span class="heti-spacing"> </span></span>中下载工具<span class="heti-skip"><span class="heti-spacing"> </span>Stegsolve -<span class="heti-spacing"> </span></span>平静的雨田<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>博客园</a></p>
+<p><a href="https://blog.csdn.net/qq_36148847/article/details/79261067"><span>linux<span class="heti-spacing"> </span></span>解决<span class="heti-skip"><span class="heti-spacing"> </span>" command not found: shopt "<span class="heti-spacing"> </span></span>的<span class="heti-skip"><span class="heti-spacing"> </span>"~/.bashrc"<span class="heti-spacing"> </span></span>配置问题<span class="heti-skip"><span class="heti-spacing"> </span>-CSDN<span class="heti-spacing"> </span></span>博客</a></p>
+<ol>
+<li>安装<a href="https://www.oracle.com/java/technologies/downloads/?er=221886"><span class="heti-skip"><span class="heti-spacing"> </span>java<span class="heti-spacing"> </span></span>环境</a>
+<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240710122150.png"/></li>
+</ol>
+<div class="highlight"><pre><span></span><code>tar<span class="w"> </span>-xzvf<span class="w"> </span>jdk-12_linux-x64_bin.tar.gz
+mv<span class="w"> </span>jdk<span class="w"> </span>/opt
+<span class="nb">cd</span><span class="w"> </span>/opt/jdk
+</code></pre></div>
+<ol>
+<li>设置环境变量，这里不要用<code>.bashrc</code>，而是<code>.zshrc</code></li>
+</ol>
+<div class="highlight"><pre><span></span><code>gedit<span class="w"> </span>~/.zshrc
+<span class="nb">export</span><span class="w"> </span><span class="nv">JAVA_HOME</span><span class="o">=</span>/opt/jdk
+<span class="nb">export</span><span class="w"> </span><span class="nv">CLASSPATH</span><span class="o">=</span>.:<span class="si">${</span><span class="nv">JAVA_HOME</span><span class="si">}</span>/lib
+<span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="si">${</span><span class="nv">JAVA_HOME</span><span class="si">}</span>/bin:<span class="nv">$PATH</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>~/.zshrc
+</code></pre></div>
+<p>验证安装成功
+</p><div class="highlight"><pre><span></span><code>java<span class="w"> </span>-version
+</code></pre></div>
+出现类似于下面的文字即成功
+<blockquote>
+<p>Picked up _JAVA_OPTIONS: -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true
+java version "22.0.1" 2024-04-16
+Java(TM) SE Runtime Environment (build 22.0.1+8-16)
+Java HotSpot(TM) 64-Bit Server VM (build 22.0.1+8-16, mixed mode, sharing)</p>
+</blockquote>
+<p>前往<a href="https://github.com/Giotino/stegsolve/releases"><span class="heti-skip"><span class="heti-spacing"> </span>github<span class="heti-spacing"> </span></span>库</a>，下载软件
+</p><div class="highlight"><pre><span></span><code>wget https://github.com/Giotino/stegsolve/releases/download/v1.4/StegSolve-1.4.jar
+mv StegSolve-1.4.jar StegSolve
+</code></pre></div>
+<p>直接使用
+</p><div class="highlight"><pre><span></span><code>java -jar StegSolve
+</code></pre></div>
+<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240710122852.png"/>
+<div class="admonition bug">
+<p class="admonition-title">若执行<code>source ~/.bashrc</code>会报错</p>
+<p><a href="https://stackoverflow.com/questions/26616003/shopt-command-not-found-in-bashrc-after-shell-updation">bash - shopt command not found in .bashrc after shell updation - Stack Overflow</a></p>
+<div class="highlight"><pre><span></span><code>/home/amerrnath/.bashrc:17:<span class="w"> </span><span class="nb">command</span><span class="w"> </span>not<span class="w"> </span>found:<span class="w"> </span><span class="nb">shopt</span><span class="w"> </span>
+/home/amerrnath/.bashrc:25:<span class="w"> </span><span class="nb">command</span><span class="w"> </span>not<span class="w"> </span>found:<span class="w"> </span><span class="nb">shopt</span><span class="w"> </span>
+/home/amerrnath/.bashrc:109:<span class="w"> </span><span class="nb">command</span><span class="w"> </span>not<span class="w"> </span>found:<span class="w"> </span><span class="nb">shopt</span><span class="w"> </span>
+/usr/share/bash-completion/bash_completion:35:<span class="w"> </span>parse<span class="w"> </span>error<span class="w"> </span>near<span class="w"> </span><span class="sb">`</span><span class="o">]]</span><span class="err">'</span>
+</code></pre></div>
+</div>
+<h3 id="_5">其他隐写工具<a class="headerlink" href="#_5" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<ul>
+<li>
+<p>steghide
+steghide不支持png格式的隐写，zsteg支持png。
+</p><div class="highlight"><pre><span></span><code>apt<span class="w"> </span>install<span class="w"> </span>steghide
+</code></pre></div>
+</li>
+<li>
+<p>zsteg
+<a href="https://blog.csdn.net/Amherstieae/article/details/107512398">安装</a></p>
+</li>
+</ul>
+<h3 id="go"><span>go<span class="heti-spacing"> </span></span>环境搭建<a class="headerlink" href="#go" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p><a href="https://blog.csdn.net/single_g_l/article/details/123244435">参考</a>
+<a href="https://studygolang.com/dl">go中文</a></p>
+<div class="highlight"><pre><span></span><code>wget<span class="w"> </span>https://studygolang.com/dl/golang/go1.22.5.linux-amd64.tar.gz
+tar<span class="w"> </span>-xzvf<span class="w"> </span>go1.22.5.linux-amd64.tar.gz
+rm<span class="w"> </span>go1.22.5.linux-amd64.tar.gz
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>mv<span class="w"> </span>./go<span class="w"> </span>/usr/local
+</code></pre></div>
+<p><strong>配置环境变量</strong></p>
+<p>在<code>/home</code>目录下新建<span class="heti-skip"><span class="heti-spacing"> </span>go<span class="heti-spacing"> </span></span>目录（文件名随意<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，然后在<span class="heti-skip"><span class="heti-spacing"> </span>go<span class="heti-spacing"> </span></span>目录下分别新建三个目录：
+- src ---- 里面每一个子目录，就是一个包。包内是Go的源码文件
+- pkg ---- 编译后生成的，包的目标文件
+- bin ---- 生成的可执行文件。</p>
+<p><code>vim ~/.zshrc</code> 编辑文件</p>
+<p>在文件末尾中添加
+</p><div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:/usr/local/go/bin<span class="w">   </span>//<span class="w">  </span>将<span class="w"> </span>/usr/local/go/bin<span class="w"> </span>目录添加至PATH环境变量
+<span class="nb">export</span><span class="w"> </span><span class="nv">GOPATH</span><span class="o">=</span>/home/go<span class="w">                </span>//<span class="w"> </span>设置GOPATH环境变量
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>~/.zshrc
+</code></pre></div>
+<p><strong>验证安装</strong></p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>go<span class="w"> </span>version
+go<span class="w"> </span>version<span class="w"> </span>go1.22.5<span class="w"> </span>linux/amd64
+
+$<span class="w"> </span>go
+Go<span class="w"> </span>is<span class="w"> </span>a<span class="w"> </span>tool<span class="w"> </span><span class="k">for</span><span class="w"> </span>managing<span class="w"> </span>Go<span class="w"> </span><span class="nb">source</span><span class="w"> </span>code.
+Usage:
+<span class="w">	</span>go<span class="w"> </span>&lt;command&gt;<span class="w"> </span><span class="o">[</span>arguments<span class="o">]</span>
+</code></pre></div>
+<h3 id="geth">geth<a class="headerlink" href="#geth" title="anchor link to this section for reference">¶</a></h3>
+<p><a href="https://geth.ethereum.org/downloads">Downloads | go-ethereum</a></p>
+<p>下载后解压
+</p><div class="highlight"><pre><span></span><code>tar -xzvf geth-linux-amd64-1.14.6-aadddf3a.tar.gz
+cd geth-linux-amd64-1.14.6-aadddf3a
+</code></pre></div>
+<p>移动到对应位置<code>\usr\local</code></p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/usr/local
+mkdir<span class="w"> </span>geth
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>mv<span class="w"> </span>geth<span class="w"> </span>/usr/local/geth
+vim<span class="w"> </span>~/.zshrc
+</code></pre></div>
+<p><strong>示例</strong></p>
+<p>下载学长给到的范例</p>
+<p></p><div class="highlight"><pre><span></span><code>geth<span class="w"> </span>attach<span class="w"> </span>http://localhost:8545
+</code></pre></div>
+出现
+<div class="highlight"><pre><span></span><code>Welcome<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>Geth<span class="w"> </span>JavaScript<span class="w"> </span>console!
+
+instance:<span class="w"> </span>Geth/v1.13.4-stable-3f907d6a/linux-amd64/go1.21.3
+at<span class="w"> </span>block:<span class="w"> </span><span class="m">345</span><span class="w"> </span><span class="o">(</span>Sat<span class="w"> </span>Jul<span class="w"> </span><span class="m">13</span><span class="w"> </span><span class="m">2024</span><span class="w"> </span><span class="m">08</span>:38:08<span class="w"> </span>GMT-0400<span class="w"> </span><span class="o">(</span>EDT<span class="o">))</span>
+<span class="w"> </span>modules:<span class="w"> </span>eth:1.0<span class="w"> </span>net:1.0<span class="w"> </span>personal:1.0<span class="w"> </span>rpc:1.0<span class="w"> </span>web3:1.0
+
+To<span class="w"> </span>exit,<span class="w"> </span>press<span class="w"> </span>ctrl-d<span class="w"> </span>or<span class="w"> </span><span class="nb">type</span><span class="w"> </span><span class="nb">exit</span>
+&gt;<span class="w"> </span>
+</code></pre></div>
+<h3 id="volatility">volatility<a class="headerlink" href="#volatility" title="anchor link to this section for reference">¶</a></h3>
+<p><a href="https://blog.csdn.net/m0_68012373/article/details/127419463">内存取证<span class="heti-skip"><span class="heti-spacing"> </span>-volatility<span class="heti-spacing"> </span></span>工具的使用 （史上更全教程，更全命令）<span>_volatility<span class="heti-spacing"> </span></span>内存取证<span class="heti-skip"><span class="heti-spacing"> </span>-CSDN<span class="heti-spacing"> </span></span>博客</a></p>
+<p>是一个内存取证的工具，依赖<span class="heti-skip"><span class="heti-spacing"> </span>python2<span class="heti-spacing"> </span></span>版本
+所以先使用conda构建一个基于python2的环境
+</p><div class="highlight"><pre><span></span><code>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>vol<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">2</span>.7
+conda<span class="w"> </span>activate<span class="w"> </span>vol
+</code></pre></div>
+<h4 id="_6">安装依赖<a class="headerlink" href="#_6" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<p><strong>crypto</strong>
+</p><div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>pycryptodome
+</code></pre></div>
+<p><strong>distorm3</strong>
+<a href="https://github.com/vext01/distorm3">vext01/distorm3: distorm3</a>
+下载源码后，进入到对应文件夹
+</p><div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>distorm3
+python<span class="w"> </span>setup.py<span class="w"> </span>install
+</code></pre></div>
+<h4 id="_7">安装<a class="headerlink" href="#_7" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<p><a href="https://github.com/volatilityfoundation/volatility">volatilityfoundation/volatility: An advanced memory forensics framework</a>
+下载源码
+</p><div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>volatility
+python<span class="w"> </span>setup.py<span class="w"> </span>install
+</code></pre></div>
+<p><strong>验证</strong></p>
+<div class="highlight"><pre><span></span><code>vol.py
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>&gt; └─# vol.py       
+&gt; Volatility Foundation Volatility Framework 2.6.1
+&gt; ERROR   : volatility.debug    : You must specify something to do (try -h)
+</code></pre></div></div>
 <aside class="md-source-file">
 <span class="md-source-file__fact">
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年10月31日 13:35:36</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年11月15日 15:18:09</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年10月31日 13:35:36</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年11月15日 15:18:09</span>
 </span>
 </aside>
 <form class="md-feedback" hidden="" name="feedback">
@@ -2591,6 +3218,34 @@
 </button>
 </main>
 <footer class="md-footer">
+<nav aria-label="页脚" class="md-footer__inner md-grid">
+<a aria-label="上一页: Linux 系统设置" class="md-footer__link md-footer__link--prev" href="../System-linux-settings/">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</div>
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                上一页
+              </span>
+<div class="md-ellipsis">
+                Linux 系统设置
+              </div>
+</div>
+</a>
+<a aria-label="下一页: Python 相关配置" class="md-footer__link md-footer__link--next" href="../System-python-settings/">
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                下一页
+              </span>
+<div class="md-ellipsis">
+                Python 相关配置
+              </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
+</div>
+</a>
+</nav>
 <div class="md-footer-meta md-typeset">
 <div class="md-footer-meta__inner md-grid">
 <div class="md-copyright">

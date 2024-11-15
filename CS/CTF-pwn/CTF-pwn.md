@@ -42,6 +42,42 @@
 
 LD_PRELOAD=./libc.so.6 ./ld-linux-x86-64.so.2 ./login_me
 
+## 基础知识
+### 数据类型
+
+
+
+### 做题流程
+- 使用checksec检查ELF文件保护开启的状态
+- IDApro逆向分析程序漏洞（逻辑复杂的可以使用动态调试）
+- 编写python的exp脚本进行攻击
+  - （若攻击不成功）进行GDB动态调试，查找原因
+  - （若攻击成功）获取flag，编写Writeup
+
+
+
+### 常见错误
+!!! note "it's hard to define a bug"
+
+
+
+
+- **C/C++ language**:memory corruption bugs
+- **Clear exploitation aim**: code execution
+- **Naive program**: usually terminal program
+
+prepare函数
+
+
+
+```c
+void prepare(){
+    setvbuf(stdin,0LL,2,0LL);
+    setvbuf(stdout,0LL,2,0LL);
+    alerm(60);
+}
+```
+
 ## pwntools 包
 
 [关于 pwntools — pwntools 3.12.0dev 文档](https://pwntools-docs-zh.readthedocs.io/zh-cn/dev/about.html)
@@ -76,6 +112,7 @@ p = process(['./ld-2.23.so','./test'], env = {'LD_PRELOAD' : './libc-2.23.so'})
 
 p = remote('ip',port, typ='协议\协议簇') # 运行远端程序
 ```
+
 另外在[这个仓库](https://gist.github.com/frankli0324/795162a14be988a01e0efa0531f7ac5a)中，作者给出了websocket的连接方式
 
 ```bash
@@ -139,6 +176,8 @@ bytes = host.recvall()
 # 清空缓冲区未接收的数据
 host.clean()
 ```
+
+
 ### 发送信息
 ```python
 # 发送一段数据
@@ -173,34 +212,12 @@ pwntools 的 shellcraft包
 ```
 BytesWarning: Text is not bytes; assuming ASCII, no guarantees. See https://docs.pwntools.com/#bytes
 ```
+
 查看链接网址后提示在**每个字符串前面加上b**即不会出现错误警告
+
 python3有八个字节的byte，所以它每次都会报这样的错误：
 
 
-
-
-## bug
-
-!!! note "it's hard to define a bug"
-
-
-
-
-- **C/C++ language**:memory corruption bugs
-- **Clear exploitation aim**: code execution
-- **Naive program**: usually terminal program
-
-prepare函数
-
-
-
-```c
-void prepare(){
-    setvbuf(stdin,0LL,2,0LL);
-    setvbuf(stdout,0LL,2,0LL);
-    alerm(60);
-}
-```
 
 
 ## 读取溢出漏洞

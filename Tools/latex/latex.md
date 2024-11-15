@@ -641,7 +641,7 @@ required to use pdflatex/xelatex/lualatex.
 
 ## 公式与符号
 
-[https://latex.emoryhuang.cn/posts/](公式快查)
+[公式快查](https://latex.emoryhuang.cn/posts/)
 
 ### 希腊符号
 
