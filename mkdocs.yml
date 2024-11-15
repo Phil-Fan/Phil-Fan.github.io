@@ -265,7 +265,6 @@ nav:
     - Robotics/Robo/Robo-01-sensor&detection.md
     - Robotics/Robo/Robo-02-0-navigation.md
     - Robotics/Robo/Robo-02-1-localization.md
-    - Robotics/Robo/Robo-02-2-decide.md
     - Robotics/Robo/Robo-02-2-mapping.md
     - Robotics/Robo/Robo-02-3-planning.md
     - Robotics/Robo/Robo-Drone.md      
@@ -282,7 +281,8 @@ nav:
     - Robotics/Environment/System-Linux.md 
     - Robotics/Environment/System-ROS.md   
     - Robotics/Environment/System-linux-settings.md
-    
+    - Robotics/Environment/System-kali-settings.md
+    - Robotics/Environment/System-python-settings.md
 
 - "CS":
   - Language:
@@ -320,7 +320,10 @@ nav:
       - Notebook page: CS/Statistic/09-Regression.ipynb
       - Notebook page: CS/Statistic/10-Multiple_Regression_and_Analysis_of_Variance.ipynb
       - Notebook page: CS/Statistic/11-error.ipynb
+      - CS/Statistic/11-anova.md
+      - CS/Statistic/12-data_mining.md
       - CS/Statistic/big_data_security&privacy_protection.md
+
    
   - "DS | 数据结构":
     - CS/DataStructure.md
@@ -395,8 +398,10 @@ nav:
       
          
   - "CV | 计算机视觉":
-    - CS/CV/CV-00-0-intro.md
+    - CS/CV/CV-00-1-intro.md
     - "图像处理":
+        - CS/CV/CV-00-base.md
+        - CS/CV/color.md
         - CS/CV/CV-00-2-camera.md
         - CS/CV/CV-00-3-format.md
     - "基本任务":
@@ -406,6 +411,7 @@ nav:
         - CS/CV/CV-03-Object-Recognition.md
         - CS/CV/CV-04-Segmentation.md
         - CS/CV/CV-10-3D.md
+        - CS/CV/CV-11-motion_estimation.md
     - CS/CV/OpenCV.md
     - CS/CV/HumanPoseEstimation.md  
 
@@ -498,7 +504,7 @@ nav:
     - Tools/Photography-Portrait.md
 
   - "游戏":
-    - else/
+    - else/fifa.md
 
   - "常识":
     - else/common_knowledge/社会机构.md

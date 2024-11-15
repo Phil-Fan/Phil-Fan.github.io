@@ -11,7 +11,11 @@
 
 
 ## gdb 插件
+### gef
+
 [hugsy/gef: GEF (GDB Enhanced Features)](https://github.com/hugsy/gef)
+
+
 [gdb exhanced features(GEF)工具的使用](https://www.cnblogs.com/liulianzhen99/articles/17824258.html)
 
 ```shell
@@ -24,6 +28,22 @@ gdb
 # 就会出现带gef>的界面了
 gef➤
 ```
+### pwndbg
+[github.com/pwndbg/pwndbg](https://github.com/pwndbg/pwndbg)
+
+```shell title="安装pwndbg插件"
+git clone https://github.com/pwndbg/pwndbg
+cd pwndbg
+./setup.sh
+```
+
+```shell
+cat .gdbinit
+```
+
+
+
+
 ## 使用方法
 
 ○ 执行断点
@@ -53,59 +73,111 @@ b *0x4005a0
 
 
 ### 断点
-b(breakpoint) + 行号 —— 在那一行打断点
+`b(breakpoint) + 行号 `—— 在那一行打断点
 
-b 源文件：函数名 —— 在该函数的第一行打上断点
+`b funcname` —— 在该函数的第一行打上断点
 
-b 源文件：行号 —— 在该源文件中的这行加上一个断点吧
+`b file_name:func_name`
 
-d(delete) + 当前要删除断点的编号 —— 删除一个断点【不可以d + 行号】
+`b +0x10`  //在程序当前停住的位置下0x10的位置下断点，同样可以-0x10，就是前0x10
 
-若当前没有跳出过gdb，则断点的编号会持续累加
 
-d + breakpoints —— 删除所有的断点
+`d(delete) + number` —— 删除一个断点【不可以d + 行号】
 
-disable b(breakpoints) —— 使所有断点无效【默认缺省】
+`d + breakpoints` —— 删除所有的断点
 
-enable b(breakpoints) —— 使所有断点有效【默认缺省】
+`clear` //不加参数默认清除当前函数所在行的所有断点
 
-disable b(breakpoint) + 编号 —— 使一个断点无效【禁用断点】
+- `clear function`//删除该函数内的所有断点
+- `clear line`//删除该行的所有断点
 
-enable b(breakpoint) + 编号 —— 使一个断点有效【开启断点】
+`disable 5 `//常用，禁用5号断点
+`enable 5` //启用5号断点
 
-相当于VS中的空断点
-
-enable breakpount —— 使一个断点有效【开启断电】
-        b
 ### 查看类
 l(list) 行号/函数名 —— 显示对应的code，每次10行
 
-info b —— 查看断点的信息
+`i` //info，查看一些信息，只输入info可以看可以接什么参数，下面几个比较常用
+
+`i b` //常用，info break 查看所有断点信息（编号、断点位置）
+
+`i r` //常用，info registers 查看各个寄存器当前的值
+
+`i f` //info function 查看所有函数名，需保留符号
+
+
 breakpoint already hit 1 time【此断点被命中一次】
 
 bt —— 看到底层函数调用的过程【函数压栈】
 
-p(print) 变量名 —— 打印变量值
+undisplay + 变量名编号 —— 取消对先前设置的那些变量的跟踪
+
+`show` //和info类似，但是查看调试器的基本信息，如：
+`show args` //查看参数
+
+`rdi` //常用，+寄存器名代表一个寄存器内的值，用在地址上直接相当与一个十六进制变量
+
+### 打印类指令
+```shell
+# 打印函数名地址
+p fun_name 
+
+# 计算表达式
+p 0x10-0x08
+
+# 查看变量地址
+p &a 
+
+# 查看指定内存地址的值
+p *(0x123456)
+
+# 显示寄存器值
+p $rdi
+
+# 显示寄存器指向的值 
+p *($rdi)
+```
+
+### 反汇编指令
+```shell
+# 显示指定地址前后的汇编代码
+disass 0x123456
+
+# 显示10条汇编指令
+x /10i $pc
+```
+
 
 display —— 跟踪查看一个变量，每次停下来都显示它的值【变量/结构体…】
 
-undisplay + 变量名编号 —— 取消对先前设置的那些变量的跟踪
+### 修改数据指令
+```shell
+# 修改寄存器值
+set $rdi=0x10
+
+# 修改指定内存地址的值
+set *(0x123456)=0x10
+
+# 设置程序运行参数
+set args "abc" "def" "gh"
+
+# 使用 python 设置包含不可见字符的参数
+set args "python -c 'print "1234\x7f\xde"'"
+```
+
 
 ### 运行类
-r(run) —— F5【无断点直接运行、有断点从第一个断点处开始运行】
+`r(run)` —— F5【无断点直接运行、有断点从第一个断点处开始运行】
 
-n(next) —— 逐过程【相当于F10，为了查找是哪个函数出错了】
+`n(next)` —— 逐过程，遇到调用函数要跟进【相当于F10，为了查找是哪个函数出错了】
 
-s(step) —— 逐语句【相当于F11，】
+`s(step)`—— 逐语句，遇到调用函数不跟进【相当于F11】
 
+`c(continue)` —— 运行至下一个断点处【VS下不断按F5】
 
 set var —— 修改变量的值
 
-until + 行号 —— 进行指定位置跳转，执行完区间代码
 
-finish —— 在一个函数内部，执行到当前函数返回，然后停下来等待命令
-
-c(continue) —— 从一个断点处，直接运行至下一个断点处【VS下不断按F5】
 
 ## 自动化脚本
 
@@ -165,6 +237,7 @@ end
 ```
 
 1> 设置gdb的一些选项的值，如前面提及的pagination等
+
 如果要查看当前的值，可以使用show命令，比如： show pagination
 
 2> 创建调试使用的变量
