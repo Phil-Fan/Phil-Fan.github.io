@@ -405,6 +405,57 @@ add：加法器，用于实现信号的加法运算；设置里可以更改输�
         ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241020131407.png)
         [MATLAB——Simulink二阶系统 - 哔哩哔哩](https://www.bilibili.com/read/cv9223784/)
 
+
+### S function
+
+!!! note "S function就是自定义的模型，用于补充simulink中没有的功能"
+
+
+[S-function入门及案例详解（1）——S-function基础介绍及基本案例-CSDN博客](https://blog.csdn.net/didi_ya/article/details/118186847)
+
+[S-function入门及案例详解（2）——S-function基本案例介绍\_s-function怎么用-CSDN博客](https://blog.csdn.net/didi_ya/article/details/118251832)
+
+[S-function入门及案例详解（3）——S-function进阶案例\_s函数 英文学习指导-CSDN博客](https://blog.csdn.net/didi_ya/article/details/118190541)
+
+[S-function入门及案例详解（4）——S-function进阶案例之连续/离散状态空间表达式的S-function实现\_s-function实例-CSDN博客](https://blog.csdn.net/didi_ya/article/details/118195184)
+
+
+
+S-function模块，位于Simulink/User-Defined Functions模块库中，是使S-function图形化的模板工具，用于为S-function创建一个定值的对话框和图标。
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241117101401.png)
+
+
+- `S-function name`：填入S-function的函数名称，这样就建立了S-function模块与M文件形式的S-function之间的对应关系；
+
+- `S-function parameters`：填入S-function需要输入的外部参数的名称，如果有对各变量，则变量中间用逗号隔开，如a，b，c；
+
+- `S-function modules`：仅当S-function是用C语言编写并用MEX工具编译的C-MEX文件时，才需要填写该参数；
+
+
+**直接馈通**
+
+如果输出函数（mdlOutputs或flag==3）是输入u的函数，即，如果输入u在mdlOutputs中被访问，则存在直接馈通。ex：$y= k\cdot u$
+
+**采样时间与偏移量**
+
+采样时间是按照固定格式成对指定的：`[采样时间 偏移时间]`。
+
+|采样时间表示	|意义|
+|---|---|
+|[0 0]	|连续采样时间|
+|[-1 0]	|继承S-function输入信号或父层模型的采样时间|
+|[0.5 0.1]	|离散采样时间，从0.1s开始每0.5s采样一次|
+
+#### 函数分析
+S-function包括主函数和6个功能子函数，包括mdlInitializeSizes（初始化）、mdlDerivatives（连续状态微分）、mdlUpdate（离散状态更新）、mdlOutputs（模块输出）、mdlGetTimeOfNextVarHit（计算下次采样时刻）和mdlTerminate（仿真结束）。
+
+在S-function仿真过程中，利用switch-case语句，根据不同阶段对应的flag值（仿真流程标志向量）来调用S-function的不同子函数，以完成对S-function模块仿真流程的控制。
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241117102637.png)
+
+
+
+
 ## Control System Toolbox
 
 ### 构建系统模型

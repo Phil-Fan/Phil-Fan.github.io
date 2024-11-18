@@ -209,6 +209,12 @@ sudo passwd root
 ```
 
 
+### PS1修改
+
+```shell
+vim ~/.bashrc
+```
+
 
 ## 通用软件
 

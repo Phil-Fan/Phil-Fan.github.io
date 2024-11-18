@@ -49,8 +49,57 @@ apt-get upgrade
 [deb]
 [Appimage](https://cn.linux-console.net/?p=19002)
 
+## 问题
+
+### GUI消失
+```shell
+sudu su
+apt-get update 
+apt-get upgrade
+```
+
+```shell
+apt-get clean
+apt-get remove xfce4 xfce4-places-plugin
+apt-get install x-window-system-core
+apt-get install kali-defaults kali-root-login desktop-base xfce4 xfce4-places-plugin
+```
+
+### 桌面不显示
+!!! bug "建议操作之前请创建快照！！！"
+
+=== "方法1"
+
+    在kali终端执行以下命令：
+
+    ```shell
+    sudo metacity --replace      #打开窗口管理器
+    ```
+    
+    如果没有metacity这个命令，就下载一下
+
+    ```shell
+    apt-get install metacity          #下载metacity命令
+    ```
+
+    下载之后再执行一遍上面那个命令就好了
+
+    但有一个问题：每次打开kali都需要运行一遍上面第1条命令
+
+=== "方法2"
+
+    重装lightdm，命令如下：
+
+    ```shell
+    sudo apt-get remove --purge lightdm
+    sudo apt-get install lightdm
+    ```
+
 ## conda环境
 [Index of /anaconda/miniconda/ | 清华大学开源软件镜像站 | Tsinghua Open Source Mirror](https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/)
+
+
+
 
 
 ## Web软件
@@ -193,11 +242,7 @@ rip-git.pl -s -v -u http://www.example.com/.git/
 ```
 
 
-### strace & ltrace
-调试工具
-```shell
-sudo apt-get install strace ltrace
-```
+
 
 ### Stegsolve
 [在Kali Linux中下载工具Stegsolve - 平静的雨田 - 博客园](https://www.cnblogs.com/hardcoreYutian/p/10613036.html)
@@ -404,4 +449,12 @@ vol.py
 > └─# vol.py       
 > Volatility Foundation Volatility Framework 2.6.1
 > ERROR   : volatility.debug    : You must specify something to do (try -h)
+```
+
+
+## Rev
+### strace & ltrace
+调试工具
+```shell
+sudo apt-get install strace ltrace
 ```

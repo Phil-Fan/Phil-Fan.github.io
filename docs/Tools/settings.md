@@ -56,6 +56,16 @@
 
 [AirPods Pro2蓝牙耳机连接win10电脑有杂音、不稳定问题 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/641213713)
 
+### wget
+[GNU Wget 1.21.4 for Windows](https://eternallybored.org/misc/wget/)
+
+放在`c:/Windows/System32`文件夹下
+
+### nc (netcat)
+[netcat 1.11 for Win32/Win64](https://eternallybored.org/misc/netcat/)
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241118214327.png)
+
 ### Edge
 #### `Vimium`配置
 
