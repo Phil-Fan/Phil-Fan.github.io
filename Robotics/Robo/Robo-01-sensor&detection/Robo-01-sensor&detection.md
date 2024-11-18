@@ -30,7 +30,12 @@
 
 
 
+
+
+
 ## 计算题整理
+
+[期中考试讲解](https://interactivemeta.cmc.zju.edu.cn/#/replay?course_id=67888&sub_id=1465044&tenant_code=112)
 
 ### 热电偶
 
@@ -68,6 +73,12 @@
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241031181700.png)
 
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241031181749.png)
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241116163557.png)
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241116163142.png)
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241116163159.png)
 
 
 

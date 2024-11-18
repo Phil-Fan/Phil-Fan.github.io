@@ -9,6 +9,8 @@
 
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240714181857.png)
 
+[智云链接](https://interactivemeta.cmc.zju.edu.cn/#/replay?course_id=63047&sub_id=1213368&tenant_code=112)
+
 ## 程序？可“执行”文件
 
 为什么计算机可以执行给定的程序呢？
@@ -55,6 +57,8 @@ IR：中间表达式
 
 [ELF文件头](https://www.cnblogs.com/jiqingwu/p/elf_explore_2.html)
 
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241118193116.png)
+
 ```
 ELF Header:
   Magic:   7f 45 4c 46 02 01 01 00 00 00 00 00 00 00 00 00
@@ -84,8 +88,8 @@ ELF Header:
     file xxx
     ```
     - objdump:看指令代码
-    ```
-    objdump -d xxx
+    ```shell title="看汇编代码"
+    objdump -d xxx 
     ```
     - readelf
 
@@ -172,12 +176,19 @@ llc -filetype=obj hello.ll -o hello.o
 as [options] -o outputfile inputfile
 ```
 
+!!! note "代码和数据分开存放"
+    并且设置为只读状态
+
 ## ELF 链接
 
 把已有的目标文件和库目标文件或别的目标文件链接在一起，生成一个可执行文件
 
+使用`file`指令查看`.o` 文件，会发现是reallocatable，是需要重定向的，需要把程序中留白的部分补充上
+
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240707210812.png)
 
+
+> 需要知道printf函数在哪里，才能正确的调用printf函数
 
 GNU linker
 ```
@@ -188,9 +199,12 @@ ld hello.o -o hello
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240707215122.png)
 
 - 静态链接：处理更快，但文件更大
+> 把所有需要的文件都链接到一个elf当中，不存在外部符号
 - 动态链接：处理更慢，文件小
+> 电脑上只存一个printf，需要的时候去链接
 
 - PLT: Procedure Linkage Table
+> 动态链接中的实现细节
 - GOT: Global Offset Table
 - lazy binding optimization以及 full-relro 保护
 
@@ -198,14 +212,15 @@ ld hello.o -o hello
     lazy binding 比较危险，可能会被劫持
 
 **程序的执行**
-查看链接了什么东西
 
-```
+
+```shell title="查看链接了什么东西"
 ldd hello.elf
 ```
 
-- libc
+- libc:linux中最重要的库函数（类似于stdio.h）
 - ld 程序的加载器
+> 编译执行的程序不需要一个解释器，但需要一个加载器
 ```
 linux-vdso.so.1 (0x00007fff45b18000) #虚拟动态共享对象
 libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f9bddd66000) #libc
@@ -214,7 +229,7 @@ libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f9bddd66000) #libc
 
 
 通过指定 loader 来执行程序
-```shell
+```shell title="真正执行的指令 "
 /lib64/ld-linux-x86-64.so.2 ./hello
 ```
 
@@ -226,6 +241,7 @@ libc及其版本
 程序 to 进程
 
 进程有自己的pid号
+
 ```shell
 pidof xxx
 ```
@@ -236,6 +252,10 @@ pidof xxx
 ???+note "内存映射"
     动态链接程序需要把自己的loader和libc都映射好
     可以看到，既有这里相当于创建了一些映射，包括libc和ld
+
+    真正地址 + 权限 + 内存
+
+    静态链接把自己链接到内存就可以了
 
     ```shell
     55f232470000-55f232471000 r--p 00000000 08:01 919328                     /root/Desktop/CTF/Rev/echo
@@ -268,8 +288,9 @@ pidof xxx
     写和执行不能同时有，否则会有注入漏洞
 
 
-execve 系统调用
-- 先fork， 再通过excve替换
+execve 系统调用：特别的libc函数
+- 先把程序fork一下， 再通过execve替换
+
 ```shell
 int execve(const char *filename, char *const argv[], char *const envp[]);
 ```
@@ -298,6 +319,8 @@ int execve(const char *filename, char *const argv[], char *const envp[]);
 !!! tip "保护技术3——基地址与 ASLR"
     程序开始的地方每次都是随机的
 
+    动态链接程序可以通过ASLR，让内存映射随机化，每次都从不同的位置起始
+
 
 ## ELF 的交互、调试
 - 绝对路径 / 相对路径
@@ -320,9 +343,9 @@ int execve(const char *filename, char *const argv[], char *const envp[]);
 
 调试工具
 
-`strace`：追踪系统调用(操作系统提供给程序的库)
+- `strace`：追踪系统调用(操作系统提供给程序的库)
 
-`ltrace`：追踪调用的库（只对动态链接程序有用）
+- `ltrace`：追踪调用的库（只对动态链接程序有用）
 
 ### gdb：GNU debug
 
@@ -344,11 +367,11 @@ int execve(const char *filename, char *const argv[], char *const envp[]);
 
 ```shell
 run
-start 在main之前临时断点
+start # 在main之前临时断点
 
 continue
 
-step / s #单步
+step / s # 单步
 
 info register
 info proc mapping

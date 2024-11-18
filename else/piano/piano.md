@@ -199,7 +199,7 @@ Step2. 找到自己的琴房，打开门禁卡，进入琴房，打开空调，�
 
 
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=241757309&bvid=BV1ae411E72Z&cid=1420747226&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px">s</iframe>
- 
+
 
  ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241112161754.png)
 
@@ -255,5 +255,40 @@ Step2. 找到自己的琴房，打开门禁卡，进入琴房，打开空调，�
 
 === "乐曲"
 
-
 === "评分项目"
+
+
+
+
+
+## 电钢琴选购
+
+### 千元以下——玩具级
+
+| 品牌   | 型号     | 价格 | 图片 |
+| ------ | -------- | ---- | ---- |
+| YAMAHA | PSR-E383 | 1140 |      |
+| CASIO  | CTS200   | 888  |      |
+| CASIO  | CTS300   | 1087 |      |
+
+
+
+### 1000-2500 入门级
+
+| 品牌   | 型号    | 价格 | 图片 |
+| ------ | ------- | ---- | ---- |
+| 雅马哈 | p125    | 1999 |      |
+| 特伦斯 | BX-5    | 1499 |      |
+| 美得理 | SO-C120 | 1699 |      |
+| 雅马哈 | P48     | 1999 |      |
+| 卡西欧 | CT-S410 | 1587 |      |
+
+
+
+### 2500-3500 爱好级
+
+4000左右预算罗兰fp30x，便携好用；
+
+### 4000+ 发烧级
+
+7000左右预算卡哇伊CN29； 
