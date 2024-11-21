@@ -428,7 +428,22 @@ pair yourDeviceMAC
 
 其中pair后面跟上扫描出的键盘的MAC地址，根据提示输入密码，显示配对成功，此时，在桌面的设置界面“我的设备”中可以看到蓝牙中键盘为已配对状态，但此时可能依然无法成功连接。
 
+## 压缩
+```shell title="压缩"
+zip -r examples.zip examples   # examples为目录
+```
 
+```shell title="解压缩"
+unzip name.zip
+```
+
+```shell title="目录路径来指明压缩包所在的位置"
+unzip name.zip -d 当前目录
+```
+
+```shell title="如果是压缩包是.tar后缀"
+tar xvf name.tar 
+```
 ## 网络
 
 ### 连接wifi

@@ -59,6 +59,57 @@ ssh <alias>
 - wget
 
 ## 显卡相关
+### 环境配置
+
+```shell
+conda create -n <>_py<version> python=<version>
+
+conda activate <name>
+```
+
+```shell title="pytorch安装"
+pip install torch torchaudio torchvision
+```
+
+```shell title="安装一些常用库"
+pip install scipy seaborn tqdm jupyter
+```
+
+
+```shell title="其他库"
+pip install d2l
+```
+
+
+```python title="测试环境配置代码"
+import torch
+print("PyTorch Version:", torch.__version__)
+
+if torch.cuda.is_available(): # 检查 CUDA 是否可用
+    print("CUDA is available.")
+    num_gpus = torch.cuda.device_count() # 获取显卡总数
+    print(f"Number of GPUs: {num_gpus}")
+    if num_gpus >= 1:
+        device = torch.device(f"cuda:{num_gpus - 1}") # 指定使用最后一块显卡
+        print(f"Using GPU: {torch.cuda.get_device_name(device)}")
+        tensor = torch.rand(3, 3).to(device) # 在指定显卡上创建一个简单的张量计算
+        print("Tensor on GPU:\n", tensor)
+    else:
+        print("No GPUs available.")
+else:
+    print("CUDA is not available.")
+```
+
+```shell title="示例输出"
+PyTorch Version: 2.4.1+cu121
+CUDA is available.
+Number of GPUs: 6
+Using GPU: NVIDIA GeForce RTX 3090
+Tensor on GPU:
+ tensor([[0.9610, 0.1389, 0.1536],
+        [0.7481, 0.7573, 0.2097],
+        [0.2123, 0.6865, 0.0611]], device='cuda:5')
+```
 
 
 ### 查看GPU
@@ -126,7 +177,10 @@ taskkill /PID 进程号 -F -T
 ```
 但是感觉任务管理器更方便一点... :laughing:
 
-
+### 查看用户
+```shell
+ps -f -p PID号
+```
 ### 指定GPU
 
 ```python
