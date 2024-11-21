@@ -579,7 +579,31 @@ docker-compose up
 
 ## Q & A
 
-> sh: 0: getcwd() failed: No such file or directory
+!!! bug "sh: 0: getcwd() failed: No such file or directory"
+    一般来说是因为你 cd 到了某个目录之后 rm 了这个目录，这时去执行某些 service 脚本的时候就会报 get cwd 错误。 只需要 cd 到任何一个实际存在的目录下再执行就好了
 
-一般来说是因为你 cd 到了某个目录之后 rm 了这个目录，这时去执行某些 service 脚本的时候就会报 get cwd 错误。 只需要 cd 到任何一个实际存在的目录下再执行就好了
+## Java
+
+### `.jar`文件打开方式
+
+1.双击打开
+
+2. 命令行打开x
+
+```shell
+java -jar xxx.jar
+```
+
+```shell title="后台执行"
+java -jar xxx.jar &
+```
+
+```shell title="不挂断执行"
+nohup java -jar test_jar-1.0-SNAPSHOT.jar &   
+```  
+
+nohup 意思是不挂断运行命令，当账户退出或终端关闭时，程序仍然运行。
+
+当用 nohup 命令运行jar包时，缺省情况下该应用的所有输出被重定向到nohup.out的文件中，除非另外指定了输出文件。
+
 

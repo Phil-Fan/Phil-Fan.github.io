@@ -281,6 +281,8 @@ python3有八个字节的byte，所以它每次都会报这样的错误：
 rbp : base pointer，指向栈底（最高）
 rsp: stack pointer，指向栈顶（最低）
 
+> 栈就像叠盘子，最先放的盘子最后取出来
+
 ### 函数的传参过程
 > [汇编角度深刻理解函数调用](https://www.bilibili.com/video/BV1RS4y1B75v)
 >
@@ -327,6 +329,45 @@ https://classroom.zju.edu.cn/livingroom?course_id=54544&sub_id=1011516&tenant_co
 [pwn lab 2: ROP / FSB - CTF101-Labs-2024](https://courses.zjusec.com/topic/pwn-lab2/#task-1-20)
 
 [pwn lab 3: glibc heap exploitation - CTF101-Labs-2024](https://courses.zjusec.com/topic/pwn-lab3/)
+
+
+
+!!! example "以`login_me`为例题"
+```shell
+gdb ./login_me
+start
+p main
+```
+
+```shell
+gef➤  p main
+$2 = {int (int, char **)} 0x555555555647 <main>
+```
+所以在 `0x555555555647`下断点
+
+```shell
+b *0x555555555647
+``` 
+
+```
+0x55555555564b <main+0004>      push   rbp
+0x55555555564c <main+0005>      mov    rbp, rsp
+0x55555555564f <main+0008>      add    rsp, 0xffffffffffffff80
+```
+
+第一步是保护rbp，第二步是保护rsp，第三步是创建一个0x80大的临时变量空间；
+> 所以这样看的话 rbp-0x70和rsp+0x10是指向同一个地址
+
+先`pop rbp`会把当前的rbp位置返回给rsp指针，实现栈的抬升
+
+ret的时候，先把`old rbp`返给`rbp`
+并把ret地址返回给运行PC
+
+!!! tip "实现保护的一个方法"
+  在`ret address`和`old rbp`之前加入一个随机值，每次出入栈时候，检查随机值是否有变化
+
+
+shallow stack: 用微型的buffer存储，临时变量在另一个栈上面，怎么也不会溢出了
 
 
 ### PIE保护

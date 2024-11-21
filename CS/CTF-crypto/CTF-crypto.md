@@ -1494,7 +1494,7 @@ bob解密
 !!! note "签名会不会被重复使用"
     签名提取出来这一行为，就好像是现实世界中把纸质合同上的签名拓下来一样。然而在 数字签名中，签名和消息之间是具有对应关系的，消息不同签名内容也会不同，因此事实上是 无法做到将签名提取出来重复使用的。 <br>总之，将一份签名附加在别的消息后面，验证签名会失败。
 
-
+签名一般不对原文进行签名，而是选择对于原文的哈希值进行签名
 
 ### 密钥分发与证书
 
@@ -1619,3 +1619,129 @@ docker pull sagemath sagemath
 - vector
 - matrix
 
+
+
+## OpenSSL库
+
+### 安装
+
+```shell
+sudo apt update && sudo apt install openssl
+```
+```shell title="验证安装"
+openssl version
+```
+
+
+
+### **密钥生成相关**
+1. **`genpkey`** 生成私钥。  
+   示例：  
+   ```shell
+   openssl genpkey -algorithm RSA -out private_key.pem
+   ```
+   
+1. **`-algorithm`** 指定加密算法（如 RSA、DSA、EC 等）。
+   示例：  
+   ```shell
+   -algorithm RSA
+   ```
+
+2. **`-pkeyopt`** 设置密钥的生成选项，例如位数。  
+   示例：  
+   ```shell
+   -pkeyopt rsa_keygen_bits:2048
+   ```
+
+3. **`rsa`** 用于处理 RSA 私钥或从私钥导出公钥。
+   示例：  
+   ```shell
+   openssl rsa -in private_key.pem -pubout -out public_key.pem
+   ```
+
+4. **`-pubout`** 将私钥转换为公钥格式导出。
+
+---
+
+### **文件摘要与哈希**
+1. **`dgst`** 生成文件的摘要（哈希值）。支持多种算法，如 SHA-256、SHA-512 等。
+   示例：  
+   ```shell
+   openssl dgst -sha256 -out hash.txt plain.txt
+   ```
+
+1. **`-sha256`** 指定使用 SHA-256 哈希算法。
+
+2. **`-out`** 指定输出文件路径。
+
+3. **`-verify`** 验证签名时使用，需提供公钥。
+
+4. **`-sign`** 使用私钥对文件或哈希值进行签名。
+
+5. **`-signature`** 指定签名文件路径，用于验证签名。
+
+---
+
+### **加密与解密**
+1. **`rsautl`** 用于非对称加密和解密。主要用于 RSA 算法。
+   示例：  
+   ```shell
+   openssl rsautl -encrypt -inkey public_key.pem -pubin -in plain.txt -out encrypted.bin
+   ```
+
+1. **`-encrypt`** 指定加密模式。
+
+1. **`-decrypt`** 指定解密模式。
+
+1. **`-inkey`** 指定密钥文件（公钥或私钥）。
+ 
+1. **`-pubin`** 表示使用公钥文件。
+
+1. **`-in`** 输入文件路径。
+
+1. **`-out`** 输出文件路径。
+
+---
+
+### **文件查看与调试**
+1. **`xxd`** 查看文件的十六进制表示，调试加密或签名文件。  
+   示例：  
+   ```shell
+   xxd encrypted.bin
+   ```
+
+
+
+
+### 示例
+```shell title="生成文本文件"
+echo "Hello, OpenSSL!" > plain.txt
+```
+
+```shell title="生成密钥对"
+# 生成私钥
+openssl genpkey -algorithm RSA -out private_key.pem -pkeyopt rsa_keygen_bits:2048
+
+# 从私钥生成公钥
+openssl rsa -in private_key.pem -pubout -out public_key.pem
+```
+
+```shell title="加密文件"
+openssl rsautl -encrypt -inkey public_key.pem -pubin -in plain.txt -out encrypted.bin
+```
+
+```shell title="验证加密文件内容"
+xxd encrypted.bin
+```
+
+```shell title="使用私钥解密文件"
+openssl rsautl -decrypt -inkey private_key.pem -in encrypted.bin -out decrypted.txt
+```
+
+```shell title="私钥进行签名文件"
+openssl dgst -sha256 -sign private_key.pem -out signature.bin plain.txt
+```
+
+```shell title="使用公钥验证签名"
+openssl dgst -sha256 -verify public_key.pem -signature signature.bin plain.txt
+```
