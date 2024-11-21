@@ -51,7 +51,14 @@ apt-get upgrade
 
 ## 问题
 
-### GUI消失
+### 图形化界面消失解决方法
+
+```shell title="打开图形化"
+startx
+```
+先试一下这一条指令，如果不行可能是一些包出现了问题
+
+
 ```shell
 sudu su
 apt-get update 
@@ -62,8 +69,14 @@ apt-get upgrade
 apt-get clean
 apt-get remove xfce4 xfce4-places-plugin
 apt-get install x-window-system-core
+apt-get install gnome-core
 apt-get install kali-defaults kali-root-login desktop-base xfce4 xfce4-places-plugin
 ```
+
+
+
+桌面出现了！
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241119103146.png)
 
 ### 桌面不显示
 !!! bug "建议操作之前请创建快照！！！"

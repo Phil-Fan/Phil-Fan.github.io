@@ -45,7 +45,8 @@ c小调：命运交响曲、悲怆奏鸣曲；莫扎特：幻想曲
 特别长的
 
 2. 巴赫 平均律卷一：D大调前奏曲与赋格 BWV 850
-3. 巴赫 平均律卷一：D大调前奏曲与赋格 BWV 850
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241119133035.png)
 
 每一首都是由一首前奏曲和赋格组成
 
@@ -59,19 +60,29 @@ c小调：命运交响曲、悲怆奏鸣曲；莫扎特：幻想曲
 7. 贝多芬 “热情”奏鸣曲第一乐章 Op.57
 
 ## 德彪西
+开辟了很多音色、踏板的不同使用方法
 
-1.  德彪西 阿拉伯风格曲第一首 L.66-1
+
+### 德彪西 阿拉伯风格曲第一首 L.66-1
 非常的舒缓
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241015152348.png)
 
-2.  德彪西 亚麻色头发的少女 L.117-8
-2.  
+德彪西适合配一副莫奈的画（或者印象派画家的画作）
+
+### 德彪西 亚麻色头发的少女 L.117-8
+象征主义者
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241119134235.png)
+
+> PS:论翻译的信达雅：
+
+[【音乐欣赏】德彪西《亚麻色头发的少女》 - 知乎](https://zhuanlan.zhihu.com/p/119123291)
 
 ## 李斯特
-4.  李斯特 超技练习曲“鬼火” S.139-5
-这是人能弹的吗、、、
-
-5.  李斯特 爱之梦第三首 S.541-3
+1.  李斯特 超技练习曲“鬼火” S.139-5
+这是人能弹的吗、、、 :sob:
+ 
+2.  李斯特 爱之梦第三首 S.541-3
 
 
 
@@ -112,7 +123,27 @@ dengbang dengbang  怡然自得的感觉
 
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241029133327.png)
 
+## 格里格
 
+### 格里格 a小调第一钢琴协奏曲第一乐章 Op.16
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241119133051.png)
+
+第一钢琴写solo 第二钢琴写orchestra ；缩编谱，用钢琴演奏乐队的效果
+
+
+
+### 格里格 特罗豪根的婚礼之日 Op.65-6
+
+取自抒情小品，ABA段式（快慢快）
+
+挪威人；
+
+民族乐派的代表人物，表现本民族人民的钢琴
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241029134856.png)
+
+dang bang bang bang
 
 ## 其他
 
@@ -135,24 +166,9 @@ dengbang dengbang  怡然自得的感觉
 
 
 2.  普罗科菲耶夫 降B大调第七钢琴奏鸣曲第一乐章 Op.83
-3.  格里格 a小调第一钢琴协奏曲第一乐章 Op.16
-
-第一钢琴写solo 第二钢琴写orchestra ；缩编谱，用钢琴演奏乐队的效果
 
 
 
-
-4.  格里格 特罗豪根的婚礼之日 Op.65-6
-
-取自抒情小品，ABA段式（快慢快）
-
-挪威人；
-
-民族乐派的代表人物，表现本民族人民的钢琴
-
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241029134856.png)
-
-dang bang bang bang
 
 5.  柴可夫斯基 降b小调第一钢琴协奏曲第一乐章 Op.23
 6.  海顿 C大调第60钢琴奏鸣曲第一乐章 Hob.XVI:50

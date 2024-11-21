@@ -213,9 +213,9 @@ nav:
       - Class/ITP/ITP-Team-Communication-and-Leadership.md
       - Class/ITP/ITP-Management.md
       - Class/ITP/ITP-创业营销.md
-      - Class/ITP/ITP-基于创新的创业.md
-      - Class/ITP/ITP-商业模式.md   
-
+      - Class/ITP/ITP-商业模式.md
+      - Class/ITP/ITP-市场分析与调研.md   
+      
   - Finance:
     - Class/Fin/invest.md
     - Class/Fin/consulting.md
@@ -249,6 +249,7 @@ nav:
     - Robotics/嵌入式/EmbeddedSystem-experiment.md
     - Robotics/嵌入式/k210.md
     - Robotics/嵌入式/RaspberryPi.md
+    - Robotics/嵌入式/FPGA.md
 
   - "Control Theory":
     - Robotics/Control/Control-01-自动控制原理.md
@@ -285,6 +286,7 @@ nav:
     - Robotics/Environment/System-linux-settings.md
     - Robotics/Environment/System-kali-settings.md
     - Robotics/Environment/System-python-settings.md
+    - Robotics/Environment/System-server.md
 
 - "CS":
   - Language:
@@ -373,6 +375,7 @@ nav:
       - CS/AI/DL-09-modernRNN.md
       - CS/AI/DL-11-optimation.md        
       - CS/AI/DL-12-setting.md
+      - CS/AI/DL-application.md
 
     - "RL | 强化学习":
       - CS/AI/RL-01.md

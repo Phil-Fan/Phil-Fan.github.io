@@ -266,3 +266,18 @@ ssh -p 15821 root@connect.westb.seetacloud.com
 ```
 
 [pycharm 打开远程项目_手把手教你Pycharm远程连接服务器端项目进行本地开发调试！...-CSDN博客](https://blog.csdn.net/weixin_34345947/article/details/114909727)
+
+## 安装库报错
+
+!!! bug "ImportError: No module named parse"
+    python版本问题，在python 2.x中
+
+    ```python
+    from urlparse import urlparse
+    ```
+
+    在python 3.x
+
+    ```python
+    from urllib.parse import urlparse
+    ```
