@@ -81,6 +81,33 @@ plugins:
 </div>
 ```
 
+### 嵌入b站视频
+
+
+1.打开B站的视频
+2.点击“分享”按钮，获取“嵌入代码”：B站视频的下一行，点击“分享”按钮，下方弹出分享页面。
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241031230641.png)
+
+禁用方法很简单，就是在视频 url 链接最后加上 autoplay=0。例如：
+
+```html title="禁止自动播放"
+<iframe src="//player.bilibili.com/player.html?aid=951910057&bvid=BV1zs4y177sv&cid=1078968085&page=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="500" height="300"> </iframe>
+```
+
+
+| 参数用途                         | 参数名      | 使用方法          |
+|----------------------------------|-------------|-------------------|
+| 是否自动播放(默认否)            | `autoplay`    | 1: 开启, 0: 关闭  |
+| 默认弹幕开关(默认开启)          | `danmaku`    | 1: 开启, 0: 关闭  |
+| 是否默认静音(默认否)            | `muted`       | 1: 开启, 0: 关闭  |
+| 一键静音按钮是否显示(默认不显示) | `hasMuteButton` | 1: 开启, 0: 关闭  |
+| 视频封面下方是否显示播放量弹幕量等信息(默认显示) | `hideCoverInfo` | 1: 开启, 0: 关闭  |
+| 是否隐藏弹幕按钮(默认不隐藏)    | `hideDanmakuButton` | 1: 开启, 0: 关闭 |
+| 是否隐藏全屏按钮(默认显示)      | `noFullScreenButton` | 1: 开启, 0: 关闭 |
+| 是否开始记忆播放(默认开启)      | `fw`          | 1: 开启, 0: 关闭  |
+| 默认开始时间(默认0)             | `t`           | 直接填写数值, 单位秒 |
+| 是否显示高清(默认否)            | `highQuality` | 1: 开启, 0: 关闭 (貌似是无用的, 各位可以试试) |
 
 
 ## 配置

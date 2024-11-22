@@ -294,9 +294,12 @@ nav:
     - CS/Language/C.md
     - CS/Language/C++.md
     - CS/Language/Python.md
-    - CS/Language/Python_packages.md
-    - CS/Language/crawler.md
+    
+    - "Seaborn": https://seaborn.pydata.org/api.html
+    - "Pandas": https://pandas.pydata.org/docs/reference/index.html
+    - "Scipy": https://docs.scipy.org/doc/scipy/reference/index.html
 
+    - CS/Language/crawler.md
   
   - FrontEnd:
     - CS/Frontend/HTML.md
@@ -307,6 +310,7 @@ nav:
     - CS/Backend/SQL.md
     - CS/Backend/Nodejs.md
     - CS/Backend/PHP.md
+
 
   - "数学基础":
     - CS/AI/ML-00-math.md
@@ -327,7 +331,13 @@ nav:
       - CS/Statistic/11-anova.md
       - CS/Statistic/12-data_mining.md
       - CS/Statistic/big_data_security&privacy_protection.md
-
+      - "作业":
+        - Notebook page: Lab02-pro.ipynb
+        - Notebook page: Lab03-st.ipynb
+        - Notebook page: Lab04-numerical_features.ipynb
+        - Notebook page: Lab05-SF.ipynb
+        - Notebook page: Lab06-hypothesis.ipynb
+        - Notebook page: Lab07-linear.ipynb
    
   - "DS | 数据结构":
     - CS/DataStructure.md
@@ -459,6 +469,7 @@ nav:
   - Tools/matlab.md
   - Tools/solidworks.md
   - Tools/sites.md
+  - Tools/LLM.md
   
   - Tools/settings.md
   - Tools/settings-macos.md
