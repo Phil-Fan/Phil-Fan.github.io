@@ -221,41 +221,6 @@ cv2.destroyAllWindows()
 
 [用树莓派实现实时的人脸检测 | 树莓派实验室](https://shumeipai.nxez.com/2018/03/09/real-time-face-recognition-an-end-to-end-project-with-raspberry-pi.html)
 
-
-## 操作
-### 共享文件夹
-```shell
-apt-get install -y cifs-utils
-```
-
-[在windows上共享文件夹](https://zhuanlan.zhihu.com/p/402820328)
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241026225133.png)
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241026225143.png)
-
-
-**挂载文件系统**
-
-将 `//<ip>/test` 挂载到 `/mnt/` 目录上，如果不需要认证，则无需指定用户名和密码。
-
-```shell
-sudo mount -t cifs //<ip>/test /mnt/test_shared -o dir_mode=0777,file_mode=0777
-```
-
-[linux mount挂载文件夹设置权限 - 秋声梧叶 - 博客园](https://www.cnblogs.com/sctrkb/articles/15407736.html)
-
-
-开机自动挂载（修改 `/etc/fstab` 文件）：
-
-将`//192.168.xx.xx/sharedir`挂载到`/mnt/cifs`上，并指定了用户名和密码;如果不需要认证，可以不指定用户名和密码。
-```shell
-//192.168.3.4/sharedir /mnt/cifs cifs username=demo,password=demo 0 0
-```
-
-然后可以把`/mnt/folder`直接当作linux中的文件夹进行文件的操作
-
-> pywin32库没有安装好 [Python 如何通过Python访问Windows网络上的共享文件夹|极客教程](https://geek-docs.com/python/python-ask-answer/311_python_using_python_how_can_i_access_a_shared_folder_on_windows_network.html)
-
-
 ## 遇到问题
 
 ### SD卡故障排除

@@ -444,6 +444,141 @@ unzip name.zip -d 当前目录
 ```shell title="如果是压缩包是.tar后缀"
 tar xvf name.tar 
 ```
+## 局域网
+```shell
+apt-get install -y cifs-utils
+```
+### windows做服务器
+[在windows上共享文件夹](https://zhuanlan.zhihu.com/p/402820328)
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241026225133.png)
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241026225143.png)
+
+### windows作客户端
+
+
+如果你是没有打开smb服务，那么继续往下看，打开控制面板进入
+
+点击“启用或关闭windows功能”
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241123092300.png)
+
+把smb的几个都点开，然后点击确定，立即重启
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241123092342.png)
+
+
+然后直接在explorer中输入ip地址即可。
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241123092550.png)
+
+
+注意输入的格式：
+- 不是`smb://156.26.51.55 `
+- 而是应该直接`双斜杠+ip地址`，如果有具体的共享的文件夹的话就把路径跟在后面。不需要加smb前缀，也不能用 `//` ，要用 `\\`,然后输入对应的账户和密码就完事了。
+> [window10 使用smb连接远程电脑的文件夹[打开smb服务和连接巨坑]-CSDN博客](https://blog.csdn.net/qq_44079295/article/details/120201515)
+### linux做服务器——samba
+
+```shell title="安装"
+sudo apt install samba
+```
+
+```shell title="启动服务"
+systemctl start smbd.service
+
+systemctl enable smbd.service
+
+systemctl start nmbd.service
+
+systemctl enable nmbd.service
+```
+
+```shell
+systemctl status smbd.service
+systemctl status nmbd.service
+```
+
+```shell title="设置共享文件夹"
+net usershare add "共享名" /home/Desktop/文件名 "备注名" Everyone:R guest_ok=y
+```
+
+|参数|含义|
+|---|---|
+|Everyone:R	|设置Everyone用户为只读权限|
+|Everyone:F	|设置Everyone用户为可写权限|
+|Everyone:D	|设置Everyone用户为拒绝权限|
+|guest_ok=y	|允许匿名访问|
+|guest_ok=n	|不允许匿名访问|
+
+
+
+
+```shell title="客户端侧安装"
+sudo apt install smbclient
+```
+
+```shell title="使用命令登录"
+smbclinet //ip/name -U xxx
+```
+
+
+
+> [Linux 上挂载 Samba（Windows & macOS 共享文件夹）的正确姿势 - 知乎](https://zhuanlan.zhihu.com/p/26763026)
+
+!!! tip "注意权限问题"
+    1. 设置了当前共享文件夹有可写权限的话，那么需要增加当前文件夹的other的写权限
+
+    2. 设置了匿名访问的话需要设置当前目录以及这个目录的父目录的other的可执行权限
+
+    不然的话，不管使用命令访问还是使用图形界面访问都是会导致**报错没有权限**的问题
+
+
+
+### linux作客户端——挂载文件系统
+
+```shell title="举例"
+smbclient -L 192.168.1.70 -U lab
+
+Enter lab's password:   #输入密码，不回显
+Domain=[WIN7] OS=[Windows 7] Server=[Windows 7]
+   #共享点名称#      #类型#      #描述# 
+    Sharename       Type      Comment
+    ---------       ----      -------
+    ADMIN$          Disk      远程管理
+    Share               Disk      
+    C$              Disk      默认共享
+Connection to 192.168.1.70 failed (Error NT_STATUS_RESOURCE_NAME_NOT_FOUND) 
+NetBIOS over TCP disabled -- no workgroup available #可能会出现一些错误警告，不过可以列出的话就不用管
+```
+
+
+将 `//<ip>/test` 挂载到 `/mnt/` 目录上，如果不需要认证，则无需指定用户名和密码。
+
+```shell
+sudo mount -t cifs //<ip>/test /mnt/test_shared -o dir_mode=0777,file_mode=0777
+```
+
+[linux mount挂载文件夹设置权限 - 秋声梧叶 - 博客园](https://www.cnblogs.com/sctrkb/articles/15407736.html)
+
+
+开机自动挂载（修改 `/etc/fstab` 文件）：
+
+将`//192.168.xx.xx/sharedir`挂载到`/mnt/cifs`上，并指定了用户名和密码;如果不需要认证，可以不指定用户名和密码。
+```shell
+//192.168.3.4/sharedir /mnt/cifs cifs username=demo,password=demo 0 0
+```
+
+然后可以把`/mnt/folder`直接当作linux中的文件夹进行文件的操作
+
+
+```shell title="解除挂载"
+umount /dev/hda2
+```
+
+> pywin32库没有安装好 [Python 如何通过Python访问Windows网络上的共享文件夹|极客教程](https://geek-docs.com/python/python-ask-answer/311_python_using_python_how_can_i_access_a_shared_folder_on_windows_network.html)
+
+
+
+
 ## 网络
 
 ### 连接wifi
@@ -510,6 +645,34 @@ w3m之类的命令行浏览器试试
 ### 内网穿透
 [校园网内登录寝室电脑远程桌面和ssh连接WSL - 知乎](https://zhuanlan.zhihu.com/p/627393030)
 [干货 | 在校园网中用ssh连接宿舍电脑](https://kegalas.top/p/%E5%B9%B2%E8%B4%A7-%E5%9C%A8%E6%A0%A1%E5%9B%AD%E7%BD%91%E4%B8%AD%E7%94%A8ssh%E8%BF%9E%E6%8E%A5%E5%AE%BF%E8%88%8D%E7%94%B5%E8%84%91/)
+
+
+## 用户设置
+
+### 新建用户
+
+```shell title="创建root用户
+"
+sudo passwd root
+```
+
+```shell title="创建普通用户"
+sudo adduser username
+```
+```shell title="删除用户"
+sudo userdel -r username
+```
+
+```shell title="查看密码"
+sudo grep bash /etc/passwd
+```
+### 用户权限
+
+```shell title="给新用户root权限"
+sudo usermod -a -G adm username
+sudo usermod -a -G sudo username
+```
+
 
 ## docker 
 [Docker Compose - 安装和基本使用\_docker-compose 安装-CSDN博客](https://blog.csdn.net/Que_art/article/details/135192479)

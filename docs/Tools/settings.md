@@ -114,6 +114,7 @@ xGameBar对我来说没什么用，但是虚拟机中需要使用到这个快捷
 
 - **「V模式」**
   
+
 颇有意思，v键进入后，可快速输入中文年月日时间以及公式运算等。
 
 例如，你输入“`v123`”，在按a选择，呈现的结果就是“一百二十三”
@@ -129,12 +130,14 @@ xGameBar对我来说没什么用，但是虚拟机中需要使用到这个快捷
 
 - **其他**
   
+
 输入sjx，可以得到三角形 △ ▲
 输入slh，可以得到省略号
 输入pzh，可以得到中文破折号
 
 - **emoji、颜文字与符号面板**
   
+
 微软内置了emoji方案、颜文字、符号面板，使用 `Ctrl + Shift + B` 即可唤出。
 [一些小技巧，让你的 Win 10 内置输入法更好用 - 少数派](https://sspai.com/post/52101#!)
 
@@ -447,7 +450,15 @@ Set-ItemProperty -Path <path> -Name <property_name> -Value <value>
 Clear-ItemProperty -Path <path> -Name <property_name>
 ```
 
+## cursor
 
+[Cursor - The AI Code Editor](https://www.cursor.com/)
+
+
+
+
+
+[【前端必读】二、使用 Cursor 的基本功能全教程（快捷键及其他功能）\_cursor快捷键-CSDN博客](https://blog.csdn.net/zhouzongxin94/article/details/142550632)
 
 
 ## vscode
@@ -457,7 +468,12 @@ Clear-ItemProperty -Path <path> -Name <property_name>
 - `ctrl + P` 搜索文件名打开文件
 - `ctrl + F` 搜索内容
 - 搜索工作区内容的快捷键是`Ctrl + Shift + F`，或者在菜单栏中选择 `查看 (View)` -> `搜索 (Search)`
-- 
+
+
+
+### 卸载
+
+[Windows下彻底删除VSCode\_vscode注册表怎么删除-CSDN博客](https://blog.csdn.net/Zhangguohao666/article/details/105667095)
 
 ### 内存占用过大问题
 
@@ -605,5 +621,4 @@ sub_id  貌似是根据一定规则进行生成的，不清楚后台的hash算�
 
 
 查询`https://classroom.zju.edu.cn/courseapi/v3/multi-search/get-course-detail?course_id=67855&student=<student_id>`即可获得课程详细信息
-
 

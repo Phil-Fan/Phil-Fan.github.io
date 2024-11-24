@@ -2,6 +2,9 @@
 y 是一个连续的值；
 区别于classification，y是一个离散的值
 
+
+
+!!! note "因此，在高斯噪声的假设下，最小化均方误差等价于对线性模型的极大似然估计。"
 ## Polynomial Curve Fitting
 
 $f(x,\omega) = \omega_0 + \omega_1x + \omega_2x^2 + \omega_3x^3 + \dots + \omega_Mx^M = \sum_{j=0}^{M}\omega_jx^j$
@@ -48,6 +51,146 @@ stochastic gradient descent | 随机梯度下降法
 - Quasi Newton Method | 拟牛顿法
 
 
+## 模型
+
+## 损失函数 | 统计模型
+
+如果将小批量的总损失替换为小批量损失的平均值，需要如何更改学习率？
+
+如果将小批量的总损失替换为小批量损失的平均值，则需要将学习率乘以批量大小。这是因为在计算梯度时，我们使用了小批量中所有样本的信息。因此，如果我们将小批量的总损失替换为小批量损失的平均值，则相当于将每个样本的梯度除以批量大小。因此，我们需要将学习率乘以批量大小，以保持相同的更新步长
+
+
+损失为什么求平均：更好调学习率，相当于学习率之和梯度有关，和batch size没有关系
+
+每次算梯度的时候要记得清零，不然会做累加
+
+### l1 loss
+不常用绝对差值而用平方损失：不好求导
+
+有不平滑性，可能不稳定
+
+离远点较远的时候，不一定希望有一个很大的梯度
+### l2 loss
+
+
+### Huber Robust loss
+
+### softmax 回归
+- 不仅对硬分类感兴趣，还对软分类（概率）感兴趣
+
+直接使用实数对应不太合适，所以使用向量来代表分类
+
+#### 为什么使用
+- 线性有可能有负数，概率应该是非负的
+- 概率之和需要为1
+
+
+
+### 交叉熵
+
+
+
+信息论：
+
+信息量 ： 不确定-》确定的难度
+
+可以理解为惊异程度，不确定度更大，则信息量更大
+
+系统的熵
+
+$$
+H[P] = \sum_j - P(j) \log P(j).
+$$
+
+![image-20230330192802815](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20230330192802815.png)
+
+KL散度
+
+交叉熵
+
+衡量两个概率的区别
+
+我们可以把交叉熵想象为“主观概率为$Q$的观察者在看到根据概率$P$生成的数据时的预期惊异”。 
+
+（i）最大化观测数据的似然；
+（ii）最小化传达标签所需的惊异。
+## 优化算法 | 优化模型
+
+随机梯度下降：随机采样
+
+关注的不是收敛快不快，而是收敛到哪一个点；牛顿法可能不平坦
+## 训练过程
+
+对于每一个小批量，我们会进行以下步骤:
+
+- 通过调用net(X)生成预测并计算损失l（前向传播）。
+- 通过进行反向传播来计算梯度。
+- 通过调用优化器来更新模型参数。
+
+
+### 训练框架
+`epoch`: 训练轮次
+`iter` 训练小批量
+
+nn模块定义了大量的神经网络层和常见损失函数。
+```python
+num_epochs = 3
+for epoch in range(num_epochs):
+    for X, y in data_iter:
+        l = loss(net(X) ,y)
+        trainer.zero_grad() # 清除梯度，防止累计
+        l.backward() # 自动计算梯度
+        trainer.step() # 优化算法
+    l = loss(net(features), labels)
+    print(f'epoch {epoch + 1}, loss {l:f}')
+```
+
+### 初始化
+可以使用固定的初始值，但是不能为0
+
+!!! tip "如果我们将权重初始化为零，会发生什么。算法仍然有效吗？"
+
+    如果将权重初始化为零，那么每个神经元的输出都是相同的，这意味着每个神经元学习到的参数也是相同的。因此，每个神经元都会更新相同的参数，最终导致所有神经元学习到相同的特征。因此，权重初始化为零会使算法失效。这样就失去了神经网络的优势，即可以学习到不同特征的能力。
+
+    逻辑回归和神经网络有不同的权重初始化方法。对于逻辑回归，可以将权重初始化为零，因为这是一个线性模型，梯度下降算法仍然可以更新它们。然而，对于神经网络来说，将权重初始化为零可能会导致对称性问题，并阻止隐藏单元学习不同的特征。因此，最好使用随机或其他方法来初始化神经网络的权重。
+
+### 读取
+
+
+```python
+def load_array(data_arrays, batch_size, is_train=True):  #@save
+    """构造一个PyTorch数据迭代器"""
+    dataset = data.TensorDataset(*data_arrays)
+    return data.DataLoader(dataset, batch_size, shuffle=is_train)
+
+batch_size = 10
+data_iter = load_array((features, labels), batch_size)
+```
+
+batchsize 中最后一个batch中多余的样本：
+1. 丢掉
+2. 再随机采样，补满
+3. 直接使用小样本
+
+
+### 学习率
+
+尝试使用不同的学习率，观察损失函数值下降的快慢。
+
+学习率过大前期损失值下降快，但是后面不容易收敛
+学习率太小，损失函数下降慢
+
+调学习率的一些心得
+1. 选择对学习率不太敏感的算法：Adam
+2. 合理的参数的初始化
+   
+
+学习率设置过大会导致梯度爆炸的问题
+
+
+### 收敛判断 | epoch
+- 真实训练中，凭直觉
+- 先训练小批次
 
 ## overfitting | 过拟合
 在测试集上效果好的模型就是好的模型
@@ -65,6 +208,11 @@ regularization: 一些先验的假设，比如$\omega$是稀疏的，或者$\ome
 超参数：
 - $\lambda$：控制正则化的强度: $\lambda$越大，正则化的强度越大，模型越简单，training error 越大；如下图，左侧叫做过拟合，右侧叫做欠拟合![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240806021738.png)
 - $\alpha$：控制学习率
+
+
+神经网络需要学习一些噪声：batchsize小一点有时候不是坏事
+采用dropout的方法
+> 教小孩的时候不能一直夸奖
 
 
 
@@ -104,6 +252,9 @@ pros:
 
 cons:
 - too simple:high bias & low variance
+
+
+对于分类问题，只关心分类正确的类的值
 ## LDA
 
 [理解主成分分析（1）——最大方差投影与数据重建 - Fenrier Lab](https://seanwangjs.github.io/2017/12/21/principal-components-analysis.html)
@@ -134,3 +285,6 @@ $$
 [LDA——线性判别分析基本推导与实验-CSDN博客](https://blog.csdn.net/qq_37189298/article/details/108656649)
 
 [二分类线性判别分析，看懂这篇就够了 - 知乎](https://zhuanlan.zhihu.com/p/488134514)
+
+
+

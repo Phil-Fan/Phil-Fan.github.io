@@ -47,10 +47,59 @@ ssh <alias>
 
 
 
-## 文件传递
+## 远程连接
+
+### pycharm 远程开发
+
+[Pycharm远程连接服务器并运行代码（详细！）\_pycharm将代码同步到远程服务器-CSDN博客](https://blog.csdn.net/cutefery/article/details/113918510)
+
+**1. 设置Connection**
+
+Tools->Deployment->Configuration
+
+![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/fac49e9753f2ab5a3c262724b13ace42.png)
+
+
+
+**2. 建立Mapping**
+
+![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/5ada3773c2ea98000fdf257681baa67f.png)
+
+**3. 实现代码自动上传**
+
+![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/642e7fe6b4c620483aed45e51615ca92.png)
+
+![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/eba75696543b972e5fc6289fe9648940.png)
+
+**4. 设置Python Interpreter**
+
+![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/1e5ffb013eb5acda4148f924aafe9f3b.png)
 
 ### vscode
+
 使用vscode连接以后，可以将文件直接拖拽传递
+
+#### 报错
+
+
+
+[我只教一次！vscode remote-ssh 连接失败的基本原理和优雅的解决方案 - 知乎](https://zhuanlan.zhihu.com/p/671718415)
+
+[【VScode远程连接报错】Failed to parse remote port from server output\_vscode failed to parse remote port from server out-CSDN博客](https://blog.csdn.net/qq_38667212/article/details/140462083)
+
+1. ### 到本地删除.ssh下known_hosts
+
+```shell
+C:\Users\username\.ssh\
+```
+
+1. #### 首先 kill 掉服务器端的VS code 服务，然后在服务器端删除vscode连接的相关记录
+
+```
+/home/username/.vscode-server/
+```
+
+3. ### 重新回到Vscode连接
 
 
 ### 其他工具
@@ -72,7 +121,7 @@ pip install torch torchaudio torchvision
 ```
 
 ```shell title="安装一些常用库"
-pip install scipy seaborn tqdm jupyter
+pip install scipy seaborn tqdm jupyter pandas matplotlib
 ```
 
 

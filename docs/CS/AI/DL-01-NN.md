@@ -34,6 +34,7 @@ $$
 ### Tanh
 takes a real-valued number and “squashes” it into range between
 -1 and 1
+
 - Like sigmoid, tanh neurons saturate
 - Unlike sigmoid, the output is zero-centered
 o It is therefore preferred than sigmoid
@@ -42,13 +43,14 @@ o It is therefore preferred than sigmoid
 
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240919153409.png)
 ReLU is fast to compute
-o Compared to sigmoid, tanh
-o Simply threshold a matrix at zero
 
+- Compared to sigmoid, tanh
+- Simply threshold a matrix at zero
 
-§ Accelerates the convergence of gradient descent
-o Due to linear, non-saturating form
-§ Prevents the gradient vanishing problem
+- Accelerates the convergence of gradient descent
+- Due 
+-  linear, non-saturating form
+- Prevents the gradient vanishing problem
 
 
 ### Leaky ReLU
@@ -57,7 +59,7 @@ o Due to linear, non-saturating form
 
 
 
-## 超参数 | hyperparameters
+## 超参数 | hyper parameters
 The most common hyper-parameters include:
 § Number of layers, and number of neurons per layer
 § Initial learning rate
