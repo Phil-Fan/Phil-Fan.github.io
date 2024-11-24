@@ -76,19 +76,6 @@ $$
 
 
 
-信息论
-
-信息量 ： 不确定-》确定的难度
-
-系统的熵
-
-![image-20230330192802815](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20230330192802815.png)
-
-KL散度
-
-交叉熵
-
-![image-20230330193007630](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20230330193007630.png)
 
 ## 池化层
 

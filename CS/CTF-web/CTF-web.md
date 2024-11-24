@@ -82,7 +82,34 @@ Web漏洞挖掘的关键：
 ## 前端：可视化和操作逻辑
 
 
+## request库的使用
 
+```python title='发送 GET 请求'
+import requests
+
+response = requests.get('https://api.example.com/data')
+print(response.status_code)
+print(response.json())
+```
+
+```python title='发送 POST 请求'
+import requests
+
+data = {'key': 'value'}
+response = requests.post('https://api.example.com/data', json=data)
+print(response.status_code)
+print(response.json())
+```
+
+```python
+# 添加请求头
+headers = {'Authorization': 'Bearer YOUR_ACCESS_TOKEN'}
+response = requests.get('https://api.example.com/data', headers=headers)
+
+# 处理查询参数
+params = {'key1': 'value1', 'key2': 'value2'}
+response = requests.get('https://api.example.com/data', params=params)
+```
 
 ## SQL注入
 当web应用向后台数据库传递SQL语句进行数据库操作时，如果对用户输入的参数没有经过严格的过滤处理，那么攻击者就可以构造特殊的SQL语句，直接输入数据库引擎执行，获取或修改数据库中的数据。

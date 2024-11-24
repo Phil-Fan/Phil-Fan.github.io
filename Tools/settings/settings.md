@@ -114,6 +114,7 @@ xGameBar对我来说没什么用，但是虚拟机中需要使用到这个快捷
 
 - **「V模式」**
   
+
 颇有意思，v键进入后，可快速输入中文年月日时间以及公式运算等。
 
 例如，你输入“`v123`”，在按a选择，呈现的结果就是“一百二十三”
@@ -129,12 +130,14 @@ xGameBar对我来说没什么用，但是虚拟机中需要使用到这个快捷
 
 - **其他**
   
+
 输入sjx，可以得到三角形 △ ▲
 输入slh，可以得到省略号
 输入pzh，可以得到中文破折号
 
 - **emoji、颜文字与符号面板**
   
+
 微软内置了emoji方案、颜文字、符号面板，使用 `Ctrl + Shift + B` 即可唤出。
 [一些小技巧，让你的 Win 10 内置输入法更好用 - 少数派](https://sspai.com/post/52101#!)
 
@@ -447,7 +450,15 @@ Set-ItemProperty -Path <path> -Name <property_name> -Value <value>
 Clear-ItemProperty -Path <path> -Name <property_name>
 ```
 
+## cursor
 
+[Cursor - The AI Code Editor](https://www.cursor.com/)
+
+
+
+
+
+[【前端必读】二、使用 Cursor 的基本功能全教程（快捷键及其他功能）\_cursor快捷键-CSDN博客](https://blog.csdn.net/zhouzongxin94/article/details/142550632)
 
 
 ## vscode
@@ -457,7 +468,12 @@ Clear-ItemProperty -Path <path> -Name <property_name>
 - `ctrl + P` 搜索文件名打开文件
 - `ctrl + F` 搜索内容
 - 搜索工作区内容的快捷键是`Ctrl + Shift + F`，或者在菜单栏中选择 `查看 (View)` -> `搜索 (Search)`
-- 
+
+
+
+### 卸载
+
+[Windows下彻底删除VSCode\_vscode注册表怎么删除-CSDN博客](https://blog.csdn.net/Zhangguohao666/article/details/105667095)
 
 ### 内存占用过大问题
 
@@ -606,31 +622,3 @@ sub_id  貌似是根据一定规则进行生成的，不清楚后台的hash算�
 
 查询`https://classroom.zju.edu.cn/courseapi/v3/multi-search/get-course-detail?course_id=67855&student=<student_id>`即可获得课程详细信息
 
-
-## 嵌入b站视频
-
-
-1.打开B站的视频
-2.点击“分享”按钮，获取“嵌入代码”：B站视频的下一行，点击“分享”按钮，下方弹出分享页面。
-
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241031230641.png)
-
-禁用方法很简单，就是在视频 url 链接最后加上 autoplay=0。例如：
-
-```html title="禁止自动播放"
-<iframe src="//player.bilibili.com/player.html?aid=951910057&bvid=BV1zs4y177sv&cid=1078968085&page=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="500" height="300"> </iframe>
-```
-
-
-| 参数用途                         | 参数名      | 使用方法          |
-|----------------------------------|-------------|-------------------|
-| 是否自动播放(默认否)            | `autoplay`    | 1: 开启, 0: 关闭  |
-| 默认弹幕开关(默认开启)          | `danmaku`    | 1: 开启, 0: 关闭  |
-| 是否默认静音(默认否)            | `muted`       | 1: 开启, 0: 关闭  |
-| 一键静音按钮是否显示(默认不显示) | `hasMuteButton` | 1: 开启, 0: 关闭  |
-| 视频封面下方是否显示播放量弹幕量等信息(默认显示) | `hideCoverInfo` | 1: 开启, 0: 关闭  |
-| 是否隐藏弹幕按钮(默认不隐藏)    | `hideDanmakuButton` | 1: 开启, 0: 关闭 |
-| 是否隐藏全屏按钮(默认显示)      | `noFullScreenButton` | 1: 开启, 0: 关闭 |
-| 是否开始记忆播放(默认开启)      | `fw`          | 1: 开启, 0: 关闭  |
-| 默认开始时间(默认0)             | `t`           | 直接填写数值, 单位秒 |
-| 是否显示高清(默认否)            | `highQuality` | 1: 开启, 0: 关闭 (貌似是无用的, 各位可以试试) |

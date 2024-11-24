@@ -209,8 +209,7 @@ ssh -T git@github.com
 $ ifconfig #记录ip地址 
 $ ssh user.name@ip 
 ```
-
-- 设置ssh免密登录  
+#### 设置ssh免密登录  
 
 在win主机上`ssh-keygen`生成一对公私钥，将公钥发送到服务器的`~/.ssh/authorized_keys`文件下  
 
