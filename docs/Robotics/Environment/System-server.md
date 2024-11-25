@@ -87,6 +87,8 @@ Tools->Deployment->Configuration
 
 [【VScode远程连接报错】Failed to parse remote port from server output\_vscode failed to parse remote port from server out-CSDN博客](https://blog.csdn.net/qq_38667212/article/details/140462083)
 
+[VSCode 连不上远程服务器问题及解决办法集合\_vscode 无法连接远程服务器-CSDN博客](https://blog.csdn.net/White_lies/article/details/124093530)
+
 1. ### 到本地删除.ssh下known_hosts
 
 ```shell
@@ -317,4 +319,6 @@ GTX 代表更高级的游戏独显，后来随着技术进步，出现了光线�
 ### 开发票
 
 个人用户抬头只能是个人
+
+## AutoDL
 
