@@ -312,6 +312,28 @@ $$
 
 ## 模糊控制 | Fuzzy Control
 
+a fuzzy inference system is a form of artificial intelligence
+
+fuzzy logic is a way to encode this experience-based knowledge
+
+根据已有的知识设计一种规则
+
+
+有点像神经网络最后一层的softmax输出
+
+crisp input -> fuzzifizcation -> fuzzy variable -> fuzzy rule -> defuzzification -> crisp output
+示例图片——小费与食物、服务的关系
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241128150916.png)
+
+
+优点：我们一开始不知道规则，但是可以通过数据来学习规则，就像训练神经网络一样，最后可以得到一个可解释性强的模型
+
+
+
+
+
+
+
 ### 数学基础
 
 ### 原理与结构
@@ -321,12 +343,82 @@ $$
 
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241107135344.png)
 
-### 设计方法
+
+### merbership function
+隶属函数，需要通过经验和专家知识来确定
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241128160032.png)
+把人们语言中or行动中的不确定的量，转换成拥有置信度的模糊变量（input）
 
 
-### 模糊专家系统
+
+
+### fuzzy rules 
+我们需要建立模糊规则，来将模糊变量转换成模糊输出
+
+> 比如：如果食物好吃，服务好，小费就多；把食物质量和服务态度这两个模糊变量转换成了小费这个模糊变量
+
+#### fuzzy operators
+- and（min）
+- or（max）
+- not（1-a） 
+
+T-norm
+
+### defuzzification
+
+每个规则在推断时候得出来的值含义是规则触发的强度
+
+可以用来判定
+
+
+最低输出是最小的隶属函数的质心，同样的，最大的输出是最大的隶属函数的质心
+
+所以如果要控制输出量的值域，久需要调整隶属函数
+
+```matlab
+gensurf
+```
+只用控制平面查表计算速度很快，但是内部的规则逻辑就不可见了
+
+
+#### rule firing strength
+
+
+
+### 应用示例
+
+#### 作为控制器
+
+- 汽车侧方停车
+- 倒立摆
+- 人工胰腺 
+
+
+
+#### 作为决策系统
+
+- 金融：贷款风险
+- 医疗：诊断
+- 农业：病虫害诊断
 
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241107135524.png)
+
+### 数据驱动
+
+#### which parameters are we tuning?
+使用经验来确定大部分的参数，使用数据来确定剩下的参数
+
+
+#### how to tune them? 
+遗传算法
+
+随机取样：去除高损失，保留地损失
+
+- 一方面，构建模糊控制树更优良，因为一方面参数更少，另一方面，模糊规则更少
+
+训练的思路：先使用数据训练，然后使用获得的知识，对网络的参数进行调整，然后再进行训练
+
 
 
 ## 神经网络控制 | Neural Network Control

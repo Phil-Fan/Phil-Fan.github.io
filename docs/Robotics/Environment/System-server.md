@@ -123,7 +123,7 @@ pip install torch torchaudio torchvision
 ```
 
 ```shell title="安装一些常用库"
-pip install scipy seaborn tqdm jupyter pandas matplotlib
+pip install scipy seaborn tqdm jupyter pandas matplotlib opencv-python
 ```
 
 

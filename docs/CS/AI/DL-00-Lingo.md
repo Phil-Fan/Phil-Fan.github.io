@@ -4,6 +4,9 @@
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241118152520.png)
 [深度学习常见名词概念：Sota、Benchmark、Baseline、端到端模型、迁移学习等的定义-CSDN博客](https://blog.csdn.net/qq_18555105/article/details/121345833)
 
+
+[ILSVRC-ImageNet历年竞赛冠军\_imagenet比赛-CSDN博客](https://blog.csdn.net/zephyr_wang/article/details/107892280)
+
 **`Sota`**
 `Sota`实际上就是State of the arts 的缩写，指的是在某一个领域做的Performance最好的model，一般就是指在一些benchmark的数据集上跑分非常高的那些模型。
 

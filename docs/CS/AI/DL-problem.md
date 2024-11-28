@@ -67,3 +67,35 @@ def train_ch3(net, train_iter, test_iter, loss, num_epochs, updater):  #@save
     assert train_acc <= 1 and train_acc > 0.7, train_acc
     assert test_acc <= 1 and test_acc > 0.7, test_acc
 ```
+
+
+## Pytorch
+
+### mat1 and mat2 must have the same dtype, but got Double and Float
+
+因为输入数据和模型参数的数据类型不匹配。输入数据是 `torch.float64`（也就是`Double`），而模型的参数默认是 `torch.float32`（也就是 `Float`）
+
+```python title="将输入数据转换为 Float 类型"
+input_data = input_data.float()  # 将输入数据转换为 Float
+```
+
+```python title="将模型参数转换为 Double 类型"
+model = YourModel().double()  # 将模型参数转换为 Double
+```
+
+### can‘t convert np.ndarray of type numpy.object_. The only supported types are: float6
+
+这是因为pandas对象中数据类型是混合的或不是NumPy可以直接处理的类型（如字符串或Pandas特有的数据类型），则可能不会按预期工作
+
+所以需要先转换成numpy数组格式
+
+```python title="转换成numpy数组格式"
+X = torch.tensor(inputs.to_numpy(dtype=float))
+y = torch.tensor(outputs.to_numpy(dtype=float))
+X, y
+```
+这样就可以成功了
+
+```python title="另一种"
+y = torch.tensor(y.astype(np.float32))
+```
