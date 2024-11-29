@@ -4,9 +4,51 @@ MATLAB 是“matrix laboratory”的缩写形式。MATLAB® 主要用于处理�
 
 ## 软件配置
 
+### Matlab in VSCode
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241128002347.png)
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241128002415.png)
+
+下载插件
+
+在python环境中，最好3.9
+
+```python title="检查32or64位系统"
+import sys
+print(sys.maxsize > 2**32)
+```
 
 
+找到安装matlab 的root路径
 
+`\extern\engines\python`进入放置`setup.py`的位置；
+```shell title="安装"
+python setup.py install
+```
+安装 MATLAB Engine API 的 Python 设置脚本。
+
+
+```shell title="测试"
+ipython
+```
+
+```python title="测试代码"
+import matlab.engine
+eng = matlab.engine.start_matlab()
+eng.sqrt(4.0)
+```
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241128002703.png)
+
+注意这里如果使用conda环境，需要配置对应的conda中的python路径
+
+
+配好了以后右上角就会有执行代码的按钮了
+
+
+#### 小bug
+1. 需要vscode打开`.m`文件的文件夹，否则会报错
 
 ## 基础
 

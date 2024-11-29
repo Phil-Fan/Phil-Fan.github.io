@@ -105,3 +105,6 @@ o Often, between 20% and 50% of the units are dropped
 
 
 Batch normalization layers
+
+
+##

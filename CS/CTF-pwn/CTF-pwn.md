@@ -40,7 +40,45 @@
 安装后直接在命令行输入 websocat -b wss://... 即可进行交互
 
 
+
+### libc
+一般来说，完备的题目会给出libc版本，但《信安导》这个课显然是把老年libc题目拿来出来、、、
+
+!!! bug "libc版本问题"
+  ```bash
+  Error /lib/x86_64-linux-gnu/libc.so.6: version `GLIBC_2.34’ not found
+  ```
+
+```bash
+strings /lib/x86_64-linux-gnu/libc.so.6 |grep GLIBC_
+```
+最高版本只到2.30，由于使用的系统为ubuntu20.04，已经升级到了系统版本的最高版本了。
+
+[彻底解决Glibc版本问题 - 好好学习](https://thecoderalex.github.io/articles/2023/12/cglibc/)
+
+=== "解决方法1"
+  添加一个高级版本系统的源，直接升级libc6.
+  ```bash title="编辑源"
+  sudo vi /etc/apt/sources.list
+  ```
+  
+  ```bash title="添加高版本的源"
+  deb http://th.archive.ubuntu.com/ubuntu jammy main    #添加该行到文件
+  ```
+  ```bash title="运行升级"
+  sudo apt update
+  sudo apt install libc6
+  ```
+  最后别忘了把高版本源删除
+
+```bash
 LD_PRELOAD=./libc.so.6 ./ld-linux-x86-64.so.2 ./login_me
+```
+
+
+
+
+
 
 ## 基础知识
 ### 数据类型

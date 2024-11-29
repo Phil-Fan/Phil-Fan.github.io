@@ -146,10 +146,10 @@ conda env create -f freeze.yml
 1. 导出结果含有路径
 导出结果会存在路径，生成的requirements.txt文件在当前目录下。
 ```shell
-pip freezen > requirements.txt
+pip freeze > requirements.txt
 ```
 
-2. 导出不带路径的
+1. 导出不带路径的
 生成的requirements.txt文件在当前目录下。
 ```shell
 pip list --format=freeze > requirement.txt

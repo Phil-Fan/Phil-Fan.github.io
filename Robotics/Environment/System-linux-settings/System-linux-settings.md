@@ -429,7 +429,7 @@ pair yourDeviceMAC
 其中pair后面跟上扫描出的键盘的MAC地址，根据提示输入密码，显示配对成功，此时，在桌面的设置界面“我的设备”中可以看到蓝牙中键盘为已配对状态，但此时可能依然无法成功连接。
 
 ## 压缩
-```shell title="压缩"
+```shell title="递归压缩"
 zip -r examples.zip examples   # examples为目录
 ```
 
@@ -444,6 +444,54 @@ unzip name.zip -d 当前目录
 ```shell title="如果是压缩包是.tar后缀"
 tar xvf name.tar 
 ```
+
+
+## 复制 scp
+
+好的，我来帮你总结一下scp的常见用法。
+
+```markdown
+## SCP 常用命令
+[关于scp传输文件踩过的坑(最全!linux与windows相互传输文件,连接失败,免密登录,连接超时) - 知乎](https://zhuanlan.zhihu.com/p/542926236)
+### 基本语法
+```shell
+scp [可选参数] 源文件 目标文件
+```
+
+
+```shell
+# 复制文件
+scp local_file remote_username@remote_ip:remote_folder
+scp local_file remote_username@remote_ip:remote_file
+
+# 复制目录
+scp -r local_folder remote_username@remote_ip:remote_folder
+```
+
+
+- `-r`: 递归复制整个目录
+- `-P port`: 指定远程主机的端口号
+- `-p`: 保留原文件的修改时间和访问权限
+- `-q`: 不显示传输进度条
+- `-C`: 允许压缩
+- `-v`: 详细方式显示输出
+
+### 示例
+```shell
+# 复制本地文件到远程服务器
+scp file.txt user@192.168.1.100:/home/user/
+
+# 复制远程文件到本地
+scp user@192.168.1.100:/home/user/file.txt ./
+
+# 复制整个目录
+scp -r local_folder user@192.168.1.100:/home/user/
+
+# 使用特定端口
+scp -P 2222 file.txt user@192.168.1.100:/home/user/
+```
+
+
 ## 局域网
 ```shell
 apt-get install -y cifs-utils
@@ -783,5 +831,3 @@ nohup java -jar test_jar-1.0-SNAPSHOT.jar &
 nohup 意思是不挂断运行命令，当账户退出或终端关闭时，程序仍然运行。
 
 当用 nohup 命令运行jar包时，缺省情况下该应用的所有输出被重定向到nohup.out的文件中，除非另外指定了输出文件。
-
-
