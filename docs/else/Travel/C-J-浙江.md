@@ -1,4 +1,71 @@
 # 浙江
+## 安吉
+
+整体建设属于发展较好的县级城市，景点以风景类为主，可能需要规划好路线，不然会面临无处可去的尴尬境地
+
+另外感觉安吉景区属于杭州郊区辐射的景点，很多人都是家庭自驾游，物价我认为还是挺高的。谨慎购买
+
+|名录|价格|
+|---|---|
+|灵峰寺|免费|
+|江南天池||
+|Hello Kitty主题乐园||
+|云山草原||
+|天荒坪|免费|
+|余村|免费|
+
+### 灵峰寺
+
+一座门头很小但里面不小的寺庙，整体构造和灵隐寺差不多。
+
+去的时候人很少，也非常安静。
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/ade6796134513737fa02bee1d736fa3.jpg)
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/957bc5df2b378be2ad147a955dc1e5a.jpg)
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/df5530f2bc238b86672bc7642374e65.jpg)
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/c8f48c01dd0c51472716515618a2f85.jpg)
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/1fc4fbbe8364e71542960ae53b3d199.jpg)
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/3a70e452d9455a71c8bcd518d14e279.jpg)
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/ea6175b16f432f624bbf976ca1e38d0.jpg)
+
+### 余村
+
+一个非常小的村庄，有几片田
+
+一进村有建设一块较大的草坪，但是上面的设施很多都坏掉了。
+
+
+### 天荒坪
+
+上山的过程是盘山公路和隧道，可能有一些驾驶乐趣（？）
+
+在山上看了一场日落，半山腰有一家咖啡馆叫“”
+
+路上有很多飙车和骑摩托车、骑自行车的人，感觉很危险
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/d1d736d164d8f98cd9ca09d57d75ee7.jpg)
+
+### Hello Kitty主题乐园
+
+
+### 云山草原
+
+### 江南天池
+
+### 饮食
+吃了蒲公英捞面
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241201143100.png)
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/7acdc79bc94cdbf320c0ea459d45c75.jpg)
+
+
 ## 千岛湖
 
 ### 食物
