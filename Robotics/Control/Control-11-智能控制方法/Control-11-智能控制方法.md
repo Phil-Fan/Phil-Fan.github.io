@@ -284,7 +284,9 @@ $$
 
 其中 $T$ 为采样时间，$\Delta \theta (k) = \theta (k) - \theta (k-1)$
 
-若 $F_m = 25$，取 $T = 0.0001s$，$K_p = 20$，$K_i = 3$，$K_d = 1$，设计 $0 < \theta_1 < \theta_2 < \theta_m$，$0 < K_s < 1 < K_b$
+若 $F_m = 25$，取 $T = 0.0001s$，$K_p = 200$，$K_i = 3$，$K_d = 10$
+
+设计 $0 < \theta_1 < \theta_2 < \theta_m$，$0 < K_s < 1 < K_b$
 
 
 在离散PID控制基础上，采用专家PID控制方案，规则如下：
@@ -306,7 +308,7 @@ $$
 
 若小车和摆杆静止，摆杆与垂直向上方向的初始夹角 $\theta(0) = \frac{\pi}{4} \text{ rad}$，请：
 
-1. 给出上述专家PID控制方案的合适参数 $\theta_1, \theta_2, \theta_m$ 和 $K_s, K_b$，通过调节 $F$ 使倒立摆的摆杆夹角 $\theta$ 恢复并维持在期望值（$\theta_d = 0$），在 matlab 中进行仿真，给出位移 $x$、夹角 $\theta$ 和水平力 $F$ 的变化曲线，并比较专家PID控制与常规PID控制的结果（可尝试参数 $\theta_1 = 0.5, \theta_2 = 0.3, \theta_m = 0.1$ 和 $K_s = 0.85, K_b = 1.4$）。
+1. 给出上述专家PID控制方案的合适参数 $\theta_1, \theta_2, \theta_m$ 和 $K_s, K_b$，通过调节 $F$ 使倒立摆的摆杆夹角 $\theta$ 恢复并维持在期望值（$\theta_d = 0$），在 matlab 中进行仿真，给出位移 $x$、夹角 $\theta$ 和水平力 $F$ 的变化曲线，并比较专家PID控制与常规PID控制的结果（可尝试参数 $\theta_1 = 0.1, \theta_2 = 0.3, \theta_m = 0.5$ 和 $K_s = 1, K_b = 1.3$）。
 
 2. 针对不同的初始夹角 $\theta(0)$，给出专家PID控制的结果。（可能需要调整相关参数 $\theta_1, \theta_2, \theta_m$ 和 $K_s, K_b$）
 
@@ -421,11 +423,18 @@ gensurf
 
 
 ### HW03-模糊控制
+[完整的模糊推理系统介绍以及matlab中从零实现(上篇)\_it can contain elements with only a partial degree-CSDN博客](https://blog.csdn.net/weixin_42686879/article/details/106727890)
+
+
+[完整的模糊推理系统介绍以及matlab中从零实现(下篇)\_tipper 模糊推理系统-CSDN博客](https://blog.csdn.net/weixin_42686879/article/details/106757646)
+
+[模糊控制方法在磁悬浮系统中的应用 - 道客巴巴](https://www.doc88.com/p-047673747915.html)
+
+[Generate Code for Fuzzy System Using Simulink Coder](https://ww2.mathworks.cn/help/fuzzy/generate-code-for-fuzzy-system-using-simulink-coder.html)
+
 
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241128175458.png)
 
-
-以下是使用MathJax代码表示的公式：
 
 1. 系统方程：
 
@@ -452,9 +461,7 @@ $$
 其中，$U$ 为控制电压，$L$ 为电感，$R$ 为线圈电阻。
 
 
-好的，以下是使用MathJax代码表示的表格和公式：
-
-### 假定系统参数如下表所示
+假定系统参数如下表所示
 
 | 参数 | 值 |
 | --- | --- |
@@ -464,7 +471,7 @@ $$
 | $R$ | 5$\Omega$ |
 | $L$ | 0.01$H$ |
 
-### 请：
+请：
 
 1. **推导磁悬浮系统的状态空间模型：**（提示：以钢球位置 $X$、速度 $\dot{X}$ 和电流 $I$ 为状态变量）
 

@@ -256,8 +256,7 @@ A^P
 expm logm sqrtm
 
 
-eig(A)以列向量形式返回特征值，`[X,D]=eig(A)`返回
-特征值和特征向量，D为特征值对角阵，特征向量X。
+
 ### 串联
 
 *串联*是连接数组以便形成更大数组的过程。实际上，第一个数组是通过将其各个元素串联起来而构成的。成对的方括号 `[]` 即为串联运算符。
@@ -280,6 +279,11 @@ A = [a; a] % 垂直
 ```
 [Q,R]=qr(A)
 ```
+#### 特征值分解
+eig(A)以列向量形式返回特征值，`[X,D]=eig(A)`返回
+特征值和特征向量，D为特征值对角阵，特征向量X。
+
+
 #### SVD
 
 奇异值分解
@@ -434,7 +438,9 @@ zplane(num,den)
 
 mux：多路复用器，可以实现多个输入信号的选择
 
-scope：示波器，用于显示信号波形；设置里可以更改输入端口的个数
+scope：示波器，用于显示信号波形；设置里可以更改输入端口的个数；
+
+!!! note "如果看不到曲线的话，检查一下是不是坐标轴范围给的太大了"
 
 transfer function：传递函数，用于建立系统的传递函数模型
 
@@ -494,6 +500,8 @@ S-function包括主函数和6个功能子函数，包括mdlInitializeSizes（初
 在S-function仿真过程中，利用switch-case语句，根据不同阶段对应的flag值（仿真流程标志向量）来调用S-function的不同子函数，以完成对S-function模块仿真流程的控制。
 
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241117102637.png)
+
+#### Mask
 
 
 
@@ -888,7 +896,30 @@ Co = ctrb(A,B) # return the controllability matrix
 ## 图像绘制
 > 绘制相平面图像[MathWorks-Teaching-Resources/Phase-Plane-and-Slope-Field: Apps for qualitative ODE analysis.](https://github.com/MathWorks-Teaching-Resources/Phase-Plane-and-Slope-Field)
 
+### 图像保存
 
+```matlab title="如果图像是img"
+imwrite(img,'result.jpg');
+```
+
+```matlab "按照窗口进行保存"
+saveas(gcf, 'save.jpg'); %保存当前窗口的图像
+saveas(2, 'save.jpg'); %保存Figure 2窗口的图像
+```
+
+
+```matlab title="显示图像并保存"
+x=-pi: 2*pi/ 1000:pi;
+y= cos( x);
+plot( x, y); print(gcf, '-djpeg', 'abc.jpg') %绘制图像并保存为jpg格式
+```
+
+
+```matlab title="不显示图像而直接保存"
+x=-pi: 2*pi/ 1000:pi;
+set(figure( 1), 'visible', 'off');
+plot( x, sin( x)); print(gcf, '-dpng', 'abc.png') %不显示图像直接保存为png格式
+```
 ## 程序设计
 
 
