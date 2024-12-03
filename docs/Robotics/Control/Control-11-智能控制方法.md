@@ -430,6 +430,9 @@ gensurf
 
 [模糊控制方法在磁悬浮系统中的应用 - 道客巴巴](https://www.doc88.com/p-047673747915.html)
 
+[Generate Code for Fuzzy System Using Simulink Coder](https://ww2.mathworks.cn/help/fuzzy/generate-code-for-fuzzy-system-using-simulink-coder.html)
+
+
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241128175458.png)
 
 

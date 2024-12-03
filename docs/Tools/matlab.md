@@ -896,7 +896,30 @@ Co = ctrb(A,B) # return the controllability matrix
 ## 图像绘制
 > 绘制相平面图像[MathWorks-Teaching-Resources/Phase-Plane-and-Slope-Field: Apps for qualitative ODE analysis.](https://github.com/MathWorks-Teaching-Resources/Phase-Plane-and-Slope-Field)
 
+### 图像保存
 
+```matlab title="如果图像是img"
+imwrite(img,'result.jpg');
+```
+
+```matlab "按照窗口进行保存"
+saveas(gcf, 'save.jpg'); %保存当前窗口的图像
+saveas(2, 'save.jpg'); %保存Figure 2窗口的图像
+```
+
+
+```matlab title="显示图像并保存"
+x=-pi: 2*pi/ 1000:pi;
+y= cos( x);
+plot( x, y); print(gcf, '-djpeg', 'abc.jpg') %绘制图像并保存为jpg格式
+```
+
+
+```matlab title="不显示图像而直接保存"
+x=-pi: 2*pi/ 1000:pi;
+set(figure( 1), 'visible', 'off');
+plot( x, sin( x)); print(gcf, '-dpng', 'abc.png') %不显示图像直接保存为png格式
+```
 ## 程序设计
 
 
