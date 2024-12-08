@@ -448,12 +448,11 @@ tar xvf name.tar
 
 ## 复制 scp
 
-好的，我来帮你总结一下scp的常见用法。
-
-```markdown
-## SCP 常用命令
 [关于scp传输文件踩过的坑(最全!linux与windows相互传输文件,连接失败,免密登录,连接超时) - 知乎](https://zhuanlan.zhihu.com/p/542926236)
+
+
 ### 基本语法
+
 ```shell
 scp [可选参数] 源文件 目标文件
 ```
@@ -699,8 +698,7 @@ w3m之类的命令行浏览器试试
 
 ### 新建用户
 
-```shell title="创建root用户
-"
+```shell title="创建root用户"
 sudo passwd root
 ```
 

@@ -254,16 +254,19 @@ comments: true
 
 ![type:video](https://philfan-pic.oss-cn-beijing.aliyuncs.com/video/piano/S-13-托卡塔.mp4)
 ### S-14-演艺人
-无标注版本
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241119133638.png)
+=== "有标注版本"
+    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241203201805.png)
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241119133713.png)
+=== "无标注版本"
+    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241119133638.png)
+
+    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241119133713.png)
 
 ![type:video](https://philfan-pic.oss-cn-beijing.aliyuncs.com/video/piano/S-14-演艺人.mp4)
 
 - 注意有降音的地方
-- 最后一段先把左手练熟
+- 先练习右手，再练习左手，再一段段地练习（差不多是4个句子），最后练习句子之间的衔接
 
 ### S-15-献给爱丽丝
 
@@ -362,6 +365,50 @@ comments: true
 
 
 
+## 自学曲目
+
+### P-01-你的名字——ccc
+约会
+
+
+### P-02-献给爱丽丝
+
+
+### P-03-卡农
+
+
+### P-04-千与千寻
+
+### 七里香
+
+### 晴天
+
+
+### 久石让 Spring
+
+### 久石让 Summer
+
+
+### 梦中的婚礼
+
+
+### ONE OK ROCK 蜉蝣
+
+### 星际穿越
+
+### 天空之城
+
+
+### 圣诞快乐，劳伦斯先生
+
+### P-05-采石
+
+
+### P-06-床
+
+
+
+
 ## 考试
 
 ### 期中
@@ -388,8 +435,10 @@ comments: true
     没有音阶和和弦练习
 
 === "四手联弹"
+    期中考试之后老师会根据大家的水平进行分组
 
 === "听歌识曲&看谱识曲"
+    在学在浙大上进行答题
 
 
 ## 课程之后

@@ -424,7 +424,7 @@ zplane(num,den)
 - **系统仿真**：Simulink是MATLAB中用于动态系统建模、仿真和分析的工具箱，可以用于自动控制原理课程中的系统仿真。
 - **控制系统设计**：通过Simulink，可以设计和分析各种类型的控制系统，包括反馈控制系统、前馈控制系统等。
 
-使用方法：在matlab中输入simulink，打开simulink模型编辑器。
+使用方法：在matlab中输入`simulink`，打开simulink模型编辑器。
 
 
 ### 快捷键
@@ -432,21 +432,29 @@ zplane(num,den)
 - `Ctrl + R`：顺时针旋转
 - `Ctrl + Shift + R` 逆时针旋转
 - 按住`Ctrl`键并连接线，可以从一条线中分支
+- `Ctrl + M`：打开mask
+- `Ctrl + Shift + X` 注释
+- `Ctrl + G` 创建子系统
+- `Ctrl + Shift + G` 取消创建子系统
 
 [MATLAB的Simulink的信号线 - 知乎](https://zhuanlan.zhihu.com/p/615160855)
+
+
 ### 常用元件
 
-mux：多路复用器，可以实现多个输入信号的选择
+`mux`：多路复用器，可以实现多个输入信号的选择
 
-scope：示波器，用于显示信号波形；设置里可以更改输入端口的个数；
+`scope`：示波器，用于显示信号波形；设置里可以更改输入端口的个数；
 
 !!! note "如果看不到曲线的话，检查一下是不是坐标轴范围给的太大了"
 
-transfer function：传递函数，用于建立系统的传递函数模型
+`transfer function`：传递函数，用于建立系统的传递函数模型
 
-step：阶跃信号，用于产生阶跃信号
+`step`：阶跃信号，用于产生阶跃信号
 
-add：加法器，用于实现信号的加法运算；设置里可以更改输入端口的个数
+`add`：加法器，用于实现信号的加法运算；设置里可以更改输入端口的个数
+
+`Saturation` 限幅
 
 !!! note "例子"
     === "搭建二阶系统"
@@ -502,9 +510,51 @@ S-function包括主函数和6个功能子函数，包括mdlInitializeSizes（初
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241117102637.png)
 
 #### Mask
+如果我们不想每次修改S-function的参数都要打开S-function的编辑窗口，我们可以使用Mask功能。
+
+**第一步是增加Mask**
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241203115042.png)
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241203115132.png)
+
+点击添加封装
+
+提示框可以随便写，但是名称需要和代码中的变量名称对齐。
+
+
+**第二步是在S-function初始化当中加入Mask参数**
+
+```matlab hl_lines="1,3,8,20"
+function [sys,x0,str,ts,simStateCompliance] = expert_control(t,x,u,flag,K_b,K_s,theta_m,theta_2,theta_1,Kp,Ki,Kd,angle,F_m)
+    switch flag
+        case 0
+            [sys,x0,str,ts,simStateCompliance]=mdlInitializeSizes(angle);
+        case 1
+            sys=mdlDerivatives(t,x,u);
+        case 2
+            sys=mdlUpdate(t,x,u,K_b,K_s,theta_m,theta_2,theta_1,Kp,Ki,Kd,F_m);
+        case 3
+            sys=mdlOutputs(t,x,u);
+        case 4
+            sys=mdlGetTimeOfNextVarHit(t,x,u);
+        case 9
+            sys=mdlTerminate(t,x,u);
+        otherwise
+            DAStudio.error('Simulink:blocks:unhandledFlag', num2str(flag));
+    end
+
+%% 子函数定义部分
+function [sys,x0,str,ts,simStateCompliance]=mdlInitializeSizes(angle)
+```
+
+**第三步是在s-function的模块参数中，添加需要预置的参数**
 
 
 
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241203114952.png)
+
+在参数这一行把需要的参数填进去，按照顺序来
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241203115502.png)
 
 ## Control System Toolbox
 
@@ -920,7 +970,15 @@ x=-pi: 2*pi/ 1000:pi;
 set(figure( 1), 'visible', 'off');
 plot( x, sin( x)); print(gcf, '-dpng', 'abc.png') %不显示图像直接保存为png格式
 ```
-## 程序设计
+## 3D animation
+
+[Simulink学习——弹球仿真三维动画模型（Simulink3D演示动画学习01）\_simulink弹球仿真-CSDN博客](https://blog.csdn.net/weixin_44281768/article/details/112464275)
+
+[【免费】Bouncingball3D.slx\_simulink3dsink资源-CSDN文库](https://download.csdn.net/download/weixin_44281768/14157710)
+
+[Simulink 3D Animation的使用（V\_realm builder2.0）-CSDN博客](https://blog.csdn.net/qq_51060379/article/details/129259519)
+
+[小白学习simulink建模开发，看这篇就够了，从入门到能够搭建完整的系统模型\_simulink里面vr虚拟模型建模-CSDN博客](https://blog.csdn.net/MinimalControl/article/details/131742218)
 
 
 

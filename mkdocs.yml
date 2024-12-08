@@ -250,6 +250,7 @@ nav:
     - Robotics/嵌入式/k210.md
     - Robotics/嵌入式/RaspberryPi.md
     - Robotics/嵌入式/FPGA.md
+    - Robotics/嵌入式/嘉立创.md
 
   - "Control Theory":
     - Robotics/Control/Control-01-自动控制原理.md
@@ -270,8 +271,10 @@ nav:
     - Robotics/Robo/Robo-02-1-localization.md
     - Robotics/Robo/Robo-02-2-mapping.md
     - Robotics/Robo/Robo-02-3-planning.md
+    - Robotics/Robo/Robo-probabilistic_robot.md
     - Robotics/Robo/Robo-Drone.md      
     - Robotics/Robo/Robo-Drone_experiment.md
+    - Robotics/Robo/Robo-Drone-explore.md
 
   - "通信":
     - Robotics/communication/CC-NFC.md
@@ -378,7 +381,9 @@ nav:
 
     - "DL | 深度学习":
       - CS/AI/DL-00-Lingo.md
-      - Notebook page: CS/AI/DL-00-python_package.ipynb 
+      - Notebook page: CS/AI/DL-00-python_package.ipynb
+      - CS/AI/DL-00-pytorch.md
+      - CS/AI/DL-01-MLP.md
       - CS/AI/DL-01-NN.md
       - CS/AI/DL-06-CNN.md
       - CS/AI/DL-08-RNN.md
@@ -386,6 +391,8 @@ nav:
       - CS/AI/DL-11-optimation.md        
       - CS/AI/DL-12-setting.md
       - CS/AI/DL-application.md
+      - CS/AI/DL-Homework.md
+      - CS/AI/DL-problem.md
 
     - "RL | 强化学习":
       - CS/AI/RL-01.md
@@ -485,6 +492,7 @@ nav:
     - else/exercise-fit.md
     - else/exercise-swimming.md
     - else/exercise-tennis.md
+    - else/dance.md
 
   - "🥢食为天":
     - else/eat.md

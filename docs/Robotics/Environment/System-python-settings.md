@@ -65,6 +65,7 @@ pip install <package>==<version>
 **注：应考虑到优先级的问题，将想要通过命令行直接进入的python版本所对应的路径放在上面**
 ### pip换源
 
+
 ```shell title="临时换源"
 pip install package_name -i https://pypi.tuna.tsinghua.edu.cn/simple 
 ```
@@ -72,6 +73,15 @@ pip install package_name -i https://pypi.tuna.tsinghua.edu.cn/simple
 ```shell title="清华源 永久换源"
 pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
 ```
+
+!!! bug "WARNING: The repository located at mirrors.aliyun.com is not a trusted or secure host and is being ignored. If this repository is available via HTTPS we recommend you use HTTPS instead, otherwise you may silence this warning and allow it anyway with '--trusted-host mirrors.aliyun.com'."
+    在大多数情况下，这个警告表示pip无法验证镜像源的SSL证书。可能的原因包括：
+
+    SSL证书问题： 镜像源的SSL证书过期、自签名或存在其他问题。
+    网络问题： 在某些网络环境中（特别是公司网络或学校网络），中间人攻击(MITM)防御机制可能会导致证书验证失败。
+    
+    [已解决WARNING: The repository located at mirrors.aliyun.com is not a trusted or secure host异常的正确解决方法，亲测\_the repository located at mirrors, aliyun, com is -CSDN博客](https://blog.csdn.net/FMC_WBL/article/details/136143632)
+
 
 ### 使用
 
@@ -160,6 +170,7 @@ pip list --format=freeze > requirement.txt
 ```shell
 pip install -r requirements.txt
 ```
+
 
 
 ## Pytorch
