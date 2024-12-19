@@ -60,6 +60,11 @@ vim /etc/apt/sources.list
 
 20.04版本的源
 
+=== "鱼香ros"
+    ```shell
+    wget http://fishros.com/install -O fishros && bash fishros
+    ```
+
 === "清华源"
     [ubuntu | 镜像站使用帮助 | 清华大学开源软件镜像站 | Tsinghua Open Source Mirror](https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/)
 
@@ -116,10 +121,6 @@ vim /etc/apt/sources.list
     deb https://mirrors.zju.edu.cn/ubuntu/ focal-security main restricted universe multiverse
     ```
     
-=== "鱼香ros"
-    ```shell
-    wget http://fishros.com/install -O fishros && . fishros
-    ```
 
 ```shell
 sudo apt-get update
@@ -805,6 +806,14 @@ docker-compose up
 
 !!! bug "sh: 0: getcwd() failed: No such file or directory"
     一般来说是因为你 cd 到了某个目录之后 rm 了这个目录，这时去执行某些 service 脚本的时候就会报 get cwd 错误。 只需要 cd 到任何一个实际存在的目录下再执行就好了
+
+!!! question "Could not load the Qt platform plugin “xcb“"
+
+    经过一番深入的探索，最终找到了一个有效的解决方案，即通过以下命令安装所有与libxcb相关的库：
+    ```shell
+    sudo apt install libxcb-*
+    ```
+    这条命令会安装所有以libxcb为前缀的库，确保系统中所有与XCB相关的依赖项都被正确安装。这一步成功解决了Qt无法加载xcb插件的问题，程序也顺利启动并运行。这表明，问题的根源在于某些关键的XCB依赖项缺失，而通过这种“一网打尽”的方式，我们可以确保所有相关的依赖项都得到满足。
 
 ## Java
 

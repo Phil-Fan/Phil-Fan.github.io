@@ -7,10 +7,136 @@
 ○ 调试器执行模式
 ○ attach 模式
 ○ remote 模式
+## 安装
 
+```shell
+sudo apt install gdb
+```
+### 20.04安装`gdb 10.2`
+
+注意gdb10.2需要c++11语法，需要安装g++
+
+```shell title="下载安装包"
+wget https://ftp.gnu.org/gnu/gdb/gdb-10.2.tar.xz
+```
+
+```shell title="解压缩"
+tar -xvzf gdb-10.2.tar.xz
+```
+
+!!! question "我这里报了`gzip: stdin: not in gzip format tar: Child returned status 1 tar: Error exit delayed`"
+    ```shell title="解压缩换成这个命令"
+    tar -vxf gdb-10.2.tar.xz
+    ```
+    tar包压缩的时候用`-cvf`参数，解压的时候用`-xvf`参数（用此命令解决了）
+
+    或压缩的时候用`-czvf`参数，解压的时候用`-xzvf`参数（常用，这次报了这个错）
+
+    ** 解决方法二** (未验证)
+
+    对压缩包进行重命名，再解压：
+
+    ```shell
+    mv memcached-1.4.34.tar.gz memcached-1.4.34.tar
+    ```
+
+    ```shell title="再进行解压"
+    tar -zvxf gdb-10.2.tar
+    ```
+
+    因为后缀名可能原来就是memcached-1.4.34.tar，被改过~
+
+
+进入解压之后的目录
+
+```shell
+cd gdb-10.2
+```
+
+```shell title="配置"
+mkdir build
+cd build
+```
+
+```shell title="配置"
+../configure --enable-tui
+```
+
+!!! question "可能会提示你没有相关库 `configure: WARNING: no enhanced curses library found; disabling TUI`"
+    查阅官方发现：Build GDB with the text-mode full-screen user interface (TUI).Requires a curses library (ncurses and cursesX are also supported).
+
+    你需要安装ncurses库，才能安装tui。[参考 configure: WARNING: no enhanced curses library found; disabling TUI](https://www.linuxquestions.org/questions/linux-newbie-8/configure-warning-no-enhanced-curses-library-found%3B-disabling-tui-4175443971/)
+
+    
+    [Index of /pub/gnu/ncurses](https://ftp.gnu.org/pub/gnu/ncurses/)
+
+    ```shell title="下载"
+    wget https://ftp.gnu.org/pub/gnu/ncurses/ncurses-6.2.tar.gz
+    ```
+
+    ```shell title="解压缩"
+    tar xzf ncurses-6.2.tar.gz
+    ```
+
+    ```shell title="进入目录"
+    cd ncurses-6.2
+    ./configure --prefix=/opt/ncurses
+    make
+    sudo make install
+    ```
+
+!!! question "`‘makeinfo‘ is missing on your system.`"
+    ```shell
+    sudo apt-get install texinfo
+    ```
+
+```shell title="编译"
+make
+```
+
+```shell title="安装"
+sudo make all install
+```
+
+退出这个shell
+
+```shell title="查看版本"
+gdb -v
+```
 
 
 ## gdb 插件
+
+### pwndbg
+[github.com/pwndbg/pwndbg](https://github.com/pwndbg/pwndbg)
+
+```shell title="安装pwndbg插件"
+git clone https://github.com/pwndbg/pwndbg
+cd pwndbg
+./setup.sh
+```
+
+这里可能会冒出一些安装上的错误，一般都是网络问题，调整网络后即可
+
+```shell
+cat .gdbinit
+```
+
+不仅有pwndbg，还有pwngdb！！！
+有一些指令需要两个都安装
+
+[Pwngdb/README.md at master · scwuaptx/Pwngdb](https://github.com/scwuaptx/Pwngdb/blob/master/README.md#features)
+
+```shell
+cd ~/
+git clone https://github.com/scwuaptx/Pwngdb.git 
+cp ~/Pwngdb/.gdbinit ~/ 
+```
+
+[gdb与peda、pwngdb、pwndbg组合安装与使用\_gdb peda-CSDN博客](https://blog.csdn.net/whbing1471/article/details/112410599)
+
+
+
 ### gef
 
 [hugsy/gef: GEF (GDB Enhanced Features)](https://github.com/hugsy/gef)
@@ -28,18 +154,7 @@ gdb
 # 就会出现带gef>的界面了
 gef➤
 ```
-### pwndbg
-[github.com/pwndbg/pwndbg](https://github.com/pwndbg/pwndbg)
 
-```shell title="安装pwndbg插件"
-git clone https://github.com/pwndbg/pwndbg
-cd pwndbg
-./setup.sh
-```
-
-```shell
-cat .gdbinit
-```
 
 
 

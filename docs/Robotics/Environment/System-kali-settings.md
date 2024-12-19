@@ -100,6 +100,9 @@ apt-get install kali-defaults kali-root-login desktop-base xfce4 xfce4-places-pl
     apt-get install metacity          #下载metacity命令
     ```
 
+
+    
+
     下载之后再执行一遍上面那个命令就好了
 
     但有一个问题：每次打开kali都需要运行一遍上面第1条命令

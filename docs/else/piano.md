@@ -256,7 +256,7 @@ comments: true
 ### S-14-演艺人
 
 === "有标注版本"
-    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241203201805.png)
+    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241210165517.png)
 
 === "无标注版本"
     ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241119133638.png)

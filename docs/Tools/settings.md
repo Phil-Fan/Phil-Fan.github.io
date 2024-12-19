@@ -1,3 +1,4 @@
+
 # Windows 备忘录
 !!! note "前言"
     这一篇的目的是记录一些常用的软件的安装与使用，以及一些常见的问题的解决方案。遇到重复的问题不至于反复搜索。
@@ -465,7 +466,11 @@ Clear-ItemProperty -Path <path> -Name <property_name>
 - `ctrl + F` 搜索内容
 - 搜索工作区内容的快捷键是`Ctrl + Shift + F`，或者在菜单栏中选择 `查看 (View)` -> `搜索 (Search)`
 
-
+### 自动换行
+- F1，输入 `Open User Settings`
+- 搜索 `word wrap`
+- 修改为 `on`
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241211133345.png)
 
 ### 卸载
 

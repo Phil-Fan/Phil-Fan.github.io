@@ -53,6 +53,8 @@ ReLU is fast to compute
 - Prevents the gradient vanishing problem
 
 
+导数非0的区域更大
+
 ### Leaky ReLU
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240919153444.png)
 
@@ -95,6 +97,13 @@ validation loss stops improving
 § Warmup is gradually increasing the learning rate initially, and afterward let it cool down until the end of the training
 
 ## regularization
+
+
+正则化约束参数的大小
+
+如何验证正则化的大小
+
+
 ### dropout
 Randomly drop units (along with their connections) during training
 § Each unit is retained with a fixed dropout rate p, independent of other units
