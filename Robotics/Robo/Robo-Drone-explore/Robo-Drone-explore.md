@@ -35,3 +35,12 @@ x
 ### 视频连接
 [World's Fastest FLYING RC Drift Car - YouTube](https://www.youtube.com/watch?v=dcu0jODIlWU)
 
+倒立摆
+[Flying Inverted Pendulum - YouTube](https://www.youtube.com/watch?v=XmYRQi48s-8)
+
+跟随算法
+
+[Ground Effect Vehicle Autonomous Vision-Based Tracking - YouTube](https://www.youtube.com/watch?v=uaY2G5Kbj_g)
+
+悬停
+[abritten/dRehmFlight-StantonModel-VTOL: This is a replica of the Stanton RC VTOL model using the DrehmFlight FC. Replicated and modified by abritten (Drew Britten).](https://github.com/abritten/dRehmFlight-StantonModel-VTOL?tab=readme-ov-file)

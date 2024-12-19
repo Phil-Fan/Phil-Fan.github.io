@@ -1,5 +1,13 @@
 # 深度学习问题记录
 
+## Pytorch
+
+如何避免 PyTorch 中的“CUDA 内存不足”
+
+把batch_size设置小一点
+
+
+
 
 ## D2l相关
 

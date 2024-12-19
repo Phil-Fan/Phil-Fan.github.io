@@ -4,6 +4,14 @@
 [平衡小车动力学建模\_两轮平衡小车建模-CSDN博客](https://blog.csdn.net/qq_23096319/article/details/129704288)
 
 
+## 赛博魔杖
+
+[赛博魔杖\_STM32卷积神经网络 - 立创开源硬件平台](https://oshwhub.com/lyg0927/cyberwand-stm32-convolutional-ne)
+
+[MagicWand-基于魔杖的智能家具控制 - 立创开源硬件平台](https://oshwhub.com/piaoray/magicwand)
+
+
+[[开源]如何成为赛博法师，STM32卷积神经网络动作识别\_哔哩哔哩\_bilibili](https://www.bilibili.com/video/BV187pUeKEMr?spm_id_from=333.788.videopod.sections&vd_source=8b7a5460b512357b2cf80ce1cefc69f5)
 
 ## 动量轮平衡车
 
@@ -121,9 +129,6 @@ https://github.com/MMehrez/MPC-and-MHE-implementation-in-MATLAB-using-Casadi
 
 
 
-## 赛博魔杖
-
-[赛博魔杖\_STM32卷积神经网络 - 立创开源硬件平台](https://oshwhub.com/lyg0927/cyberwand-stm32-convolutional-ne)
 
 ## 桌面机器人
 [【全开源】ATom-Bot 桌面机器人 - 立创开源硬件平台](https://oshwhub.com/rbbbb/ATom-Bot)

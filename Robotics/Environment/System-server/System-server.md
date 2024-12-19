@@ -79,7 +79,7 @@ Tools->Deployment->Configuration
 
 使用vscode连接以后，可以将文件直接拖拽传递
 
-#### 报错
+### 报错
 
 
 
@@ -89,19 +89,27 @@ Tools->Deployment->Configuration
 
 [VSCode 连不上远程服务器问题及解决办法集合\_vscode 无法连接远程服务器-CSDN博客](https://blog.csdn.net/White_lies/article/details/124093530)
 
-1. ### 到本地删除.ssh下known_hosts
+
+[blog.csdn.net/why1249777255/article/details/134296929](https://blog.csdn.net/why1249777255/article/details/134296929)
+
+
+[blog.csdn.net/why1249777255/article/details/134296929](https://blog.csdn.net/why1249777255/article/details/134296929)
+1. 到本地删除.ssh下known_hosts
 
 ```shell
 C:\Users\username\.ssh\
 ```
+补充：如果known hosts文件中有其他信息，不要直接删除文件，直接删掉服务器信息即可
 
-1. #### 首先 kill 掉服务器端的VS code 服务，然后在服务器端删除vscode连接的相关记录
+2. 首先 kill 掉服务器端的VS code 服务，然后在服务器端删除vscode连接的相关记录
 
 ```
 /home/username/.vscode-server/
 ```
 
-3. ### 重新回到Vscode连接
+3. 重新回到Vscode连接
+
+还可以尝试把.ssh\ss
 
 
 ### 其他工具
@@ -322,3 +330,39 @@ GTX 代表更高级的游戏独显，后来随着技术进步，出现了光线�
 
 ## AutoDL
 
+
+### 无法加载Hugging Face
+
+=== "实测成功的方法"
+
+    ```python title="在代码头部加入"
+    import os
+    os.environ['HF_ENDPOINT'] = 'https://hf-mirror.com'
+    ```
+
+    ```shell title="在终端中执行"
+    pip install -U huggingface_hub
+    export HF_ENDPOINT=https://hf-mirror.com
+    source ~/.bashrc
+    ```
+    
+    (优点是不需要改代码，非常简单易操作。缺点就是镜像网站下载较慢)
+
+=== "另外的方法"
+
+    ```python title="在代码头部加入"
+    import subprocess
+    import os
+    
+    result = subprocess.run('bash -c "source /etc/network_turbo && env | grep proxy"', shell=True, capture_output=True, text=True)
+    output = result.stdout
+    for line in output.splitlines():
+        if '=' in line:
+            var, value = line.split('=', 1)
+            os.environ[var] = value
+    ```
+    如果启用学术资源加速后遇到SSL证书验证错误，可以禁用证书验证，在程序开头再添加以下代码
+    ```python
+    import os
+    os.environ['CURL_CA_BUNDLE'] = ''
+    ```
