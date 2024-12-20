@@ -251,6 +251,7 @@ nav:
     - Robotics/嵌入式/RaspberryPi.md
     - Robotics/嵌入式/FPGA.md
     - Robotics/嵌入式/嘉立创.md
+    - Robotics/嵌入式/焊接.md
 
   - "Control Theory":
     - Robotics/Control/Control-01-自动控制原理.md
@@ -260,6 +261,7 @@ nav:
     - Robotics/Control/Control-10-经典控制方法.md
     - Robotics/Control/Control-11-智能控制方法.md
     - Robotics/Control/Control-12-电气控制.md
+    - Robotics/Control/供配电.md
 
   - "机器人":
     - Robotics/Robo/Robo-00-intro.md
@@ -290,6 +292,7 @@ nav:
     - Robotics/Environment/System-kali-settings.md
     - Robotics/Environment/System-python-settings.md
     - Robotics/Environment/System-server.md
+    - Robotics/Environment/System-docker.md
 
 - "CS":
   - Language:
