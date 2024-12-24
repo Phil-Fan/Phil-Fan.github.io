@@ -261,6 +261,18 @@ required to use pdflatex/xelatex/lualatex.
 \end{document}
 ```
 
+
+### paste image —— 图片插入助手
+
+这个插件可以使用快捷键插入图片，免去了写htbp等的麻烦，还可以插入到指定路径下。
+
+!!! bug "根路径不是report文件夹怎么办"
+
+
+
+
+
+
 ## Overleaf | 边学边用的使用指南
 
 

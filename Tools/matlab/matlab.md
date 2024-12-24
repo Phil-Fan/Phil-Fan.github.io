@@ -943,6 +943,193 @@ Co = ctrb(A,B) # return the controllability matrix
 ```
 
 
+## fuzzy 工具箱
+
+## 神经网络工具箱
+
+### 训练
+
+
+```matlab title="打开神经网络工具箱"
+nftool
+```
+
+- 选择导入数据集
+- 正确选择是行还是列
+- 选择训练集的比例；隐藏层的个数（5or10）
+- 选择训练方法：一般选择第一个方法；第二个方法和遗传算法一起用；第三个方法比较慢
+
+!!! tip "validation test"
+    validation test 表示的是泛化性能，如果连续6个epoch都上不去，就停止训练
+
+图像查看：一般看回归的图（第四个），如果都上了0.9差不多就可以了
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241223002536.png)
+
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=387739304&bvid=BV1Zd4y1Q7MX&cid=821664775&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"></iframe>
+
+### 模型保存
+```matlab title="保存模型"
+save('filename.mat')  % 保存所有变量
+save('filename.mat', 'var1', 'var2')  % 只保存指定变量
+```
+
+```matlab title="从.mat文件中导入数据"
+load('data.mat');
+```
+
+
+### 模型预测
+
+```matlab title="方法1：使用sim函数"
+PreY = zeros(10,1);
+for i = 1:10
+    PreY(i,1) = sim(net,PreX(i,:)');
+    % sim函数第二个参数列数等于输入向量的个数
+end
+disp(PreY);
+```
+
+```matlab title="方法2：使用生成的函数"
+myNeuralNetworkFunction(X) % 这里需要把后两个参数去掉
+```
+ 
+### 多输入多输出
+
+多输入多输出也是一样的操作，唯一值得注意的地方就是在训练之前需要将行还是列选择正确（特征or样本）
+
+
+### 使用脚本替代ui操作
+
+```matlab title="使用脚本替代ui操作，并且函数化"
+function train()
+    dataFile = 'data.mat';
+    load(dataFile);  % 从文件导入数据
+    x = features';  % 转置为符合网络输入格式
+    t = labels';  % 转置为符合网络目标格式
+
+    % 选择训练函数
+    trainFcn = 'trainlm';  % Levenberg-Marquardt 反向传播
+
+    % 创建拟合网络
+    hiddenLayerSize = 15;
+    net = fitnet(hiddenLayerSize, trainFcn);
+
+    % 输入输出的预处理函数
+    net.input.processFcns = {'removeconstantrows', 'mapminmax'};
+    net.output.processFcns = {'removeconstantrows', 'mapminmax'};
+
+    % 设置数据的划分方式
+    net.divideFcn = 'dividerand';  % 随机划分数据
+    net.divideMode = 'sample';  % 划分所有样本
+    net.divideParam.trainRatio = 70/100;
+    net.divideParam.valRatio = 15/100;
+    net.divideParam.testRatio = 15/100;
+
+    % 选择性能函数
+    net.performFcn = 'mse';  % 均方误差
+
+    % 选择绘图函数
+    net.plotFcns = {'plotperform', 'plottrainstate', 'ploterrhist', ...
+        'plotregression', 'plotfit'};
+
+    % 训练网络
+    [net, tr] = train(net, x, t);
+
+    % 测试网络
+    y = net(x);
+    e = gsubtract(t, y);
+    performance = perform(net, t, y);
+
+    % 重新计算训练、验证和测试性能
+    trainTargets = t .* tr.trainMask{1};
+    valTargets = t .* tr.valMask{1};
+    testTargets = t .* tr.testMask{1};
+    trainPerformance = perform(net, trainTargets, y);
+    valPerformance = perform(net, valTargets, y);
+    testPerformance = perform(net, testTargets, y);
+
+    figure, plotperform(tr);% 绘制并保存训练性能图
+%     figure, plottrainstate(tr);% 绘制并保存训练状态图
+%     figure, ploterrhist(e);% 绘制并保存误差直方图
+    figure, plotregression(t, y)
+%     figure, plotfit(net, x, t);% 绘制并保存拟合图
+
+    % 保存模型
+%     modelFile = ['model_level' num2str(level) '.mat'];
+%     save(modelFile, 'net');  % 保存神经网络模型
+    % 生成simulink模型
+    gensim(net);
+    disp(['Model saved as ' modelFile]);
+end
+```
+
+
+### 使用python训练的模型进行训练
+
+首先下载Deep Learning Toolbox Converter for ONNX Model Format
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241223223234.png)
+
+[ONNX Model Predict](https://ww2.mathworks.cn/help/deeplearning/ref/onnxmodelpredict.html)
+
+1. 使用pytorch训练之后，导出onnx模型
+2. 在matlab中使用onnxmodelpredict函数进行预测（验证可行性）
+
+```matlab
+model = importONNXNetwork('model.onnx', ...
+    'OutputLayerType', 'regression', ...
+    'InputDataFormats', 'BC');  % B=batch size, C=channels
+
+% 我训练的模型输入8维，输出2维
+u = [1.1; 1.1; 1.1; 1.1; 2.2; 2.2; 2.2; 2.2];
+u = reshape(u, [1, 8]); % 将输入调整为 [1, 8]
+y = predict(model, u);
+disp('预测输出:');
+disp(y);
+```
+
+3. 在simulink中使用matlab function进行预测
+
+
+
+!!! bug "`Class mismatch for variable '<output of predict>'. Expected 'double', Actual 'single'.` "
+    需要强制类型转换一下
+    ```matlab
+    y_single = predict(model, u);  % 返回的预测结果是 single 类型
+    y = double(y_single);  % 将结果转换为 double 类型
+    ```
+
+!!! bug "`MATLAB Function ‘xxx‘ not supported for code generation.`"
+    [simlink里面MATLAB Function 'xxx' not supported for code generation.\_simulink函数输出中不能为mxarray-CSDN博客](https://blog.csdn.net/qq_38146340/article/details/118675853)
+    simulink代码生成的过程中，有些函数是不支持内部代码生成的，需要将其定义为外部函数，使用coder.extrinsic声明一下即可，详细的你可以参考一下matlab的帮助文档doc coder.extrinsic外部函数
+    ```matlab
+    coder.extrinsic('name_of_the_function');
+    ```
+
+!!! tip "防止重复导入模型的方法"
+    为了防止matlab function每次调用的时候就导入一遍模型，使用`persistent`关键字声明模型
+    这样的话时间大大加快
+
+    ```matlab
+    function y = predictWithONNX(u)
+        persistent model; 
+        coder.extrinsic('importONNXNetwork'); % 声明外部函数
+        if isempty(model)
+            % 仅当模型未加载时加载 ONNX 模型，防止重复加载消耗时间
+            model = importONNXNetwork('model_level2.onnx', ...
+                'OutputLayerType', 'regression', ...
+                'InputDataFormats', 'BC');  % B=batch size, C=channels
+        end
+
+        y = zeros(1, 2);    % 初始化输出并调整输入格式
+        u = reshape(u, [1, 8]);  % 确保输入尺寸匹配
+        coder.extrinsic('predict');
+        y_single = predict(model, u);  % 返回的预测结果是 single 类型
+        y = double(y_single);  % 将结果转换为 double 类型
+    end
+    ```
+
+
 ## 图像绘制
 > 绘制相平面图像[MathWorks-Teaching-Resources/Phase-Plane-and-Slope-Field: Apps for qualitative ODE analysis.](https://github.com/MathWorks-Teaching-Resources/Phase-Plane-and-Slope-Field)
 
@@ -970,6 +1157,9 @@ x=-pi: 2*pi/ 1000:pi;
 set(figure( 1), 'visible', 'off');
 plot( x, sin( x)); print(gcf, '-dpng', 'abc.png') %不显示图像直接保存为png格式
 ```
+
+
+
 ## 3D animation
 
 [Simulink学习——弹球仿真三维动画模型（Simulink3D演示动画学习01）\_simulink弹球仿真-CSDN博客](https://blog.csdn.net/weixin_44281768/article/details/112464275)

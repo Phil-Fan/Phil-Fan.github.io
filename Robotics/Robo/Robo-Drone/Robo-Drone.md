@@ -148,7 +148,8 @@ MIT、ETH、ZJU、HKUST
     NED 坐标系是在导航计算时使用的坐标系，向量分别指向北，东，地，因此 NED 坐标系也经常称为**北东地坐标系**![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240918134709.png)
 === "机体坐标系"
     原点在飞行器重心处 $X$ 轴指向飞行器机头前进方向,$Y$ 轴由原点指向飞行器右侧,$Z$ 轴方向根据 $X$,$Y$轴由右手法则确定。
-	![image-20241102205822857](assets/image-20241102205822857.png)
+    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241224104346.png)
+    
 
 !!! note "为什么有了GPS输出的海拔高度，我们还是要用气压计等其它设备来辅助定高呢?"
     GPS地貌不精确；

@@ -544,6 +544,13 @@ g++ -v
 安装c/c++插件：
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241010110358.png)
 
+## excel
+
+### 选择数据
+- `ctrl + shift + ↓` 选择一列
+- `ctrl + shift + →` 选择一行
+
+
 
 
 
