@@ -35,7 +35,8 @@ http://www.robots.ox.ac.uk/~victor/infinitam/
 • Un-ordered
 • No Index Query
 
-![image-20241102204708574](assets/image-20241102204708574.png)
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241224104358.png)
 
 ## Free-space Roadmap
 

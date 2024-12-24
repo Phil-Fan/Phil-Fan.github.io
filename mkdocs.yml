@@ -277,6 +277,7 @@ nav:
     - Robotics/Robo/Robo-Drone.md      
     - Robotics/Robo/Robo-Drone_experiment.md
     - Robotics/Robo/Robo-Drone-explore.md
+    - Robotics/Robo/Robo-arm.md
 
   - "通信":
     - Robotics/communication/CC-NFC.md

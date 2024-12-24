@@ -697,3 +697,15 @@ $$
 1. 利用已知系统得到辨识所需的输入输出数据；
 2. 通过步骤1得到的数据来训练神经网络；
 3. 对比原系统与神经网络辨识得到的系统是否一致。（给两个系统同样的输入，观察输出是否相同）（可以利用Matlab中的相关工具箱进行仿真）
+
+[在 Simulink 中设计 NARMA-L2 神经控制器](https://ww2.mathworks.cn/help/deeplearning/ug/design-narma-l2-neural-controller-in-simulink.html)
+
+[利用NARMA模型辨识非线性时变结构系统 - 豆丁网](https://www.docin.com/p-1442472767.html)
+
+<iframe src="http://www.rjgczz.com/ch/reader/create_pdf.aspx?file_no=20200304&flag=1&journal_id=rjgc&year_id=2020" width="100%" height="600px" style="border: none;">
+This browser does not support PDFs
+</iframe>
+
+<iframe src="https://pubs.cstam.org.cn/data/article/em/preview/pdf/20061205.pdf" width="100%" height="600px" style="border: none;">
+This browser does not support PDFs
+</iframe>
