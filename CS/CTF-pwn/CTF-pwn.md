@@ -417,7 +417,11 @@ python3有八个字节的byte，所以它每次都会报这样的错误：
 直接注入，类似于sql注入
 利用shell的语法特性，通过注入命令来执行代码
 
+[CTF PWN练习之返回地址覆盖 - FreeBuf网络安全行业门户](https://www.freebuf.com/articles/network/267051.html)
 
+[pwn lab 2: ROP / FSB - CTF101-Labs-2024](https://courses.zjusec.com/topic/pwn-lab2/#task-1-20)
+
+[pwn lab 3: glibc heap exploitation - CTF101-Labs-2024](https://courses.zjusec.com/topic/pwn-lab3/)
 
 
 ### shell code 注入
@@ -441,14 +445,16 @@ python3有八个字节的byte，所以它每次都会报这样的错误：
 
 
 ## 栈上的缓冲区溢出
+[第一个PWN：栈溢出原理以及EXP的编写 - FreeBuf网络安全行业门户](https://www.freebuf.com/articles/system/253225.html)
 
+
+### 什么是栈
 栈是先进后出的列表，栈的增长是**高地址向低地址**溢出。作用是用来放每个函数独立于自己的临时变量，然后起到一个作用域的约束作用。
 - 需要两个指针：栈指针SP，stack pointer；栈帧指针，frame pointer。
 - 提供两个元语：push & pop
 - 每一次push都会减小栈指针，把值存进去
 
-
-
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241227163238.png)
 
 rbp : base pointer，指向栈底（最高）
 rsp: stack pointer，指向栈顶（最低）
@@ -485,149 +491,133 @@ mov rbp, rsp ; 这个时候rbp=rsp
 !!! note "局部变量为什么要初始化"
     创建局部变量的时候就是基于栈的，如果不进行初始化，那么这个变量还是原来这个内存地址上的值，是不确定的。
 
+### 溢出的方法
+
 - 溢出破坏局部变量
 - 溢出破坏存储的栈帧指针
 - 溢出破坏存储的返回地址
 
-保护方法：每次进入栈的时候，放一个随机变量，出栈的时候检测随机变量是否被修改（这种方法可以通过维护特定位置为常量进行绕过）
 
-保护方法：使用两个栈，一个维护危险的变量；
-
-可以劫持函数的返回地址，实现在函数间的任意跳转
-
-
-https://classroom.zju.edu.cn/livingroom?course_id=54544&sub_id=1011516&tenant_code=112
-
-[CTF PWN练习之返回地址覆盖 - FreeBuf网络安全行业门户](https://www.freebuf.com/articles/network/267051.html)
-
-[pwn lab 2: ROP / FSB - CTF101-Labs-2024](https://courses.zjusec.com/topic/pwn-lab2/#task-1-20)
-
-[pwn lab 3: glibc heap exploitation - CTF101-Labs-2024](https://courses.zjusec.com/topic/pwn-lab3/)
-
-
-
+### 例题
 !!! example "以`login_me`为例题"
-```shell
-gdb ./login_me
-start
-p main
-```
+    ```shell
+    gdb ./login_me
+    start
+    p main
+    ```
 
-```shell
-gef➤  p main
-$2 = {int (int, char **)} 0x555555555647 <main>
-```
-所以在 `0x555555555647`下断点
+    ```shell
+    gef➤  p main
+    $2 = {int (int, char **)} 0x555555555647 <main>
+    ```
+    所以在 `0x555555555647`下断点
 
-```shell
-b *0x555555555647
-``` 
+    ```shell
+    b *0x555555555647
+    ``` 
 
-```
-0x55555555564b <main+0004>      push   rbp
-0x55555555564c <main+0005>      mov    rbp, rsp
-0x55555555564f <main+0008>      add    rsp, 0xffffffffffffff80
-```
+    ```
+    0x55555555564b <main+0004>      push   rbp
+    0x55555555564c <main+0005>      mov    rbp, rsp
+    0x55555555564f <main+0008>      add    rsp, 0xffffffffffffff80
+    ```
 
 
-第一步是保护rbp，第二步是保护rsp，第三步是创建一个0x80大的临时变量空间；
-> 所以这样看的话 rbp-0x70和rsp+0x10是指向同一个地址
+    第一步是保护rbp，第二步是保护rsp，第三步是创建一个0x80大的临时变量空间；
+    > 所以这样看的话 rbp-0x70和rsp+0x10是指向同一个地址
 
-先`pop rbp`会把当前的rbp位置返回给rsp指针，实现栈的抬升
+    先`pop rbp`会把当前的rbp位置返回给rsp指针，实现栈的抬升
 
-ret的时候，先把`old rbp`返给`rbp`
-并把ret地址返回给运行PC
+    ret的时候，先把`old rbp`返给`rbp`
+    并把ret地址返回给运行PC
 
-!!! tip "实现保护的一个方法"
-  在`ret address`和`old rbp`之前加入一个随机值，每次出入栈时候，检查随机值是否有变化
+#### sbof1 —— 溢出到变量
 
-```
+
+
+#### sbof2 —— 溢出到函数返回地址
+
+
+#### bigwork
+
+
+```shell title="查看RSP的值"
 x/gx $rsp
 ```
 
-```
+```shell title="查看backdoor的地址"
 p backdoor
 ```
 
+```shell title="把返回地址改到backdoor"
+b *0x000000000040125a
+r
+set *(long*)($rsp) = 0x4012bd
 ```
-set *(long*)($rsp) = ox401227
-```
-shallow stack: 用微型的buffer存储，临时变量在另一个栈上面，怎么也不会溢出了
 
 
 
+### 保护方法
+**canary**: 在`ret address`和`old rbp`之前加入一个随机值，每次出入栈时候，检查随机值是否有变化
 
-### 以两道例题为例
+**shallow stack**: 使用两个栈，一个维护危险的变量；用微型的buffer存储，临时变量在另一个栈上面，怎么也不会溢出了
 
-### sbof1 —— 溢出到变量
-
-
-
-### sbof2 —— 溢出到函数返回地址
-
-
-
-### T2
-
-
-
-
-[第一个PWN：栈溢出原理以及EXP的编写 - FreeBuf网络安全行业门户](https://www.freebuf.com/articles/system/253225.html)
-
-### PIE保护
+**PIE保护**
 
 !!! note "Check PIE"
     通过`checksec`命令来检查
 
 
 
-GOT (.got)：
+## GOT & PLT表劫持
 
-用于存储全局变量和一些直接跳转的函数地址（静态全局变量等）。
-通常会包括一些全局符号相关的地址，比如初始化数据、全局变量的内存地址。
-GOT.PLT (.got.plt)：
+### 什么是GOT & PLT
+=== "GOT (.got)"    
+    用于存储全局变量和一些直接跳转的函数地址（静态全局变量等）。
+    通常会包括一些全局符号相关的地址，比如初始化数据、全局变量的内存地址。
 
-用于存储动态链接函数的地址表。第一次调用时通过 PLT（Procedure Linkage Table）和动态链接器解析符号，之后地址会被缓存到 GOT.PLT 中。
-这是动态链接函数调用的核心机制。
+=== "PLT (.plt)"
+    用于存储动态链接函数的地址表。第一次调用时通过 PLT（Procedure Linkage Table）和动态链接器解析符号，之后地址会被缓存到 GOT.PLT 中。
+    这是动态链接函数调用的核心机制。
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241227162423.png)
 
 
+### 使用gdb进行修改
 
-
+```shell title="查看puts的地址"
 objdump -R ./test | grep puts
-
 ```
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241227163702.png)
+
+```shell title="设置断点"
 info files
 b overflow
 p backdoor
 ```
 
-b *main
+
+```shell title="调试程序"
 b *0x0000000000401251
 r
-c
-1
-test
-b *0x00000000004012d1
-set {unsigned long}0x403480=0x4012da
-c
 
-
+set {unsigned long}0x403480=0x4012bd
+delete # 把断点删除，防止子程序找不到对应的段
+c
+```
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241227163625.png)
+```shell title="查看被修改的GOT表"
 x/20x 0x403480
-
-[第一个PWN：栈溢出原理以及EXP的编写 - FreeBuf网络安全行业门户](https://www.freebuf.com/articles/system/253225.html)
-
-
-
-
-
-## GOT & PLT表劫持
-
+```
 
 
 ## ROP
+### 例题
 
 
-## fsb
+
+
+## fsb | 格式化字符串漏洞
 
 ### 参考资料
 
@@ -635,10 +625,6 @@ x/20x 0x403480
 [BUUCTF\_N1BOOK PWN fsb - ZikH26 - 博客园](https://www.cnblogs.com/ZIKH26/articles/16362837.html)
 
 [初探Pwn之栈溢出入门 - M0urn - 博客园](https://www.cnblogs.com/M0urn/articles/17761215.html)
-
-
-ZJUCTF
-
 
 
 ### `printf`是如何实现的
@@ -882,12 +868,6 @@ p.sendline(fmt)
 
 这样的话printf就会打印出`/bin/sh\x00`，相当于我们自己把`/bin/sh\x00`的地址写到了栈上，然后再调用printf打印了出来
 
-
-
-
-
-
-
 ### 栈上任意写入
 
 通过fsb覆盖控制流相关对象：
@@ -912,6 +892,10 @@ fmt = b"%12345678c%74$ln"
 p.sendline(fmt)
 ```
 
+
+比如说我们想把12345678写到栈上
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241227164025.png)
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241227163853.png)
 
 
 !!! example "写入ABCD四个字符"
