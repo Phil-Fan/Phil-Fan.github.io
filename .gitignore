@@ -1,4 +1,4 @@
 /.idea/
 /.obsidian/
 /.git/
-*/.vscode/
+.vscode/
