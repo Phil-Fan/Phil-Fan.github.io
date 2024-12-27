@@ -550,7 +550,9 @@ p backdoor
 ```
 
 ```
-set *(long*)($rsp) = ox401227
+b *0x000000000040125a
+r
+set *(long*)($rsp) = 0x4012bd
 ```
 shallow stack: 用微型的buffer存储，临时变量在另一个栈上面，怎么也不会溢出了
 
@@ -601,15 +603,17 @@ b overflow
 p backdoor
 ```
 
-b *main
+
+```
 b *0x0000000000401251
 r
 c
 1
 test
-b *0x00000000004012d1
-set {unsigned long}0x403480=0x4012da
+set {unsigned long}0x403480=0x4012bd
+delete
 c
+```
 
 
 x/20x 0x403480
@@ -635,10 +639,6 @@ x/20x 0x403480
 [BUUCTF\_N1BOOK PWN fsb - ZikH26 - 博客园](https://www.cnblogs.com/ZIKH26/articles/16362837.html)
 
 [初探Pwn之栈溢出入门 - M0urn - 博客园](https://www.cnblogs.com/M0urn/articles/17761215.html)
-
-
-ZJUCTF
-
 
 
 ### `printf`是如何实现的
