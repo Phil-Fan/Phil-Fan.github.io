@@ -461,6 +461,35 @@ zplane(num,den)
         ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241020131407.png)
         [MATLAB——Simulink二阶系统 - 哔哩哔哩](https://www.bilibili.com/read/cv9223784/)
 
+### PID
+#### 改进型
+当系统容易收到高频信号的干扰时,微分作用会将高频信号的扰动放大(自控课本上说的),高频信号变化的较快,而微分是去求误差的变化率,所以有高频扰动信号,就会被微分作用给放大,建议对微分环节做低通滤波,通常是一阶低通滤波
+
+微分环节的缺点，就是误差e变化微弱的时候，如果D过大会产生过大的修正量，导致震动不但不减小反而扩大。
+滤波器的作用就是滤除高频修正，使D更好用，说白了是一个改进型，
+
+#### 积分饱和
+那么什么时候需要加积分环节限制输出呢？当系统在抗扰动时，需要一个大的Ki参数来快速消除稳态误差，而在开始从0到稳态这个过程又会因为ki太大而引起过大超调时，这个时候就需要加积分过饱和限制。
+
+
+#### 使用外部参数
+
+
+#### PID自动调参
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/1e3dc92702c9fc392ef362c0fdc71902.png)
+
+点击自动调节
+
+调节最上方的响应时间和瞬态特性，可以得到不同的曲线
+按照自己项目的要求对应的调整
+
+调整之后，点击“更新模块”，就会换成新的PID参数
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/d0585d38bad5b9001b1bc60a7a47f9ea.png)
+
+
+点击“显示参数”，可以查看PID参数
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/5034c43a5f595c39fbb76b848217b623.png)
 
 ### S function
 
@@ -941,6 +970,26 @@ disp(['对应增益 K: ', num2str(min_zeta_K)])
 ```matlab
 Co = ctrb(A,B) # return the controllability matrix
 ```
+## MPC toolbox
+
+### 基本使用
+
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=286299577&bvid=BV1Gf4y1R7sg&cid=211216173&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframxe>
+
+[【模型预测控制】Matlab自带MPC Designer工具](https://blog.csdn.net/weixin_43470383/article/details/134227287)
+
+[MPC Toolbox 官方文档](https://ww2.mathworks.cn/help/mpc/gs/introduction.html)
+
+
+### 使用步骤
+1. 安装MPC Designer
+2. 放一个simulink模型
+
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241230093059.png)
+3. 打开设计界面，点击 MPC Structure，设置输入输出通道，打开I/O Attributes，设置输入输出名称
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241230093026.png)
+4. 点击 Update and Simulate
 
 
 ## fuzzy 工具箱

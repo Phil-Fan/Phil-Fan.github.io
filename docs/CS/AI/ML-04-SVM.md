@@ -9,30 +9,15 @@ non-linear SVM: kernel trick
 $\Phi: x \rightarrow \phi(x)$
 
 
-对抗样本攻击：增加鲁棒性，减少泛化性
+
+[SVM支持向量机原算法与对偶算法举例\_支持向量机对偶形式例题-CSDN博客](https://blog.csdn.net/u013066730/article/details/123711427)
+
+[《统计学习方法》第七章支持向量机 练习题解答 - 知乎](https://zhuanlan.zhihu.com/p/345109827)
+
+这一章用到了很多凸优化相关的知识，需要常看运筹学的笔记
+
+如果进阶的话，数院有《统计学习》《实用优化算法》等课程
 
 
-计算每个点到决策边界的距离$\gamma$
 
-- Maximum Margin Classifier:数据集最小的margin
-目的就是要找到一个决策边界，使得margin最大
-
-为什么使用这种方法
-- 裕度更高，容错性更好
-- 如果margin越大，对于噪声的容忍度越高
-
-## 核函数
-
-## 求解
-### 对偶问题
-### KKT条件
-### SMO算法
-
-### 替代损失函数
-loss+正则化项
-constrain:
-## 回归
-
-
-## 图模型
 
