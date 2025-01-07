@@ -21,6 +21,9 @@
 [空间矢量坐标变换](https://zhuanlan.zhihu.com/p/492830847)
 
 
+[SPWM基本原理详解（图文并茂+公式推导+C程序实现）-CSDN博客](https://blog.csdn.net/u010632165/article/details/110889621)
+
+[【自制FOC驱动器】深入浅出讲解FOC算法与SVPWM技术 - 知乎](https://zhuanlan.zhihu.com/p/147659820)
 ### 三相静止坐标系
 
 ### 两相静止坐标系 $\alpha-\beta$

@@ -2,19 +2,36 @@
 
 
 ## 简介
-人工智能与机器学习是控院臭名昭著的课程。在Mo实验平台上有4个个人作业，和一个小组作业。
+人工智能与机器学习是控院臭名昭著的课程。某任课老师在课堂面对同学们对于课堂的疑问，表示：“这门课就是教考实验分离啊”
+
+无敌。
+
+在Mo实验平台上有4个个人作业，和一个小组作业。个人作业分别是：双向情感障碍、口罩检测、作家风格识别
+
 小组作业有些班级是需要在Mo平台完成后，再在班级上进行小组ppt展示
 
 2021级应该是选黑白棋的人最多，22级选黑白棋的人稍微少一点，但是也挺多的。
 
-做完这几个实验的感觉就是完全没有必要浪费时间在上面，因为Mo平台的体验完全不如隔壁Kaggle，又因为是HUAWEI开发的，有些题目还要用HUAWEI的mindspore架构。
+做完这几个实验的感觉就是**完全没有必要浪费时间在上面**
 
-最主要的是，mo的评分方式是在线运行后评测的，所以每次评测都需要重新跑一遍，非常浪费时间。
+Mo平台的体验完全不如隔壁Kaggle，又因为是HUAWEI开发的，有些题目还要用HUAWEI的mindspore架构。
 
-个人作业网上可以找到的资料还挺多的
+Mo的评分方式是在线运行后评测的，所以每次评测都需要重新跑一遍，非常浪费时间。
+
+
+## 现有资源整理
+自动化也是好起来了，现在传资料的人越来越多了嘿嘿，感谢各位前辈的分享
+- the_Piao: [MO平台编程作业分享 - CC98论坛](https://www.cc98.org/topic/6085648)
+- 逐梦xcdh: [for-mydream/ZJU\_CSE\_ML\_Lab](https://github.com/for-mydream/ZJU_CSE_ML_Lab?tab=readme-ov-file)
+- zhaowei123: [ZJU_CSE_人工智能与机器学习](https://github.com/wayzhao12/ZJU_CSE_AIML/tree/main)
+- [Y-vic/ZJU\_AI\_ML\_Lab: ZJU人工智能与机器学习四个lab](https://github.com/Y-vic/ZJU_AI_ML_Lab)
+- [AI\_Course/MobileNet2 ZoRax-A5/AI\_Course](https://github.com/ZoRax-A5/AI_Course/tree/7920962cfc61a90bcaa473c50ac4b13f9949b91a/MobileNet2)
+- [Luhaozhhhe/Introduction\_to\_Artificial\_Intelligence: NKU-COSC0015-人工智能导论](https://github.com/Luhaozhhhe/Introduction_to_Artificial_Intelligence)
 
 
 ## Mo平台指北
+
+
 
 ### 如何删除文件
 
@@ -27,6 +44,8 @@ Mo平台应该使用的是一个Jupyter Notebook，因为用户名是jovyan
 
 所以就需要使用命令行来删除文件。
 
+点击新建 console,进入到命令行界面
+
 ```bash title="删除文件,注意备份！！！谨慎使用"
 rm -rf main.ipynb
 rm -rf results/
@@ -34,6 +53,10 @@ rm -rf results/
 
 
 ### 如何下载到本地
+
+如果有同学想要在本地训练，那么每次一个一个上传文件肯定是特别麻烦的
+
+这里使用zip或者tar的方法打包一下
 
 ```bash title="压缩所有文件"
 zip -r main.zip ./*
@@ -48,6 +71,7 @@ unzip main.zip
 scp main.zip <username>@<ip>:<path>
 ```
 这里也可以右键直接下载压缩包
+
 
 ```bash title="上传文件"
 scp <username>@<ip>:<path> <path> 
@@ -99,7 +123,7 @@ scp <username>@<ip>:<path> <path>
 
 进行了一些训练，最后使用的是timm库中`seresnext50_32x4d.racm_in1k`这个模型进行微调的。
 
-使用了4：1的训练集和测试集，训练出了两个模型，做bagging集成学习
+使用了4：1的训练集和测试集，训练出了两个模型，做投票集成
 
 达到了92%的准确率
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/2024-12-22-14-00-25.png)
@@ -171,7 +195,7 @@ def predict(image):
     with torch.no_grad():
         logits_1 = tta_model_1(imgs.to(device))  #预测
         logits_2 = tta_model_2(imgs.to(device))
-        logits = logits_1 + logits_2 # 做bagging集成学习
+        logits = logits_1 + logits_2 
         return inverted[logits.argmax(dim=-1).cpu().numpy().item()]
 ```
 
@@ -186,15 +210,30 @@ def predict(image):
 
 
 ## 口罩检测
-[Search | Kaggle](https://www.kaggle.com/search?q=Masked+face+recognition+in%3Adatasets)
 
-[X-zhangyang/Real-World-Masked-Face-Dataset: Real-World Masked Face Dataset，口罩人脸数据集](https://github.com/X-zhangyang/Real-World-Masked-Face-Dataset/tree/master?tab=readme-ov-file)
+口罩这个还是一个分类的任务，和垃圾分类其实是一个题目。
 
-[[2003.09093] Masked Face Recognition Dataset and Application](https://arxiv.org/abs/2003.09093)
+感觉还是设计隐含层网络架构比较关键。小数据集，数据增强也是比较关键的。
 
-[NKU-share/人工智能导论 at b60b98043f55257e1e74fc1aa1b7fc5ccbead370 · Starlight0798/NKU-share](https://github.com/Starlight0798/NKU-share/tree/b60b98043f55257e1e74fc1aa1b7fc5ccbead370/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%AF%BC%E8%AE%BA)
+可惜作业截止了以后就不可以反复提交了，不然想试试一些其他的方法。
 
-[一个基于resnet的口罩检测图片分类（自定义数据集）\_口罩分割数据集-CSDN博客](https://blog.csdn.net/liningxi123/article/details/136702365)
+
+!!! tip "额外找的一些资料"
+
+
+    之前想到的一个方法是，在网上找一些大的数据集进行训练，应用在小的数据集上面应该没有问题。但是试了一次发现效果不是很好，没有仔细研究这个问题，有兴趣的同学可以顺着这个思路研究一下。
+
+    [Search | Kaggle](https://www.kaggle.com/search?q=Masked+face+recognition+in%3Adatasets)
+
+    [X-zhangyang/Real-World-Masked-Face-Dataset: Real-World Masked Face Dataset，口罩人脸数据集](https://github.com/X-zhangyang/Real-World-Masked-Face-Dataset/tree/master?tab=readme-ov-file)
+
+    根据这篇的介绍，我们可以了解到口罩数据集分为两大类：一类是真实采集的人脸戴口罩图片，另一类是给无口罩的人脸图片加上了口罩的图片，造出的一些口罩的数据。
+
+    [[2003.09093] Masked Face Recognition Dataset and Application](https://arxiv.org/abs/2003.09093)
+
+    [NKU-share/人工智能导论 at b60b98043f55257e1e74fc1aa1b7fc5ccbead370 · Starlight0798/NKU-share](https://github.com/Starlight0798/NKU-share/tree/b60b98043f55257e1e74fc1aa1b7fc5ccbead370/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%AF%BC%E8%AE%BA)
+
+    [一个基于resnet的口罩检测图片分类（自定义数据集）\_口罩分割数据集-CSDN博客](https://blog.csdn.net/liningxi123/article/details/136702365)
 
 
 

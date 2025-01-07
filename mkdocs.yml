@@ -380,13 +380,24 @@ nav:
       - CS/AI/02-UninformedSearch.md     
       - CS/AI/03-InformedSearch.md       
       - CS/AI/04-OtherSearch.md
-      - CS/AI/05-MarkovDecision.md   
+
+    - "ML | 机器学习": 
+      - CS/AI/ML-01-intro.md
+      - CS/AI/ML-02-LinearRegression.md
+      - CS/AI/ML-03-DecisionTree.md
+      - CS/AI/ML-04-SVM.md
+      - CS/AI/ML-05-bayes.md
+      - Notebook page:  CS/AI/ML-06-clustering.ipynb
+      - CS/AI/ML-07-DimensionalityReduction.md
+      - CS/AI/ML-08-EnsembleLearning.md
+      - CS/AI/ML-09-else.md
+      - CS/AI/ML-10-interpretable_models.md
+
 
     - "DL | 深度学习":
       - CS/AI/DL-00-Lingo.md
       - Notebook page: CS/AI/DL-00-python_package.ipynb
       - CS/AI/DL-00-pytorch.md
-      - CS/AI/DL-01-MLP.md
       - CS/AI/DL-01-NN.md
       - CS/AI/DL-06-CNN.md
       - CS/AI/DL-08-RNN.md
@@ -399,20 +410,6 @@ nav:
 
     - "RL | 强化学习":
       - CS/AI/RL-01.md
-      
-
-    - "ML | 机器学习":
-      - CS/AI/Discrete_mathematics.md    
-      - CS/AI/ML-01-intro.md
-      - CS/AI/ML-02-LinearRegression.md  
-      - CS/AI/ML-03-DecisionTree.md      
-      - CS/AI/ML-04-SVM.md
-      - CS/AI/ML-05-bayes.md
-      - Notebook page:  CS/AI/ML-06-clustering.ipynb
-      - CS/AI/ML-07-DimensionalityReduction.md
-      - CS/AI/ML-08-EnsembleLearning.md
-      - CS/AI/ML-09-else.md
-      - CS/AI/ML-10-interpretable_models.md
 
     - "SEC | 人工智能安全":
       - CS/AI/SEC-01-attack.md
