@@ -746,10 +746,27 @@ $$
 
 
 
-### Eigen decomposition
+### Eigen decomposition | 特征分解
+
+特征值分解是一种特殊的奇异值分解
 
 
-### SVD | Singular Value Decomposition（todo）
+
+### SVD | 奇异值分解
+
+变换 = 旋转和伸缩组合
+
+那么如果想把一个变换表示成为旋转和伸缩的组合，考虑先旋转到坐标轴，再做伸缩，最后再旋转回来，这就是奇异值分解
+
+1.奇异值为非负数
+2.奇异值主对角线由小到大排列
+3.奇异值是特征值开方
+
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=112996076490296&bvid=BV1ExWxesEVf&cid=500001656999667&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"></iframe>
+
+奇异值分解
+
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=652439242&bvid=BV1YY4y1U7UX&cid=1024031413&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"></iframe>
 
 
 ## 求导

@@ -10,16 +10,26 @@ comments: true
 
 !!! note "课程介绍"
 
-    === "简介"
+   === "简介"
+      - 一般不依据数学模型 进行处理。
+      - 根据积累的经验和知识进行在线推理，确定控制策略。
+      - 在 **精度和不确定性** 之间 折中
 
-        - 一般不依据数学模型 进行处理。
-        - 根据积累的经验和知识进行在线推理，确定控制策略。
-        - 在 **精度和不确定性** 之间 折中
+   === "知识框架"
+      ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241107134330.png)
+      ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241107135609.png)
 
-    === "知识框架"
+   === "作业"
+      递阶控制、专家控制、模糊控制和神经网络控制各有一个小作业
 
-        ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241107134330.png)
-        ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241107135609.png)
+      最后期末会有一个大作业，必须包含模糊控制和神经网络控制。
+
+   === "评分标准"
+
+
+   === "智云录像"
+
+
 
 |               | 第一阶段         | 第二阶段         | 第三阶段         |
 |---------------|------------------|------------------|------------------|
@@ -34,11 +44,6 @@ comments: true
 
 - 规则驱动： 专家系统
 - 数据驱动： 神经网络
-
-
-
-
-
 
 
 
@@ -312,14 +317,7 @@ $$
 
 2. 针对不同的初始夹角 $\theta(0)$，给出专家PID控制的结果。（可能需要调整相关参数 $\theta_1, \theta_2, \theta_m$ 和 $K_s, K_b$）
 
-
-### 个人搜索记录
-
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241203120943.png)
-
-
-#### 基础结构搭建
-
 
 
 
@@ -342,11 +340,6 @@ crisp input -> fuzzifizcation -> fuzzy variable -> fuzzy rule -> defuzzification
 
 
 优点：我们一开始不知道规则，但是可以通过数据来学习规则，就像训练神经网络一样，最后可以得到一个可解释性强的模型
-
-
-
-
-
 
 
 ### 数学基础
@@ -394,10 +387,8 @@ T-norm
 ```matlab
 gensurf
 ```
+
 只用控制平面查表计算速度很快，但是内部的规则逻辑就不可见了
-
-
-#### rule firing strength
 
 
 
@@ -436,16 +427,6 @@ gensurf
 
 
 ### HW03-模糊控制
-[完整的模糊推理系统介绍以及matlab中从零实现(上篇)\_it can contain elements with only a partial degree-CSDN博客](https://blog.csdn.net/weixin_42686879/article/details/106727890)
-
-
-[完整的模糊推理系统介绍以及matlab中从零实现(下篇)\_tipper 模糊推理系统-CSDN博客](https://blog.csdn.net/weixin_42686879/article/details/106757646)
-
-[模糊控制方法在磁悬浮系统中的应用 - 道客巴巴](https://www.doc88.com/p-047673747915.html)
-
-[Generate Code for Fuzzy System Using Simulink Coder](https://ww2.mathworks.cn/help/fuzzy/generate-code-for-fuzzy-system-using-simulink-coder.html)
-
-
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241128175458.png)
 
 
@@ -491,6 +472,17 @@ $$
 2. **针对上述磁悬浮系统，设计模糊控制器使钢球位置稳定在期望位置 $X_d = 0.05m$。** 假设初始钢球位置为 $X(0) = 0.03m$，初始速度和初始电流均为 0，仿真实现系统的模糊控制，绘制钢球位置随时间变化曲线、控制电压随时间变化曲线，并分析仿真结果。（输入输出的论域范围自行选择，可尝试位置误差范围 [-0.04,0.04]m，位置误差变化率范围 [-0.5,0.5]m/s，控制电压的范围 [-10,10]V）
 
 3. **若改变钢球质量为 0.1kg，其他参数不变，重新进行仿真并分析对系统控制性能的影响，讨论如何调整模糊控制器参数以适应钢球质量的变化。**
+
+
+[完整的模糊推理系统介绍以及matlab中从零实现(上篇)\_it can contain elements with only a partial degree-CSDN博客](https://blog.csdn.net/weixin_42686879/article/details/106727890)
+
+
+[完整的模糊推理系统介绍以及matlab中从零实现(下篇)\_tipper 模糊推理系统-CSDN博客](https://blog.csdn.net/weixin_42686879/article/details/106757646)
+
+[模糊控制方法在磁悬浮系统中的应用 - 道客巴巴](https://www.doc88.com/p-047673747915.html)
+
+[Generate Code for Fuzzy System Using Simulink Coder](https://ww2.mathworks.cn/help/fuzzy/generate-code-for-fuzzy-system-using-simulink-coder.html)
+
 
 ## 神经网络控制 | Neural Network Control
 
@@ -709,3 +701,36 @@ This browser does not support PDFs
 <iframe src="https://pubs.cstam.org.cn/data/article/em/preview/pdf/20061205.pdf" width="100%" height="600px" style="border: none;">
 This browser does not support PDFs
 </iframe>
+
+!!! tip "让我们说人话"
+      神经网络辨识，就是用神经网络来拟合一个系统，使得这个系统能够尽可能地逼近实际系统。
+
+      这个作业要做的就是
+
+      1. s-funtion建立一个model
+      2. 八仙过海获得其输入输出的数据
+      3. 使用神经网络工具箱进行训练（这里要注意使用串并联模型（把之前的输入输出都作为训练的data），真值作为label）
+      4. 使用训练好的神经网络进行仿真
+
+### BPPID
+
+[BP神经网络PID控制器的设计与仿真 | RenAhahWiki](https://renahah.github.io/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8/BP%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9CPID%E6%8E%A7%E5%88%B6%E5%99%A8%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%BF%E7%9C%9F/)
+
+[基于BP神经网络PID控制+Simulink仿真-腾讯云开发者社区-腾讯云](https://cloud.tencent.com/developer/article/2092284)
+
+### RBF
+[几种神经网络整定PID参数原理剖析及simulink案例仿真\_神经网络pid-CSDN博客](https://blog.csdn.net/weixin_50892810/article/details/130982793)
+
+## 其他
+
+### 遗传算法
+
+[遗传算法、遗传算法库函数ga和gamultiobj、遗传算法工具箱GOT实例介绍-CSDN博客](https://blog.csdn.net/weixin_50892810/article/details/127346322)
+
+[基于遗传算法的simulink/PID参数整定(s函数）\_基于遗传算法的pid控制参数优化simulink-CSDN博客](https://blog.csdn.net/weixin_56691527/article/details/127620212)
+
+### 粒子群算法
+
+### 蚁群算法
+
+
