@@ -28,6 +28,16 @@ methods that learn from data and make predictions on unseen data
 
 [笔记](https://github.com/mura1n/Machine-Learning-in-Practice-Crash-Course-Notes)
 
+
+1. 机器学习：B站/youtube 李宏毅/吴恩达课程二选一，mo平台(https://mo.zju.edu.cn/)上似乎有课程笔记自己搜索一下，如果时间不多可以先跳过，后面再补;  如果时间特别特别充裕的话，西瓜书也可以看。
+2. 深度学习：https://zh-v2.d2l.ai/ notebook和课程质量较高，使用的框架的话, pytorch文献用的比较多,tensorflow和硬件兼容性好，根据需求选择框架学习, 如果觉得难以接受可以多刷几遍
+3. 强化学习：https://hrl.boyuai.com/   https://datawhalechina.github.io/easy-rl/#/ 应该比较好，但是lz不是做这个方向的，还没看过(x
+之后要做什么根据自己的需求来
+https://github.com/AccumulateMore 这个笔记似乎也做的比较好
+B站https://space.bilibili.com/1567748478/的论文带读也挺不错
+
+
+
 ## 导论
 
 !!! note "什么是机器学习"
@@ -419,13 +429,7 @@ overfitting:
 
 
 
-孔院🐕🦁课
 
-[人工智能与机器学习复习资料 - CC98论坛](https://www.cc98.org/topic/5518130)
-
-[2022-2023秋冬人工智能与机器学习线上考试回忆卷（和大佬们发重了） - CC98论坛](https://www.cc98.org/topic/5508899)
-
-[人工智能与机器学习回忆卷 - CC98论坛](https://www.cc98.org/topic/5234359)
 
 
 ### 会议论文
