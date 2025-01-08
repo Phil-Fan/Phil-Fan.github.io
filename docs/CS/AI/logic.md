@@ -5,7 +5,7 @@
     必然地导出
 
 
-!!! tip "大部分人都是归纳鬼才、类比高手、演绎餐费"
+!!! tip "大部分人都是归纳鬼才、类比高手、演绎残废"
 
 
 ## 基础知识
@@ -76,19 +76,46 @@ AEIO
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=470304307&bvid=BV1UT411g7YG&cid=754709410&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"></iframe>
 
 ### 命题连接词
-复合命题
+复合命题：穷尽所有符合命题的判断规则
 
-穷尽所有符合命题的判断规则
 
-真值表
+| 命题连接符号 | 表示形式 | 意义 |
+| --- | --- | --- |
+| 与 (and) | $p \land q$ | 命题**合取** (conjunction)，即“p 且 q” |
+| 或 (or) | $p \lor q$ | 命题**析取** (disjunction)，即“p 或 q” |
+| 非 (not) | $\neg p$ | 命题**否定** (negation)，即“非 p” |
+| 条件 (conditional) | $p \rightarrow q$ | 命题**蕴含** (implication)，即“如果 p 则 q” |
+| 双向条件 (bi-conditional) | $p \leftrightarrow q$ | 命题双向蕴含 (bi-implication)，即“p 当且仅当 q” |
 
-演算叫做命题演算
+
+可以通过真值表判断真假
+
+| $p$ | $q$ | $\neg p$ | $p \land q$ | $p \lor q$ | $p \rightarrow q$ | $p \leftrightarrow q$ |
+| --- | --- | --- | --- | --- | --- | --- |
+| False | False | True | False | False | True | True |
+| False | True | True | False | True | True | False |
+| True | False | False | False | True | False | False |
+| True | True | False | True | True | True | True |
+
+1. **否定 ($\neg p$)**: 当 $p$ 为假时，$\neg p$ 为真；当 $p$ 为真时，$\neg p$ 为假。
+2. **合取 ($p \land q$)**: 当 $p$ 和 $q$ 都为真时，$p \land q$ 为真；否则为假。
+3. **析取 ($p \lor q$)**: 当 $p$ 或 $q$ 至少有一个为真时，$p \lor q$ 为真；否则为假。
+4. **蕴含 ($p \rightarrow q$)**: 当 $p$ 为真且 $q$ 为假时，$p \rightarrow q$ 为假；否则为真。
+5. **双向蕴含 ($p \leftrightarrow q$)**: 当 $p$ 和 $q$ 都为真或都为假时，$p \leftrightarrow q$ 为真；否则为假。
+
+!!! note "蕴含"
+    如果$p$那么$q$：$p \rightarrow q$,$p$是$q$的充分条件,表示的是一种蕴含关系。所以当$p$不成立的时候，相当于$p$是空集，空集是任何集合的子集，所以$p \rightarrow q$一定成立。
+
+
+
+### 命题演算
 
 可以使用与或非表示所有命题连接词
 
+通过逻辑等价，我们可以将命题等价地转换为其他命题
 
 
-如果$p$那么$q$：$p \rightarrow q$,$p$是$q$的充分条件,表示的是一种蕴含关系。所以当$p$不成立的时候，相当于$p$是空集，空集是任何集合的子集，所以$p \rightarrow q$一定成立。
+
 
 | 公式 | 等价公式 |
 | --- | --- |
@@ -99,12 +126,38 @@ AEIO
 | $\neg (\neg \alpha) \equiv \alpha$ ( 双重否定 ) | $(\alpha \land (\beta \lor \gamma)) \equiv (\alpha \land \beta) \lor (\alpha \land \gamma)$ ( $\land$ 对 $\lor$ 的分配律 ) |
 | $(\alpha \Rightarrow \beta) \equiv \neg \beta \Rightarrow \neg \alpha$ ( 逆否命题 ) | $(\alpha \lor (\beta \land \gamma)) \equiv (\alpha \lor \beta) \land (\alpha \lor \gamma)$ ( $\lor$ 对 $\land$ 的分配律 ) |
 
+
+
+可以从一个复合命题推导出等价的命题，而不用列出真值表
+
+
 ### 推理规则
 
 归结：$\alpha  \lor\beta, \neg \alpha$ 推出 $\beta$
 
-有一对相反的可以抵消
 
+
+| 推理规则 | 形式 | 说人话|
+| --- | --- | --- |
+| 假言推理 (Modus Ponens) | $\frac{\alpha \rightarrow \beta, \alpha}{\beta}$ |满足了前提条件，推出结论|
+| 与消解 (And-Elimination) | $\frac{\alpha_1 \land \alpha_2 \land \cdots \land \alpha_n}{\alpha_i (1 \leq i \leq n)}$ |众多条件抽一个|
+| 与导入 (And-Introduction) | $\frac{\alpha_1, \alpha_2, \ldots, \alpha_n}{\alpha_1 \land \alpha_2 \land \cdots \land \alpha_n}$ |果宝特工，归位|
+| 双重否定 (Double-Negation Elimination) | $\frac{\neg \neg \alpha}{\alpha}$ |否定之否定|
+| 单项消解或单项归结 (Unit Resolution) | $\frac{\alpha \lor \beta, \neg \beta}{\alpha}$ | |
+| 消解或归结 (Resolution) | $\frac{\alpha \lor \beta, \neg \beta \lor \gamma}{\alpha \lor \gamma}$ 或 $\frac{\alpha_1 \lor \alpha_2 \lor \cdots \lor \alpha_m, \neg \alpha_k}{\alpha_1 \lor \alpha_2 \lor \cdots \lor \alpha_{k-1} \lor \alpha_{k+1} \lor \cdots \lor \alpha_m} (\neg \alpha_k = \neg \beta)$ |有一对相反的，可以抵消|
+
+
+归结法：反证法
+
+!!! example "例子"
+    例1：
+    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250108192100.png)
+
+    例2：
+    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250108192142.png)
+
+    例3：
+    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250108192206.png)
 
 ### 命题范式
 - 有限个简单合取式构成的析取式称为析取范式
@@ -115,7 +168,8 @@ AEIO
 - 一个析取范式是不成立的，当且仅当它的每个简单合取式都不成立。
 - 一个合取范式是成立的，当且仅当它的每个简单析取式都是成立的。
 
-◀ 任一命题公式都存在着与之等值的析取范式与合取范式(注意：命题公式的析取范式与合取范式都不是唯一的)
+**任一命题公式都存在着与之等值的析取范式与合取范式**
+(注意：命题公式的析取范式与合取范式都不是唯一的)
 
 !!! example "求 $\neg (\alpha \rightarrow \beta) \lor \neg \gamma$ 的析取范式与合取范式"
 
@@ -128,16 +182,33 @@ AEIO
     \end{aligned}
     $$
 
-## 谓词逻辑
+## 谓词逻辑——表达关系
 
 !!! note "命题逻辑有局限性，无法表示从属关系、个体关系等"
+    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250108193046.png)
+
+    不同原子命题蕴含个体、群体、关系等，命题逻辑无法表现；需要分析原子命题，分离其主语和谓语
 
 个体、谓词、量词
 
 
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=642822190&bvid=BV1ZY4y1J78y&cid=757283302&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"></iframe>
 
+### 谓词
+- 谓词中个体变元用个体常量带入后就变成了命题，如 $\text{car}(x)$ （$x$ 是车）这个谓词中 $x$ 用吉普车代替，则 $\text{car}($ 吉普车 $)$ 是命题。
+> 大写字母表示谓词，有一元谓词和n元谓词（可以有若干个个体变量）
 
+
+!!! note "函数与谓词的区别"
+    函数中个体变元用个体常量带入后，得到的仍然是个体（值域）
+
+    谓词中个体变元用个体常量带入后就变成了命题
+    > 如 $\text{car}(x)$ （$x$ 是车）这个谓词中 $x$ 用吉普车代替，则 $\text{car}($ 吉普车 $)$ 是命题。
+
+
+    函数是从定义域到值域的映射；
+    
+    谓词是从定义域到 $\{ \text{True}, \text{False} \}$ 的映射
 
 ### 量词
 
@@ -150,11 +221,10 @@ AEIO
 
 - 存在量词用符号 ∃ 表示，表示存在、有一个、某些等。
 - $\exists x$ 表示定义域中存在一个或若干个个体，$\exists x P(x)$ 表示定义域中存在一个个体或若干个个体具有性质 P
-### 谓词
-- 谓词中个体变元用个体常量带入后就变成了命题，如 $\text{car}(x)$ （$x$ 是车）这个谓词中 $x$ 用吉普车代替，则 $\text{car}($ 吉普车 $)$ 是命题。
-- 函数是从定义域到值域的映射；谓词是从定义域到 $\{ \text{True}, \text{False} \}$ 的映射
 
-**合式公式**
+
+
+**合式公式** (复杂谓词)
 
 - 命题常项、命题变项、原子谓词（不存在任何量词与联结词）是合式公式。
 - 如果 $A$ 和 $B$ 是合式公式，那么 $\neg A$、$A \land B$、$A \lor B$、$A \rightarrow B$、$A \leftrightarrow B$ 都是合式公式
@@ -169,6 +239,41 @@ AEIO
 - 存在量词引入 (Existential Generalization, EG): $A(c) \rightarrow (\exists x) A(x)$
 
 
+
+!!! example "基础题"
+    **有如下事实：**<br>
+
+    - 所有伟大的厨师都是意大利人<br>
+    - 所有意大利人都喜欢享用美食<br>
+    - 迈克尔（Michael）或路易斯（Louis）是一位伟大的厨师<br>
+    - 迈克尔不是一位伟大的厨师<br>
+    因此，路易斯喜欢享用美食**<br>
+
+    **1. 定义合适的谓词（1.5分**
+        定义如下谓词:<br>
+        $GC(x)$: x 是一位伟大的厨师<br>
+        $I(x)$:  x 是意大利人<br>
+        $EF(x)$: x 享用美食<br>
+
+    **2. 使用定义的谓词表述上述语句（2.0分）**
+        谓词逻辑表达：<br>
+        1) $(\forall x)(GC(x) \Rightarrow I(x))$<br>
+        2) $(\forall x)(I(x) \Rightarrow EF(x))$<br>
+        3) $GC(\text{Michael}) \lor GC(\text{Louis})$<br>
+        4) $\neg GC(\text{Michael})$<br>
+        因此: 5) $EF(\text{Louis})$<br>
+
+    **3. 将谓词语句转换为标准子句（2.5分）**
+        转换为子句（量词实例化和蕴含消除）:<br>
+        1) $\neg GC(x) \lor I(x)$<br>
+        2) $\neg I(y) \lor EF(y)$<br>
+        3) $GC(\text{Michael}) \lor GC(\text{Louis})$<br>
+        4) $\neg GC(\text{Michael})$<br>
+
+    **4. 应用归结方法证明结论5，画出归结过程并标注出合适的合一（4分）**
+        否定结论:<br>
+        1) ~EF(Louis)<br>
+        ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250108130259.png)
 
 
 
