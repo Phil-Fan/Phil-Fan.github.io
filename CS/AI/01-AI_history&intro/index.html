@@ -1555,23 +1555,45 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_2">
 <span class="md-ellipsis">
-      基础
+      绪论
     </span>
 </a>
-</li>
+<nav aria-label="绪论" class="md-nav">
+<ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_3">
 <span class="md-ellipsis">
-      发展史
+      人工智能定义
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_4">
 <span class="md-ellipsis">
-      研究与应用
+      历史
     </span>
 </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_5">
+<span class="md-ellipsis">
+      智能体
+    </span>
+</a>
+<nav aria-label="智能体" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_6">
+<span class="md-ellipsis">
+      评价
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -1673,14 +1695,21 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../ML-09-else/">
 <span class="md-ellipsis">
-    其他
+    特征选择与稀疏学习
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../ML-10-interpretable_models/">
+<a class="md-nav__link" href="../ML-10-SemiSupervisedLearning/">
 <span class="md-ellipsis">
-    Interpretable ML
+    半监督学习
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ML-11-ConceptLearning/">
+<span class="md-ellipsis">
+    规则学习
   </span>
 </a>
 </li>
@@ -1688,6 +1717,13 @@
 <a class="md-nav__link" href="../ML-CSE/">
 <span class="md-ellipsis">
     复习
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ML-15-interpretable_models/">
+<span class="md-ellipsis">
+    Interpretable ML
   </span>
 </a>
 </li>
@@ -2767,23 +2803,45 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_2">
 <span class="md-ellipsis">
-      基础
+      绪论
     </span>
 </a>
-</li>
+<nav aria-label="绪论" class="md-nav">
+<ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_3">
 <span class="md-ellipsis">
-      发展史
+      人工智能定义
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_4">
 <span class="md-ellipsis">
-      研究与应用
+      历史
     </span>
 </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_5">
+<span class="md-ellipsis">
+      智能体
+    </span>
+</a>
+<nav aria-label="智能体" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_6">
+<span class="md-ellipsis">
+      评价
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -2794,31 +2852,100 @@
 <article class="md-content__inner md-typeset">
 <div><h1 id="_1">人工智能历史与引论<a class="headerlink" href="#_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>134<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>分钟</p>
+<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>993<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>4<span class="heti-spacing"> </span></span>分钟</p>
 </div>
 <p>CS188</p>
 <div class="admonition note">
 <p class="admonition-title">笔记来源</p>
 <p>人工智能与机器学习课程
-<a href="https://skillful-vest-b8d.notion.site/AI-edb0292f25db4b428b34042aff7bef0c#ce0fffc50e57478d802af27eb41d1ff1">Y_lz的笔记本</a></p>
-</div>
-<p><a href="https://aiplusx-file.momodel.cn/files/%E3%80%8A%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%BC%95%E8%AE%BA%E3%80%8B-%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%8E%86%E5%8F%B2%E4%B8%8E%E5%86%85%E5%AE%B9%E6%A6%82%E8%A6%81-2024%E5%B9%B4%E6%98%A5%E5%A4%8F.pdf">《人工智能引论》<span>-<span class="heti-spacing"> </span></span>人工智能历史与内容概要<span class="heti-skip"><span class="heti-spacing"> </span>-2024<span class="heti-spacing"> </span></span>年春夏<span><span class="heti-spacing"> </span>.pdf (momodel.cn)</span></a></p>
+<a href="https://skillful-vest-b8d.notion.site/AI-edb0292f25db4b428b34042aff7bef0c#ce0fffc50e57478d802af27eb41d1ff1">Y_lz的笔记本</a>
+<a href="https://aiplusx-file.momodel.cn/files/%E3%80%8A%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%BC%95%E8%AE%BA%E3%80%8B-%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%8E%86%E5%8F%B2%E4%B8%8E%E5%86%85%E5%AE%B9%E6%A6%82%E8%A6%81-2024%E5%B9%B4%E6%98%A5%E5%A4%8F.pdf">《人工智能引论》-人工智能历史与内容概要-2024年春夏.pdf (momodel.cn)</a></p>
 <p><a href="https://mo.zju.edu.cn/">https://mo.zju.edu.cn/</a></p>
 <p><a href="https://www.cc98.org/topic/5797263"><span>2023-2024<span class="heti-spacing"> </span></span>秋冬学期《人工智能引论》期末考试回忆卷<span class="heti-skip"><span class="heti-spacing"> </span>- CC98<span class="heti-spacing"> </span></span>论坛</a></p>
 <p><a href="https://www.cc98.org/topic/5797700"><span>2023-2024<span class="heti-spacing"> </span></span>秋冬 《人工智能基础》 回忆卷<span class="heti-skip"><span class="heti-spacing"> </span>- CC98<span class="heti-spacing"> </span></span>论坛</a></p>
-<h2 id="_2">基础<a class="headerlink" href="#_2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<h2 id="_3">发展史<a class="headerlink" href="#_3" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<p>人工智能的起源</p>
-<p>可计算载体：形式化与机械化</p>
-<p>智能计算方法</p>
-<p>新一代人工智能</p>
-<h2 id="_4">研究与应用<a class="headerlink" href="#_4" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2></div>
+</div>
+<h2 id="_2">绪论<a class="headerlink" href="#_2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h3 id="_3">人工智能定义<a class="headerlink" href="#_3" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>人工智能：<strong>用计算机模拟或实现的智能</strong>，研究如何在机器上实现人类智能，即用机器来模仿人的智能</p>
+<blockquote>
+<p>智能：辨识区分事物从而做出正确选择的能力</p>
+</blockquote>
+<p>智能包含的能力：</p>
+<ul>
+<li>感知能力</li>
+<li>学习和自适应能力</li>
+<li>记忆和思维能力</li>
+<li>行为能力（人们对感知到的外界信息作出动作反应的能力）</li>
+</ul>
+<p>认识智能的三种理论：</p>
+<ul>
+<li>思维理论：智能来源于<strong>思维活动</strong></li>
+<li>知识阈值理论：智能取决于<strong>知识的数量及其可运用程度</strong></li>
+<li>进化理论：智能取决于<strong>感知和行为</strong>，取决于对外界复杂环境的适应</li>
+</ul>
+<p>组织成四类的人工智能：<strong>强调行动<span class="heti-skip"><span class="heti-spacing"> </span>or<span class="heti-spacing"> </span></span>强调思考，像人一样<span class="heti-skip"><span class="heti-spacing"> </span>or<span class="heti-spacing"> </span></span>合理</strong></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250108105334.png"/></p>
+<ol>
+<li>
+<p>类人思维（像人一样思考<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>：认知模型方法</p>
+<p>需要对人脑内部行为有科学的、理论上的了解才能将其表示成计算机程序</p>
+<ul>
+<li>内省：捕捉人类自身的思维过程</li>
+<li>心理测试：观察工作中的人，从输入输出来理解人的思考</li>
+<li>脑成像：观察工作中的头脑</li>
+<li>类人行为（像人一样行动<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>：图灵测试方法</li>
+</ul>
+<p>图灵测试（The Turing test）由艾伦<span class="heti-skip"><span class="heti-spacing"> </span>·<span class="heti-spacing"> </span></span>麦席森<span class="heti-skip"><span class="heti-spacing"> </span>·<span class="heti-spacing"> </span></span>图灵提出，指测试者在与被测试者（一个人和一台机器）<strong>隔开的情况下</strong>，通过一些装置（如键盘）向被测试者随意提问。</p>
+<p>进行多次测试后，如果被测试者机器<strong>让超过<span class="heti-skip"><span class="heti-spacing"> </span>30%<span class="heti-spacing"> </span></span>的测试者做出误判</strong>，那么这台机器就通过了测试，并被认为具有人类智能。</p>
+</li>
+<li>
+<p>理性思维</p>
+<ul>
+<li>三段论：提供一种在已知前提正确时总能推出正确的结论</li>
+<li>逻辑方法的障碍：难以获得形式化的知识、逻辑符号表示的形式化表达。原则上解决问题和实际上解决问题有巨大差别</li>
+</ul>
+</li>
+<li>
+<p>理性行为：做正确的事</p>
+<p>正确的事：给定可得到的信息，<strong>预期可最大化目标</strong>的那些事情</p>
+</li>
+</ol>
+<h3 id="_4">历史<a class="headerlink" href="#_4" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p><span>1956<span class="heti-spacing"> </span></span>年诞生，达特莫斯<span class="heti-skip"><span class="heti-spacing"> </span>(Dartmouth)<span class="heti-spacing"> </span></span>由麦卡锡提议正式采用了<span class="heti-skip"><span class="heti-spacing"> </span>AI<span class="heti-spacing"> </span></span>这一术语</p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250108105501.png"/></p>
+<p>人工智能学派：符号主义、联结主义、行为主义</p>
+<h2 id="_5">智能体<a class="headerlink" href="#_5" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<p>智能体（Agent<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>：<strong>能够感知和动作的实体</strong></p>
+<p><strong>从感知序列到动作的一个函数</strong></p>
+<div class="arithmatex">\[
+f:P^* \rightarrow A
+\]</div>
+<p>最<strong>完美的智能体不可以实现</strong>——计算能力有限</p>
+<ul>
+<li><strong>感知信息</strong>：任何时刻<span class="heti-skip"><span class="heti-spacing"> </span>Agent<span class="heti-spacing"> </span></span>的感知输入</li>
+<li><strong>感知序列</strong>：<span>Agent<span class="heti-spacing"> </span></span>收到的所有输入数据的完整历史</li>
+<li><strong><span>Agent<span class="heti-spacing"> </span></span>函数</strong>：将任意给定感知序列映射到<span class="heti-skip"><span class="heti-spacing"> </span>Agent<span class="heti-spacing"> </span></span>的动作，可以描述<span class="heti-skip"><span class="heti-spacing"> </span>Agent<span class="heti-spacing"> </span></span>的行为，<strong>可以通过制表的方式表示</strong></li>
+</ul>
+<h3 id="_6">评价<a class="headerlink" href="#_6" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>理性智能体：做事正确的智能体，即<span class="heti-skip"><span class="heti-spacing"> </span>Agent<span class="heti-spacing"> </span></span>函数表格的右边都填写正确</p>
+<p>理性（Rationality）的判断：<strong><span>PEAS<span class="heti-spacing"> </span></span>四要素</strong></p>
+<ul>
+<li>Performance：定义成功标准的<strong>性能度量</strong></li>
+<li>Environment：<span>Agent<span class="heti-spacing"> </span></span>对<strong>环境的先验知识</strong></li>
+<li>Actuators：Agent<strong>可以执行的动作</strong></li>
+<li>Sensors：<span>Agent<span class="heti-spacing"> </span></span>的<strong>感知序列</strong></li>
+</ul>
+<p>另外两个理性智能体需要的要素：</p>
+<ul>
+<li>会学习：<span>Agent<span class="heti-spacing"> </span></span>要从所感知的东西中学习。<span>Agent<span class="heti-spacing"> </span></span>最初的设定反映了环境的一些先验知识，但随着<span class="heti-skip"><span class="heti-spacing"> </span>Agent<span class="heti-spacing"> </span></span>获得经验，这些知识会改变<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>增加。要注意<strong>设计者和<span class="heti-skip"><span class="heti-spacing"> </span>Agent<span class="heti-spacing"> </span></span>的分工和合作</strong>。</li>
+<li>自主性：尽可能的学习以弥补不全面、不正确的先验知识，学习是<span class="heti-skip"><span class="heti-spacing"> </span>Agent<span class="heti-spacing"> </span></span>自适应性的基础。</li>
+</ul></div>
 <aside class="md-source-file">
 <span class="md-source-file__fact">
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年1月7日 21:13:06</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年1月8日 14:58:36</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">

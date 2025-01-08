@@ -1619,13 +1619,6 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_5">
 <span class="md-ellipsis">
-      蒙特卡洛树搜索
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_6">
-<span class="md-ellipsis">
       参考资料
     </span>
 </a>
@@ -1709,14 +1702,21 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../ML-09-else/">
 <span class="md-ellipsis">
-    其他
+    特征选择与稀疏学习
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../ML-10-interpretable_models/">
+<a class="md-nav__link" href="../ML-10-SemiSupervisedLearning/">
 <span class="md-ellipsis">
-    Interpretable ML
+    半监督学习
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ML-11-ConceptLearning/">
+<span class="md-ellipsis">
+    规则学习
   </span>
 </a>
 </li>
@@ -1724,6 +1724,13 @@
 <a class="md-nav__link" href="../ML-CSE/">
 <span class="md-ellipsis">
     复习
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ML-15-interpretable_models/">
+<span class="md-ellipsis">
+    Interpretable ML
   </span>
 </a>
 </li>
@@ -2846,13 +2853,6 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_5">
 <span class="md-ellipsis">
-      蒙特卡洛树搜索
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_6">
-<span class="md-ellipsis">
       参考资料
     </span>
 </a>
@@ -2866,15 +2866,33 @@
 <article class="md-content__inner md-typeset">
 <div><h1 id="_1">对抗搜索<a class="headerlink" href="#_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>775<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"></path></svg></span> <span>18<span class="heti-spacing"> </span></span>行代码 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>3<span class="heti-spacing"> </span></span>分钟</p>
+<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>1218<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"></path></svg></span> <span>18<span class="heti-spacing"> </span></span>行代码 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>5<span class="heti-spacing"> </span></span>分钟</p>
 </div>
+<p>博弈：双方的智能活动，任何一方都不能单独控制博弈过程，而是由双方轮流实施其控制对策的过程</p>
+<p>分为完全信息博弈、不完全信息博弈、概率博弈</p>
+<p>形式化：</p>
+<ul>
+<li><strong>初始状态</strong>：棋盘局面和确定哪个游戏者出招</li>
+<li><strong>后继函数</strong>：返回<span class="heti-skip"><span class="heti-spacing"> </span>(move, state)<span class="heti-spacing"> </span></span>列表，每一项表示一个合法招数和对应的结果状态</li>
+<li><strong>终止测试</strong>：判断游戏是否结束。游戏结束的状态称为终止状态</li>
+<li><strong>效用函数</strong>：目标函数<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>收益函数，终止状态的得分</li>
+</ul>
 <h2 id="minimax"><span>Minimax<span class="heti-spacing"> </span></span>搜索<a class="headerlink" href="#minimax" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<p>我方是绿色：越大越好
-对方是红色：越小越好</p>
-<p>最朴素的方法就是从叶子节点向上回溯</p>
-<p><span>Minimax<span class="heti-spacing"> </span></span>算法又叫极小化极大算法，是一种找出失败的最大可能性中的最小值的算法。</p>
-<p>在局面确定的双人对弈里，常进行对抗搜索，构建一棵每个节点都为一个确定状态的搜索树。奇数层为己方先手，偶数层为对方先手。搜索树上每个叶子节点都会被赋予一个估值，估值越大代表我方赢面越大。我方追求更大的赢面</p>
-<p>来看一个简单的例子。</p>
+<p><span>Minimax<span class="heti-spacing"> </span></span>算法又叫极小化极大算法，是一种找出失败的最大可能性中的最小值的算法。用于回合制的双人对弈<span><span class="heti-spacing"> </span>.</span></p>
+<p>两个假设：</p>
+<ul>
+<li>整个博弈属于零和博弈，即一方的收益必然意味着另一方的损失</li>
+<li>博弈双方足够聪明，即每一方在决策时总会选择使自己利益最大化的决策</li>
+</ul>
+<blockquote>
+<p>评估分数都是<strong>基于自己的视角</strong>之下。想选择一个对于我们最有利的局面，分数最大的局面。
+我方是绿色：越大越好；对方是红色：越小越好
+那如何得出这个分数呢？
+我们现在知道树的叶子节点都是终止状态，所以我们可以直接得到这些终止状态的分数。（win or lose） 比如把赢的情况记为1，输的情况记为-1，平局记为0
+所以minimax算法就是从叶子节点向上回溯，得到根节点的分数；对于绿色的节点，我们希望分数越大越好，对于红色的节点（对方），（对方）希望分数越小越好。</p>
+</blockquote>
+<div class="admonition example">
+<p class="admonition-title"><span>Minimax<span class="heti-spacing"> </span></span>例子</p>
 <p>称我方为<span><span class="heti-spacing"> </span>MAX</span>，对方为<span><span class="heti-spacing"> </span>MIN</span>，图示如下：</p>
 <p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241106204322.png"/></p>
 <p>例如，对于如下的局势，假设从左往右搜索，根节点的数值为我方赢面：</p>
@@ -2882,6 +2900,8 @@
 <p>我方应选择中间的路线。因为，如果选择左边的路线，最差的赢面是<span><span class="heti-spacing"> </span>3</span>；如果选择中间的路线，最差的赢面是<span><span class="heti-spacing"> </span>15</span>；如果选择右边的路线，最差的赢面是<span><span class="heti-spacing"> </span>1</span>。虽然选择右边的路线可能有<span class="heti-skip"><span class="heti-spacing"> </span>22<span class="heti-spacing"> </span></span>的赢面，但对方也可能使我方只有<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>的赢面，假设对方会选择使得我方赢面最小的方向走，那么经过权衡，显然选择中间的路线更为稳妥。</p>
 <p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241106204340.png"/></p>
 <p>实际上，在看右边的路线时，当发现赢面可能为<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>就不必再去看赢面为<span><span class="heti-spacing"> </span>12</span>、20、<span>22<span class="heti-spacing"> </span></span>的分支了，因为已经可以确定右边的路线不是最好的。</p>
+</div>
+<p>在局面确定的双人对弈里，常进行对抗搜索，构建一棵每个节点都为一个确定状态的搜索树。奇数层为己方先手，偶数层为对方先手。搜索树上每个叶子节点都会被赋予一个估值，估值越大代表我方赢面越大。我方追求更大的赢面</p>
 <h3 id="_2">分析<a class="headerlink" href="#_2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>性能：</p>
 <ul>
@@ -2892,23 +2912,30 @@
 </ul>
 <p>极大极小算法将<strong>所有子树全部扫描，极其浪费时间和空间</strong></p>
 <h2 id="alpha-beta"><span>alpha-beta<span class="heti-spacing"> </span></span>剪枝算法<a class="headerlink" href="#alpha-beta" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<p>对<span class="heti-skip"><span class="heti-spacing"> </span>MinMax<span class="heti-spacing"> </span></span>算法的优化，产生的结果完全相同，但运行效率不一样</p>
+<p>使用朴素的<span class="heti-skip"><span class="heti-spacing"> </span>Minimax<span class="heti-spacing"> </span></span>算法，那么搜索树的节点数会非常多，时间复杂度会非常高。</p>
+<p><span>alpha-beta<span class="heti-spacing"> </span></span>剪枝算法是对<span class="heti-skip"><span class="heti-spacing"> </span>MinMax<span class="heti-spacing"> </span></span>算法的剪枝，产生的结果完全相同，但运行效率不一样</p>
 <p>基本思想：根据上一层已经得到的当前最优结果，决定目前的搜索是否要继续下去</p>
-<p>两个假设：</p>
 <ul>
-<li>整个博弈属于零和博弈，即一方的收益必然意味着另一方的损失</li>
-<li>博弈双方足够聪明，即每一方在决策时总会选择使自己利益最大化的决策</li>
-</ul>
-<p>算法流程详见：<a href="https://oi-wiki.org/search/alpha-beta/">https://oi-wiki.org/search/alpha-beta/</a></p>
-<ul>
-<li>对于<span class="heti-skip"><span class="heti-spacing"> </span>Max<span class="heti-spacing"> </span></span>层，本体值为<span><span class="heti-spacing"> </span><span class="arithmatex">\(\alpha\)</span></span>；对于<span class="heti-skip"><span class="heti-spacing"> </span>Min<span class="heti-spacing"> </span></span>层，本体值为<span><span class="heti-spacing"> </span><span class="arithmatex">\(\beta\)</span></span></li>
-<li>初始情况均为<span><span class="heti-spacing"> </span><span class="arithmatex">\(\alpha=-\inf,~\beta=+\inf\)</span></span></li>
-<li>按照<strong>先序遍历的顺序</strong></li>
-<li><strong>向上传递：更新本体值</strong></li>
+<li>
+<p>对于绿色的节点，我们希望找到子节点中分数最大的，所以遍历相当于是将绿色节点记录的最大值从<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(-\infty\)</span><span class="heti-spacing"> </span></span>更新到<span><span class="heti-spacing"> </span><span class="arithmatex">\(\alpha\)</span></span></p>
+</li>
+<li>
+<p>对于红色的节点，我们希望找到子节点中分数最小的，所以遍历相当于是将红色节点记录的最小值从<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(+\infty\)</span><span class="heti-spacing"> </span></span>更新到<span><span class="heti-spacing"> </span><span class="arithmatex">\(\beta\)</span></span></p>
+</li>
+<li>
+<p>因为红色喜欢小，绿色喜欢大，那么存在一个时刻，子树的<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\alpha\)</span><span class="heti-spacing"> </span></span>值超过了父节点的<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\beta\)</span><span class="heti-spacing"> </span></span>值，那么这个子树就可以剪枝了</p>
+</li>
+<li>
+<p><strong>向上传递：更新本体值</strong></p>
+</li>
 <li><strong>向下传递：复制<span><span class="heti-spacing"> </span><span class="arithmatex">\(\alpha\)</span></span>，<span><span class="arithmatex">\(\beta\)</span><span class="heti-spacing"> </span></span>的值到子节点</strong></li>
 <li>若在某一节点更新后出现<span><span class="heti-spacing"> </span><span class="arithmatex">\(\alpha&gt;\beta\)</span></span>，则其后面不需要再进行更新，直接剪枝即可</li>
 </ul>
 <p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241106205632.png"/></p>
+<blockquote>
+<p>算法流程详见：<a href="https://oi-wiki.org/search/alpha-beta/">https://oi-wiki.org/search/alpha-beta/</a></p>
+</blockquote>
+<iframe allowfullscreen="true" border="0" frameborder="no" framespacing="0" height="300" scrolling="no" src="//player.bilibili.com/player.html?isOutside=true&amp;aid=405104472&amp;bvid=BV1yG411o7uH&amp;cid=1243642275&amp;p=1&amp;autoplay=0" width="500"></iframe>
 <h3 id="_3">分析<a class="headerlink" href="#_3" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ul>
 <li>剪枝不会影响最终结果</li>
@@ -2938,9 +2965,7 @@
 <span class="p">}</span>
 </code></pre></div>
 </details>
-<iframe allowfullscreen="true" border="0" frameborder="no" framespacing="0" height="300" scrolling="no" src="//player.bilibili.com/player.html?isOutside=true&amp;aid=405104472&amp;bvid=BV1yG411o7uH&amp;cid=1243642275&amp;p=1&amp;autoplay=0" width="500"></iframe>
-<h2 id="_5">蒙特卡洛树搜索<a class="headerlink" href="#_5" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<h2 id="_6">参考资料<a class="headerlink" href="#_6" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_5">参考资料<a class="headerlink" href="#_5" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p><a href="https://blog.csdn.net/wenjianmuran/article/details/90633418">详解<span class="heti-skip"><span class="heti-spacing"> </span>Minimax<span class="heti-spacing"> </span></span>算法与<span class="heti-skip"><span class="heti-spacing"> </span>α-β<span class="heti-spacing"> </span></span>剪枝<span class="heti-skip"><span class="heti-spacing"> </span>-CSDN<span class="heti-spacing"> </span></span>博客</a></p>
 <p><a href="https://skillful-vest-b8d.notion.site/AI-edb0292f25db4b428b34042aff7bef0c#ce0fffc50e57478d802af27eb41d1ff1"><span>y_lz<span class="heti-spacing"> </span></span>的笔记本</a></p></div>
 <aside class="md-source-file">
@@ -2948,7 +2973,7 @@
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年1月7日 21:13:06</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年1月8日 14:58:36</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">
