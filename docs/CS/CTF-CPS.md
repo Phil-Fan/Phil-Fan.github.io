@@ -1,16 +1,149 @@
 # 信息物理系统安全
 
 ??? note "课程信息"
+	=== "上课体验"
+		因为当时对密码学相关的问题比较感兴趣，所以对这部分内容还仔细听了一下；<br>
+		小测题目也是可以看一下往年老师讲解题目的ppt；<br>
+		有不定期点名<br>
+		课程论文我个人就写的大作业当中负责的部分
+
 	=== "考核方式"
 		平时20% + 小组ppt展示40% + 期末个人论文40%<br>
-		**ppt展示智云录像**
-		[2023](https://classroom.zju.edu.cn/livingroom?course_id=51532&sub_id=883382&tenant_code=112)<br>
-		[2022](https://classroom.zju.edu.cn/livingroom?course_id=39400&sub_id=601927&tenant_code=112)<br>
-		[2021](https://classroom.zju.edu.cn/livingroom?course_id=21309&sub_id=201082&tenant_code=112)<br>
 	
-	=== "上课体验"
+	
 
 ![课程安排](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240422090745001.png)
+
+```
+├─PPT
+│      第0次课.pdf
+│      第11+12次课.pdf
+│      第15次课.pdf
+│      第1次课.pdf
+│      第2次课.pdf
+│      第3+4次课【小测用】.pdf
+│      第5+6次课.pdf
+│      第7+8次课.pdf
+│      第9+10次课.pdf
+│
+└─大作业
+    │  2.1-替换密码破译.py
+    │  2.3.1-RSA攻击.py
+    │  2.3.2-RSA攻击.py
+    │  2.3.3-RSA攻击.py
+    │  crypto_challenge1.png
+    │  ppt.pdf
+    │  《信息物理系统安全》PPT 展示题目.pdf
+    │
+    └─附加题
+            CPSS
+            readme.txt
+```
+
+
+## 课程资料
+
+
+通过网盘分享的文件：信息物理系统安全
+链接: https://pan.baidu.com/s/1rj3vlQu8t7BNE6DiHCnZ2Q?pwd=PHIL 提取码: PHIL
+
+
+
+### 小测题目
+
+去年考完老师讲了小测，可以去智云看
+
+!!! note "貌似有一道是这个"
+	|               Transaction                | Fill In This Column |       Choose From The Following        |
+	| :--------------------------------------: | :-----------------: | :------------------------------------: |
+	|   Alice wants to sign an email to Bob    |          b          |         a. Alice's public key          |
+	|  Alice wants to encrypt an email to Bob  |          c          |         b. Alice's private key         |
+	|    Bob wants to verify Alice's email     |          a          |          c. Bob's public key           |
+	|    Bob wants to decrypt Alice's email    |          d          |          d. Bob's private key          |
+	|  Alice public key certificate signed by  |          f          | e. Certification Authority public key  |
+	| Bob public key certificate verifies with |          e          | f. Certification Authority private key |
+
+	答案和解析:
+
+	- Alice想要给Bob签名一封电子邮件：因为Alice使用她的私钥生成数字签名，而Bob需要使用Alice的公钥来验证这个签名。
+	- Alice想要加密一封发送给Bob的电子邮件：应该是使用Bob的公钥来加密
+	- Bob想要验证Alice的电子邮件：因为Bob使用Alice的公钥验证了数字签名，所以他知道这封电子邮件确实来自Alice。
+	- Bob想要解密Alice的电子邮件：d（Bob的私钥）
+	- Alice的公钥证书由以下机构签名：因为公钥证书是由认证机构使用其私钥签名的，所以其他人可以使用认证机构的公钥来验证这个签名。
+	- Bob的公钥证书验证如下：使用认证机构的公钥来验证Bob的公钥证书
+
+
+### 大作业题目
+每年题目好像变化不大，我将我们小组的ppt上传了，可以参考，后果自负ac01
+
+**ppt展示智云录像**
+
+[2023](https://classroom.zju.edu.cn/livingroom?course_id=51532&sub_id=883382&tenant_code=112)<br>
+[2022](https://classroom.zju.edu.cn/livingroom?course_id=39400&sub_id=601927&tenant_code=112)<br>
+[2021](https://classroom.zju.edu.cn/livingroom?course_id=21309&sub_id=201082&tenant_code=112)<br>
+
+
+**从以下题目中任选一题准备每组10分钟以内PPT展示**
+
+
+### 事件综述类
+
+（从真实的信息物理系统安全事件分析，可以分析行业背景、信息物理系统结构与特点、攻击原理、造成影响、防御措施等，也可选择其他信息物理系统安全事件；在展示中融入自己的思考）
+1. 从特斯拉Model X中继攻击看自动驾驶汽车信息物理系统安全<br>
+2. 从SolarWinds供应链攻击看信息物理系统安全<br>
+3. 从台积电事件看制造业信息物理系统安全<br>
+4. 从colonial pipeline公司被勒索事件分析信息物理系统安全<br>
+5. Vault7等数据泄露事件与信息物理系统安全<br>
+6. 从乌克兰停电事件看电网信息物理系统安全<br>
+7.* CVE-2024-3094 Informational: Impact of Malicious Code in XZ Tools and Libraries研究该事件的供应链攻击原理<br>
+
+### 创新实践类（动手实践，赋分高）
+1.Modbus协议是信息物理系统较为常用的一款网络协议。试分析Modbus协议的应用层格式和存在的安全性问题（例如机密性、完整性、实时性等），编写Python脚本实现支持Modbus/TCP通信的Client和Server（可参考github上的开源项目）。
+
+2.了解模糊测试Fuzzing以及目前针对IoT设备的主流模糊测试方法，了解、介绍、测试开源工具AFL Fuzz
+
+AFL：https://github.com/google/AFL
+
+3.调研私有协议逆向的主流方法，选取现有的工具，如Netzob等进行介绍并针对工业控制系统典型协议进行分析。
+
+4.下图展示了某一工业控制信息物理系统网络结构，目前各层内和各层之间没有对信道传输的数据进行保护，尝试调研、设计各层内和各层之间的数据加密/解密算法，并使用python进行实现（提示：考虑控制层的实时性问题，其层内和与其他层的通信可采取完整性校验算法；python的加密算法库可以直接调用）
+
+5.分析Nmap、p0f、xprobe2、PLCscan（也可以是其他专用工具）等扫描工具对信息物理系统的识别方式，尝试扫描公网上的一些设备，给出设备信息。
+
+（工具可自行选择两种及以上；设备IP可利用Shodan搜索引擎，请自行检索Shodan使用方法；扫描工具建议在VMware虚拟机中安装Kali linux系统，该系统有上百种已安装好的网络安全分析工具，包括题目中涉及到的扫描工具）
+
+- Shodan：https://www.shodan.io/
+- Nmap：https://github.com/nmap/nmap 
+- p0f: https://github.com/p0f/p0f
+- PLCscan: https://github.com/yanlinlin82/plcscan
+
+6.选择一款针对信息物理系统进行攻击的开源项目，分析程序的攻击流程、攻击效果（例如Stuxnet，TRITON等，可在github上寻找其他项目）
+
+STUXNET：参考文献《W32. stuxnet dossier》
+
+TRITON：https://github.com/MDudek-ICS/TRISIS-TRITON-HATMAN
+
+7.分析conpot、snap7等蜜罐对工业控制器的模拟方式，尝试在云服务器上部署此类常见蜜罐，进行一定时间（一周以上）的捕获，分析捕获结果。（蜜罐可自行选择两种及以上，分析蜜罐主要交互功能的实现方法，并对捕获结果进行分类）
+
+- Conpot：https://github.com/mushorg/conpot
+- Snap7：https://github.com/gijzelaerr/python-snap7
+
+8.分析ISF、msf等工具以及ClearEnergy、Flame、Trisis等攻击事件的攻击脚本，分析其攻击路径及架构，实施攻击前是否考虑PLC运行状态、连接状态、密码保护等情况，有能力的话可以尝试对攻击脚本添加设备状态扫描功能。需要一定的python或C代码的基础
+
+攻击事件脚本：
+- ClearEnergy：https://github.com/0xICF/ClearEnergy
+Flame：https://github.com/loneicewolf/flame-sourcecode
+- TRISIS：https://github.com/MDudek-ICS/TRISIS-TRITON-HATMAN
+
+攻击工具（分析攻击施耐德、西门子PLC的payload即可）：
+- ISF： https://github.com/dark-lbp/isf
+- metasploit-framework：https://github.com/rapid7/metasploit-framework 附加类（CTF）
+
+### 附加类（CTF）
+从给出的附件中得到flag，需要用到的知识：逆向、反汇编、程序语言，可能用到的工具(可能包含但不限于)：DIE、IDA。
+
+!!! note "附加题其实用IDA打开一下就行了，挺简单的"
+
 
 ## 绪论
 
