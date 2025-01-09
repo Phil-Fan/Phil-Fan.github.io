@@ -1,39 +1,49 @@
 # 复习
 !!! note "简介"
-    一、选择题：20*2 **单多混选** 真nt啊！！！
-    二、填空题：每空1分，共10分
-    三、大题/简答题 共50分
+    一、选择题：20*2 **单多混选** 真nt啊！！！<br>
+    二、填空题：每空1分，共10分<br>
+    三、大题/简答题 共50分<br>
 
 ## 重点掌握
 
-- 人工智能导论部分的概念背诵
-- 盲目搜索几种算法的原理、优缺点
-- 启发式搜索几种算法的原理、优缺点；A*的步骤；
-- 逻辑：谓词逻辑；归结原理
+- 人工智能导论部分的概念背诵<br>
+- 盲目搜索几种算法的原理、优缺点<br>
+- 启发式搜索几种算法的原理、优缺点；A*的步骤；<br>
+- 逻辑：谓词逻辑；归结原理<br>
 
 **机器学习：**
-- 概念学习：定义；Find-S；候选消除算法
-- 性能度量：recall precision f1-score
-- 决策树:信息增益的计算；
-- 神经网络：过拟合；正则化；
-- 贝叶斯：极大似然估计；naive-bayes：iid假设
-- 强化学习：免模型、有模型学习
+- 概念学习：定义；Find-S；候选消除算法<br>
+- 性能度量：recall precision f1-score<br>
+- 决策树:信息增益的计算；<br>
+- 神经网络：过拟合；正则化；<br>
+- 贝叶斯：极大似然估计；naive-bayes：iid假设<br>
+- 强化学习：免模型、有模型学习<br>
   
 
 
 
 ### 背诵手册
+人工智能定义：用计算机模拟或实现的智能，研究如何在机器上实现人类智能。用机器来模仿人的智能，又称机器智能。
+
 人类智能具有的 4 项特性为：自主性、反应性、适应性、社会性
 
-下列不属于知识的特征的有（）
+人工智能的三大学派：符号学派、连接学派、行为学派
 
-相对正确性、不确定性、可表示性
+**图灵测试**：让一台计算机和测试者分开，通过键盘等装置实现询问，如果一台计算机能够让30%的人误以为它是人而不是计算机，那么就通过了图灵测试。
+
+知识的特性：相对正确性、不确定性、可表示性
+
+一个智能程序高水平的运行需要有关的事实知识、规则知识、控制知识和元知识。
+
+原子公式由若干谓词符号和项组成
 
 
-2. 人工智能的短期和终极目标"
+1. 人工智能的短期和终极目标"
     短期目标：制造智能机器<br>
     终极目标：实现机器智能<br>
 
+PEAS：
+1. Performance（性能）2. Environment（环境）3. Actuators(执行器)4. Sensors(传感器)
 
 概念学习的定义：<br>
 给定一个样例集合以及每个样例是否属于某个概念的标注，怎样推断出该概念的一般定义
@@ -41,30 +51,27 @@
 
 h(n) 从 节点n代表的状态 到 目标状态 的 路径耗散 的 最小估计值
 
-**可以评价分类的指标：**
+=== "可以评价分类的指标"
+   - 准确率
+   - 精确率
+   - 召回率
+   - F1-score
+   - ROC曲线
+   - AUC曲线
+   - cross-entropy
 
-- 准确率
-- 精确率
-- 召回率
-- F1-score
-- ROC曲线
-- AUC曲线
-- cross-entropy
 
-
-**可以评价回归的指标： **
-
-- MSE:Mean Squared Error (均方误差)，又称L2 loss
-- RMSE:Root Mean Squared Error (均方根误差)
-- MAE:Mean Absolute Error (平均绝对误差),又称L1 loss
-- l1-smooth:L1正则化 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250108143036.png)
-- MBE:Mean Bias Error (平均偏差误差) 没有取绝对值
-- R2
-- R2_adjusted
+=== "可以评价回归的指标"
+   - MSE:Mean Squared Error (均方误差)，又称L2 loss
+   - RMSE:Root Mean Squared Error (均方根误差)
+   - MAE:Mean Absolute Error (平均绝对误差),又称L1 loss
+   - l1-smooth:L1正则化 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250108143036.png)
+   - MBE:Mean Bias Error (平均偏差误差) 没有取绝对值
+   - R2
+   - R2_adjusted
 
 ## 小测题目
 
-[机器学习常见问题与解答-CSDN博客](https://blog.csdn.net/will130/article/details/50704205)
 ### 搜索
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250108125536.png)
 1. 广度优先搜索(BFS)<br>
@@ -516,10 +523,6 @@ g(x)为已经走过的步数，h(x)为初始状态各数字与目标状态各数
 
  
 ### 机器学习，找到的网上题目
-[机器学习笔试面试题——day4](https://blog.csdn.net/selinaqqqq/article/details/95084129)<br>
-[机器学习常见问题与解答-CSDN博客](https://blog.csdn.net/will130/article/details/50704205)<br>
-[BAT机器学习面试1000题系列（第1\~305题](https://blog.csdn.net/v_july_v/article/details/78121924)
-[机器学习笔试题精选（二](https://blog.csdn.net/red_stone1/article/details/81023976)
 
 可以在tb上买一天的csdn会员<br>
 
@@ -1049,23 +1052,40 @@ D。启发式（肯定不对，取决于h(n)的设计，比如贪婪最好就没
 
 
 
-## 参考资料
+## 复习
+整理了一下朋友们和各位前辈的分享，感谢大家
+
+（自动化资料也是多起来了hhh）
 ### 复习资料
-- [复习资料 RrQqSsYy](https://www.cc98.org/topic/5533160)
-- [复习资料 云高天遥](https://www.cc98.org/topic/5518130)
-- [复习资料 zhyyyyyyyy](https://www.cc98.org/topic/5509967)
+- [复习资料 RrQqSsYy](https://www.cc98.org/topic/5533160)<br>
+- [复习资料 云高天遥](https://www.cc98.org/topic/5518130)<br>
+- [复习资料 zhyyyyyyyy](https://www.cc98.org/topic/5509967)<br>
+- [复习资料 handsome-boy](https://handsome-boy.notion.site/174c1b264eda8067b2a2caa01145d00e?pvs=4)<br>
+- [复习ppt+平时作业分享 - the_Piao](https://www.cc98.org/topic/6088456)<br>
+- [人机复习笔记 - MyAmigo](https://www.cc98.org/topic/6088275)<br>
+- [复习笔记 & 题目整理 - PhilFan](https://www.philfan.cn/CS/AI/ML-CSE/)<br>
+- [人机笔记 - 小胖一族](https://skillful-vest-b8d.notion.site/b80fddf304ea4e9bbca7e978f8d1e600)<br>
+- [笔记与回忆卷整理 - Twinkle](https://awslasasd.github.io/Class/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E4%B8%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/)<br>
 
 ### 回忆卷
-- [2022-2023秋冬 回忆卷 Valkyrie](https://www.cc98.org/topic/5508899)
-- [2022-2023秋冬 回忆卷 桂物](https://www.cc98.org/topic/5508902)
-- [2022-2023 秋冬 回忆卷 枕流](https://www.cc98.org/topic/5234359)
-- [2022-2023 秋冬B 回忆卷 XD233](https://www.cc98.org/topic/5532570)
-- [23-24 秋冬 复习资料+回忆卷 rickyman](https://www.cc98.org/topic/5797154)
-- [23-24秋冬 回忆卷 KrAulegend](https://www.cc98.org/topic/5796633)
-- [2023-2024 秋冬《人工智能与机器学习》回忆卷 - CC98论坛](https://www.cc98.org/topic/5796623)
-- [23-24春 机器人班](https://www.cc98.org/topic/5875928)
-- [23-24春 机器人班级](https://www.cc98.org/topic/5875948)
+- [24-25年 秋冬 回忆卷 FLOG司马](https://www.cc98.org/topic/6089499)<br>
+- [22-24年 考题整理- FLOG司马](https://www.cc98.org/topic/6089023)<br>
+- [2022-2023秋冬 回忆卷 Valkyrie](https://www.cc98.org/topic/5508899)<br>
+- [2022-2023秋冬 回忆卷 桂物](https://www.cc98.org/topic/5508902)<br>
+- [2022-2023 秋冬 回忆卷 枕流](https://www.cc98.org/topic/5234359)<br>
+- [2022-2023 秋冬B 回忆卷 XD233](https://www.cc98.org/topic/5532570)<br>
+- [23-24 秋冬 复习资料+回忆卷 rickyman](https://www.cc98.org/topic/5797154)<br>
+- [23-24秋冬 回忆卷 KrAulegend](https://www.cc98.org/topic/5796633)<br>
+- [2023-2024 秋冬《人工智能与机器学习》回忆卷 - CC98论坛](https://www.cc98.org/topic/5796623)<br>
+- [23-24春 机器人班](https://www.cc98.org/topic/5875928)<br>
+- [23-24春 机器人班级](https://www.cc98.org/topic/5875948)<br>
 
-### 其他资料
-
-https://blog.csdn.net/qq_44528283/article/details/114399093
+### 网上其他资料
+- [BAT机器学习1000题目](https://www.cnblogs.com/ciao/articles/10894568.html)<br>
+- [神秘模拟卷](https://www.doc88.com/p-99037881885423.html)<br>
+- [机器学习笔试面试题——day4](https://blog.csdn.net/selinaqqqq/article/details/95084129)<br>
+- [机器学习常见问题与解答-CSDN博客](https://blog.csdn.net/will130/article/details/50704205)<br>
+- [BAT机器学习面试1000题系列（第1\~305题](https://blog.csdn.net/v_july_v/article/details/78121924)<br>
+[机器学习笔试题精选（二](https://blog.csdn.net/red_stone1/article/details/81023976)<br>
+- [机器学习常见问题与解答-CSDN博客](https://blog.csdn.net/will130/article/details/50704205)<br>
+- [机器学习常见问题与解答-CSDN博客](https://blog.csdn.net/qq_44528283/article/details/114399093)<br>
