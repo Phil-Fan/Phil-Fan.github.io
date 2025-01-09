@@ -238,6 +238,32 @@ AEIO
 - 存在量词消去 (Existential Instantiation, EI): $(\exists x) A(x) \rightarrow A(c)$
 - 存在量词引入 (Existential Generalization, EG): $A(c) \rightarrow (\exists x) A(x)$
 
+### 真值
+永真性：如果谓词公式 P 对个体域 D 上的任何一个解释都取得真值 T，则称 P 在 D 上是永真的 ; 如果 P 在每个非空个体域上均永真，则称 P 永真；如果谓词公式 P 对个体域 D 上的任何一个解释都取得真值 F，则称 P 在 D 上是永假的 ; 如果 P 在每个非空个体域上均永假，则称 P 永假。(T 和 F 是谓词逻辑真值表的 True 和 False)
+
+可满足性 / 不可满足性：对于谓词公式 P，如果至少存在一个解释使得 P 在此解释下的真值为 T，则称 P 是可满足的；否则，则称 P 是不可满足的。
+
+等价性：给定任何两个谓词公式 A 和 B，设它们有共同的个体域 E，若对 A 和 B 的任一组变元进行赋值，所得命题的真值相同，则称谓词公式 A 和 B 在 E 上是等价的，记作：A⇔B。（不等同与等词）
+
+
+
+### 命题符号化
+
+（1）猫比老鼠跑得快。
+（2）有的猫比所有老鼠跑得快。
+（3）并不是所有的猫比老鼠跑得快。
+（4）不存在跑得同样快的两只猫。
+
+设 $F(x,y)$ 表示 "x 比 y 跑得快"，$C(x)$ 表示 "x 是猫"，$M(x)$ 表示 "x 是老鼠"。
+
+(1) $(\forall x)(\forall y)((C(x) \land M(y)) \rightarrow F(x,y))$
+
+(2) $(\exists x)(C(x) \land (\forall y)(M(y) \rightarrow F(x,y)))$
+
+(3) $\neg(\forall x)(\forall y)((C(x) \land M(y)) \rightarrow F(x,y))$
+
+(4) $\neg(\exists x)(\exists y)(C(x) \land C(y) \land x \neq y \land \neg F(x,y) \land \neg F(y,x))$
+
 
 
 !!! example "基础题"

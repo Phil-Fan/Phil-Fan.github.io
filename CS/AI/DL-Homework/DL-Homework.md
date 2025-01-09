@@ -1,7 +1,7 @@
 # 人工智能与机器学习 作业
 
-人工智能的两个阶段目标
-制造智能机器、实现机器智能
+!!! note "人工智能的两个阶段目标——制造智能机器、实现机器智能"
+
 
 ## 简介
 人工智能与机器学习是控院臭名昭著的课程。某任课老师在课堂面对同学们对于课堂的疑问，表示：“这门课就是教考实验分离啊”
@@ -23,12 +23,12 @@ Mo的评分方式是在线运行后评测的，所以每次评测都需要重新
 
 ## 现有资源整理
 自动化也是好起来了，现在传资料的人越来越多了嘿嘿，感谢各位前辈的分享
-- the_Piao: [MO平台编程作业分享 - CC98论坛](https://www.cc98.org/topic/6085648)
-- 逐梦xcdh: [for-mydream/ZJU\_CSE\_ML\_Lab](https://github.com/for-mydream/ZJU_CSE_ML_Lab?tab=readme-ov-file)
-- zhaowei123: [ZJU_CSE_人工智能与机器学习](https://github.com/wayzhao12/ZJU_CSE_AIML/tree/main)
-- [Y-vic/ZJU\_AI\_ML\_Lab: ZJU人工智能与机器学习四个lab](https://github.com/Y-vic/ZJU_AI_ML_Lab)
-- [AI\_Course/MobileNet2 ZoRax-A5/AI\_Course](https://github.com/ZoRax-A5/AI_Course/tree/7920962cfc61a90bcaa473c50ac4b13f9949b91a/MobileNet2)
-- [Luhaozhhhe/Introduction\_to\_Artificial\_Intelligence: NKU-COSC0015-人工智能导论](https://github.com/Luhaozhhhe/Introduction_to_Artificial_Intelligence)
+- the_Piao: [MO平台编程作业分享 - CC98论坛](https://www.cc98.org/topic/6085648)<br>
+- 逐梦xcdh: [for-mydream/ZJU\_CSE\_ML\_Lab](https://github.com/for-mydream/ZJU_CSE_ML_Lab?tab=readme-ov-file)<br>
+- zhaowei123: [ZJU_CSE_人工智能与机器学习](https://github.com/wayzhao12/ZJU_CSE_AIML/tree/main)<br>
+- [Y-vic/ZJU\_AI\_ML\_Lab: ZJU人工智能与机器学习四个lab](https://github.com/Y-vic/ZJU_AI_ML_Lab)<br>
+- [AI\_Course/MobileNet2 ZoRax-A5/AI\_Course](https://github.com/ZoRax-A5/AI_Course/tree/7920962cfc61a90bcaa473c50ac4b13f9949b91a/MobileNet2)<br>
+- [Luhaozhhhe/Introduction\_to\_Artificial\_Intelligence: NKU-COSC0015-人工智能导论](https://github.com/Luhaozhhhe/Introduction_to_Artificial_Intelligence)<br>
 
 
 ## Mo平台指北
