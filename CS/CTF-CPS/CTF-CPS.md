@@ -3,9 +3,11 @@
 ??? note "课程信息"
 	=== "上课体验"
 		因为当时对密码学相关的问题比较感兴趣，所以对这部分内容还仔细听了一下；<br>
+		
 		小测题目也是可以看一下往年老师讲解题目的ppt；<br>
 		有不定期点名<br>
 		课程论文我个人就写的大作业当中负责的部分
+		
 
 	=== "考核方式"
 		平时20% + 小组ppt展示40% + 期末个人论文40%<br>
@@ -14,7 +16,10 @@
 
 ![课程安排](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240422090745001.png)
 
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250109205113.png)
 ```
+├─图解密码技术.pdf
 ├─PPT
 │      第0次课.pdf
 │      第11+12次课.pdf
