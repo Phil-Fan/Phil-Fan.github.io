@@ -203,7 +203,20 @@ If you can see this document with the title, sections, and the equation above, t
 "latex-workshop.view.pdf.internal.synctex.keybinding": "double-click",
 ```
 
+**正向定位**
+
+```json title="鼠标双击正向定位"
+"latex-workshop.view.pdf.internal.synctex.keybinding": "double-click",
+```
+
+**反向定位**
+
+在 VS Code 中选择 快捷键设置 （`Keyboard Shortcuts`），搜索 `SyncTeX from cursor` ”`，将对应的快捷键改成你想要的组合，保存之后就可以通过快捷键组合实现反向搜索。
+
+
 [论文神器 VS Code + LaTex + LaTex Workshop](https://blog.csdn.net/qq_41140138/article/details/125966870)
+[VS Code Latex 极为简单方便的正反向定位解决办法](https://blog.csdn.net/daodao098/article/details/140791192)
+
 
 !!! bug "chetex：warning ..."
     在`setting.json`中加入
