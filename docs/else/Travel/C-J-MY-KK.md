@@ -209,13 +209,19 @@ Day2的行程是Lyana老师在微信上联系的，微信号是`SAA778G`
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250123215224167.png)
 翔哥的长焦发挥了大作用,每当大家用手机只能拍出残影的时候,他都能拍到那个猴子 :laughing:
 
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/45ad5b60d5eb3b9d6c08abd5d3cfb16.jpg)
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/1497e4c647e850bde5336071b2f3e9e.jpg)
 
 
 Lyana 总是会被小孩子或是面包店迷的走不动道,对面驶出来一艘载着小孩子的船.定格下了这张照片
 
+
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250123214425626.png)
 
+司机师傅还拉我们去海边，看了第二场日落
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/3a83dc6243a949ad9b2c17096387a6a.jpg)
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/cfbef62a3b3fb907b9d38b8f29a0345.jpg)
 
 ### Day2 萤火虫
 
@@ -306,7 +312,7 @@ xhs上有很多攻略的帖子,这里就不赘述了.
 
 海的颜色也是如绿宝石一样剔透的颜色,特别好看
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/b4e8990a9c7cd2f569e92e467e86b36.jpg)
-
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/8a237d73f3201cf1fa98a26d2b423fa.jpg)
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/7d4b118979afc32d621aec97dfb2d78.jpg)
 
 环滩岛有两个潜水点,每个大概会玩40-50min.
@@ -328,7 +334,7 @@ xhs上有很多攻略的帖子,这里就不赘述了.
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/dae4b0fc8d0d42172acf84dc4df467b.jpg)
 
 两个浮潜点结束之后,大概十二点半左右,教练会开船会岛上吃午饭.午饭有鸡肉和螃蟹,还有粥和饮料什么的.
-
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/06ee99fd912507b1601640787760994.jpg)
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250123224408535.png)
 
 岛上没有信号,wifi密码需要在小卖部消费才能获取.
@@ -370,6 +376,8 @@ mamutik岛是专门玩水上项目的,也有浮潜点. 开船的话大概15min�
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/2c92305d480361b21b8a00f20db1926.jpg)
 
 同船有一行香港来的朋友,特别e也特别会带气氛. 自嘲说他们像微商团队出来团建.
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/103f636ab3d1d590f5941adfcb875e3.jpg)
 
 岛上的人明显要比RIA多出很多,还有很多人不是来玩水的,连浮潜的装备也没有带着,估计是来看看海的.
 
@@ -437,6 +445,8 @@ sapi岛看到了魔鬼鱼，但是没有看到海龟。
 
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250123180800059.png)
 
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/1a4541e40318a88d713f15188488fb4.jpg)
+
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/5ea9aa57f3ba95d6199f2471776f57a.jpg)
 
 最后结账的时候，送了一些纸质红包，不得不说MY的新年气氛还是很浓的。
@@ -454,6 +464,7 @@ sapi岛看到了魔鬼鱼，但是没有看到海龟。
 
 店里有一把吉他，翔哥直接霉粉属性大爆发，开弹
 
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/5f6a42be24a2cf40aa3127dc24088cb.jpg)
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250123181224818.png)
 
 
@@ -514,7 +525,7 @@ sapi岛看到了魔鬼鱼，但是没有看到海龟。
 但是吃起来感觉有点苦的，没有想象中的好吃。
 
 但是感觉这边非常有意思的是，每个顾客开榴莲的时候，老板都会非常大声的喊出“1，2，3，哇~”，可以说是情绪价值非常足了。
-
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/cdb18e3c070e65eb3d6ae853cc53e2d.jpg)
 
 ### 菲律宾夜市
 
@@ -528,9 +539,24 @@ sapi岛看到了魔鬼鱼，但是没有看到海龟。
 
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/fe268c4eb598159fca388c00155e1e3.jpg)
 
+
 里面的店主非常热心的向我们介绍，可惜我们已经吃过饭了，给他留个照片吧
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/1fea8313426ad490b0e4827084f4b0b.jpg)
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/06e4bd3d76969f19e9fa6c4b61f125e.jpg)
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/56eb26ed81de5d65ceb3daef1dd46d8.jpg)
+
+### 一个海边的bar 
+
+在KK waterfront附近，但是忘记叫什么名字了
+
+点了两杯酒
+
+用了一下dazz的fxnR滤镜，感觉还不错
+
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/bd0f3cf1d63edcb83c95e0f1b5fac7a.jpg)
+
 
 
 ## 半小时丝滑登机 攻略
@@ -566,7 +592,6 @@ sapi岛看到了魔鬼鱼，但是没有看到海龟。
 还是想吐槽一下亚航这个冷气,机内就像是水帘洞一样 :flushed:
 
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/4df8063d44ee9d6205c4efd4a5e33be.jpg)
-## 花销记录
 
 ## 杂记
 
@@ -576,3 +601,6 @@ sapi岛看到了魔鬼鱼，但是没有看到海龟。
 
 
 
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/814998e06aa9b67655503dcbbdc9198.jpg)
+
+遇到的小鸟
