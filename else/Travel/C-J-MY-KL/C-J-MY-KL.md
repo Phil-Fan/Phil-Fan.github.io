@@ -11,8 +11,6 @@
 
     Phil: 无情的gopro拍摄机器,丢眼镜后超爱冷酷拽脸拍照,j人爆改p人
 
-<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=113622957298930&bvid=BV1wtqNYDEd2&cid=27258194651&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="600" height="450"></iframe>
-
 ## 城市简介
 
 吉隆坡（马来语、英语：`Kuala Lumpur`，简称`隆市`或`KL`，全称`吉隆坡联邦直辖区`）是马来西亚首都和最大城市，有“世界锡都、胶都”之美誉。
@@ -185,7 +183,7 @@ lyana老师还找了一家榴莲自助,但是时间不够也没有去成
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/62d1669235e537eac9384b5412cdfcb.jpg)
 
 这两个汤我觉得非常神奇的上瘾,如果国内有类似的饭店一定还会想吃的
-
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/d0694e89ad56c31d4ea69e16ba4753c.jpg)
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250125012758445.png)
 
 ### 新九如新记牛肉面
@@ -226,7 +224,7 @@ Lyana老师碍于面子还是强忍着喝完了哈哈哈哈哈哈
 ### 避雷 precious old china
 
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/ca752c6453b2a643180f05ac4bf0773.jpg)
-
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/5e2d8634d14ea83640e19bad9feb850.jpg)
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250125011744259.png)
 
 ### 其他
@@ -450,6 +448,7 @@ Lyana一搜到这个就说要去，翔哥和Ashina也很感兴趣
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/a5431fceb7aa4ae6a0a1c910dfa5f2b.jpg)
 
 可以选择找一些网红的打卡照片，比如说像麦当劳这个街道，因为黄色的斑马线那边很像是薯条一样，慢慢变火了。
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/49e275f39eeda14423392372e9ba37a.jpg)
 
 走到电车站台的二楼，还可以拍到这个路口有电车经过的画面，我们去的时候，有一众扛着三角架的摄影师在等着拍这个画面。
 
@@ -470,3 +469,8 @@ live就是最有感染力的！
 ### 黑风洞
 
 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d254963.11642012422!2d101.40688698671875!3d3.1477515999999945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc470c8949a805%3A0xf2bfebb2b36f9ef9!2sBatu%20Caves!5e0!3m2!1szh-CN!2s!4v1737686952616!5m2!1szh-CN!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+
+## 其他
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/37f4bac5682da6873de052c574903e8.jpg)
