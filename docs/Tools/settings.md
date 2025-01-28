@@ -31,6 +31,7 @@
 - 其他：[logi option+](https://www.logitech.com/zh-cn/setup/ergosetup/logi-options.html),[Download WizTree](https://www.diskanalyzer.com/download)
 
 - 卸载工具[Geek Uninstaller - Download](https://geekuninstaller.com/download)
+
 ### 专业软件
 
 - Coding: [VSC](https://code.visualstudio.com/Download),PyCharm, WebStorm
@@ -49,6 +50,14 @@
 - [Adobe](https://www.adobe.com/cn/):AI,PS,PR,[剪映](https://www.capcut.cn/)
 - powerpoint,okplus,[Canva](https://www.canva.cn/)
 
+### 有用的anti-school插件
+- [WuliAPO/Fuck_QCZJ](https://github.com/WuliAPO/Fuck_QCZJ): 青年大学习打卡<br>
+- [Mythologyli/iOSFakeRun](https://github.com/Mythologyli/iOSFakeRun): 基于虚拟定位的 iOS 免越狱模拟跑步打卡，在线拾取路径，可设置循环次数和跑步速度<br>
+- [ginnnnnncc/GinsMooc](https://github.com/ginnnnnncc/GinsMooc): 中国大学MOOC查询测验/作业/考试答案，插件支持，测验支持选择/判断/填空。<br>
+- [VermiIIi0n/fuckZHS](https://github.com/VermiIIi0n/fuckZHS): 自动刷智慧树课程的脚本<br>
+- [Celechron/Celechron](https://github.com/Celechron/Celechron): 服务于浙大学生的时间管理器<br>
+- [memset0/Learning-at-ZJU-Helper](https://github.com/memset0/Learning-at-ZJU-Helper): 学在浙大/智云课堂 辅助脚本<br>
+- [PeiPei233/zju-learning-assistant](https://github.com/PeiPei233/zju-learning-assistant): 帮你快速下载所有课件<br>
 
 
 ## windows

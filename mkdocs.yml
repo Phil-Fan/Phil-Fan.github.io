@@ -219,8 +219,7 @@ nav:
   - Finance:
     - Class/Fin/invest.md
     - Class/Fin/consulting.md
-    
-
+  
   - "行业研习":
     - Class/Fin/industry-analyze.md
     - Class/Fin/industry-internet.md
@@ -246,12 +245,8 @@ nav:
     - Robotics/嵌入式/EmbeddedSystem-8051-experiment.md
     - Robotics/嵌入式/EmbeddedSystem-digitalcircuit.md
     - Robotics/嵌入式/EmbeddedSystem-stm32.md
-    - Robotics/嵌入式/EmbeddedSystem-experiment.md
-    - Robotics/嵌入式/k210.md
     - Robotics/嵌入式/RaspberryPi.md
     - Robotics/嵌入式/FPGA.md
-    - Robotics/嵌入式/嘉立创.md
-    - Robotics/嵌入式/焊接.md
 
   - "Control Theory":
     - Robotics/Control/Control-01-自动控制原理.md
@@ -274,18 +269,21 @@ nav:
     - Robotics/Robo/Robo-02-3-planning.md
     - Robotics/Robo/Robo-probabilistic_robot.md
     - Robotics/Robo/Robo-Drone.md      
-    - Robotics/Robo/Robo-Drone_experiment.md
-    - Robotics/Robo/Robo-Drone-explore.md
     - Robotics/Robo/Robo-arm.md
 
   - "通信":
     - Robotics/communication/CC-NFC.md
     - Robotics/communication/CC-bluetooth.md
-  - Robotics/Calculator.md
-
-
+  
+  - "实践记录":
+    - Robotics/嵌入式/嘉立创.md
+    - Robotics/嵌入式/焊接.md
+    - Robotics/嵌入式/EmbeddedSystem-experiment.md
+    - Robotics/Robo/Robo-Drone_experiment.md
+    - Robotics/Robo/Robo-Drone-explore.md
 
   - "环境配置":
+    - Robotics/Calculator.md
     - Robotics/Environment/System-Linux.md 
     - Robotics/Environment/System-ROS.md   
     - Robotics/Environment/System-linux-settings.md
@@ -296,16 +294,14 @@ nav:
 
 - "CS":
   - Language:
-    - CS/Language/Assembly.md
+    # - CS/Language/Assembly.md
     - CS/Language/C.md
     - CS/Language/C++.md
     - CS/Language/Python.md
-    
-    - "Seaborn": https://seaborn.pydata.org/api.html
-    - "Pandas": https://pandas.pydata.org/docs/reference/index.html
-    - "Scipy": https://docs.scipy.org/doc/scipy/reference/index.html
-
-    - CS/Language/crawler.md
+    - "Python速查":
+      - "Seaborn": https://seaborn.pydata.org/api.html
+      - "Pandas": https://pandas.pydata.org/docs/reference/index.html
+      - "Scipy": https://docs.scipy.org/doc/scipy/reference/index.html
   
   - FrontEnd:
     - CS/Frontend/HTML.md
@@ -346,33 +342,32 @@ nav:
         - Notebook page: Lab07-linear.ipynb
    
   - "DS | 数据结构":
-    - CS/DataStructure.md
-    - CS/DataStructure-Tree.md
-    - CS/DataStructure-Hash.md
-    - CS/DataStructure-Graph.md
-    - CS/DataStructure-Sorting.md
+    - CS/DS/DataStructure.md
+    - CS/DS/DataStructure-Tree.md
+    - CS/DS/DataStructure-Hash.md
+    - CS/DS/DataStructure-Graph.md
+    - CS/DS/DataStructure-Sorting.md
 
   - "CN | 计算机网络" :
-    - CS/ComputerNetwork-00-intro.md
-    - CS/ComputerNetwork-01-ApplicationLayer.md
-    - CS/ComputerNetwork-02-TransportLayer.md
-    - CS/ComputerNetwork-03-NetworkLayer.md
-    - CS/ComputerNetwork-04-LinkLayer.md
-    - CS/ComputerNetwork-05-PhysicalLayer.md
-    - CS/ComputerNetwork-06-experiment.md
-    - CS/ComputerNetwork-07-问题探究.md
-    - CS/ComputerNetwork-08-security.md
-    - CS/DingBot.md
+    - CS/CN/ComputerNetwork-00-intro.md
+    - CS/CN/ComputerNetwork-01-ApplicationLayer.md
+    - CS/CN/ComputerNetwork-02-TransportLayer.md
+    - CS/CN/ComputerNetwork-03-NetworkLayer.md
+    - CS/CN/ComputerNetwork-04-LinkLayer.md
+    - CS/CN/ComputerNetwork-05-PhysicalLayer.md
+    - CS/CN/ComputerNetwork-06-experiment.md
+    - CS/CN/ComputerNetwork-07-问题探究.md
+    - CS/CN/ComputerNetwork-08-security.md
+    - CS/CN/DingBot.md
     
   - "OR | 运筹学 ":
-    - CS/OR-exercise.md
-    - CS/OR.md
-    - CS/OR-nonlinear.md
-    - CS/OR-DP.md
-    - CS/DataStructure-Graph.md
-    - CS/OR-GameTheory.md
-    - CS/OR-GameTheoryModel.md
-    - CS/OR-QueuingTheory.md
+    - CS/OR/OR-exercise.md
+    - CS/OR/OR.md
+    - CS/OR/OR-nonlinear.md
+    - CS/OR/OR-DP.md
+    - CS/OR/OR-GameTheory.md
+    - CS/OR/OR-GameTheoryModel.md
+    - CS/OR/OR-QueuingTheory.md
     
   - "AI | 人工智能": 
     - "搜索 | Search": 
@@ -441,13 +436,13 @@ nav:
     - CS/CV/HumanPoseEstimation.md  
 
   - "CTF相关知识":
-    - CS/CTF-intro.md
-    - CS/CTF-web.md
-    - CS/CTF-misc.md
-    - CS/CTF-reverse.md
-    - CS/CTF-pwn.md
-    - CS/CTF-crypto.md
-    - CS/CTF-CPS.md
+    - CS/SEC/CTF-intro.md
+    - CS/SEC/CTF-web.md
+    - CS/SEC/CTF-misc.md
+    - CS/SEC/CTF-reverse.md
+    - CS/SEC/CTF-pwn.md
+    - CS/SEC/CTF-crypto.md
+    - CS/SEC/CTF-CPS.md
     
   - "Web3":
     - CS/Web3/blockchain.md
@@ -465,21 +460,17 @@ nav:
   - Tools/gdb.md
       
   - "效率":
-    - Markdown:
-      - https://minjoker.github.io/cs/tools/markdown/
+    - Tools/markdown.md
     - Tools/Mkdocs.md
     - Tools/JekyII.md
-    - Tools/obsidian.md
     - Tools/latex.md
     - "Latex公式速查": https://latex.emoryhuang.cn/posts/
     - Tools/vim.md
-    - Tools/markdown.md
-
+    
   - Tools/tableau.md
   - Tools/matlab.md
   - Tools/solidworks.md
   - Tools/sites.md
-  - Tools/LLM.md
   
   - Tools/settings.md
   - Tools/settings-macos.md
@@ -489,7 +480,7 @@ nav:
   - classes_in_zju.md
   - else/flower.md
   - else/bean_knowledge.md
-  - else/interview.md
+  # - else/interview.md
 
   - "🏃运动":
     - else/exercise-fit.md
@@ -518,9 +509,9 @@ nav:
   - "🎶音乐":
     - else/music_theory.md
     - else/piano.md
+    - else/piano_learning.md
     - else/piano_songs.md
     - else/music_classification.md
-    - else/rock_and_roll.md
 
   - "🎨设计":
     - Tools/design.md
