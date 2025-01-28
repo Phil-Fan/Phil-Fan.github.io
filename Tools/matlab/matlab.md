@@ -967,14 +967,16 @@ disp(['对应增益 K: ', num2str(min_zeta_K)])
 ### 现代控制
 
 #### 能控性
+
 ```matlab
 Co = ctrb(A,B) # return the controllability matrix
 ```
+
 ## MPC toolbox
 
 ### 基本使用
 
-<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=286299577&bvid=BV1Gf4y1R7sg&cid=211216173&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframxe>
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=286299577&bvid=BV1Gf4y1R7sg&cid=211216173&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="600px" height="450px"></iframe>
 
 [【模型预测控制】Matlab自带MPC Designer工具](https://blog.csdn.net/weixin_43470383/article/details/134227287)
 
@@ -982,13 +984,17 @@ Co = ctrb(A,B) # return the controllability matrix
 
 
 ### 使用步骤
+
 1. 安装MPC Designer
 2. 放一个simulink模型
 
 
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241230093059.png)
+
 3. 打开设计界面，点击 MPC Structure，设置输入输出通道，打开I/O Attributes，设置输入输出名称
+
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241230093026.png)
+
 4. 点击 Update and Simulate
 
 
