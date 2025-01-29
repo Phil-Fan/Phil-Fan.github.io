@@ -20,8 +20,10 @@
 
 ### 小米
 
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250129195934853.png)
 
 
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250129195959692.png)
 ### 蔚来
 
 

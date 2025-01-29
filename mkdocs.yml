@@ -525,11 +525,16 @@ nav:
     - else/fifa.md
 
   - "💡常识":
-    - else/common_knowledge/社会机构.md
-    - else/common_knowledge/social_insurance.md
-    - else/common_knowledge/rent.md
+    - else/common_knowledge/social_security.md
+    - else/common_knowledge/insurance_social_insurance.md
+    - else/common_knowledge/insurance_commercial_insurance.md
+    - else/common_knowledge/labour.md
+    - else/common_knowledge/tax.md
     - else/common_knowledge/accident.md
+    - else/common_knowledge/house.md
+    - else/common_knowledge/rent.md
     
+
 
 
 
