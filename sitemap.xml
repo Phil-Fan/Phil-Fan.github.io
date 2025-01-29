@@ -1236,17 +1236,37 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://www.philfan.cn/else/common_knowledge/house/</loc>
+         <lastmod>2025-01-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/else/common_knowledge/insurance_commercial_insurance/</loc>
+         <lastmod>2025-01-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/else/common_knowledge/insurance_social_insurance/</loc>
+         <lastmod>2025-01-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/else/common_knowledge/labour/</loc>
+         <lastmod>2025-01-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://www.philfan.cn/else/common_knowledge/rent/</loc>
          <lastmod>2025-01-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.philfan.cn/else/common_knowledge/social_insurance/</loc>
+         <loc>https://www.philfan.cn/else/common_knowledge/social_security/</loc>
          <lastmod>2025-01-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.philfan.cn/else/common_knowledge/%E7%A4%BE%E4%BC%9A%E6%9C%BA%E6%9E%84/</loc>
+         <loc>https://www.philfan.cn/else/common_knowledge/tax/</loc>
          <lastmod>2025-01-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
