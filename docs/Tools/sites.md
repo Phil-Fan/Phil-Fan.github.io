@@ -209,7 +209,7 @@ Please refer broadly to similar papers in the [specific field], and help me add 
 #### `@Web`：从搜索引擎获取上下文
 `@Web` 注记类似于一种方法，它会默认先将你的提问发送到搜索引擎，然后从搜索结果中提取上下文供 LLM 使用。然而，由于 Cursor 官方并未公开具体的实现细节，且其功能尚未完全优化，实际使用效果时好时坏。
 
-
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250129110750799.png)
 
 
 #### `@Folders`：传递文件目录信息的上下文

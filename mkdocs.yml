@@ -52,9 +52,6 @@ theme:
     - content.code.annotate  # 为代码块添加注释
     - content.code.copy  # 允许复制代码块
     - content.tabs.link  # 支持内容中的标签链接
-    
-    # 其他功能
-    - announce.dismiss  # 允许用户关闭公告栏
 
 
   language: 'zh'
@@ -477,9 +474,9 @@ nav:
   
 
 - "生命因你而火热":
-  - classes_in_zju.md
-  - else/flower.md
-  - else/bean_knowledge.md
+  - "🏫浙大": classes_in_zju.md
+  - "💐插花": else/flower.md
+  - "🍚豆知识": else/bean_knowledge.md
   # - else/interview.md
 
   - "🏃运动":
@@ -524,10 +521,10 @@ nav:
     - Tools/Photography-Landscape.md
     - Tools/Photography-Portrait.md
 
-  - "游戏":
+  - "🎮游戏":
     - else/fifa.md
 
-  - "常识":
+  - "💡常识":
     - else/common_knowledge/社会机构.md
     - else/common_knowledge/social_insurance.md
     - else/common_knowledge/rent.md
