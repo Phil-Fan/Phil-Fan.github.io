@@ -30,10 +30,47 @@
 
 
 ## 练习技巧&tips
+### 音阶
 
-### 琶音
+### 半音阶
+### 短琶音
 分享一个讲的特别好的视频
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=554651512&bvid=BV1Cv4y1w7vo&cid=736686109&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="600px" height="450px"></iframe>
+
+### 长琶音
+
+### 颤音
+
+### 震音
+
+### 八度
+
+
+## 和弦
+
+### 三和弦
+
+### 七和弦
+
+
+### 九和弦
+
+### 和弦转位
+
+
+### 挂留和弦
+
+### 属和弦
+
+### 和弦走向
+万能和弦 1451 6326 6415 6251
+
+
+
+## 调式
+
+
+
 
 ## 古典曲目
 
