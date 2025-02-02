@@ -126,13 +126,13 @@
 <ul class="md-tabs__list">
 <li class="md-tabs__item">
 <a class="md-tabs__link" href="../..">
-        
+          
   
     
   
   Home
 
-      </a>
+        </a>
 </li>
 <li class="md-tabs__item">
 <a class="md-tabs__link" href="../../Class/signal/">
@@ -210,12 +210,33 @@
 </a>
 </div>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_1" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
 <a class="md-nav__link" href="../..">
 <span class="md-ellipsis">
     Home
   </span>
 </a>
+<label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_1_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+            Home
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/">
+<span class="md-ellipsis">
+    友链
+  </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
@@ -2238,6 +2259,20 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_1">
 <span class="md-ellipsis">
+      方块
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+<span class="md-ellipsis">
+      列表
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+<span class="md-ellipsis">
       代码块
     </span>
 </a>
@@ -2260,7 +2295,7 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_2">
+<a class="md-nav__link" href="#_4">
 <span class="md-ellipsis">
       配置
     </span>
@@ -2275,21 +2310,21 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_3">
+<a class="md-nav__link" href="#_5">
 <span class="md-ellipsis">
       插件
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_4">
+<a class="md-nav__link" href="#_6">
 <span class="md-ellipsis">
       图床的配置与更换
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_8">
+<a class="md-nav__link" href="#_10">
 <span class="md-ellipsis">
       显示音乐符号
     </span>
@@ -2299,7 +2334,7 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_9">
+<a class="md-nav__link" href="#_11">
 <span class="md-ellipsis">
       发布
     </span>
@@ -2856,6 +2891,20 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_1">
 <span class="md-ellipsis">
+      方块
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+<span class="md-ellipsis">
+      列表
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+<span class="md-ellipsis">
       代码块
     </span>
 </a>
@@ -2878,7 +2927,7 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_2">
+<a class="md-nav__link" href="#_4">
 <span class="md-ellipsis">
       配置
     </span>
@@ -2893,21 +2942,21 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_3">
+<a class="md-nav__link" href="#_5">
 <span class="md-ellipsis">
       插件
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_4">
+<a class="md-nav__link" href="#_6">
 <span class="md-ellipsis">
       图床的配置与更换
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_8">
+<a class="md-nav__link" href="#_10">
 <span class="md-ellipsis">
       显示音乐符号
     </span>
@@ -2917,7 +2966,7 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_9">
+<a class="md-nav__link" href="#_11">
 <span class="md-ellipsis">
       发布
     </span>
@@ -2932,12 +2981,21 @@
 <article class="md-content__inner md-typeset">
 <div><h1 id="mkdocs">Mkdocs<a class="headerlink" href="#mkdocs" title="anchor link to this section for reference">¶</a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>1537<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"></path></svg></span> <span>119<span class="heti-spacing"> </span></span>行代码 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>7<span class="heti-spacing"> </span></span>分钟</p>
+<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>1545<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"></path></svg></span> <span>122<span class="heti-spacing"> </span></span>行代码 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>8<span class="heti-spacing"> </span></span>分钟</p>
 </div>
 <p><a href="https://squidfunk.github.io/mkdocs-material/"><span>material<span class="heti-spacing"> </span></span>文档</a></p>
 <h2 id="markdown">Markdown<a class="headerlink" href="#markdown" title="anchor link to this section for reference">¶</a></h2>
 <p><a href="https://zhuanlan.zhihu.com/p/672261576"><span>Markdown<span class="heti-spacing"> </span></span>教程<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>常见<span class="heti-skip"><span class="heti-spacing"> </span>Markdown<span class="heti-spacing"> </span></span>错误和解决方法<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>知乎<span><span class="heti-spacing"> </span>(zhihu.com)</span></a></p>
-<h3 id="_1">代码块<a class="headerlink" href="#_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_1">方块<a class="headerlink" href="#_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<div class="highlight"><pre><span></span><code>!!! info
+
+!!! inline info ""
+</code></pre></div>
+<h3 id="_2">列表<a class="headerlink" href="#_2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<div class="highlight"><pre><span></span><code>- [x] finished
+- [ ] not finished
+</code></pre></div>
+<h3 id="_3">代码块<a class="headerlink" href="#_3" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p><a href="https://wdk-docs.github.io/mkdocs-material-docs/reference/code-blocks/#annotations-with-numbers"><span>Code blocks(<span class="heti-spacing"> </span></span>代码块<span><span class="heti-spacing"> </span>) - Material for MkDocs</span></a></p>
 <p><code>hl_lines="2 3"</code> 高亮行</p>
 <p><code>linenums="1"</code> 显示行号</p>
@@ -3069,7 +3127,7 @@ plugins:
 </tr>
 </tbody>
 </table>
-<h2 id="_2">配置<a class="headerlink" href="#_2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_4">配置<a class="headerlink" href="#_4" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <h3 id="commands">Commands<a class="headerlink" href="#commands" title="anchor link to this section for reference">¶</a></h3>
 <ul>
 <li><code>mkdocs new [dir-name]</code> - Create a new project.</li>
@@ -3101,7 +3159,7 @@ pip<span class="w"> </span>install<span class="w"> </span>mkdocs-heti-plugin
 <div class="admonition note">
 <p class="admonition-title">note</p>
 </div>
-<h3 id="_3">插件<a class="headerlink" href="#_3" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_5">插件<a class="headerlink" href="#_5" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <h4 id="github"><span>Github<span class="heti-spacing"> </span></span>评论<a class="headerlink" href="#github" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <ul>
 <li>安装<a href="https://giscus.app/zh-CN"><span><span class="heti-spacing"> </span>giscus</span></a></li>
@@ -3186,16 +3244,16 @@ comments: true
 </code></pre></div>
 <p><a href="https://geodoer.github.io/Z-%E5%B7%A5%E5%85%B7/%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3%E5%B7%A5%E5%85%B7/mkdocs/mkdocs-material/%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/#commentshtml"><span>mkdocs-material<span class="heti-spacing"> </span></span>集成评论系统<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>知识库<span><span class="heti-spacing"> </span>(geodoer.github.io)</span></a>
 <a href="https://blog.csdn.net/m0_63203517/article/details/133819706">为Mkdocs网站添加评论系统（以giscus为例）_giscus mkdocs-CSDN博客</a></p>
-<h3 id="_4">图床的配置与更换<a class="headerlink" href="#_4" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_6">图床的配置与更换<a class="headerlink" href="#_6" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>原先配置的时候使用的是<span class="heti-skip"><span class="heti-spacing"> </span>gitee<span class="heti-spacing"> </span></span>的仓库配置</p>
 <p>但在发布网站后发现所有的图片都无法显示</p>
-<h4 id="_5">原因<a class="headerlink" href="#_5" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h4 id="_7">原因<a class="headerlink" href="#_7" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p><a href="https://blog.csdn.net/qq_45173404/article/details/123759688">查询资料</a>后发现是<span class="heti-skip"><span class="heti-spacing"> </span>Gitee<span class="heti-spacing"> </span></span>防盗链的原因</p>
 <blockquote>
 <p>发现图片请求的过程与上面不同，请求头中多了一个<code>Referer</code>字段，也就是我自己的<span class="heti-skip"><span class="heti-spacing"> </span>gitee<span class="heti-spacing"> </span></span>地址。
 应该是Gitee添加了防盗链机制，当我们通过直接访问存储在Gitee上的图片时，Http请求头没有Referer字段，所以被Gitee服务器当作黑名单而拒绝响应。而前面我们通过Gitee Page部署的Hexo博客请求时，由于代码都托管在Gitee上，在加载所有图片的时候都附加了Referer字段指向Gitee，相当于被Gitee服务器看作白名单因而可以访问。</p>
 </blockquote>
-<h4 id="_6">解决办法<a class="headerlink" href="#_6" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h4 id="_8">解决办法<a class="headerlink" href="#_8" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p>将图像存储更改为阿里云<span><span class="heti-spacing"> </span>OSS</span>，根据<a href="https://zhuanlan.zhihu.com/p/104152479">教程</a>做出以下操作</p>
 <ul>
 <li>购买阿里云<span class="heti-skip"><span class="heti-spacing"> </span>oss<span class="heti-spacing"> </span></span>服务</li>
@@ -3213,9 +3271,9 @@ comments: true
 <li>如果自己有已经备案的域名，可以填写设定自定义域名，如果没有不填即可。</li>
 </ol>
 <p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240813014140.png"/></p>
-<h4 id="_7">图床的迁移<a class="headerlink" href="#_7" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h4 id="_9">图床的迁移<a class="headerlink" href="#_9" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p><a href="https://cloud.tencent.com/developer/article/1975652">利用<span class="heti-skip"><span class="heti-spacing"> </span>PicGo<span class="heti-spacing"> </span></span>快速迁移<span class="heti-skip"><span class="heti-spacing"> </span>Gitee<span class="heti-spacing"> </span></span>图床外链图片到服务器<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>腾讯云开发者社区<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>腾讯云</a></p>
-<h3 id="_8">显示音乐符号<a class="headerlink" href="#_8" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_10">显示音乐符号<a class="headerlink" href="#_10" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>关于安装<span><span class="heti-spacing"> </span>lilypond</span></p>
 <p><span>LilyPond (<span class="heti-spacing"> </span></span>荷花池<span class="heti-skip"><span class="heti-spacing"> </span>)<span class="heti-spacing"> </span></span>是一个音乐雕版软件，致力产生最高质量的乐谱。它把传统音乐雕版印刷的美学，呈现在计算机打印的乐谱上。<span>LilyPond<span class="heti-spacing"> </span></span>是自由软件，也是<span class="heti-skip"><span class="heti-spacing"> </span>GNU Project<span class="heti-spacing"> </span></span>的一部分。</p>
 <p><a href="https://lilypond.org/download.zh.html">Download (LilyPond – 人人的乐谱软件<span><span class="heti-spacing"> </span>)</span></a></p>
@@ -3228,7 +3286,7 @@ comments: true
 <p><a href="https://lilypond-in-markdown.netlify.app/">Lilypond in Markdown</a></p>
 <p><a href="https://pianomanfrazier.com/post/lilypond-in-markdown/">Render LilyPond in Markdown</a></p>
 <p><a href="https://github.com/uliska/markdown-lilypond">uliska/markdown-lilypond： 支持<span><span class="heti-spacing"> </span>LilyPond</span>（符号软件）输入的<span class="heti-skip"><span class="heti-spacing"> </span>MkDocs<span class="heti-spacing"> </span></span>插件</a></p>
-<h2 id="_9">发布<a class="headerlink" href="#_9" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_11">发布<a class="headerlink" href="#_11" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p>发布也遇到了好几个坑</p>
 <p><a href="https://blog.arisa.moe/blog/2022/220407-github-pages/#vcs"><span>GitHub Pages<span class="heti-spacing"> </span></span>文档自动化部署<span><span class="heti-spacing"> </span>- MkDocs - Arisa | Blog</span></a></p>
 <p><a href="https://cloud.tencent.com/developer/article/1454059"><span>github pages<span class="heti-spacing"> </span></span>绑定域名<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>腾讯云开发者社区<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>腾讯云<span><span class="heti-spacing"> </span>(tencent.com)</span></a></p>
@@ -3274,7 +3332,7 @@ jobs:
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年11月22日 19:49:48</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年2月2日 22:07:24</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">
