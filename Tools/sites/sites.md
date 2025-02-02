@@ -140,7 +140,7 @@ This browser does not support PDFs
 
 ## 常用Prompt
 
-## OCR公式
+### OCR公式
 
 
 ### 扩写
@@ -295,6 +295,14 @@ Please refer broadly to similar papers in the [specific field], and help me add 
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241202192248.png)
 
 ## LLM 平台
+
+### 硅基流动
+第一步：注册账号，绑定手机号
+[SiliconFlow, Accelerate AGI to Benefit Humanity](https://siliconflow.cn/zh-cn/?ref=aishenqi.net)
+第二步：逛模型广场
+
+[Cherry Studio 下载页面](https://cherry-ai.com/download)
+
 ### 豆包
 
 #### 搭建你的第一个Agent

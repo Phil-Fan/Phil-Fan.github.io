@@ -12,7 +12,6 @@ comments: true
 <div class="flink-list-item">
     <a href="https://awslasasd.github.io/" title="追风Holy" target="_blank">
         <div class="flink-item-icon">
-        ![]()
             <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250202205611297.png" alt="追风Holy">
         </div>
         <div class="flink-item-name">追风Holy</div>

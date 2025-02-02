@@ -3,34 +3,41 @@ comments: true
 ---
 # 钢琴——从小小白到入门
 
+
 !!! note "本页面以打开艺术之门这门课程为主要内容"
 
-    === "第一弹"
-        - **名称:** 打开艺术之门———钢琴
-        - **授课老师:** 陈列
-        - **时间:** 2024年秋冬
-        - **地点:** 西3-B109
-        - **成绩组成：** 期中弹奏考试+期末弹奏考试+听音乐识曲+看谱识曲+双人弹奏
 
-    === "第二弹"
-        - **名称:** 打开艺术之门———钢琴
-        - **授课老师:** 陈曦
-        - **时间:** 2025年春夏
-        - **地点:** 西
-        - **成绩组成：** 
 
-课上一般是由老师先讲解两到三首经典古典曲目，然后再讲解要练习的曲子，最后是个人练习环节。
+## 课程基本信息
 
+=== "第一弹"
+    - **名称:** 打开艺术之门———钢琴
+    - **授课老师:** 陈列
+    - **时间:** 2024年秋冬
+    - **地点:** 西3-B109
+    - **成绩组成：** 期中弹奏考试+期末弹奏考试+听音乐识曲+看谱识曲+双人弹奏
+
+=== "第二弹"
+    - **名称:** 打开艺术之门———钢琴
+    - **授课老师:** 陈曦
+    - **时间:** 2025年春夏
+    - **地点:** 西
+    - **成绩组成：** 
+
+### 课堂流程
 零基础的内容应该是按照巴斯蒂安成人钢琴教程（第一册），乐理会简单涉及一点，但是不会很深入。
+
+课上一般是由老师先讲解两到三首经典古典曲目，然后再讲解要练习的曲子，最后是个人练习环节（大概50min到1h左右）。
 
 ??? note "巴斯蒂安成人钢琴教程"
     通过网盘分享的文件：巴斯蒂安成人钢琴教程  第一册.pdf 等2个文件
     链接: https://pan.baidu.com/s/16LPJv9WbuAGhmFab1Cjztw?pwd=PHIL 提取码: PHIL
 
-## 课程考核
+~~有基础的同学一般都是自己戴着耳机在后边练习~~
 
 
-### 期中
+
+### 期中考试
 
 **时间：11月5日**
 
@@ -40,8 +47,9 @@ comments: true
     - 其他同学C大调、a和声及旋律小调音阶，四个八度，以及C大调和a小调主和弦，两个八度
 
 === "乐曲"
-    在近期上课所学作品中任选1-2首，时长不超过3分钟
-
+    在近期上课所学作品中任选1-2首，时长不超过3分钟。
+    我选择的是《威廉退尔序曲》和《春》
+    
 === "评分项"
     - 基础练习：流畅度、指法准确性、基本手型等
     - 乐曲：节奏、指法、分句、音乐性等
@@ -50,19 +58,42 @@ comments: true
 
 时间：最后两节课程举行
 
-=== "个人曲目"
-    没有音阶和和弦练习
-
-=== "四手联弹"
-    期中考试之后老师会根据大家的水平进行分组
-
 === "听歌识曲&看谱识曲"
-    在学在浙大上进行答题
+    在学在浙大上进行答题。老师会提前几周公布考试的题库（也是从一开始就会讲解的一些经典的曲目）
+    
+    选项不是随机，而是把曲库的曲子都列作选项，也就是几乎没有什么蒙的可能 :tired_face:
 
     对于看谱识曲，我捏了一个代码，可以自动生成看谱识曲的题目，有兴趣的同学可以看一下
 
     [Phil-Fan/music\_quiz: 打开艺术之门——钢琴课程期末看谱识曲练习程序](https://github.com/Phil-Fan/music_quiz)
 
+    惭愧的是，由于期末周前被几个大作业围攻，没有留出来时间，导致听歌的时候完全大脑一篇空白
+
+=== "四手联弹"
+    期中考试之后老师会根据大家的水平进行分组，本学期期末任务爆多，所以就选了一首最简单的曲子(C大调民歌)，用课上的时间就可以练完。教室的电钢琴是可以插入两个耳机的，所以可以并排一起练习。
+
+    比较震撼的是三位大佬还表演了3架琴六手连弹hhh
+
+=== "个人曲目"
+    没有音阶和和弦练习，从学过的曲目当中挑选1-2首进行展示。~~大佬们弹啥的都有~~
+
+    我选择的是《演艺人》和《Memory》
+
+
+
+
+
+
+### 课程体验
+作为零基础的小白，我觉得上这么一门美育课程确实让我把钢琴培养成了一个小的兴趣:kissing_closed_eyes: ，也喜欢在课余时间练习一些自己喜欢的曲目。有一点课程考核的压力也让我这学期保持了定期练琴的习惯。
+
+每周课堂会有大概两节课左右的时间进行练习。课外的话大概去了10次琴房，每次1.5-2.5h不等
+yq琴房拆掉以后，买了电子琴之后，都在宿舍零零散散的练习了。
+
+这门课让我比较难受的是我前后两门课都是在yq，中间是在zjg的，如果8u们有体验过89节之间极限通勤应该可以理解 :tired_face:
+
+实话说，小白上一学期的课程，距离“入门”可能还相差甚远，还有很多知识和技巧需要学习。
+不过我觉得“打开艺术之门”这类课程的目的也正是课程名字本身，为更多零基础的同学提供拓展眼界的机会~
 
 
 
@@ -70,6 +101,7 @@ comments: true
 
 ### 紫金港
 - 西三钢琴房，在`浙大体艺-场馆预约-艺术中心-钢琴房预约`
+- 每周会有固定的时间开放电钢琴教室给选课同学练琴
 - 小剧场琴房，先在教超东边的保安室用校园卡换门禁卡，然后去到南边眼镜店旁边的楼梯，直接上楼，用门禁卡刷开琴房练琴
 - 游泳馆有公共钢琴
 
@@ -113,15 +145,12 @@ comments: true
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240924171307.png)
 
 
-![type:video](https://philfan-pic.oss-cn-beijing.aliyuncs.com/video/piano/00-音阶.mp4)
-
 ### 和弦练习
 和弦练习，这里要注意125和135指法的转换
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241008095233.png)
 
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241029135550.png)
 
-![type:video](https://philfan-pic.oss-cn-beijing.aliyuncs.com/video/piano/00-和弦.mp4)
 
 
 ## 练习曲目
@@ -149,7 +178,7 @@ comments: true
 
 - 要注意**三拍子的节奏**，不要弹成四拍子
 
-![type:video](https://philfan-pic.oss-cn-beijing.aliyuncs.com/video/piano/S-01-小型华尔兹.mp4)
+
 
 
 ### S-02-康康舞曲
@@ -158,7 +187,7 @@ comments: true
 比较简单，注意反复
 
 
-![type:video](https://philfan-pic.oss-cn-beijing.aliyuncs.com/video/piano/S-03-小步舞曲.mp4)
+
 
 ### S-03-小步舞曲
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240924171417.png)
@@ -179,14 +208,13 @@ comments: true
 前三行都是平行六度（两只手刚好连在一起），只需要照着右手同步弹奏就可以了
 
 第三行开始有右手的平移（1->7->6->5）。最后一小节注意变化。
-![type:video](https://philfan-pic.oss-cn-beijing.aliyuncs.com/video/piano/S-04-小谐谑曲.mp4)
+
 
 
 ### S-05-土耳其进行曲
 
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241008095248.png)
 
-![type:video](https://philfan-pic.oss-cn-beijing.aliyuncs.com/video/piano/S-05-土耳其进行曲.mp4)
 
 ### S-06-弗朗茨·约瑟夫·海顿
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241029142829.png)
@@ -200,7 +228,7 @@ comments: true
 注意最后一个和弦前的停顿和和弦的手指移动
 最后一个和弦是 1和135
 
-![type:video](https://philfan-pic.oss-cn-beijing.aliyuncs.com/video/piano/S-06-海顿惊愕交响曲主题.mp4)
+
 
 
 
@@ -220,7 +248,7 @@ comments: true
 3. 注意倒数第二小节连音的处理，不要弹第二遍，左手跟住节奏就好了
 4. 最后一小节左手的移动需要练一下
 
-![type:video](https://philfan-pic.oss-cn-beijing.aliyuncs.com/video/piano/S-08-威廉退尔序曲.mp4)
+
 
 ### S-09-风笛舞曲
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241022080436.png)
@@ -228,7 +256,6 @@ comments: true
 - 注意断音和连音的切换，断音不要弹得拖沓；
 - 第一行最后一节是la re xi so
 
-![type:video](https://philfan-pic.oss-cn-beijing.aliyuncs.com/video/piano/S-09-风笛舞曲.mp4)
 
 ### S-10-春
 
@@ -243,7 +270,6 @@ comments: true
 - 还要注意升fa的问题
 - 中间间奏是1765665
 
-![type:video](https://philfan-pic.oss-cn-beijing.aliyuncs.com/video/piano/S-10-春.mp4)
 
 ### S-11-Memory(from cat)
 
@@ -256,7 +282,6 @@ comments: true
 - 弹奏和弦的时候，大指和小指不要抬起来，轻轻的都贴在琴键上，音要连贯起来
 - **左手不要用太用力，需要轻柔一点**
 
-![type:video](https://philfan-pic.oss-cn-beijing.aliyuncs.com/video/piano/S-11-Memory.mp4)
 
 ### S-12-蓝色多瑙河
 
@@ -264,11 +289,10 @@ comments: true
     ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241112163506.png)
 === "有标注版本"
 
-![type:video](https://philfan-pic.oss-cn-beijing.aliyuncs.com/video/piano/S-12-蓝色多瑙河圆舞曲.mp4)
 
 ### S-13-托卡塔
 
-![type:video](https://philfan-pic.oss-cn-beijing.aliyuncs.com/video/piano/S-13-托卡塔.mp4)
+
 ### S-14-演艺人
 
 === "有标注版本"
@@ -278,8 +302,6 @@ comments: true
     ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241119133638.png)
 
     ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241119133713.png)
-
-![type:video](https://philfan-pic.oss-cn-beijing.aliyuncs.com/video/piano/S-14-演艺人.mp4)
 
 - 注意有降音的地方
 - 先练习右手，再练习左手，再一段段地练习（差不多是4个句子），最后练习句子之间的衔接
@@ -294,7 +316,6 @@ comments: true
 
 - 先把左手指法练熟
 
-![type:video](https://philfan-pic.oss-cn-beijing.aliyuncs.com/video/piano/S-15-献给爱丽丝.mp4)
 ## 连弹曲目
 
 老师会根据期中考试的水平，帮助大家找好分组
@@ -317,8 +338,6 @@ comments: true
 - 后两拍子要弹成一样的音长
 
 
-![type:video](https://philfan-pic.oss-cn-beijing.aliyuncs.com/video/piano/C-01-C大调民歌.mp4)
-
 ### C-02-莫扎特 唐璜 小步舞曲
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241112163029.png)
 - 所有的fa都是升fa
@@ -330,7 +349,7 @@ comments: true
 - 第二小节：附点四分音符，左手不是
 - 连续的十六分音符
 - 倒数第三节指法：1243 1252
-![type:video](https://philfan-pic.oss-cn-beijing.aliyuncs.com/video/piano/C-02-莫扎特唐璜小步舞曲.mp4)
+
 
 ### C-03-波尔卡杨卡舞曲
 
@@ -343,8 +362,6 @@ comments: true
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241112161802.png)
 
 
-
-![type:video](https://philfan-pic.oss-cn-beijing.aliyuncs.com/video/piano/C-03-波尔卡扬卡舞曲.mp4)
 
 
 剩下的几首已经超过初学者的难度了 :sobbing:
@@ -362,14 +379,14 @@ comments: true
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241112163224.png)
 
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241112163234.png)
-![type:video](https://philfan-pic.oss-cn-beijing.aliyuncs.com/video/piano/C-04-Summer四手联弹.mp4)
+
 
 ### C-05-拉德斯基进行曲
-![type:video](https://philfan-pic.oss-cn-beijing.aliyuncs.com/video/piano/C-05-拉德斯基进行曲.mp4)
+
 
 ### C-06-安妮特拉舞曲
 
-![type:video](https://philfan-pic.oss-cn-beijing.aliyuncs.com/video/piano/C-06-安妮特拉舞曲（选自《培尔金特》）.mp4)
+
 
 ### C-07-四小天鹅舞曲
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241119163655.png)
@@ -379,5 +396,5 @@ comments: true
 
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241119163736.png)
 
-![type:video](https://philfan-pic.oss-cn-beijing.aliyuncs.com/video/piano/C-07-四小天鹅舞曲.mp4)
+
 
