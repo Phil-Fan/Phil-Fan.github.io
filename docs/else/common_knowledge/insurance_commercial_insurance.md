@@ -10,9 +10,9 @@
 
 
 
-<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=784262528&bvid=BV1M24y1P7Bu&cid=1150394504&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=784262528&bvid=BV1M24y1P7Bu&cid=1150394504&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=600px height=450px></iframe>
 
-<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=784610133&bvid=BV1f14y1U7VY&cid=1157918599&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=600px weight=450px></iframe>
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=784610133&bvid=BV1f14y1U7VY&cid=1157918599&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=600px height=450px></iframe>
 
 
 
@@ -31,6 +31,7 @@
 包含门诊的分为补充医疗和高端医疗险
 
 补充医疗个人不太能投保，高端医疗险一年可能大几千到上万
+
 |                 | 重疾险                                                          | 百万医疗                                       |
 |-----------------|------------------------------------------------------------------|--------------------------------------------------|
 | 赔付方式       | 给付型                                                          | 报销型                                          |
@@ -47,7 +48,10 @@
 | 报销范围       | 仅报销住院及住院前后门诊费用，没有住院的门诊不报销             | 门诊、住院费用都报销                           |
 | 就医范围       | 二级及以上公立医院的普通部                                     | 公立医院特需门诊、国际部，及高端私立医院       |
 | 理赔方式       | 个人先付费，事后理赔                                           | 保险公司直接付费，无需个人垫付报销             |
-| 保额           | 几百万     
+| 保额           | 几百万 
+
+
+
 ### 重疾险
 重疾险不是用来治病的，而是用来给收入降低做补偿的。优先级上应该先给经济支柱配置重疾险
 

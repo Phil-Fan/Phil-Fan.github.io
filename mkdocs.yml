@@ -191,7 +191,9 @@ extra_javascript:
 
 # navigation: 注意左右下划线的写法
 nav:
-- Home: index.md
+- Home: 
+  - index.md
+  - "友链": reference.md
     
 - Class:
   - Class/signal.md
