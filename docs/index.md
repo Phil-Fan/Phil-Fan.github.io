@@ -9,13 +9,16 @@ comments: true
 
 !!! note "正在学习的内容"
     整理一下机器学习的笔记；大数据分析的笔记整理 <br>
+    复习概率论 <br> 
+    复习线性代数 矩阵论 程磊 <br> 
+    
     整理一下制作魔杖和平衡小车的制作过程 <br>
     
     小型的轮腿机器人<br>
     小型飞机控制 dRehmFlight
     证券投资学——李兴建 <br>
     听一下经济学
-    矩阵论 程磊 <br> 
+    
     听一下随机过程
     
 
@@ -27,6 +30,10 @@ comments: true
     学习英语<br>
     小型的轮腿机器人<br>
     小型飞机控制
+    找一下领域
+    学习英语
+    制定减重计划
+
 
     
 !!! inline tip "课外目标"
@@ -34,6 +41,7 @@ comments: true
     健身目标：引体>10;卧推60kg（达到）；深蹲110kg<br>(没达到qwq)
     自由泳不间断游100m<br>
     台球4连杆<br>
+    会弹summer<br>
     开发第一个油猴脚本
 
 !!! inline failure "有时间补坑"
@@ -42,3 +50,6 @@ comments: true
     整理电车行业相关<br>
     整理面试技巧<br>
     学一下cv的基础知识[智能工厂精品课](https://github.com/haodong2000/Vision2022/tree/2023)
+
+
+<br>
