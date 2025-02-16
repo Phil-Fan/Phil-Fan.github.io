@@ -20,6 +20,131 @@
 - 强化学习：免模型、有模型学习<br>
   
 
+## 统计学习资料
+
+[ZJU\_Stat\_Courses/统计学习 at main · Frankgu3528/ZJU\_Stat\_Courses](https://github.com/Frankgu3528/ZJU_Stat_Courses/tree/main/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0)
+
+https://www.bilibili.com/video/BV1QW411o7fk?from=search&seid=17747537286715723310&spm_id_from=333.337.0.0
+
+ISLR
+
+
+### 统计学习 2023-2024春夏
+
+1. 简述Ridge，Lasso Regression，还有Elatic net
+
+2. Confusion Matrix
+   - 一个平衡样本做二分类问题
+   - 给定accuracy以及FN，求TNR
+
+3. Bias-Variance Tradeoff，三道选择题
+   - 正则化项会导致bias和variance如何变化
+   - irreducible bias来源
+   - 如何才能降低irreducible bias
+
+4. 决策树，不剪枝，四道判断+论述
+   - 如果有X1在DGP中与Y独立，则不会进入决策树
+   - 决策树的最大深度是log2（n）+1
+   - 如果做bootstrap抽样训练B棵树然后取平均，是随机森林
+   - 随机森林只能做预测，不能做分类
+
+5. 聚类
+   - 给样本点和初始的C，手算一个K-means（k=3）任务
+
+6. 因果推断
+   - 简述G-formula
+   - 简述IPTW
+
+7. 工具变量
+   - 简述IV
+   - 描述always taker，never taker，defier，compiler是什么
+   - 给定A和L，判断是哪一类
+   - 什么是CATE，如何识别
+
+### 统计学习19-20 春夏
+
+一、不定项选择（5题）：
+
+1. 模型选择与正则化相关概念
+
+2. 引起随机森林过拟合的可能原因
+
+3. 对 $n$ 个数据进行硬间隔线性SVM分类，有2个支持向量，增加一个数据，最大的支持向量数
+
+4. 来自多个不同概率分布的总体的数据构成一个数据集，对该数据集使用k-means聚类分析，影响聚类效果的因素
+
+5. LASSO与PCA比较
+
+二、判断题（5题）：
+
+1. 3-NN模型比1-NN模型 bias小
+
+2. 深度为3的树比深度为1的树 variance大
+
+3. （不记得了）
+
+4. 假设空间越大，过拟合的可能性越大
+
+5. Boosting采用指数损失函数
+
+三、简答题（4题）：
+
+1. 给出了一张表，包括参与拟合SVM的数据和拟合结果中的系数，判断哪些数据是支持向量
+
+2. 给出了Ridge Regression的损失函数，解释其中参数 $\lambda$ 的作用，当 $\lambda$ 很大或很小时会有什么结果
+
+3. 给出一组数据，判断下列分类方法是否可以对这组数据进行正确分类：
+   - Logistic Regression
+   - SVM（Linear Kernel）
+   - SVM（RBF Kernel）
+   - Decision Tree
+   - 3-NN
+
+4. 给出 $L_2$ 正则化的线性回归的模型和具体算法
+
+四、
+题干大意是用3-order的polynomial regression生成了一组数据
+
+（1）用不同order的polynomial regression对上述数据进行拟合，判断bias和variance大小：
+$d=1$, $d=3$, $d=10$
+
+（2）在下列情况下使用flexible的模型是否比inflexible的模型更好，并说明理由：
+① predictor与feature有显著的非线性关系
+② 随机误差 $\epsilon$ 的方差很大
+
+五、k-means：
+
+给了一组数据并给出了预先设定的centroid，做出第一步迭代后的聚类图，并判断再进行一步迭代后，聚类是否发生变化
+
+六、
+
+题干大意是给了一组数据，拟合了一个模型，进行了变量选择，并求了不同变量数时的LOOCV，给出了train error和LOOCV随变量数 $d$ 的图象
+
+（1）解释上述图象为什么是这样的
+
+（2）$d$ 为多少时开始过拟合
+
+（3）你觉得 $d$ =多少更合适
+
+七、二次SVM：
+
+核函数为quaratic kernel（给了损失函数）
+给出一组数据，绘制出 $C$ 很大/小时的决策边界，并判断哪个更好
+
+八、R代码题：（不是写代码，是给了一段R代码让你分析）
+
+导入了一个数据集，用gam拟合了3个模型：
+
+$\text{out1} = \text{gam}(y \sim x)$
+
+$\text{out2} = \text{gam}(y \sim \text{as.factor}(x))$
+
+$\text{out3} = \text{gam}(y \sim s(x))$
+
+1.这三个模型中，第一个模型最光滑，第二个模型最曲折，第三个居中，试解释原因
+
+2.给出了上面三个模型的summary，根据对这三个模型做一些评估（问的比我这里更具体一些，比如从拟合训练数据角度哪个更好、从AIC角度哪个更好等等）
+
 
 
 ### 背诵手册

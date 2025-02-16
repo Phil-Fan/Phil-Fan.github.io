@@ -1,4 +1,3 @@
-
 # 01 | 机器学习导论
 
 !!! note "课程信息"
@@ -7,43 +6,32 @@
         - 课程教师：赵洲
         - 考核内容：2次书面作业+2次编程作业[Kaggle](https://www.kaggle.com/)（45%）+15次随机签到（15%）+1次期末摸底考试+1次期末考试；（40%）
         - 课本：西瓜书
-    === "实用的机器学习"
 
     === "人工智能与安全"
         - 课程时间：2024年秋冬
         - 课程教师：陈艳姣
+        - workload：一篇论文阅读报告+pre
+
+    === "统计学习"
+        - 课程时间：2025年春夏
+        - 课程教师：崔逸凡
         - workload：
 
 
-Artificial Intelligence is a scientific field concerned with the development of algorithms that allow computers to learn without being explicitly programmed
-
-• Machine Learning is a branch of Artificial Intelligence, which focuses on
-methods that learn from data and make predictions on unseen data
-
-[人工智能基础 - 鹤翔万里的笔记本 (tonycrane.cc)](https://note.tonycrane.cc/cs/ai/basic/)
-
-[02：贝叶斯定理 - 小角龙的学习记录 (zhang-each.github.io)](https://zhang-each.github.io/My-CS-Notebook/ML/统计机器学习02：贝叶斯定理/)
-
-[命题逻辑 - Jerry's Blog (wxxcl.tech)](https://blog.wxxcl.tech/course/aid/知识表达与推理/命题逻辑/)
-
-[笔记](https://github.com/mura1n/Machine-Learning-in-Practice-Crash-Course-Notes)
-
-
-1. 机器学习：B站/youtube 李宏毅/吴恩达课程二选一，mo平台(https://mo.zju.edu.cn/)上似乎有课程笔记自己搜索一下，如果时间不多可以先跳过，后面再补;  如果时间特别特别充裕的话，西瓜书也可以看。
-2. 深度学习：https://zh-v2.d2l.ai/ notebook和课程质量较高，使用的框架的话, pytorch文献用的比较多,tensorflow和硬件兼容性好，根据需求选择框架学习, 如果觉得难以接受可以多刷几遍
-3. 强化学习：https://hrl.boyuai.com/   https://datawhalechina.github.io/easy-rl/#/ 应该比较好，但是lz不是做这个方向的，还没看过(x
-之后要做什么根据自己的需求来
-https://github.com/AccumulateMore 这个笔记似乎也做的比较好
-B站https://space.bilibili.com/1567748478/的论文带读也挺不错
 
 
 
-## 导论
+
+## 定义
 
 !!! note "什么是机器学习"
     以数据作为经验的载体，利用经验数据不断提高性能的计算机系统/程序/算法
 
     最理想的机器学习技术是学习到 **概念** （⼈类学习，可理解的）
+
+    Artificial Intelligence is a scientific field concerned with the development of algorithms that allow computers to learn without being explicitly programmed
+
+    Machine Learning is a branch of Artificial Intelligence, which focuses on methods that learn from data and make predictions on unseen data
 
 - supervised learning ：分类任务（离散），回归任务（连续）；学习一个映射函数$x\rightarrow \mathbf{y}$
 - unsupervised learning ：找到标签或者模式，聚类、降维
@@ -115,18 +103,22 @@ iid 保证了统计意义上可以使用机器学习
 
 **inductive bias** | 归纳偏好: 机器学习算法对于某些假设的倾向性，存在多条曲线符合数据时候，算法的倾向性叫做inductive bias
 
-**Occam's Razor** | 奥卡姆剃刀原理：在所有可能的解释中，最简单的解释最有可能是正确的（大道至简）
+
+### 奥卡姆剃刀原理 | Occam's Razor
+在所有可能的解释中，最简单的解释最有可能是正确的（大道至简）
 
 !!! tip "算法的优越性来自于算法的assumption和数据的匹配程度"
 
-**No Free Lunch Theorem**:
+### NFL | No Free Lunch Theorem
 一个算法A在某个问题上表现比B好，比存在另一个问题，B比A好
-脱离具体问题，空泛谈论“什么学习算法更好”毫无意义
 
-脱离数据分布和输出去谈学习算法，是没有意义的
+脱离具体问题，脱离数据分布和输出，空泛谈论“什么学习算法更好”毫无意义
 
 [NFL定理推导-CSDN博客](https://blog.csdn.net/qq_43246110/article/details/104617780)
-### 什么时候使用机器学习
+
+
+
+## 什么时候使用机器学习
 
 **there should be some patterns in the data**
 
@@ -138,7 +130,7 @@ iid 保证了统计意义上可以使用机器学习
 
 
 
-### pipeline
+## pipeline
 
 pipeline，中文意为管线，意义等同于流水线。土味一点 你把它 翻译成 **一条龙服务**；专业一点，叫它 **综合解决方案**<br>
 
@@ -152,25 +144,6 @@ pipeline，中文意为管线，意义等同于流水线。土味一点 你把�
 - 模型调参
 
 是一个**迭代**的过程
-
-### generalization 泛化
-机器学习最重要的能力就是generalization，最重要的就是要学习到一些概念
-
-## 概率和似然
-
-这两个概念我经常有点糊涂
-
-所谓概率就是已知参数$\theta$的情况下，求$X$的分布
-
-
-
-而似然是指在给定X的情况下，去预估参数$\theta$，
-
-根据已有的数据(相当于$\textbf{X}$)学到相应的分布(即$\theta$),此概念对应training阶段, 即在训练阶段, 是根据已有的$X$来估计其真实的数据分布服从什么样的分布$\theta$
-> 一个质量不均的骰子，投了很多次，求一个分布
-
-
-
 
 
 ## 学习资源
@@ -220,11 +193,52 @@ Learning)
 - KDD (ACM SIGKDD Conference on Knowledge Discovery and Data Mining)
 - AAAI (AAAI conference on Artificial Intelligence)
 
-本人农学博士，科研接触的机器学习，之前有计算机的导师领入门了。个人目前遇到最好的教程是吴恩达的视频课程，因为他充分考虑到了学生的水平，把需要的数学知识也讲了，先看了吴恩达早期的机器学习（反向传播的那节讲的不是很好），然后近两年的深度学习，在看了b站北大的tensorflow笔记课程，觉得至少知道该怎么做机器学习（包括深度学习）了。 不过作为一个非计算机专业的学生，个人觉得所有的教程都忽视了一个最基础但是也是最重要的东西——**特征工程**，指的不是特征选择（无监督学习的降维），而是特征表征（feature represent），深度学习里面叫embedding（自己看了功能后理解的），就是我们应该怎样去表征问题，将问题的信息表示为数据给计算机进行学习。之前看了什么有监督学习啊，无监督学习啊，对特征就是告诉你样本或向量空间，完全不知道机器学习去做什么。只到有个老师让我在做了特征提取，然后降维，然后分类或预测的时候我才明白机器学习是一个什么样的过程。
+
+### 相关网课
+
+CS188
+
+1. 机器学习：B站/youtube 李宏毅/吴恩达
+
+2. 深度学习：https://zh-v2.d2l.ai/ notebook和课程质量较高，使用的框架的话, pytorch文献用的比较多,tensorflow和硬件兼容性好，根据需求选择框架学习, 如果觉得难以接受可以多刷几遍
+
+3. 强化学习：https://hrl.boyuai.com/   https://datawhalechina.github.io/easy-rl/#/ 
+
+
+一步步教你每个数据是怎么产生怎么删除的, 可视化做的非常好,手脚架给你搭建好了, 不需要复杂的工程思考, 只需要思考最本质的 梯度,    可以快速理解梯度, activation, opt 
+[LLM Training Puzzles - 寒假摸鱼 (2) - Garl的文章 - 知乎](https://zhuanlan.zhihu.com/p/20265169815)
+[LLM-Training-Puzzles](https://github.com/srush/LLM-Training-Puzzles/tree/main )
+[colab地址](https://colab.research.google.com/github/srush/LLM-Training-Puzzles/blob/main/puzzles.ipynb)
+
+
+### 学习笔记
+
+[人工智能基础 - 鹤翔万里的笔记本 (tonycrane.cc)](https://note.tonycrane.cc/cs/ai/basic/)
+
+[02：贝叶斯定理 - 小角龙的学习记录 (zhang-each.github.io)](https://zhang-each.github.io/My-CS-Notebook/ML/统计机器学习02：贝叶斯定理/)
+
+[命题逻辑 - Jerry's Blog (wxxcl.tech)](https://blog.wxxcl.tech/course/aid/知识表达与推理/命题逻辑/)
+
+[笔记](https://github.com/mura1n/Machine-Learning-in-Practice-Crash-Course-Notes)
+
+
+https://github.com/AccumulateMore 
+
+
+B站https://space.bilibili.com/1567748478/ 论文带读
+### 注意点
+
+**特征工程**，指的不是特征选择（无监督学习的降维），而是特征表征（feature represent），深度学习里面叫embedding（自己看了功能后理解的），就是我们应该怎样去表征问题，将问题的信息表示为数据给计算机进行学习。
 
 
 
-我是入门看的咱们学校的机器学习课程，对机器学习大概有个了解，没太关心数学。 说实话这些算法（ml里不包含dl的那些）我科研上用到的比较少，后来随着科研的深入会去思考这些算法后面的数学原理，就去参考李航的机器学习，西瓜书。更加高屋建瓴一点的教材就是PRML了。 我比较推荐UCB的CS188，从整个人工智能的角度讲问题，机器学习是其中的一个部分。编程项目有趣连贯。用的教材也是经典，一些思想现在也不过时。
+
+
+
+
+
+
+
 
 
 
