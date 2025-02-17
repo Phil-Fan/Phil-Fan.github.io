@@ -1,5 +1,12 @@
 # 机器人建模
 
+!!! note "课程信息"
+    - 名称：机器人建模与控制
+    - 授课教师：zrh
+
+要是讲解机械臂相关的知识，包括空间描述与变换（旋转矩阵、齐次变换矩阵、欧拉角、等效轴角、四元数）、正运动学（关节参数、改进DH参数）、逆运动学（解析法、数值法）、静力学、雅可比、动力学（拉格朗日方程、牛顿欧拉方程）、轨迹规划、控制（位置控制、力控制）等等
+
+
 
 ## 基础概念
 
@@ -7,7 +14,7 @@
 
 **逆运动学**：已知位姿求解角度
 
-
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250217105608273.png)
 
 **关节空间**
 
@@ -52,15 +59,9 @@ $$
 >
 > 想想开门时拧钥匙的动作，这个情况下是人胳膊的末端机构（手）的三维位置没有变（始终在钥匙孔前），但是末端机构（手）的三维旋转变了（转动了钥匙）。人能够实现这个简单的动作，就是因为我们的胳膊有7个自由度。
 
-
-
-
-## 坐标系
-
-
 ## 坐标系变换
 
-### 平面
+**平面**
 平面坐标系坐标转换，顺时针旋转
 
 $$
@@ -78,7 +79,7 @@ $$
 - 传导性
 
 
-### 转动
+**转动**
 
 > 记忆变换矩阵的方法，已知一个轴是不动的，不动的轴分量为1，利用线代的知识，只需列写变换后的基向量的坐标即可推出矩阵
 >
@@ -97,56 +98,50 @@ $$
 
 
 
+=== "桶滚 `roll`"
+    ![在这里插入图片描述](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20190410212347423.gif)
 
-#### 桶滚 `roll`
+    x轴不变，滚动（Roll)的旋转矩阵：
 
+    $$
+    \begin{bmatrix}
+    1 & 0 & 0 \\
+    0 & \cos\phi & -\sin\phi \\
+    0 & \sin\phi & \cos\phi
+    \end{bmatrix}
+    $$
 
+=== "俯仰 `pitch`"
+    ![在这里插入图片描述](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20190410212338361.gif)
 
-![在这里插入图片描述](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20190410212347423.gif)
+    y轴不变，俯仰（Pitch)的旋转矩阵：
 
-x轴不变，滚动（Roll)的旋转矩阵：
+    $$
+    \begin{bmatrix}
+    \cos\theta & 0 & \sin\theta \\
+    0 & 1 & 0 \\
+    -\sin\theta & 0 & \cos\theta
+    \end{bmatrix}
+    $$
 
-$$
-\begin{bmatrix}
-1 & 0 & 0 \\
-0 & \cos\phi & -\sin\phi \\
-0 & \sin\phi & \cos\phi
-\end{bmatrix}
-$$
+=== "偏摆 `yaw`"
+    ![在这里插入图片描述](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20190410212324456.gif)
 
-#### 俯仰 `pitch`
+    z轴不变，偏摆（Yaw）的旋转矩阵：
 
-![在这里插入图片描述](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20190410212338361.gif)
+    $$
+    \begin{bmatrix}
+    \cos\psi & -\sin\psi & 0 \\
+    \sin\psi & \cos\psi & 0 \\
+    0 & 0 & 1
+    \end{bmatrix}
+    $$
 
-y轴不变，俯仰（Pitch)的旋转矩阵：
+    其中，$\phi$表示滚动角，$\theta$表示俯仰角，$\psi$表示偏摆角。这些矩阵分别表示了绕X轴、Y轴和Z轴的旋转。
 
-$$
-\begin{bmatrix}
-\cos\theta & 0 & \sin\theta \\
-0 & 1 & 0 \\
--\sin\theta & 0 & \cos\theta
-\end{bmatrix}
-$$
+    ![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-9e1b5ce7917863ea39d34e84f3884faa_1440w.webp)
 
-#### 偏摆 `yaw`
-
-![在这里插入图片描述](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20190410212324456.gif)
-
-z轴不变，偏摆（Yaw）的旋转矩阵：
-
-$$
-\begin{bmatrix}
-\cos\psi & -\sin\psi & 0 \\
-\sin\psi & \cos\psi & 0 \\
-0 & 0 & 1
-\end{bmatrix}
-$$
-
-其中，$\phi$表示滚动角，$\theta$表示俯仰角，$\psi$表示偏摆角。这些矩阵分别表示了绕X轴、Y轴和Z轴的旋转。
-
-![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-9e1b5ce7917863ea39d34e84f3884faa_1440w.webp)
-
-## 欧拉角
+### 欧拉角
 
 如果有一点 P绕原点依次作**滚动、俯仰和偏摆**，其位置将变成
 
@@ -250,7 +245,7 @@ $$
 欧拉角描述相对于初始状态的变换，只和最终状态有关，与过程无关。（外边的轴转动会带动里面的轴转动）
 
 
-## 四元数
+### 四元数
 
 四维空间中的双旋转
 
@@ -309,3 +304,10 @@ ax.legend()
 # 显示绘图
 plt.show()
 ```
+
+
+
+## 逆运动学
+
+## 速度与静力
+
