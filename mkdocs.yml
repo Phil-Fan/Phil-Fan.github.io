@@ -258,17 +258,20 @@ nav:
 
   - "机器人":
     - Robotics/Robo/Robo-00-intro.md
-    - Robotics/Robo/Robo-00-model.md
     - Robotics/Robo/Robo-00-Introduction-to-Robotics.md 
     - Robotics/Robo/Robo-00-Introduction-to-Robotics-exam.md
+    - Robotics/Robo/Robo-00-model.md
+    - Robotics/Robo/Robo-00-model-control.md
+    - Robotics/Robo/Robo-00-model-review.md
     - Robotics/Robo/Robo-01-sensor&detection.md
+    - Robotics/Robo/Robo-01-computer-control.md
     - Robotics/Robo/Robo-02-0-navigation.md
     - Robotics/Robo/Robo-02-1-localization.md
     - Robotics/Robo/Robo-02-2-mapping.md
     - Robotics/Robo/Robo-02-3-planning.md
     - Robotics/Robo/Robo-probabilistic_robot.md
     - Robotics/Robo/Robo-Drone.md      
-    - Robotics/Robo/Robo-arm.md
+    
 
   - "通信":
     - Robotics/communication/CC-NFC.md
@@ -278,8 +281,10 @@ nav:
     - Robotics/嵌入式/嘉立创.md
     - Robotics/嵌入式/焊接.md
     - Robotics/嵌入式/EmbeddedSystem-experiment.md
+    - Robotics/Robo/Robo-arm.md
     - Robotics/Robo/Robo-Drone_experiment.md
     - Robotics/Robo/Robo-Drone-explore.md
+    
 
   - "环境配置":
     - Robotics/Calculator.md
