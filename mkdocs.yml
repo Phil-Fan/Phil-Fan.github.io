@@ -254,7 +254,8 @@ nav:
     - Robotics/Control/Control-04-optimal.md
     - Robotics/Control/Control-10-经典控制方法.md
     - Robotics/Control/Control-11-智能控制方法.md
-    - Robotics/Control/Control-12-电气控制.md
+    - Robotics/Control/Control-20-电气控制.md
+    - Robotics/Control/Control-21-供配电.md
 
   - "机器人":
     - Robotics/Robo/Robo-00-intro.md
