@@ -60,6 +60,30 @@
 - [PeiPei233/zju-learning-assistant](https://github.com/PeiPei233/zju-learning-assistant): 帮你快速下载所有课件<br>
 
 
+### edge/chorme 插件
+
+**更好体验**
+- global speed：最好用的倍速
+- Vimium C：使用vim全键盘操作浏览器
+- ADguard：去除广告
+- Circle阅读助手：沉浸式阅读，纯净阅读
+- 油猴/篡改猴：更多脚本/插件
+
+**资源类**
+- Copy as Markdown: 复制成为markdown格式的链接
+- Simple Allow Copy: 解除网站的禁用复制
+- Image Downloader：下载网站上出现过的图片
+- Zotero Connector: 链接Zotero
+- 哔哔君：b站字幕下载
+
+**翻译**
+- 沉浸式翻译：好用的网页翻译
+- Grammarly：AI writing and grammar checker
+
+**其他**
+- HackBar
+- Cookie-Editor
+
 ## windows
 
 ### 查看用户
