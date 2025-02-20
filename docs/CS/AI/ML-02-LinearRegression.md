@@ -1,10 +1,15 @@
 # 02 | Linear Regression
+
 y 是一个连续的值；
 区别于classification，y是一个离散的值
 
 
 
 !!! note "因此，在高斯噪声的假设下，最小化均方误差等价于对线性模型的极大似然估计。"
+
+
+
+
 ## Polynomial Curve Fitting
 
 $f(x,\omega) = \omega_0 + \omega_1x + \omega_2x^2 + \omega_3x^3 + \dots + \omega_Mx^M = \sum_{j=0}^{M}\omega_jx^j$
@@ -50,8 +55,6 @@ stochastic gradient descent | 随机梯度下降法
 
 - Quasi Newton Method | 拟牛顿法
 
-
-## 模型
 
 ## 损失函数 | 统计模型
 
@@ -285,6 +288,3 @@ $$
 [LDA——线性判别分析基本推导与实验-CSDN博客](https://blog.csdn.net/qq_37189298/article/details/108656649)
 
 [二分类线性判别分析，看懂这篇就够了 - 知乎](https://zhuanlan.zhihu.com/p/488134514)
-
-
-

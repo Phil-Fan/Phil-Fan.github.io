@@ -55,7 +55,7 @@
 #### [计算机技术](https://www.sigs.tsinghua.edu.cn/2020/0922/c1053a20863/page.htm)
 
 #### ai
-![video](https://www.sigs.tsinghua.edu.cn/_upload/article/videos/9d/38/85d4416d4ee3b39b33e2f38f1d06/6afe4b71-82ca-4e61-b3c3-c98580d68d1c-B.mp4)
+>![video](https://www.sigs.tsinghua.edu.cn/_upload/article/videos/9d/38/85d4416d4ee3b39b33e2f38f1d06/6afe4b71-82ca-4e61-b3c3-c98580d68d1c-B.mp4)
 
 cv方向
 
@@ -83,13 +83,10 @@ nlp
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250217212227352.png)
 
 
-深圳cs的话，推荐联系wz老师，他们和本部zww一起开组会的；xst老师人好，但是过了45岁没有拿到帽子，你懂的。ai那边可以先联系本部ljw老师
+深圳cs的话，推荐联系王智老师，他们和本部zww一起开组会的；夏树涛老师人好，但是过了45岁没有拿到帽子，你懂的。ai那边可以先联系本部ljw老师
 
 
 #### 大数据
-清深推荐杨yj组，李x组，王z组，吴zy组（排名不分先后）；
-
-袁c组，王xq，王hq组也不错。
 ### [先进制造学部](https://www.sigs.tsinghua.edu.cn/2021/0701/c3761a25777/page.htm)
 
 #### [智能制造](https://www.sigs.tsinghua.edu.cn/2020/0922/c1053a20872/page.htm)

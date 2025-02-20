@@ -246,6 +246,7 @@ nav:
     - Robotics/嵌入式/EmbeddedSystem-stm32.md
     - Robotics/嵌入式/RaspberryPi.md
     - Robotics/嵌入式/FPGA.md
+    - Robotics/嵌入式/ComputerControl.md
 
   - "Control Theory":
     - Robotics/Control/Control-01-自动控制原理.md
@@ -265,7 +266,6 @@ nav:
     - Robotics/Robo/Robo-00-model-control.md
     - Robotics/Robo/Robo-00-model-review.md
     - Robotics/Robo/Robo-01-sensor&detection.md
-    - Robotics/Robo/Robo-01-computer-control.md
     - Robotics/Robo/Robo-02-0-navigation.md
     - Robotics/Robo/Robo-02-1-localization.md
     - Robotics/Robo/Robo-02-2-mapping.md
