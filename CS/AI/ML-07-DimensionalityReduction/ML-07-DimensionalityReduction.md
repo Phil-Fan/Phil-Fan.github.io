@@ -48,7 +48,6 @@ KNN是一种经典的监督学习方法，也是lazy learning的代表，不需�
 
 	但是在1NN下，尤其对连续分布，出现这种等距情况的概率几乎处处为0.此时在该点的预测值确实是不连续的，但是由于这种情况首先是一个0概率集，所以我们仍然可以认为1NN回归学习器是几乎处处连续的。
 
-
 ### 错误率分析
 
 给定测试样本 $x$，若其最近邻样本为 $z$，则最近邻分类器出错的概率就是 $x$ 与 $z$ 类别标记不同的概率，即
@@ -99,6 +98,9 @@ and they can be used to prevent over-fitting
 - nNN 的自由度是1
 
 k趋于无穷大，$\frac{n}{k}$趋于0时，KNN是相合的
+
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250220084045779.png)
 
 ### 计算
 - Lazy Learning: Need to store the entire training data for future prediction

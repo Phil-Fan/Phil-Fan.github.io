@@ -961,6 +961,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://www.philfan.cn/Robotics/%E5%B5%8C%E5%85%A5%E5%BC%8F/Arduino/</loc>
+         <lastmod>2025-02-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://www.philfan.cn/Robotics/%E5%B5%8C%E5%85%A5%E5%BC%8F/ComputerControl/</loc>
          <lastmod>2025-02-20</lastmod>
          <changefreq>daily</changefreq>
