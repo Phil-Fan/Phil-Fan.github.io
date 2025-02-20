@@ -244,6 +244,7 @@ nav:
     - Robotics/嵌入式/EmbeddedSystem-8051-experiment.md
     - Robotics/嵌入式/EmbeddedSystem-digitalcircuit.md
     - Robotics/嵌入式/EmbeddedSystem-stm32.md
+    - Robotics/嵌入式/Arduino.md
     - Robotics/嵌入式/RaspberryPi.md
     - Robotics/嵌入式/FPGA.md
     - Robotics/嵌入式/ComputerControl.md
