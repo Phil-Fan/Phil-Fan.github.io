@@ -440,6 +440,10 @@ N点序列FFT运算
 
     其中，频率分辨率$\Delta f = \frac{f_s}{N}$,$f_s$可以算出最高频率，$N$可以算出来频谱间距
 
+[FFT频谱分析（补零、频谱泄露、栅栏效应、加窗、细化、频谱混叠、插值），Matlab、C语言代码\_fft发生频率畸变-CSDN博客](https://blog.csdn.net/szm1234/article/details/121636961)
+
+
+
 ### **z变换**
 
 [张健智云](https://vod.cmc.zju.edu.cn/default/2024/05/16/018231e133b1fe4dd793dd3ac9182714_1920_1080.mp4?auth_key=1718713170-0-0-523036fad9a613322d4ff4d85ff0cd55&t=636426-1718698772-3fd1aea60633bbede2412ad2a2ec047d)

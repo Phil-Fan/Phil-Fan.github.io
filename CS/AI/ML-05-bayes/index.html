@@ -620,6 +620,13 @@
   </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Robotics/%E5%B5%8C%E5%85%A5%E5%BC%8F/ComputerControl/">
+<span class="md-ellipsis">
+    计算机控制系统
+  </span>
+</a>
+</li>
 </ul>
 </nav>
 </li>
@@ -756,13 +763,6 @@
 <a class="md-nav__link" href="../../../Robotics/Robo/Robo-01-sensor%26detection/">
 <span class="md-ellipsis">
     传感与检测
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../Robotics/Robo/Robo-01-computer-control/">
-<span class="md-ellipsis">
-    计算机控制系统
   </span>
 </a>
 </li>
@@ -3073,12 +3073,12 @@
 <article class="md-content__inner md-typeset">
 <div><h1 id="05-bayes"><span>05 | Bayes<span class="heti-spacing"> </span></span>贝叶斯分类器<a class="headerlink" href="#05-bayes" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>2676<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>10<span class="heti-spacing"> </span></span>分钟</p>
+<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>2851<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>11<span class="heti-spacing"> </span></span>分钟</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">本章知识点</p>
 <p>计算
-给定一个table，算好挂怀挂</p>
+给定一个table，算好瓜坏瓜</p>
 <p>公式推导
 E step公式
 M step公式</p>
@@ -3173,6 +3173,14 @@ E_{21}P(x|y_1)P(y_1) &gt; E_{12}P(x|y_2)P(y_2)\\
     \end{cases}
 \end{align*}
 \]</div>
+<div class="admonition tip">
+<p class="admonition-title">如何理解贝叶斯最优分类器</p>
+<p>假设我们已经“上帝视角”地获得了<span><span class="heti-spacing"> </span><span class="arithmatex">\( P(Y|x) \)</span></span>，即知道在每个<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\( x \)</span><span class="heti-spacing"> </span></span>的条件下，每个类别<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\( Y \)</span><span class="heti-spacing"> </span></span>的概率。基于这些概率，贝叶斯最优分类器会选择具有最大后验概率的类别作为最终的决策结果。</p>
+<p>假设我们在做垃圾邮件分类，已经知道：<br/>
+- <span class="arithmatex">\( P(Y = 1 | x) = 0.8 \)</span>（即这封邮件是垃圾邮件的概率为 0.8）
+- <span class="arithmatex">\( P(Y = 0 | x) = 0.2 \)</span>（即这封邮件是非垃圾邮件的概率为 0.2）</p>
+<p>根据贝叶斯最优分类器的规则，会将该邮件判断为垃圾邮件（<span class="arithmatex">\( \hat{y} = 1 \)</span><heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，错误率是<span><span class="heti-spacing"> </span>0.2</span>。</p>
+</div>
 <h2 id="_1">回顾<a class="headerlink" href="#_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p>贝叶斯的框架
 - 知道先验概率P(yi)，知道似然P(x|yi)，我们就可以得到一个最优的分类器。
@@ -3346,7 +3354,7 @@ LL(\theta|x,z) - \nP(x,z|\mathcal{\theta})
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年2月16日 14:23:43</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年2月20日 08:18:17</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">
