@@ -278,11 +278,14 @@ nav:
   - "通信":
     - Robotics/communication/CC-NFC.md
     - Robotics/communication/CC-bluetooth.md
+    - Robotics/communication/CC-lora.md
+    
   
   - "实践记录":
     - Robotics/嵌入式/嘉立创.md
     - Robotics/嵌入式/焊接.md
     - Robotics/嵌入式/EmbeddedSystem-experiment.md
+    - Robotics/嵌入式/外设.md
     - Robotics/Robo/Robo-arm.md
     - Robotics/Robo/Robo-Drone_experiment.md
     - Robotics/Robo/Robo-Drone-explore.md

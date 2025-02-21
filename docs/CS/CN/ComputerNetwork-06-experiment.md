@@ -1,7 +1,7 @@
 ---
 comments: true
 ---
-# 计网实验以及探索
+# 计网实验探索
 
 使用的工具
 
@@ -101,55 +101,12 @@ comments: true
 
 [终于有人把正向代理和反向代理解释的明明白白了！-腾讯云开发者社区-腾讯云](https://cloud.tencent.com/developer/article/1418457)
 
-## 静态路由的配置 | 使用GNS3模拟
-
-1.路由器的三种模式及切换 
-
-2.路由器配置 IP； 
-
-3.PC 机配置 IP 和网关。
-
-
-
-### 路由器的配置
-
-当打开路由器的设备控制台 Console 进行操作时，有三种操作模式。分别是：
-
-- R1 >：用户模式
-- R1# ：特权模式
-- R1(config)# ：全局配置模式
-
-#### 模式间切换：
-
-1.用户模式（ > ）切换到特权模式（ # ）：使用命令 `enable` 并回车。 
-
-2.特权模式（ # ）切换到全局配置模式（（ config ）#）：使用命令 `config terminal` 并回车：
-
-
-
-#### 路由器节点 IP 配置
-
-
-
-```
-R1 ( config ) # interface f0/0     ----进入接口
-R1 ( config-if ) # ip address 10.0.0.2 255.255.255.0  ----配置 IP 地址
-R1 ( config-if ) # no shutdown   ----开启接口
-
-R1 ( config-if ) # end			---- 退出全局配置模式
-R1 # write					---- 保存配置
-R1 # show ip interface brief  ---- 查看 ip 配置
-```
-
-
-
-
-
-### 静态路由
+## 静态路由
 
 静态路由是一种需要管理员手动配置的特殊路由。静态路由比动态路由使用更少的带宽，并且不占用 CPU 资源来计算和分析路由更新。但是，当网络发生故障或者拓扑发生变化后，静态路由不会自动更新，必须手动重新配置。
 
-#### 静态路由的组成
+[为什么要设置静态路由 - CC98论坛](https://www.cc98.org/topic/5650063)
+### 静态路由的组成
 
 静态路由主要包括 5 个主要的参数：目的 IP 地址和子网掩码、出接口和下一跳 IP 地址、优先级。
 
@@ -321,3 +278,67 @@ def cancel_appointment(scheduled_id):
 
 ## 内网穿透
 [内网穿透 | Chenshan's Blog](https://chenshan.link/2024/12/05/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/)
+
+
+## 路由器相关
+[恩山无线论坛](https://www.right.com.cn/forum/forum.php)
+
+
+
+[紫金港纯小白路由器总结 - CC98论坛](https://www.cc98.org/topic/5177370)
+### **L2TP（Layer 2 Tunneling Protocol）**
+
+[分享：玉泉 Windows 有线网 L2TP/IPv6 不死脚本 - CC98论坛](https://www.cc98.org/topic/5150942)
+
+L2TP 是 **第二层隧道协议**，主要用于 **VPN（虚拟专用网络）** 连接，通常与 IPsec 结合使用，以增强安全性。  
+特点：
+- 仅提供隧道功能，不提供加密，需要结合 **IPSec** 才能实现安全的 VPN 连接。
+- 适用于远程访问和站点间 VPN 连接。
+- 支持 **PPP（点对点协议）**，可用于认证（如 PAP、CHAP）。
+- 性能比 **OpenVPN** 等协议更优，延迟较低。
+
+### **OpenWrt**
+
+[openwrt配置IPv6 NAT（2024） - CC98论坛](https://www.cc98.org/topic/5962343)
+[搬到1舍后终于用上了IPV6 relay！！(附Redmi AC2100 OpenWrt固件) - CC98论坛](https://www.cc98.org/topic/5372458)
+
+[紫金港 OpenWrt & Adguard Home 配置小总结 - CC98论坛](https://www.cc98.org/topic/5208534)
+
+[Openwrt配置合集——编译、l2tp、静态路由、IPV6(NAT6、Relay) - CC98论坛](https://www.cc98.org/topic/5076895)
+
+
+[OpenWrt 路由器 MacVLAN+MWAN3 有线网多拨超详细指南 - CC98论坛](https://www.cc98.org/topic/5575720)
+**OpenWrt** 是一个 **基于 Linux 的嵌入式路由器操作系统**，支持许多 **路由器和嵌入式设备**。  
+特点：
+- **开源**，可自定义路由器功能，如防火墙、QoS、VPN。
+- **强大的软件包管理**，可安装 OpenVPN、L2TP、Shadowsocks、AdGuardHome 等。
+- **支持 IPv6**，能方便地进行 IPv6 隧道或原生 IPv6 连接。
+- **适合高级用户和开发者**，支持 Shell、Lua、Python 等编程语言。
+
+### **Padavan**
+
+[浙大校园网Padavan固件路由器配置教程 - CC98论坛](https://www.cc98.org/topic/5213173)
+
+[Padavan IPV6设置终结帖（RedMi AC2100） - CC98论坛](https://www.cc98.org/topic/5040118)
+
+**Padavan** 是一个专门为 **MTK（联发科）路由器** 设计的 **第三方固件**，基于 ASUSWRT（华硕官方固件）进行改进，支持某些 **小米、华硕、斐讯** 路由器。  
+特点：
+- **轻量化、稳定、高效**，比 OpenWrt 更适合日常使用。
+- **支持 IPv6、VPN（L2TP/PPTP）、Shadowsocks/V2Ray/SSR 代理**。
+- **Web UI 友好**，适合普通用户配置。
+- **不支持扩展软件包**，不像 OpenWrt 那样可自由安装插件。
+
+### **IPv6（Internet Protocol Version 6）**
+IPv6 是 **互联网协议的第六版**，用于替代 IPv4，解决地址耗尽问题。  
+特点：
+- **地址空间大**，使用 128 位地址，可提供几乎无限的 IP。
+- **无 NAT（网络地址转换）**，设备可直接全球互联。
+- **内置安全性**，支持 **IPSec**，增强安全性。
+- **支持自动配置（SLAAC 和 DHCPv6）**，减少网络管理复杂度。
+[校网 IPv6 终极指南 - CC98论坛](https://www.cc98.org/topic/5344325)
+[有线IPv6环境下基于DNS64/NAT64突破外网出口限速的方法 - CC98论坛](https://www.cc98.org/topic/5108856)
+
+[学校网络架构升级，l2tp和ipv6出了点问题 - CC98论坛](https://www.cc98.org/topic/5945388)
+
+## NAS
+[NAS / 硬路由：从入门到入门（网络存储 / Debian 方案 / 校园网认证 / Tailscale / Jellyfin / SMB / WebDAV / Docker / Immich 等） - CC98论坛](https://www.cc98.org/topic/5966741)
