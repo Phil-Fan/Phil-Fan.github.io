@@ -1,4 +1,15 @@
 # Arduino
+## IDE使用
+### 汉化RadioHead具体安装即使用步骤参考：Lora Shield - Wiki for Dragino Project
+打开arduino，然后点击`File`——>`Preference`，按图3顺序点击设置，然后重启，就可以设置成中文了
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250220102213498.png)
+
+### 库的下载和导入
+1. 直接下载
+2. 导入zip库:点击左上角“项目” -> “加载库” -> “添加.ZIP库” 然后选择下载的zip文件即可
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250220101913345.png)
+
 
 ## 资源
 
