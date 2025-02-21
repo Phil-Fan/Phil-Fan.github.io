@@ -279,6 +279,8 @@ nav:
     - Robotics/communication/CC-NFC.md
     - Robotics/communication/CC-bluetooth.md
     - Robotics/communication/CC-lora.md
+    - Robotics/communication/CC-MQTT.md
+    - Robotics/communication/CC-else.md
     
   
   - "实践记录":
