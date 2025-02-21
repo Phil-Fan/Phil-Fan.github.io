@@ -746,6 +746,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://www.philfan.cn/Class/Fin/invest-stock/</loc>
+         <lastmod>2025-02-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://www.philfan.cn/Class/Fin/invest/</loc>
          <lastmod>2025-02-21</lastmod>
          <changefreq>daily</changefreq>
@@ -957,6 +962,11 @@
     </url>
     <url>
          <loc>https://www.philfan.cn/Robotics/communication/CC-bluetooth/</loc>
+         <lastmod>2025-02-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/Robotics/communication/CC-else/</loc>
          <lastmod>2025-02-21</lastmod>
          <changefreq>daily</changefreq>
     </url>

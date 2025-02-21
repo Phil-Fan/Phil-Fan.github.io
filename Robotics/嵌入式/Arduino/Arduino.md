@@ -1,16 +1,4 @@
 # Arduino
-## IDE使用
-### 汉化RadioHead具体安装即使用步骤参考：Lora Shield - Wiki for Dragino Project
-打开arduino，然后点击`File`——>`Preference`，按图3顺序点击设置，然后重启，就可以设置成中文了
-
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250220102213498.png)
-
-### 库的下载和导入
-1. 直接下载
-2. 导入zip库:点击左上角“项目” -> “加载库” -> “添加.ZIP库” 然后选择下载的zip文件即可
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250220101913345.png)
-
-
 ## 资源
 
 [Built-in Examples | Arduino Documentation](https://docs.arduino.cc/built-in-examples/)
@@ -22,6 +10,34 @@
 [Arduino 库函数文档](https://www.arduino.cc/reference/en/)
 
 [Arduino 中文教程](https://www.w3cschool.cn/arduino/)
+
+## 配置
+
+### IDE下载
+[Software | Arduino](https://www.arduino.cc/en/software)
+
+下载对应版本的IDE即可
+
+### IDE汉化
+
+打开arduino，然后点击`File`——>`Preference`，按图3顺序点击设置，然后重启，就可以设置成中文了
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250220102213498.png)
+
+### IDE库的下载和导入
+1. 直接下载
+2. 导入zip库:点击左上角“项目” -> “加载库” -> “添加.ZIP库” 然后选择下载的zip文件即可
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250220101913345.png)
+
+### vscode中Arduino IDE插件
+- 保证Arduino IDE下载完成
+- 下载插件
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250221115430443.png)
+- 
+
+### Python固件烧录
+
+
 
 ## 简单例程
 
