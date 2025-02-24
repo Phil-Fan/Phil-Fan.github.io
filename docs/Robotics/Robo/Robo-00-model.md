@@ -8,51 +8,11 @@
 
 
 
-
-**正运动学**：已知角度求末端执行器位姿
-
-**逆运动学**：已知位姿求解角度
-
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250217105608273.png)
 
-**关节空间**
-
-> 关节坐标是指描述机械臂中各个关节角度的坐标系。在关节坐标系中，每个关节的角度都被独立地表示出来，通过这些角度的变化，可以实现机械臂的运动。
-
-**笛卡尔空间**
-
-> 笛卡尔坐标系是一种常用的直角坐标系，它由三条相互垂直的坐标轴组成，分别为X轴、Y轴和Z轴。在笛卡尔坐标系中，任何点的位置都可以由这三个轴上的坐标值唯一确定。
 
 
-
-**自由度**
-
-手臂：7自由度；腿：6自由度
-
-定义：刚体本身具有可独立运动方向的数目。
-
-$$
-F = 6(l - n - 1) + \sum_{i = 1}^{n}f_{i} \\
-l为连杆数（包括基座），n为关节总数，f_i为第i个关节的自由度数
-$$
-
-
-
-6自由度DOF 8个解
-
-7个自由度DOF 无穷多个解
-
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/017a2277142fe6ab01f933ad81c3e281_1440w.webp" alt="img" style="zoom:50%;" />
-
-> 一个6自由度的机械手，即使某两组构型对应的末端机构的三维位置相同，机械手在从一个构型移动到另一个构型的时候无法保持末端机构始终不动。
->
-> 如果有人在电视里看过工业机器人焊东西的话，就会发现它在同一个位置焊接的时候，一会儿整个扭到这边，一会儿整个扭到那边，看起来非常酷炫的样子。事实上这么做只是因为，虽然焊接只是想改变末端机构的朝向，而不改变末端机构的位置，但是由于定理的限制，它必须要往后退一些，然后各种扭，才能保证在移动末端机构的朝向的过程中不会撞到东西，因为移动的时候末端机构的三维位置一定会乱动。如果它能够随便转一点点就可以达到目的，还费那个力气酷炫地整体都转起来干啥……
->
-> 而多了一个自由度以后就不一样了。
->
-> 想想开门时拧钥匙的动作，这个情况下是人胳膊的末端机构（手）的三维位置没有变（始终在钥匙孔前），但是末端机构（手）的三维旋转变了（转动了钥匙）。人能够实现这个简单的动作，就是因为我们的胳膊有7个自由度。
-
-## 坐标系与表示
+## 空间描述与变换
 
 位置和姿态总是成对出现的，我们将此组合称为坐标系。一个坐标系可以等价的用一个位置向量和一个旋转矩阵来描述。
 
@@ -114,12 +74,12 @@ $$
 ^A_BR = \begin{bmatrix} ^A\!X_B & ^A\!Y_B & ^A\!Z_B \end{bmatrix} = \begin{bmatrix} r_{11} & r_{12} & r_{13} \\ r_{21} & r_{22} & r_{23} \\ r_{31} & r_{32} & r_{33} \end{bmatrix}
 $$
 
-**性质**
-- 旋转矩阵是正交矩阵，即$^A_B\!R^T = ^A_B\!R^{-1} = ^B_A\!R$
-- 旋转矩阵的行列式为1，即$\det(^A_B\!R) = 1$
+**性质**<br>
+- 旋转矩阵是正交矩阵，即$^A_B\!R^T = ^A_B\!R^{-1} = ^B_A\!R$<br>
+- 旋转矩阵的行列式为1，即$\det(^A_B\!R) = 1$<br>
 
 
-SO3：Special Orthogonal Group 三维特殊正交群
+**SO3**：Special Orthogonal Group 三维特殊正交群
 
 $$
 SO(3) = \left\{ 
@@ -213,7 +173,7 @@ $$
 > 记忆法则：消消乐，前面的矩阵的下标$A$消去了后面矩阵的上标$A$
 
 
-### 旋转平移 - 齐次变换矩阵
+### 旋转+平移变换 - 齐次变换矩阵
 
 ??? info "齐次坐标"
     > 没有什么问题是增加一个维度解决不了的，如果有，那就加二个
@@ -314,28 +274,7 @@ $$
 ^A_B\!T \cdot ^B_A\!T = I
 $$
 
-### 右乘连体左乘基
-
-1. 对于两个变换的叠加：$M_2M_1$表示先进行$M_1$变换，再进行$M_2$变换，这里$M_1$、$M_2$都是自然基坐标系下。
-2. 如果$M_2$变换是在$M_1$坐标系基础上进行的，那么根据相似矩阵把$M_2$转换成自然基坐标系下：$M_1M_2M_1^{-1}$
-3. 那么两个变换叠加就是：$(M_1M_2M_1^{-1})M_1 = M_1M_2$
-
-这是一个很有意思的现象，如果每个变换都是在上个变换基础上进行的，那么只要把矩阵顺序反过来即可：
-
-- 所有变换都在自然基下：$M_4M_3M_2M_1$
-- 每个变换在前一个变换后的坐标系下：$M_1M_2M_3M_4$
-
-
-> 可以参考3b1b基坐标变换的视频
-
-<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=44855426&bvid=BV1ib411t7YR&cid=80579031&p=13&t=620&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=100% height=600px></iframe>
-
-
-
-!!! example "例子"
-    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250224160846651.png)
-
-### 欧拉角 - 三个轴次序转动
+### 欧拉角 - 三个轴次序旋转
 
 通过将三个基本旋转（Roll, Pitch, Yaw）按特定顺序组合来表示任意的旋转。
 
@@ -401,8 +340,6 @@ $$
 
     其中，$\phi$表示滚动角，$\theta$表示俯仰角，$\psi$表示偏摆角。这些矩阵分别表示了绕X轴、Y轴和Z轴的旋转。
 
-    ![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-9e1b5ce7917863ea39d34e84f3884faa_1440w.webp)
-
 
 
 
@@ -440,9 +377,36 @@ $\forall R \in SO(3)$可用$R_{z,y,x}(\alpha, \beta, \gamma)$表示出来
 
 
 
-#### 是否一一对应呢？
+
+#### 万向节死锁（Gimbal Lock）
+
+  
+非对称型欧拉角：
+- 中间的旋转角在$\left[ -\frac{\pi}{2}, \frac{\pi}{2}\right]$的时候，可以求出唯一对应
+- 如果不在$\left[ -\frac{\pi}{2}, \frac{\pi}{2}\right]$，则有无穷解
+  
+对称型欧拉角
+
+- 当 $0 < \beta < \pi$ 时，类比可得取唯一一欧拉角或固定角的公式；
+- 若 $\beta = 0$ 或 $\beta = \pi$，有无穷组欧拉角解和固定角解，只能确定 $a + \gamma$ 或者 $\alpha - \gamma$ 的值
+
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=771397545&bvid=BV1Nr4y1j7kn&cid=788925183&p=1&autoplay=0&t=40" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=100% height=600px></iframe>
 
 
+对欧拉角的变换是有序的 。欧拉角只记录结果，不记录过程
+
+欧拉角描述相对于初始状态的变换，只和最终状态有关，与过程无关。（外边的轴转动会带动里面的轴转动）
+
+欧拉角描述的**不是转动过程**，而是一个**变换**
+
+!!! example "例子"
+    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250224203714801.png)
+
+    比如这个xyz欧拉角，表述的操作顺序是x-y-z,假设y轴的欧拉角参数是90度。
+
+    物体将先绕x旋转（初始的x），再绕y旋转90，最后绕z旋转（这个z和初始的x轴其实已经重合了）。
+
+    所以理解的关键是要明白，欧拉角描述的**是一个变换**，而不是一个连续的转动过程。**后面的变换使用的是前面变换的坐标系。**
 
 
 !!! note "命题 $R_z(\pm \pi + \alpha) R_y(\pm \pi - \beta) R_x(\pm \pi + \gamma) = R_z(\alpha) R_y(\beta) R_x(\gamma)$"
@@ -499,6 +463,7 @@ $\forall R \in SO(3)$可用$R_{z,y,x}(\alpha, \beta, \gamma)$表示出来
 
 
 !!! example "已知 $R \in \text{SO}(3)$，求$(\alpha, \beta, \gamma) \in (-\pi, \pi] \times [-\pi/2, \pi/2] \times (-\pi, \pi]$使得$R = R_{z'y'x'}(\alpha, \beta, \gamma)$"
+    虽然zyx欧拉角可以表示任意旋转，但是这个命题限制了$\beta$的取值范围
 
     $$
     R_{z'y'x'}(\alpha, \beta, \gamma) = \begin{pmatrix}
@@ -555,31 +520,170 @@ $\forall R \in SO(3)$可用$R_{z,y,x}(\alpha, \beta, \gamma)$表示出来
 
     - $\alpha + \gamma = \arctan2(-r_{23}, r_{22})$
 
+### 等效轴角 - 绕给定轴旋转一次
 
-- 各种欧拉角，中间的旋转角在$\left[ -\frac{\pi}{2}, \frac{\pi}{2}\right]$的时候，可以求出唯一对应
-- 如果不在$\left[ -\frac{\pi}{2}, \frac{\pi}{2}\right]$，则有无穷解
-
-
-#### 万向节死锁（Gimbal Lock）
-
-同一姿态可以用无穷组欧拉角（固定角）表示
+**欧拉旋转定理**：若刚体从初姿态作任意定点转动后呈终姿态，则必可找到一个过该点的轴$K$及角度$\theta$，刚体从初姿态绕$K$作定轴转动$\theta$后呈终姿态
 
 
-!!! note "简单例子"
-    [无伤理解欧拉角中的“万向死锁”现象](https://www.bilibili.com/video/BV1Nr4y1j7kn)
-    站起来，y轴朝天，x轴两臂，z轴朝前；
-    顺序：YXZ：沿Y轴转，就是转下身；沿X轴转，就是抬头；沿Z轴转，就是保持脸的朝向不变，把头扭一下，就像歪头一样
+**罗德里格斯公式**
+
+$$
+r_{OQ}' = r_{OQ} \cos \theta + (r_{OQ} \cdot r_{OK}) r_{OK} (1 - \cos \theta) + (r_{OK} \times r_{OQ}) \sin \theta
+$$
+
+> 其中$r_{OQ}$是初始点，$r_{OQ}'$是旋转后的点，$r_{OK}$是旋转轴上的单位向量，$\theta$是旋转角度
+
+也可以表示为矩阵的形式
+
+$$
+R = I + \sin \theta [\mathbf{k}]_{\times} + (1 - \cos \theta) [\mathbf{k}]_{\times}^2
+$$
+
+其中，$I$ 是单位矩阵，$[\mathbf{k}]_{\times}$ 是 $\mathbf{k}$ 的叉积矩阵：
+
+$$
+[\mathbf{k}]_{\times} = \begin{pmatrix}
+0 & -k_z & k_y \\
+k_z & 0 & -k_x \\
+-k_y & k_x & 0
+\end{pmatrix}
+$$
+
+
+??? note "可行性验证——罗德里格斯公式推导"
+
+    以单位向量$^A\!K=(k_x,k_y,k_z)^\mathrm{T}$表示旋转轴，记旋转角度为$\theta$
+
+    旋转前$\{B\}$与$\{A\}$重合，即$^A_B\!R(0)=\mathbf{I}$，求$\{B\}$绕$^A\!K$旋转$\theta$后的$^A_{B(1)}\!R$
+
+    即分别求$^{A}\mathbf{X}_{B(0)}=\begin{pmatrix}1\\0\\0\end{pmatrix}$，$^{A}\mathbf{Y}_{B(0)}=\begin{pmatrix}0\\1\\0\end{pmatrix}$，$^{A}\mathbf{Z}_{B(0)}=\begin{pmatrix}0\\0\\1\end{pmatrix}$绕$^A\!K$旋转$\theta$后所得到的$^{A}\mathbf{X}_{B(1)}$，$^{A}\mathbf{Y}_{B(1)}$，$^{A}\mathbf{Z}_{B(1)}$
+
+    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250224214115258.png)
+
+    向量 $\mathbf{r}_{OQ}$ 绕单位向量 $\mathbf{r}_{OK}$ 旋转，这个过程中，$\mathbf{r}_{OQ}$在$\mathbf{r}_{OK}$的投影长度是不变的，所以$\mathbf{r}_{OQ}$ 向 $\mathbf{r}_{Ox}$ 作投影，得投影向量 $\mathbf{r}_{OP} = (\mathbf{r}_{OQ} \cdot \mathbf{r}_{Ox}) \mathbf{r}_{Ox}$ **（点乘获得长度，乘以单位向量获得方向）** ，则 $\mathbf{r}_{PQ} = \mathbf{r}_{OQ} - \mathbf{r}_{OP}$
+
+    将直角三角形 $OPQ$ 绕 $\mathbf{r}_{Ox}$ 旋转 $\theta$，得到直角三角形 $OP'Q'$  那么 $\mathbf{r}_{OQ'}$ 即为旋转后的 $\mathbf{r}_{OQ}$。为了求得 $\mathbf{r}_{OQ'}$，构造向量 $\mathbf{r}_{PW} = \mathbf{r}_{Ox} \times \mathbf{r}_{PQ}$，将 $\mathbf{r}_{PQ}$ 绕 $\mathbf{r}_{Ox}$ 旋转 $90^\circ$，即得到 $\mathbf{r}_{PW}$
+
+    $$
+    \mathbf{r}_{PW} \perp \mathbf{r}_{Ox}, \mathbf{r}_{PW} \perp \mathbf{r}_{PQ}, |\mathbf{r}_{PW}| = |\mathbf{r}_{Ox}| |\mathbf{r}_{PQ}| \sin \frac{\pi}{2} = |\mathbf{r}_{PQ}| = |\mathbf{r}_{PW}|
+    $$
+
+    显然，点 $P, Q, W, Q'$ 在同一平面，在该平面上，以点 $P$ 为圆心，以 $|\mathbf{r}_{PQ}|$ 为半径画圆，点 $Q, W, Q'$ 都在此圆上，且 $\mathbf{r}_{PQ'} = \mathbf{r}_{PQ} \cos \theta + \mathbf{r}_{PW} \sin \theta$  **（可以理解为正交分解，乘上了对应方向的单位向量）**
+
+    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250224213858660.png)
+
     
-    那么接下来按照以下顺序转：转身转过随便一个角度，然后抬头90度直朝天，然后再随便歪头歪一个角度（注意歪头时脸的朝向是不变的）那么你就会发现，歪头的效果跟开始转身的效果是一样的如果歪头的角度和转身的角度相等但是方向相反，那么就可以相互抵消
 
-对欧拉角的变换是有序的 。欧拉角只记录结果，不记录过程
+    于是 $\mathbf{r}_{OQ'} = \mathbf{r}_{OP} + \mathbf{r}_{PQ'} = \mathbf{r}_{OP} + (\mathbf{r}_{OQ} - \mathbf{r}_{OP}) \cos \theta + (\mathbf{r}_{OK} \times \mathbf{r}_{OQ}) \sin \theta - (\mathbf{r}_{OK} \times \mathbf{r}_{OP}) \sin \theta$
 
-欧拉角描述相对于初始状态的变换，只和最终状态有关，与过程无关。（外边的轴转动会带动里面的轴转动）
+    **$\mathbf{r}_{OK}$ 和$\mathbf{r}_{OP}$ 同方向，叉积为0**
 
+!!! note "唯一性求解"
+
+    已知 $R \in \mathrm{SO}(3)$，求单位向量 $(k_x, k_y, k_z)^\mathrm{T}$ 和旋转角 $\theta \in (-\pi, \pi]$ 使得 $R = R_K(\theta)$
+
+    $$
+    R = \begin{pmatrix}
+    r_{11} & r_{12} & r_{13} \\
+    r_{21} & r_{22} & r_{23} \\
+    r_{31} & r_{32} & r_{33}
+    \end{pmatrix} = \begin{pmatrix}
+    k_x^2 \nu \theta + c \theta & k_x k_y \nu \theta - k_z s \theta & k_x k_z \nu \theta + k_y s \theta \\
+    k_x k_y \nu \theta + k_z s \theta & k_y^2 \nu \theta + c \theta & k_y k_z \nu \theta - k_x s \theta \\
+    k_x k_z \nu \theta - k_y s \theta & k_y k_z \nu \theta + k_x s \theta & k_z^2 \nu \theta + c \theta
+    \end{pmatrix} \quad \nu \theta = 1 - c \theta
+    $$
+
+    不难理解 $R_K(\theta) = R_{-K}(-\theta)$ （绕正方向旋转一个角度，等同于绕反方向旋转同样的负的角度）
+
+    因此规定 $\theta \in [0, \pi]$
+
+    $$
+    \theta = \arccos\left(\frac{r_{11} + r_{22} + r_{33} - 1}{2}\right)
+    $$
+
+    === "若 $\theta \in (0, \pi)$,唯一解"
+
+        $$
+        \begin{pmatrix}
+        k_x \\
+        k_y \\
+        k_z
+        \end{pmatrix} = \frac{1}{2 \sin \theta} \begin{pmatrix}
+        r_{32} - r_{23} \\
+        r_{13} - r_{31} \\
+        r_{21} - r_{12}
+        \end{pmatrix} \quad \text{唯一解}
+        $$
+
+    === "若 $\theta = \pi$,两组解"
+
+        $$
+        \begin{pmatrix}
+        r_{11} & r_{12} & r_{13} \\
+        r_{21} & r_{22} & r_{23} \\
+        r_{31} & r_{32} & r_{33}
+        \end{pmatrix} = \begin{pmatrix}
+        2k_x^2 - 1 & 2k_x k_y & 2k_x k_z \\
+        2k_x k_y & 2k_y^2 - 1 & 2k_y k_z \\
+        2k_x k_z & 2k_y k_z & 2k_z^2 - 1
+        \end{pmatrix}
+        $$
+
+        由 $r_{11} + r_{22} + r_{33} = (2k_x^2 - 1) + (2k_y^2 - 1) + (2k_z^2 - 1) = -1$，知 $r_{11}, r_{22}, r_{33}$ 不会同时等于 $-1$
+
+        以 $r_{11} \neq -1$ 为例，$k_x = \pm \sqrt{(r_{11} + 1)/2}$
+
+        $$
+        \begin{pmatrix}
+        k_x \\
+        k_y \\
+        k_z
+        \end{pmatrix} = \pm \begin{pmatrix}
+        \sqrt{(r_{11} + 1)/2} \\
+        r_{12} / \sqrt{2(r_{11} + 1)} \\
+        r_{13} / \sqrt{2(r_{11} + 1)}
+        \end{pmatrix} \quad \text{两组解}
+        $$
+
+    === "若 $\theta = 0$,无穷解"
+
+        $$
+        \begin{pmatrix}
+        r_{11} & r_{12} & r_{13} \\
+        r_{21} & r_{22} & r_{23} \\
+        r_{31} & r_{32} & r_{33}
+        \end{pmatrix} = \begin{pmatrix}
+        1 & 0 & 0 \\
+        0 & 1 & 0 \\
+        0 & 0 & 1
+        \end{pmatrix}
+        $$
+
+
+        任何单位向量$\begin{pmatrix}k_x \\k_y \\k_z\end{pmatrix}$ 均可，无穷组解
 
 ### 四元数
 
-四维空间中的双旋转
+四元数是一种扩展了复数的数学对象，由一个实部和三个虚部组成。在旋转表示中，四元数 $q$ 可以表示为：
+
+$$
+q = \cos \frac{\theta}{2} + \sin \frac{\theta}{2} (k_x i + k_y j + k_z k)
+$$
+
+其中，$i, j, k$ 是四元数的虚部单位。四元数的旋转矩阵表示为：
+
+$$
+R = \begin{pmatrix}
+1 - 2(q_y^2 + q_z^2) & 2(q_x q_y - q_z q_w) & 2(q_x q_z + q_y q_w) \\
+2(q_x q_y + q_z q_w) & 1 - 2(q_x^2 + q_z^2) & 2(q_y q_z - q_x q_w) \\
+2(q_x q_z - q_y q_w) & 2(q_y q_z + q_x q_w) & 1 - 2(q_x^2 + q_y^2)
+\end{pmatrix}
+$$
+
+其中，$q_w = \cos \frac{\theta}{2}$，$q_x = k_x \sin \frac{\theta}{2}$，$q_y = k_y \sin \frac{\theta}{2}$，$q_z = k_z \sin \frac{\theta}{2}$。
+
+
 
 
 [四元数的可视化-3b1b](https://www.bilibili.com/video/BV1SW411y7W1/)
@@ -594,58 +698,73 @@ $\forall R \in SO(3)$可用$R_{z,y,x}(\alpha, \beta, \gamma)$表示出来
 
 [评论区pdf](https://krasjet.github.io/quaternion/)
 
+### Left or Right —— 右乘连体左乘基
 
-```python
-import numpy as np
-from scipy.spatial.transform import Rotation as R
-import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D
+1. 对于两个变换的叠加：$M_2M_1$表示先进行$M_1$变换，再进行$M_2$变换，这里$M_1$、$M_2$都是自然基坐标系下。
+2. 如果$M_2$变换是在$M_1$坐标系基础上进行的，那么根据相似矩阵把$M_2$转换成自然基坐标系下：$M_1M_2M_1^{-1}$
+3. 那么两个变换叠加就是：$(M_1M_2M_1^{-1})M_1 = M_1M_2$
 
-# 创建一个 3D 绘图
-fig = plt.figure()
-ax = fig.add_subplot(111, projection='3d')
+这是一个很有意思的现象，如果每个变换都是在上个变换基础上进行的，那么只要把矩阵顺序反过来即可：
 
-# 定义一个向量
-vec = np.array([1, 0, 0])
-
-# 绘制原始向量
-ax.quiver(0, 0, 0, vec[0], vec[1], vec[2], color='b', label='Original Vector')
-
-# 定义一个四元数 (90度绕z轴旋转)
-r = R.from_quat([0, 0, np.sin(np.pi/4), np.cos(np.pi/4)])
-
-# 旋转向量
-rotated_vec = r.apply(vec)
-
-# 绘制旋转后的向量
-ax.quiver(0, 0, 0, rotated_vec[0], rotated_vec[1], rotated_vec[2], color='r', label='Rotated Vector')
-
-# 设置坐标轴限制
-ax.set_xlim([-1, 1])
-ax.set_ylim([-1, 1])
-ax.set_zlim([-1, 1])
-
-# 添加标签
-ax.set_xlabel('X axis')
-ax.set_ylabel('Y axis')
-ax.set_zlabel('Z axis')
-
-# 显示图例
-ax.legend()
-
-# 显示绘图
-plt.show()
-```
+- 所有变换都在自然基下：$M_4M_3M_2M_1$
+- 每个变换在前一个变换后的坐标系下：$M_1M_2M_3M_4$
 
 
-## 正运动学
+> 可以参考3b1b基坐标变换的视频
+
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=44855426&bvid=BV1ib411t7YR&cid=80579031&p=13&t=620&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=100% height=600px></iframe>
+
+
+
+!!! example "例子"
+    === "例1"
+        ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250224160846651.png)
+
+    === "例2"
+        ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250224215632614.png)
+
+    === "例3"
+        ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250224215659494.png)
+
+    === "例4"
+        ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250224215724829.png)
+
+    === "例5"
+        ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250224215732527.png)
+
+    === "例6"
+        ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250224215712797.png)
+
+
+## 正运动学 - 已知角度求末端位姿
 各个关节变量的函数，描述了工具坐标系相对于基坐标系的位置和姿态
 
 
 
-## 逆运动学
+## 逆运动学 - 已知位姿求解角度
 
 给定工具坐标系的位置和姿态，解算出个各关节变量
+
+
+??? info "自由度 - 刚体本身具有可独立运动方向的数目"。
+    > 手臂：7自由度；无穷多个解
+    > 腿：6自由度;8个解
+
+    $$
+    F = 6(l - n - 1) + \sum_{i = 1}^{n}f_{i} \\
+    l为连杆数（包括基座），n为关节总数，f_i为第i个关节的自由度数
+    $$
+
+    <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/017a2277142fe6ab01f933ad81c3e281_1440w.webp" alt="img" style="zoom:50%;" />
+
+    > 一个6自由度的机械手，即使某两组构型对应的末端机构的三维位置相同，机械手在从一个构型移动到另一个构型的时候无法保持末端机构始终不动。
+    >
+    > 如果有人在电视里看过工业机器人焊东西的话，就会发现它在同一个位置焊接的时候，一会儿整个扭到这边，一会儿整个扭到那边，看起来非常酷炫的样子。事实上这么做只是因为，虽然焊接只是想改变末端机构的朝向，而不改变末端机构的位置，但是由于定理的限制，它必须要往后退一些，然后各种扭，才能保证在移动末端机构的朝向的过程中不会撞到东西，因为移动的时候末端机构的三维位置一定会乱动。如果它能够随便转一点点就可以达到目的，还费那个力气酷炫地整体都转起来干啥……
+    >
+    > 而多了一个自由度以后就不一样了。
+    >
+    > 想想开门时拧钥匙的动作，这个情况下是人胳膊的末端机构（手）的三维位置没有变（始终在钥匙孔前），但是末端机构（手）的三维旋转变了（转动了钥匙）。人能够实现这个简单的动作，就是因为我们的胳膊有7个自由度。
+
 
 ## 速度与静力
 
