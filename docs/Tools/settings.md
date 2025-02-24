@@ -491,6 +491,13 @@ Clear-ItemProperty -Path <path> -Name <property_name>
 ```
 
 
+### 查看MAC/机器码
+cmd 打开终端
+```shell
+ipconfig/all
+```
+
+
 ## vscode
 ### 使用
 
