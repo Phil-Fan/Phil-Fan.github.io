@@ -930,12 +930,13 @@ $$
 
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=35804287&bvid=BV1Lt411U7og&cid=62823973&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="600px"></iframe>
 
-<iframe src="https://eater.net/quaternions/video/intro" width="100%" height="600px"></iframe>
+<iframe src="https://eater.net/quaternions/video/intro" width="100%" "></iframe>
 
-<iframe src="https://eater.net/quaternions/video/doublecover" width="100%" height="600px"></iframe>
+<iframe src="https://eater.net/quaternions/video/doublecover" width="100%" "></iframe>
 
 <iframe src="https://krasjet.github.io/quaternion/quaternion.pdf" width="100%" height="600px" style="border: none;">
-
+This browser does not support PDFs
+</iframe>
 
 ### Left or Right —— 右乘连体左乘基
 
@@ -974,6 +975,7 @@ $$
 
 
 ### 各种表示之间的转换
+
 [三维旋转：欧拉角、四元数、旋转矩阵、轴角之间的转换 - 知乎](https://zhuanlan.zhihu.com/p/45404840)
 
 
