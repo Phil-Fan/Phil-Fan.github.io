@@ -902,6 +902,13 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../Robo/Robo-00-exp-arm/">
+<span class="md-ellipsis">
+    机械臂
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../Robo/Robo-01-sensor%26detection/">
 <span class="md-ellipsis">
     传感与检测
@@ -1044,13 +1051,6 @@
 <a class="md-nav__link" href="../../%E5%B5%8C%E5%85%A5%E5%BC%8F/%E5%A4%96%E8%AE%BE/">
 <span class="md-ellipsis">
     单片机外设使用
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../Robo/Robo-arm/">
-<span class="md-ellipsis">
-    机械臂
   </span>
 </a>
 </li>
@@ -3275,41 +3275,47 @@ This browser does not support PDFs
 <h3 id="_8">供电质量<a class="headerlink" href="#_8" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>电压、波形和频率</p>
 <h4 id="_9">电压：<a class="headerlink" href="#_9" title="anchor link to this section for reference">¶</a></h4>
-<p><span>==="<span class="heti-spacing"> </span></span>电压偏差<span><span class="heti-spacing"> </span>"</span></p>
-<div class="highlight"><pre><span></span><code>1. 感应电动机影响：电压偏差影响转矩和温升，可能损害绝缘。&lt;br&gt;
-2. 照明设备影响：电压偏差影响发光效率和寿命。&lt;br&gt;
-3. 电子设备影响：电压偏差可能导致系统紊乱、数据损坏和精确控制问题。&lt;br&gt;
-4. 无功补偿影响：电压过低可能降低补偿效率，引起电网问题。&lt;br&gt;
-
-
-改善措施
-
-1. **就地进行无功功率补偿**&lt;br&gt;
-2. **调整同步电动机的励磁电流**&lt;br&gt;
-3. **采用有载调压变压器**
-</code></pre></div>
-<p><span>==="<span class="heti-spacing"> </span></span>电压波动和闪变<span><span class="heti-spacing"> </span>"</span>
-    电压波动和闪变是指电压在一段时间内急剧变化而偏离额定值的现象。具体来说：
-    - <strong>电压波动</strong>：周期性电压急剧变化引起电源光通量急剧波动而造成人的视觉感官不舒适的现象。
-    - <strong>闪变</strong>：电压波动和闪变是由电弧炉、轧机、电弧焊机等波动负荷引起的。</p>
-<div class="highlight"><pre><span></span><code>措施
-
-1. 采用单独回路供电
-2. 降低共用配电线路阻抗
-3. 提高供电电压
-4. 增加短路容量
-5. 采用静止型无功功率补偿装置
-</code></pre></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">电压偏差</label><label for="__tabbed_1_2">电压波动和闪变</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ol>
+<li>感应电动机影响：电压偏差影响转矩和温升，可能损害绝缘。<br/></li>
+<li>照明设备影响：电压偏差影响发光效率和寿命。<br/></li>
+<li>电子设备影响：电压偏差可能导致系统紊乱、数据损坏和精确控制问题。<br/></li>
+<li>无功补偿影响：电压过低可能降低补偿效率，引起电网问题。<br/></li>
+</ol>
+<p>改善措施</p>
+<ol>
+<li><strong>就地进行无功功率补偿</strong> <br/></li>
+<li><strong>调整同步电动机的励磁电流</strong> <br/></li>
+<li><strong>采用有载调压变压器</strong></li>
+</ol>
+</div>
+<div class="tabbed-block">
+<p>电压波动和闪变是指电压在一段时间内急剧变化而偏离额定值的现象。具体来说：
+- <strong>电压波动</strong> ：周期性电压急剧变化引起电源光通量急剧波动而造成人的视觉感官不舒适的现象。
+- <strong>闪变</strong> ：电压波动和闪变是由电弧炉、轧机、电弧焊机等波动负荷引起的。</p>
+<p>措施</p>
+<ol>
+<li>采用单独回路供电</li>
+<li>降低共用配电线路阻抗</li>
+<li>提高供电电压</li>
+<li>增加短路容量</li>
+<li>采用静止型无功功率补偿装置</li>
+</ol>
+</div>
+</div>
+</div>
 <h4 id="_10">波形<a class="headerlink" href="#_10" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p>由于电力系统中存在大量的非线性供用电设备，使得电压波形偏离正弦波，这种现象称为电压正弦波畸变。电压波形的畸变程度用电压正弦波畸变率来衡量，也称为电压谐波畸变率。</p>
-<p><strong>波形的改善措施</strong>：
+<p><strong>波形的改善措施</strong> ：
 1. 加强系统承受谐波的能力
 2. 提高供、用电设备抗谐波干扰的能力
 3. 限制谐波的产生
 4. 装设交流滤波器吸收谐波</p>
 <h4 id="_11">频率<a class="headerlink" href="#_11" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
-<p><strong>频率偏差</strong>是指供电的实际频率与电网的额定频率的差值。我国电网的标准频率为<span><span class="heti-spacing"> </span>50Hz</span>，又称工频。频率偏差一般不超过<span><span class="heti-spacing"> </span>±0.5Hz</span>，对于大容量电网，频率偏差不超过<span><span class="heti-spacing"> </span>±0.2Hz</span>。</p>
-<p><strong>频率偏差改善措施</strong>：调整频率的办法是增大或减小电力系统发电机的有功功率。通过调整发电机的输出功率，可以影响电网的频率，从而改善频率偏差。</p>
+<p><strong>频率偏差</strong> 是指供电的实际频率与电网的额定频率的差值。我国电网的标准频率为<span><span class="heti-spacing"> </span>50Hz</span>，又称工频。频率偏差一般不超过<span><span class="heti-spacing"> </span>±0.5Hz</span>，对于大容量电网，频率偏差不超过<span><span class="heti-spacing"> </span>±0.2Hz</span>。</p>
+<p><strong>频率偏差改善措施</strong> ：调整频率的办法是增大或减小电力系统发电机的有功功率。通过调整发电机的输出功率，可以影响电网的频率，从而改善频率偏差。</p>
 <h3 id="_12">电压等级<a class="headerlink" href="#_12" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>额定电压
 500kv,330kv,220kv,110kv,63kv,35kv,10kv</p>
@@ -3335,7 +3341,7 @@ This browser does not support PDFs
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年2月21日 10:29:32</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年2月25日 09:52:08</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">
