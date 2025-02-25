@@ -41,6 +41,7 @@
     方向遵循右手定则，垂直于这两个向量所在的平面。
 
     简单计算方法:
+
     - 把 $\vec{a}$ 和 $\vec{b}$ 写成下面的矩阵形式
 
     $$
@@ -382,6 +383,7 @@ $\forall R \in SO(3)$可用$R_{z,y,x}(\alpha, \beta, \gamma)$表示出来
 
   
 非对称型欧拉角：
+
 - 中间的旋转角在$\left[ -\frac{\pi}{2}, \frac{\pi}{2}\right]$的时候，可以求出唯一对应
 - 如果不在$\left[ -\frac{\pi}{2}, \frac{\pi}{2}\right]$，则有无穷解
   
@@ -393,7 +395,7 @@ $\forall R \in SO(3)$可用$R_{z,y,x}(\alpha, \beta, \gamma)$表示出来
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=771397545&bvid=BV1Nr4y1j7kn&cid=788925183&p=1&autoplay=0&t=40" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=100% height=600px></iframe>
 
 
-对欧拉角的变换是有序的 。欧拉角只记录结果，不记录过程
+对欧拉角的变换是有序的,欧拉角只记录结果，不记录过程
 
 欧拉角描述相对于初始状态的变换，只和最终状态有关，与过程无关。（外边的轴转动会带动里面的轴转动）
 
@@ -663,40 +665,277 @@ $$
 
         任何单位向量$\begin{pmatrix}k_x \\k_y \\k_z\end{pmatrix}$ 均可，无穷组解
 
+
+
+
 ### 四元数
 
-四元数是一种扩展了复数的数学对象，由一个实部和三个虚部组成。在旋转表示中，四元数 $q$ 可以表示为：
+
+#### 欧拉参数
+
+
+在等效轴 $[k_x \, k_y \, k_z]^T$ 和等效轴角 $\theta \in \mathbb{R}$ 的基础上，定义欧拉参数$[\eta \,\ \varepsilon_1 \ \varepsilon_2 \ \varepsilon_3]^T$,一个标量和一个长度不超过1的三维向量
+
+其中
 
 $$
-q = \cos \frac{\theta}{2} + \sin \frac{\theta}{2} (k_x i + k_y j + k_z k)
+\eta = \cos \frac{\theta}{2}, \quad \varepsilon = \begin{bmatrix} \varepsilon_1 \\ \varepsilon_2 \\ \varepsilon_3 \end{bmatrix} = \begin{bmatrix} k_x \sin \frac{\theta}{2} \\ k_y \sin \frac{\theta}{2} \\ k_z \sin \frac{\theta}{2} \end{bmatrix}
 $$
 
-其中，$i, j, k$ 是四元数的虚部单位。四元数的旋转矩阵表示为：
+
+满足约束 $\eta^2 + \varepsilon_1^2 + \varepsilon_2^2 + \varepsilon_3^2 = 1$
+
+记 $\mathbb{U}$ 为由全体欧拉参数构成的集合,显然$\mathbb{U}$ 是 $\mathbb{R}^4$ 中的单位超球面
+
+将之前的等效轴角表示写成欧拉参数的形式
 
 $$
-R = \begin{pmatrix}
-1 - 2(q_y^2 + q_z^2) & 2(q_x q_y - q_z q_w) & 2(q_x q_z + q_y q_w) \\
-2(q_x q_y + q_z q_w) & 1 - 2(q_x^2 + q_z^2) & 2(q_y q_z - q_x q_w) \\
-2(q_x q_z - q_y q_w) & 2(q_y q_z + q_x q_w) & 1 - 2(q_x^2 + q_y^2)
-\end{pmatrix}
+R = \begin{bmatrix}
+k_x^2 \nu \theta + c \theta & k_x k_y \nu \theta - k_z s \theta & k_x k_z \nu \theta + k_y s \theta \\
+k_x k_y \nu \theta + k_z s \theta & k_y^2 \nu \theta + c \theta & k_y k_z \nu \theta - k_x s \theta \\
+k_x k_z \nu \theta - k_y s \theta & k_y k_z \nu \theta + k_x s \theta & k_z^2 \nu \theta + c \theta
+\end{bmatrix}\\
+= \begin{bmatrix}
+2(\eta^2 + \varepsilon_1^2) - 1 & 2(\varepsilon_1 \varepsilon_2 - \eta \varepsilon_3) & 2(\varepsilon_1 \varepsilon_3 + \eta \varepsilon_2) \\
+2(\varepsilon_1 \varepsilon_2 + \eta \varepsilon_3) & 2(\eta^2 + \varepsilon_2^2) - 1 & 2(\varepsilon_2 \varepsilon_3 - \eta \varepsilon_1) \\
+2(\varepsilon_1 \varepsilon_3 - \eta \varepsilon_2) & 2(\varepsilon_2 \varepsilon_3 + \eta \varepsilon_1) & 2(\eta^2 + \varepsilon_3^2) - 1
+\end{bmatrix} = R_\varepsilon(\eta)
 $$
 
-其中，$q_w = \cos \frac{\theta}{2}$，$q_x = k_x \sin \frac{\theta}{2}$，$q_y = k_y \sin \frac{\theta}{2}$，$q_z = k_z \sin \frac{\theta}{2}$。
+其中，$\nu \theta = 1 - c \theta$，$c = \cos \theta$，$s = \sin \theta$。
+
+任给一组欧拉参数，必有一个姿态（或旋转）与之对应。
+
+!!! note "欧拉参数的唯一性"
+
+    已知 $R \in SO(3)$，求欧拉参数使得
+
+    $$
+    R = \begin{bmatrix}
+    r_{11} & r_{12} & r_{13} \\
+    r_{21} & r_{22} & r_{23} \\
+    r_{31} & r_{32} & r_{33}
+    \end{bmatrix} = \begin{bmatrix}
+    2(\eta^2 + \varepsilon_1^2) - 1 & 2(\varepsilon_1 \varepsilon_2 - \eta \varepsilon_3) & 2(\varepsilon_1 \varepsilon_3 + \eta \varepsilon_2) \\
+    2(\varepsilon_1 \varepsilon_2 + \eta \varepsilon_3) & 2(\eta^2 + \varepsilon_2^2) - 1 & 2(\varepsilon_2 \varepsilon_3 - \eta \varepsilon_1) \\
+    2(\varepsilon_1 \varepsilon_3 - \eta \varepsilon_2) & 2(\varepsilon_2 \varepsilon_3 + \eta \varepsilon_1) & 2(\eta^2 + \varepsilon_3^2) - 1
+    \end{bmatrix}
+    $$
+
+    === "若 $r_{11} + r_{22} + r_{33} > -1$，两组反号的欧拉参数"
+
+        $$
+        \begin{bmatrix}
+        \eta \\
+        \varepsilon
+        \end{bmatrix} = \frac{1}{2} \begin{bmatrix}
+        \sqrt{r_{11} + r_{22} + r_{33} + 1} \\
+        \text{sgn}(r_{32} - r_{23}) \sqrt{r_{11} - r_{22} - r_{33} + 1} \\
+        \text{sgn}(r_{13} - r_{31}) \sqrt{r_{22} - r_{33} - r_{11} + 1} \\
+        \text{sgn}(r_{21} - r_{12}) \sqrt{r_{33} - r_{11} - r_{22} + 1}
+        \end{bmatrix}
+        $$
+
+        或
+
+        $$
+        \begin{bmatrix}
+        \eta \\
+        \varepsilon
+        \end{bmatrix} = -\frac{1}{2} \begin{bmatrix}
+        \sqrt{r_{11} + r_{22} + r_{33} + 1} \\
+        \text{sgn}(r_{32} - r_{23}) \sqrt{r_{11} - r_{22} - r_{33} + 1} \\
+        \text{sgn}(r_{13} - r_{31}) \sqrt{r_{22} - r_{33} - r_{11} + 1} \\
+        \text{sgn}(r_{21} - r_{12}) \sqrt{r_{33} - r_{11} - r_{22} + 1}
+        \end{bmatrix}
+        $$
+        
+        
+    === "若 $r_{11} + r_{22} + r_{33} = -1$"
+    
+        又可知 $r_{11}$、$r_{22}$ 和 $r_{33}$ 不会同时等于 $-1$。
+
+        以 $r_{11} \neq -1$ 为例，可得两组反号的欧拉参数：
+
+        $$
+        \begin{bmatrix}
+        \eta \\
+        \varepsilon
+        \end{bmatrix} = \frac{1}{2} \begin{bmatrix}
+        0 \\
+        \sqrt{r_{11} - r_{22} - r_{33} + 1} \\
+        \text{sgn}(r_{12}) \sqrt{r_{22} - r_{33} - r_{11} + 1} \\
+        \text{sgn}(r_{13}) \sqrt{r_{33} - r_{11} - r_{22} + 1}
+        \end{bmatrix}
+        $$
+
+        或
+
+        $$
+        \begin{bmatrix}
+        \eta \\
+        \varepsilon
+        \end{bmatrix} = -\frac{1}{2} \begin{bmatrix}
+        0 \\
+        \sqrt{r_{11} - r_{22} - r_{33} + 1} \\
+        \text{sgn}(r_{12}) \sqrt{r_{22} - r_{33} - r_{11} + 1} \\
+        \text{sgn}(r_{13}) \sqrt{r_{33} - r_{11} - r_{22} + 1}
+        \end{bmatrix}
+        $$
+
+
+    === "$\theta = 2k\pi$ 时"
+    
+        $$
+        \begin{bmatrix}
+        \eta \\
+        \varepsilon
+        \end{bmatrix} = \begin{bmatrix}
+        \pm 1 \\
+        0 \\
+        0 \\
+        0
+        \end{bmatrix}
+        $$
+
+        当 $\theta = 2k\pi$ 时，利用 $\sin \frac{\theta}{2} = 0$ 使得 $\varepsilon$ 为零向量。
+
+        这意味着当旋转角 $\theta$ 为 $2k\pi$（其中 $k$ 为整数）时，欧拉参数中的 $\varepsilon$ 向量为零向量，而 $\eta$ 的值为 $\pm 1$。这对应于旋转矩阵 $R$ 为单位矩阵的情况，即没有发生旋转。
 
 
 
 
-[四元数的可视化-3b1b](https://www.bilibili.com/video/BV1SW411y7W1/)
 
-[四元数和三维转动2-3b1b](https://www.bilibili.com/video/BV1Lt411U7og/)
 
-[Visualizing quaternions, an explorable video series](https://eater.net/quaternions)
 
-[三维旋转：欧拉角、四元数、旋转矩阵、轴角之间的转换 - 知乎](https://zhuanlan.zhihu.com/p/45404840)
 
-[欧拉角（易理解）](https://blog.csdn.net/ODDYOU/article/details/119976130)
 
-[评论区pdf](https://krasjet.github.io/quaternion/)
+
+#### Grassmann积
+
+在欧拉参数中定义 $\eta$ 和 $\varepsilon$ 的 Grassmann 积如下:
+
+$$
+\begin{bmatrix}
+\eta \\
+\varepsilon
+\end{bmatrix} \oplus \begin{bmatrix}
+\xi \\
+\delta
+\end{bmatrix} = \begin{bmatrix}
+\eta\xi - \varepsilon^T\delta \\
+\eta\delta +\xi\varepsilon +  \varepsilon \times \delta
+\end{bmatrix} = \begin{bmatrix}
+\eta & -\varepsilon_1 & -\varepsilon_2 & -\varepsilon_3 \\
+\varepsilon_1 & \eta & -\varepsilon_3 & \varepsilon_2 \\
+\varepsilon_2 & \varepsilon_3 & \eta & -\varepsilon_1 \\
+\varepsilon_3 & -\varepsilon_2 & \varepsilon_1 & \eta
+\end{bmatrix} \begin{bmatrix}
+\xi \\
+\delta_1 \\
+\delta_2 \\
+\delta_3
+\end{bmatrix} = A\begin{bmatrix}
+\xi \\
+\delta
+\end{bmatrix}
+$$
+
+如果有 $\begin{bmatrix}\eta \\ \varepsilon\end{bmatrix} \in \mathbb{U}$，则 $A^TA = I$
+
+如果还有 $\begin{bmatrix}\xi \\ \delta\end{bmatrix} \in \mathbb{U}$，则 $[\xi \quad \delta^T]A^TA\begin{bmatrix}\xi \\ \delta\end{bmatrix} = 1$ 即 $\begin{bmatrix}\eta\xi - \varepsilon^T\delta \\ \xi\varepsilon + \eta\delta + \varepsilon \times \delta\end{bmatrix} \in \mathbb{U}$
+
+$\mathbb{U}$中任意两个向量的Grassmann积仍是$\mathbb{U}$中的向量
+
+基于Grassmann积，欧拉参数可在 $\mathbb{U}$ 中直接描述3维姿态和3维坐标系旋转。
+
+两个欧拉参数做grassman积等效于两个旋转矩阵相乘，$\mathbb{U}$ 中的Grassmann积相当于 $SO(3)$ 中的乘法。（与之前表示方法兼容）
+
+
+!!! info "哈密顿与四元数"
+    哈密顿在1843年提出四元数，并将其用于描述三维空间中的旋转。
+
+四元数是一种扩展了复数的数学对象，由一个实部和三个虚部组成
+
+引入三个虚数单位 $i, j, k$，并规定 $i^2 = j^2 = k^2 = ijk = -1$。
+
+由此规定，可推导得：
+
+$$
+ij = k, ji = -k, jk = i, kj = -i, ki = j, ik = -j
+$$
+
+对任意 $[\eta \,\ \varepsilon_1 \,\ \varepsilon_2 \,\ \varepsilon_3]^T \in \mathbb{R}^4$，其对应的四元数 $q$ 为：
+
+$$
+q = \eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3
+$$
+
+记 $\mathbb{H}$ 为由全体四元数构成的集合。
+
+=== "加法"
+    与复数加法一致
+
+    $$
+    (\eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3) + (\xi + i\delta_1 + j\delta_2 + k\delta_3) = (\eta + \xi) + i(\varepsilon_1 + \delta_1) + j(\varepsilon_2 + \delta_2) + k(\varepsilon_3 + \delta_3)
+    $$
+
+
+=== "乘法"
+
+    $$
+    (\eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3)(\xi + i\delta_1 + j\delta_2 + k\delta_3) = (\eta\xi - \varepsilon_1\delta_1 - \varepsilon_2\delta_2 - \varepsilon_3\delta_3) + i(\eta\delta_1 + \varepsilon_1\xi + \varepsilon_2\delta_3 - \varepsilon_3\delta_2) + j(\eta\delta_2 - \varepsilon_1\delta_3 + \varepsilon_2\xi + \varepsilon_3\delta_1) + k(\eta\delta_3 + \varepsilon_1\delta_2 - \varepsilon_2\delta_1 + \varepsilon_3\xi)
+    $$
+
+    $\mathbb{H}$ 中的乘法相当于 $\mathbb{R}^4$ 中的 Grassmann 积。
+
+=== "共轭"
+
+    $\eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3$的共轭$(\eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3)^* = \eta - i\varepsilon_1 - j\varepsilon_2 - k\varepsilon_3$
+
+=== "模长"
+
+    $\eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3$的模长$|\eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3| = \sqrt{\eta^2 + \varepsilon_1^2 + \varepsilon_2^2 + \varepsilon_3^2}$
+
+单位四元数
+
+- **定义**：单位四元数是模长等于1的四元数。
+- **关系**：单位四元数与欧拉参数一一对应。
+- **应用**：基于乘法，单位四元数可直接描述三维姿态和三维坐标系旋转。
+
+原点不变条件下的三维向量的转换公式 $A^B P = A_B^B R^B P$
+- 记 $B^P = \begin{bmatrix} x_1 & y_1 & z_1 \end{bmatrix}^T$，$A^P = \begin{bmatrix} x_2 & y_2 & z_2 \end{bmatrix}^T$
+
+
+!!! note "兼容性"
+    旋转矩阵基于欧拉参数表示为：
+
+    $$
+    A_B^B R = R_\varepsilon(\eta) = \begin{bmatrix}
+    2(\eta^2 + \varepsilon_1^2) - 1 & 2(\varepsilon_1 \varepsilon_2 - \eta \varepsilon_3) & 2(\varepsilon_1 \varepsilon_3 + \eta \varepsilon_2) \\
+    2(\varepsilon_1 \varepsilon_2 + \eta \varepsilon_3) & 2(\eta^2 + \varepsilon_2^2) - 1 & 2(\varepsilon_2 \varepsilon_3 - \eta \varepsilon_1) \\
+    2(\varepsilon_1 \varepsilon_3 - \eta \varepsilon_2) & 2(\varepsilon_2 \varepsilon_3 + \eta \varepsilon_1) & 2(\eta^2 + \varepsilon_3^2) - 1
+    \end{bmatrix}
+    $$
+
+    上述三维向量的转换公式可基于单位四元数表示为：
+
+    $$
+    ix_2 + jy_2 + kz_2 = (\eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3)(ix_1 + jy_1 + kz_1)(\eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3)^*
+    $$
+
+#### 可视化与参考资料
+
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=33385105&bvid=BV1SW411y7W1&cid=58437850&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="600px"></iframe>
+
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=35804287&bvid=BV1Lt411U7og&cid=62823973&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="600px"></iframe>
+
+<iframe src="https://eater.net/quaternions/video/intro" width="100%" height="600px"></iframe>
+
+<iframe src="https://eater.net/quaternions/video/doublecover" width="100%" height="600px"></iframe>
+
+<iframe src="https://krasjet.github.io/quaternion/quaternion.pdf" width="100%" height="600px" style="border: none;">
+
 
 ### Left or Right —— 右乘连体左乘基
 
@@ -713,8 +952,6 @@ $$
 > 可以参考3b1b基坐标变换的视频
 
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=44855426&bvid=BV1ib411t7YR&cid=80579031&p=13&t=620&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=100% height=600px></iframe>
-
-
 
 !!! example "例子"
     === "例1"
@@ -734,6 +971,10 @@ $$
 
     === "例6"
         ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250224215712797.png)
+
+
+### 各种表示之间的转换
+[三维旋转：欧拉角、四元数、旋转矩阵、轴角之间的转换 - 知乎](https://zhuanlan.zhihu.com/p/45404840)
 
 
 ## 正运动学 - 已知角度求末端位姿

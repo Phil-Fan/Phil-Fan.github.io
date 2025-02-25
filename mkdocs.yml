@@ -267,6 +267,7 @@ nav:
     - Robotics/Robo/Robo-00-model.md
     - Robotics/Robo/Robo-00-model-control.md
     - Robotics/Robo/Robo-00-model-review.md
+    - Robotics/Robo/Robo-00-exp-arm.md
     - Robotics/Robo/Robo-01-sensor&detection.md
     - Robotics/Robo/Robo-02-0-navigation.md
     - Robotics/Robo/Robo-02-1-localization.md
@@ -289,7 +290,6 @@ nav:
     - Robotics/嵌入式/焊接.md
     - Robotics/嵌入式/EmbeddedSystem-experiment.md
     - Robotics/嵌入式/外设.md
-    - Robotics/Robo/Robo-arm.md
     - Robotics/Robo/Robo-Drone_experiment.md
     - Robotics/Robo/Robo-Drone-explore.md
     
