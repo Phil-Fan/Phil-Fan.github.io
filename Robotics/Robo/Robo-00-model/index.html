@@ -836,7 +836,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_7">
+<a class="md-nav__link" href="#_9">
 <span class="md-ellipsis">
       各种表示之间的转换
     </span>
@@ -860,7 +860,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_8">
+<a class="md-nav__link" href="#_10">
 <span class="md-ellipsis">
       速度与静力
     </span>
@@ -3018,7 +3018,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_7">
+<a class="md-nav__link" href="#_9">
 <span class="md-ellipsis">
       各种表示之间的转换
     </span>
@@ -3042,7 +3042,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_8">
+<a class="md-nav__link" href="#_10">
 <span class="md-ellipsis">
       速度与静力
     </span>
@@ -3057,7 +3057,7 @@
 <article class="md-content__inner md-typeset">
 <div><h1 id="_1">机器人建模<a class="headerlink" href="#_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>6793<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>27<span class="heti-spacing"> </span></span>分钟</p>
+<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>7441<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>29<span class="heti-spacing"> </span></span>分钟</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">课程信息</p>
@@ -3126,6 +3126,10 @@ b_x &amp; b_y &amp; b_z &amp; b_x &amp; b_y &amp; b_z
 <p><strong>性质</strong><br/>
 - 旋转矩阵是正交矩阵，即<span class="arithmatex">\(^A_B\!R^T = ^A_B\!R^{-1} = ^B_A\!R\)</span><br/>
 - 旋转矩阵的行列式为1，即<span class="arithmatex">\(\det(^A_B\!R) = 1\)</span><br/></p>
+<div class="admonition note">
+<p class="admonition-title">证明<span><span class="heti-spacing"> </span><span class="arithmatex">\(\det(^A_B\!R) = 1\)</span></span></p>
+<p>由正交性即可得出<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(R^T \cdot R = I\)</span>,<span class="heti-spacing"> </span></span>所以可以得出行列式是正负一之中</p>
+</div>
 <p><strong>SO3</strong>：<span>Special Orthogonal Group<span class="heti-spacing"> </span></span>三维特殊正交群</p>
 <div class="arithmatex">\[
 SO(3) = \left\{ 
@@ -3199,7 +3203,7 @@ r_{33}
 </details>
 <ul>
 <li><span>SO(3)<span class="heti-spacing"> </span></span>是全体旋转矩阵的集合<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>任何一个旋转矩阵（对应于刚体的一个姿态）都属于<span><span class="heti-spacing"> </span><span class="arithmatex">\(SO(3)\)</span></span></li>
-<li>旋转前后，<span>2<span class="heti-spacing"> </span></span>范数不变<span><span class="heti-spacing"> </span>:<span class="arithmatex">\(\|y\|^2 = y^T y = (Rx)^T Rx = x^T R^T R x = x^T x = \|x\|^2\)</span></span></li>
+<li><strong>旋转前后，<span>2<span class="heti-spacing"> </span></span>范数不变</strong>:<span class="arithmatex">\(\|y\|^2 = y^T y = (Rx)^T Rx = x^T R^T R x = x^T x = \|x\|^2\)</span></li>
 </ul>
 <div class="admonition tip">
 <p class="admonition-title">空间中确定一个旋转至少需要<span class="heti-skip"><span class="heti-spacing"> </span>3<span class="heti-spacing"> </span></span>个参数</p>
@@ -3446,6 +3450,35 @@ R_z(g(\alpha)) R_y(f(\beta)) R_x(g(\gamma)) = R_z(\alpha) R_y(\beta) R_x(\gamma)
 <p>且<span><span class="heti-spacing"> </span><span class="arithmatex">\((g(\alpha), f(\beta), g(\gamma)) \in (-\pi, \pi] \times \left[ -\frac{\pi}{2}, \frac{\pi}{2} \right] \times (-\pi, \pi]\)</span></span>。</p>
 <p><strong>一个姿态若能被一组俯仰角绝对值大于<span class="heti-skip"><span class="heti-spacing"> </span>90°<span class="heti-spacing"> </span></span>的<span class="heti-skip"><span class="heti-spacing"> </span>z-y-x<span class="heti-spacing"> </span></span>欧拉角或<span class="heti-skip"><span class="heti-spacing"> </span>x-y-z<span class="heti-spacing"> </span></span>固定角描述，那么也能被另一组俯仰角绝对值不大于<span class="heti-skip"><span class="heti-spacing"> </span>90°<span class="heti-spacing"> </span></span>的<span class="heti-skip"><span class="heti-spacing"> </span>z-y-x<span class="heti-spacing"> </span></span>欧拉角或<span class="heti-skip"><span class="heti-spacing"> </span>x-y-z<span class="heti-spacing"> </span></span>固定角描述</strong></p>
 <p>所以规定：<span class="arithmatex">\((\alpha, \beta, \gamma) \in (-\pi, \pi] \times \left[-\frac{\pi}{2}, \frac{\pi}{2}\right] \times (-\pi, \pi]\)</span></p>
+<p>同理，<span>zyz<span class="heti-spacing"> </span></span>俯仰角也可以确定<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\beta\)</span><span class="heti-spacing"> </span></span>的范围在<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\[-pi,pi\]\)</span><span class="heti-spacing"> </span></span>之间</p>
+<ol>
+<li><strong>定义集合与映射函数</strong> </li>
+<li>令集合<span><span class="heti-spacing"> </span><span class="arithmatex">\(\mathbb{Q} = (-\pi, 0)\)</span></span>，表示<span class="heti-skip"><span class="heti-spacing"> </span>β<span class="heti-spacing"> </span></span>的原始范围中需要调整的部分。</li>
+<li>定义函数<span><span class="heti-spacing"> </span><span class="arithmatex">\(f: \mathbb{Q} \to (0, \pi)\)</span></span>，将负<span class="heti-skip"><span class="heti-spacing"> </span>β<span class="heti-spacing"> </span></span>映射为正：<br/>
+<span class="arithmatex">\(f(\beta) = -\beta.\)</span></li>
+<li>定义函数<span><span class="heti-spacing"> </span><span class="arithmatex">\(g: (-\pi, \pi] \to (-\pi, \pi]\)</span></span>，调整前后的<span class="heti-skip"><span class="heti-spacing"> </span>z<span class="heti-spacing"> </span></span>轴旋转角度：  </li>
+<li>
+<p>$$
+ g(theta) = 
+ begin{cases} 
+ theta + pi, &amp; text{当 } theta in (-pi, 0], \
+ theta - pi, &amp; text{当 } theta in (0, pi].
+ end{cases}
+ $$</p>
+</li>
+<li>
+<p><strong>旋转矩阵的等价性</strong><br/>
+   对于任意 <span class="arithmatex">\(\beta \in \mathbb{Q}\)</span>（即<span class="arithmatex">\(\beta \in (-\pi, 0)\)</span>），通过以下步骤调整参数：  </p>
+</li>
+<li><strong><span>β<span class="heti-spacing"> </span></span>的调整</strong>：令<span><span class="heti-spacing"> </span><span class="arithmatex">\(\beta' = f(\beta) = -\beta \in (0, \pi)\)</span></span>。  </li>
+<li><strong><span>α<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>γ<span class="heti-spacing"> </span></span>的调整</strong>：令<span><span class="heti-spacing"> </span><span class="arithmatex">\(\alpha' = g(\alpha)\)</span></span>，<span class="arithmatex">\(\gamma' = g(\gamma)\)</span>。<br/>
+   此时，原旋转矩阵可等价表示为： </li>
+</ol>
+<p>$$ 
+   R_z(alpha') R_y(beta') R_z(gamma') = R_z(g(alpha)) R_y(-beta) R_z(g(gamma)). 
+   $$</p>
+<p>根据旋转矩阵的恒等式（<span class="arithmatex">\(R_z(\pi) R_y(-\beta) R_z(\pi) = R_y(\beta)\)</span><heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，可得：<br/>
+<span class="arithmatex">\(R_z(g(\alpha)) R_y(-\beta) R_z(g(\gamma)) = R_z(\alpha) R_y(\beta) R_z(\gamma).\)</span> </p>
 </div>
 <div class="admonition example">
 <p class="admonition-title">已知<span><span class="heti-spacing"> </span><span class="arithmatex">\(R \in \text{SO}(3)\)</span></span>，求<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\((\alpha, \beta, \gamma) \in (-\pi, \pi] \times [-\pi/2, \pi/2] \times (-\pi, \pi]\)</span><span class="heti-spacing"> </span></span>使得<span><span class="heti-spacing"> </span><span class="arithmatex">\(R = R_{z'y'x'}(\alpha, \beta, \gamma)\)</span></span></p>
@@ -3500,25 +3533,13 @@ R_{z'y'x'}(\alpha, -\frac{\pi}{2}, \gamma) = \begin{pmatrix}
 </div>
 <h3 id="-_4">等效轴角<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>绕给定轴旋转一次<a class="headerlink" href="#-_4" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p><strong>欧拉旋转定理</strong>：若刚体从初姿态作任意定点转动后呈终姿态，则必可找到一个过该点的轴<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(K\)</span><span class="heti-spacing"> </span></span>及角度<span><span class="heti-spacing"> </span><span class="arithmatex">\(\theta\)</span></span>，刚体从初姿态绕<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(K\)</span><span class="heti-spacing"> </span></span>作定轴转动<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\theta\)</span><span class="heti-spacing"> </span></span>后呈终姿态</p>
-<p><strong>罗德里格斯公式</strong></p>
+<p><strong>罗德里格斯公式——求解旋转后向量</strong></p>
 <div class="arithmatex">\[
 r_{OQ}' = r_{OQ} \cos \theta + (r_{OQ} \cdot r_{OK}) r_{OK} (1 - \cos \theta) + (r_{OK} \times r_{OQ}) \sin \theta
 \]</div>
 <blockquote>
 <p>其中<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(r_{OQ}\)</span><span class="heti-spacing"> </span></span>是初始点，<span><span class="arithmatex">\(r_{OQ}'\)</span><span class="heti-spacing"> </span></span>是旋转后的点，<span><span class="arithmatex">\(r_{OK}\)</span><span class="heti-spacing"> </span></span>是旋转轴上的单位向量，<span><span class="arithmatex">\(\theta\)</span><span class="heti-spacing"> </span></span>是旋转角度</p>
 </blockquote>
-<p>也可以表示为矩阵的形式</p>
-<div class="arithmatex">\[
-R = I + \sin \theta [\mathbf{k}]_{\times} + (1 - \cos \theta) [\mathbf{k}]_{\times}^2
-\]</div>
-<p>其中，<span><span class="arithmatex">\(I\)</span><span class="heti-spacing"> </span></span>是单位矩阵，<span><span class="arithmatex">\([\mathbf{k}]_{\times}\)</span><span class="heti-spacing"> </span></span>是<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\mathbf{k}\)</span><span class="heti-spacing"> </span></span>的叉积矩阵：</p>
-<div class="arithmatex">\[
-[\mathbf{k}]_{\times} = \begin{pmatrix}
-0 &amp; -k_z &amp; k_y \\
-k_z &amp; 0 &amp; -k_x \\
--k_y &amp; k_x &amp; 0
-\end{pmatrix}
-\]</div>
 <details class="note">
 <summary>可行性验证——罗德里格斯公式推导</summary>
 <p>以单位向量<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(^A\!K=(k_x,k_y,k_z)^\mathrm{T}\)</span><span class="heti-spacing"> </span></span>表示旋转轴，记旋转角度为<span><span class="heti-spacing"> </span><span class="arithmatex">\(\theta\)</span></span></p>
@@ -3535,6 +3556,23 @@ k_z &amp; 0 &amp; -k_x \\
 <p>于是<span><span class="heti-spacing"> </span><span class="arithmatex">\(\mathbf{r}_{OQ'} = \mathbf{r}_{OP} + \mathbf{r}_{PQ'} = \mathbf{r}_{OP} + (\mathbf{r}_{OQ} - \mathbf{r}_{OP}) \cos \theta + (\mathbf{r}_{OK} \times \mathbf{r}_{OQ}) \sin \theta - (\mathbf{r}_{OK} \times \mathbf{r}_{OP}) \sin \theta\)</span></span></p>
 <p><strong><span><span class="arithmatex">\(\mathbf{r}_{OK}\)</span><span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\mathbf{r}_{OP}\)</span><span class="heti-spacing"> </span></span>同方向，叉积为<span><span class="heti-spacing"> </span>0</span></strong></p>
 </details>
+<p><strong>旋转矩阵求解</strong></p>
+<div class="arithmatex">\[
+R= \begin{pmatrix}k_x^2 \nu \theta + c \theta &amp; k_x k_y \nu \theta - k_z s \theta &amp; k_x k_z \nu \theta + k_y s \theta \\    k_x k_y \nu \theta + k_z s \theta &amp; k_y^2 \nu \theta + c \theta &amp; k_y k_z \nu \theta - k_x s \theta \\    k_x k_z \nu \theta - k_y s \theta &amp; k_y k_z \nu \theta + k_x s \theta &amp; k_z^2 \nu \theta + c \theta\end{pmatrix}
+\]</div>
+<p>其中<span><span class="heti-spacing"> </span><span class="arithmatex">\(\nu \theta = 1-\cos \theta\)</span></span></p>
+<p>也可以表示为矩阵的形式</p>
+<div class="arithmatex">\[
+R = I + \sin \theta [\mathbf{k}]_{\times} + (1 - \cos \theta) [\mathbf{k}]_{\times}^2
+\]</div>
+<p>其中，<span><span class="arithmatex">\(I\)</span><span class="heti-spacing"> </span></span>是单位矩阵，<span><span class="arithmatex">\([\mathbf{k}]_{\times}\)</span><span class="heti-spacing"> </span></span>是<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\mathbf{k}\)</span><span class="heti-spacing"> </span></span>的叉积矩阵：</p>
+<div class="arithmatex">\[
+[\mathbf{k}]_{\times} = \begin{pmatrix}
+0 &amp; -k_z &amp; k_y \\
+k_z &amp; 0 &amp; -k_x \\
+-k_y &amp; k_x &amp; 0
+\end{pmatrix}
+\]</div>
 <div class="admonition note">
 <p class="admonition-title">唯一性求解</p>
 <p>已知<span><span class="heti-spacing"> </span><span class="arithmatex">\(R \in \mathrm{SO}(3)\)</span></span>，求单位向量<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\((k_x, k_y, k_z)^\mathrm{T}\)</span><span class="heti-spacing"> </span></span>和旋转角<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\theta \in (-\pi, \pi]\)</span><span class="heti-spacing"> </span></span>使得<span><span class="heti-spacing"> </span><span class="arithmatex">\(R = R_K(\theta)\)</span></span></p>
@@ -3611,6 +3649,19 @@ r_{31} &amp; r_{32} &amp; r_{33}
 </div>
 </div>
 </div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">证明两个无穷小旋转次序可以交换</p>
+<p>使用了<span><span class="heti-spacing"> </span><span class="arithmatex">\(\sin\theta \approx \theta\)</span></span>，<span class="arithmatex">\(\cos\theta \approx 1\)</span>，以及<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\theta^2 \approx 0\)</span><span class="heti-spacing"> </span></span>的近似条件</p>
+<div class="arithmatex">\[
+\begin{align*}
+\mathbf{R}_K(\theta) = \begin{pmatrix}
+k_x^2 \upsilon \theta + c \theta &amp; k_x k_y \upsilon \theta - k_z s \theta &amp; k_x k_z \upsilon \theta + k_y s \theta \\
+k_x k_y \upsilon \theta + k_z s \theta &amp; k_y^2 \upsilon \theta + c \theta &amp; k_y k_z \upsilon \theta - k_x s \theta \\
+k_x k_z \upsilon \theta - k_y s \theta &amp; k_y k_z \upsilon \theta + k_x s \theta &amp; k_z^2 \upsilon \theta + c \theta
+\end{pmatrix}
+\end{align*}
+\]</div>
 </div>
 <h3 id="_4">四元数<a class="headerlink" href="#_4" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <h4 id="_5">欧拉参数<a class="headerlink" href="#_5" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
@@ -3722,38 +3773,7 @@ r_{31} &amp; r_{32} &amp; r_{33}
 </div>
 </div>
 </div>
-<h4 id="grassmann"><span>Grassmann<span class="heti-spacing"> </span></span>积<a class="headerlink" href="#grassmann" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
-<p>在欧拉参数中定义<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\eta\)</span><span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\varepsilon\)</span><span class="heti-spacing"> </span></span>的<span class="heti-skip"><span class="heti-spacing"> </span>Grassmann<span class="heti-spacing"> </span></span>积如下<span><span class="heti-spacing"> </span>:</span></p>
-<div class="arithmatex">\[
-\begin{bmatrix}
-\eta \\
-\varepsilon
-\end{bmatrix} \oplus \begin{bmatrix}
-\xi \\
-\delta
-\end{bmatrix} = \begin{bmatrix}
-\eta\xi - \varepsilon^T\delta \\
-\eta\delta +\xi\varepsilon +  \varepsilon \times \delta
-\end{bmatrix} = \begin{bmatrix}
-\eta &amp; -\varepsilon_1 &amp; -\varepsilon_2 &amp; -\varepsilon_3 \\
-\varepsilon_1 &amp; \eta &amp; -\varepsilon_3 &amp; \varepsilon_2 \\
-\varepsilon_2 &amp; \varepsilon_3 &amp; \eta &amp; -\varepsilon_1 \\
-\varepsilon_3 &amp; -\varepsilon_2 &amp; \varepsilon_1 &amp; \eta
-\end{bmatrix} \begin{bmatrix}
-\xi \\
-\delta_1 \\
-\delta_2 \\
-\delta_3
-\end{bmatrix} = A\begin{bmatrix}
-\xi \\
-\delta
-\end{bmatrix}
-\]</div>
-<p>如果有<span><span class="heti-spacing"> </span><span class="arithmatex">\(\begin{bmatrix}\eta \\ \varepsilon\end{bmatrix} \in \mathbb{U}\)</span></span>，则<span><span class="heti-spacing"> </span><span class="arithmatex">\(A^TA = I\)</span></span></p>
-<p>如果还有<span><span class="heti-spacing"> </span><span class="arithmatex">\(\begin{bmatrix}\xi \\ \delta\end{bmatrix} \in \mathbb{U}\)</span></span>，则<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\([\xi \quad \delta^T]A^TA\begin{bmatrix}\xi \\ \delta\end{bmatrix} = 1\)</span><span class="heti-spacing"> </span></span>即<span><span class="heti-spacing"> </span><span class="arithmatex">\(\begin{bmatrix}\eta\xi - \varepsilon^T\delta \\ \xi\varepsilon + \eta\delta + \varepsilon \times \delta\end{bmatrix} \in \mathbb{U}\)</span></span></p>
-<p><span><span class="arithmatex">\(\mathbb{U}\)</span><span class="heti-spacing"> </span></span>中任意两个向量的<span class="heti-skip"><span class="heti-spacing"> </span>Grassmann<span class="heti-spacing"> </span></span>积仍是<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\mathbb{U}\)</span><span class="heti-spacing"> </span></span>中的向量</p>
-<p>基于<span class="heti-skip"><span class="heti-spacing"> </span>Grassmann<span class="heti-spacing"> </span></span>积，欧拉参数可在<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\mathbb{U}\)</span><span class="heti-spacing"> </span></span>中直接描述<span class="heti-skip"><span class="heti-spacing"> </span>3<span class="heti-spacing"> </span></span>维姿态和<span class="heti-skip"><span class="heti-spacing"> </span>3<span class="heti-spacing"> </span></span>维坐标系旋转。</p>
-<p>两个欧拉参数做<span class="heti-skip"><span class="heti-spacing"> </span>grassman<span class="heti-spacing"> </span></span>积等效于两个旋转矩阵相乘，<span><span class="arithmatex">\(\mathbb{U}\)</span><span class="heti-spacing"> </span></span>中的<span class="heti-skip"><span class="heti-spacing"> </span>Grassmann<span class="heti-spacing"> </span></span>积相当于<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(SO(3)\)</span><span class="heti-spacing"> </span></span>中的乘法<heti-adjacent class="heti-adjacent-half">。</heti-adjacent>（与之前表示方法兼容）</p>
+<h4 id="_6">四元数基础<a class="headerlink" href="#_6" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <div class="admonition info">
 <p class="admonition-title">哈密顿与四元数</p>
 <p>哈密顿在<span class="heti-skip"><span class="heti-spacing"> </span>1843<span class="heti-spacing"> </span></span>年提出四元数，并将其用于描述三维空间中的旋转。</p>
@@ -3764,6 +3784,10 @@ r_{31} &amp; r_{32} &amp; r_{33}
 <div class="arithmatex">\[
 ij = k, ji = -k, jk = i, kj = -i, ki = j, ik = -j
 \]</div>
+<blockquote>
+<p><span><span class="arithmatex">\(ij = k\)</span><span class="heti-spacing"> </span></span>推导过程： <span>ijk = -1<span class="heti-spacing"> </span></span>等式左右同时右乘<span><span class="heti-spacing"> </span>k</span> 
+<span class="arithmatex">\(ji = -k\)</span>推导过程： ijk = -1等式左右同时右乘kj, 得 <span class="arithmatex">\(i = -jk\)</span>,得证</p>
+</blockquote>
 <p>对任意<span><span class="heti-spacing"> </span><span class="arithmatex">\([\eta \,\ \varepsilon_1 \,\ \varepsilon_2 \,\ \varepsilon_3]^T \in \mathbb{R}^4\)</span></span>，其对应的四元数<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(q\)</span><span class="heti-spacing"> </span></span>为：</p>
 <div class="arithmatex">\[
 q = \eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3
@@ -3791,14 +3815,25 @@ q = \eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3
 </div>
 </div>
 </div>
-<p>单位四元数</p>
+<h4 id="_7">单位四元数<a class="headerlink" href="#_7" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <ul>
 <li><strong>定义</strong>：单位四元数是模长等于<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>的四元数。</li>
-<li><strong>关系</strong>：单位四元数与欧拉参数一一对应。</li>
-<li><strong>应用</strong>：基于乘法，单位四元数可直接描述三维姿态和三维坐标系旋转。</li>
+<li>
+<p><strong>关系</strong>：单位四元数与欧拉参数一一对应。</p>
+</li>
+<li>
+<p><strong>单位四元数的乘积仍然是单位四元数</strong></p>
+<blockquote>
+<p>证明：使用<span class="heti-skip"><span class="heti-spacing"> </span>Grassmann<span class="heti-spacing"> </span></span>积，<span><span class="arithmatex">\(\mathbb{U}\)</span><span class="heti-spacing"> </span></span>中任意两个向量的<span class="heti-skip"><span class="heti-spacing"> </span>Grassmann<span class="heti-spacing"> </span></span>积仍是<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\mathbb{U}\)</span><span class="heti-spacing"> </span></span>中的向量</p>
+</blockquote>
+</li>
+<li>
+<p><strong>单位四元数的逆是其共轭</strong>，即<span><span class="heti-spacing"> </span><span class="arithmatex">\((\eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3)(\eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3)^* = (\eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3)^*(\eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3) = 1\)</span></span></p>
+<blockquote>
+<p>证明思路：按照乘法的公式进行分解，就可以发现<span class="heti-skip"><span class="heti-spacing"> </span>i,j,k<span class="heti-spacing"> </span></span>的系数都消掉了，而常数项因为共轭，所以和为<span><span class="heti-spacing"> </span>1</span></p>
+</blockquote>
+</li>
 </ul>
-<p>原点不变条件下的三维向量的转换公式<span><span class="heti-spacing"> </span><span class="arithmatex">\(A^B P = A_B^B R^B P\)</span></span>
-- 记 <span class="arithmatex">\(B^P = \begin{bmatrix} x_1 &amp; y_1 &amp; z_1 \end{bmatrix}^T\)</span>，<span class="arithmatex">\(A^P = \begin{bmatrix} x_2 &amp; y_2 &amp; z_2 \end{bmatrix}^T\)</span></p>
 <div class="admonition note">
 <p class="admonition-title">兼容性</p>
 <p>旋转矩阵基于欧拉参数表示为：</p>
@@ -3814,11 +3849,47 @@ A_B^B R = R_\varepsilon(\eta) = \begin{bmatrix}
 ix_2 + jy_2 + kz_2 = (\eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3)(ix_1 + jy_1 + kz_1)(\eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3)^*
 \]</div>
 </div>
-<h4 id="_6">可视化与参考资料<a class="headerlink" href="#_6" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h4 id="grassmann"><span>Grassmann<span class="heti-spacing"> </span></span>积<a class="headerlink" href="#grassmann" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<p>在欧拉参数中定义<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\eta\)</span><span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\varepsilon\)</span><span class="heti-spacing"> </span></span>的<span class="heti-skip"><span class="heti-spacing"> </span>Grassmann<span class="heti-spacing"> </span></span>积如下<span><span class="heti-spacing"> </span>:</span></p>
+<div class="arithmatex">\[
+\begin{bmatrix}
+\eta \\
+\varepsilon
+\end{bmatrix} \oplus \begin{bmatrix}
+\xi \\
+\delta
+\end{bmatrix} = \begin{bmatrix}
+\eta\xi - \varepsilon^T\delta \\
+\eta\delta +\xi\varepsilon +  \varepsilon \times \delta
+\end{bmatrix} = \begin{bmatrix}
+\eta &amp; -\varepsilon_1 &amp; -\varepsilon_2 &amp; -\varepsilon_3 \\
+\varepsilon_1 &amp; \eta &amp; -\varepsilon_3 &amp; \varepsilon_2 \\
+\varepsilon_2 &amp; \varepsilon_3 &amp; \eta &amp; -\varepsilon_1 \\
+\varepsilon_3 &amp; -\varepsilon_2 &amp; \varepsilon_1 &amp; \eta
+\end{bmatrix} \begin{bmatrix}
+\xi \\
+\delta_1 \\
+\delta_2 \\
+\delta_3
+\end{bmatrix} = A\begin{bmatrix}
+\xi \\
+\delta
+\end{bmatrix}
+\]</div>
+<ul>
+<li>基于<span class="heti-skip"><span class="heti-spacing"> </span>Grassmann<span class="heti-spacing"> </span></span>积，欧拉参数可在<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\mathbb{U}\)</span><span class="heti-spacing"> </span></span>中直接描述<span class="heti-skip"><span class="heti-spacing"> </span>3<span class="heti-spacing"> </span></span>维姿态和<span class="heti-skip"><span class="heti-spacing"> </span>3<span class="heti-spacing"> </span></span>维坐标系旋转。</li>
+<li>两个欧拉参数做<span class="heti-skip"><span class="heti-spacing"> </span>grassman<span class="heti-spacing"> </span></span>积等效于两个旋转矩阵相乘，<span><span class="arithmatex">\(\mathbb{U}\)</span><span class="heti-spacing"> </span></span>中的<span class="heti-skip"><span class="heti-spacing"> </span>Grassmann<span class="heti-spacing"> </span></span>积相当于<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(SO(3)\)</span><span class="heti-spacing"> </span></span>中的乘法<heti-adjacent class="heti-adjacent-half">。</heti-adjacent>（与之前表示方法兼容）</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title"><span><span class="arithmatex">\(\mathbb{U}\)</span><span class="heti-spacing"> </span></span>中任意两个向量的<span class="heti-skip"><span class="heti-spacing"> </span>Grassmann<span class="heti-spacing"> </span></span>积仍是<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\mathbb{U}\)</span><span class="heti-spacing"> </span></span>中的向量</p>
+<p>如果有<span><span class="heti-spacing"> </span><span class="arithmatex">\(\begin{bmatrix}\eta \\ \varepsilon\end{bmatrix} \in \mathbb{U}\)</span></span>，则<span><span class="heti-spacing"> </span><span class="arithmatex">\(A^TA = I\)</span></span></p>
+<p>如果还有<span><span class="heti-spacing"> </span><span class="arithmatex">\(\begin{bmatrix}\xi \\ \delta\end{bmatrix} \in \mathbb{U}\)</span></span>，则<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\([\xi \quad \delta^T]A^TA\begin{bmatrix}\xi \\ \delta\end{bmatrix} = 1\)</span><span class="heti-spacing"> </span></span>即<span><span class="heti-spacing"> </span><span class="arithmatex">\(\begin{bmatrix}\eta\xi - \varepsilon^T\delta \\ \xi\varepsilon + \eta\delta + \varepsilon \times \delta\end{bmatrix} \in \mathbb{U}\)</span></span></p>
+</div>
+<h4 id="_8">可视化与参考资料<a class="headerlink" href="#_8" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <iframe allowfullscreen="true" border="0" frameborder="no" framespacing="0" height="600px" scrolling="no" src="//player.bilibili.com/player.html?isOutside=true&amp;aid=33385105&amp;bvid=BV1SW411y7W1&amp;cid=58437850&amp;p=1&amp;autoplay=0" width="100%"></iframe>
 <iframe allowfullscreen="true" border="0" frameborder="no" framespacing="0" height="600px" scrolling="no" src="//player.bilibili.com/player.html?isOutside=true&amp;aid=35804287&amp;bvid=BV1Lt411U7og&amp;cid=62823973&amp;p=1&amp;autoplay=0" width="100%"></iframe>
-<iframe src="https://eater.net/quaternions/video/intro" width="100%"></iframe>
-<iframe src="https://eater.net/quaternions/video/doublecover" width="100%"></iframe>
+<iframe height="auto" src="https://eater.net/quaternions/video/intro" width="100%"></iframe>
+<iframe height="auto" src="https://eater.net/quaternions/video/doublecover" width="100%"></iframe>
 <iframe height="600px" src="https://krasjet.github.io/quaternion/quaternion.pdf" style="border: none;" width="100%">
 This browser does not support PDFs
 </iframe>
@@ -3862,8 +3933,16 @@ This browser does not support PDFs
 </div>
 </div>
 </div>
-<h3 id="_7">各种表示之间的转换<a class="headerlink" href="#_7" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_9">各种表示之间的转换<a class="headerlink" href="#_9" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p><a href="https://zhuanlan.zhihu.com/p/45404840">三维旋转：欧拉角、四元数、旋转矩阵、轴角之间的转换<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>知乎</a></p>
+<div class="admonition tip">
+<p class="admonition-title">总结各种变换中的符号与字母</p>
+<ul>
+<li>SO(3)</li>
+<li>SE(3)</li>
+<li><span><span class="arithmatex">\(\mathbb{U}\)</span><span class="heti-spacing"> </span></span>为由全体欧拉参数构成的集合</li>
+</ul>
+</div>
 <h2 id="-_5">正运动学<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>已知角度求末端位姿<a class="headerlink" href="#-_5" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p>各个关节变量的函数，描述了工具坐标系相对于基坐标系的位置和姿态</p>
 <h2 id="-_6">逆运动学<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>已知位姿求解角度<a class="headerlink" href="#-_6" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
@@ -3886,14 +3965,14 @@ $$
 &gt;
 &gt; 想想开门时拧钥匙的动作，这个情况下是人胳膊的末端机构（手）的三维位置没有变（始终在钥匙孔前），但是末端机构（手）的三维旋转变了（转动了钥匙）。人能够实现这个简单的动作，就是因为我们的胳膊有7个自由度。
 </code></pre></div>
-<h2 id="_8">速度与静力<a class="headerlink" href="#_8" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_10">速度与静力<a class="headerlink" href="#_10" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p>讲关节空间速度映射到笛卡尔空间速度，通过雅可比矩阵描述</p></div>
 <aside class="md-source-file">
 <span class="md-source-file__fact">
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年2月25日 10:22:49</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年2月27日 09:41:33</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">

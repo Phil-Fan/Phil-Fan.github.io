@@ -2,6 +2,9 @@
 ## dRehmFlight
 [nickrehm/dRehmFlight: Teensy/Arduino flight controller and stabilization for small-scale VTOL vehicles](https://github.com/nickrehm/dRehmFlight)
 
+
+[航模遥控器 | Crazepony开源四轴飞行器](http://www.crazepony.com/book/wiki/remote-controller-2-4.html)
+
 如果你是一位无人机爱好者，对飞行控制代码有浓厚的兴趣，或者正在寻找一个易于理解和修改的飞行控制器，那么dRehmFlight是你的理想选择。这个项目不仅是一个强大的VTOL（垂直起降）飞行控制器，更是一本生动的飞行控制教程，让你在实践中学习和创新。
 
 项目简介
