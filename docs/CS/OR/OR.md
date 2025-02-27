@@ -63,13 +63,10 @@ $$
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-60940d3d6f2b4378f3cb88c0217f25ed_1440w.webp" alt="img" style="zoom: 33%;" /><img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-c67044816117c7099e3d4c264edff055_1440w.webp" alt="img" style="zoom:33%;" /><img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-66da5ba9c5f0c5ddfb02c4ab77d26479_1440w.webp" alt="img" style="zoom:33%;" />
 
 **变量条件转化为标准约束**
-$$
-\begin{align}
-    x_j \ge 0 \quad  unchange\\
-    x_j \le 0 \quad  x_j' = -x_j\\
-    x_j \ no \ limit \quad  x_j'\ge 0,x_j''\ge 0,x_j = x_j'-x_j''
-\end{align}
-$$
+
+$$ 
+\begin{align} x_j &\geq 0 \quad \text{unchange} \\ x_j &\leq 0 \quad \Rightarrow \quad x_j' = -x_j \\ x_j \quad \text{(no limit)} &\quad \Rightarrow \quad x_j = x_j' - x_j'', \quad x_j' \geq 0, \ x_j'' \geq 0 \end{align} 
+$$ 
 
 **约束条件的转化**
 

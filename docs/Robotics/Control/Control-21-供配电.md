@@ -241,4 +241,10 @@ This browser does not support PDFs
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250220144054358.png)
 
 
+
+需要系数法
+
+二项式系数法
+
+
 ## 停电事故
