@@ -27,6 +27,88 @@
 
 [【记录乐器】不知不觉打卡都一年多了 - CC98论坛](https://www.cc98.org/topic/5575597/1#1)
 
+## 基础
+
+
+### 常见术语
+
+| 中文术语       | 英文术语       |
+| -------------- | -------------- |
+| 音阶           | Scale          |
+| 和弦           | Chord          |
+| 琶音           | Arpeggio       |
+| 颤音           | Tremolo        |
+| 震音           | Vibrato        |
+| 八度           | Octave         |
+| 拍号           | Time Signature |
+| 速度           | Tempo          |
+| 视奏           | Sight Reading  |
+| 踏板           | Pedal          |
+| 乐谱           | Sheet Music    |
+| 变调           | Transposition  |
+| 伴奏           | Accompaniment  |
+| 旋律           | Melody         |
+| 和声           | Harmony        |
+| 音高           | Pitch          |
+| 谱号           | Clef           |
+
+
+
+### 拍号
+
+C common time 4/4
+C中间切一下 2/2
+
+
+### 速度
+
+
+| 意大利文       | 中文         | 每分钟拍数 (BPM) | 演奏效果             |
+| -------------- | ------------ | ---------------- | -------------------- |
+| Largo          | 广板         | 40-60            | 非常缓慢和庄重       |
+| Adagio         | 柔板         | 66-76            | 缓慢而有表情         |
+| Andante        | 行板         | 76-108           | 适中的速度，像行走   |
+| Moderato       | 中板         | 108-120          | 中等速度             |
+| Allegro        | 快板         | 120-168          | 快速，充满活力       |
+| Presto         | 急板         | 168-200          | 非常快速             |
+| Prestissimo    | 最急板       | 200以上          | 极其快速             |
+
+
+- 英文单词 lively happily flowing 也可以表示速度
+- Tempo为速度的频率
+
+运音法
+- 跳音 Staccato 断奏
+- 连音 **Legato** 连贯（常见于乐谱）
+- 保持音 Tenuto
+- 重音 Marcato 改变音头的速度，快速一点，饱满有爆发力
+  
+  
+- 延音线：如果两个音相同，用线连起来，第二个音不重复演奏
+- 连音线：如果两个音不同，用线连起来
+
+### 识谱
+
+音符时值
+
+bpm: beat per minute
+
+
+- 高音谱号：位置在中音5，下加一线是1 中心圆线上是 1；最上线是4<br>
+- 低音谱号：位置在低音4，上加一线是1，尾巴上面的间是1，最下是5<br>
+
+
+音级：
+- 白键是自然音级，黑键是变化音级
+- 升降其实严格来讲不是一个音，从毕达哥拉斯的五度相生律来讲，可以发现升降是两个不同的计算方向
+
+!!! note "快速视奏要注意提前看谱子"
+
+速度或情感：一般是意大利文
+
+### 踏板
+脚放在踏板2/3的位置，脚后跟不要离地，脚掌始终踩在踏板上
+
 
 
 ## 练习技巧&tips
@@ -44,6 +126,23 @@
 ### 震音
 
 ### 八度
+在物理学中，声音是由物体振动产生的声波传播而成的。声波的频率决定了音高，频率越高，音高越高。频率的单位是赫兹（Hz），表示每秒钟振动的次数。
+
+当一个音的频率是另一个音的频率的两倍时，这两个音之间的音高差距就是一个八度。
+
+这种频率倍增的关系使得八度内的音听起来非常和谐，尽管它们的频率不同，但它们的波形在时间上是同步的。这种和谐性使得八度成为音乐中一个非常重要的概念，被广泛应用于各种乐器和音乐作品中。
+
+钢琴最低的音是22.5Hz
+
+
+五度相生律
+- 如果do的频率是x Hz
+- 那么高八度的do的频率是2x Hz
+- 那么3/2 x 就可以得到一个新的频率，一直乘以3/2，直到超过这个八度的范围
+> 中国的音阶叫做 宫商角徵羽
+
+
+
 
 
 ## 和弦
@@ -240,7 +339,7 @@ o叔的版本
 
 
 ### R-06-采石 - 万能青年旅店
-<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=1502300245&bvid=BV1fD421L7w5&cid=1486031641&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=1502300245&bvid=BV1fD421L7w5&cid=1486031641&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="600px" height="450px"></iframe>
 
 我嘞个豆这也太难了
 

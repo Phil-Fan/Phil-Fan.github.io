@@ -79,6 +79,11 @@ $$
 - 旋转矩阵是正交矩阵，即$^A_B\!R^T = ^A_B\!R^{-1} = ^B_A\!R$<br>
 - 旋转矩阵的行列式为1，即$\det(^A_B\!R) = 1$<br>
 
+!!! note "证明$\det(^A_B\!R) = 1$"
+    由正交性即可得出 $R^T \cdot R = I$,所以可以得出行列式是正负一之中
+
+
+
 
 **SO3**：Special Orthogonal Group 三维特殊正交群
 
@@ -152,7 +157,7 @@ $$
     4. **逆元（Inverse Element）**：对于任意 $a \in G$，存在一个元素 $b \in G$，使得 $a * b = b * a = e$，其中 $e$ 是单位元。
 
 - SO(3)是全体旋转矩阵的集合,任何一个旋转矩阵（对应于刚体的一个姿态）都属于$SO(3)$
-- 旋转前后，2范数不变:$\|y\|^2 = y^T y = (Rx)^T Rx = x^T R^T R x = x^T x = \|x\|^2$
+- **旋转前后，2范数不变**:$\|y\|^2 = y^T y = (Rx)^T Rx = x^T R^T R x = x^T x = \|x\|^2$
 
 
 
@@ -459,6 +464,37 @@ $\forall R \in SO(3)$可用$R_{z,y,x}(\alpha, \beta, \gamma)$表示出来
     所以规定：$(\alpha, \beta, \gamma) \in (-\pi, \pi] \times \left[-\frac{\pi}{2}, \frac{\pi}{2}\right] \times (-\pi, \pi]$
 
 
+    同理，zyz俯仰角也可以确定$\beta$的范围在 $\[-pi,pi\]$之间
+
+    1. **定义集合与映射函数**  
+       - 令集合 $\mathbb{Q} = (-\pi, 0)$，表示β的原始范围中需要调整的部分。
+       - 定义函数 $f: \mathbb{Q} \to (0, \pi)$，将负β映射为正：  
+         $f(\beta) = -\beta.$
+       - 定义函数 $g: (-\pi, \pi] \to (-\pi, \pi]$，调整前后的z轴旋转角度：  
+       - 
+         $$
+         g(\theta) = 
+         \begin{cases} 
+         \theta + \pi, & \text{当 } \theta \in (-\pi, 0], \\
+         \theta - \pi, & \text{当 } \theta \in (0, \pi].
+         \end{cases}
+         $$
+
+    2. **旋转矩阵的等价性**  
+       对于任意 $\beta \in \mathbb{Q}$（即$\beta \in (-\pi, 0)$），通过以下步骤调整参数：  
+       - **β的调整**：令 $\beta' = f(\beta) = -\beta \in (0, \pi)$。  
+       - **α和γ的调整**：令 $\alpha' = g(\alpha)$，$\gamma' = g(\gamma)$。  
+       此时，原旋转矩阵可等价表示为： 
+
+       $$ 
+       R_z(\alpha') R_y(\beta') R_z(\gamma') = R_z(g(\alpha)) R_y(-\beta) R_z(g(\gamma)). 
+       $$
+
+       根据旋转矩阵的恒等式（$R_z(\pi) R_y(-\beta) R_z(\pi) = R_y(\beta)$），可得：  
+       $R_z(g(\alpha)) R_y(-\beta) R_z(g(\gamma)) = R_z(\alpha) R_y(\beta) R_z(\gamma).$ 
+
+
+
 
 
 
@@ -527,29 +563,13 @@ $\forall R \in SO(3)$可用$R_{z,y,x}(\alpha, \beta, \gamma)$表示出来
 **欧拉旋转定理**：若刚体从初姿态作任意定点转动后呈终姿态，则必可找到一个过该点的轴$K$及角度$\theta$，刚体从初姿态绕$K$作定轴转动$\theta$后呈终姿态
 
 
-**罗德里格斯公式**
+**罗德里格斯公式——求解旋转后向量**
 
 $$
 r_{OQ}' = r_{OQ} \cos \theta + (r_{OQ} \cdot r_{OK}) r_{OK} (1 - \cos \theta) + (r_{OK} \times r_{OQ}) \sin \theta
 $$
 
 > 其中$r_{OQ}$是初始点，$r_{OQ}'$是旋转后的点，$r_{OK}$是旋转轴上的单位向量，$\theta$是旋转角度
-
-也可以表示为矩阵的形式
-
-$$
-R = I + \sin \theta [\mathbf{k}]_{\times} + (1 - \cos \theta) [\mathbf{k}]_{\times}^2
-$$
-
-其中，$I$ 是单位矩阵，$[\mathbf{k}]_{\times}$ 是 $\mathbf{k}$ 的叉积矩阵：
-
-$$
-[\mathbf{k}]_{\times} = \begin{pmatrix}
-0 & -k_z & k_y \\
-k_z & 0 & -k_x \\
--k_y & k_x & 0
-\end{pmatrix}
-$$
 
 
 ??? note "可行性验证——罗德里格斯公式推导"
@@ -579,6 +599,30 @@ $$
     于是 $\mathbf{r}_{OQ'} = \mathbf{r}_{OP} + \mathbf{r}_{PQ'} = \mathbf{r}_{OP} + (\mathbf{r}_{OQ} - \mathbf{r}_{OP}) \cos \theta + (\mathbf{r}_{OK} \times \mathbf{r}_{OQ}) \sin \theta - (\mathbf{r}_{OK} \times \mathbf{r}_{OP}) \sin \theta$
 
     **$\mathbf{r}_{OK}$ 和$\mathbf{r}_{OP}$ 同方向，叉积为0**
+
+**旋转矩阵求解**
+
+$$
+R= \begin{pmatrix}k_x^2 \nu \theta + c \theta & k_x k_y \nu \theta - k_z s \theta & k_x k_z \nu \theta + k_y s \theta \\    k_x k_y \nu \theta + k_z s \theta & k_y^2 \nu \theta + c \theta & k_y k_z \nu \theta - k_x s \theta \\    k_x k_z \nu \theta - k_y s \theta & k_y k_z \nu \theta + k_x s \theta & k_z^2 \nu \theta + c \theta\end{pmatrix}
+$$
+
+其中$\nu \theta = 1-\cos \theta$
+    
+也可以表示为矩阵的形式
+
+$$
+R = I + \sin \theta [\mathbf{k}]_{\times} + (1 - \cos \theta) [\mathbf{k}]_{\times}^2
+$$
+
+其中，$I$ 是单位矩阵，$[\mathbf{k}]_{\times}$ 是 $\mathbf{k}$ 的叉积矩阵：
+
+$$
+[\mathbf{k}]_{\times} = \begin{pmatrix}
+0 & -k_z & k_y \\
+k_z & 0 & -k_x \\
+-k_y & k_x & 0
+\end{pmatrix}
+$$
 
 !!! note "唯一性求解"
 
@@ -666,6 +710,18 @@ $$
         任何单位向量$\begin{pmatrix}k_x \\k_y \\k_z\end{pmatrix}$ 均可，无穷组解
 
 
+!!! note "证明两个无穷小旋转次序可以交换"
+    使用了 $\sin\theta \approx \theta$，$\cos\theta \approx 1$，以及 $\theta^2 \approx 0$ 的近似条件
+
+    $$
+    \begin{align*}
+    \mathbf{R}_K(\theta) = \begin{pmatrix}
+    k_x^2 \upsilon \theta + c \theta & k_x k_y \upsilon \theta - k_z s \theta & k_x k_z \upsilon \theta + k_y s \theta \\
+    k_x k_y \upsilon \theta + k_z s \theta & k_y^2 \upsilon \theta + c \theta & k_y k_z \upsilon \theta - k_x s \theta \\
+    k_x k_z \upsilon \theta - k_y s \theta & k_y k_z \upsilon \theta + k_x s \theta & k_z^2 \upsilon \theta + c \theta
+    \end{pmatrix}
+    \end{align*}
+    $$
 
 
 ### 四元数
@@ -803,12 +859,87 @@ $$
         这意味着当旋转角 $\theta$ 为 $2k\pi$（其中 $k$ 为整数）时，欧拉参数中的 $\varepsilon$ 向量为零向量，而 $\eta$ 的值为 $\pm 1$。这对应于旋转矩阵 $R$ 为单位矩阵的情况，即没有发生旋转。
 
 
+#### 四元数基础
+
+!!! info "哈密顿与四元数"
+    哈密顿在1843年提出四元数，并将其用于描述三维空间中的旋转。
+
+四元数是一种扩展了复数的数学对象，由一个实部和三个虚部组成
+
+引入三个虚数单位 $i, j, k$，并规定 $i^2 = j^2 = k^2 = ijk = -1$。
+
+由此规定，可推导得：
+
+$$
+ij = k, ji = -k, jk = i, kj = -i, ki = j, ik = -j
+$$
+
+> $ij = k$推导过程： ijk = -1等式左右同时右乘k 
+> $ji = -k$推导过程： ijk = -1等式左右同时右乘kj, 得 $i = -jk$,得证
+
+对任意 $[\eta \,\ \varepsilon_1 \,\ \varepsilon_2 \,\ \varepsilon_3]^T \in \mathbb{R}^4$，其对应的四元数 $q$ 为：
+
+$$
+q = \eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3
+$$
+
+记 $\mathbb{H}$ 为由全体四元数构成的集合。
+
+
+=== "加法"
+    与复数加法一致
+
+    $$
+    (\eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3) + (\xi + i\delta_1 + j\delta_2 + k\delta_3) = (\eta + \xi) + i(\varepsilon_1 + \delta_1) + j(\varepsilon_2 + \delta_2) + k(\varepsilon_3 + \delta_3)
+    $$
+
+
+=== "乘法"
+
+    $$
+    (\eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3)(\xi + i\delta_1 + j\delta_2 + k\delta_3) = (\eta\xi - \varepsilon_1\delta_1 - \varepsilon_2\delta_2 - \varepsilon_3\delta_3) + i(\eta\delta_1 + \varepsilon_1\xi + \varepsilon_2\delta_3 - \varepsilon_3\delta_2) + j(\eta\delta_2 - \varepsilon_1\delta_3 + \varepsilon_2\xi + \varepsilon_3\delta_1) + k(\eta\delta_3 + \varepsilon_1\delta_2 - \varepsilon_2\delta_1 + \varepsilon_3\xi)
+    $$
+
+    $\mathbb{H}$ 中的乘法相当于 $\mathbb{R}^4$ 中的 Grassmann 积。
+
+=== "共轭"
+
+    $\eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3$的共轭$(\eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3)^* = \eta - i\varepsilon_1 - j\varepsilon_2 - k\varepsilon_3$
+
+=== "模长"
+
+    $\eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3$的模长$|\eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3| = \sqrt{\eta^2 + \varepsilon_1^2 + \varepsilon_2^2 + \varepsilon_3^2}$
+
+#### 单位四元数
+
+- **定义**：单位四元数是模长等于1的四元数。
+- **关系**：单位四元数与欧拉参数一一对应。
+
+- **单位四元数的乘积仍然是单位四元数**
+> 证明：使用Grassmann积，$\mathbb{U}$中任意两个向量的Grassmann积仍是$\mathbb{U}$中的向量
+
+- **单位四元数的逆是其共轭**，即$(\eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3)(\eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3)^* = (\eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3)^*(\eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3) = 1$
+> 证明思路：按照乘法的公式进行分解，就可以发现i,j,k的系数都消掉了，而常数项因为共轭，所以和为1
 
 
 
 
+!!! note "兼容性"
+    旋转矩阵基于欧拉参数表示为：
 
+    $$
+    A_B^B R = R_\varepsilon(\eta) = \begin{bmatrix}
+    2(\eta^2 + \varepsilon_1^2) - 1 & 2(\varepsilon_1 \varepsilon_2 - \eta \varepsilon_3) & 2(\varepsilon_1 \varepsilon_3 + \eta \varepsilon_2) \\
+    2(\varepsilon_1 \varepsilon_2 + \eta \varepsilon_3) & 2(\eta^2 + \varepsilon_2^2) - 1 & 2(\varepsilon_2 \varepsilon_3 - \eta \varepsilon_1) \\
+    2(\varepsilon_1 \varepsilon_3 - \eta \varepsilon_2) & 2(\varepsilon_2 \varepsilon_3 + \eta \varepsilon_1) & 2(\eta^2 + \varepsilon_3^2) - 1
+    \end{bmatrix}
+    $$
 
+    上述三维向量的转换公式可基于单位四元数表示为：
+
+    $$
+    ix_2 + jy_2 + kz_2 = (\eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3)(ix_1 + jy_1 + kz_1)(\eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3)^*
+    $$
 
 
 #### Grassmann积
@@ -841,88 +972,17 @@ $$
 \end{bmatrix}
 $$
 
-如果有 $\begin{bmatrix}\eta \\ \varepsilon\end{bmatrix} \in \mathbb{U}$，则 $A^TA = I$
-
-如果还有 $\begin{bmatrix}\xi \\ \delta\end{bmatrix} \in \mathbb{U}$，则 $[\xi \quad \delta^T]A^TA\begin{bmatrix}\xi \\ \delta\end{bmatrix} = 1$ 即 $\begin{bmatrix}\eta\xi - \varepsilon^T\delta \\ \xi\varepsilon + \eta\delta + \varepsilon \times \delta\end{bmatrix} \in \mathbb{U}$
-
-$\mathbb{U}$中任意两个向量的Grassmann积仍是$\mathbb{U}$中的向量
-
-基于Grassmann积，欧拉参数可在 $\mathbb{U}$ 中直接描述3维姿态和3维坐标系旋转。
-
-两个欧拉参数做grassman积等效于两个旋转矩阵相乘，$\mathbb{U}$ 中的Grassmann积相当于 $SO(3)$ 中的乘法。（与之前表示方法兼容）
 
 
-!!! info "哈密顿与四元数"
-    哈密顿在1843年提出四元数，并将其用于描述三维空间中的旋转。
+- 基于Grassmann积，欧拉参数可在 $\mathbb{U}$ 中直接描述3维姿态和3维坐标系旋转。
+- 两个欧拉参数做grassman积等效于两个旋转矩阵相乘，$\mathbb{U}$ 中的Grassmann积相当于 $SO(3)$ 中的乘法。（与之前表示方法兼容）
 
-四元数是一种扩展了复数的数学对象，由一个实部和三个虚部组成
+!!! note "$\mathbb{U}$中任意两个向量的Grassmann积仍是$\mathbb{U}$中的向量"
+    如果有 $\begin{bmatrix}\eta \\ \varepsilon\end{bmatrix} \in \mathbb{U}$，则 $A^TA = I$
 
-引入三个虚数单位 $i, j, k$，并规定 $i^2 = j^2 = k^2 = ijk = -1$。
-
-由此规定，可推导得：
-
-$$
-ij = k, ji = -k, jk = i, kj = -i, ki = j, ik = -j
-$$
-
-对任意 $[\eta \,\ \varepsilon_1 \,\ \varepsilon_2 \,\ \varepsilon_3]^T \in \mathbb{R}^4$，其对应的四元数 $q$ 为：
-
-$$
-q = \eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3
-$$
-
-记 $\mathbb{H}$ 为由全体四元数构成的集合。
-
-=== "加法"
-    与复数加法一致
-
-    $$
-    (\eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3) + (\xi + i\delta_1 + j\delta_2 + k\delta_3) = (\eta + \xi) + i(\varepsilon_1 + \delta_1) + j(\varepsilon_2 + \delta_2) + k(\varepsilon_3 + \delta_3)
-    $$
+    如果还有 $\begin{bmatrix}\xi \\ \delta\end{bmatrix} \in \mathbb{U}$，则 $[\xi \quad \delta^T]A^TA\begin{bmatrix}\xi \\ \delta\end{bmatrix} = 1$ 即 $\begin{bmatrix}\eta\xi - \varepsilon^T\delta \\ \xi\varepsilon + \eta\delta + \varepsilon \times \delta\end{bmatrix} \in \mathbb{U}$
 
 
-=== "乘法"
-
-    $$
-    (\eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3)(\xi + i\delta_1 + j\delta_2 + k\delta_3) = (\eta\xi - \varepsilon_1\delta_1 - \varepsilon_2\delta_2 - \varepsilon_3\delta_3) + i(\eta\delta_1 + \varepsilon_1\xi + \varepsilon_2\delta_3 - \varepsilon_3\delta_2) + j(\eta\delta_2 - \varepsilon_1\delta_3 + \varepsilon_2\xi + \varepsilon_3\delta_1) + k(\eta\delta_3 + \varepsilon_1\delta_2 - \varepsilon_2\delta_1 + \varepsilon_3\xi)
-    $$
-
-    $\mathbb{H}$ 中的乘法相当于 $\mathbb{R}^4$ 中的 Grassmann 积。
-
-=== "共轭"
-
-    $\eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3$的共轭$(\eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3)^* = \eta - i\varepsilon_1 - j\varepsilon_2 - k\varepsilon_3$
-
-=== "模长"
-
-    $\eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3$的模长$|\eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3| = \sqrt{\eta^2 + \varepsilon_1^2 + \varepsilon_2^2 + \varepsilon_3^2}$
-
-单位四元数
-
-- **定义**：单位四元数是模长等于1的四元数。
-- **关系**：单位四元数与欧拉参数一一对应。
-- **应用**：基于乘法，单位四元数可直接描述三维姿态和三维坐标系旋转。
-
-原点不变条件下的三维向量的转换公式 $A^B P = A_B^B R^B P$
-- 记 $B^P = \begin{bmatrix} x_1 & y_1 & z_1 \end{bmatrix}^T$，$A^P = \begin{bmatrix} x_2 & y_2 & z_2 \end{bmatrix}^T$
-
-
-!!! note "兼容性"
-    旋转矩阵基于欧拉参数表示为：
-
-    $$
-    A_B^B R = R_\varepsilon(\eta) = \begin{bmatrix}
-    2(\eta^2 + \varepsilon_1^2) - 1 & 2(\varepsilon_1 \varepsilon_2 - \eta \varepsilon_3) & 2(\varepsilon_1 \varepsilon_3 + \eta \varepsilon_2) \\
-    2(\varepsilon_1 \varepsilon_2 + \eta \varepsilon_3) & 2(\eta^2 + \varepsilon_2^2) - 1 & 2(\varepsilon_2 \varepsilon_3 - \eta \varepsilon_1) \\
-    2(\varepsilon_1 \varepsilon_3 - \eta \varepsilon_2) & 2(\varepsilon_2 \varepsilon_3 + \eta \varepsilon_1) & 2(\eta^2 + \varepsilon_3^2) - 1
-    \end{bmatrix}
-    $$
-
-    上述三维向量的转换公式可基于单位四元数表示为：
-
-    $$
-    ix_2 + jy_2 + kz_2 = (\eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3)(ix_1 + jy_1 + kz_1)(\eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3)^*
-    $$
 
 #### 可视化与参考资料
 
@@ -930,9 +990,9 @@ $$
 
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=35804287&bvid=BV1Lt411U7og&cid=62823973&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="600px"></iframe>
 
-<iframe src="https://eater.net/quaternions/video/intro" width="100%" "></iframe>
+<iframe src="https://eater.net/quaternions/video/intro" width="100%" height="auto"></iframe>
 
-<iframe src="https://eater.net/quaternions/video/doublecover" width="100%" "></iframe>
+<iframe src="https://eater.net/quaternions/video/doublecover" width="100%" height="auto"></iframe>
 
 <iframe src="https://krasjet.github.io/quaternion/quaternion.pdf" width="100%" height="600px" style="border: none;">
 This browser does not support PDFs
@@ -977,6 +1037,13 @@ This browser does not support PDFs
 ### 各种表示之间的转换
 
 [三维旋转：欧拉角、四元数、旋转矩阵、轴角之间的转换 - 知乎](https://zhuanlan.zhihu.com/p/45404840)
+
+!!! tip "总结各种变换中的符号与字母"
+    - SO(3)
+    - SE(3)
+    - $\mathbb{U}$ 为由全体欧拉参数构成的集合
+
+
 
 
 ## 正运动学 - 已知角度求末端位姿
