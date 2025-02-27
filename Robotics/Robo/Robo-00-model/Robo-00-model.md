@@ -499,65 +499,6 @@ $\forall R \in SO(3)$可用$R_{z,y,x}(\alpha, \beta, \gamma)$表示出来
 
 
 
-
-!!! example "已知 $R \in \text{SO}(3)$，求$(\alpha, \beta, \gamma) \in (-\pi, \pi] \times [-\pi/2, \pi/2] \times (-\pi, \pi]$使得$R = R_{z'y'x'}(\alpha, \beta, \gamma)$"
-    虽然zyx欧拉角可以表示任意旋转，但是这个命题限制了$\beta$的取值范围
-
-    $$
-    R_{z'y'x'}(\alpha, \beta, \gamma) = \begin{pmatrix}
-    \cos\alpha \cos\beta & \cos\alpha \sin\beta \sin\gamma - \sin\alpha \cos\gamma & \cos\alpha \sin\beta \cos\gamma + \sin\alpha \sin\gamma \\
-    \sin\alpha \cos\beta & \sin\alpha \sin\beta \sin\gamma + \cos\alpha \cos\gamma & \sin\alpha \sin\beta \cos\gamma - \cos\alpha \sin\gamma \\
-    -\sin\beta & \cos\beta \sin\gamma & \cos\beta \cos\gamma
-    \end{pmatrix}
-    $$
-
-
-
-    首先，因为$\beta$的定义域是$\left[ -\frac{\pi}{2}, \frac{\pi}{2} \right]$，所以$\cos\beta \ge 0$
-
-
-    **情况 1** $\cos\beta > 0$
-
-    - $\cos\beta = \sqrt{r_{32}^2 + r_{33}^2}$
-    - $\beta = \arctan2\left(-r_{31}, \sqrt{r_{32}^2 + r_{33}^2}\right)$
-    - $\alpha = \arctan2(r_{21}, r_{11})$
-    - $\gamma = \arctan2(r_{32}, r_{33})$
-
-    **情况 2** $\beta = \frac{\pi}{2}$
-
-    $$
-    R_{z'y'x'}(\alpha, \frac{\pi}{2}, \gamma) = \begin{pmatrix}
-    0 & \cos\alpha \cos\gamma - \sin\alpha \sin\gamma & \cos\alpha \sin\gamma + \sin\alpha \cos\gamma \\
-    0 & \sin\alpha \cos\gamma + \cos\alpha \sin\gamma & \sin\alpha \sin\gamma - \cos\alpha \cos\gamma \\
-    -1 & 0 & 0
-    \end{pmatrix}=\begin{pmatrix}
-    0 & -\sin(\alpha - \gamma) & \cos(\alpha - \gamma) \\
-    0 & \cos(\alpha - \gamma) & \sin(\alpha - \gamma) \\
-    -1 & 0 & 0
-    \end{pmatrix}
-    $$
-
-    - 只能得到一个关于 $\alpha$ 与 $\gamma$ 之差的结果：$\alpha - \gamma = \arctan2(r_{23}, r_{22})$
-    - 对应这种姿态的 $z'y'x'$ 欧拉角或 $xyz$ 固定角不唯一。
-
-    **情况 3** $\beta = -\frac{\pi}{2}$
-
-    当 $\beta = -\frac{\pi}{2}$ 时，旋转矩阵 $R_{z'y'x'}(\alpha, \beta, \gamma)$ 可以简化为：
-
-    $$
-    R_{z'y'x'}(\alpha, -\frac{\pi}{2}, \gamma) = \begin{pmatrix}
-    0 & \cos\alpha \cos\gamma + \sin\alpha \sin\gamma & -\cos\alpha \sin\gamma + \sin\alpha \cos\gamma \\
-    0 & \sin\alpha \cos\gamma - \cos\alpha \sin\gamma & \sin\alpha \sin\gamma + \cos\alpha \cos\gamma \\
-    1 & 0 & 0
-    \end{pmatrix}=\begin{pmatrix}
-    0 & \sin(\alpha + \gamma) & \cos(\alpha + \gamma) \\
-    0 & \cos(\alpha + \gamma) & -\sin(\alpha + \gamma) \\
-    1 & 0 & 0
-    \end{pmatrix}
-    $$
-
-    - $\alpha + \gamma = \arctan2(-r_{23}, r_{22})$
-
 ### 等效轴角 - 绕给定轴旋转一次
 
 **欧拉旋转定理**：若刚体从初姿态作任意定点转动后呈终姿态，则必可找到一个过该点的轴$K$及角度$\theta$，刚体从初姿态绕$K$作定轴转动$\theta$后呈终姿态
@@ -624,90 +565,6 @@ k_z & 0 & -k_x \\
 \end{pmatrix}
 $$
 
-!!! note "唯一性求解"
-
-    已知 $R \in \mathrm{SO}(3)$，求单位向量 $(k_x, k_y, k_z)^\mathrm{T}$ 和旋转角 $\theta \in (-\pi, \pi]$ 使得 $R = R_K(\theta)$
-
-    $$
-    R = \begin{pmatrix}
-    r_{11} & r_{12} & r_{13} \\
-    r_{21} & r_{22} & r_{23} \\
-    r_{31} & r_{32} & r_{33}
-    \end{pmatrix} = \begin{pmatrix}
-    k_x^2 \nu \theta + c \theta & k_x k_y \nu \theta - k_z s \theta & k_x k_z \nu \theta + k_y s \theta \\
-    k_x k_y \nu \theta + k_z s \theta & k_y^2 \nu \theta + c \theta & k_y k_z \nu \theta - k_x s \theta \\
-    k_x k_z \nu \theta - k_y s \theta & k_y k_z \nu \theta + k_x s \theta & k_z^2 \nu \theta + c \theta
-    \end{pmatrix} \quad \nu \theta = 1 - c \theta
-    $$
-
-    不难理解 $R_K(\theta) = R_{-K}(-\theta)$ （绕正方向旋转一个角度，等同于绕反方向旋转同样的负的角度）
-
-    因此规定 $\theta \in [0, \pi]$
-
-    $$
-    \theta = \arccos\left(\frac{r_{11} + r_{22} + r_{33} - 1}{2}\right)
-    $$
-
-    === "若 $\theta \in (0, \pi)$,唯一解"
-
-        $$
-        \begin{pmatrix}
-        k_x \\
-        k_y \\
-        k_z
-        \end{pmatrix} = \frac{1}{2 \sin \theta} \begin{pmatrix}
-        r_{32} - r_{23} \\
-        r_{13} - r_{31} \\
-        r_{21} - r_{12}
-        \end{pmatrix} \quad \text{唯一解}
-        $$
-
-    === "若 $\theta = \pi$,两组解"
-
-        $$
-        \begin{pmatrix}
-        r_{11} & r_{12} & r_{13} \\
-        r_{21} & r_{22} & r_{23} \\
-        r_{31} & r_{32} & r_{33}
-        \end{pmatrix} = \begin{pmatrix}
-        2k_x^2 - 1 & 2k_x k_y & 2k_x k_z \\
-        2k_x k_y & 2k_y^2 - 1 & 2k_y k_z \\
-        2k_x k_z & 2k_y k_z & 2k_z^2 - 1
-        \end{pmatrix}
-        $$
-
-        由 $r_{11} + r_{22} + r_{33} = (2k_x^2 - 1) + (2k_y^2 - 1) + (2k_z^2 - 1) = -1$，知 $r_{11}, r_{22}, r_{33}$ 不会同时等于 $-1$
-
-        以 $r_{11} \neq -1$ 为例，$k_x = \pm \sqrt{(r_{11} + 1)/2}$
-
-        $$
-        \begin{pmatrix}
-        k_x \\
-        k_y \\
-        k_z
-        \end{pmatrix} = \pm \begin{pmatrix}
-        \sqrt{(r_{11} + 1)/2} \\
-        r_{12} / \sqrt{2(r_{11} + 1)} \\
-        r_{13} / \sqrt{2(r_{11} + 1)}
-        \end{pmatrix} \quad \text{两组解}
-        $$
-
-    === "若 $\theta = 0$,无穷解"
-
-        $$
-        \begin{pmatrix}
-        r_{11} & r_{12} & r_{13} \\
-        r_{21} & r_{22} & r_{23} \\
-        r_{31} & r_{32} & r_{33}
-        \end{pmatrix} = \begin{pmatrix}
-        1 & 0 & 0 \\
-        0 & 1 & 0 \\
-        0 & 0 & 1
-        \end{pmatrix}
-        $$
-
-
-        任何单位向量$\begin{pmatrix}k_x \\k_y \\k_z\end{pmatrix}$ 均可，无穷组解
 
 
 !!! note "证明两个无穷小旋转次序可以交换"
@@ -761,103 +618,6 @@ $$
 其中，$\nu \theta = 1 - c \theta$，$c = \cos \theta$，$s = \sin \theta$。
 
 任给一组欧拉参数，必有一个姿态（或旋转）与之对应。
-
-!!! note "欧拉参数的唯一性"
-
-    已知 $R \in SO(3)$，求欧拉参数使得
-
-    $$
-    R = \begin{bmatrix}
-    r_{11} & r_{12} & r_{13} \\
-    r_{21} & r_{22} & r_{23} \\
-    r_{31} & r_{32} & r_{33}
-    \end{bmatrix} = \begin{bmatrix}
-    2(\eta^2 + \varepsilon_1^2) - 1 & 2(\varepsilon_1 \varepsilon_2 - \eta \varepsilon_3) & 2(\varepsilon_1 \varepsilon_3 + \eta \varepsilon_2) \\
-    2(\varepsilon_1 \varepsilon_2 + \eta \varepsilon_3) & 2(\eta^2 + \varepsilon_2^2) - 1 & 2(\varepsilon_2 \varepsilon_3 - \eta \varepsilon_1) \\
-    2(\varepsilon_1 \varepsilon_3 - \eta \varepsilon_2) & 2(\varepsilon_2 \varepsilon_3 + \eta \varepsilon_1) & 2(\eta^2 + \varepsilon_3^2) - 1
-    \end{bmatrix}
-    $$
-
-    === "若 $r_{11} + r_{22} + r_{33} > -1$，两组反号的欧拉参数"
-
-        $$
-        \begin{bmatrix}
-        \eta \\
-        \varepsilon
-        \end{bmatrix} = \frac{1}{2} \begin{bmatrix}
-        \sqrt{r_{11} + r_{22} + r_{33} + 1} \\
-        \text{sgn}(r_{32} - r_{23}) \sqrt{r_{11} - r_{22} - r_{33} + 1} \\
-        \text{sgn}(r_{13} - r_{31}) \sqrt{r_{22} - r_{33} - r_{11} + 1} \\
-        \text{sgn}(r_{21} - r_{12}) \sqrt{r_{33} - r_{11} - r_{22} + 1}
-        \end{bmatrix}
-        $$
-
-        或
-
-        $$
-        \begin{bmatrix}
-        \eta \\
-        \varepsilon
-        \end{bmatrix} = -\frac{1}{2} \begin{bmatrix}
-        \sqrt{r_{11} + r_{22} + r_{33} + 1} \\
-        \text{sgn}(r_{32} - r_{23}) \sqrt{r_{11} - r_{22} - r_{33} + 1} \\
-        \text{sgn}(r_{13} - r_{31}) \sqrt{r_{22} - r_{33} - r_{11} + 1} \\
-        \text{sgn}(r_{21} - r_{12}) \sqrt{r_{33} - r_{11} - r_{22} + 1}
-        \end{bmatrix}
-        $$
-        
-        
-    === "若 $r_{11} + r_{22} + r_{33} = -1$"
-    
-        又可知 $r_{11}$、$r_{22}$ 和 $r_{33}$ 不会同时等于 $-1$。
-
-        以 $r_{11} \neq -1$ 为例，可得两组反号的欧拉参数：
-
-        $$
-        \begin{bmatrix}
-        \eta \\
-        \varepsilon
-        \end{bmatrix} = \frac{1}{2} \begin{bmatrix}
-        0 \\
-        \sqrt{r_{11} - r_{22} - r_{33} + 1} \\
-        \text{sgn}(r_{12}) \sqrt{r_{22} - r_{33} - r_{11} + 1} \\
-        \text{sgn}(r_{13}) \sqrt{r_{33} - r_{11} - r_{22} + 1}
-        \end{bmatrix}
-        $$
-
-        或
-
-        $$
-        \begin{bmatrix}
-        \eta \\
-        \varepsilon
-        \end{bmatrix} = -\frac{1}{2} \begin{bmatrix}
-        0 \\
-        \sqrt{r_{11} - r_{22} - r_{33} + 1} \\
-        \text{sgn}(r_{12}) \sqrt{r_{22} - r_{33} - r_{11} + 1} \\
-        \text{sgn}(r_{13}) \sqrt{r_{33} - r_{11} - r_{22} + 1}
-        \end{bmatrix}
-        $$
-
-
-    === "$\theta = 2k\pi$ 时"
-    
-        $$
-        \begin{bmatrix}
-        \eta \\
-        \varepsilon
-        \end{bmatrix} = \begin{bmatrix}
-        \pm 1 \\
-        0 \\
-        0 \\
-        0
-        \end{bmatrix}
-        $$
-
-        当 $\theta = 2k\pi$ 时，利用 $\sin \frac{\theta}{2} = 0$ 使得 $\varepsilon$ 为零向量。
-
-        这意味着当旋转角 $\theta$ 为 $2k\pi$（其中 $k$ 为整数）时，欧拉参数中的 $\varepsilon$ 向量为零向量，而 $\eta$ 的值为 $\pm 1$。这对应于旋转矩阵 $R$ 为单位矩阵的情况，即没有发生旋转。
-
 
 #### 四元数基础
 
@@ -1039,16 +799,351 @@ This browser does not support PDFs
 [三维旋转：欧拉角、四元数、旋转矩阵、轴角之间的转换 - 知乎](https://zhuanlan.zhihu.com/p/45404840)
 
 !!! tip "总结各种变换中的符号与字母"
-    - SO(3)
-    - SE(3)
+    - $^A_B\!R$ 表示从A坐标系到B坐标系的旋转矩阵
+    - $^A_B\!R^T$ 表示从A坐标系到B坐标系的齐次变换矩阵
+    - SO(3)：全体旋转矩阵的集合
+    - SE(3)：全体齐次变换矩阵的集合
     - $\mathbb{U}$ 为由全体欧拉参数构成的集合
 
+#### 旋转矩阵与欧拉角
 
+**欧拉角 to 旋转矩阵**:直接使用矩阵乘法即可
+
+**旋转矩阵 to 欧拉角**：使用反三角函数推导
+
+从旋转矩阵提取欧拉角的公式跟欧拉角顺规的选取有关，因为旋转矩阵的元素会略有不同，但是思路都是一样的，就是根据旋转矩阵的解析表达式+反三角函数凑出来
+
+这里需要特别注意，gimbal lock所带来的特殊情况的讨论
+
+
+
+!!! note "已知 $R \in \text{SO}(3)$，求$(\alpha, \beta, \gamma) \in (-\pi, \pi] \times [-\pi/2, \pi/2] \times (-\pi, \pi]$使得$R = R_{z'y'x'}(\alpha, \beta, \gamma)$"
+    虽然zyx欧拉角可以表示任意旋转，但是这个命题限制了$\beta$的取值范围
+
+    $$
+    R_{z'y'x'}(\alpha, \beta, \gamma) = \begin{pmatrix}
+    \cos\alpha \cos\beta & \cos\alpha \sin\beta \sin\gamma - \sin\alpha \cos\gamma & \cos\alpha \sin\beta \cos\gamma + \sin\alpha \sin\gamma \\
+    \sin\alpha \cos\beta & \sin\alpha \sin\beta \sin\gamma + \cos\alpha \cos\gamma & \sin\alpha \sin\beta \cos\gamma - \cos\alpha \sin\gamma \\
+    -\sin\beta & \cos\beta \sin\gamma & \cos\beta \cos\gamma
+    \end{pmatrix}
+    $$
+
+
+
+    首先，因为$\beta$的定义域是$\left[ -\frac{\pi}{2}, \frac{\pi}{2} \right]$，所以$\cos\beta \ge 0$
+
+
+    **情况 1** $\cos\beta > 0$
+
+    - $\cos\beta = \sqrt{r_{32}^2 + r_{33}^2}$
+    - $\beta = \arctan2\left(-r_{31}, \sqrt{r_{32}^2 + r_{33}^2}\right)$
+    - $\alpha = \arctan2(r_{21}, r_{11})$
+    - $\gamma = \arctan2(r_{32}, r_{33})$
+
+    **情况 2** $\beta = \frac{\pi}{2}$
+
+    $$
+    R_{z'y'x'}(\alpha, \frac{\pi}{2}, \gamma) = \begin{pmatrix}
+    0 & \cos\alpha \cos\gamma - \sin\alpha \sin\gamma & \cos\alpha \sin\gamma + \sin\alpha \cos\gamma \\
+    0 & \sin\alpha \cos\gamma + \cos\alpha \sin\gamma & \sin\alpha \sin\gamma - \cos\alpha \cos\gamma \\
+    -1 & 0 & 0
+    \end{pmatrix}=\begin{pmatrix}
+    0 & -\sin(\alpha - \gamma) & \cos(\alpha - \gamma) \\
+    0 & \cos(\alpha - \gamma) & \sin(\alpha - \gamma) \\
+    -1 & 0 & 0
+    \end{pmatrix}
+    $$
+
+    - 只能得到一个关于 $\alpha$ 与 $\gamma$ 之差的结果：$\alpha - \gamma = \arctan2(r_{23}, r_{22})$
+    - 对应这种姿态的 $z'y'x'$ 欧拉角或 $xyz$ 固定角不唯一。
+
+    **情况 3** $\beta = -\frac{\pi}{2}$
+
+    当 $\beta = -\frac{\pi}{2}$ 时，旋转矩阵 $R_{z'y'x'}(\alpha, \beta, \gamma)$ 可以简化为：
+
+    $$
+    R_{z'y'x'}(\alpha, -\frac{\pi}{2}, \gamma) = \begin{pmatrix}
+    0 & \cos\alpha \cos\gamma + \sin\alpha \sin\gamma & -\cos\alpha \sin\gamma + \sin\alpha \cos\gamma \\
+    0 & \sin\alpha \cos\gamma - \cos\alpha \sin\gamma & \sin\alpha \sin\gamma + \cos\alpha \cos\gamma \\
+    1 & 0 & 0
+    \end{pmatrix}=\begin{pmatrix}
+    0 & \sin(\alpha + \gamma) & \cos(\alpha + \gamma) \\
+    0 & \cos(\alpha + \gamma) & -\sin(\alpha + \gamma) \\
+    1 & 0 & 0
+    \end{pmatrix}
+    $$
+
+    - $\alpha + \gamma = \arctan2(-r_{23}, r_{22})$
+
+
+#### 旋转矩阵与四元数
+
+**四元数 to 旋转矩阵**
+
+可以直接带入公式，对于四元数$p = \eta + \varepsilon_1 i + \varepsilon_2 j + \varepsilon_3 k$,其旋转矩阵为
+
+$$
+A_B^B R = R_\varepsilon(\eta) = \begin{bmatrix}
+2(\eta^2 + \varepsilon_1^2) - 1 & 2(\varepsilon_1 \varepsilon_2 - \eta \varepsilon_3) & 2(\varepsilon_1 \varepsilon_3 + \eta \varepsilon_2) \\
+2(\varepsilon_1 \varepsilon_2 + \eta \varepsilon_3) & 2(\eta^2 + \varepsilon_2^2) - 1 & 2(\varepsilon_2 \varepsilon_3 - \eta \varepsilon_1) \\
+2(\varepsilon_1 \varepsilon_3 - \eta \varepsilon_2) & 2(\varepsilon_2 \varepsilon_3 + \eta \varepsilon_1) & 2(\eta^2 + \varepsilon_3^2) - 1
+\end{bmatrix}
+$$
+
+假设被旋转的变量为$V$,那么
+
+$$
+V' = p V p^{-1}
+$$
+
+**旋转矩阵 to 四元数**
+
+- 首先判断旋转矩阵的合法性，判断其是否正交，即$R \cdot R^T = I$
+- 然后可以从对应的旋转矩阵的表达式中，使用拼凑法，凑出所需要的四个参数的值。这里需要注意的是，每一个旋转矩阵会对应两个反号的四元数
+
+
+!!! note "欧拉参数解算"
+
+    已知 $R \in SO(3)$，求欧拉参数使得
+
+    $$
+    R = \begin{bmatrix}
+    r_{11} & r_{12} & r_{13} \\
+    r_{21} & r_{22} & r_{23} \\
+    r_{31} & r_{32} & r_{33}
+    \end{bmatrix} = \begin{bmatrix}
+    2(\eta^2 + \varepsilon_1^2) - 1 & 2(\varepsilon_1 \varepsilon_2 - \eta \varepsilon_3) & 2(\varepsilon_1 \varepsilon_3 + \eta \varepsilon_2) \\
+    2(\varepsilon_1 \varepsilon_2 + \eta \varepsilon_3) & 2(\eta^2 + \varepsilon_2^2) - 1 & 2(\varepsilon_2 \varepsilon_3 - \eta \varepsilon_1) \\
+    2(\varepsilon_1 \varepsilon_3 - \eta \varepsilon_2) & 2(\varepsilon_2 \varepsilon_3 + \eta \varepsilon_1) & 2(\eta^2 + \varepsilon_3^2) - 1
+    \end{bmatrix}
+    $$
+
+    === "若 $r_{11} + r_{22} + r_{33} > -1$，两组反号的欧拉参数"
+
+        $$
+        \begin{bmatrix}
+        \eta \\
+        \varepsilon
+        \end{bmatrix} = \frac{1}{2} \begin{bmatrix}
+        \sqrt{r_{11} + r_{22} + r_{33} + 1} \\
+        \text{sgn}(r_{32} - r_{23}) \sqrt{r_{11} - r_{22} - r_{33} + 1} \\
+        \text{sgn}(r_{13} - r_{31}) \sqrt{r_{22} - r_{33} - r_{11} + 1} \\
+        \text{sgn}(r_{21} - r_{12}) \sqrt{r_{33} - r_{11} - r_{22} + 1}
+        \end{bmatrix}
+        $$
+
+        或
+
+        $$
+        \begin{bmatrix}
+        \eta \\
+        \varepsilon
+        \end{bmatrix} = -\frac{1}{2} \begin{bmatrix}
+        \sqrt{r_{11} + r_{22} + r_{33} + 1} \\
+        \text{sgn}(r_{32} - r_{23}) \sqrt{r_{11} - r_{22} - r_{33} + 1} \\
+        \text{sgn}(r_{13} - r_{31}) \sqrt{r_{22} - r_{33} - r_{11} + 1} \\
+        \text{sgn}(r_{21} - r_{12}) \sqrt{r_{33} - r_{11} - r_{22} + 1}
+        \end{bmatrix}
+        $$
+        
+        
+    === "若 $r_{11} + r_{22} + r_{33} = -1$"
+    
+        又可知 $r_{11}$、$r_{22}$ 和 $r_{33}$ 不会同时等于 $-1$。
+
+        以 $r_{11} \neq -1$ 为例，可得两组反号的欧拉参数：
+
+        $$
+        \begin{bmatrix}
+        \eta \\
+        \varepsilon
+        \end{bmatrix} = \frac{1}{2} \begin{bmatrix}
+        0 \\
+        \sqrt{r_{11} - r_{22} - r_{33} + 1} \\
+        \text{sgn}(r_{12}) \sqrt{r_{22} - r_{33} - r_{11} + 1} \\
+        \text{sgn}(r_{13}) \sqrt{r_{33} - r_{11} - r_{22} + 1}
+        \end{bmatrix}
+        $$
+
+        或
+
+        $$
+        \begin{bmatrix}
+        \eta \\
+        \varepsilon
+        \end{bmatrix} = -\frac{1}{2} \begin{bmatrix}
+        0 \\
+        \sqrt{r_{11} - r_{22} - r_{33} + 1} \\
+        \text{sgn}(r_{12}) \sqrt{r_{22} - r_{33} - r_{11} + 1} \\
+        \text{sgn}(r_{13}) \sqrt{r_{33} - r_{11} - r_{22} + 1}
+        \end{bmatrix}
+        $$
+
+
+    === "$\theta = 2k\pi$ 时"
+    
+        $$
+        \begin{bmatrix}
+        \eta \\
+        \varepsilon
+        \end{bmatrix} = \begin{bmatrix}
+        \pm 1 \\
+        0 \\
+        0 \\
+        0
+        \end{bmatrix}
+        $$
+
+        当 $\theta = 2k\pi$ 时，利用 $\sin \frac{\theta}{2} = 0$ 使得 $\varepsilon$ 为零向量。
+
+        这意味着当旋转角 $\theta$ 为 $2k\pi$（其中 $k$ 为整数）时，欧拉参数中的 $\varepsilon$ 向量为零向量，而 $\eta$ 的值为 $\pm 1$。这对应于旋转矩阵 $R$ 为单位矩阵的情况，即没有发生旋转。
+
+
+
+
+
+#### 欧拉角与四元数
+
+**欧拉角 to 四元数**
+
+- 首先欧拉角可以视为绕着给定轴旋转一个角度
+- 我们又知道四元数是可以相乘的
+- 所以把欧拉角的旋转描述成四元数，再进行相乘即可
+
+**四元数 to 欧拉角** 比较复杂，建议使用四元数转换为旋转矩阵，再转换为欧拉角
+
+#### 等效轴角
+
+**等效轴角 to 四元数**
+
+等效轴角就是绕着某条单位轴旋转一定角度，这个角度和四元数非常类似，所以这两个转换比较容易
+
+四元数可以表示为
+
+$$
+p = \eta + \varepsilon_1 i + \varepsilon_2 j + \varepsilon_3 k
+$$
+
+$$
+\eta = \cos \frac{\theta}{2}, \quad \varepsilon = \begin{bmatrix} \varepsilon_1 \\ \varepsilon_2 \\ \varepsilon_3 \end{bmatrix} = \begin{bmatrix} k_x \sin \frac{\theta}{2} \\ k_y \sin \frac{\theta}{2} \\ k_z \sin \frac{\theta}{2} \end{bmatrix}
+$$
+
+**等效轴角 to 旋转矩阵** 罗德里格斯旋转公式|Rodrigues' rotation formula
+
+$$
+R = I + \sin(\theta)K + (1 - \cos(\theta))K^2
+$$
+
+其中$K$是单位轴的反对称矩阵（叉积矩阵）
+
+$$
+K = \begin{bmatrix}
+0 & -k_z & k_y \\
+k_z & 0 & -k_x \\
+-k_y & k_x & 0
+\end{bmatrix}
+$$
+
+也可以记忆公式
+
+$$
+R= \begin{pmatrix}k_x^2 \nu \theta + c \theta & k_x k_y \nu \theta - k_z s \theta & k_x k_z \nu \theta + k_y s \theta \\    k_x k_y \nu \theta + k_z s \theta & k_y^2 \nu \theta + c \theta & k_y k_z \nu \theta - k_x s \theta \\    k_x k_z \nu \theta - k_y s \theta & k_y k_z \nu \theta + k_x s \theta & k_z^2 \nu \theta + c \theta\end{pmatrix}
+$$
+
+
+
+**旋转矩阵 to 等效轴角**
+
+正方向旋转，等效于负方向逆时针旋转
+
+!!! note "求解"
+
+    已知 $R \in \mathrm{SO}(3)$，求单位向量 $(k_x, k_y, k_z)^\mathrm{T}$ 和旋转角 $\theta \in (-\pi, \pi]$ 使得 $R = R_K(\theta)$
+
+    $$
+    R = \begin{pmatrix}
+    r_{11} & r_{12} & r_{13} \\
+    r_{21} & r_{22} & r_{23} \\
+    r_{31} & r_{32} & r_{33}
+    \end{pmatrix} = \begin{pmatrix}
+    k_x^2 \nu \theta + c \theta & k_x k_y \nu \theta - k_z s \theta & k_x k_z \nu \theta + k_y s \theta \\
+    k_x k_y \nu \theta + k_z s \theta & k_y^2 \nu \theta + c \theta & k_y k_z \nu \theta - k_x s \theta \\
+    k_x k_z \nu \theta - k_y s \theta & k_y k_z \nu \theta + k_x s \theta & k_z^2 \nu \theta + c \theta
+    \end{pmatrix} \quad \nu \theta = 1 - c \theta
+    $$
+
+    不难理解 $R_K(\theta) = R_{-K}(-\theta)$ （绕正方向旋转一个角度，等同于绕反方向旋转同样的负的角度）
+
+    因此规定 $\theta \in [0, \pi]$
+
+    $$
+    \theta = \arccos\left(\frac{r_{11} + r_{22} + r_{33} - 1}{2}\right)
+    $$
+
+    === "若 $\theta \in (0, \pi)$,唯一解"
+
+        $$
+        \begin{pmatrix}
+        k_x \\
+        k_y \\
+        k_z
+        \end{pmatrix} = \frac{1}{2 \sin \theta} \begin{pmatrix}
+        r_{32} - r_{23} \\
+        r_{13} - r_{31} \\
+        r_{21} - r_{12}
+        \end{pmatrix} \quad \text{唯一解}
+        $$
+
+    === "若 $\theta = \pi$,两组解"
+
+        $$
+        \begin{pmatrix}
+        r_{11} & r_{12} & r_{13} \\
+        r_{21} & r_{22} & r_{23} \\
+        r_{31} & r_{32} & r_{33}
+        \end{pmatrix} = \begin{pmatrix}
+        2k_x^2 - 1 & 2k_x k_y & 2k_x k_z \\
+        2k_x k_y & 2k_y^2 - 1 & 2k_y k_z \\
+        2k_x k_z & 2k_y k_z & 2k_z^2 - 1
+        \end{pmatrix}
+        $$
+
+        由 $r_{11} + r_{22} + r_{33} = (2k_x^2 - 1) + (2k_y^2 - 1) + (2k_z^2 - 1) = -1$，知 $r_{11}, r_{22}, r_{33}$ 不会同时等于 $-1$
+
+        以 $r_{11} \neq -1$ 为例，$k_x = \pm \sqrt{(r_{11} + 1)/2}$
+
+        $$
+        \begin{pmatrix}
+        k_x \\
+        k_y \\
+        k_z
+        \end{pmatrix} = \pm \begin{pmatrix}
+        \sqrt{(r_{11} + 1)/2} \\
+        r_{12} / \sqrt{2(r_{11} + 1)} \\
+        r_{13} / \sqrt{2(r_{11} + 1)}
+        \end{pmatrix} \quad \text{两组解}
+        $$
+
+    === "若 $\theta = 0$,无穷解"
+
+        $$
+        \begin{pmatrix}
+        r_{11} & r_{12} & r_{13} \\
+        r_{21} & r_{22} & r_{23} \\
+        r_{31} & r_{32} & r_{33}
+        \end{pmatrix} = \begin{pmatrix}
+        1 & 0 & 0 \\
+        0 & 1 & 0 \\
+        0 & 0 & 1
+        \end{pmatrix}
+        $$
+
+
+        任何单位向量$\begin{pmatrix}k_x \\k_y \\k_z\end{pmatrix}$ 均可，无穷组解
 
 
 ## 正运动学 - 已知角度求末端位姿
 各个关节变量的函数，描述了工具坐标系相对于基坐标系的位置和姿态
-
 
 
 ## 逆运动学 - 已知位姿求解角度
