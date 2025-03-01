@@ -487,34 +487,26 @@ $\forall R \in SO(3)$可用$R_{z,y,x}(\alpha, \beta, \gamma)$表示出来
     所以规定：$(\alpha, \beta, \gamma) \in (-\pi, \pi] \times \left[-\frac{\pi}{2}, \frac{\pi}{2}\right] \times (-\pi, \pi]$
 
 
-    同理，zyz俯仰角也可以确定$\beta$的范围在 $\[-pi,pi\]$之间
+    同理，zyz俯仰角也可以确定$\beta$的范围在 $[-\pi,\pi]$之间
 
-    1. **定义集合与映射函数**  
-       - 令集合 $\mathbb{Q} = (-\pi, 0)$，表示β的原始范围中需要调整的部分。
-       - 定义函数 $f: \mathbb{Q} \to (0, \pi)$，将负β映射为正：  
-         $f(\beta) = -\beta.$
-       - 定义函数 $g: (-\pi, \pi] \to (-\pi, \pi]$，调整前后的z轴旋转角度：  
-       - 
-         $$
-         g(\theta) = 
-         \begin{cases} 
-         \theta + \pi, & \text{当 } \theta \in (-\pi, 0], \\
-         \theta - \pi, & \text{当 } \theta \in (0, \pi].
-         \end{cases}
-         $$
+    1. **定义集合与映射函数** :令集合 $\mathbb{Q} = (-\pi, 0)$，表示β的原始范围中需要调整的部分,定义函数 $f: \mathbb{Q} \to (0, \pi)$，将负β映射为正$f(\beta) = -\beta.$,定义函数 $g: (-\pi, \pi] \to (-\pi, \pi]$，调整前后的z轴旋转角度：  
 
-    2. **旋转矩阵的等价性**  
-       对于任意 $\beta \in \mathbb{Q}$（即$\beta \in (-\pi, 0)$），通过以下步骤调整参数：  
-       - **β的调整**：令 $\beta' = f(\beta) = -\beta \in (0, \pi)$。  
-       - **α和γ的调整**：令 $\alpha' = g(\alpha)$，$\gamma' = g(\gamma)$。  
-       此时，原旋转矩阵可等价表示为： 
+    $$
+    g(\theta) = 
+    \begin{cases} 
+    \theta + \pi, & \text{当 } \theta \in (-\pi, 0], \\
+    \theta - \pi, & \text{当 } \theta \in (0, \pi].
+    \end{cases}
+    $$
 
-       $$ 
-       R_z(\alpha') R_y(\beta') R_z(\gamma') = R_z(g(\alpha)) R_y(-\beta) R_z(g(\gamma)). 
-       $$
+    2. **旋转矩阵的等价性**         对于任意 $\beta \in \mathbb{Q}$（即$\beta \in (-\pi, 0)$），通过以下步骤调整参数：令 $\beta' = f(\beta) = -\beta \in (0, \pi)$,令 $\alpha' = g(\alpha)$，$\gamma' = g(\gamma)$,此时，原旋转矩阵可等价表示为： 
 
-       根据旋转矩阵的恒等式（$R_z(\pi) R_y(-\beta) R_z(\pi) = R_y(\beta)$），可得：  
-       $R_z(g(\alpha)) R_y(-\beta) R_z(g(\gamma)) = R_z(\alpha) R_y(\beta) R_z(\gamma).$ 
+    $$ 
+    R_z(\alpha') R_y(\beta') R_z(\gamma') = R_z(g(\alpha)) R_y(-\beta) R_z(g(\gamma)). 
+    $$
+
+    根据旋转矩阵的恒等式（$R_z(\pi) R_y(-\beta) R_z(\pi) = R_y(\beta)$），可得：  
+    $R_z(g(\alpha)) R_y(-\beta) R_z(g(\gamma)) = R_z(\alpha) R_y(\beta) R_z(\gamma).$ 
 
 
 
@@ -672,14 +664,14 @@ $$
     与复数加法一致
 
     $$
-    (\eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3) + (\$X_i$ + i\delta_1 + j\delta_2 + k\delta_3) = (\eta + \$X_i$) + i(\varepsilon_1 + \delta_1) + j(\varepsilon_2 + \delta_2) + k(\varepsilon_3 + \delta_3)
+    (\eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3) + (\xi + i\delta_1 + j\delta_2 + k\delta_3) = (\eta + \xi) + i(\varepsilon_1 + \delta_1) + j(\varepsilon_2 + \delta_2) + k(\varepsilon_3 + \delta_3)
     $$
 
 
 === "乘法"
 
     $$
-    (\eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3)(\$X_i$ + i\delta_1 + j\delta_2 + k\delta_3) = (\eta\$X_i$ - \varepsilon_1\delta_1 - \varepsilon_2\delta_2 - \varepsilon_3\delta_3) + i(\eta\delta_1 + \varepsilon_1\$X_i$ + \varepsilon_2\delta_3 - \varepsilon_3\delta_2) + j(\eta\delta_2 - \varepsilon_1\delta_3 + \varepsilon_2\$X_i$ + \varepsilon_3\delta_1) + k(\eta\delta_3 + \varepsilon_1\delta_2 - \varepsilon_2\delta_1 + \varepsilon_3\$X_i$)
+    (\eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3)(\xi + i\delta_1 + j\delta_2 + k\delta_3) = (\eta\xi - \varepsilon_1\delta_1 - \varepsilon_2\delta_2 - \varepsilon_3\delta_3) + i(\eta\delta_1 + \varepsilon_1\xi + \varepsilon_2\delta_3 - \varepsilon_3\delta_2) + j(\eta\delta_2 - \varepsilon_1\delta_3 + \varepsilon_2\xi + \varepsilon_3\delta_1) + k(\eta\delta_3 + \varepsilon_1\delta_2 - \varepsilon_2\delta_1 + \varepsilon_3\xi)
     $$
 
     $\mathbb{H}$ 中的乘法相当于 $\mathbb{R}^4$ 中的 Grassmann 积。
@@ -733,23 +725,23 @@ $$
 \eta \\
 \varepsilon
 \end{bmatrix} \oplus \begin{bmatrix}
-\$X_i$ \\
+\xi \\
 \delta
 \end{bmatrix} = \begin{bmatrix}
-\eta\$X_i$ - \varepsilon^T\delta \\
-\eta\delta +\$X_i$\varepsilon +  \varepsilon \times \delta
+\eta\xi - \varepsilon^T\delta \\
+\eta\delta +\xi\varepsilon +  \varepsilon \times \delta
 \end{bmatrix} = \begin{bmatrix}
 \eta & -\varepsilon_1 & -\varepsilon_2 & -\varepsilon_3 \\
 \varepsilon_1 & \eta & -\varepsilon_3 & \varepsilon_2 \\
 \varepsilon_2 & \varepsilon_3 & \eta & -\varepsilon_1 \\
 \varepsilon_3 & -\varepsilon_2 & \varepsilon_1 & \eta
 \end{bmatrix} \begin{bmatrix}
-\$X_i$ \\
+\xi \\
 \delta_1 \\
 \delta_2 \\
 \delta_3
 \end{bmatrix} = A\begin{bmatrix}
-\$X_i$ \\
+\xi \\
 \delta
 \end{bmatrix}
 $$
@@ -762,7 +754,7 @@ $$
 !!! note "$\mathbb{U}$中任意两个向量的Grassmann积仍是$\mathbb{U}$中的向量"
     如果有 $\begin{bmatrix}\eta \\ \varepsilon\end{bmatrix} \in \mathbb{U}$，则 $A^TA = I$
 
-    如果还有 $\begin{bmatrix}\$X_i$ \\ \delta\end{bmatrix} \in \mathbb{U}$，则 $[\$X_i$ \quad \delta^T]A^TA\begin{bmatrix}\$X_i$ \\ \delta\end{bmatrix} = 1$ 即 $\begin{bmatrix}\eta\$X_i$ - \varepsilon^T\delta \\ \$X_i$\varepsilon + \eta\delta + \varepsilon \times \delta\end{bmatrix} \in \mathbb{U}$
+    如果还有 $\begin{bmatrix}\xi \\ \delta\end{bmatrix} \in \mathbb{U}$，则 $[\xi \quad \delta^T]A^TA\begin{bmatrix}\xi \\ \delta\end{bmatrix} = 1$ 即 $\begin{bmatrix}\eta\xi - \varepsilon^T\delta \\ \xi\varepsilon + \eta\delta + \varepsilon \times \delta\end{bmatrix} \in \mathbb{U}$
 
 
 
