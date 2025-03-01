@@ -60,4 +60,10 @@ comments: true
     学一下cv的基础知识[智能工厂精品课](https://github.com/haodong2000/Vision2022/tree/2023)
 
 
-<br>
+
+已知网页bug：
+
+- jupyter notebook下 数学公式渲染错误
+- jupyter notebook下不同的block标题会从0开始记录
+- 公式在不翻墙的情况下加载太慢
+- 多级列表渲染不出来
