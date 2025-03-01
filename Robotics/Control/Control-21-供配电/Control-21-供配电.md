@@ -227,12 +227,6 @@ This browser does not support PDFs
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250220145405384.png)
 
 
-### 构成和布置
-
-供配电负荷：
-- 一类（损失大，有人员伤亡）：两个独立的电源供电
-- 二类：两个回路供电（类似高德改路线）
-- 三类：单回路供电
 
 
 ## 中心点运行方式
@@ -240,11 +234,212 @@ This browser does not support PDFs
 星形接线中性点
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250220144054358.png)
 
+## 电力负荷与计算
+
+### 电力负荷
+
+- 所耗用的电功率或电流的大小
+
+供配电负荷：
+- 一类（损失大，有人员伤亡）：两个独立的电源供电
+- 二类：两个回路供电（类似高德改路线）
+- 三类：单回路供电
 
 
-需要系数法
 
-二项式系数法
+- 连续工作制：
+- 短时工作制：停歇时间长
+- 断续周期工作制：规律停歇 ,负荷持续率$\epsilon = \frac{t}{t+t_0}\times 100\%$
 
 
-## 停电事故
+
+**负荷曲线**：电力负荷随时间变化的关系曲线
+
+
+$\Delta t = 30min$
+
+- **计算负荷** ：也称最大负荷或需要负荷，是按发热条件选择电气设备的一个假想负荷，其热效应与同一时间内实际负荷所产生的最大热效应相等，统计计算得出。
+- **年最大负荷** $P_{max}$:全年中负荷最大的工作班内消耗电能最大的半小时的平均功率, $P_{max} = P_{30}$
+- **年最大负荷利用小时数** $T_{max}$ :电力负荷在全年内消耗的电能与年最大负荷的比值，$T_{max} = \frac{W_a}{P_{max}}$,$W_a$为年负荷消耗的电能; 一班制$T_{max} = 1800-3000h$,两班制$T_{max} = 3500-4800h$,三班制$T_{max} = 5000-7000h$
+- **平均负荷** $P_{av}$ :电力负荷在一定时间内消耗的电能与该段时间的比值，$P_{av} = \frac{W}{T}$, 年平均负荷$P_{av} = \frac{W_a}{8760}$
+- **负荷系数** $K_f$ :平均负荷与最大负荷的比值，$K_f = \frac{P_{av}}{P_{max}}$
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250227144326520.png)
+
+### 三相 计算负荷（重点）
+
+
+#### 需要系数法
+
+**需要系数** $K_d$：由用电设备工作性质、设备台数、设备效率、线路损耗等因素决定，只能靠统计测量决定
+
+**有功计算负荷** $P_{30} = K_d \sum P_{e}$
+
+**无功计算负荷** $Q_{30} = P_{30} \tan \phi$
+
+**视在计算负荷** $S_{30} = \frac{P_{30}}{\cos \phi}$
+
+**计算电流** $I_{30} = \frac{S_{30}}{\sqrt{3}U_n}$
+
+**设备容量** $P_e$：
+- 连续与短时工作制：取所有设备的铭牌额定容量之和 $P_e = \sum P_n$
+- 断续周期工作制：等效发热原理换算到负荷持续率$\epsilon$, $P_e = P_N \frac{\sqrt{\epsilon_N}}{\sqrt{\epsilon}}$,其中$P_N$为铭牌额定容量，$\epsilon_N$为铭牌负荷持续率
+
+
+!!! example "例题"
+    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250227145549202.png)
+
+
+多组三相用电设备的计算
+
+$$
+P_{30} = K_{\Sigma p} \sum P_{30,i}\\
+Q_{30} = K_{\Sigma q} \sum Q_{30,i}\\
+S_{30} = \sqrt{P_{30}^2 + Q_{30}^2}\\
+I_{30} = \frac{S_{30}}{\sqrt{3}U_N}
+$$
+
+其中:
+- $K_{\Sigma p}$ - 有功负荷综合系数
+- $K_{\Sigma q}$ - 无功负荷综合系数
+- $U_N$ - 额定电压
+
+!!! note "综合系数取值"
+    1. 车间干线上的计算负荷
+        - $K_{\Sigma p} = 0.85 \sim 0.95$
+        - $K_{\Sigma q} = 0.90 \sim 0.97$
+    
+    2. 低压母线上的计算负荷
+        1. 由用电设备组计算负荷直接相加来计算时
+            - $K_{\Sigma p} = 0.85 \sim 0.90$
+            - $K_{\Sigma q} = 0.85 \sim 0.95$
+        2. 由车间干线计算负荷直接相加来计算时
+            - $K_{\Sigma p} = 0.90 \sim 0.95$
+            - $K_{\Sigma q} = 0.93 \sim 0.97$
+
+
+
+!!! example "例题"
+    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250227150010769.png)
+
+    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250227150037929.png)
+
+
+#### 二相式法
+
+$$
+P_{30} = bP_{e} + cP_{x}
+$$
+
+- $P_{e}$ - 用电设备组的设备容量
+- $P_{x}$ - 用电设备组中x台容量最大的用电设备的设备容量
+- $b,c$ - 二项式系数,查表
+
+适用于设备台数少，容量差别大，低压分支干线的计算负荷
+
+x和$P_x$ 的选取规则:
+1. 如果用电设备组的总台数 $n < 2x$，$x$ 为附录表1中的最大容量设备台数，则公式中的 $x$ 取值为:$x = \frac{n}{2}$,$x$ 四舍五入取整
+
+2. 如果用电设备组总台数 $n \leq 2$，则: $P_{30} = P_e$
+对于单台电动机而言: $P_{30} = \frac{P_e}{\eta}$,其中 $\eta$ 为额定效率
+
+
+!!! example "例题"
+    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250227151325077.png)
+    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250227151843385.png)
+
+
+多组用电设备
+
+对于多组用电设备，计算公式如下：
+
+$P_{30} = \sum(bP_e)_i + (cP_x)_{max}$
+
+$Q_{30} = \sum(bP_e \tan \varphi)_i + (cP_x)_{max} \tan \varphi_{max}$
+
+其中:
+- $bP_e$ - 各组的平均负荷
+- $(cP_e)_{max}$ - 其中一组最大的附加负荷
+- $\tan \varphi_{max}$ - 最大附加负荷 $(cP_e)_{max}$ 的设备组的平均功率因数角的正切值
+
+计算视在功率和电流:
+
+$S_{30} = \sqrt{P_{30}^2 + Q_{30}^2}$
+
+$I_{30} = \frac{S_{30}}{\sqrt{3}U_N}$
+
+教材附录表A-6
+
+!!! example "例题"
+    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250227152445278.png)
+    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250227152504859.png)
+
+### 单相负荷计算
+
+### 工厂计算负荷
+#### 需要系数法
+需要系数法计算公式：
+
+$P_{30} = K_d \cdot P_e$
+- $K_d$ - 全厂需要系数(附录2查表)
+- $P_e$ - 全厂用电设备总容量
+
+$Q_{30} = P_{30} \tan \varphi$
+
+$S_{30} = \frac{P_{30}}{\cos \varphi}$
+
+$I_{30} = \frac{S_{30}}{\sqrt{3}U_N}$
+- $U_N$ - 额定电压
+
+
+年产量估算法
+
+$$
+W_a = A\cdot a
+$$
+
+- $A$ - 年产量
+- $a$
+
+$$ 
+P_{30} = \frac{W_a}{T_{max}}
+$$
+
+- $T_{max}$ - 年最大负荷利用小时数(附录3查表)
+
+
+#### 功率因数
+1. 瞬时功率因数
+$\cos \varphi = \frac{P}{S} = \frac{P}{\sqrt{3}UI}$ - 监测负荷用
+
+2. 平均功率因数
+$\cos \varphi_{av} = \frac{W_p}{\sqrt{W_p^2 + W_q^2}}$ - 调整电费用
+
+3. 最大负荷时的功率因数
+$\cos \varphi = \frac{P_{30}}{S_{30}}$ - 确定无功补偿容量用
+
+功率因数对供电系统的影响
+
+1. 增加供电系统的设备容量和投资
+2. 增大线路和变压器的功率损耗
+3. 线路和变压器电压损失增大，电压质量下降
+
+
+**无功功率补偿**：简单的三角函数问题
+
+!!! example "例题"
+    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250227153913366.png)
+    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250227153927232.png)
+
+    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250227154101272.png)
+
+### 尖峰电流
+
+持续1-2s短时最大负荷电流
+
+- 单台
+- 多台
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250227154423691.png)
+
+
+

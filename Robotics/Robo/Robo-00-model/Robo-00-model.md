@@ -5,8 +5,18 @@
     - 授课教师：zrh
     - 本篇笔记来源：zhihu，老师课件，b站视频等
 
-要是讲解机械臂相关的知识，包括空间描述与变换（旋转矩阵、齐次变换矩阵、欧拉角、等效轴角、四元数）、正运动学（关节参数、改进DH参数）、逆运动学（解析法、数值法）、静力学、雅可比、动力学（拉格朗日方程、牛顿欧拉方程）、轨迹规划、控制（位置控制、力控制）等等
+## 基础概念
 
+
+[机器人学入门（二）：基础知识 - 知乎](https://zhuanlan.zhihu.com/p/368988354)<br>
+[机器人学入门（三）：空间描述和变换 - 知乎](https://zhuanlan.zhihu.com/p/369083000)<br>
+[机器人学入门（五）：操作臂运动学 - 知乎](https://zhuanlan.zhihu.com/p/495983666)<br>
+
+关节和连杆
+
+这里可以举一个小小的例子，比如下面的图片，黑色箭头地方是关节，将关节连起来的是连杆
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250301191114339.png)
 
 
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250217105608273.png)
@@ -27,11 +37,6 @@
 | **欧拉角** | 将旋转分解为绕三个正交轴的旋转 | $(\alpha, \beta, \gamma)$，常用ZYX顺序：$\mathbf{R} = R_z(\alpha) R_y(\beta) R_x(\gamma)$ | 易于理解和可视化<br> 但是<br> 1. 万向锁问题（奇异性）<br> 2. 不同顺序定义不唯一<br> 3. 插值不平滑 |
 | **等效轴角** | 用一个单位轴和一个旋转角表示旋转 | $(\mathbf{k}, \theta)$，其中$\mathbf{k} = (k_x, k_y, k_z)$为单位向量，$\theta$为旋转角。旋转矩阵为：<br>$\mathbf{R} = \mathbf{I} + \sin\theta \mathbf{K} + (1 - \cos\theta) \mathbf{K}^2$，<br>其中$\mathbf{K} = \begin{pmatrix} 0 & -k_z & k_y \\ k_z & 0 & -k_x \\ -k_y & k_x & 0 \end{pmatrix}$ | 1. 无法直接表示0°旋转（需特殊处理）<br>2. 插值时需注意旋转角的周期性 |
 | **四元数** | 使用四维超复数表示旋转 | $q = \eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3$，其中$\eta^2 + \varepsilon_1^2 + \varepsilon_2^2 + \varepsilon_3^2 = 1$。 | 参数最少（4个）避免了奇异性问题<br>1. 较难直观理解<br>2. 计算稍复杂（但比旋转矩阵简单） |
-
-
-
-
-
 
 ### 数学基础
 
@@ -667,14 +672,14 @@ $$
     与复数加法一致
 
     $$
-    (\eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3) + (\xi + i\delta_1 + j\delta_2 + k\delta_3) = (\eta + \xi) + i(\varepsilon_1 + \delta_1) + j(\varepsilon_2 + \delta_2) + k(\varepsilon_3 + \delta_3)
+    (\eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3) + (\$X_i$ + i\delta_1 + j\delta_2 + k\delta_3) = (\eta + \$X_i$) + i(\varepsilon_1 + \delta_1) + j(\varepsilon_2 + \delta_2) + k(\varepsilon_3 + \delta_3)
     $$
 
 
 === "乘法"
 
     $$
-    (\eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3)(\xi + i\delta_1 + j\delta_2 + k\delta_3) = (\eta\xi - \varepsilon_1\delta_1 - \varepsilon_2\delta_2 - \varepsilon_3\delta_3) + i(\eta\delta_1 + \varepsilon_1\xi + \varepsilon_2\delta_3 - \varepsilon_3\delta_2) + j(\eta\delta_2 - \varepsilon_1\delta_3 + \varepsilon_2\xi + \varepsilon_3\delta_1) + k(\eta\delta_3 + \varepsilon_1\delta_2 - \varepsilon_2\delta_1 + \varepsilon_3\xi)
+    (\eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3)(\$X_i$ + i\delta_1 + j\delta_2 + k\delta_3) = (\eta\$X_i$ - \varepsilon_1\delta_1 - \varepsilon_2\delta_2 - \varepsilon_3\delta_3) + i(\eta\delta_1 + \varepsilon_1\$X_i$ + \varepsilon_2\delta_3 - \varepsilon_3\delta_2) + j(\eta\delta_2 - \varepsilon_1\delta_3 + \varepsilon_2\$X_i$ + \varepsilon_3\delta_1) + k(\eta\delta_3 + \varepsilon_1\delta_2 - \varepsilon_2\delta_1 + \varepsilon_3\$X_i$)
     $$
 
     $\mathbb{H}$ 中的乘法相当于 $\mathbb{R}^4$ 中的 Grassmann 积。
@@ -728,23 +733,23 @@ $$
 \eta \\
 \varepsilon
 \end{bmatrix} \oplus \begin{bmatrix}
-\xi \\
+\$X_i$ \\
 \delta
 \end{bmatrix} = \begin{bmatrix}
-\eta\xi - \varepsilon^T\delta \\
-\eta\delta +\xi\varepsilon +  \varepsilon \times \delta
+\eta\$X_i$ - \varepsilon^T\delta \\
+\eta\delta +\$X_i$\varepsilon +  \varepsilon \times \delta
 \end{bmatrix} = \begin{bmatrix}
 \eta & -\varepsilon_1 & -\varepsilon_2 & -\varepsilon_3 \\
 \varepsilon_1 & \eta & -\varepsilon_3 & \varepsilon_2 \\
 \varepsilon_2 & \varepsilon_3 & \eta & -\varepsilon_1 \\
 \varepsilon_3 & -\varepsilon_2 & \varepsilon_1 & \eta
 \end{bmatrix} \begin{bmatrix}
-\xi \\
+\$X_i$ \\
 \delta_1 \\
 \delta_2 \\
 \delta_3
 \end{bmatrix} = A\begin{bmatrix}
-\xi \\
+\$X_i$ \\
 \delta
 \end{bmatrix}
 $$
@@ -757,7 +762,7 @@ $$
 !!! note "$\mathbb{U}$中任意两个向量的Grassmann积仍是$\mathbb{U}$中的向量"
     如果有 $\begin{bmatrix}\eta \\ \varepsilon\end{bmatrix} \in \mathbb{U}$，则 $A^TA = I$
 
-    如果还有 $\begin{bmatrix}\xi \\ \delta\end{bmatrix} \in \mathbb{U}$，则 $[\xi \quad \delta^T]A^TA\begin{bmatrix}\xi \\ \delta\end{bmatrix} = 1$ 即 $\begin{bmatrix}\eta\xi - \varepsilon^T\delta \\ \xi\varepsilon + \eta\delta + \varepsilon \times \delta\end{bmatrix} \in \mathbb{U}$
+    如果还有 $\begin{bmatrix}\$X_i$ \\ \delta\end{bmatrix} \in \mathbb{U}$，则 $[\$X_i$ \quad \delta^T]A^TA\begin{bmatrix}\$X_i$ \\ \delta\end{bmatrix} = 1$ 即 $\begin{bmatrix}\eta\$X_i$ - \varepsilon^T\delta \\ \$X_i$\varepsilon + \eta\delta + \varepsilon \times \delta\end{bmatrix} \in \mathbb{U}$
 
 
 
@@ -936,6 +941,15 @@ $$
     $$
 
     === "若 $r_{11} + r_{22} + r_{33} > -1$，两组反号的欧拉参数"
+        说明 $\eta > 0$
+
+        $$
+        \sqrt{r_{11} + r_{22} + r_{33} + 1} = 2|\eta|
+        \sqrt{r_{11} - r_{22} - r_{33} + 1} = 2|\varepsilon_1|, \text{sgn}(r_{32} - r_{23}) = \text{sgn}(2\eta\varepsilon_1)
+        $$
+
+        这个时候因为$\eta > 0$,就可以由$\eta\varepsilon_1$的符号推断$\varepsilon_1$的符号了
+
 
         $$
         \begin{bmatrix}
@@ -965,10 +979,12 @@ $$
         
         
     === "若 $r_{11} + r_{22} + r_{33} = -1$"
-    
-        又可知 $r_{11}$、$r_{22}$ 和 $r_{33}$ 不会同时等于 $-1$。
 
-        以 $r_{11} \neq -1$ 为例，可得两组反号的欧拉参数：
+        这个时候 $\eta$是等于0 的
+    
+        又可知 $r_{11}$、$r_{22}$ 和 $r_{33}$ 不会同时等于 $-1$（同时等于零意味着$\varepsilon$就是0，显然不符合意思）
+
+        以 $r_{11} \neq -1$ ($\varepsilon_1 \neq 0$)为例，可得两组反号的欧拉参数：
 
         $$
         \begin{bmatrix}
@@ -996,6 +1012,8 @@ $$
         \end{bmatrix}
         $$
 
+        这里要注意一下，求出来$\varepsilon_1<0$的时候，在求$\varepsilon_2$的时候，使用到了$sgn(r_{12})$，其实最后$\varepsilon_2$的符号应该是和$\sgn(r_{12})$是反号的，所以加了负号
+
 
     === "$\theta = 2k\pi$ 时"
     
@@ -1014,6 +1032,8 @@ $$
         当 $\theta = 2k\pi$ 时，利用 $\sin \frac{\theta}{2} = 0$ 使得 $\varepsilon$ 为零向量。
 
         这意味着当旋转角 $\theta$ 为 $2k\pi$（其中 $k$ 为整数）时，欧拉参数中的 $\varepsilon$ 向量为零向量，而 $\eta$ 的值为 $\pm 1$。这对应于旋转矩阵 $R$ 为单位矩阵的情况，即没有发生旋转。
+
+        这里就可以说明欧拉参数以及四元数解决了等效轴角的问题
 
 
 
@@ -1161,10 +1181,164 @@ $$
 
 ## 正运动学 - 已知角度求末端位姿
 
-### D-H 参数方法
-> 如何从最底部的坐标系，一步步地变换到终端执行器的坐标系上
 
-各个关节变量的函数，描述了工具坐标系相对于基坐标系的位置和姿态
+
+**关节空间 (Joint Space)**:关节空间是通过机器人的关节参数来描述机器人配置的空间。在关节空间中，机器人的每个关节都有一个关联的参数，如角度或距离，这些参数描述了机器人的当前配置。
+在关节空间中，机器人的运动是通过改变关节参数来实现的，例如，改变关节角或关节位置。
+关节空间分析是机器人运动学和控制的基础，它为控制算法和路径规划提供了一个直观的框架。
+
+**笛卡尔空间 (Cartesian Space)**:笛卡尔空间是通过笛卡尔坐标系统来描述机器人末端执行器（例如机器人手或工具）的位置和方向的空间。在笛卡尔空间中，机器人的运动是通过改变末端执行器的位置和方向来实现的，通常使用x, y, z坐标和欧拉角或四元数来描述末端执行器的位置和方向。笛卡尔空间分析为机器人的任务规划和执行提供了一个直观和可视化的框架，它使得能够直接描述和控制机器人在物理世界中的运动。
+
+本章的**正运动学**问题，就是**将关节空间转化到笛卡尔空间**当中去。
+
+我们的目的就是获取机械臂末端相对于机械臂基座的位姿，首先要建立起连杆之间的变换关系，这里比较重要的搞明白连杆坐标系的**建立**以及**变换**（先建立，再变换）
+
+
+### 连体坐标系建立
+我觉得下面这一篇博文图片和解释比较清楚，这里要着重区别一下连杆转角和关节角
+
+[机械臂运动学基础\_关节角和连杆转角的区别-CSDN博客](https://blog.csdn.net/qq_38962956/article/details/124851477)
+
+
+
+
+**坐标系建立规则**(非标准D-HDenavit-Hartenberg方法)
+
+（轴i的方向由设计者给定）
+- 固定在关节轴i上的坐标系命名为坐标系$\{i\}$
+- 坐标系$\{i\}$的Z轴与关节轴i的轴线重合
+- 建立关节轴i和关节轴i+1的公共垂线ai
+- 坐标系$\{i\}$的原点为公共垂线ai与关节轴i轴线的交点
+- 坐标系$\{i\}$的X轴与公共垂线ai重合
+- 根据右手定则确定坐标系$\{i\}$的Y轴
+
+!!! info "机械臂基座和末端坐标系定义"
+    固定在基座和末端的坐标系**可以任意设定方向**，但是要**以问题简化为主**
+    
+    - 例如固定在基座的参考坐标系$\{0\}$的Z0轴与关节轴1方向一致
+    - 例如关节n的坐标系$\{n\}$与坐标系$\{n-1\}$的X轴一致
+
+    这样的$T$中的$R$部分就是一个单位阵，加上一个平移向量即可
+
+
+!!! tip "标准DH和非标准DH的区别"
+    （1）**固连坐标系不同** <br>
+    Stantard DH方法关节i上固连的是i-1坐标系，即坐标系建在连杆的输出端；MDH关节i上固连的是i坐标系，即坐标系建在连杆的输入端。<br>
+    （2）**坐标系变换顺序不同** <br>
+    Stantard DH方法是ZX类变换：先绕着i-1坐标系的的$Z_{i-1}$轴旋转和平移，再绕着坐标系i的$X_i$轴进行旋转和平移；（个人记忆方法：ZYX表示最常用，所以standtard使用这种）<br>
+    Modified DH方法是XZ类变换：先绕着i坐标系的的$X_i$轴旋转和平移，再绕着坐标系i的$Z_i$轴进行旋转和平移；
+
+
+
+
+#### 运动学参量
+
+- 连杆扭转角$\alpha_{i-1}$：绕$X_{i-1}$轴，从$Z_{i-1}$轴旋转到Zi轴的角度
+- 连杆长度$a_{i-1}$：沿$X_{i-1}$轴，从$Z_{i-1}$轴移动到Zi轴的距离（公垂线段为0的时候，当 $a_{i-1} = 0$ 时，我们并不将零长度的 $r_{O_{i-1}P_i}$ 视为传统的零向量，而是在与轴 $i-1$ 和轴 $i$ 同时垂直的方向中选一个作为 $r_{O_{i-1}P_i}$ 的正方向）
+- 关节角$\theta_i$：沿$Z_{i-1}$轴，从$X_{i-1}$轴旋转到$X_i$轴的角度
+- 连杆轴距$d_i$：沿$Z_{i-1}$轴，从$X_{i-1}$轴移动到$X_i$轴的距离
+
+### 连体坐标系变换
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250301174641450.png)
+
+1. 坐标系 $\{i-1\}$ 绕 $X_{i-1}$ 轴旋转连杆扭转角 $\alpha_{i-1}$ 到达坐标系 $\{R\}$
+2. 坐标系 $\{R\}$ 沿着 $X_R$ 轴移动连杆长度 $a_{i-1}$ 到达坐标系 $\{Q\}$
+3. 坐标系 $\{Q\}$ 绕 $Z_Q$ 轴旋转关节角 $\theta_i$ 到达坐标系 $\{P\}$（因为坐标系的方向是根据公垂线段定义的，所以由于下一个关节的方向不一致，所以原来的坐标系转过来的时候，需要向公垂线段的方向旋转一下）
+4. 坐标系 $\{P\}$ 沿着 $Z_P$ 轴移动连杆轴距 $d_i$ 到达坐标系 $\{i\}$
+
+
+$$
+^{i-1}T = \begin{pmatrix}
+1 & 0 & 0 & a_{i-1} \\
+0 & \cos \alpha_{i-1} & -\sin \alpha_{i-1} & 0 \\
+0 & \sin \alpha_{i-1} & \cos \alpha_{i-1} & 0 \\
+0 & 0 & 0 & 1
+\end{pmatrix}
+\begin{pmatrix}
+\cos \theta_i & -\sin \theta_i & 0 & 0 \\
+\sin \theta_i & \cos \theta_i & 0 & 0 \\
+0 & 0 & 1 & d_i \\
+0 & 0 & 0 & 1
+\end{pmatrix}= \begin{pmatrix}
+\cos \theta_i & -\sin \theta_i & 0 & a_{i-1} \\
+\sin \theta_i \cos \alpha_{i-1} & \cos \theta_i \cos \alpha_{i-1} & -\sin \alpha_{i-1} & -\sin \alpha_{i-1} d_i \\
+\sin \theta_i \sin \alpha_{i-1} & \cos \theta_i \sin \alpha_{i-1} & \cos \alpha_{i-1} & \cos \alpha_{i-1} d_i \\
+0 & 0 & 0 & 1
+\end{pmatrix}
+$$
+
+$$
+^0_N\mathrm{T}=_1^0  \mathrm{T}\cdot_2^1  \mathrm{T}\cdot_3^2  \mathrm{T}......_\mathrm{N}^{\mathrm{N}-1}\mathrm{T}
+$$
+
+
+!!! example "例题"
+    === "例1"
+        下图所示为一个3关节串联机械臂，该臂的末端装有吸盘作为操作工具。试在此机构上建立几何连杆、写出各连杆参数的值并列出各关节变量
+        ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250301175836744.png)
+
+        ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250301180836339.png)
+
+    === "例2"
+        采用非标准D-H方法建立如图机器人的连杆联体坐标系
+        ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250301180453199.png)
+
+        ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250301180849138.png)
+
+
+    === "正运动学问题"
+        ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250301181505203.png)
+        ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250301181610985.png)
+
+        如果两个轴是平行的，在化简的时候可以使用和角公式进行化简（相当与把两个旋转变成一个等效的角度）
+
+        $$
+        ^1T_2 = \begin{pmatrix}
+        c\theta_2 & -s\theta_2 & 0 & 0 \\
+        0 & 0 & 1 & 0 \\
+        -s\theta_2 & -c\theta_2 & 0 & 0 \\
+        0 & 0 & 0 & 1
+        \end{pmatrix}
+        $$
+
+        $$
+        ^2T_3 = \begin{pmatrix}
+        c\theta_3 & -s\theta_3 & 0 & a_2 \\
+        s\theta_3 & c\theta_3 & 0 & 0 \\
+        0 & 0 & 1 & d_3 \\
+        0 & 0 & 0 & 1
+        \end{pmatrix}
+        $$
+
+        由于关节2和关节3是平行的，所以 $^1T_2$ 和 $^2T_3$ 的乘积可以用简化的表达式表示：
+
+        $$
+        ^1T_3 = ^1T_2 \cdot ^2T_3 = \begin{pmatrix}
+        c_{23} & -s_{23} & 0 & a_2 c_2 \\
+        0 & 0 & 1 & d_3 \\
+        -s_{23} & -c_{23} & 0 & -a_2 s_2 \\
+        0 & 0 & 0 & 1
+        \end{pmatrix}
+        $$
+
+        其中，$c_{23} = \cos(\theta_2 + \theta_3)$，$s_{23} = \sin(\theta_2 + \theta_3)$。
+        这种简化在机器人运动学中非常有用，尤其是在处理具有平行关节的机械臂时。
+
+
+### 变量与不变量
+- $a_{i-1}$和$\alpha_{i-1}$是固定不变的参数，不会随着 **关节i** 的运动而变化（这里这里说的是关节i和关节$i-1$的关系）
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250301190411843.png)
+> 这样画可能可以理解关节i的行为不会影响之前的关节参数。
+> 而且要注意：**关节的旋转是指绕轴进行转动，而不是轴本身进行转动，第一次看的时候在这里有误区**
+
+
+- 若关节i是转动关节，则$d_i$是固定不变的参数，$\theta_i$是会随着关节i的运动而变化的关节变量，即：3个连杆参数 $a_{i-1}, \alpha_{i-1}, d_i$；1个关节变量 $\theta_i$
+- 若关节i是滑动关节，则$\theta_i$是固定不变的参数，$d_i$是会随着关节i的运动而变化的关节变量，即：3个连杆参数 $a_{i-1}, \alpha_{i-1}, \theta_i$；1个关节变量 $d_i$
+
+- 一个有$N$个关节的串联机构，有$4N$个运动学参量，其中$3N$个是连杆参数、$N$个是关节变量，它们包含了串联机构的全部空间几何信息
+
 
 
 ## 逆运动学 - 已知位姿求解角度
