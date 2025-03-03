@@ -200,6 +200,7 @@ nav:
   - Class/SocialSciences.md
   - Class/马原.md
   - Class/毛概.md
+  - Class/习概.md
   
   - Oral:
     - Class/English/Oral-Practice.md
@@ -219,6 +220,8 @@ nav:
     - Class/Fin/invest.md
     - Class/Fin/invest-stock.md
     - Class/Fin/consulting.md
+    - "微观经济学":
+      - Class/Fin/micro/intro.md
   
   - "行业研习":
     - Class/Fin/industry-analyze.md
@@ -262,12 +265,20 @@ nav:
 
   - "机器人":
     - Robotics/Robo/Robo-00-intro.md
-    - Robotics/Robo/Robo-00-Introduction-to-Robotics.md 
-    - Robotics/Robo/Robo-00-Introduction-to-Robotics-exam.md
-    - Robotics/Robo/Robo-00-model.md
-    - Robotics/Robo/Robo-00-model-control.md
-    - Robotics/Robo/Robo-00-model-review.md
-    - Robotics/Robo/Robo-00-exp-arm.md
+    - "导论":
+      - Robotics/Robo/Robo-00-Introduction-to-Robotics.md 
+      - Robotics/Robo/Robo-00-Introduction-to-Robotics-exam.md
+    - "建模与控制":
+      - Robotics/Robo/Robo-00-model-0-review.md
+      - Robotics/Robo/Robo-00-model-1-Basis.md
+      - Robotics/Robo/Robo-00-model-2-ForwardKinematics.md
+      - Robotics/Robo/Robo-00-model-3-InverseKinematics.md
+      - Robotics/Robo/Robo-00-model-3-Mechanics.md
+      - Robotics/Robo/Robo-00-model-4-TrajectoryPlanning.md
+      - Robotics/Robo/Robo-00-model-5-Dynamics.md
+      - Robotics/Robo/Robo-00-model-6-Control.md
+      - Robotics/Robo/Robo-00-model-7-ForceControl.md
+      - Robotics/Robo/Robo-00-model-exp.md
     - Robotics/Robo/Robo-01-sensor&detection.md
     - Robotics/Robo/Robo-02-0-navigation.md
     - Robotics/Robo/Robo-02-1-localization.md
@@ -283,6 +294,7 @@ nav:
     - Robotics/communication/CC-lora.md
     - Robotics/communication/CC-MQTT.md
     - Robotics/communication/CC-else.md
+    - Robotics/communication/CC-pin.md
     
   
   - "实践记录":
@@ -345,13 +357,6 @@ nav:
       - CS/Statistic/11-anova.md
       - CS/Statistic/12-data_mining.md
       - CS/Statistic/big_data_security&privacy_protection.md
-      - "作业":
-        - Notebook page: Lab02-pro.ipynb
-        - Notebook page: Lab03-st.ipynb
-        - Notebook page: Lab04-numerical_features.ipynb
-        - Notebook page: Lab05-SF.ipynb
-        - Notebook page: Lab06-hypothesis.ipynb
-        - Notebook page: Lab07-linear.ipynb
    
   - "DS | 数据结构":
     - CS/DS/DataStructure.md
@@ -470,6 +475,7 @@ nav:
 - Tools:
   - Tools/Git.md
   - Tools/gdb.md
+  - Tools/R.md
       
   - "效率":
     - Tools/markdown.md

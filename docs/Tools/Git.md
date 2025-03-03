@@ -145,6 +145,17 @@ git push -u origin bugfix/issue-12
 [Git操作详解以及在VScode中的使用](https://zhuanlan.zhihu.com/p/276376558)
 
 
+## 进阶
+### Pre-Commit
+
+[Git技巧：Pre-commit-CSDN博客](https://blog.csdn.net/Topsort/article/details/140965269)
+
+[pre-commit 钩子 中文](https://pre-commit.git-scm.cn/)
+
+### 从零开始造轮子
+
+
+
 
 ## 配置
 
