@@ -273,11 +273,11 @@ nav:
       - Robotics/Robo/Robo-00-model-1-Basis.md
       - Robotics/Robo/Robo-00-model-2-ForwardKinematics.md
       - Robotics/Robo/Robo-00-model-3-InverseKinematics.md
-      - Robotics/Robo/Robo-00-model-3-Mechanics.md
-      - Robotics/Robo/Robo-00-model-4-TrajectoryPlanning.md
-      - Robotics/Robo/Robo-00-model-5-Dynamics.md
-      - Robotics/Robo/Robo-00-model-6-Control.md
-      - Robotics/Robo/Robo-00-model-7-ForceControl.md
+      - Robotics/Robo/Robo-00-model-4-Mechanics.md
+      - Robotics/Robo/Robo-00-model-5-TrajectoryPlanning.md
+      - Robotics/Robo/Robo-00-model-6-Dynamics.md
+      - Robotics/Robo/Robo-00-model-7-Control.md
+      - Robotics/Robo/Robo-00-model-8-ForceControl.md
       - Robotics/Robo/Robo-00-model-exp.md
     - Robotics/Robo/Robo-01-sensor&detection.md
     - Robotics/Robo/Robo-02-0-navigation.md
@@ -476,6 +476,7 @@ nav:
   - Tools/Git.md
   - Tools/gdb.md
   - Tools/R.md
+  - Tools/Makefile.md
       
   - "效率":
     - Tools/markdown.md

@@ -100,6 +100,22 @@ comments: true
 !!! note "反向代理，其实是代理服务器代理了目标服务器，去和客户端进行交互。"
 
 [终于有人把正向代理和反向代理解释的明明白白了！-腾讯云开发者社区-腾讯云](https://cloud.tencent.com/developer/article/1418457)
+### ZJU-Rule
+[新的ZJU-Rule解决方案 - CC98论坛](https://www.cc98.org/topic/5769136/1#1)
+
+
+原ZJU-Rule的公共服务已经停止了，但是我们仍然可以使用一些基于[subconverter](https://github.com/tindy2013/subconverter)的公共订阅转换  
+
+**请注意，使用公共的订阅转换服务不能保证节点信息不被泄漏**  
+
+下面以 [acl4ssr](https://acl4ssr-sub.github.io/) 为例介绍具体怎么使用：  
+
+1. 打开订阅转换网页  
+2. 在远程配置（**不是后端地址**）输入`https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/config/ZJU.ini`，并点击下拉栏中的地址  
+    ![](https://file.cc98.org/v2-upload/2023-12-06/odb0wqux.webp)  
+3. 如果用 [acl4ssr](https://acl4ssr-sub.github.io/) 的话，有个后端地址选项，并不是所有后端口可用，自己试试看  
+4. 剩下的用法就和正常订阅转换没啥区别了
+
 
 ## 静态路由
 

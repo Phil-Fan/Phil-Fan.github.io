@@ -144,8 +144,28 @@ yq琴房拆掉以后，买了电子琴之后，都在宿舍零零散散的练习
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241029135550.png)
 
 
-
 ## 练习曲目
+
+
+### 音程练习
+四度音程
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250305202756519.png)
+
+五度音程
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250305202818530.png)
+
+混合音程
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250305202833732.png)
+### 钟声
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250305202548268.png)
+
+### When the Saints Go Marching In
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250305202649437.png)
+
+
+
+## 练习曲目（陈列老师）
 
 !!! attention "特别注意，所有示范视频均来自《打开艺术之门——钢琴》课程，仅供课程同学学习交流使用，请勿用于其他用途"
 
@@ -308,7 +328,7 @@ yq琴房拆掉以后，买了电子琴之后，都在宿舍零零散散的练习
 
 - 先把左手指法练熟
 
-## 连弹曲目
+## 连弹曲目（陈列老师）
 
 老师会根据期中考试的水平，帮助大家找好分组
 
@@ -387,6 +407,7 @@ yq琴房拆掉以后，买了电子琴之后，都在宿舍零零散散的练习
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241119163728.png)
 
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241119163736.png)
+
 
 
 

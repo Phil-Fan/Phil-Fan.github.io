@@ -281,14 +281,22 @@ required to use pdflatex/xelatex/lualatex.
 
 !!! bug "根路径不是report文件夹怎么办"
 
+```json title="setting"
+"pasteImage.insertPattern": "\\begin{figure}[htbp]\n \\centering\n \\includegraphics[width=0.7\\textwidth]{figure/${imageSyntaxPrefix}${imageFilePath}${imageSyntaxSuffix}}\n \\caption{  }\n \\label{  }\n\\end{figure}"
+```
+```latex title="插入图片"
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.7\textwidth]{${imageSyntaxPrefix}${imageFilePath}${imageSyntaxSuffix}}
+    \caption{  } 
+\end{figure}
+```
 
 
 
 
 
 ## Overleaf | 边学边用的使用指南
-
-
 
 最早是看到98上发的有关latex的帖子，说可以快速高效地写实验报告。也从雪松前辈发的模版中学习到一些latex排版的基础知识。再加上去年《数学软件》短学期老妖的一些小作业的磨炼，可以说对latex的基本用法有了浅薄的了解。这个学期的所有课程作业报告和论文就没有使用过word了（真香啊:laughing:）。
 
