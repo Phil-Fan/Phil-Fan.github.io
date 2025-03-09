@@ -1181,12 +1181,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://www.philfan.cn/Tools/setting-software/</loc>
+         <lastmod>2025-03-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://www.philfan.cn/Tools/settings-macos/</loc>
          <lastmod>2025-03-09</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.philfan.cn/Tools/settings/</loc>
+         <loc>https://www.philfan.cn/Tools/settings-windows/</loc>
          <lastmod>2025-03-09</lastmod>
          <changefreq>daily</changefreq>
     </url>
