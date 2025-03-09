@@ -1,5 +1,8 @@
 # PWN
 ## 简介
+
+!!! note "笔记来源: 短学期课程ppt,请注意鉴别"
+
 !!! note "PWN"
     PWN = Find the Bugs + Exploit them
     

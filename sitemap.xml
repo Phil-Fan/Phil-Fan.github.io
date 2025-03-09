@@ -681,6 +681,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://www.philfan.cn/Class/Books/strategy/</loc>
+         <lastmod>2025-03-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://www.philfan.cn/Class/English/IELTS/</loc>
          <lastmod>2025-03-09</lastmod>
          <changefreq>daily</changefreq>
@@ -1141,11 +1146,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.philfan.cn/Tools/R/</loc>
-         <lastmod>2025-03-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://www.philfan.cn/Tools/design/</loc>
          <lastmod>2025-03-09</lastmod>
          <changefreq>daily</changefreq>
@@ -1181,12 +1181,12 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.philfan.cn/Tools/setting-software/</loc>
+         <loc>https://www.philfan.cn/Tools/settings-macos/</loc>
          <lastmod>2025-03-09</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.philfan.cn/Tools/settings-macos/</loc>
+         <loc>https://www.philfan.cn/Tools/settings-software/</loc>
          <lastmod>2025-03-09</lastmod>
          <changefreq>daily</changefreq>
     </url>
