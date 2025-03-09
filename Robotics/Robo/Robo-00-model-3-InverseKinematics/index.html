@@ -7,10 +7,10 @@
 <meta content="PhilFan" name="author"/>
 <link href="https://www.philfan.cn/Robotics/Robo/Robo-00-model-3-InverseKinematics/" rel="canonical"/>
 <link href="../Robo-00-model-2-ForwardKinematics/" rel="prev"/>
-<link href="../Robo-00-model-3-Mechanics/" rel="next"/>
+<link href="../Robo-00-model-4-Mechanics/" rel="next"/>
 <link href="../../../logo.ico" rel="icon"/>
 <meta content="mkdocs-1.6.0, mkdocs-material-9.5.31" name="generator"/>
-<title>逆运动学 - 已知位姿求解角度 - PhilFan's Notebook</title>
+<title>03 | 逆运动学 - 已知位姿求解角度 - PhilFan's Notebook</title>
 <link href="../../../assets/stylesheets/main.3cba04c6.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1 7.775V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 0 1 0 2.474l-5.026 5.026a1.75 1.75 0 0 1-2.474 0l-6.25-6.25A1.752 1.752 0 0 1 1 7.775Zm1.5 0c0 .066.026.13.073.177l6.25 6.25a.25.25 0 0 0 .354 0l5.025-5.025a.25.25 0 0 0 0-.354l-6.25-6.25a.25.25 0 0 0-.177-.073H2.75a.25.25 0 0 0-.25.25ZM6 5a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"/></svg>');--md-admonition-icon--abstract:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.5 1.75v11.5c0 .138.112.25.25.25h3.17a.75.75 0 0 1 0 1.5H2.75A1.75 1.75 0 0 1 1 13.25V1.75C1 .784 1.784 0 2.75 0h8.5C12.216 0 13 .784 13 1.75v7.736a.75.75 0 0 1-1.5 0V1.75a.25.25 0 0 0-.25-.25h-8.5a.25.25 0 0 0-.25.25Zm13.274 9.537v-.001l-4.557 4.45a.75.75 0 0 1-1.055-.008l-1.943-1.95a.75.75 0 0 1 1.062-1.058l1.419 1.425 4.026-3.932a.75.75 0 1 1 1.048 1.074ZM4.75 4h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM4 7.75A.75.75 0 0 1 4.75 7h2a.75.75 0 0 1 0 1.5h-2A.75.75 0 0 1 4 7.75Z"/></svg>');--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/></svg>');--md-admonition-icon--tip:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.499.75a.75.75 0 0 1 1.5 0v.996C5.9 2.903 6.793 3.65 7.662 4.376l.24.202c-.036-.694.055-1.422.426-2.163C9.1.873 10.794-.045 12.622.26 14.408.558 16 1.94 16 4.25c0 1.278-.954 2.575-2.44 2.734l.146.508.065.22c.203.701.412 1.455.476 2.226.142 1.707-.4 3.03-1.487 3.898C11.714 14.671 10.27 15 8.75 15h-6a.75.75 0 0 1 0-1.5h1.376a4.484 4.484 0 0 1-.563-1.191 3.835 3.835 0 0 1-.05-2.063 4.647 4.647 0 0 1-2.025-.293.75.75 0 0 1 .525-1.406c1.357.507 2.376-.006 2.698-.318l.009-.01a.747.747 0 0 1 1.06 0 .748.748 0 0 1-.012 1.074c-.912.92-.992 1.835-.768 2.586.221.74.745 1.337 1.196 1.621H8.75c1.343 0 2.398-.296 3.074-.836.635-.507 1.036-1.31.928-2.602-.05-.603-.216-1.224-.422-1.93l-.064-.221c-.12-.407-.246-.84-.353-1.29a2.425 2.425 0 0 1-.507-.441 3.075 3.075 0 0 1-.633-1.248.75.75 0 0 1 1.455-.364c.046.185.144.436.31.627.146.168.353.305.712.305.738 0 1.25-.615 1.25-1.25 0-1.47-.95-2.315-2.123-2.51-1.172-.196-2.227.387-2.706 1.345-.46.92-.27 1.774.019 3.062l.042.19a.884.884 0 0 1 .01.05c.348.443.666.949.94 1.553a.75.75 0 1 1-1.365.62c-.553-1.217-1.32-1.94-2.3-2.768L6.7 5.527c-.814-.68-1.75-1.462-2.692-2.619a3.737 3.737 0 0 0-1.023.88c-.406.495-.663 1.036-.722 1.508.116.122.306.21.591.239.388.038.797-.06 1.032-.19a.75.75 0 0 1 .728 1.31c-.515.287-1.23.439-1.906.373-.682-.067-1.473-.38-1.879-1.193L.75 5.677V5.5c0-.984.48-1.94 1.077-2.664.46-.559 1.05-1.055 1.673-1.353V.75Z"/></svg>');--md-admonition-icon--success:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"/></svg>');--md-admonition-icon--question:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.92 6.085h.001a.749.749 0 1 1-1.342-.67c.169-.339.436-.701.849-.977C6.845 4.16 7.369 4 8 4a2.756 2.756 0 0 1 1.637.525c.503.377.863.965.863 1.725 0 .448-.115.83-.329 1.15-.205.307-.47.513-.692.662-.109.072-.22.138-.313.195l-.006.004a6.24 6.24 0 0 0-.26.16.952.952 0 0 0-.276.245.75.75 0 0 1-1.248-.832c.184-.264.42-.489.692-.661.103-.067.207-.132.313-.195l.007-.004c.1-.061.182-.11.258-.161a.969.969 0 0 0 .277-.245C8.96 6.514 9 6.427 9 6.25a.612.612 0 0 0-.262-.525A1.27 1.27 0 0 0 8 5.5c-.369 0-.595.09-.74.187a1.01 1.01 0 0 0-.34.398ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>');--md-admonition-icon--warning:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>');--md-admonition-icon--failure:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.344 2.343h-.001a8 8 0 0 1 11.314 11.314A8.002 8.002 0 0 1 .234 10.089a8 8 0 0 1 2.11-7.746Zm1.06 10.253a6.5 6.5 0 1 0 9.108-9.275 6.5 6.5 0 0 0-9.108 9.275ZM6.03 4.97 8 6.94l1.97-1.97a.749.749 0 0 1 1.275.326.749.749 0 0 1-.215.734L9.06 8l1.97 1.97a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L8 9.06l-1.97 1.97a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734L6.94 8 4.97 6.03a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018Z"/></svg>');--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M9.504.43a1.516 1.516 0 0 1 2.437 1.713L10.415 5.5h2.123c1.57 0 2.346 1.909 1.22 3.004l-7.34 7.142a1.249 1.249 0 0 1-.871.354h-.302a1.25 1.25 0 0 1-1.157-1.723L5.633 10.5H3.462c-1.57 0-2.346-1.909-1.22-3.004L9.503.429Zm1.047 1.074L3.286 8.571A.25.25 0 0 0 3.462 9H6.75a.75.75 0 0 1 .694 1.034l-1.713 4.188 6.982-6.793A.25.25 0 0 0 12.538 7H9.25a.75.75 0 0 1-.683-1.06l2.008-4.418.003-.006a.036.036 0 0 0-.004-.009l-.006-.006-.008-.001c-.003 0-.006.002-.009.004Z"/></svg>');--md-admonition-icon--bug:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M4.72.22a.75.75 0 0 1 1.06 0l1 .999a3.488 3.488 0 0 1 2.441 0l.999-1a.748.748 0 0 1 1.265.332.75.75 0 0 1-.205.729l-.775.776c.616.63.995 1.493.995 2.444v.327c0 .1-.009.197-.025.292.408.14.764.392 1.029.722l1.968-.787a.75.75 0 0 1 .556 1.392L13 7.258V9h2.25a.75.75 0 0 1 0 1.5H13v.5c0 .409-.049.806-.141 1.186l2.17.868a.75.75 0 0 1-.557 1.392l-2.184-.873A4.997 4.997 0 0 1 8 16a4.997 4.997 0 0 1-4.288-2.427l-2.183.873a.75.75 0 0 1-.558-1.392l2.17-.868A5.036 5.036 0 0 1 3 11v-.5H.75a.75.75 0 0 1 0-1.5H3V7.258L.971 6.446a.75.75 0 0 1 .558-1.392l1.967.787c.265-.33.62-.583 1.03-.722a1.677 1.677 0 0 1-.026-.292V4.5c0-.951.38-1.814.995-2.444L4.72 1.28a.75.75 0 0 1 0-1.06Zm.53 6.28a.75.75 0 0 0-.75.75V11a3.5 3.5 0 1 0 7 0V7.25a.75.75 0 0 0-.75-.75ZM6.173 5h3.654A.172.172 0 0 0 10 4.827V4.5a2 2 0 1 0-4 0v.327c0 .096.077.173.173.173Z"/></svg>');--md-admonition-icon--example:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M5 5.782V2.5h-.25a.75.75 0 0 1 0-1.5h6.5a.75.75 0 0 1 0 1.5H11v3.282l3.666 5.76C15.619 13.04 14.543 15 12.767 15H3.233c-1.776 0-2.852-1.96-1.899-3.458Zm-2.4 6.565a.75.75 0 0 0 .633 1.153h9.534a.75.75 0 0 0 .633-1.153L12.225 10.5h-8.45ZM9.5 2.5h-3V6c0 .143-.04.283-.117.403L4.73 9h6.54L9.617 6.403A.746.746 0 0 1 9.5 6Z"/></svg>');--md-admonition-icon--quote:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1.75 2.5h10.5a.75.75 0 0 1 0 1.5H1.75a.75.75 0 0 1 0-1.5Zm4 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5ZM2.5 7.75v6a.75.75 0 0 1-1.5 0v-6a.75.75 0 0 1 1.5 0Z"/></svg>');}</style>
@@ -33,7 +33,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#-">
+<a class="md-skip" href="#03-">
           跳转至
         </a>
 </div>
@@ -57,7 +57,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              逆运动学 - 已知位姿求解角度
+              03 | 逆运动学 - 已知位姿求解角度
             
           </span>
 </div>
@@ -817,21 +817,21 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../Robo-00-model-0-review/">
 <span class="md-ellipsis">
-    机器人建模与控制
+    大纲
   </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../Robo-00-model-1-Basis/">
 <span class="md-ellipsis">
-    空间描述与变换
+    01 | 空间描述与变换
   </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../Robo-00-model-2-ForwardKinematics/">
 <span class="md-ellipsis">
-    正运动学 - 已知角度求末端位姿
+    02 | 正运动学 - 已知角度求末端位姿
   </span>
 </a>
 </li>
@@ -839,13 +839,13 @@
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
 <label class="md-nav__link md-nav__link--active" for="__toc">
 <span class="md-ellipsis">
-    逆运动学 - 已知位姿求解角度
+    03 | 逆运动学 - 已知位姿求解角度
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
 <a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
-    逆运动学 - 已知位姿求解角度
+    03 | 逆运动学 - 已知位姿求解角度
   </span>
 </a>
 <nav aria-label="目录" class="md-nav md-nav--secondary">
@@ -869,24 +869,38 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_3">
+<a class="md-nav__link" href="#-">
 <span class="md-ellipsis">
-      解析法
+      解析（代数）法 - 解析表达式表出
     </span>
 </a>
-<nav aria-label="解析法" class="md-nav">
+<nav aria-label="解析（代数）法 - 解析表达式表出" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#-_1">
+<a class="md-nav__link" href="#_3">
 <span class="md-ellipsis">
-      代数法 - 解析表达式表出
+      基础代数
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#-_2">
+<a class="md-nav__link" href="#_4">
 <span class="md-ellipsis">
-      几何法 - 引入几何方法
+      三角函数方程式
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#3-pieper">
+<span class="md-ellipsis">
+      3轴相交 PIEPER解法
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#puma560">
+<span class="md-ellipsis">
+      PUMA560的一种代数方法
     </span>
 </a>
 </li>
@@ -894,7 +908,14 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#-_3">
+<a class="md-nav__link" href="#-_1">
+<span class="md-ellipsis">
+      几何法 - 引入几何方法
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#-_2">
 <span class="md-ellipsis">
       数值法 - 有限元或者数值逼近
     </span>
@@ -904,37 +925,37 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../Robo-00-model-3-Mechanics/">
+<a class="md-nav__link" href="../Robo-00-model-4-Mechanics/">
 <span class="md-ellipsis">
-    速度与静力
+    04 | 速度与静力
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../Robo-00-model-4-TrajectoryPlanning/">
+<a class="md-nav__link" href="../Robo-00-model-5-TrajectoryPlanning/">
 <span class="md-ellipsis">
-    轨迹规划（Trajectory Planning）
+    05 | 轨迹规划
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../Robo-00-model-5-Dynamics/">
+<a class="md-nav__link" href="../Robo-00-model-6-Dynamics/">
 <span class="md-ellipsis">
-    动力学（Dynamics）
+    06 | 动力学
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../Robo-00-model-6-Control/">
+<a class="md-nav__link" href="../Robo-00-model-7-Control/">
 <span class="md-ellipsis">
-    运动控制（Motion Control）
+    06 | 运动控制
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../Robo-00-model-7-ForceControl/">
+<a class="md-nav__link" href="../Robo-00-model-8-ForceControl/">
 <span class="md-ellipsis">
-    力控制（Force Control）
+    力控制
   </span>
 </a>
 </li>
@@ -2401,16 +2422,23 @@
   </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Tools/Makefile/">
+<span class="md-ellipsis">
+    Makefile
+  </span>
+</a>
+</li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_5_4" type="checkbox"/>
-<label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+<input class="md-nav__toggle md-toggle" id="__nav_5_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="0">
 <span class="md-ellipsis">
     效率
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="false" aria-labelledby="__nav_5_4_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_5_4">
+<nav aria-expanded="false" aria-labelledby="__nav_5_5_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_5">
 <span class="md-nav__icon md-icon"></span>
             效率
           </label>
@@ -2981,24 +3009,38 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_3">
+<a class="md-nav__link" href="#-">
 <span class="md-ellipsis">
-      解析法
+      解析（代数）法 - 解析表达式表出
     </span>
 </a>
-<nav aria-label="解析法" class="md-nav">
+<nav aria-label="解析（代数）法 - 解析表达式表出" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#-_1">
+<a class="md-nav__link" href="#_3">
 <span class="md-ellipsis">
-      代数法 - 解析表达式表出
+      基础代数
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#-_2">
+<a class="md-nav__link" href="#_4">
 <span class="md-ellipsis">
-      几何法 - 引入几何方法
+      三角函数方程式
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#3-pieper">
+<span class="md-ellipsis">
+      3轴相交 PIEPER解法
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#puma560">
+<span class="md-ellipsis">
+      PUMA560的一种代数方法
     </span>
 </a>
 </li>
@@ -3006,7 +3048,14 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#-_3">
+<a class="md-nav__link" href="#-_1">
+<span class="md-ellipsis">
+      几何法 - 引入几何方法
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#-_2">
 <span class="md-ellipsis">
       数值法 - 有限元或者数值逼近
     </span>
@@ -3019,9 +3068,9 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<div><h1 id="-">逆运动学<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>已知位姿求解角度<a class="headerlink" href="#-" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h1>
+<div><h1 id="03-"><span>03 |<span class="heti-spacing"> </span></span>逆运动学<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>已知位姿求解角度<a class="headerlink" href="#03-" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>1115<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>4<span class="heti-spacing"> </span></span>分钟</p>
+<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>3110<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>12<span class="heti-spacing"> </span></span>分钟</p>
 </div>
 <h2 id="_1">数学基础：三角变换<a class="headerlink" href="#_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:7"><input checked="" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><input id="__tabbed_1_3" name="__tabbed_1" type="radio"/><input id="__tabbed_1_4" name="__tabbed_1" type="radio"/><input id="__tabbed_1_5" name="__tabbed_1" type="radio"/><input id="__tabbed_1_6" name="__tabbed_1" type="radio"/><input id="__tabbed_1_7" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">诱导公式</label><label for="__tabbed_1_2">和角公式</label><label for="__tabbed_1_3">倍角公式</label><label for="__tabbed_1_4">半角公式</label><label for="__tabbed_1_5">和差化积公式</label><label for="__tabbed_1_6">万能公式</label><label for="__tabbed_1_7">辅助角公式</label></div>
@@ -3054,12 +3103,11 @@
 </ul>
 </div>
 <div class="tabbed-block">
-<ul>
-<li><span><span class="arithmatex">\(\sin\alpha+\sin\beta = 2\sin\frac{\alpha + \beta}{2}\cos\frac{\alpha - \beta}{2}\)</span><span class="heti-spacing"> </span></span>帅<span class="heti-skip"><span class="heti-spacing"> </span>+<span class="heti-spacing"> </span></span>帅<span class="heti-skip"><span class="heti-spacing"> </span>=<span class="heti-spacing"> </span></span>帅哥</li>
-<li><span><span class="arithmatex">\(\sin\alpha-\sin\beta = 2\cos\frac{\alpha + \beta}{2}\sin\frac{\alpha - \beta}{2}\)</span><span class="heti-spacing"> </span></span>帅<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>帅<span class="heti-skip"><span class="heti-spacing"> </span>=<span class="heti-spacing"> </span></span>哥帅</li>
-<li><span><span class="arithmatex">\(\cos\alpha+\cos\beta = 2\cos\frac{\alpha + \beta}{2}\cos\frac{\alpha - \beta}{2}\)</span><span class="heti-spacing"> </span></span>哥<span class="heti-skip"><span class="heti-spacing"> </span>+<span class="heti-spacing"> </span></span>哥<span class="heti-skip"><span class="heti-spacing"> </span>=<span class="heti-spacing"> </span></span>哥哥</li>
-<li><span><span class="arithmatex">\(\cos\alpha-\cos\beta=-2\sin\frac{\alpha + \beta}{2}\sin\frac{\alpha - \beta}{2}\)</span><span class="heti-spacing"> </span></span>哥<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>哥<span class="heti-skip"><span class="heti-spacing"> </span>=<span class="heti-spacing"> </span></span>负嫂嫂</li>
-</ul>
+<p>高中搜到一个口诀感觉特别形象，这里记一下
+- <span class="arithmatex">\(\sin\alpha+\sin\beta = 2\sin\frac{\alpha + \beta}{2}\cos\frac{\alpha - \beta}{2}\)</span>  帅+帅 = 帅哥
+- <span class="arithmatex">\(\sin\alpha-\sin\beta = 2\cos\frac{\alpha + \beta}{2}\sin\frac{\alpha - \beta}{2}\)</span> 帅-帅 = 哥帅
+- <span class="arithmatex">\(\cos\alpha+\cos\beta = 2\cos\frac{\alpha + \beta}{2}\cos\frac{\alpha - \beta}{2}\)</span> 哥+哥 = 哥哥
+- <span class="arithmatex">\(\cos\alpha-\cos\beta=-2\sin\frac{\alpha + \beta}{2}\sin\frac{\alpha - \beta}{2}\)</span> 哥-哥 = 负嫂嫂</p>
 </div>
 <div class="tabbed-block">
 <ul>
@@ -3083,7 +3131,6 @@
 <li><span class="arithmatex">\(b^{2}=a^{2}+c^{2}-2ac\cos B\)</span></li>
 <li><span class="arithmatex">\(c^{2}=a^{2}+b^{2}-2ab\cos C\)</span></li>
 </ul>
-<p>##</p>
 <p>给定工具坐标系的位置和姿态，解算出个各关节变量</p>
 <details class="info">
 <summary>自由度<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>刚体本身具有可独立运动方向的数目</summary>
@@ -3103,26 +3150,241 @@ l为连杆数（包括基座），n为关节总数，f_i为第i个关节的自�
 <p>想想开门时拧钥匙的动作，这个情况下是人胳膊的末端机构（手）的三维位置没有变（始终在钥匙孔前<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，但是末端机构（手）的三维旋转变了（转动了钥匙<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。人能够实现这个简单的动作，就是因为我们的胳膊有<span class="heti-skip"><span class="heti-spacing"> </span>7<span class="heti-spacing"> </span></span>个自由度。</p>
 </blockquote>
 </details>
-<p>工作空间：机械臂末端执行器所能到达的范围。
-灵巧工作空间：机械臂末端执行器能够从各个方向到达的空间区域。
-可达工作空间：机械臂末端执行器至少从一个方向上可以到达的空间。</p>
+<ul>
+<li>工作空间：机械臂末端执行器所能到达的范围。</li>
+<li><strong>灵巧工作空间</strong>：机械臂末端执行器能够从各个方向到达的空间区域。</li>
+<li><strong>可达工作空间</strong>：机械臂末端执行器至少从一个方向上可以到达的空间。</li>
+</ul>
 <blockquote>
 <p>通常机械臂的关节越多，机械臂的自由度就越高，那么可达工作空间往往就越大，当机械臂少于<span class="heti-skip"><span class="heti-spacing"> </span>6<span class="heti-spacing"> </span></span>个自由度时，它就不能达到三维空间内一般的目标点。</p>
 </blockquote>
+<div class="admonition question">
+<p class="admonition-title">如何描述工作空间</p>
+</div>
 <h2 id="_2">解存在性与选择<a class="headerlink" href="#_2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p><span><span class="arithmatex">\(^0_6 \!T\)</span><span class="heti-spacing"> </span></span>自由度为<span><span class="heti-spacing"> </span>6</span>，<span>12<span class="heti-spacing"> </span></span>个</p>
 <p>由于是<span class="heti-skip"><span class="heti-spacing"> </span>nonlinear transcendental equations(<span class="heti-spacing"> </span></span>非线性超越方程组<span class="heti-skip"><span class="heti-spacing"> </span>)<span class="heti-spacing"> </span></span>问题，<span>6<span class="heti-spacing"> </span></span>未知数<span class="heti-skip"><span class="heti-spacing"> </span>6<span class="heti-spacing"> </span></span>方程式不代表具有唯一解。</p>
-<h2 id="_3">解析法<a class="headerlink" href="#_3" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<p>若同一位姿有多个解，系统最终只能选择一个解，比较合理的一种选择是取“最短行程”解</p>
+<p>计算最短行程需要加权，使得选择侧重于移动小连杆而不是移动大连杆</p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250304115453821.png"/></p>
+<p>这四个姿态位姿都相同，每种手部都有<span class="heti-skip"><span class="heti-spacing"> </span>2<span class="heti-spacing"> </span></span>种</p>
+<h2 id="-">解析（代数）法<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>解析表达式表出<a class="headerlink" href="#-" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p><a href="https://zhuanlan.zhihu.com/p/450749372">机器人的运动学解——逆向运动学解<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>知乎</a></p>
-<h3 id="-_1">代数法<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>解析表达式表出<a class="headerlink" href="#-_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<h3 id="-_2">几何法<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>引入几何方法<a class="headerlink" href="#-_2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<h2 id="-_3">数值法<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>有限元或者数值逼近<a class="headerlink" href="#-_3" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2></div>
+<h3 id="_3">基础代数<a class="headerlink" href="#_3" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<div class="admonition tip">
+<p class="admonition-title">核心思想：同一变量不同表出列方程</p>
+</div>
+<h4 id="1-3">例<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>基础的平面<span class="heti-skip"><span class="heti-spacing"> </span>3<span class="heti-spacing"> </span></span>自由度机械臂<a class="headerlink" href="#1-3" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250304120406684.png"/></p>
+<p>该操作臂的逆运动学问题可描述为：</p>
+<div class="arithmatex">\[
+{}^0_3 \mathbf{T} = \begin{pmatrix}
+c_{123} &amp; -s_{123} &amp; 0 &amp; l_1 c_1 + l_2 c_{12} \\
+s_{123} &amp; c_{123} &amp; 0 &amp; l_1 s_1 + l_2 s_{12} \\
+0 &amp; 0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 1
+\end{pmatrix} = \begin{pmatrix}
+c_{\phi} &amp; -s_{\phi} &amp; 0 &amp; x \\
+s_{\phi} &amp; c_{\phi} &amp; 0 &amp; y \\
+0 &amp; 0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 1
+\end{pmatrix}
+\]</div>
+<p>得到四个非线性方程：</p>
+<div class="arithmatex">\[
+\begin{cases}
+x = l_1 c_1 + l_2 c_{12} \\
+y = l_1 s_1 + l_2 s_{12}
+\end{cases}
+\]</div>
+<p>其中：</p>
+<div class="arithmatex">\[
+\begin{cases}
+c_{\phi} = c_{123} \\
+s_{\phi} = s_{123}
+\end{cases}
+\]</div>
+<p>推导得到：</p>
+<div class="arithmatex">\[
+x^2 + y^2 = l_1^2 + l_2^2 + 2l_1 l_2 (c_1 c_{12} + s_1 s_{12})\\
+= l_1^2 + l_2^2 + 2l_1 l_2 (c_1^2 c_2 - c_1 s_1 s_2 + s_1^2 c_2 + s_1 c_1 s_2)\\
+= l_1^2 + l_2^2 + 2l_1 l_2 c_2\\
+c_2 = \frac{x^2 + y^2 - l_1^2 - l_2^2}{2l_1 l_2}
+\]</div>
+<p>若<span><span class="heti-spacing"> </span><span class="arithmatex">\(-1 \leq c_2 \leq 1\)</span></span>，上式有解；否则无解。</p>
+<p>若上式有解，则：</p>
+<div class="arithmatex">\[
+s_2 = \pm \sqrt{1 - c_2^2} \quad, \quad \theta_2 = \arctan 2(s_2, c_2)
+\]</div>
+<p>得到<span class="heti-skip"><span class="heti-spacing"> </span>2<span class="heti-spacing"> </span></span>个可行的<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\theta_2\)</span>(<span class="heti-spacing"> </span></span>肘上形和肘下形<span><span class="heti-spacing"> </span>)</span></p>
+<h3 id="_4">三角函数方程式<a class="headerlink" href="#_4" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<div class="admonition note">
+<p class="admonition-title"><span><span class="arithmatex">\(n\)</span><span class="heti-spacing"> </span></span>不大于<span class="heti-skip"><span class="heti-spacing"> </span>4<span class="heti-spacing"> </span></span>时，一元<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(n\)</span><span class="heti-spacing"> </span></span>次方程有封闭形式的解</p>
+<p>有些情况下可将超越方程化为一元<span class="heti-skip"><span class="heti-spacing"> </span>n<span class="heti-spacing"> </span></span>次方程</p>
+</div>
+<p>例：求解超越方程<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(a \cos \theta + b \sin \theta = c\)</span><span class="heti-spacing"> </span></span>的<span><span class="heti-spacing"> </span><span class="arithmatex">\(\theta\)</span></span></p>
+<p>解：利用</p>
+<div class="arithmatex">\[
+\cos \theta = \frac{1 - u^2}{1 + u^2} \quad , \quad \sin \theta = \frac{2u}{1 + u^2}
+\]</div>
+<p>得到</p>
+<div class="arithmatex">\[
+a(1 - u^2) + 2bu = c(1 + u^2)\\
+(a + c)u^2 - 2bu + (c - a) = 0
+\]</div>
+<p>得到</p>
+<div class="arithmatex">\[
+u = \frac{b \pm \sqrt{b^2 + a^2 - c^2}}{a + c} \quad , \quad \theta = 2 \arctan \left( \frac{b \pm \sqrt{b^2 + a^2 - c^2}}{a + c} \right)
+\]</div>
+<p>如果<span><span class="heti-spacing"> </span><span class="arithmatex">\(a + c = 0\)</span></span>，那么<span><span class="heti-spacing"> </span><span class="arithmatex">\(\theta = 180^\circ\)</span></span></p>
+<h3 id="3-pieper"><span>3<span class="heti-spacing"> </span></span>轴相交<span class="heti-skip"><span class="heti-spacing"> </span>PIEPER<span class="heti-spacing"> </span></span>解法<a class="headerlink" href="#3-pieper" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>具有<span class="heti-skip"><span class="heti-spacing"> </span>6<span class="heti-spacing"> </span></span>个旋转关节的操作臂存在封闭解的充分条件是相邻的三个关节
+轴线相交于一点</p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250304120834902.png"/></p>
+<p>当最后<span class="heti-skip"><span class="heti-spacing"> </span>3<span class="heti-spacing"> </span></span>根轴相交时，连杆坐标系<span><span class="heti-spacing"> </span>{4}</span>、{5}、<span>{6}<span class="heti-spacing"> </span></span>的原点均位于这个交点上<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>齐次变换矩阵当中的<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\vec{P}\)</span><span class="heti-spacing"> </span></span>是一个值，但是<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\mathbb{R}\)</span><span class="heti-spacing"> </span></span>是不一样的<span><span class="heti-spacing"> </span>)</span>，这点的基坐标为：</p>
+<div class="arithmatex">\[
+\begin{pmatrix} x \\ y \\ z \\ 1 \end{pmatrix} = {}^0_1 \mathbf{T} {}^1_2 \mathbf{T} {}^2_3 \mathbf{T} \begin{pmatrix} {}^3 \mathbf{O}_4 \\ 1 \end{pmatrix}
+\]</div>
+<p>其中：</p>
+<div class="arithmatex">\[
+\begin{pmatrix} {}^2 \mathbf{O}_4 \\ 1 \end{pmatrix} = {}^2 \mathbf{T} \begin{pmatrix} {}^3 \mathbf{O}_4 \\ 1 \end{pmatrix} = \begin{pmatrix} c \theta_3 &amp; -s \theta_3 &amp; 0 &amp; a_2 \\ s \theta_3 c \alpha_2 &amp; c \theta_3 c \alpha_2 &amp; -s \alpha_2 &amp; -s \alpha_2 d_3 \\ s \theta_3 s \alpha_2 &amp; c \theta_3 s \alpha_2 &amp; c \alpha_2 &amp; c \alpha_2 d_3 \\ 0 &amp; 0 &amp; 0 &amp; 1 \end{pmatrix} \begin{pmatrix} f_1(\theta_3) \\ f_2(\theta_3) \\ f_3(\theta_3) \\ 1 \end{pmatrix}
+\]</div>
+<p>其中：</p>
+<div class="arithmatex">\[
+\begin{align}
+f_1 &amp;= f_1(\theta_3) = a_3 c_3 + d_4 s \alpha_3 s_3 + a_2\\
+f_2 &amp;= f_2(\theta_3) = a_3 c \alpha_2 s_3 - d_4 s \alpha_2 c \alpha_3 c_3 - d_4 s \alpha_2 c \alpha_3 s \alpha_3 - d_3 s \alpha_2\\
+f_3 &amp;= f_3(\theta_3) = a_3 s \alpha_2 s_3 - d_4 s \alpha_2 s \alpha_2 c \alpha_3 + d_4 c \alpha_2 c \alpha_3 + d_3 c \alpha_2
+\end{align}
+\]</div>
+<p>利用<span><span class="heti-spacing"> </span><span class="arithmatex">\({}^0_1 \mathbf{T}\)</span></span>，<span class="arithmatex">\({}^1_2 \mathbf{T}\)</span>，得到：</p>
+<div class="arithmatex">\[
+\begin{pmatrix} {}^1 \mathbf{O}_4 \\ 1 \end{pmatrix} = {}^1_2 \mathbf{T} \begin{pmatrix} {}^2 \mathbf{O}_4 \\ 1 \end{pmatrix} = \begin{pmatrix} c \theta_2 &amp; -s \theta_2 &amp; 0 &amp; a_1 \\ s \theta_2 c \alpha_1 &amp; c \theta_2 c \alpha_1 &amp; -s \alpha_1 &amp; -s \alpha_1 d_2 \\ s \theta_2 s \alpha_1 &amp; c \theta_2 s \alpha_1 &amp; c \alpha_1 &amp; c \alpha_1 d_2 \\ 0 &amp; 0 &amp; 0 &amp; 1 \end{pmatrix} \begin{pmatrix} g_1(\theta_2, \theta_3) \\ g_2(\theta_2, \theta_3) \\ g_3(\theta_2, \theta_3) \\ 1 \end{pmatrix}
+\]</div>
+<p>其中：</p>
+<div class="arithmatex">\[
+\begin{align}
+g_1 &amp;= g_1(\theta_2, \theta_3) = c_2 f_1 - s_2 f_2 + a_1\\
+g_2 &amp;= g_2(\theta_2, \theta_3) = s_2 c \alpha_1 f_1 + c_2 c \alpha_1 f_2 - s \alpha_1 f_3 - d_2 s \alpha_1\\
+g_3 &amp;= g_3(\theta_2, \theta_3) = s_2 s \alpha_1 f_1 + c_2 s \alpha_1 f_2 + c \alpha_1 f_3 + d_2 c \alpha_1
+\end{align}
+\]</div>
+<p>令：</p>
+<div class="arithmatex">\[
+\begin{align}
+r &amp;= x^2 + y^2 + z^2 \\
+&amp;= (c_1 g_1 - s_1 g_2)^2 + (s_1 g_1 + c_1 g_2)^2 + g_3^2\\
+&amp;= g_1^2 + g_2^2 + g_3^2 = f_1^2 + f_2^2 + f_3^2 + a_1^2 + d_2^2 + 2a_1(c_2 f_1 - s_2 f_2)
+\end{align}
+\]</div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="" id="__tabbed_2_1" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="__tabbed_2_1">求解<span><span class="heti-spacing"> </span><span class="arithmatex">\(\theta_3\)</span></span></label></div>
+<div class="tabbed-content">
+<div class="tabbed-block"></div>
+</div>
+</div>
+<p>简化表达，得到：</p>
+<div class="arithmatex">\[
+r = (k_1 c_2 + k_2 s_2) 2a_1 + k_3, z = (k_1 s_2 - k_2 c_2) s \alpha_1 + k_4
+\]</div>
+<p>其中：</p>
+<div class="arithmatex">\[
+\begin{align}
+k_1 &amp;= f_1\\
+k_2 &amp;= -f_2\\
+k_3 &amp;= f_1^2 + f_2^2 + f_3^2 + a_1^2 + d_2^2 + 2d_2 f_3\\
+k_4 &amp;= f_3 c \alpha_1 + d_2 c \alpha_1
+\end{align}
+\]</div>
+<ol>
+<li><strong>若<span><span class="heti-spacing"> </span><span class="arithmatex">\(a_1 = 0\)</span></span></strong>，则：</li>
+</ol>
+<div class="arithmatex">\[
+r = k_3 = f_1^2 + f_2^2 + f_3^2 + a_1^2 + d_2^2 + 2d_2 f_3
+\]</div>
+<p>注意到：</p>
+<div class="arithmatex">\[
+\begin{align}
+f_1 &amp;= f_1(\theta_3) = a_3 c_3 + d_4 s \alpha_3 s_3 + a_2\\
+f_2 &amp;= f_2(\theta_3) = a_3 s \alpha_2 s_3 - d_4 s \alpha_2 c \alpha_3 c_3 - d_4 s \alpha_2 c \alpha_3 s \alpha_3 - d_3 s \alpha_2\\
+f_3 &amp;= f_3(\theta_3) = a_3 s \alpha_2 s_3 - d_4 s \alpha_2 s \alpha_2 c \alpha_3 + d_4 c \alpha_2 c \alpha_3 + d_3 c \alpha_2
+\end{align}
+\]</div>
+<p>将<span><span class="heti-spacing"> </span><span class="arithmatex">\(u = \tan \frac{\theta_3}{2}\)</span></span>，<span class="arithmatex">\(c_3 = \frac{1 - u^2}{1 + u^2}\)</span>，<span><span class="arithmatex">\(s_3 = \frac{2u}{1 + u^2}\)</span><span class="heti-spacing"> </span></span>代入，可将<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(r = k_3\)</span><span class="heti-spacing"> </span></span>化为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(u\)</span><span class="heti-spacing"> </span></span>的二次方程。利用二次方程可以得到<span><span class="heti-spacing"> </span><span class="arithmatex">\(\theta_3\)</span></span>。</p>
+<ol>
+<li>
+<p><strong>若<span><span class="heti-spacing"> </span><span class="arithmatex">\(s \alpha_1 = 0\)</span></span></strong>，则<span><span class="heti-spacing"> </span><span class="arithmatex">\(z = k_4\)</span></span>，同样采用化简为多项式的办法，由二次方程得<span><span class="heti-spacing"> </span><span class="arithmatex">\(\theta_3\)</span></span>。</p>
+</li>
+<li>
+<p><strong>否则</strong>，消去<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(s_2\)</span><span class="heti-spacing"> </span></span>和<span><span class="heti-spacing"> </span><span class="arithmatex">\(c_2\)</span></span>，得到：</p>
+</li>
+</ol>
+<div class="arithmatex">\[
+\frac{(r - k_3)^2}{4a_1^2} + \frac{(z - k_4)^2}{s^2 \alpha_1^2} = k_1^2 + k_2^2
+\]</div>
+<p>采用化简为多项式的办法，可得到一个四次方程，由此解得<span><span class="heti-spacing"> </span><span class="arithmatex">\(\theta_3\)</span></span>。</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="" id="__tabbed_3_1" name="__tabbed_3" type="radio"/><div class="tabbed-labels"><label for="__tabbed_3_1">求解<span><span class="heti-spacing"> </span><span class="arithmatex">\(\theta_2\)</span></span></label></div>
+<div class="tabbed-content">
+<div class="tabbed-block"></div>
+</div>
+</div>
+<p>根据：</p>
+<div class="arithmatex">\[
+r = (k_1 c_2 + k_2 s_2) 2a_1 + k_3\\
+z = (k_1 s_2 - k_2 c_2) s \alpha_1 + k_4
+\]</div>
+<p>可解得<span><span class="heti-spacing"> </span><span class="arithmatex">\(\theta_2\)</span></span>。</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:1"><input checked="" id="__tabbed_4_1" name="__tabbed_4" type="radio"/><div class="tabbed-labels"><label for="__tabbed_4_1">求解<span><span class="heti-spacing"> </span><span class="arithmatex">\(\theta_1\)</span></span></label></div>
+<div class="tabbed-content">
+<div class="tabbed-block"></div>
+</div>
+</div>
+<p>根据：</p>
+<div class="arithmatex">\[
+\begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} c_1 g_1 - s_1 g_2 \\ s_1 g_1 + c_1 g_2 \end{pmatrix}
+\]</div>
+<p><span><span class="arithmatex">\(x\)</span><span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(y\)</span><span class="heti-spacing"> </span></span>是已知的，可解得<span><span class="heti-spacing"> </span><span class="arithmatex">\(\theta_1\)</span></span>。</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:1"><input checked="" id="__tabbed_5_1" name="__tabbed_5" type="radio"/><div class="tabbed-labels"><label for="__tabbed_5_1">求解<span><span class="heti-spacing"> </span><span class="arithmatex">\(\theta_4, \theta_5, \theta_6\)</span></span></label></div>
+<div class="tabbed-content">
+<div class="tabbed-block"></div>
+</div>
+</div>
+<p>求出<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\theta_1, \theta_2, \theta_3\)</span><span class="heti-spacing"> </span></span>后，若<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\theta_4 = 0\)</span><span class="heti-spacing"> </span></span>可计算出坐标系<span class="heti-skip"><span class="heti-spacing"> </span>{4}<span class="heti-spacing"> </span></span>相对于基坐标的姿态：</p>
+<div class="arithmatex">\[
+{}^0_4 \mathbf{R} |_{\theta_4 = 0} = {}^0_3 \mathbf{R} {}^3_4 \mathbf{R} |_{\theta_4 = 0} = {}^0_1 \mathbf{R} {}^1_2 \mathbf{R} {}^2_3 \mathbf{R} {}^3_4 \mathbf{R} |_{\theta_4 = 0}
+\]</div>
+<p>再由已知的<span><span class="heti-spacing"> </span><span class="arithmatex">\({}^0_6 \mathbf{R}\)</span></span>，坐标系<span class="heti-skip"><span class="heti-spacing"> </span>{6}<span class="heti-spacing"> </span></span>的期望姿态与坐标系<span class="heti-skip"><span class="heti-spacing"> </span>{4}<span class="heti-spacing"> </span></span>的姿态差别仅在于最后三个关节的作用：</p>
+<div class="arithmatex">\[
+{}^6_4 \mathbf{R} |_{\theta_4 = 0} = {}^6 \mathbf{R}^1 |_{\theta_4 = 0} {}^0 \mathbf{R}^6
+\]</div>
+<p>对于任何一个<span><span class="heti-spacing"> </span>4</span>、5、<span>6<span class="heti-spacing"> </span></span>轴相互正交的<span class="heti-skip"><span class="heti-spacing"> </span>6R<span class="heti-spacing"> </span></span>操作臂，最后三个关节角是一种欧拉角，即<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\({}^6 \mathbf{R}^4 |_{\theta = 0}\)</span><span class="heti-spacing"> </span></span>可由这种欧拉角表示。这时，<span><span class="arithmatex">\(\theta_4, \theta_5, \theta_6\)</span><span class="heti-spacing"> </span></span>可用欧拉角解法求得。</p>
+<div class="admonition tip">
+<p class="admonition-title">两种解相当于是手性，右手形和左手形</p>
+</div>
+<h3 id="puma560"><span>PUMA560<span class="heti-spacing"> </span></span>的一种代数方法<a class="headerlink" href="#puma560" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>这里要注意，求解<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\theta_4\)</span><span class="heti-spacing"> </span></span>的时候，如果<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\theta_5 = 0\)</span>,<span class="heti-spacing"> </span></span>那么可以看图发现，轴<span class="heti-skip"><span class="heti-spacing"> </span>4<span class="heti-spacing"> </span></span>和轴<span class="heti-skip"><span class="heti-spacing"> </span>6<span class="heti-spacing"> </span></span>是重合的，这个时候不可以唯一确定<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\theta_4\)</span>,<span class="heti-spacing"> </span></span>所有可能的结果都可能是<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(theta_4\)</span><span class="heti-spacing"> </span></span>与<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\theta_6\)</span><span class="heti-spacing"> </span></span>的和或差 </p>
+<h2 id="-_1">几何法<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>引入几何方法<a class="headerlink" href="#-_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<p>由于操作臂是平面的，因此可利用平面几何关系直接求解</p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250305082111521.png"/></p>
+<p>注意到三个连杆角度之和即为连杆<span class="heti-skip"><span class="heti-spacing"> </span>3<span class="heti-spacing"> </span></span>的姿态：<span><span class="arithmatex">\(\theta_1 + \theta_2 + \theta_3 = \phi\)</span>,<span class="heti-spacing"> </span></span>由此可求得<span><span class="heti-spacing"> </span><span class="arithmatex">\(\theta_3\)</span></span>。</p>
+<p>应用反正切公式：<span class="arithmatex">\(\beta = \arctan 2(y, x)\)</span></p>
+<p>应用余弦定理：<span class="arithmatex">\(\cos \psi = \frac{x^2 + y^2 + l_1^2 - l_2^2}{2l_1 \sqrt{x^2 + y^2}}\)</span></p>
+<p>可解得<span><span class="heti-spacing"> </span><span class="arithmatex">\(\psi \in [0^\circ, 180^\circ]\)</span></span></p>
+<p>进一步，可得：</p>
+<div class="arithmatex">\[
+\theta_1 = \begin{cases} 
+\beta + \psi, &amp; \text{若 } \theta_2 \leq 0 \\
+\beta - \psi, &amp; \text{若 } \theta_2 &gt; 0 
+\end{cases}
+\]</div>
+<p><strong>特别要注意这个是平行四边形，而不是菱形，所以两种情况用的证明三角形略有不同，但是结论是统一的</strong>。</p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250305082434990.png"/></p>
+<h2 id="-_2">数值法<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>有限元或者数值逼近<a class="headerlink" href="#-_2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2></div>
 <aside class="md-source-file">
 <span class="md-source-file__fact">
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年3月4日 11:12:55</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年3月9日 14:13:02</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">
@@ -3176,7 +3438,7 @@ l为连杆数（包括基座），n为关节总数，f_i为第i个关节的自�
 </main>
 <footer class="md-footer">
 <nav aria-label="页脚" class="md-footer__inner md-grid">
-<a aria-label="上一页: 正运动学 - 已知角度求末端位姿" class="md-footer__link md-footer__link--prev" href="../Robo-00-model-2-ForwardKinematics/">
+<a aria-label="上一页: 02 | 正运动学 - 已知角度求末端位姿" class="md-footer__link md-footer__link--prev" href="../Robo-00-model-2-ForwardKinematics/">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
 </div>
@@ -3185,17 +3447,17 @@ l为连杆数（包括基座），n为关节总数，f_i为第i个关节的自�
                 上一页
               </span>
 <div class="md-ellipsis">
-                正运动学 - 已知角度求末端位姿
+                02 | 正运动学 - 已知角度求末端位姿
               </div>
 </div>
 </a>
-<a aria-label="下一页: 速度与静力" class="md-footer__link md-footer__link--next" href="../Robo-00-model-3-Mechanics/">
+<a aria-label="下一页: 04 | 速度与静力" class="md-footer__link md-footer__link--next" href="../Robo-00-model-4-Mechanics/">
 <div class="md-footer__title">
 <span class="md-footer__direction">
                 下一页
               </span>
 <div class="md-ellipsis">
-                速度与静力
+                04 | 速度与静力
               </div>
 </div>
 <div class="md-footer__button md-icon">

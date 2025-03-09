@@ -1,4 +1,4 @@
-# 机器人建模与控制
+# 大纲
 
 ![](https://github.com/robinvista/Mathematica/raw/master/gif/2.gif)
 
@@ -10,15 +10,38 @@
 
 
 ## 课程大纲
+!!! tip "课程大纲"
+    - [x] **空间描述与变换**：旋转矩阵、欧拉角、等效轴角、四元数及它们之间的变换
+    - [x] **正运动学**：已知角度求末端位姿；关节空间to笛卡尔空间
+    - [ ] **逆运动学**：已知位姿求解角度；给定工具坐标系的位置和姿态，解算出个各关节变量
+    - [ ] **速度与静力**：讲关节空间速度映射到笛卡尔空间速度，通过雅可比矩阵描述
+    - [ ] **轨迹规划**（Trajectory Planning）为每个关节计算连续的运动轨迹，使末端执行器在空间中从点A移动到点B。
+    - [ ] **动力学**（Dynamics）描述了执行器的驱动扭矩与机械臂运动之间的关系。
+    - [ ] **运动控制**（Motion Control）通过传感器检测运动状态，利用反馈调整执行器的输入，补偿系统误差，以实现期望的轨迹。
+    - [ ] **力控制**（Force Control）：为了使机械臂以恒定的力在表面上滑动，需要应用力控制。
+### 课程感想
 
-- **空间描述与变换**：旋转矩阵、欧拉角、等效轴角、四元数及它们之间的变换
-- **正运动学**：已知角度求末端位姿；关节空间to笛卡尔空间
-- **逆运动学**：已知位姿求解角度；给定工具坐标系的位置和姿态，解算出个各关节变量
-- **速度与静力**：讲关节空间速度映射到笛卡尔空间速度，通过雅可比矩阵描述
-- **轨迹规划**（Trajectory Planning）为每个关节计算连续的运动轨迹，使末端执行器在空间中从点A移动到点B。
-- **动力学**（Dynamics）描述了执行器的驱动扭矩与机械臂运动之间的关系。
-- **运动控制**（Motion Control）通过传感器检测运动状态，利用反馈调整执行器的输入，补偿系统误差，以实现期望的轨迹。
-- **力控制**（Force Control）：为了使机械臂以恒定的力在表面上滑动，需要应用力控制。
+
+
+## 使用资料
+
+### ppt
+
+
+### 文档
+- [课程笔记 - 小胖一族](https://skillful-vest-b8d.notion.site/3d905d613c1046beb84c6a85c71818c5)
+- [课后习题答案 - FLOG司马](https://www.cc98.org/topic/6115926)
+- 
+
+### A4
+
+- [之一hzz A4](https://www.cc98.org/topic/5115478)
+- [江水水儿 A4](https://www.cc98.org/topic/5595634/1#1)
+- [Sodium01 A4](https://www.cc98.org/topic/5610926)
+- [Rainbow0 A4 英文班](https://www.cc98.org/topic/5658322)
+- [CHSAN A4 机器人学1](https://www.cc98.org/topic/5352954)
+- [AnderK A4 机器人学1](https://www.cc98.org/topic/5116418)
+- [林林home A4 机器人学1](https://www.cc98.org/topic/5116252)
 
 ## 基础概念
 
@@ -35,21 +58,6 @@
 
 
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250217105608273.png)
-
-## A4
-[之一hzz A4](https://www.cc98.org/topic/5115478)
-
-[江水水儿 A4](https://www.cc98.org/topic/5595634/1#1)
-
-[Sodium01 A4](https://www.cc98.org/topic/5610926)
-
-[Rainbow0 A4 英文班](https://www.cc98.org/topic/5658322)
-
-[CHSAN A4 机器人学1](https://www.cc98.org/topic/5352954)
-
-[AnderK A4 机器人学1](https://www.cc98.org/topic/5116418)
-
-[林林home A4 机器人学1](https://www.cc98.org/topic/5116252)
 
 ## 机建 回忆卷
 ### 2023春 英文班
