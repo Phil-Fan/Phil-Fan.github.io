@@ -1,5 +1,9 @@
 # 运筹学复习总结
 
+
+!!! note "笔记来源: 课程ppt，可能有转写错误，请注意鉴别"
+
+
 ???+note "课程信息"
     === "历年卷"
         [2024运筹学何衍班期末考试](https://www.cc98.org/topic/5912911/1)<br>
@@ -14,11 +18,11 @@
         [建筑工程学院《运筹学》2023-2024春夏备考经验 - CC98论坛](https://www.cc98.org/topic/5873843)<br>
         [2023-2024春电院运筹学 期末回忆 - CC98论坛](https://www.cc98.org/topic/5876082)<br>
     === "资料"
-    	[pcgg分享](https://www.cc98.org/topic/5671695)<br>
-        [运筹学控院hy老师班笔记整理](https://www.cc98.org/topic/5630999)<br>
-        [运筹学（控院何衍班）经验&资料分享](https://www.cc98.org/topic/5926381)<br>
-        [《运筹学》lj老师班笔记整理](https://www.cc98.org/topic/5911152)<br>
-        [2021-2022春夏 管理学院-应用运筹学I（英文班） 学习分享](https://www.cc98.org/topic/5360245) <br>
+    	   [pcgg分享](https://www.cc98.org/topic/5671695)<br>
+         [运筹学控院hy老师班笔记整理](https://www.cc98.org/topic/5630999)<br>
+         [运筹学（控院何衍班）经验&资料分享](https://www.cc98.org/topic/5926381)<br>
+         [《运筹学》lj老师班笔记整理](https://www.cc98.org/topic/5911152)<br>
+         [2021-2022春夏 管理学院-应用运筹学I（英文班） 学习分享](https://www.cc98.org/topic/5360245) <br>
 
 
 

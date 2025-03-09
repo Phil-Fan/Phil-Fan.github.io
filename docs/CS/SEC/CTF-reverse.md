@@ -7,6 +7,9 @@
 | 3    | RISC-V  | 模块化，极简，可拓展   | 三星，英伟达，西部数据 | RISC-V基金会 | 2014年   |
 | 4    | MIPS    | 简洁，优化方便，高拓展性 | 龙芯                  | MIPS科技公司  | 1981年   |
 
+
+!!! note "笔记来源: 短学期课程ppt，可能有转写错误，请注意鉴别"
+
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240714181857.png)
 
 [智云链接](https://interactivemeta.cmc.zju.edu.cn/#/replay?course_id=63047&sub_id=1213368&tenant_code=112)

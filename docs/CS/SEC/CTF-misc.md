@@ -1,4 +1,5 @@
 # MISC
+!!! note "笔记来源: 短学期课程ppt，可能有转写错误，请注意鉴别"
 
 ## 什么是MISC
 miscellaneous 杂项

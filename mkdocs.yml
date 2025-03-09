@@ -9,7 +9,7 @@ repo_name: 'Phil-Fan/Notes'
 repo_url: 'https://github.com/Phil-Fan/Phil-Fan.github.io'
 
 # copyright
-copyright: Copyright <span style="font-family:Arial;">&copy;</span> 2023-2024 <a href="https://github.com/Phil-Fan" target="_blank">PhilFan</a>
+copyright: Copyright <span style="font-family:Arial;">&copy;</span> 2025-2026 <a href="https://github.com/Phil-Fan" target="_blank">PhilFan</a>
 
 # configuration
 theme:
@@ -475,7 +475,6 @@ nav:
 - Tools:
   - Tools/Git.md
   - Tools/gdb.md
-  - Tools/R.md
   - Tools/Makefile.md
       
   - "效率":
