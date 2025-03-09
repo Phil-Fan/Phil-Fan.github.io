@@ -4,119 +4,9 @@
     这一篇的目的是记录一些常用的软件的安装与使用，以及一些常见的问题的解决方案。遇到重复的问题不至于反复搜索。
     另外也是为了在特殊环境下，可以迅速的切换到另一台设备进行工作，不至于项目停滞。
 
-## 如何复制Phil Fan的工作环境
 
-### 效率软件
+## windows系统设置
 
-!!! note "以下顺序为安装顺序"
-
-- 浏览器：[Edge](https://www.microsoft.com/zh-cn/edge/download)
-- 日程: [滴答清单(付费)](https://dida365.com/download?language=zh_CN)
-- 网络相关：[Clash for windows](https://www.clash.la/archives/748/)
-  [v2rayN](https://github.com/2dust/v2rayN/releases),[下载 .NET 8.0 Desktop Runtime (v8.0.8) - Windows x64 Installer](https://dotnet.microsoft.com/zh-cn/download/dotnet/thank-you/runtime-desktop-8.0.8-windows-x64-installer?cid=getdotnetcore)
-- 压缩：[Bandzip](https://www.bandisoft.com/bandizip/)
-- 图片： [bandView](https://www.bandisoft.com/bandiview/)，[PicGo（图床）](https://github.com/Molunerfinn/PicGo/releases),[honeycam(动图)](https://www.bandisoft.com/honeycam/)
-- 多媒体：[VLC media player](https://www.videolan.org/vlc/index.zh_CN.html),QQ影音
-- 思维导图: [Xmind(付费)](https://xmind.cn/download/)，xmind zen 绿色版；首选项设置 深色主题 `alt+s`:概要 `ctrl + l`:方程
-- 即时通讯：[TIM](https://tim.qq.com/download.html)，[WeChat](https://weixin.qq.com/)，[飞书](https://www.feishu.cn/download/)，[腾讯会议](https://meeting.tencent.com/download/)，[钉钉](https://page.dingtalk.com/wow/z/dingtalk/simple/ddhomedownload#/),[微信文件传输网页版](https://filehelper.weixin.qq.com/)
-- 使用时长统计：[ManicTime](https://www.manictime.com/download/windows)
-- PDF阅读：Adobe Acrobat(adobe处下载),[pdfedit](http://pdfedit.cz/en/download.html)
-- Markdown: [Typora](https://typoraio.cn/)
-- 云同步(付费)：[百度网盘](https://pan.baidu.com/download#win)、[阿里网盘](https://www.alipan.com/)
-- 下载：[utorrent](https://file.cc98.org/v2-upload/il0glpvw.zip)
-
-
-- 翻译：[欧陆词典](https://www.eudic.net/v4/en/app/download),欧陆词典文件
-- 音乐：QQ音乐
-- 其他：[logi option+](https://www.logitech.com/zh-cn/setup/ergosetup/logi-options.html),[Download WizTree](https://www.diskanalyzer.com/download)
-
-- 卸载工具[Geek Uninstaller - Download](https://geekuninstaller.com/download)
-
-### 专业软件
-
-- Coding: [VSC](https://code.visualstudio.com/Download),PyCharm, WebStorm
-- Environment:[miniconda(smaller)](https://docs.anaconda.com/miniconda/)/[anaconda](https://www.anaconda.com/download)
-[git](https://git-scm.com/download/win),R,VMware
-- 文献：[Zotero](https://www.zotero.org/download/)
-- latex：texlive,[overleaf](https://www.overleaf.com)
-- 绘图：ppt,Draw.io, ai,ps,Geogebra,python
-- 数据：excel，Tableau，origin
-- word，[小恐龙公文助手](https://xkonglong.com/xkl_wordaddin/)
-- 驯化windows dism++ [Releases · Chuyu-Team/Dism-Multi-language](https://github.com/Chuyu-Team/Dism-Multi-language/releases)
-- 音乐：[Sibelius(西贝柳斯)打谱软件](https://sibelius.mairuan.com/)
-
-### 设计软件
-
-- [Adobe](https://www.adobe.com/cn/):AI,PS,PR,[剪映](https://www.capcut.cn/)
-- powerpoint,okplus,[Canva](https://www.canva.cn/)
-
-### 有用的anti-school插件
-- [WuliAPO/Fuck_QCZJ](https://github.com/WuliAPO/Fuck_QCZJ): 青年大学习打卡<br>
-- [Mythologyli/iOSFakeRun](https://github.com/Mythologyli/iOSFakeRun): 基于虚拟定位的 iOS 免越狱模拟跑步打卡，在线拾取路径，可设置循环次数和跑步速度<br>
-- [ginnnnnncc/GinsMooc](https://github.com/ginnnnnncc/GinsMooc): 中国大学MOOC查询测验/作业/考试答案，插件支持，测验支持选择/判断/填空。<br>
-- [VermiIIi0n/fuckZHS](https://github.com/VermiIIi0n/fuckZHS): 自动刷智慧树课程的脚本<br>
-- [Celechron/Celechron](https://github.com/Celechron/Celechron): 服务于浙大学生的时间管理器<br>
-- [memset0/Learning-at-ZJU-Helper](https://github.com/memset0/Learning-at-ZJU-Helper): 学在浙大/智云课堂 辅助脚本<br>
-- [PeiPei233/zju-learning-assistant](https://github.com/PeiPei233/zju-learning-assistant): 帮你快速下载所有课件<br>
-
-
-### edge/chorme 插件
-
-**更好体验**
-- global speed：最好用的倍速
-- Vimium C：使用vim全键盘操作浏览器
-- ADguard：去除广告
-- Circle阅读助手：沉浸式阅读，纯净阅读
-- 油猴/篡改猴：更多脚本/插件
-
-**资源类**
-- Copy as Markdown: 复制成为markdown格式的链接
-- Simple Allow Copy: 解除网站的禁用复制
-- Image Downloader：下载网站上出现过的图片
-- Zotero Connector: 链接Zotero
-- 哔哔君：b站字幕下载
-
-**翻译**
-- 沉浸式翻译：好用的网页翻译
-- Grammarly：AI writing and grammar checker
-
-**其他**
-- HackBar
-- Cookie-Editor
-
-## windows
-
-### 查看用户
-
-```shell
-net user
-```
-
-### 电脑
-
-[AirPods Pro2蓝牙耳机连接win10电脑有杂音、不稳定问题 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/641213713)
-
-### wget
-[GNU Wget 1.21.4 for Windows](https://eternallybored.org/misc/wget/)
-
-放在`c:/Windows/System32`文件夹下
-
-### nc (netcat)
-[netcat 1.11 for Win32/Win64](https://eternallybored.org/misc/netcat/)
-
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241118214327.png)
-
-### Edge
-#### `Vimium`配置
-
-[使用 Vimium 获得更舒适的网页阅读体验 - 少数派 (sspai.com)](https://sspai.com/post/57091#!)
-
-### 查看系统架构
-`win+R`输入`cmd`，输入`wmic os get osarchitecture`查看系统架构
-
-或者输入`dxdiag`查看系统信息
-
-或者输入`systeminfo`查看,系统类型字段就可以看出来了
 ### win+G 录屏
 xGameBar对我来说没什么用，但是虚拟机中需要使用到这个快捷键，所以将win下这个快捷键禁用
 
@@ -324,32 +214,6 @@ start explorer.exe
 
 
 
-### 环境变量
-
-#### python
-如果设置了环境变量，却打不开python，可以尝试将python的路径放在最前面
-
-#### 如何用命令行直接打开软件
-
-省流：建立一个文件夹保存快捷方式，将文件夹路径添加到PATH环境变量
-
-首先你要创建一个文件夹，存储程序的快捷方式
-
-
-
-- 右键点击计算机图标，选择属性，选择高级系统设置，高级->选择环境变量
-
-- 编辑用户变量下的PATH复制存储快捷方式文件夹的路径
-
-备注：快捷方式可以自定义名称，在CMD中输入名称就行了
-
-![在这里插入图片描述](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20201221085949893.png)
-
-高级系统设置 - 环境变量
-
-![image-20240422084315579](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240422084315579.png)
-
-
 
 ### 网络相关
 
@@ -496,6 +360,57 @@ cmd 打开终端
 ```shell
 ipconfig/all
 ```
+
+
+### 查看用户
+
+```shell
+net user
+```
+
+### wget
+[GNU Wget 1.21.4 for Windows](https://eternallybored.org/misc/wget/)
+
+放在`c:/Windows/System32`文件夹下
+
+### nc (netcat)
+[netcat 1.11 for Win32/Win64](https://eternallybored.org/misc/netcat/)
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241118214327.png)
+
+
+### 查看系统架构
+`win+R`输入`cmd`，输入`wmic os get osarchitecture`查看系统架构
+
+或者输入`dxdiag`查看系统信息
+
+或者输入`systeminfo`查看,系统类型字段就可以看出来了
+
+### 环境变量
+
+#### python
+如果设置了环境变量，却打不开python，可以尝试将python的路径放在最前面
+
+#### 如何用命令行直接打开软件
+
+省流：建立一个文件夹保存快捷方式，将文件夹路径添加到PATH环境变量
+
+首先你要创建一个文件夹，存储程序的快捷方式
+
+
+
+- 右键点击计算机图标，选择属性，选择高级系统设置，高级->选择环境变量
+
+- 编辑用户变量下的PATH复制存储快捷方式文件夹的路径
+
+备注：快捷方式可以自定义名称，在CMD中输入名称就行了
+
+![在这里插入图片描述](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20201221085949893.png)
+
+高级系统设置 - 环境变量
+
+![image-20240422084315579](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240422084315579.png)
+
 
 
 ## vscode
