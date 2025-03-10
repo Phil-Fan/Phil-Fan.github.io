@@ -3493,12 +3493,10 @@ X(\omega) = \mathop{\sum}\limits_{n=-\infty}^{\infty} 2\pi \frac{1}{T_0} \delta(
 <p>其中，<span><span class="arithmatex">\(\Omega\)</span><span class="heti-spacing"> </span></span>是数字角频率，<span><span class="arithmatex">\(T_s,w_s\)</span><span class="heti-spacing"> </span></span>是采样，<span><span class="arithmatex">\(\omega_0\)</span><span class="heti-spacing"> </span></span>是模拟角频率，<span><span class="arithmatex">\(N\)</span><span class="heti-spacing"> </span></span>采样点数</p>
 <ul>
 <li>采样时长<span><span class="heti-spacing"> </span><span class="arithmatex">\(T = N\cdot T_s\)</span></span></li>
-<li>
-<p>模拟角频率<span><span class="heti-spacing"> </span><span class="arithmatex">\(\omega_0 = \frac{2\pi}{T_0} = 2\pi f_0\)</span></span></p>
-</li>
-<li>
-<p>实际频率<span><span class="heti-spacing"> </span><span class="arithmatex">\(f = \frac{f_s}{N} \cdot K\)</span></span></p>
-</li>
+<li>模拟角频率<span><span class="heti-spacing"> </span><span class="arithmatex">\(\omega_0 = \frac{2\pi}{T_0} = 2\pi f_0\)</span></span></li>
+</ul>
+<ul>
+<li>实际频率<span><span class="heti-spacing"> </span><span class="arithmatex">\(f = \frac{f_s}{N} \cdot K\)</span></span></li>
 </ul>
 <p>原因：我们拿到一串数字信号，不可能还附带着把采样间隔也告诉你。或者说，信号就是信号，在这组关于时间的一维信号上是没有采样率这样的信息的。有一个大聪明发现，反正经过采样后的数字信号在频域上是周期性的，这个周期只与采样率有关，那我<strong>想办法忽略采样率，让周期都变成<span><span class="heti-spacing"> </span><span class="arithmatex">\(2\pi\)</span></span></strong>，岂不是更好，那样很多算法就通用了。所以搞出来一个归一化角频率。</p>
 <h3 id="dfs">DFS<a class="headerlink" href="#dfs" title="anchor link to this section for reference">¶</a></h3>
@@ -3638,12 +3636,10 @@ a^n u(n) \stackrel{\mathscr{z}}{\rightarrow} \frac{z}{z-a}
 \end{align*}
 \]</div>
 <ul>
-<li>
-<p>初值定理<span><span class="heti-spacing"> </span><span class="arithmatex">\(x(0) = \lim\limits_{z\rightarrow \infty}X(z)\)</span></span></p>
-</li>
-<li>
-<p>终值定理<span><span class="heti-spacing"> </span><span class="arithmatex">\(\lim\limits_{n\rightarrow\infty}x(n) = \lim\limits_{z-\rightarrow 1}[(z-1)X(z)]\)</span></span></p>
-</li>
+<li>初值定理<span><span class="heti-spacing"> </span><span class="arithmatex">\(x(0) = \lim\limits_{z\rightarrow \infty}X(z)\)</span></span></li>
+</ul>
+<ul>
+<li>终值定理<span><span class="heti-spacing"> </span><span class="arithmatex">\(\lim\limits_{n\rightarrow\infty}x(n) = \lim\limits_{z-\rightarrow 1}[(z-1)X(z)]\)</span></span></li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">一个很巧妙的题</p>
@@ -3666,12 +3662,10 @@ a^n u(n) \stackrel{\mathscr{z}}{\rightarrow} \frac{z}{z-a}
 <p>频域采样后时域发生周期延拓，周期为<span><span class="heti-spacing"> </span>N</span></p>
 <p><strong><span>z<span class="heti-spacing"> </span></span>变换和其他变换的关系</strong></p>
 <ul>
-<li>
-<p>与傅里叶变换：<span>z<span class="heti-spacing"> </span></span>变换是蜡像抽样信号拉普拉斯变换进行<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(z = e^{sT_s}\)</span><span class="heti-spacing"> </span></span>映射的结果；有<span><span class="heti-spacing"> </span><span class="arithmatex">\(X(z) = X_s(s)|_{s = \frac{\ln{z}}{T_s}}\)</span></span></p>
-</li>
-<li>
-<p>与<span><span class="heti-spacing"> </span>DTFT</span>：<span>DTFT<span class="heti-spacing"> </span></span>就是在<span class="heti-skip"><span class="heti-spacing"> </span>z<span class="heti-spacing"> </span></span>平面单位圆上的<span class="heti-skip"><span class="heti-spacing"> </span>z<span class="heti-spacing"> </span></span>变换。可以先求出<span class="heti-skip"><span class="heti-spacing"> </span>z<span class="heti-spacing"> </span></span>变换，再用<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(z=e^{j\Omega}\)</span><span class="heti-spacing"> </span></span>替换</p>
-</li>
+<li>与傅里叶变换：<span>z<span class="heti-spacing"> </span></span>变换是蜡像抽样信号拉普拉斯变换进行<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(z = e^{sT_s}\)</span><span class="heti-spacing"> </span></span>映射的结果；有<span><span class="heti-spacing"> </span><span class="arithmatex">\(X(z) = X_s(s)|_{s = \frac{\ln{z}}{T_s}}\)</span></span></li>
+</ul>
+<ul>
+<li>与<span><span class="heti-spacing"> </span>DTFT</span>：<span>DTFT<span class="heti-spacing"> </span></span>就是在<span class="heti-skip"><span class="heti-spacing"> </span>z<span class="heti-spacing"> </span></span>平面单位圆上的<span class="heti-skip"><span class="heti-spacing"> </span>z<span class="heti-spacing"> </span></span>变换。可以先求出<span class="heti-skip"><span class="heti-spacing"> </span>z<span class="heti-spacing"> </span></span>变换，再用<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(z=e^{j\Omega}\)</span><span class="heti-spacing"> </span></span>替换</li>
 <li>与<span><span class="heti-spacing"> </span>DFT</span>：<span>DFT<span class="heti-spacing"> </span></span>视为序列的<span class="heti-skip"><span class="heti-spacing"> </span>z<span class="heti-spacing"> </span></span>变换在单位圆上取样间隔<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\Omega_0 = \frac{2\pi}{N}\)</span><span class="heti-spacing"> </span></span>的均匀取样</li>
 </ul>
 <h3 id="_11">共轭对称性<a class="headerlink" href="#_11" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>

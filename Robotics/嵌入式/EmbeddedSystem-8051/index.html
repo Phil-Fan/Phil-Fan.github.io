@@ -3467,15 +3467,13 @@ MOV C,20H
 <p>空间分配</p>
 <p><strong>低<span class="heti-skip"><span class="heti-spacing"> </span>128<span class="heti-spacing"> </span></span>字节<span><span class="heti-spacing"> </span>real RAM</span></strong> <code>00H-7FH</code></p>
 <ul>
-<li>
-<p><span>1<span class="heti-spacing"> </span></span>工作寄存器区：<span>4x8bytes<span class="heti-spacing"> </span></span>每个区域都是<span class="heti-skip"><span class="heti-spacing"> </span>R0-R7;<span class="heti-spacing"> </span></span>只能选一组</p>
-</li>
-<li>
-<p><span>2<span class="heti-spacing"> </span></span>可位寻址区：对<span class="heti-skip"><span class="heti-spacing"> </span>00H-7FH<span class="heti-spacing"> </span></span>进行位编址，通过指令区分</p>
-</li>
-<li>
-<p><span>3<span class="heti-spacing"> </span></span>用户<span class="heti-skip"><span class="heti-spacing"> </span>RAM<span class="heti-spacing"> </span></span>区</p>
-</li>
+<li><span>1<span class="heti-spacing"> </span></span>工作寄存器区：<span>4x8bytes<span class="heti-spacing"> </span></span>每个区域都是<span class="heti-skip"><span class="heti-spacing"> </span>R0-R7;<span class="heti-spacing"> </span></span>只能选一组</li>
+</ul>
+<ul>
+<li><span>2<span class="heti-spacing"> </span></span>可位寻址区：对<span class="heti-skip"><span class="heti-spacing"> </span>00H-7FH<span class="heti-spacing"> </span></span>进行位编址，通过指令区分</li>
+</ul>
+<ul>
+<li><span>3<span class="heti-spacing"> </span></span>用户<span class="heti-skip"><span class="heti-spacing"> </span>RAM<span class="heti-spacing"> </span></span>区</li>
 </ul>
 <p><span>1<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>3<span class="heti-spacing"> </span></span>只能字节寻址，只有<span class="heti-skip"><span class="heti-spacing"> </span>2<span class="heti-spacing"> </span></span>可以位寻址</p>
 <p><img alt="image-20240621002147037" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240621002147037.png" style="zoom:50%;"/></p>
@@ -3500,11 +3498,9 @@ MOV C,20H
 <div class="admonition note">
 <p class="admonition-title">可能的作用</p>
 <ul>
-<li>外部设备连接：存储器扩展<ul>
-<li>并行<span class="heti-skip"><span class="heti-spacing"> </span>IO<span class="heti-spacing"> </span></span>输入</li>
-<li>串行通信</li>
-</ul>
-</li>
+<li>外部设备连接：存储器扩展
+    - 并行IO输入
+    - 串行通信</li>
 </ul>
 </div>
 <p><span>80C51<span class="heti-spacing"> </span></span>共有<span class="heti-skip"><span class="heti-spacing"> </span>4<span class="heti-spacing"> </span></span>个<span class="heti-skip"><span class="heti-spacing"> </span>8<span class="heti-spacing"> </span></span>位并行<span class="heti-skip"><span class="heti-spacing"> </span>I/O<span class="heti-spacing"> </span></span>端口：<strong><span>P0,P1,P2,P3<span class="heti-spacing"> </span></span>口</strong><span>,<span class="heti-spacing"> </span></span>共<span class="heti-skip"><span class="heti-spacing"> </span>32<span class="heti-spacing"> </span></span>个引脚。</p>
@@ -3595,24 +3591,22 @@ MOV C,20H
 </table>
 <p>中断响应与子程序调用的区别</p>
 <ul>
-<li>
-<p><strong>函数的执行</strong>是由程序员事先安排好的（由一条调用函数指令来转入）<span>,<span class="heti-spacing"> </span></span>而中断服务程序是由随机的中断事件引起的<span><span class="heti-spacing"> </span>;</span></p>
-</li>
-<li>
-<p><strong>函数的调用</strong>受到主调函数控制<br/>而中断服务程序一般与被中断的程序毫无关系<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>没有从属关系<span><span class="heti-spacing"> </span>);</span></p>
-</li>
-<li>
-<p>有可能发生多个中断事件同时请求<span class="heti-skip"><span class="heti-spacing"> </span>CPU<span class="heti-spacing"> </span></span>服务的情况。</p>
-</li>
-<li>
-<p><strong>地址</strong>中断响应程序的入口地址固定<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>而函数或者子程序调用中的子函数可以放在程序空间的任意位置。</p>
-</li>
-<li>
-<p>中断返回指令<code>RETI</code><span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>子程序返回指令<code>RET</code></p>
-</li>
-<li>
-<p>有两种保护方式：外部保护再进子程序<span class="heti-skip"><span class="heti-spacing"> </span>;<span class="heti-spacing"> </span></span>进入子程序后再保护。中断事件保护现场只能放在中断服务当中<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>不能提前保护现场</p>
-</li>
+<li><strong>函数的执行</strong>是由程序员事先安排好的（由一条调用函数指令来转入）<span>,<span class="heti-spacing"> </span></span>而中断服务程序是由随机的中断事件引起的<span><span class="heti-spacing"> </span>;</span></li>
+</ul>
+<ul>
+<li><strong>函数的调用</strong>受到主调函数控制<br/>而中断服务程序一般与被中断的程序毫无关系<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>没有从属关系<span><span class="heti-spacing"> </span>);</span></li>
+</ul>
+<ul>
+<li>有可能发生多个中断事件同时请求<span class="heti-skip"><span class="heti-spacing"> </span>CPU<span class="heti-spacing"> </span></span>服务的情况。</li>
+</ul>
+<ul>
+<li><strong>地址</strong>中断响应程序的入口地址固定<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>而函数或者子程序调用中的子函数可以放在程序空间的任意位置。</li>
+</ul>
+<ul>
+<li>中断返回指令<code>RETI</code><span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>子程序返回指令<code>RET</code></li>
+</ul>
+<ul>
+<li>有两种保护方式：外部保护再进子程序<span class="heti-skip"><span class="heti-spacing"> </span>;<span class="heti-spacing"> </span></span>进入子程序后再保护。中断事件保护现场只能放在中断服务当中<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>不能提前保护现场</li>
 </ul>
 <h3 id="_8">结构<a class="headerlink" href="#_8" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <div class="admonition note">
@@ -3686,24 +3680,22 @@ MOV C,20H
 <p>触发：低电平<span class="heti-skip"><span class="heti-spacing"> </span>or<span class="heti-spacing"> </span></span>下降沿</p>
 <p><img alt="image-20240508115812183" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240508115812183.png" style="zoom: 33%;"/></p>
 <ul>
-<li>
-<p><code>IT0（TCON.0）</code><span>,<span class="heti-spacing"> </span></span>外部中断<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>触发方式控制位。<br/>当<span class="heti-skip"><span class="heti-spacing"> </span>IT0=0<span class="heti-spacing"> </span></span>时<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>为电平触发方式。<br/>当<span class="heti-skip"><span class="heti-spacing"> </span>IT0=1<span class="heti-spacing"> </span></span>时<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>为边沿触发方式（下降沿有效<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。</p>
-</li>
-<li>
-<p><code>IE0（TCON.1）</code><span>,<span class="heti-spacing"> </span></span>外部中断<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>中断请求标志位。</p>
-</li>
-<li>
-<p><code>IT1（TCON.2）</code><span>,<span class="heti-spacing"> </span></span>外部中断<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>触发方式控制位。</p>
-</li>
-<li>
-<p><code>IE1（TCON.3）</code><span>,<span class="heti-spacing"> </span></span>外部中断<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>中断请求标志位。</p>
-</li>
-<li>
-<p><code>TF0（TCON.5）</code><span>,<span class="heti-spacing"> </span></span>定时<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>计数器<code>T0</code>溢出中断请求标志位。</p>
-</li>
-<li>
-<p><code>TF1（TCON.7）</code><span>,<span class="heti-spacing"> </span></span>定时<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>计数器<code>T1</code>溢出中断请求标志位。    </p>
-</li>
+<li><code>IT0（TCON.0）</code><span>,<span class="heti-spacing"> </span></span>外部中断<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>触发方式控制位。<br/>当<span class="heti-skip"><span class="heti-spacing"> </span>IT0=0<span class="heti-spacing"> </span></span>时<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>为电平触发方式。<br/>当<span class="heti-skip"><span class="heti-spacing"> </span>IT0=1<span class="heti-spacing"> </span></span>时<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>为边沿触发方式（下降沿有效<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。</li>
+</ul>
+<ul>
+<li><code>IE0（TCON.1）</code><span>,<span class="heti-spacing"> </span></span>外部中断<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>中断请求标志位。</li>
+</ul>
+<ul>
+<li><code>IT1（TCON.2）</code><span>,<span class="heti-spacing"> </span></span>外部中断<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>触发方式控制位。</li>
+</ul>
+<ul>
+<li><code>IE1（TCON.3）</code><span>,<span class="heti-spacing"> </span></span>外部中断<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>中断请求标志位。</li>
+</ul>
+<ul>
+<li><code>TF0（TCON.5）</code><span>,<span class="heti-spacing"> </span></span>定时<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>计数器<code>T0</code>溢出中断请求标志位。</li>
+</ul>
+<ul>
+<li><code>TF1（TCON.7）</code><span>,<span class="heti-spacing"> </span></span>定时<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>计数器<code>T1</code>溢出中断请求标志位。    </li>
 </ul>
 <p><strong><code>SCON</code><span>(<span class="heti-spacing"> </span></span>串行口控制寄存器<span><span class="heti-spacing"> </span>)</span></strong></p>
 <p><img alt="image-20240621212044659" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240621212044659.png" style="zoom:33%;"/></p>
@@ -3713,30 +3705,26 @@ MOV C,20H
 响应需要总开关打开且子开关打开</p>
 <h3 id="_10">优先级<a class="headerlink" href="#_10" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ul>
-<li>
-<p><strong><span>CPU<span class="heti-spacing"> </span></span>总是先响应优先级别最高的中断请求。</strong></p>
-</li>
-<li>
-<p>不能被新的同级或低优先级的中断请求所中断</p>
-</li>
-<li>
-<p>能被高优先级中断请求所中断</p>
-</li>
+<li><strong><span>CPU<span class="heti-spacing"> </span></span>总是先响应优先级别最高的中断请求。</strong></li>
+</ul>
+<ul>
+<li>不能被新的同级或低优先级的中断请求所中断</li>
+</ul>
+<ul>
+<li>能被高优先级中断请求所中断</li>
 </ul>
 <blockquote>
 <p>打印机发送打印任务<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>中断<span class="heti-skip"><span class="heti-spacing"> </span>,CPU<span class="heti-spacing"> </span></span>处理其他任务</p>
 </blockquote>
 <h3 id="_11">实例<a class="headerlink" href="#_11" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ul>
-<li>
-<p>中断源有中断请求</p>
-</li>
-<li>
-<p>此中断源的中断允许位为<span><span class="heti-spacing"> </span>1</span></p>
-</li>
-<li>
-<p><span>CPU<span class="heti-spacing"> </span></span>开中断（即<span><span class="heti-spacing"> </span>EA=1</span>）</p>
-</li>
+<li>中断源有中断请求</li>
+</ul>
+<ul>
+<li>此中断源的中断允许位为<span><span class="heti-spacing"> </span>1</span></li>
+</ul>
+<ul>
+<li><span>CPU<span class="heti-spacing"> </span></span>开中断（即<span><span class="heti-spacing"> </span>EA=1</span>）</li>
 </ul>
 <p><img alt="image-20240508122502143" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240508122502143.png" style="zoom:50%;"/></p>
 <p><img alt="image-20240508122506367" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240508122506367.png" style="zoom:50%;"/></p>
@@ -3824,14 +3812,12 @@ DV4:
 <p><span>1<span class="heti-spacing"> </span></span>指令<span class="heti-skip"><span class="heti-spacing"> </span>= 1~4<span class="heti-spacing"> </span></span>个机器周期</p>
 <p><span>1<span class="heti-spacing"> </span></span>个指令周期<span class="heti-skip"><span class="heti-spacing"> </span>=N<span class="heti-spacing"> </span></span>个机器周期<span class="heti-skip"><span class="heti-spacing"> </span>=6N<span class="heti-spacing"> </span></span>个状态周期<span class="heti-skip"><span class="heti-spacing"> </span>=12N<span class="heti-spacing"> </span></span>个节拍<span class="heti-skip"><span class="heti-spacing"> </span>=12N<span class="heti-spacing"> </span></span>个时钟周期<span class="heti-skip"><span class="heti-spacing"> </span>=12N<span class="heti-spacing"> </span></span>个振荡周期</p>
 <ul>
-<li>
-<p>如果晶振频率<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(f_{osc} = 12 MHz\)</span>,<span class="heti-spacing"> </span></span>则时钟周期<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(T_{clock}\)</span><span class="heti-spacing"> </span></span>为：
-  <span class="arithmatex">\(T_{clock} = \frac{1}{12 \times 10^6 Hz} = 83.33 ns\)</span></p>
-</li>
-<li>
-<p>如果某个微处理器的一个机器周期需要<span class="heti-skip"><span class="heti-spacing"> </span>12<span class="heti-spacing"> </span></span>个时钟周期完成<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>则机器周期<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(T_{machine}\)</span><span class="heti-spacing"> </span></span>为：
-  <span class="arithmatex">\(T_{machine} = 12 \times 83.33 ns = 1\mu s\)</span></p>
-</li>
+<li>如果晶振频率<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(f_{osc} = 12 MHz\)</span>,<span class="heti-spacing"> </span></span>则时钟周期<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(T_{clock}\)</span><span class="heti-spacing"> </span></span>为：
+  <span class="arithmatex">\(T_{clock} = \frac{1}{12 \times 10^6 Hz} = 83.33 ns\)</span></li>
+</ul>
+<ul>
+<li>如果某个微处理器的一个机器周期需要<span class="heti-skip"><span class="heti-spacing"> </span>12<span class="heti-spacing"> </span></span>个时钟周期完成<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>则机器周期<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(T_{machine}\)</span><span class="heti-spacing"> </span></span>为：
+  <span class="arithmatex">\(T_{machine} = 12 \times 83.33 ns = 1\mu s\)</span></li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">短时延时函数</p>
@@ -3880,8 +3866,8 @@ LOOP1:
 <p>低四位<span><span class="heti-spacing"> </span>T0</span>，高四位<span><span class="heti-spacing"> </span>T1</span></p>
 <p><img alt="image-20240508140054318" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240508140054318.png" style="zoom:50%;"/></p>
 <ul>
-<li>M0M1 ：工作方式设置位工作在<span class="heti-skip"><span class="heti-spacing"> </span>4<span class="heti-spacing"> </span></span>种模式</li>
-</ul>
+<li>
+<p>M0M1 ：工作方式设置位工作在<span class="heti-skip"><span class="heti-spacing"> </span>4<span class="heti-spacing"> </span></span>种模式</p>
 <table>
 <thead>
 <tr>
@@ -3913,13 +3899,13 @@ LOOP1:
 </tr>
 </tbody>
 </table>
+</li>
+</ul>
 <ul>
-<li>
-<p>CT：定时控制器选择位：工作在定时模式（0）还是计数模式（1）</p>
-</li>
-<li>
-<p>GATE：启停模式</p>
-</li>
+<li>CT：定时控制器选择位：工作在定时模式（0）还是计数模式（1）</li>
+</ul>
+<ul>
+<li>GATE：启停模式</li>
 </ul>
 <h4 id="ie">中断允许控制寄存器<span><span class="heti-spacing"> </span>IE</span><a class="headerlink" href="#ie" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p><img alt="image-20240511233252243" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240511233252243.png" style="zoom:33%;"/></p>
@@ -3934,15 +3920,13 @@ LOOP1:
 <p><img alt="image-20240511234311556" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240511234311556.png" style="zoom:50%;"/></p>
 <p>分析上图可以得出设置规律</p>
 <ul>
-<li>
-<p>计数外部脉冲个数： <strong><span class="arithmatex">\(1～8192(2^{13})\)</span></strong></p>
-</li>
-<li>
-<p>定时时间：     <span class="arithmatex">\(T～8192T\)</span></p>
-</li>
-<li>
-<p><span><span class="arithmatex">\(f_{osc}=12MHz\)</span>,<span class="arithmatex">\(T=1\mu s\)</span><span class="heti-spacing"> </span></span>时<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>最大定时时间：<span class="arithmatex">\(8.19ms\)</span></p>
-</li>
+<li>计数外部脉冲个数： <strong><span class="arithmatex">\(1～8192(2^{13})\)</span></strong></li>
+</ul>
+<ul>
+<li>定时时间：     <span class="arithmatex">\(T～8192T\)</span></li>
+</ul>
+<ul>
+<li><span><span class="arithmatex">\(f_{osc}=12MHz\)</span>,<span class="arithmatex">\(T=1\mu s\)</span><span class="heti-spacing"> </span></span>时<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>最大定时时间：<span class="arithmatex">\(8.19ms\)</span></li>
 </ul>
 <p>控制不同初始值来控制定时时间：溢出后会中断</p>
 <p>初始化定时<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>计数器时<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>初值<span class="heti-skip"><span class="heti-spacing"> </span>N<span class="heti-spacing"> </span></span>计算<span><span class="heti-spacing"> </span>:</span><br/>
@@ -4050,12 +4034,10 @@ DVT0:
 <p><img alt="image-20240511235352718" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240511235352718.png" style="zoom:50%;"/></p>
 <p><strong><span>8<span class="heti-spacing"> </span></span>位自动重装定时计数器</strong></p>
 <ul>
-<li>
-<p>方式<span class="heti-skip"><span class="heti-spacing"> </span>0,<span class="heti-spacing"> </span></span>方式<span class="heti-skip"><span class="heti-spacing"> </span>1,<span class="heti-spacing"> </span></span>溢出后变成<span class="heti-skip"><span class="heti-spacing"> </span>0000,<span class="heti-spacing"> </span></span>需要重新设置初始值</p>
-</li>
-<li>
-<p>方式<span class="heti-skip"><span class="heti-spacing"> </span>2,<span class="heti-spacing"> </span></span>可以自动将<span class="heti-skip"><span class="heti-spacing"> </span>TH0<span class="heti-spacing"> </span></span>中的值压入<span class="heti-skip"><span class="heti-spacing"> </span>TL0,<span class="heti-spacing"> </span></span>不需要人工赋值</p>
-</li>
+<li>方式<span class="heti-skip"><span class="heti-spacing"> </span>0,<span class="heti-spacing"> </span></span>方式<span class="heti-skip"><span class="heti-spacing"> </span>1,<span class="heti-spacing"> </span></span>溢出后变成<span class="heti-skip"><span class="heti-spacing"> </span>0000,<span class="heti-spacing"> </span></span>需要重新设置初始值</li>
+</ul>
+<ul>
+<li>方式<span class="heti-skip"><span class="heti-spacing"> </span>2,<span class="heti-spacing"> </span></span>可以自动将<span class="heti-skip"><span class="heti-spacing"> </span>TH0<span class="heti-spacing"> </span></span>中的值压入<span class="heti-skip"><span class="heti-spacing"> </span>TL0,<span class="heti-spacing"> </span></span>不需要人工赋值</li>
 </ul>
 <p>一般<span><span class="heti-spacing"> </span>C/T = 0,GATE =0</span></p>
 <p>计数外部脉冲个数范围：1～256(<span class="arithmatex">\(2^8\)</span>)</p>
@@ -4069,15 +4051,13 @@ DVT0:
 </div>
 </div>
 <ul>
-<li>
-<p>M1M0=10（方式<span><span class="heti-spacing"> </span>2</span>）</p>
-</li>
-<li>
-<p>CT=1（计数功能<span><span class="heti-spacing"> </span>)</span></p>
-</li>
-<li>
-<p>GATE=0（<span>TR1<span class="heti-spacing"> </span></span>启动和停止）</p>
-</li>
+<li>M1M0=10（方式<span><span class="heti-spacing"> </span>2</span>）</li>
+</ul>
+<ul>
+<li>CT=1（计数功能<span><span class="heti-spacing"> </span>)</span></li>
+</ul>
+<ul>
+<li>GATE=0（<span>TR1<span class="heti-spacing"> </span></span>启动和停止）</li>
 </ul>
 <p>因此（TMOD）=60H。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="6:1"><input checked="" id="__tabbed_6_1" name="__tabbed_6" type="radio"/><div class="tabbed-labels"><label for="__tabbed_6_1">计算计数初值</label></div>
@@ -4121,17 +4101,9 @@ HERE:	SJMP $        ;等待中断
 <div class="tabbed-block"></div>
 </div>
 </div>
-<ul>
-<li>
-<p><code>TLO</code>定时常数为<code>TL0</code>：<span class="arithmatex">\(t_{10} = 100μs\)</span>,<span class="arithmatex">\(TCL0 = 2^8 - 9.216×10^6×100×10^{-6} = 256 - 76.8 = 179.2\)</span>，单位<span><span class="heti-spacing"> </span><span class="arithmatex">\(\mu s\)</span></span>，为十进制数值。十六进制数值为<code>TL0 = B3H</code>。</p>
-</li>
-<li>
-<p><code>TH0</code>定时常数为<code>TH0</code>：定时时间为<span><span class="heti-spacing"> </span><span class="arithmatex">\(t10 = 200μs\)</span></span>，<span class="arithmatex">\(TCH0 = 2^8 - 9.216×10^6×200×10^-6 = 256 - 153.6 = 102.4\)</span>，单位<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\mu s\)</span>,<span class="heti-spacing"> </span></span>为十进制数值。十六进制的值为<code>TH0 = 66 H</code>。</p>
-</li>
-<li>
-<p><span>TH1<span class="heti-spacing"> </span></span>的波特率（详细计算见串行口部分<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>：设波特率为<code>2400</code><span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>则定时常数为<code>TC2 = F6H</code></p>
-</li>
-</ul>
+<p><span>-<span class="heti-spacing"> </span></span><code>TLO</code>定时常数为<code>TL0</code>：<span class="arithmatex">\(t_{10} = 100μs\)</span>,<span class="arithmatex">\(TCL0 = 2^8 - 9.216×10^6×100×10^{-6} = 256 - 76.8 = 179.2\)</span>，单位<span><span class="heti-spacing"> </span><span class="arithmatex">\(\mu s\)</span></span>，为十进制数值。十六进制数值为<code>TL0 = B3H</code>。</p>
+<p><span>-<span class="heti-spacing"> </span></span><code>TH0</code>定时常数为<code>TH0</code>：定时时间为<span><span class="heti-spacing"> </span><span class="arithmatex">\(t10 = 200μs\)</span></span>，<span class="arithmatex">\(TCH0 = 2^8 - 9.216×10^6×200×10^-6 = 256 - 153.6 = 102.4\)</span>，单位<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\mu s\)</span>,<span class="heti-spacing"> </span></span>为十进制数值。十六进制的值为<code>TH0 = 66 H</code>。</p>
+<p><span>- TH1<span class="heti-spacing"> </span></span>的波特率（详细计算见串行口部分<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>：设波特率为<code>2400</code><span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>则定时常数为<code>TC2 = F6H</code></p>
 <div class="tabbed-set tabbed-alternate" data-tabs="8:1"><input checked="" id="__tabbed_8_1" name="__tabbed_8" type="radio"/><div class="tabbed-labels"><label for="__tabbed_8_1">程序代码</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -4184,12 +4156,10 @@ MOV TMOD, #23H ; 设T0为方式3,T1为2
 <p><strong>计数</strong>方式时：  <span class="arithmatex">\(X=M-计数值\)</span></p>
 <p><strong>定时</strong>方式时：  定时值<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(t(\mu s)=(M—X)\cdot T_M=\frac{12}{f_{osc}(M-X)}\)</span>,<span class="heti-spacing"> </span></span>所以<span><span class="heti-spacing"> </span><span class="arithmatex">\(X=M-t(\mu s)\times f_{osc}(MHz)_{12}\)</span></span>。</p>
 <ul>
-<li>
-<p><span>M<span class="heti-spacing"> </span></span>为定时计数器溢出值：<span class="arithmatex">\(2^N,N=13,16,8\)</span></p>
-</li>
-<li>
-<p><span class="arithmatex">\(T_M\)</span>​单片机时钟周期</p>
-</li>
+<li><span>M<span class="heti-spacing"> </span></span>为定时计数器溢出值：<span class="arithmatex">\(2^N,N=13,16,8\)</span></li>
+</ul>
+<ul>
+<li><span class="arithmatex">\(T_M\)</span>​单片机时钟周期</li>
 </ul>
 <p><strong>若采用中断方式<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>则应设置<span><span class="heti-spacing"> </span>IE</span></strong></p>
 <p><strong>TCON</strong></p>
@@ -4329,27 +4299,25 @@ MOV TMOD, #23H ; 设T0为方式3,T1为2
 <h4 id="scon">串行口控制寄存器<span><span class="heti-spacing"> </span>SCON</span><a class="headerlink" href="#scon" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p><img alt="image-20240517102324310" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240517102324310.png" style="zoom:50%;"/></p>
 <ul>
-<li>
-<p>SM0、SM1——串行口工作方式选择位。</p>
-</li>
-<li>
-<p>SM2——多机通信控制位<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>主要用于方式<span class="heti-skip"><span class="heti-spacing"> </span>2<span class="heti-spacing"> </span></span>和方式<span><span class="heti-spacing"> </span>3)</span></p>
-</li>
-<li>
-<p><strong>REN－允许<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>禁止串行口接收控制位</strong>：<span>REN=1,<span class="heti-spacing"> </span></span>允许接收<span class="heti-skip"><span class="heti-spacing"> </span>;REN=0,<span class="heti-spacing"> </span></span>禁止接收。可通过软件对该位进行设置</p>
-</li>
-<li>
-<p>TB8－第<span class="heti-skip"><span class="heti-spacing"> </span>9<span class="heti-spacing"> </span></span>位发送数据：方式<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>中不使用<span><span class="heti-spacing"> </span>TB8</span>。在方式<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>中<span class="heti-skip"><span class="heti-spacing"> </span>,TB8<span class="heti-spacing"> </span></span>为停止位<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>在方式<span class="heti-skip"><span class="heti-spacing"> </span>2<span class="heti-spacing"> </span></span>和方式<span class="heti-skip"><span class="heti-spacing"> </span>3<span class="heti-spacing"> </span></span>时<span class="heti-skip"><span class="heti-spacing"> </span>,TB8<span class="heti-spacing"> </span></span>的内容是要发送的数据格式中的第<span class="heti-skip"><span class="heti-spacing"> </span>9<span class="heti-spacing"> </span></span>位。</p>
-</li>
-<li>
-<p>RB8－第<span class="heti-skip"><span class="heti-spacing"> </span>9<span class="heti-spacing"> </span></span>位接收数据：方式<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>中不使用<span><span class="heti-spacing"> </span>RB8</span>；方式<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>中<span class="heti-skip"><span class="heti-spacing"> </span>RB8<span class="heti-spacing"> </span></span>为接收到的停止位；方式<span class="heti-skip"><span class="heti-spacing"> </span>2<span class="heti-spacing"> </span></span>和方式<span class="heti-skip"><span class="heti-spacing"> </span>3<span class="heti-spacing"> </span></span>时<span class="heti-skip"><span class="heti-spacing"> </span>,RB8<span class="heti-spacing"> </span></span>存放接收到的第<span class="heti-skip"><span class="heti-spacing"> </span>9<span class="heti-spacing"> </span></span>位数据<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>在双机通信中<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>作为奇偶校验<span class="heti-skip"><span class="heti-spacing"> </span>;<span class="heti-spacing"> </span></span>在多机通信中<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>用作区别地址帧<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>数据帧的标志。</p>
-</li>
-<li>
-<p><strong>TI ——发送结束和发送中断标志位</strong>：串行发送停止位的开始时候，内部硬件置<span><span class="heti-spacing"> </span>1</span>；注意要清零</p>
-</li>
-<li>
-<p><strong>RI——接收结束和接收中断标志位</strong></p>
-</li>
+<li>SM0、SM1——串行口工作方式选择位。</li>
+</ul>
+<ul>
+<li>SM2——多机通信控制位<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>主要用于方式<span class="heti-skip"><span class="heti-spacing"> </span>2<span class="heti-spacing"> </span></span>和方式<span><span class="heti-spacing"> </span>3)</span></li>
+</ul>
+<ul>
+<li><strong>REN－允许<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>禁止串行口接收控制位</strong>：<span>REN=1,<span class="heti-spacing"> </span></span>允许接收<span class="heti-skip"><span class="heti-spacing"> </span>;REN=0,<span class="heti-spacing"> </span></span>禁止接收。可通过软件对该位进行设置</li>
+</ul>
+<ul>
+<li>TB8－第<span class="heti-skip"><span class="heti-spacing"> </span>9<span class="heti-spacing"> </span></span>位发送数据：方式<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>中不使用<span><span class="heti-spacing"> </span>TB8</span>。在方式<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>中<span class="heti-skip"><span class="heti-spacing"> </span>,TB8<span class="heti-spacing"> </span></span>为停止位<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>在方式<span class="heti-skip"><span class="heti-spacing"> </span>2<span class="heti-spacing"> </span></span>和方式<span class="heti-skip"><span class="heti-spacing"> </span>3<span class="heti-spacing"> </span></span>时<span class="heti-skip"><span class="heti-spacing"> </span>,TB8<span class="heti-spacing"> </span></span>的内容是要发送的数据格式中的第<span class="heti-skip"><span class="heti-spacing"> </span>9<span class="heti-spacing"> </span></span>位。</li>
+</ul>
+<ul>
+<li>RB8－第<span class="heti-skip"><span class="heti-spacing"> </span>9<span class="heti-spacing"> </span></span>位接收数据：方式<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>中不使用<span><span class="heti-spacing"> </span>RB8</span>；方式<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>中<span class="heti-skip"><span class="heti-spacing"> </span>RB8<span class="heti-spacing"> </span></span>为接收到的停止位；方式<span class="heti-skip"><span class="heti-spacing"> </span>2<span class="heti-spacing"> </span></span>和方式<span class="heti-skip"><span class="heti-spacing"> </span>3<span class="heti-spacing"> </span></span>时<span class="heti-skip"><span class="heti-spacing"> </span>,RB8<span class="heti-spacing"> </span></span>存放接收到的第<span class="heti-skip"><span class="heti-spacing"> </span>9<span class="heti-spacing"> </span></span>位数据<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>在双机通信中<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>作为奇偶校验<span class="heti-skip"><span class="heti-spacing"> </span>;<span class="heti-spacing"> </span></span>在多机通信中<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>用作区别地址帧<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>数据帧的标志。</li>
+</ul>
+<ul>
+<li><strong>TI ——发送结束和发送中断标志位</strong>：串行发送停止位的开始时候，内部硬件置<span><span class="heti-spacing"> </span>1</span>；注意要清零</li>
+</ul>
+<ul>
+<li><strong>RI——接收结束和接收中断标志位</strong></li>
 </ul>
 <p>可以通过检验<span class="heti-skip"><span class="heti-spacing"> </span>TI RI<span class="heti-spacing"> </span></span>来判断是否接受、发送结束</p>
 <h4 id="pcon">电源控制寄存器<span><span class="heti-spacing"> </span>PCON</span><a class="headerlink" href="#pcon" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
@@ -4420,12 +4388,10 @@ CLR TI           ;为下次发送作准备，手动软件清零不要忘记
 </code></pre></div>
 <p>注意：复位时<span class="heti-skip"><span class="heti-spacing"> </span>,SCON<span class="heti-spacing"> </span></span>已经被清零。</p>
 <ul>
-<li>
-<p>发送条件：TI=0。</p>
-</li>
-<li>
-<p>接收条件：<span>TI=0,<span class="heti-spacing"> </span></span>置位<span><span class="heti-spacing"> </span>REN=1</span> （允许接收数据<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。</p>
-</li>
+<li>发送条件：TI=0。</li>
+</ul>
+<ul>
+<li>接收条件：<span>TI=0,<span class="heti-spacing"> </span></span>置位<span><span class="heti-spacing"> </span>REN=1</span> （允许接收数据<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。</li>
 </ul>
 <h4 id="1_1">工作方式<span><span class="heti-spacing"> </span>1</span><a class="headerlink" href="#1_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p><span>10<span class="heti-spacing"> </span></span>位的异步通信：<span>1<span class="heti-spacing"> </span></span>位起始位<span class="heti-skip"><span class="heti-spacing"> </span>+8<span class="heti-spacing"> </span></span>位信息位<span class="heti-skip"><span class="heti-spacing"> </span>+1<span class="heti-spacing"> </span></span>位结束位</p>

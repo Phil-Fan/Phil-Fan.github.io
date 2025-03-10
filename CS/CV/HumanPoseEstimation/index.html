@@ -3130,7 +3130,7 @@ arXiv地址：<a href="https://arxiv.org/abs/2308.13872">Vision-Based Human Pose
 </li>
 <li>
 <p><strong>预测头（Prediction Head）</strong>：这是<span class="heti-skip"><span class="heti-spacing"> </span>CNN<span class="heti-spacing"> </span></span>的第二部分，负责使用骨干网络提取出的特征来预测人体的姿态。预测头的设计和实现方式可以有很多种，但它的主要任务是根据输入图像的特征，确定图像中人体各个关节的位置。</p>
-</li>
+<ol>
 <li>
 <p>回归范式（直接预测关节坐标）在回归范式中，模型直接从输入图像预测出每个关节的坐标。这种方法通常采用全连接层（fully connected layers）来对具体的关键点坐标进行回归。这意味着模型输出的是一个坐标列表，每个坐标代表一个关节在图像中的位置。</p>
 <p><strong>举例</strong>：假设我们想要从一张人体图像中预测头部、肩膀、肘部和手腕的位置，使用回归范式的模型将直接输出这些部位的<span class="heti-skip"><span class="heti-spacing"> </span>x<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>y<span class="heti-spacing"> </span></span>坐标值，例如，头部可能被预测为<span><span class="heti-spacing"> </span>(100, 50)</span>，肩膀为<span><span class="heti-spacing"> </span>(120, 80)</span>，等等。</p>
@@ -3138,6 +3138,8 @@ arXiv地址：<a href="https://arxiv.org/abs/2308.13872">Vision-Based Human Pose
 <li>
 <p>热图预测范式（生成热图后计算关节坐标）热图预测范式先生成每个关节的热图表示，然后从这些热图中计算出关节坐标。热图是一种概率分布图，表示了关节出现在图像不同位置的可能性。在生成热图之后，通过某种方式（通常是找到热图中的最大值点）来确定关节的最终坐标。为了提高热图的分辨率，常用的操作是上采样（<code>upsampling</code><heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。</p>
 <p><strong>举例</strong>：使用热图预测范式来估计同样的头部、肩膀、肘部和手腕的位置时，模型首先为每个关节生成一张热图。例如，头部的热图中最亮的点（最大概率值所在点）位于<span><span class="heti-spacing"> </span>(102, 48)</span>，这个点就被认为是头部的预测位置。肩膀、肘部和手腕也以同样的方式从它们各自的热图中确定位置。</p>
+</li>
+</ol>
 </li>
 </ol>
 <h4 id="rnnrecurrent-neural-networks">RNN(<code>Recurrent Neural Networks</code>)<a class="headerlink" href="#rnnrecurrent-neural-networks" title="anchor link to this section for reference">¶</a></h4>

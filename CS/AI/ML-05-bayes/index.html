@@ -3204,17 +3204,13 @@ $$</p>
 <p><strong>先验概率<span><span class="heti-spacing"> </span>|</span> <code>prior</code></strong>: <span class="arithmatex">\(P(A)\)</span>​the probability A being True. this is the knowledge</p>
 <p>反映了我们关注的标签在自然界中<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>无人为干预的情况下<span class="heti-skip"><span class="heti-spacing"> </span>)<span class="heti-spacing"> </span></span>的数量分布情况（在某个特征下也可以<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。例如：我们可以看在<span class="heti-skip"><span class="heti-spacing"> </span>lightness<span class="heti-spacing"> </span></span>特征条件下<span class="heti-skip"><span class="heti-spacing"> </span>See bass<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>salmon<span class="heti-spacing"> </span></span>这两个标签的数量情况。更简单的来讲，先验就是在我们不知情的情况下猜测的标签种类<heti-adjacent class="heti-adjacent-half">。</heti-adjacent>（我们倾向于猜测炸弹不会爆炸，因为其先验概率很小）</p>
 <ul>
-<li>
-<p>如果没有先验概率的情况下，我们可能会认为<span class="heti-skip"><span class="heti-spacing"> </span>salmon<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>sea bass<span class="heti-spacing"> </span></span>的捕捉概率是相等的。这种假设并不适用于任何情况。<span class="arithmatex">\(P(y_{1} )=P(y_{2} )\)</span></p>
-</li>
-<li>
-<p>如果是二分类问题<span><span class="heti-spacing"> </span><span class="arithmatex">\(P(y_{1} )+P(y_{2} )=1\)</span></span></p>
-</li>
-<li>如果只根据先验信息进行决策<ul>
-<li>即如果<span class="heti-skip"><span class="heti-spacing"> </span>y1<span class="heti-spacing"> </span></span>的概率大于<span class="heti-skip"><span class="heti-spacing"> </span>y2<span class="heti-spacing"> </span></span>则认为是<span><span class="heti-spacing"> </span>y1</span>，否则就是<span><span class="heti-spacing"> </span>y2.</span></li>
-<li>先验概率不一定准确，没有用到事物本身的<span><span class="heti-spacing"> </span>feature</span>，纯在猜测。</li>
+<li>如果没有先验概率的情况下，我们可能会认为<span class="heti-skip"><span class="heti-spacing"> </span>salmon<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>sea bass<span class="heti-spacing"> </span></span>的捕捉概率是相等的。这种假设并不适用于任何情况。<span class="arithmatex">\(P(y_{1} )=P(y_{2} )\)</span></li>
 </ul>
-</li>
+<ul>
+<li>如果是二分类问题<span><span class="heti-spacing"> </span><span class="arithmatex">\(P(y_{1} )+P(y_{2} )=1\)</span></span></li>
+<li>如果只根据先验信息进行决策
+    - 即如果y1的概率大于y2则认为是y1，否则就是y2.
+    - 先验概率不一定准确，没有用到事物本身的feature，纯在猜测。</li>
 </ul>
 <p><strong>似然性<span><span class="heti-spacing"> </span>|</span> <code>likelihood</code></strong>: <span class="arithmatex">\(P(B|A)\)</span>​the probability of B being true,given A is true</p>
 <div class="admonition note">
@@ -3328,12 +3324,10 @@ g_i(x) &gt; g_j(x), \forall j \neq i
 <p><img alt="image-20240630210634705" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240630210634705.png" style="zoom:33%;"/></p>
 <p><strong>离散形式极大似然估计</strong></p>
 <ul>
-<li>
-<p>先验概率：将频率估计为概率<span><span class="heti-spacing"> </span><span class="arithmatex">\(P\left(y_{k}\right)=\frac{N_{y_{k}}}{N}\)</span></span></p>
-</li>
-<li>
-<p>似然：在类别为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(y_k\)</span><span class="heti-spacing"> </span></span>的样本中特征为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(x_i\)</span><span class="heti-spacing"> </span></span>样本的占比。<span class="arithmatex">\(P\left(x_{i} \mid y_{k}\right)=\frac{\left|x_{i k}\right|}{N_{y_{k}}}\)</span></p>
-</li>
+<li>先验概率：将频率估计为概率<span><span class="heti-spacing"> </span><span class="arithmatex">\(P\left(y_{k}\right)=\frac{N_{y_{k}}}{N}\)</span></span></li>
+</ul>
+<ul>
+<li>似然：在类别为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(y_k\)</span><span class="heti-spacing"> </span></span>的样本中特征为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(x_i\)</span><span class="heti-spacing"> </span></span>样本的占比。<span class="arithmatex">\(P\left(x_{i} \mid y_{k}\right)=\frac{\left|x_{i k}\right|}{N_{y_{k}}}\)</span></li>
 </ul>
 <p><strong>连续形式极大似然估计</strong></p>
 <ul>
@@ -3386,28 +3380,24 @@ P(x|\mu,\sigma^2) = \frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}}
 <ul>
 <li>训练数据：</li>
 <li><span><span class="arithmatex">\(C_1\)</span>:<span class="heti-spacing"> </span></span>花瓣长度<span><span class="heti-spacing"> </span>= [1.2, 1.5, 1.3, 1.7]</span></li>
+<li><span><span class="arithmatex">\(C_2\)</span>:<span class="heti-spacing"> </span></span>花瓣长度<span><span class="heti-spacing"> </span>= [3.2, 3.8, 3.6, 3.4]</span></li>
+</ul>
+<ol>
 <li>
-<p><span><span class="arithmatex">\(C_2\)</span>:<span class="heti-spacing"> </span></span>花瓣长度<span><span class="heti-spacing"> </span>= [3.2, 3.8, 3.6, 3.4]</span></p>
-</li>
-<li>
-<p><strong>估计参数</strong>：</p>
-</li>
-<li>对<span><span class="heti-spacing"> </span><span class="arithmatex">\(C_1\)</span></span>：计算均值<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\mu_1\)</span><span class="heti-spacing"> </span></span>和标准差<span><span class="heti-spacing"> </span><span class="arithmatex">\(\sigma_1\)</span></span>
+<p><strong>估计参数</strong>：
+- 对 <span class="arithmatex">\(C_1\)</span>：计算均值 <span class="arithmatex">\(\mu_1\)</span> 和标准差 <span class="arithmatex">\(\sigma_1\)</span>
     [
     mu_1 = frac{1.2 + 1.5 + 1.3 + 1.7}{4} = 1.425,quad
     sigma_1 = sqrt{frac{(1.2-1.425)^2 + cdots}{4}} approx 0.18
-    ]</li>
-<li>
-<p>对<span><span class="heti-spacing"> </span><span class="arithmatex">\(C_2\)</span></span>：计算均值<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\mu_2\)</span><span class="heti-spacing"> </span></span>和标准差<span><span class="heti-spacing"> </span><span class="arithmatex">\(\sigma_2\)</span></span>
+    ]
+- 对 <span class="arithmatex">\(C_2\)</span>：计算均值 <span class="arithmatex">\(\mu_2\)</span> 和标准差 <span class="arithmatex">\(\sigma_2\)</span>
     [
     mu_2 = 3.5,quad sigma_2 approx 0.24
     ]</p>
 </li>
 <li>
-<p><strong>计算概率密度</strong>：</p>
-</li>
-<li>
-<p>假设测试样本的花瓣长度为<span><span class="heti-spacing"> </span><span class="arithmatex">\(x = 1.4\)</span></span>：
+<p><strong>计算概率密度</strong>：
+- 假设测试样本的花瓣长度为 <span class="arithmatex">\(x = 1.4\)</span>：
     [
     P(x|C_1) = frac{1}{sqrt{2pi} cdot 0.18} expleft(-frac{(1.4-1.425)^2}{2 cdot 0.18^2}right) approx 2.21
     ]
@@ -3416,10 +3406,10 @@ P(x|\mu,\sigma^2) = \frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}}
     ]</p>
 </li>
 <li>
-<p><strong>结合先验概率</strong>：</p>
+<p><strong>结合先验概率</strong>：
+- 若先验概率相等，则取概率密度较大的类别，即 <span class="arithmatex">\(P(C_1|x) &gt; P(C_2|x)\)</span>，预测类别为 <span class="arithmatex">\(C_1\)</span>。</p>
 </li>
-<li>若先验概率相等，则取概率密度较大的类别，即<span><span class="heti-spacing"> </span><span class="arithmatex">\(P(C_1|x) &gt; P(C_2|x)\)</span></span>，预测类别为<span><span class="heti-spacing"> </span><span class="arithmatex">\(C_1\)</span></span>。</li>
-</ul>
+</ol>
 </div>
 <h2 id="_4">半朴素贝叶斯<a class="headerlink" href="#_4" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p>常见方法

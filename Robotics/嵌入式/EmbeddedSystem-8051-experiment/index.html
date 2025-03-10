@@ -3897,11 +3897,15 @@ END
 </code></pre></div>
 <p>在程序中，<code>S_OK</code> 的作用是：</p>
 <ol>
-<li><strong>在定时器中断中</strong>：</li>
+<li><strong>在定时器中断中</strong>：<ul>
 <li>当定时器达到设定的计数值时，会触发中断，在中断服务程序 <code>SECOND</code> 中，<code>S_OK</code> 被设置（<code>SETB S_OK</code>）以通知主程序定时已经到期。</li>
-<li><strong>在主程序中</strong>：</li>
+</ul>
+</li>
+<li><strong>在主程序中</strong>：<ul>
 <li>主程序会不断检测 <code>S_OK</code> 的状态。如果 <code>S_OK</code> 被设置，意味着一个时间段（例如<span><span class="heti-spacing"> </span>10ms</span>）已经过去，主程序可以执行下一步操作。</li>
 <li>使用 <code>JNB S_OK, label</code> 指令来等待 <code>S_OK</code> 被设置。如果 <code>S_OK</code> 未被设置，程序会在当前循环等待；一旦 <code>S_OK</code> 被设置，程序将继续执行。</li>
+</ul>
+</li>
 </ol>
 <h3 id="_12"><strong>对应关系</strong><a class="headerlink" href="#_12" title="anchor link to this section for reference">¶</a></h3>
 <p><strong>初始化部分</strong></p>
@@ -3969,108 +3973,114 @@ SECOND_2:
 <h3 id="_13">指令解释<a class="headerlink" href="#_13" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <h4 id="_14">基本指令<a class="headerlink" href="#_14" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <ul>
-<li><code>MOV dest, src</code><span>:<span class="heti-spacing"> </span></span>将源操作数 <code>src</code> 的值传送到目的操作数 <code>dest</code>。</li>
-<li>
-<p>示例：<code>MOV SP,#60H</code> 将立即数 <code>60H</code> 装入堆栈指针 <code>SP</code>。</p>
+<li><code>MOV dest, src</code><span>:<span class="heti-spacing"> </span></span>将源操作数 <code>src</code> 的值传送到目的操作数 <code>dest</code>。<ul>
+<li>示例：<code>MOV SP,#60H</code> 将立即数 <code>60H</code> 装入堆栈指针 <code>SP</code>。</li>
+</ul>
 </li>
-<li>
-<p><code>CLR bit</code><span>:<span class="heti-spacing"> </span></span>将指定位清零（置<span><span class="heti-spacing"> </span>0</span><heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。</p>
+</ul>
+<ul>
+<li><code>CLR bit</code><span>:<span class="heti-spacing"> </span></span>将指定位清零（置<span><span class="heti-spacing"> </span>0</span><heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。<ul>
+<li>示例：<code>CLR EA</code> 将全局中断使能位清零。</li>
+</ul>
 </li>
-<li>
-<p>示例：<code>CLR EA</code> 将全局中断使能位清零。</p>
+</ul>
+<ul>
+<li><code>SETB bit</code><span>:<span class="heti-spacing"> </span></span>将指定位置<span><span class="heti-spacing"> </span>1</span>。<ul>
+<li>示例：<code>SETB EA</code> 将全局中断使能位置<span><span class="heti-spacing"> </span>1</span>。</li>
+</ul>
 </li>
-<li>
-<p><code>SETB bit</code><span>:<span class="heti-spacing"> </span></span>将指定位置<span><span class="heti-spacing"> </span>1</span>。</p>
+</ul>
+<ul>
+<li><code>JZ label</code><span>:<span class="heti-spacing"> </span></span>如果累加器 <code>A</code> 的值为零，则跳转到指定标签。<ul>
+<li>示例：<code>JZ SECOND_1</code> 如果 <code>A</code> 为<span><span class="heti-spacing"> </span>0</span>，则跳转到 <code>SECOND_1</code>。</li>
+</ul>
 </li>
-<li>
-<p>示例：<code>SETB EA</code> 将全局中断使能位置<span><span class="heti-spacing"> </span>1</span>。</p>
+</ul>
+<ul>
+<li><code>SJMP label</code><span>:<span class="heti-spacing"> </span></span>无条件跳转到指定标签。<ul>
+<li>示例：<code>SJMP MAIN</code> 无条件跳转到 <code>MAIN</code>。</li>
+</ul>
 </li>
-<li>
-<p><code>JZ label</code><span>:<span class="heti-spacing"> </span></span>如果累加器 <code>A</code> 的值为零，则跳转到指定标签。</p>
+</ul>
+<ul>
+<li><code>JB bit, label</code><span>:<span class="heti-spacing"> </span></span>如果指定位为<span><span class="heti-spacing"> </span>1</span>，则跳转到指定标签。<ul>
+<li>示例：<code>JB ACC.2,EMERG</code> 如果累加器 <code>A</code> 的第<span class="heti-skip"><span class="heti-spacing"> </span>2<span class="heti-spacing"> </span></span>位为<span><span class="heti-spacing"> </span>1</span>，则跳转到 <code>EMERG</code>。</li>
+</ul>
 </li>
-<li>
-<p>示例：<code>JZ SECOND_1</code> 如果 <code>A</code> 为<span><span class="heti-spacing"> </span>0</span>，则跳转到 <code>SECOND_1</code>。</p>
+</ul>
+<ul>
+<li><code>DEC reg</code><span>:<span class="heti-spacing"> </span></span>将指定寄存器的值减<span><span class="heti-spacing"> </span>1</span>。<ul>
+<li>示例：<code>DEC R0</code> 将寄存器 <code>R0</code> 的值减<span><span class="heti-spacing"> </span>1</span>。</li>
+</ul>
 </li>
-<li>
-<p><code>SJMP label</code><span>:<span class="heti-spacing"> </span></span>无条件跳转到指定标签。</p>
+</ul>
+<ul>
+<li><code>DJNZ reg, label</code><span>:<span class="heti-spacing"> </span></span>将指定寄存器的值减<span><span class="heti-spacing"> </span>1</span>，如果减<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>后的结果不为<span><span class="heti-spacing"> </span>0</span>，则跳转到指定标签。<ul>
+<li>示例：<code>DJNZ R1,TLP</code> 将 <code>R1</code> 减<span><span class="heti-spacing"> </span>1</span>，如果 <code>R1</code> 不为<span><span class="heti-spacing"> </span>0</span>，则跳转到 <code>TLP</code>。</li>
+</ul>
 </li>
-<li>
-<p>示例：<code>SJMP MAIN</code> 无条件跳转到 <code>MAIN</code>。</p>
+</ul>
+<ul>
+<li><code>RET</code><span>:<span class="heti-spacing"> </span></span>从子程序返回。<ul>
+<li>在这段代码中未使用。</li>
+</ul>
 </li>
-<li>
-<p><code>JB bit, label</code><span>:<span class="heti-spacing"> </span></span>如果指定位为<span><span class="heti-spacing"> </span>1</span>，则跳转到指定标签。</p>
-</li>
-<li>
-<p>示例：<code>JB ACC.2,EMERG</code> 如果累加器 <code>A</code> 的第<span class="heti-skip"><span class="heti-spacing"> </span>2<span class="heti-spacing"> </span></span>位为<span><span class="heti-spacing"> </span>1</span>，则跳转到 <code>EMERG</code>。</p>
-</li>
-<li>
-<p><code>DEC reg</code><span>:<span class="heti-spacing"> </span></span>将指定寄存器的值减<span><span class="heti-spacing"> </span>1</span>。</p>
-</li>
-<li>
-<p>示例：<code>DEC R0</code> 将寄存器 <code>R0</code> 的值减<span><span class="heti-spacing"> </span>1</span>。</p>
-</li>
-<li>
-<p><code>DJNZ reg, label</code><span>:<span class="heti-spacing"> </span></span>将指定寄存器的值减<span><span class="heti-spacing"> </span>1</span>，如果减<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>后的结果不为<span><span class="heti-spacing"> </span>0</span>，则跳转到指定标签。</p>
-</li>
-<li>
-<p>示例：<code>DJNZ R1,TLP</code> 将 <code>R1</code> 减<span><span class="heti-spacing"> </span>1</span>，如果 <code>R1</code> 不为<span><span class="heti-spacing"> </span>0</span>，则跳转到 <code>TLP</code>。</p>
-</li>
-<li>
-<p><code>RET</code><span>:<span class="heti-spacing"> </span></span>从子程序返回。</p>
-</li>
-<li>
-<p>在这段代码中未使用。</p>
-</li>
-<li>
-<p><code>RETI</code><span>:<span class="heti-spacing"> </span></span>从中断服务程序返回。</p>
-</li>
+</ul>
+<ul>
+<li><code>RETI</code><span>:<span class="heti-spacing"> </span></span>从中断服务程序返回。<ul>
 <li>示例：<code>RETI</code> 返回主程序。</li>
+</ul>
+</li>
 </ul>
 <h4 id="_15">中断和定时器<a class="headerlink" href="#_15" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <ul>
-<li><code>ORG address</code><span>:<span class="heti-spacing"> </span></span>设置程序起始地址。</li>
-<li>
-<p>示例：<code>ORG 0000H</code> 设置程序起始地址为 <code>0000H</code>。</p>
+<li><code>ORG address</code><span>:<span class="heti-spacing"> </span></span>设置程序起始地址。<ul>
+<li>示例：<code>ORG 0000H</code> 设置程序起始地址为 <code>0000H</code>。</li>
+</ul>
 </li>
-<li>
-<p><code>AJMP address</code><span>:<span class="heti-spacing"> </span></span>绝对跳转到指定地址。</p>
+</ul>
+<ul>
+<li><code>AJMP address</code><span>:<span class="heti-spacing"> </span></span>绝对跳转到指定地址。<ul>
+<li>示例：<code>AJMP SECOND</code> 绝对跳转到 <code>SECOND</code>。</li>
+</ul>
 </li>
-<li>
-<p>示例：<code>AJMP SECOND</code> 绝对跳转到 <code>SECOND</code>。</p>
+</ul>
+<ul>
+<li><code>MOV TL0,#value</code><span>:<span class="heti-spacing"> </span></span>将立即数装入定时器<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>计数器<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>的低<span class="heti-skip"><span class="heti-spacing"> </span>8<span class="heti-spacing"> </span></span>位。<ul>
+<li>示例：<code>MOV TL0,#0B0H</code> 将 <code>0B0H</code> 装入 <code>TL0</code>。</li>
+</ul>
 </li>
-<li>
-<p><code>MOV TL0,#value</code><span>:<span class="heti-spacing"> </span></span>将立即数装入定时器<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>计数器<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>的低<span class="heti-skip"><span class="heti-spacing"> </span>8<span class="heti-spacing"> </span></span>位。</p>
+</ul>
+<ul>
+<li><code>MOV TH0,#value</code><span>:<span class="heti-spacing"> </span></span>将立即数装入定时器<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>计数器<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>的高<span class="heti-skip"><span class="heti-spacing"> </span>8<span class="heti-spacing"> </span></span>位。<ul>
+<li>示例：<code>MOV TH0,#3CH</code> 将 <code>3CH</code> 装入 <code>TH0</code>。</li>
+</ul>
 </li>
-<li>
-<p>示例：<code>MOV TL0,#0B0H</code> 将 <code>0B0H</code> 装入 <code>TL0</code>。</p>
+</ul>
+<ul>
+<li><code>MOV TMOD,#value</code><span>:<span class="heti-spacing"> </span></span>设置定时器<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>计数器模式寄存器 <code>TMOD</code> 的值。<ul>
+<li>示例：<code>MOV TMOD,#01H</code> 设置 <code>TMOD</code> 为模式<span><span class="heti-spacing"> </span>1</span>（<span>16<span class="heti-spacing"> </span></span>位定时器<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>计数器<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。</li>
+</ul>
 </li>
-<li>
-<p><code>MOV TH0,#value</code><span>:<span class="heti-spacing"> </span></span>将立即数装入定时器<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>计数器<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>的高<span class="heti-skip"><span class="heti-spacing"> </span>8<span class="heti-spacing"> </span></span>位。</p>
+</ul>
+<ul>
+<li><code>SETB TR0</code><span>:<span class="heti-spacing"> </span></span>启动定时器<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>计数器<span><span class="heti-spacing"> </span>0</span>。<ul>
+<li>示例：<code>SETB TR0</code> 启动定时器<span><span class="heti-spacing"> </span>0</span>。</li>
+</ul>
 </li>
-<li>
-<p>示例：<code>MOV TH0,#3CH</code> 将 <code>3CH</code> 装入 <code>TH0</code>。</p>
-</li>
-<li>
-<p><code>MOV TMOD,#value</code><span>:<span class="heti-spacing"> </span></span>设置定时器<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>计数器模式寄存器 <code>TMOD</code> 的值。</p>
-</li>
-<li>
-<p>示例：<code>MOV TMOD,#01H</code> 设置 <code>TMOD</code> 为模式<span><span class="heti-spacing"> </span>1</span>（<span>16<span class="heti-spacing"> </span></span>位定时器<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>计数器<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。</p>
-</li>
-<li>
-<p><code>SETB TR0</code><span>:<span class="heti-spacing"> </span></span>启动定时器<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>计数器<span><span class="heti-spacing"> </span>0</span>。</p>
-</li>
-<li>
-<p>示例：<code>SETB TR0</code> 启动定时器<span><span class="heti-spacing"> </span>0</span>。</p>
-</li>
-<li>
-<p><code>CLR TR0</code><span>:<span class="heti-spacing"> </span></span>停止定时器<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>计数器<span><span class="heti-spacing"> </span>0</span>。</p>
-</li>
+</ul>
+<ul>
+<li><code>CLR TR0</code><span>:<span class="heti-spacing"> </span></span>停止定时器<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>计数器<span><span class="heti-spacing"> </span>0</span>。<ul>
 <li>在这段代码中未使用。</li>
+</ul>
+</li>
 </ul>
 <h4 id="_16">位操作<a class="headerlink" href="#_16" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <ul>
-<li><code>S_OK BIT 20H.0</code><span>:<span class="heti-spacing"> </span></span>定义位变量 <code>S_OK</code> 在 <code>20H</code> 地址的第<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>位。</li>
+<li><code>S_OK BIT 20H.0</code><span>:<span class="heti-spacing"> </span></span>定义位变量 <code>S_OK</code> 在 <code>20H</code> 地址的第<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>位。<ul>
 <li>示例：<code>S_OK BIT 20H.0</code> 定义 <code>S_OK</code>。</li>
+</ul>
+</li>
 </ul>
 <h2 id="_17">数码管<a class="headerlink" href="#_17" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p>共阴极接法</p>

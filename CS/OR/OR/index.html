@@ -3547,12 +3547,10 @@ s.t. &amp;\left\{
 <p>与基本单纯形法类似，计算检验数来确定入基和出基变量。</p>
 <ul>
 <li>所有检验数小于零且没有人工变量，则有最优解</li>
-<li>
-<p>所有检验数小于零，有非零人工变量，没有可行解。</p>
-</li>
-<li>
-<p>中心元变换：在迭代过程中将人工变量替换成其他已有的变量，如果无法将人工变量替走，则无可行解。</p>
-</li>
+<li>所有检验数小于零，有非零人工变量，没有可行解。</li>
+</ul>
+<ul>
+<li>中心元变换：在迭代过程中将人工变量替换成其他已有的变量，如果无法将人工变量替走，则无可行解。</li>
 </ul>
 <p><img alt="image-20240423091734877" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240423091734877.png"/></p>
 <h3 id="_9">二、对偶理论<a class="headerlink" href="#_9" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
@@ -4153,18 +4151,16 @@ s.t. \quad &amp;A^T \cdot y \ge C^T\\
 </ul>
 <h3 id="_26">数学模型<a class="headerlink" href="#_26" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ul>
-<li>
-<p>如何将第<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(i\)</span><span class="heti-spacing"> </span></span>个变量排除在外：在右侧约束中乘上逻辑变量<span><span class="heti-spacing"> </span><span class="arithmatex">\(y_i\)</span></span>​</p>
-</li>
-<li>
-<p>不等式约束如何满足：右侧加上极大数<span><span class="heti-spacing"> </span><span class="arithmatex">\(M\)</span></span>，约束变为<span><span class="heti-spacing"> </span><span class="arithmatex">\(a_{i1}x_1+a_{i2}x_2+\dots a_{in}x_n \le b_i + M\cdot(1-y_i)\)</span></span>，则<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(y_i = 0\)</span><span class="heti-spacing"> </span></span>时候，约束无效</p>
-</li>
-<li>
-<p><span><span class="arithmatex">\(p\)</span><span class="heti-spacing"> </span></span>个约束当中只有<span><span class="heti-spacing"> </span><span class="arithmatex">\(q\)</span></span>​个有效<span><span class="heti-spacing"> </span><span class="arithmatex">\(a_{i1}x_1+a_{i2}x_2+\dots a_{in}x_n \le b_i + M\cdot(1-y_i) \\ y_1 + \dots + y_p = p-q\)</span></span></p>
-</li>
-<li>
-<p>前置课程，选<span class="heti-skip"><span class="heti-spacing"> </span>2<span class="heti-spacing"> </span></span>必须先选<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>约束：逻辑变量<span><span class="heti-spacing"> </span><span class="arithmatex">\(y_1 \ge y_2\)</span></span>​</p>
-</li>
+<li>如何将第<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(i\)</span><span class="heti-spacing"> </span></span>个变量排除在外：在右侧约束中乘上逻辑变量<span><span class="heti-spacing"> </span><span class="arithmatex">\(y_i\)</span></span>​</li>
+</ul>
+<ul>
+<li>不等式约束如何满足：右侧加上极大数<span><span class="heti-spacing"> </span><span class="arithmatex">\(M\)</span></span>，约束变为<span><span class="heti-spacing"> </span><span class="arithmatex">\(a_{i1}x_1+a_{i2}x_2+\dots a_{in}x_n \le b_i + M\cdot(1-y_i)\)</span></span>，则<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(y_i = 0\)</span><span class="heti-spacing"> </span></span>时候，约束无效</li>
+</ul>
+<ul>
+<li><span><span class="arithmatex">\(p\)</span><span class="heti-spacing"> </span></span>个约束当中只有<span><span class="heti-spacing"> </span><span class="arithmatex">\(q\)</span></span>​个有效<span><span class="heti-spacing"> </span><span class="arithmatex">\(a_{i1}x_1+a_{i2}x_2+\dots a_{in}x_n \le b_i + M\cdot(1-y_i) \\ y_1 + \dots + y_p = p-q\)</span></span></li>
+</ul>
+<ul>
+<li>前置课程，选<span class="heti-skip"><span class="heti-spacing"> </span>2<span class="heti-spacing"> </span></span>必须先选<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>约束：逻辑变量<span><span class="heti-spacing"> </span><span class="arithmatex">\(y_1 \ge y_2\)</span></span>​</li>
 </ul>
 <p><img alt="image-20240612011052418" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240612011052418.png" style="zoom:50%;"/></p>
 <p><img alt="image-20240612011036492" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240612011036492.png" style="zoom:50%;"/></p>
@@ -4187,12 +4183,10 @@ s.t. \quad &amp;A^T \cdot y \ge C^T\\
 <p>将每个变量分为上下最接近的两个整数，逐步满足整数规划的约束条件。</p>
 <ul>
 <li>求松弛问题的最优解</li>
-<li>
-<p>分支与定界<br/>任选一个非整数解变量<span><span class="heti-spacing"> </span><span class="arithmatex">\(x_i\)</span></span>，在松弛问题中加上约束：<br/><span><span class="arithmatex">\(x_i \leq \lfloor x_i \rfloor\)</span><span class="heti-spacing"> </span></span>和<span><span class="heti-spacing"> </span><span class="arithmatex">\(x_i \geq \lceil x_i \rceil + 1\)</span></span></p>
-</li>
-<li>
-<p>检查到分支松弛问题的解及目标函数值：<br/>如果该分支的解是整数，并且目标函数值大于等于其它分支的目标值，则剪去其它分支，停止计算；<br/>如果没有得到最优整数解，如果该分支的解是小数，并且目标函数值大于整数解的目标值，需要继续进行分支，直到得到最优解。</p>
-</li>
+<li>分支与定界<br/>任选一个非整数解变量<span><span class="heti-spacing"> </span><span class="arithmatex">\(x_i\)</span></span>，在松弛问题中加上约束：<br/><span><span class="arithmatex">\(x_i \leq \lfloor x_i \rfloor\)</span><span class="heti-spacing"> </span></span>和<span><span class="heti-spacing"> </span><span class="arithmatex">\(x_i \geq \lceil x_i \rceil + 1\)</span></span></li>
+</ul>
+<ul>
+<li>检查到分支松弛问题的解及目标函数值：<br/>如果该分支的解是整数，并且目标函数值大于等于其它分支的目标值，则剪去其它分支，停止计算；<br/>如果没有得到最优整数解，如果该分支的解是小数，并且目标函数值大于整数解的目标值，需要继续进行分支，直到得到最优解。</li>
 </ul>
 <p>新的分支松弛问题特征：</p>
 <ul>
@@ -4283,12 +4277,10 @@ x_{ij} = 0 \text{或} 1 \quad i, j = 1, 2, ..., n
 <h3 id="_34">概念与定义<a class="headerlink" href="#_34" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>目标规划是用来解决多目标规划问题的，并且决策者事先对每个不同的目标都存在着一个期望值即理想值；即通过之前的生产运营数据计算出的最优值</p>
 <ul>
-<li>
-<p>多个约束，很可能可行域为空<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\rightarrow\)</span><span class="heti-spacing"> </span></span>为约束设置不同的优先级，先满足高优先级的约束</p>
-</li>
-<li>
-<p>常常存在多目标：分清主次，设置优先级（<span>d<span class="heti-spacing"> </span></span>的编号越小，优先级越高<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，并按照优先级进行加权，构成一个新的单目标函数</p>
-</li>
+<li>多个约束，很可能可行域为空<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\rightarrow\)</span><span class="heti-spacing"> </span></span>为约束设置不同的优先级，先满足高优先级的约束</li>
+</ul>
+<ul>
+<li>常常存在多目标：分清主次，设置优先级（<span>d<span class="heti-spacing"> </span></span>的编号越小，优先级越高<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，并按照优先级进行加权，构成一个新的单目标函数</li>
 <li>保证多个目标尽可能接近，而不会放弃某个目标</li>
 </ul>
 <p><strong>硬约束与软约束</strong></p>
@@ -4298,12 +4290,10 @@ x_{ij} = 0 \text{或} 1 \quad i, j = 1, 2, ..., n
 </ul>
 <p><strong>偏差变量<span><span class="heti-spacing"> </span><span class="arithmatex">\(d_i\)</span></span></strong>：表示实际值与目标值之间的差距。</p>
 <ul>
-<li>
-<p><span>$d_i^+ $<span class="heti-spacing"> </span></span>正偏差，表示实际值<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>指标值</p>
-</li>
-<li>
-<p><span class="arithmatex">\(d_i^-\)</span>​​负偏差，表示指标值<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>实际值</p>
-</li>
+<li><span>$d_i^+ $<span class="heti-spacing"> </span></span>正偏差，表示实际值<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>指标值</li>
+</ul>
+<ul>
+<li><span class="arithmatex">\(d_i^-\)</span>​​负偏差，表示指标值<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>实际值</li>
 </ul>
 <p><strong>与线性规划区别</strong></p>
 <ul>

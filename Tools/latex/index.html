@@ -3396,13 +3396,11 @@ bibtex<span class="w"> </span>-v
 <h4 id="texstudio"><span>Texstudio<span class="heti-spacing"> </span></span>下载<a class="headerlink" href="#texstudio" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p><a href="https://github.com/texstudio-org/texstudio/releases/">Releases · texstudio-org/texstudio</a></p>
 <ul>
-<li>
-<p>将语言设置为中文。依次选择<span><span class="heti-spacing"> </span>Opitions-&gt;Configure TeXstudio</span></p>
-</li>
-<li>
-<p>修改中文界面后，我们可以选择左侧命令设置不同编译器，外部<span class="heti-skip"><span class="heti-spacing"> </span>PDF<span class="heti-spacing"> </span></span>查看器，和参看文献的执行程序。点击<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>处，可以将上述提到的<span><span class="heti-spacing"> </span>3</span>，4，<span>5<span class="heti-spacing"> </span></span>等的路径设置为<span class="heti-skip"><span class="heti-spacing"> </span>TeXlive<span class="heti-spacing"> </span></span>安装路径下对应的<span class="heti-skip"><span class="heti-spacing"> </span>exe<span class="heti-spacing"> </span></span>执行程序。点击<span class="heti-skip"><span class="heti-spacing"> </span>2<span class="heti-spacing"> </span></span>处，就可恢复默认。
-<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240904105850.png"/></p>
-</li>
+<li>将语言设置为中文。依次选择<span><span class="heti-spacing"> </span>Opitions-&gt;Configure TeXstudio</span></li>
+</ul>
+<ul>
+<li>修改中文界面后，我们可以选择左侧命令设置不同编译器，外部<span class="heti-skip"><span class="heti-spacing"> </span>PDF<span class="heti-spacing"> </span></span>查看器，和参看文献的执行程序。点击<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>处，可以将上述提到的<span><span class="heti-spacing"> </span>3</span>，4，<span>5<span class="heti-spacing"> </span></span>等的路径设置为<span class="heti-skip"><span class="heti-spacing"> </span>TeXlive<span class="heti-spacing"> </span></span>安装路径下对应的<span class="heti-skip"><span class="heti-spacing"> </span>exe<span class="heti-spacing"> </span></span>执行程序。点击<span class="heti-skip"><span class="heti-spacing"> </span>2<span class="heti-spacing"> </span></span>处，就可恢复默认。
+<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240904105850.png"/></li>
 <li>默认编译器、默认<span class="heti-skip"><span class="heti-spacing"> </span>PDF<span class="heti-spacing"> </span></span>查看器、默认文献工具等设置；点击构建选项，可以修改默认编译器、<span>PDF<span class="heti-spacing"> </span></span>查看器和默认文献工具等。若写中文论文，则需修改默认编译器为<span class="heti-skip"><span class="heti-spacing"> </span>XelaTeX.<span class="heti-spacing"> </span></span>若为英文，则用<span><span class="heti-spacing"> </span>PdfLaTex</span>。
 <img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240904105924.png"/></li>
 <li>设置默认字体编码和添加行号：点击编辑器选项，一般默认字体编码为<span><span class="heti-spacing"> </span>UTF-8</span>（一般不修改<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。显示行号默认：所有行号。添加行号，可以快速定位某个词或句的位置。此外，当程序报错时，可快速定位到出错位置，方便修改。
@@ -3572,15 +3570,13 @@ If you can see this document with the title, sections, and the equation above, t
 <h4 id="ghostscript-and-imagemagick"><a href="https://ghostscript.com/releases/gsdnld.html"><code>GhostScript</code></a> and <a href="https://www.imagemagick.org/script/download.php#windows"><code>ImageMagick</code></a><a class="headerlink" href="#ghostscript-and-imagemagick" title="anchor link to this section for reference">¶</a></h4>
 <p>required to use pdflatex/xelatex/lualatex.</p>
 <ol>
-<li>
-<p><strong>Install and set path to GhostScript and ImageMagick</strong>:</p>
-</li>
-<li>
-<p>Set the <strong>full</strong> path to <code>gswin32c.exe</code> or <code>gswin64c.exe</code> (note the "<code>c</code>"!) and to ImageMagick's magick.exe in the "Main Settings" window.</p>
-</li>
+<li><strong>Install and set path to GhostScript and ImageMagick</strong>:</li>
+</ol>
+<ul>
+<li>Set the <strong>full</strong> path to <code>gswin32c.exe</code> or <code>gswin64c.exe</code> (note the "<code>c</code>"!) and to ImageMagick's magick.exe in the "Main Settings" window.</li>
 <li>Best way to make sure the path is correct is to use the "…" button next to each path and navigate to the correct file.</li>
 <li>Some default paths include <code>%USERPROFILE%</code>. It is recommended to click on "…" to make sure the path gets properly converted to the actual user profile path.</li>
-</ol>
+</ul>
 <h4 id="tex2imgsvg"><strong><code>TeX2img</code></strong>（SVG）<a class="headerlink" href="#tex2imgsvg" title="anchor link to this section for reference">¶</a></h4>
 <p>(Optional): <a href="https://github.com/abenori/TeX2img">TeX2img</a>, used for vector graphics output via EMF (<a href="https://www.ms.u-tokyo.ac.jp/~abenori/soft/index.html#TEX2IMG">Download</a>). Note that vector graphics output via SVG is now recommended if you have Office 2019 or 365.</p>
 <ul>

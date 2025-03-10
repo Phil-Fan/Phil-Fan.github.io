@@ -3935,15 +3935,13 @@ A=U<em>S</em>V’
 <p><span>S-function<span class="heti-spacing"> </span></span>模块，位于<span class="heti-skip"><span class="heti-spacing"> </span>Simulink/User-Defined Functions<span class="heti-spacing"> </span></span>模块库中，是使<span class="heti-skip"><span class="heti-spacing"> </span>S-function<span class="heti-spacing"> </span></span>图形化的模板工具，用于为<span class="heti-skip"><span class="heti-spacing"> </span>S-function<span class="heti-spacing"> </span></span>创建一个定值的对话框和图标。
 <img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241117101401.png"/></p>
 <ul>
-<li>
-<p><code>S-function name</code>：填入<span class="heti-skip"><span class="heti-spacing"> </span>S-function<span class="heti-spacing"> </span></span>的函数名称，这样就建立了<span class="heti-skip"><span class="heti-spacing"> </span>S-function<span class="heti-spacing"> </span></span>模块与<span class="heti-skip"><span class="heti-spacing"> </span>M<span class="heti-spacing"> </span></span>文件形式的<span class="heti-skip"><span class="heti-spacing"> </span>S-function<span class="heti-spacing"> </span></span>之间的对应关系；</p>
-</li>
-<li>
-<p><code>S-function parameters</code>：填入<span class="heti-skip"><span class="heti-spacing"> </span>S-function<span class="heti-spacing"> </span></span>需要输入的外部参数的名称，如果有对各变量，则变量中间用逗号隔开，如<span><span class="heti-spacing"> </span>a</span>，b，c；</p>
-</li>
-<li>
-<p><code>S-function modules</code>：仅当<span class="heti-skip"><span class="heti-spacing"> </span>S-function<span class="heti-spacing"> </span></span>是用<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言编写并用<span class="heti-skip"><span class="heti-spacing"> </span>MEX<span class="heti-spacing"> </span></span>工具编译的<span class="heti-skip"><span class="heti-spacing"> </span>C-MEX<span class="heti-spacing"> </span></span>文件时，才需要填写该参数；</p>
-</li>
+<li><code>S-function name</code>：填入<span class="heti-skip"><span class="heti-spacing"> </span>S-function<span class="heti-spacing"> </span></span>的函数名称，这样就建立了<span class="heti-skip"><span class="heti-spacing"> </span>S-function<span class="heti-spacing"> </span></span>模块与<span class="heti-skip"><span class="heti-spacing"> </span>M<span class="heti-spacing"> </span></span>文件形式的<span class="heti-skip"><span class="heti-spacing"> </span>S-function<span class="heti-spacing"> </span></span>之间的对应关系；</li>
+</ul>
+<ul>
+<li><code>S-function parameters</code>：填入<span class="heti-skip"><span class="heti-spacing"> </span>S-function<span class="heti-spacing"> </span></span>需要输入的外部参数的名称，如果有对各变量，则变量中间用逗号隔开，如<span><span class="heti-spacing"> </span>a</span>，b，c；</li>
+</ul>
+<ul>
+<li><code>S-function modules</code>：仅当<span class="heti-skip"><span class="heti-spacing"> </span>S-function<span class="heti-spacing"> </span></span>是用<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言编写并用<span class="heti-skip"><span class="heti-spacing"> </span>MEX<span class="heti-spacing"> </span></span>工具编译的<span class="heti-skip"><span class="heti-spacing"> </span>C-MEX<span class="heti-spacing"> </span></span>文件时，才需要填写该参数；</li>
 </ul>
 <p><strong>直接馈通</strong></p>
 <p>如果输出函数（<span>mdlOutputs<span class="heti-spacing"> </span></span>或<span><span class="heti-spacing"> </span>flag==3</span>）是输入<span class="heti-skip"><span class="heti-spacing"> </span>u<span class="heti-spacing"> </span></span>的函数，即，如果输入<span class="heti-skip"><span class="heti-spacing"> </span>u<span class="heti-spacing"> </span></span>在<span class="heti-skip"><span class="heti-spacing"> </span>mdlOutputs<span class="heti-spacing"> </span></span>中被访问，则存在直接馈通。ex：<span class="arithmatex">\(y= k\cdot u\)</span></p>

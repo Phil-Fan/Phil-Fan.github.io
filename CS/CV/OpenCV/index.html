@@ -3052,19 +3052,19 @@ import<span class="w"> </span>cv2
 <ul>
 <li>
 <p>meaning</p>
+<ul>
+<li><code>Hue</code></li>
+</ul>
+<ul>
+<li><code>Saturation</code></li>
+</ul>
+<ul>
+<li><code>Value/Lightness</code></li>
+</ul>
 </li>
-<li>
-<p><code>Hue</code></p>
-</li>
-<li>
-<p><code>Saturation</code></p>
-</li>
-<li>
-<p><code>Value/Lightness</code></p>
-</li>
-<li>
-<p>advantage</p>
-</li>
+</ul>
+<ul>
+<li>advantage</li>
 </ul>
 <p>In image recognition,RGB is easily affected by light</p>
 <ul>
@@ -3110,19 +3110,23 @@ import<span class="w"> </span>cv2
 <div class="highlight"><pre><span></span><code><span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">img_rgb</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_RGB2GRAY</span><span class="p">)</span>
 </code></pre></div>
 <ul>
-<li>Grayscale conversion algorithms</li>
+<li>Grayscale conversion algorithms<ul>
 <li><code>Gray = (Red + Green + Blue) / 3</code> averaging</li>
 <li><code>Gray = (Red * 0.3 + Green * 0.59 + Blue * 0.11)</code> in Photoshop and GIMP</li>
 <li><code>Gray = (Red * 0.2126 + Green * 0.7152 + Blue * 0.0722)</code></li>
 <li><code>Gray = (Red * 0.299 + Green * 0.587 + Blue * 0.114)</code></li>
 <li><code>Gray = (Max(Red, Green, Blue) + Min(Red, Green, Blue)) / 2</code> desaturation</li>
-<li>Grayscale conversion algorithms</li>
+</ul>
+</li>
+<li>Grayscale conversion algorithms<ul>
 <li><code>Gray = Max(Red, Green, Blue)</code> maximum decomposition</li>
 <li><code>Gray = Min(Red, Green, Blue)</code> minimum decomposition</li>
 <li><code>Gray = Red</code> single color channel (red)</li>
 <li><code>Gray = Green</code> single color channel (green)</li>
 <li><code>Gray = Blue</code> single color channel (blue)</li>
 <li>Custom algorithms</li>
+</ul>
+</li>
 </ul>
 <h4 id="binary-scale">Binary-scale<a class="headerlink" href="#binary-scale" title="anchor link to this section for reference">¶</a></h4>
 <p>The commonly used method is: select a certain threshold <code>T</code>, if the gray value is smaller than the threshold, then <code>0</code>, otherwise <code>255</code></p>
@@ -3133,7 +3137,7 @@ import<span class="w"> </span>cv2
 <li><code>dst</code>: output array (same size and type and same number of channels)</li>
 <li><code>thresh</code>: threshold value</li>
 <li><code>maxval</code>: maximum value to use (<code>cv2.THRESH_BINARY</code> and <code>cv2.THRESH_BINARY_INV</code>)</li>
-<li>type: thresholding type</li>
+<li>type: thresholding type<ul>
 <li><code>cv2.THRESH_BINARY</code></li>
 <li><code>cv2.THRESH_BINARY_INV</code></li>
 <li><code>cv2.THRESH_TRUNC</code></li>
@@ -3141,6 +3145,8 @@ import<span class="w"> </span>cv2
 <li><code>cv2.THRESH_TOZERO_INV</code></li>
 <li><code>cv2.THRESH_OTSU</code></li>
 <li><code>cv2.THRESH_TRIANGLE</code></li>
+</ul>
+</li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="n">cv2</span><span class="o">.</span><span class="n">adaptiveThreshold</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">dst</span><span class="p">,</span> <span class="n">maxValue</span><span class="p">,</span> <span class="n">adaptiveMethod</span><span class="p">,</span> <span class="n">thresholdType</span><span class="p">,</span> <span class="n">blockSize</span><span class="p">,</span> <span class="n">C</span><span class="p">)</span>
 </code></pre></div>
@@ -3165,11 +3171,13 @@ import<span class="w"> </span>cv2
 <h2 id="application-of-opencv">Application of OpenCV<a class="headerlink" href="#application-of-opencv" title="anchor link to this section for reference">¶</a></h2>
 <ul>
 <li>Filtering, binarization, cutting, scale and rotation transformations, image gradients</li>
-<li>Line and circle detection, feature point detection, edge detection, blob detection, feature point detection, pattern recognition</li>
+<li>Line and circle detection, feature point detection, edge detection, blob detection, feature point detection, pattern recognition<ul>
 <li>QR code identification</li>
 <li>Face detection</li>
 <li>Gesture recognition</li>
 <li>Human gesture recognition</li>
+</ul>
+</li>
 </ul></div>
 <aside class="md-source-file">
 <span class="md-source-file__fact">

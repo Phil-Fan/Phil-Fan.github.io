@@ -3089,12 +3089,10 @@
 <h4 id="rdt10"><span>Rdt1.0:<span class="heti-spacing"> </span></span>在可靠信道上的可靠数据传输<a class="headerlink" href="#rdt10" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p>下层信道完全可靠，发送方和接收方的<span><span class="heti-spacing"> </span>FSM</span></p>
 <ul>
-<li>
-<p>发送方将数据发送到下层信道</p>
-</li>
-<li>
-<p>接收方从下层信道接收数据</p>
-</li>
+<li>发送方将数据发送到下层信道</li>
+</ul>
+<ul>
+<li>接收方从下层信道接收数据</li>
 </ul>
 <h4 id="rdt20">Rdt2.0：具有比特差错的信道<a class="headerlink" href="#rdt20" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p>下层信道可能会出错：将分组中的比特翻转（<span>01<span class="heti-spacing"> </span></span>互换<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>、用校验和来检测</p>
@@ -3107,12 +3105,10 @@
 <h4 id="rdt21-acknak"><span>rdt2.1 ACK/NAK<span class="heti-spacing"> </span></span>出错（停等协议<a class="headerlink" href="#rdt21-acknak" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p>加入分组序号：</p>
 <ul>
-<li>
-<p>对于发送方：每个分组中加入序号，不是<span class="heti-skip"><span class="heti-spacing"> </span>ACK<span class="heti-spacing"> </span></span>就重新发</p>
-</li>
-<li>
-<p>接受方：检验和正确发送<span><span class="heti-spacing"> </span>ACK</span>，再判断序号；检验和错误发送<span><span class="heti-spacing"> </span>NAK</span></p>
-</li>
+<li>对于发送方：每个分组中加入序号，不是<span class="heti-skip"><span class="heti-spacing"> </span>ACK<span class="heti-spacing"> </span></span>就重新发</li>
+</ul>
+<ul>
+<li>接受方：检验和正确发送<span><span class="heti-spacing"> </span>ACK</span>，再判断序号；检验和错误发送<span><span class="heti-spacing"> </span>NAK</span></li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -3179,12 +3175,10 @@
 <p>郑老师讲解视频<a href="https://www.bilibili.com/video/av672644413/?vd_source=8b7a5460b512357b2cf80ce1cefc69f5">动画展示回退<span class="heti-skip"><span class="heti-spacing"> </span>N<span class="heti-spacing"> </span></span>步（GBN）协议</a></p>
 </blockquote>
 <ul>
-<li>
-<p>丢失的话，回到最小次序的分组，<span>go back<span class="heti-spacing"> </span></span>到没有确认的点，重新发送后续</p>
-</li>
-<li>
-<p>接收方缓冲区为<span><span class="heti-spacing"> </span>1</span>；顺序到来最高的发确认，累积确认；只维护一个定时器</p>
-</li>
+<li>丢失的话，回到最小次序的分组，<span>go back<span class="heti-spacing"> </span></span>到没有确认的点，重新发送后续</li>
+</ul>
+<ul>
+<li>接收方缓冲区为<span><span class="heti-spacing"> </span>1</span>；顺序到来最高的发确认，累积确认；只维护一个定时器</li>
 </ul>
 <p><strong>正常工作</strong></p>
 <p><img alt="在这里插入图片描述" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20191113191056486.gif" style="zoom:50%;"/></p>
@@ -3241,32 +3235,26 @@
 <p><img alt="image-20240131192304829" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240131192304829.png" style="zoom:50%;"/></p>
 <h4 id="_6">代价<a class="headerlink" href="#_6" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <ul>
-<li>
-<p>延迟高</p>
-</li>
-<li>
-<p>拥塞的时候灌入速率要快</p>
-</li>
+<li>延迟高</li>
+</ul>
+<ul>
+<li>拥塞的时候灌入速率要快</li>
 </ul>
 <blockquote>
 <p>开洗衣店，需要返工比例高，洗衣服的速度提高才能保证完成任务</p>
 </blockquote>
 <ul>
-<li>
-<p>发出了很多没有必要的，因为超时而重传的分组，加速拥塞</p>
-</li>
-<li>
-<p>当分组丢失时，任何“关于这个分组的上游传输能力”都被浪费了</p>
-</li>
+<li>发出了很多没有必要的，因为超时而重传的分组，加速拥塞</li>
+</ul>
+<ul>
+<li>当分组丢失时，任何“关于这个分组的上游传输能力”都被浪费了</li>
 </ul>
 <h4 id="_7">控制手段<a class="headerlink" href="#_7" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <ul>
-<li>
-<p>网络提供信息给端系统，控制速率</p>
-</li>
-<li>
-<p>端系统自己判断；段超时、收到冗余<span><span class="heti-spacing"> </span>ACK</span></p>
-</li>
+<li>网络提供信息给端系统，控制速率</li>
+</ul>
+<ul>
+<li>端系统自己判断；段超时、收到冗余<span><span class="heti-spacing"> </span>ACK</span></li>
 </ul>
 <p><code>ABR: available bit rate</code>:</p>
 <p>“弹性服务”</p>
@@ -3279,12 +3267,10 @@
 <p> 由发送端发送<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>在数据信元中间隔插入
  RM信元中的比特被交换机设置(“网络辅助”)</p>
 <ul>
-<li>
-<p><code>NI bit: no increase inrate</code> <span>(<span class="heti-spacing"> </span></span>轻微拥塞<span class="heti-skip"><span class="heti-spacing"> </span>)<span class="heti-spacing"> </span></span>速率不要增加了</p>
-</li>
-<li>
-<p><code>CI bit: congestion indication</code> 拥塞指示 </p>
-</li>
+<li><code>NI bit: no increase inrate</code> <span>(<span class="heti-spacing"> </span></span>轻微拥塞<span class="heti-skip"><span class="heti-spacing"> </span>)<span class="heti-spacing"> </span></span>速率不要增加了</li>
+</ul>
+<ul>
+<li><code>CI bit: congestion indication</code> 拥塞指示 </li>
 <li><code>ER (explicit rate)</code>字段：发送端发送速度因此是最低的可支持速率</li>
 </ul>
 <p>通过反馈方式让源主机知道最小的带宽</p>
@@ -3327,20 +3313,20 @@
 <p><img alt="image-20240425203923947" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240425203923947.png" style="zoom:50%;"/></p>
 <p><strong>接收方：</strong> </p>
 <ul>
-<li>
-<p>填上伪首部</p>
-</li>
-<li>
-<p>伪首部<span class="heti-skip"><span class="heti-spacing"> </span>+<span class="heti-spacing"> </span></span>首部<span class="heti-skip"><span class="heti-spacing"> </span>+<span class="heti-spacing"> </span></span>数据部分采用二进制反码求和</p>
-</li>
+<li>填上伪首部</li>
+</ul>
+<ul>
+<li>伪首部<span class="heti-skip"><span class="heti-spacing"> </span>+<span class="heti-spacing"> </span></span>首部<span class="heti-skip"><span class="heti-spacing"> </span>+<span class="heti-spacing"> </span></span>数据部分采用二进制反码求和</li>
+</ul>
+<ul>
 <li>
 <p>检查：</p>
-</li>
-<li>
-<p>不是全<span><span class="heti-spacing"> </span>1</span> —— 检到差错</p>
-</li>
-<li>
-<p>全<span><span class="heti-spacing"> </span>1</span> —— 没有检测到差错，但也许还是有差错残存错误<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>概率小<span><span class="heti-spacing"> </span>)</span></p>
+<ul>
+<li>不是全<span><span class="heti-spacing"> </span>1</span> —— 检到差错</li>
+</ul>
+<ul>
+<li>全<span><span class="heti-spacing"> </span>1</span> —— 没有检测到差错，但也许还是有差错残存错误<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>概率小<span><span class="heti-spacing"> </span>)</span></li>
+</ul>
 </li>
 </ul>
 <details class="note">
@@ -3365,16 +3351,14 @@
 <ol>
 <li><strong>序号<span><span class="heti-spacing"> </span>(sequence number)</span></strong>：<span>seq<span class="heti-spacing"> </span></span>序号，占<span class="heti-skip"><span class="heti-spacing"> </span>32<span class="heti-spacing"> </span></span>位，用来标识从<span class="heti-skip"><span class="heti-spacing"> </span>TCP<span class="heti-spacing"> </span></span>源端向目的端发送的字节流，发起方发送数据时对此进行标记。 <br/></li>
 <li><strong>确认号（acknowledgement number）</strong>：<span>ack<span class="heti-spacing"> </span></span>序号，占<span class="heti-skip"><span class="heti-spacing"> </span>32<span class="heti-spacing"> </span></span>位，只有<span class="heti-skip"><span class="heti-spacing"> </span>ACK<span class="heti-spacing"> </span></span>标志位为<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>时，确认序号字段才有效，ack=seq+1。 <br/></li>
-<li><strong>标志位（Flags）</strong>：共<span class="heti-skip"><span class="heti-spacing"> </span>6<span class="heti-spacing"> </span></span>个，即<span><span class="heti-spacing"> </span>URG</span>、ACK、PSH、RST、SYN、<span>FIN<span class="heti-spacing"> </span></span>等。具体含义如下： <br/><ul>
-<li><code>SYN</code>：发起一个新连接。 <br/></li>
-<li><code>ACK</code>：确认序号有效<heti-adjacent class="heti-adjacent-half">。</heti-adjacent>（为了与<strong>确认号<span><span class="heti-spacing"> </span>ack</span></strong>区分开，我们用大写表示）只有当 <code>ACK=1</code> 时，确认号字段才有效；当 <code>ACK=0</code> 时，确认号无效。 <br/></li>
-<li><code>RST</code>：重置连接。<br/></li>
-<li><code>FIN</code>：释放一个连接。<br/></li>
-<li><code>PSH</code>：接收方应该尽快将这个报文交给应用层。<br/></li>
-<li><code>URG</code>：紧急指针（urgent pointer）有效。<br/></li>
-<li><code>CWR</code>：<span>(<span class="heti-spacing"> </span></span>拥塞窗口减小<span class="heti-skip"><span class="heti-spacing"> </span>)<span class="heti-spacing"> </span></span>缓存区已满或者拥挤，通信双方都应该降低传输的速率。<br/></li>
-</ul>
-</li>
+<li><strong>标志位（Flags）</strong>：共<span class="heti-skip"><span class="heti-spacing"> </span>6<span class="heti-spacing"> </span></span>个，即<span><span class="heti-spacing"> </span>URG</span>、ACK、PSH、RST、SYN、<span>FIN<span class="heti-spacing"> </span></span>等。具体含义如下： <br/>
+    - <code>SYN</code>：发起一个新连接。 <br/>
+    - <code>ACK</code>：确认序号有效。（为了与<strong>确认号<span><span class="heti-spacing"> </span>ack</span></strong>区分开，我们用大写表示）只有当 <code>ACK=1</code> 时，确认号字段才有效；当 <code>ACK=0</code> 时，确认号无效。 <br/>
+    - <code>RST</code>：重置连接。<br/>
+    - <code>FIN</code>：释放一个连接。<br/>
+    - <code>PSH</code>：接收方应该尽快将这个报文交给应用层。<br/>
+    - <code>URG</code>：紧急指针（urgent pointer）有效。<br/>
+    - <code>CWR</code>：(拥塞窗口减小)缓存区已满或者拥挤，通信双方都应该降低传输的速率。<br/></li>
 </ol>
 </details>
 <p><img alt="预览大图" src="https://data.educoder.net/api/attachments/581054"/></p>
@@ -3453,12 +3437,10 @@ $$
 <img alt="image-20240131180428780" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240131180428780.png"/></p>
 <p><strong>发送方</strong></p>
 <ul>
-<li>
-<p>限制未确认<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span><code>inflight</code><span class="heti-skip"><span class="heti-spacing"> </span>)<span class="heti-spacing"> </span></span>字节的个数≤接收方发送过来的<code>rwnd</code> 值</p>
-</li>
-<li>
-<p>保证接收方不会被淹没</p>
-</li>
+<li>限制未确认<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span><code>inflight</code><span class="heti-skip"><span class="heti-spacing"> </span>)<span class="heti-spacing"> </span></span>字节的个数≤接收方发送过来的<code>rwnd</code> 值</li>
+</ul>
+<ul>
+<li>保证接收方不会被淹没</li>
 </ul>
 <div class="arithmatex">\[
 LastByteSent - LastByteAcked \geq rwnd
@@ -3470,10 +3452,12 @@ LastByteSent - LastByteAcked \geq rwnd
 <p><span>TCP<span class="heti-spacing"> </span></span>拥塞控制常常被称为加性增、乘性减<span><span class="heti-spacing"> </span>(</span><code>Additive-Increase Multiplicative-Decrease , AIMD</code><span><span class="heti-spacing"> </span>)</span></p>
 <h5 id="_13"><strong>如何检测拥塞</strong><a class="headerlink" href="#_13" title="anchor link to this section for reference">¶</a></h5>
 <ul>
-<li>某个段超时了（丢失事件<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>：拥塞<br/></li>
+<li>某个段超时了（丢失事件<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>：拥塞<br/><ul>
 <li>超时时间到，某个段的确认没有来<br/>
-    原因1：网络拥塞（某个路由器缓冲区没空间了，被丢弃）<strong>概率大</strong><br/>
-    原因2：出错被丢弃了（各级错误，没有通过校验，被丢弃）<strong>概率小</strong><br/></li>
+  原因1：网络拥塞（某个路由器缓冲区没空间了，被丢弃）<strong>概率大</strong><br/>
+  原因2：出错被丢弃了（各级错误，没有通过校验，被丢弃）<strong>概率小</strong><br/></li>
+</ul>
+</li>
 <li>有关某个段的<span class="heti-skip"><span class="heti-spacing"> </span>3<span class="heti-spacing"> </span></span>次重复<span><span class="heti-spacing"> </span>ACK</span>：轻微拥塞</li>
 </ul>
 <h5 id="_14">控制策略<a class="headerlink" href="#_14" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h5>
@@ -3494,12 +3478,10 @@ rate = \frac{CongWin}{RTT}
 <p><strong>拥塞避免：</strong>当<span><span class="heti-spacing"> </span><span class="arithmatex">\(CongWin&gt;Threshold\)</span></span>​<span>,<span class="heti-spacing"> </span></span>发送端处于<code>CA</code><span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>窗口线性增长<span><span class="heti-spacing"> </span>.</span></p>
 <p><strong>快速恢复：</strong></p>
 <ul>
-<li>
-<p>TCP Reno：当收到三个重复的<span class="heti-skip"><span class="heti-spacing"> </span>ACKs,<span class="heti-spacing"> </span></span><code>Threshold</code>设置成<code>CongWin/2</code>（快速重传）<span class="arithmatex">\(CongWin=Threshold+3\)</span></p>
-</li>
-<li>
-<p>TCP Tahoe：当超时事件发生时<code>timeout</code><span><span class="heti-spacing"> </span>, <span class="arithmatex">\(Threshold=CongWin/2\)</span>,<span class="arithmatex">\(CongWin=1 MSS\)</span></span>​，进入<span class="heti-skip"><span class="heti-spacing"> </span>SS<span class="heti-spacing"> </span></span>阶段</p>
-</li>
+<li>TCP Reno：当收到三个重复的<span class="heti-skip"><span class="heti-spacing"> </span>ACKs,<span class="heti-spacing"> </span></span><code>Threshold</code>设置成<code>CongWin/2</code>（快速重传）<span class="arithmatex">\(CongWin=Threshold+3\)</span></li>
+</ul>
+<ul>
+<li>TCP Tahoe：当超时事件发生时<code>timeout</code><span><span class="heti-spacing"> </span>, <span class="arithmatex">\(Threshold=CongWin/2\)</span>,<span class="arithmatex">\(CongWin=1 MSS\)</span></span>​，进入<span class="heti-skip"><span class="heti-spacing"> </span>SS<span class="heti-spacing"> </span></span>阶段</li>
 </ul>
 <p><img alt="image-20240131215546305" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240131215546305.png" style="zoom:50%;"/><img alt="image-20240131220146619" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240131220146619.png" style="zoom: 50%;"/></p>
 <blockquote>
@@ -3544,12 +3526,10 @@ $$
 <p><span>HTML<span class="heti-spacing"> </span></span>文件相当长时，例如： <span>4861<span class="heti-spacing"> </span></span>字节太大，一个<span class="heti-skip"><span class="heti-spacing"> </span>TCP<span class="heti-spacing"> </span></span>数据包不能容纳。因此，单个<span class="heti-skip"><span class="heti-spacing"> </span>HTTP<span class="heti-spacing"> </span></span>响应消息由<span class="heti-skip"><span class="heti-spacing"> </span>TCP<span class="heti-spacing"> </span></span>分成几个部分，每个部分包含在单独的<span class="heti-skip"><span class="heti-spacing"> </span>TCP<span class="heti-spacing"> </span></span>报文段中，如下图：长度为<span class="heti-skip"><span class="heti-spacing"> </span>4861<span class="heti-spacing"> </span></span>的报文被分为长度分别为<span><span class="heti-spacing"> </span>1440</span>，1440，1440，<span>541<span class="heti-spacing"> </span></span>的<span class="heti-skip"><span class="heti-spacing"> </span>4<span class="heti-spacing"> </span></span>个<span class="heti-skip"><span class="heti-spacing"> </span>TCP<span class="heti-spacing"> </span></span>段，编号分别为<span><span class="heti-spacing"> </span>8715</span>，8716，8718，8719 。</p>
 <p><img alt="image-20240220112530054" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240220112530054.png"/></p>
 <ul>
-<li>
-<p>序号：数据部分第一个字节在整个字节流的偏移量<code>offset</code>进行编号</p>
-</li>
-<li>
-<p>确认号：<code>ACK number</code>累计确认；例如<span class="heti-skip"><span class="heti-spacing"> </span>ACK555<span class="heti-spacing"> </span></span>表示<span class="heti-skip"><span class="heti-spacing"> </span>554<span class="heti-spacing"> </span></span>及之前都已经收到，表示对<span class="heti-skip"><span class="heti-spacing"> </span>number<span class="heti-spacing"> </span></span>及以后字节的期待</p>
-</li>
+<li>序号：数据部分第一个字节在整个字节流的偏移量<code>offset</code>进行编号</li>
+</ul>
+<ul>
+<li>确认号：<code>ACK number</code>累计确认；例如<span class="heti-skip"><span class="heti-spacing"> </span>ACK555<span class="heti-spacing"> </span></span>表示<span class="heti-skip"><span class="heti-spacing"> </span>554<span class="heti-spacing"> </span></span>及之前都已经收到，表示对<span class="heti-skip"><span class="heti-spacing"> </span>number<span class="heti-spacing"> </span></span>及以后字节的期待</li>
 </ul>
 <blockquote>
 <p>TCP's error-recovery mechanism is probably best categorized as a hybrid of GBN  and SR protocol</p>

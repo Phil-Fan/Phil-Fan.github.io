@@ -3279,18 +3279,16 @@
 <h4 id="peer-to-peer">Peer-to-Peer<a class="headerlink" href="#peer-to-peer" title="anchor link to this section for reference">¶</a></h4>
 <h3 id="_6">衡量指标<a class="headerlink" href="#_6" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ul>
-<li>
-<p><span>reliable data transfer<span class="heti-spacing"> </span></span>可靠性的</p>
-</li>
-<li>
-<p>throughput</p>
-</li>
-<li>
-<p><span>timing:<span class="heti-spacing"> </span></span>打电话、游戏 </p>
-</li>
-<li>
-<p>security</p>
-</li>
+<li><span>reliable data transfer<span class="heti-spacing"> </span></span>可靠性的</li>
+</ul>
+<ul>
+<li>throughput</li>
+</ul>
+<ul>
+<li><span>timing:<span class="heti-spacing"> </span></span>打电话、游戏 </li>
+</ul>
+<ul>
+<li>security</li>
 </ul>
 <h3 id="_7">传输层提供的服务<a class="headerlink" href="#_7" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>UDP：不可靠 无连接</p>
@@ -3358,10 +3356,8 @@
 <li>Connection：告诉服务器，请求完成后，是否保持连接；</li>
 </ul>
 </details>
-<ul>
-<li><strong>Date</strong>：header line indicates the time and date when the HTTP
-     response was created and sent by the server. <strong>Note that this is not the time when the object was created or last modified; it is the time when the server retrieves the object from its file system, inserts the object into the response message, and sends the response message.</strong></li>
-</ul>
+<p>- <strong>Date</strong>：header line indicates the time and date when the HTTP
+     response was created and sent by the server. <strong>Note that this is not the time when the object was created or last modified; it is the time when the server retrieves the object from its file system, inserts the object into the response message, and sends the response message.</strong></p>
 <p><img alt="img" src="https://pic3.zhimg.com/80/v2-98df69e7e8fccd46bfe03cc473784766_1440w.webp" style="zoom: 50%;"/></p>
 <h5 id="_11">响应报文<a class="headerlink" href="#_11" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h5>
 <p>一个状态行，若干个消息头，以及实体内容</p>
@@ -3462,19 +3458,15 @@
 <h5 id="sessioncookie"><strong><span>Session<span class="heti-spacing"> </span></span>与<span class="heti-skip"><span class="heti-spacing"> </span>Cookie<span class="heti-spacing"> </span></span>的区别</strong><a class="headerlink" href="#sessioncookie" title="anchor link to this section for reference">¶</a></h5>
 <p><span>Cookie<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>Session<span class="heti-spacing"> </span></span>都是为了保存客户端和服务端之间的交互状态最大的区别就是<span class="heti-skip"><span class="heti-spacing"> </span>Cookie<span class="heti-spacing"> </span></span>是保存在客户端而<span class="heti-skip"><span class="heti-spacing"> </span>Session<span class="heti-spacing"> </span></span>就保存在服务端的。</p>
 <ul>
-<li><strong>Cookie</strong>：存储在客户端的小型文本文件，通常用于存储用户的偏好设置、身份验证信息等。<ul>
-<li><strong>示例</strong>：用户登录后，服务器发送一个包含用户<span class="heti-skip"><span class="heti-spacing"> </span>ID<span class="heti-spacing"> </span></span>的<span class="heti-skip"><span class="heti-spacing"> </span>Cookie<span class="heti-spacing"> </span></span>到客户端，客户端在后续请求中自动包含该<span><span class="heti-spacing"> </span>Cookie</span>，以便服务器识别用户。</li>
-<li><strong><span>Cookie<span class="heti-spacing"> </span></span>劫持</strong>：攻击者通过<span class="heti-skip"><span class="heti-spacing"> </span>XSS<span class="heti-spacing"> </span></span>攻击或其他手段获取用户的<span><span class="heti-spacing"> </span>Cookie</span>，从而冒充用户身份。</li>
-<li><span>Cookie<span class="heti-spacing"> </span></span>是客户端请求服务端时服务器会将信息以键值给客户端，保存在浏览器中<br/>用<span class="heti-skip"><span class="heti-spacing"> </span>Cookie<span class="heti-spacing"> </span></span>就可以方便的做一些缓存。</li>
-<li><span>Cookie<span class="heti-spacing"> </span></span>缺点：是大小和数量都有限制；<span>Cookie<span class="heti-spacing"> </span></span>是存在客户端的可能被禁用、删除、篡改，是不安全的；<span>Cookie<span class="heti-spacing"> </span></span>如果很大，影响了传输效率。</li>
-</ul>
-</li>
-<li><strong>Session</strong>：存储在服务器端的临时数据存储区域，通常用于存储用户的会话状态信息。<ul>
-<li><strong>示例</strong>：用户登录后，服务器创建一个<span><span class="heti-spacing"> </span>Session</span>，并将<span class="heti-skip"><span class="heti-spacing"> </span>Session ID<span class="heti-spacing"> </span></span>通过<span class="heti-skip"><span class="heti-spacing"> </span>Cookie<span class="heti-spacing"> </span></span>发送给客户端。客户端在后续请求中包含该<span><span class="heti-spacing"> </span>Session ID</span>，服务器根据<span class="heti-skip"><span class="heti-spacing"> </span>Session ID<span class="heti-spacing"> </span></span>查找对应的<span class="heti-skip"><span class="heti-spacing"> </span>Session<span class="heti-spacing"> </span></span>数据。</li>
-<li>如果服务器被攻破，<span>Session<span class="heti-spacing"> </span></span>中就可能有一些敏感信息。</li>
-<li><span>Session<span class="heti-spacing"> </span></span>是基于<span class="heti-skip"><span class="heti-spacing"> </span>Cookie<span class="heti-spacing"> </span></span>来实现的，不同的是<span class="heti-skip"><span class="heti-spacing"> </span>Session<span class="heti-spacing"> </span></span>本身存在于服务端，但是每次传输的时候不会传输数据，只是把代表一个客户端的唯一<span><span class="heti-spacing"> </span>ID</span>（通常是<span><span class="heti-spacing"> </span>JSESSIONID</span>）写在客户端的<span class="heti-skip"><span class="heti-spacing"> </span>Cookie<span class="heti-spacing"> </span></span>中传输。<span>Session<span class="heti-spacing"> </span></span>的优势就是传输数据量小，比较安全。但是<span class="heti-skip"><span class="heti-spacing"> </span>Session<span class="heti-spacing"> </span></span>也有缺点，就是如果<span class="heti-skip"><span class="heti-spacing"> </span>Session<span class="heti-spacing"> </span></span>不做特殊的处理容易失效、过期、丢失或者<span class="heti-skip"><span class="heti-spacing"> </span>Session<span class="heti-spacing"> </span></span>过多导致服务器内存溢出</li>
-</ul>
-</li>
+<li><strong>Cookie</strong>：存储在客户端的小型文本文件，通常用于存储用户的偏好设置、身份验证信息等。
+    - <strong>示例</strong>：用户登录后，服务器发送一个包含用户<span class="heti-skip"><span class="heti-spacing"> </span>ID<span class="heti-spacing"> </span></span>的<span class="heti-skip"><span class="heti-spacing"> </span>Cookie<span class="heti-spacing"> </span></span>到客户端，客户端在后续请求中自动包含该<span><span class="heti-spacing"> </span>Cookie</span>，以便服务器识别用户。
+    - <strong><span>Cookie<span class="heti-spacing"> </span></span>劫持</strong>：攻击者通过<span class="heti-skip"><span class="heti-spacing"> </span>XSS<span class="heti-spacing"> </span></span>攻击或其他手段获取用户的<span><span class="heti-spacing"> </span>Cookie</span>，从而冒充用户身份。
+    - Cookie是客户端请求服务端时服务器会将信息以键值给客户端，保存在浏览器中<br/>用<span class="heti-skip"><span class="heti-spacing"> </span>Cookie<span class="heti-spacing"> </span></span>就可以方便的做一些缓存。
+    - Cookie缺点：是大小和数量都有限制；Cookie是存在客户端的可能被禁用、删除、篡改，是不安全的；Cookie如果很大，影响了传输效率。</li>
+<li><strong>Session</strong>：存储在服务器端的临时数据存储区域，通常用于存储用户的会话状态信息。
+    - <strong>示例</strong>：用户登录后，服务器创建一个<span><span class="heti-spacing"> </span>Session</span>，并将<span class="heti-skip"><span class="heti-spacing"> </span>Session ID<span class="heti-spacing"> </span></span>通过<span class="heti-skip"><span class="heti-spacing"> </span>Cookie<span class="heti-spacing"> </span></span>发送给客户端。客户端在后续请求中包含该<span><span class="heti-spacing"> </span>Session ID</span>，服务器根据<span class="heti-skip"><span class="heti-spacing"> </span>Session ID<span class="heti-spacing"> </span></span>查找对应的<span class="heti-skip"><span class="heti-spacing"> </span>Session<span class="heti-spacing"> </span></span>数据。
+    - 如果服务器被攻破，Session中就可能有一些敏感信息。
+    - Session是基于Cookie来实现的，不同的是Session本身存在于服务端，但是每次传输的时候不会传输数据，只是把代表一个客户端的唯一ID（通常是JSESSIONID）写在客户端的Cookie中传输。Session的优势就是传输数据量小，比较安全。但是Session也有缺点，就是如果Session不做特殊的处理容易失效、过期、丢失或者Session过多导致服务器内存溢出</li>
 </ul>
 <h4 id="cache-web"><code>cache</code> <span>- Web<span class="heti-spacing"> </span></span>缓存<a class="headerlink" href="#cache-web" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p><span>WEB<span class="heti-spacing"> </span></span>缓存一般分为浏览器缓存、代理服务器缓存以及网关缓存。</p>
@@ -3489,15 +3481,15 @@
 <p><img alt="image-20240129160059732" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240129160059732.png"/></p>
 <p>解决办法</p>
 <ul>
-<li>
-<p>更快的接入链路：花钱多</p>
-</li>
+<li>更快的接入链路：花钱多</li>
+</ul>
+<ul>
 <li>
 <p>安装本地缓存</p>
-</li>
-<li>
-<p>本地访问<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(t_1\)</span><span class="heti-spacing"> </span></span>概率<span><span class="heti-spacing"> </span><span class="arithmatex">\(P_1\)</span></span></p>
-</li>
+<ul>
+<li>本地访问<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(t_1\)</span><span class="heti-spacing"> </span></span>概率<span><span class="heti-spacing"> </span><span class="arithmatex">\(P_1\)</span></span></li>
+</ul>
+<ul>
 <li>
 <p>远程访问<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(t_2\)</span><span class="heti-spacing"> </span></span>概率<span><span class="heti-spacing"> </span><span class="arithmatex">\(P_2\)</span></span></p>
 <p>总延时</p>
@@ -3510,16 +3502,20 @@ I &amp;= \frac{aL}{R}
 \]</div>
 </li>
 </ul>
+</li>
+</ul>
 <p><img alt="image-20240129160659497" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240129160659497.png"/></p>
 <p><img alt="image-20240129160713797" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240129160713797.png"/></p>
 <p>互联网上大家看的内容都是相似的，缓存的存在可以缓解流量压力</p>
 <h5 id="conditional-get"><code>conditional GET</code><a class="headerlink" href="#conditional-get" title="anchor link to this section for reference">¶</a></h5>
 <ul>
-<li>存在问题：如果本地缓存版本落后于远端</li>
-</ul>
+<li>
+<p>存在问题：如果本地缓存版本落后于远端</p>
 <p>解决：<code>If-modified-since: &lt;date&gt;</code></p>
 <p>向主机请求最后修改，如果被修改再发送一遍；没有被修改则就发一个没有修改的头部即可</p>
 <p>Server</p>
+</li>
+</ul>
 <div class="highlight"><pre><span></span><code><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.0</span> <span class="m">304</span> <span class="ne">Not Modified</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.0</span> <span class="m">200</span> <span class="ne">Modified</span>
@@ -3581,24 +3577,22 @@ I &amp;= \frac{aL}{R}
 <p><span>1<span class="heti-spacing"> </span></span>个<span class="heti-skip"><span class="heti-spacing"> </span>RTT<span class="heti-spacing"> </span></span>建立连接，<span>n<span class="heti-spacing"> </span></span>个<span class="heti-skip"><span class="heti-spacing"> </span>RTT<span class="heti-spacing"> </span></span>发送</p>
 <h4 id="http2">HTTP/2<a class="headerlink" href="#http2" title="anchor link to this section for reference">¶</a></h4>
 <ul>
-<li>
-<p>Framing: The ability to break down an HTTP message into <strong>independent frames</strong>, interleave them, and then reassemble them on the other end is the single most important enhancement of HTTP/2.</p>
-</li>
-<li>
-<p><span>it can prioritize the responses it is requesting by assigning a weight between 1 and 256 to each message.<span class="heti-spacing"> </span></span>当客户端请求网页时，服务器会一次性将多个数据流发送到客户端，而不是逐个依次发送。这种数据传输方法称为多路复用。开发人员可以为这些数据流分别分配一个不同的加权值，该值告诉客户端首先要呈现哪个数据流。</p>
-<blockquote>
+<li>Framing: The ability to break down an HTTP message into <strong>independent frames</strong>, interleave them, and then reassemble them on the other end is the single most important enhancement of HTTP/2.</li>
+</ul>
+<ul>
+<li><span>it can prioritize the responses it is requesting by assigning a weight between 1 and 256 to each message.<span class="heti-spacing"> </span></span>当客户端请求网页时，服务器会一次性将多个数据流发送到客户端，而不是逐个依次发送。这种数据传输方法称为多路复用。开发人员可以为这些数据流分别分配一个不同的加权值，该值告诉客户端首先要呈现哪个数据流。<blockquote>
 <p>现在，假设鲍勃决定以<span class="heti-skip"><span class="heti-spacing"> </span>HTTP/2<span class="heti-spacing"> </span></span>方式将小说发送给爱丽丝：这时，他分开发送小说的各个章节（以保持在邮局的大小限制内<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，但一次性发送了所有章节。他还为每一章编号：第<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>章、第<span class="heti-skip"><span class="heti-spacing"> </span>2<span class="heti-spacing"> </span></span>章，等等。现在，爱丽丝同时收到整部小说，并可以按自己的时间以正确的顺序进行编排。</p>
 </blockquote>
 </li>
-<li>
-<p><strong>多路复用：</strong> <span>HTTP/1.1<span class="heti-spacing"> </span></span>依次加载各个资源，因此，如果无法加载某一资源，它将阻碍其后的所有其他资源。相比之下，<span>HTTP/2<span class="heti-spacing"> </span></span>可以使用单个<span class="heti-skip"><span class="heti-spacing"> </span>TCP<span class="heti-spacing"> </span></span>连接来一次发送多个数据流，使得任何资源都不会会阻碍其他资源。为此，<span>HTTP/2<span class="heti-spacing"> </span></span>将数据拆分为二进制代码消息并为这些消息编号，以便客户端知道每个二进制消息所属的流。</p>
-</li>
-<li>
-<p><strong>服务器推送：</strong> 通常，服务器仅在客户端要求时才向客户端设备提供内容。但是，这种方法并不总是适用于现代网页，因为现代网页通常涉及客户端必须请求的数十个独立资源。<span>HTTP/2<span class="heti-spacing"> </span></span>通过允许服务器在客户端请求之前向客户端“推送”内容来解决此问题。服务器还发送一条消息，让客户知道预期推送的内容是什么，就像<span class="heti-skip"><span class="heti-spacing"> </span>Bob<span class="heti-spacing"> </span></span>在发送整本书之前向<span class="heti-skip"><span class="heti-spacing"> </span>Alice<span class="heti-spacing"> </span></span>发送小说目录一样。</p>
-</li>
-<li>
-<p><strong>标头压缩：</strong> 小文件的加载速度比大文件快。为了提高<span class="heti-skip"><span class="heti-spacing"> </span>Web<span class="heti-spacing"> </span></span>性能，<span>HTTP/1.1<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>HTTP/2<span class="heti-spacing"> </span></span>都会压缩<span class="heti-skip"><span class="heti-spacing"> </span>HTTP<span class="heti-spacing"> </span></span>消息以使其更小。但是，<span>HTTP/2<span class="heti-spacing"> </span></span>使用一种称为<span class="heti-skip"><span class="heti-spacing"> </span>HPACK<span class="heti-spacing"> </span></span>的更高级压缩方法，可以消除<span class="heti-skip"><span class="heti-spacing"> </span>HTTP<span class="heti-spacing"> </span></span>标头数据包中的多余信息。这样可以从每个<span class="heti-skip"><span class="heti-spacing"> </span>HTTP<span class="heti-spacing"> </span></span>数据包中消除几个字节。考虑到即使只加载一个网页时所涉及的<span class="heti-skip"><span class="heti-spacing"> </span>HTTP<span class="heti-spacing"> </span></span>数据包的数量，这些字节会迅速累加，从而加快了加载速度。</p>
-</li>
+</ul>
+<ul>
+<li><strong>多路复用：</strong> <span>HTTP/1.1<span class="heti-spacing"> </span></span>依次加载各个资源，因此，如果无法加载某一资源，它将阻碍其后的所有其他资源。相比之下，<span>HTTP/2<span class="heti-spacing"> </span></span>可以使用单个<span class="heti-skip"><span class="heti-spacing"> </span>TCP<span class="heti-spacing"> </span></span>连接来一次发送多个数据流，使得任何资源都不会会阻碍其他资源。为此，<span>HTTP/2<span class="heti-spacing"> </span></span>将数据拆分为二进制代码消息并为这些消息编号，以便客户端知道每个二进制消息所属的流。</li>
+</ul>
+<ul>
+<li><strong>服务器推送：</strong> 通常，服务器仅在客户端要求时才向客户端设备提供内容。但是，这种方法并不总是适用于现代网页，因为现代网页通常涉及客户端必须请求的数十个独立资源。<span>HTTP/2<span class="heti-spacing"> </span></span>通过允许服务器在客户端请求之前向客户端“推送”内容来解决此问题。服务器还发送一条消息，让客户知道预期推送的内容是什么，就像<span class="heti-skip"><span class="heti-spacing"> </span>Bob<span class="heti-spacing"> </span></span>在发送整本书之前向<span class="heti-skip"><span class="heti-spacing"> </span>Alice<span class="heti-spacing"> </span></span>发送小说目录一样。</li>
+</ul>
+<ul>
+<li><strong>标头压缩：</strong> 小文件的加载速度比大文件快。为了提高<span class="heti-skip"><span class="heti-spacing"> </span>Web<span class="heti-spacing"> </span></span>性能，<span>HTTP/1.1<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>HTTP/2<span class="heti-spacing"> </span></span>都会压缩<span class="heti-skip"><span class="heti-spacing"> </span>HTTP<span class="heti-spacing"> </span></span>消息以使其更小。但是，<span>HTTP/2<span class="heti-spacing"> </span></span>使用一种称为<span class="heti-skip"><span class="heti-spacing"> </span>HPACK<span class="heti-spacing"> </span></span>的更高级压缩方法，可以消除<span class="heti-skip"><span class="heti-spacing"> </span>HTTP<span class="heti-spacing"> </span></span>标头数据包中的多余信息。这样可以从每个<span class="heti-skip"><span class="heti-spacing"> </span>HTTP<span class="heti-spacing"> </span></span>数据包中消除几个字节。考虑到即使只加载一个网页时所涉及的<span class="heti-skip"><span class="heti-spacing"> </span>HTTP<span class="heti-spacing"> </span></span>数据包的数量，这些字节会迅速累加，从而加快了加载速度。</li>
 </ul>
 <h4 id="http3">HTTP3<a class="headerlink" href="#http3" title="anchor link to this section for reference">¶</a></h4>
 <p><a href="https://segmentfault.com/a/1190000045016079"><span>HTTP &amp; QUIC<span class="heti-spacing"> </span></span>简介</a>
@@ -3609,12 +3603,10 @@ HTTP/3 将是自 2015 年 HTTP/2 获得批准以来对超文本传输协议的�
 <img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240705193308.png"/></p>
 <ul>
 <li>开发一种方法来解决当智能手机从<span class="heti-skip"><span class="heti-spacing"> </span>WiFi<span class="heti-spacing"> </span></span>切换到蜂窝数据时（例如离开家或办公室时）性能缓慢的问题</li>
-<li>
-<p><strong>减少丢包的影响</strong>——当一个信息包没有到达目的地时，它不会再阻塞所有的信息流（称为“队头阻塞”的问题）</p>
-</li>
-<li>
-<p><strong>更快的连接建立</strong>：<span>QUIC<span class="heti-spacing"> </span></span>允许<span class="heti-skip"><span class="heti-spacing"> </span>TLS<span class="heti-spacing"> </span></span>版本协商与加密和传输握手同时发生</p>
-</li>
+<li><strong>减少丢包的影响</strong>——当一个信息包没有到达目的地时，它不会再阻塞所有的信息流（称为“队头阻塞”的问题）</li>
+</ul>
+<ul>
+<li><strong>更快的连接建立</strong>：<span>QUIC<span class="heti-spacing"> </span></span>允许<span class="heti-skip"><span class="heti-spacing"> </span>TLS<span class="heti-spacing"> </span></span>版本协商与加密和传输握手同时发生</li>
 <li><strong>零往返时间<span><span class="heti-spacing"> </span>(0-RTT)</span></strong>：对于它们已经连接的服务器，客户端可以跳过握手要求（互相确认和验证以确定它们将如何通信的过程）</li>
 <li><strong>更全面的加密：</strong> <span>QUIC<span class="heti-spacing"> </span></span>的新握手方式将默认提供加密，这是对<span class="heti-skip"><span class="heti-spacing"> </span>HTTP/2<span class="heti-spacing"> </span></span>的巨大升级，并将有助于减轻攻击的风险</li>
 </ul>
@@ -3627,20 +3619,20 @@ HTTP/3 将是自 2015 年 HTTP/2 获得批准以来对超文本传输协议的�
 <p><img alt="image-20240129163627900" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240129163627900.png"/></p>
 <p>有状态、双通道</p>
 <ul>
-<li>
-<p>向远程主机上传输文件或从远程主机接收文件</p>
-</li>
-<li>
-<p>客户<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>服务器模式</p>
-</li>
-<li>
-<p><span>ftp<span class="heti-spacing"> </span></span>服务器：端口号为<span><span class="heti-spacing"> </span>21</span></p>
-</li>
+<li>向远程主机上传输文件或从远程主机接收文件</li>
+</ul>
+<ul>
+<li>客户<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>服务器模式</li>
+</ul>
+<ul>
+<li><span>ftp<span class="heti-spacing"> </span></span>服务器：端口号为<span><span class="heti-spacing"> </span>21</span></li>
+</ul>
+<ul>
 <li>
 <p>控制命令的发出和数据的传输在不同的<span class="heti-skip"><span class="heti-spacing"> </span>TCP<span class="heti-spacing"> </span></span>下进行。</p>
+<p><img alt="image-20240129165011533" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240129165011533.png" style="zoom:50%;"/></p>
 </li>
 </ul>
-<p><img alt="image-20240129165011533" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240129165011533.png" style="zoom:50%;"/></p>
 <h3 id="email">Email<a class="headerlink" href="#email" title="anchor link to this section for reference">¶</a></h3>
 <blockquote>
 <p><span>SMTP<span class="heti-spacing"> </span></span>管‘发’， <span>POP3/IMAP<span class="heti-spacing"> </span></span>管‘收’。</p>
@@ -3657,15 +3649,13 @@ HTTP/3 将是自 2015 年 HTTP/2 获得批准以来对超文本传输协议的�
 <li>使用持久连接</li>
 <li>要求报文均为<span class="heti-skip"><span class="heti-spacing"> </span>ASCII<span class="heti-spacing"> </span></span>编码</li>
 <li><span>SMTP<span class="heti-spacing"> </span></span>服务器使用<code>CRLF.CRLF</code>决定报文尾部</li>
-<li>
-<p>可以有多个附件</p>
-</li>
-<li>
-<p><strong>发送与接收分离</strong>：<span>SMTP<span class="heti-spacing"> </span></span>专注于发送邮件，而<span class="heti-skip"><span class="heti-spacing"> </span>POP<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>IMAP<span class="heti-spacing"> </span></span>专注于邮件的接收和管理。这种分离使得邮件系统的设计更加灵活和高效。</p>
-</li>
+<li>可以有多个附件</li>
+</ul>
+<ol>
+<li><strong>发送与接收分离</strong>：<span>SMTP<span class="heti-spacing"> </span></span>专注于发送邮件，而<span class="heti-skip"><span class="heti-spacing"> </span>POP<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>IMAP<span class="heti-spacing"> </span></span>专注于邮件的接收和管理。这种分离使得邮件系统的设计更加灵活和高效。</li>
 <li><strong>使用端口</strong>：<span>SMTP<span class="heti-spacing"> </span></span>通常使用<span class="heti-skip"><span class="heti-spacing"> </span>TCP<span class="heti-spacing"> </span></span>端口<span class="heti-skip"><span class="heti-spacing"> </span>25<span class="heti-spacing"> </span></span>进行通信，但为了安全起见，还可能使用端口<span><span class="heti-spacing"> </span>465</span>（SMTPS）或<span><span class="heti-spacing"> </span>587</span>（提交邮件用的<span><span class="heti-spacing"> </span>SMTP</span><heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。</li>
 <li><strong>交互模式</strong>：<span>SMTP<span class="heti-spacing"> </span></span>使用命令<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>响应模式，其中客户端发送命令，服务器响应状态码和文本消息。这种模式支持灵活的交互和错误处理。</li>
-</ul>
+</ol>
 <p>报文</p>
 <ul>
 <li>首部：<code>To</code>,<code>From</code>,<code>Subject</code></li>
@@ -3740,16 +3730,12 @@ HTTP/3 将是自 2015 年 HTTP/2 获得批准以来对超文本传输协议的�
 <details class="note">
 <summary>域名和主机名</summary>
 </details>
-<ul>
-<li><strong>域名</strong>（domain name）是互联网上作为网站地址的一部分的一个易于记忆的名称，它映射到一个<span class="heti-skip"><span class="heti-spacing"> </span>IP<span class="heti-spacing"> </span></span>地址。域名系统（DNS）负责将域名转换为实际的<span class="heti-skip"><span class="heti-spacing"> </span>IP<span class="heti-spacing"> </span></span>地址，使得用户不需要记住复杂的数字序列就能访问网站。例如，<code>example.com</code>是一个域名。</li>
-<li>
-<p><strong>主机名</strong>（host name）是网络中某个设备的名称，用于标识网络中的计算机。它是一个标识符，用于在特定的网络环境中区分不同的设备。在很多情况下，主机名是解析为<span class="heti-skip"><span class="heti-spacing"> </span>IP<span class="heti-spacing"> </span></span>地址的一部分，它可以是域名的一部分或者单独存在于一个局部网络中。</p>
-</li>
-<li>
-<p>每一个域名（只讨论英文域名）都是一个标号序列（labels<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，用字母（A-Z，a-z，大小写等价<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>、数字（0-9）和连接符（-）组成；</p>
-</li>
+<p>- <strong>域名</strong>（domain name）是互联网上作为网站地址的一部分的一个易于记忆的名称，它映射到一个<span class="heti-skip"><span class="heti-spacing"> </span>IP<span class="heti-spacing"> </span></span>地址。域名系统（DNS）负责将域名转换为实际的<span class="heti-skip"><span class="heti-spacing"> </span>IP<span class="heti-spacing"> </span></span>地址，使得用户不需要记住复杂的数字序列就能访问网站。例如，<code>example.com</code>是一个域名。
+   - <strong>主机名</strong>（host name）是网络中某个设备的名称，用于标识网络中的计算机。它是一个标识符，用于在特定的网络环境中区分不同的设备。在很多情况下，主机名是解析为<span class="heti-skip"><span class="heti-spacing"> </span>IP<span class="heti-spacing"> </span></span>地址的一部分，它可以是域名的一部分或者单独存在于一个局部网络中。</p>
+<ol>
+<li>每一个域名（只讨论英文域名）都是一个标号序列（labels<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，用字母（A-Z，a-z，大小写等价<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>、数字（0-9）和连接符（-）组成；</li>
 <li>标号序列总长度不能超过<span class="heti-skip"><span class="heti-spacing"> </span>255<span class="heti-spacing"> </span></span>个字符，它由点号分割成一个个的标号（label）</li>
-</ul>
+</ol>
 <p><span>baidu:<span class="heti-spacing"> </span></span>二级域名，指公司名；
 www: 表示该公司的 WEB 服务器对应的主机</p>
 <blockquote>
@@ -3798,23 +3784,23 @@ www: 表示该公司的 WEB 服务器对应的主机</p>
 <p><img alt="预览大图" src="https://data.educoder.net/api/attachments/554296" style="zoom: 67%;"/></p>
 <p>报文首部</p>
 <ul>
-<li>
-<p>标识符（ID<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>：<span>16<span class="heti-spacing"> </span></span>位（订单编号）</p>
-</li>
+<li>标识符（ID<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>：<span>16<span class="heti-spacing"> </span></span>位（订单编号）</li>
+</ul>
+<ul>
 <li>
 <p>flags</p>
-</li>
-<li>
-<p>查询<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>应答</p>
-</li>
-<li>
-<p>希望递归</p>
-</li>
-<li>
-<p>递归可用</p>
-</li>
-<li>
-<p>应答为权威</p>
+<ul>
+<li>查询<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>应答</li>
+</ul>
+<ul>
+<li>希望递归</li>
+</ul>
+<ul>
+<li>递归可用</li>
+</ul>
+<ul>
+<li>应答为权威</li>
+</ul>
 </li>
 </ul>
 <h4 id="_19">命令<a class="headerlink" href="#_19" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
@@ -3860,9 +3846,11 @@ nslookup<span class="w"> </span>-type<span class="o">=</span><span class="nb">ty
 <p><strong>给谁发</strong></p>
 <p><code>tit for tat</code>原则；可以更有利于网络的维护，激励共享，防止搭便车</p>
 <ul>
-<li>每<span class="heti-skip"><span class="heti-spacing"> </span>10s<span class="heti-spacing"> </span></span>计算：两个周期下载带宽大的排在前面（优先队列<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>；有限疏通：<br/></li>
-</ul>
+<li>
+<p>每<span class="heti-skip"><span class="heti-spacing"> </span>10s<span class="heti-spacing"> </span></span>计算：两个周期下载带宽大的排在前面（优先队列<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>；有限疏通：<br/></p>
 <p>for each of her neighbors, Alice continually measures the rate at which she receives bits and determines <strong>the four peers</strong> that are feeding her bits at the highest rate</p>
+</li>
+</ul>
 <ul>
 <li>每<span class="heti-skip"><span class="heti-spacing"> </span>30s<span class="heti-spacing"> </span></span>计算：第三个周期在请求中随机选择<span><span class="heti-spacing"> </span>(additional)</span></li>
 </ul>
@@ -3952,12 +3940,10 @@ nslookup<span class="w"> </span>-type<span class="o">=</span><span class="nb">ty
 <p>部署了很多的<span class="heti-skip"><span class="heti-spacing"> </span>cache<span class="heti-spacing"> </span></span>节点，云解析重定向后跳数较少</p>
 <p>部署策略</p>
 <ul>
-<li>
-<p><code>enter deep</code>部署在<code>local ISP</code></p>
-</li>
-<li>
-<p><code>bring home</code>部署在关键位置，数据中心机房</p>
-</li>
+<li><code>enter deep</code>部署在<code>local ISP</code></li>
+</ul>
+<ul>
+<li><code>bring home</code>部署在关键位置，数据中心机房</li>
 </ul>
 <p>点网页，<span>CDN<span class="heti-spacing"> </span></span>重定向，由缓存节点提供服务</p>
 <p>通过<span class="heti-skip"><span class="heti-spacing"> </span>DNS<span class="heti-spacing"> </span></span>实现选择最优的节点</p>
@@ -3979,17 +3965,21 @@ nslookup<span class="w"> </span>-type<span class="o">=</span><span class="nb">ty
 <p>A process is analogous to a house and its socket is analogous to its door</p>
 </blockquote>
 <ul>
-<li>TCP - <code>Transmission Control Protocol</code><br/></li>
-</ul>
+<li>
+<p>TCP - <code>Transmission Control Protocol</code><br/></p>
 <p>四元组 我<span class="heti-skip"><span class="heti-spacing"> </span>ip+port<span class="heti-spacing"> </span></span>对方<span><span class="heti-spacing"> </span>ip+port</span></p>
+</li>
+</ul>
 <p>记忆了一个会话关系，不必要每次都有，建立了一个<span class="heti-skip"><span class="heti-spacing"> </span>socket<span class="heti-spacing"> </span></span>的映射</p>
 <blockquote>
 <p>经常和朋友寄件，只要知道你经常寄的信息（socket）的代码，顺丰就可以直接寄走</p>
 </blockquote>
 <ul>
-<li>UDP - <code>User Datagram Protocol</code></li>
-</ul>
+<li>
+<p>UDP - <code>User Datagram Protocol</code></p>
 <p>二元组 本地<span><span class="heti-spacing"> </span>ip+port</span></p>
+</li>
+</ul>
 <p>使得穿过层间的信息量最少</p>
 <p><span>UDP<span class="heti-spacing"> </span></span>套接字指定了应用所在的端结点（end point）</p>
 <p>发送报文必须指定对方的<span><span class="heti-spacing"> </span>ip+port</span></p>

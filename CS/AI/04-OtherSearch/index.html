@@ -3086,18 +3086,16 @@
 <p><span>alpha-beta<span class="heti-spacing"> </span></span>剪枝算法是对<span class="heti-skip"><span class="heti-spacing"> </span>MinMax<span class="heti-spacing"> </span></span>算法的剪枝，产生的结果完全相同，但运行效率不一样</p>
 <p>基本思想：根据上一层已经得到的当前最优结果，决定目前的搜索是否要继续下去</p>
 <ul>
-<li>
-<p>对于绿色的节点，我们希望找到子节点中分数最大的，所以遍历相当于是将绿色节点记录的最大值从<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(-\infty\)</span><span class="heti-spacing"> </span></span>更新到<span><span class="heti-spacing"> </span><span class="arithmatex">\(\alpha\)</span></span></p>
-</li>
-<li>
-<p>对于红色的节点，我们希望找到子节点中分数最小的，所以遍历相当于是将红色节点记录的最小值从<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(+\infty\)</span><span class="heti-spacing"> </span></span>更新到<span><span class="heti-spacing"> </span><span class="arithmatex">\(\beta\)</span></span></p>
-</li>
-<li>
-<p>因为红色喜欢小，绿色喜欢大，那么存在一个时刻，子树的<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\alpha\)</span><span class="heti-spacing"> </span></span>值超过了父节点的<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\beta\)</span><span class="heti-spacing"> </span></span>值，那么这个子树就可以剪枝了</p>
-</li>
-<li>
-<p><strong>向上传递：更新本体值</strong></p>
-</li>
+<li>对于绿色的节点，我们希望找到子节点中分数最大的，所以遍历相当于是将绿色节点记录的最大值从<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(-\infty\)</span><span class="heti-spacing"> </span></span>更新到<span><span class="heti-spacing"> </span><span class="arithmatex">\(\alpha\)</span></span></li>
+</ul>
+<ul>
+<li>对于红色的节点，我们希望找到子节点中分数最小的，所以遍历相当于是将红色节点记录的最小值从<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(+\infty\)</span><span class="heti-spacing"> </span></span>更新到<span><span class="heti-spacing"> </span><span class="arithmatex">\(\beta\)</span></span></li>
+</ul>
+<ul>
+<li>因为红色喜欢小，绿色喜欢大，那么存在一个时刻，子树的<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\alpha\)</span><span class="heti-spacing"> </span></span>值超过了父节点的<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\beta\)</span><span class="heti-spacing"> </span></span>值，那么这个子树就可以剪枝了</li>
+</ul>
+<ul>
+<li><strong>向上传递：更新本体值</strong></li>
 <li><strong>向下传递：复制<span><span class="heti-spacing"> </span><span class="arithmatex">\(\alpha\)</span></span>，<span><span class="arithmatex">\(\beta\)</span><span class="heti-spacing"> </span></span>的值到子节点</strong></li>
 <li>若在某一节点更新后出现<span><span class="heti-spacing"> </span><span class="arithmatex">\(\alpha&gt;\beta\)</span></span>，则其后面不需要再进行更新，直接剪枝即可</li>
 </ul>

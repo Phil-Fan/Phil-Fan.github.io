@@ -3052,34 +3052,42 @@
 <h3 id="fracl-cdot-ar-1_1"><span><span class="arithmatex">\(\frac{L \cdot a}{R} = 1\)</span><span class="heti-spacing"> </span></span>时<a class="headerlink" href="#fracl-cdot-ar-1_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>分为几种情况</p>
 <ul>
-<li>周期性到达，很规律，来一个发一个，这个时候没有排队延时</li>
-</ul>
+<li>
+<p>周期性到达，很规律，来一个发一个，这个时候没有排队延时</p>
 <blockquote>
 <p>类似流水线</p>
 </blockquote>
-<ul>
-<li>短时间集中，但是也是规律的；这个时候排队延时是等差数列，平均一下即可</li>
+</li>
 </ul>
+<ul>
+<li>
+<p>短时间集中，但是也是规律的；这个时候排队延时是等差数列，平均一下即可</p>
 <blockquote>
 <p>类似车队下高速</p>
 </blockquote>
-<ul>
-<li>随机到达，书中只描述了一个趋势：</li>
+</li>
 </ul>
+<ul>
+<li>
+<p>随机到达，书中只描述了一个趋势：</p>
 <p>即趋于<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>的时候排队延时也趋于<span><span class="heti-spacing"> </span>0</span>，流量强度趋于<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>时候，排队延时趋于正无穷。</p>
 <p>但是也没有说具体数学模型</p>
+</li>
+</ul>
 <p><img alt="image-20240229211257617" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240229211257617.png" style="zoom:50%;"/></p>
 <h3 id="_3">查询资料<a class="headerlink" href="#_3" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>网上资料假设了两个前提</p>
 <ol>
-<li>到来分组符合<strong>泊松分布</strong> </li>
-</ol>
+<li>
+<p>到来分组符合<strong>泊松分布</strong> </p>
 <blockquote>
 <p>在给定间隔内期望有<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(λ\)</span><span class="heti-spacing"> </span></span>个事件的泊松分布下，同一间隔内<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(k\)</span><span class="heti-spacing"> </span></span>个事件的概率为</p>
 <p><span class="arithmatex">\(\frac{\lambda^k e^{-\lambda}}{k!}\)</span></p>
 </blockquote>
-<ol>
-<li><strong>分组等长</strong></li>
+</li>
+<li>
+<p><strong>分组等长</strong></p>
+</li>
 </ol>
 <p>证明：在这些假设前提下，流量强度<span class="heti-skip"><span class="heti-spacing"> </span>=1<span class="heti-spacing"> </span></span>时候，排队延迟无限大</p>
 <p><span>Denote<span class="heti-spacing"> </span></span>到达率为<span><span class="heti-spacing"> </span><span class="arithmatex">\(l\)</span></span>，处理速率为<span><span class="heti-spacing"> </span><span class="arithmatex">\(u\)</span></span>，也就是该条链路的带宽，流量强度<span><span class="heti-spacing"> </span><span class="arithmatex">\(p=\frac{l}{u}\)</span></span></p>

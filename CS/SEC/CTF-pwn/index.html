@@ -3614,22 +3614,22 @@
 <ul>
 <li>阅读源代码，找到程序的漏洞</li>
 <li>本地运行并触发该<span><span class="heti-spacing"> </span>bug</span></li>
-<li>
-<p>与远端交互、触发<span class="heti-skip"><span class="heti-spacing"> </span>bug<span class="heti-spacing"> </span></span>并获取<span><span class="heti-spacing"> </span>flag</span></p>
-</li>
-<li>
-<p><strong>赛题文件</strong></p>
-<ul>
-<li>往往需要逆向</li>
-<li>漏洞描述<span><span class="heti-spacing"> </span>(diff)</span></li>
+<li>与远端交互、触发<span class="heti-skip"><span class="heti-spacing"> </span>bug<span class="heti-spacing"> </span></span>并获取<span><span class="heti-spacing"> </span>flag</span></li>
 </ul>
-</li>
-<li><strong>赛题环境</strong></li>
+<ul>
+<li><strong>赛题文件</strong>
+    - 往往需要逆向
+    - 漏洞描述 (diff)</li>
+<li><strong>赛题环境</strong><ul>
 <li>libc and ld</li>
 <li>Dockerfile</li>
 <li>"good challenge should issue everything you needed to run and test it"</li>
-<li><strong>赛题远程</strong></li>
+</ul>
+</li>
+<li><strong>赛题远程</strong><ul>
 <li>快速将命令行文本程序搭建为<span class="heti-skip"><span class="heti-spacing"> </span>TCP<span class="heti-spacing"> </span></span>服务（别在<span class="heti-skip"><span class="heti-spacing"> </span>host<span class="heti-spacing"> </span></span>上直接跑服务）</li>
+</ul>
+</li>
 </ul>
 </div>
 <h2 id="_2">环境准备<a class="headerlink" href="#_2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
@@ -3667,12 +3667,14 @@
 <p><strong><span>2.<span class="heti-spacing"> </span></span>什么是<span><span class="heti-spacing"> </span>ld</span>？</strong></p>
 <p><code>ld</code> 是<span class="heti-skip"><span class="heti-spacing"> </span>Linux<span class="heti-spacing"> </span></span>动态链接器的实现，负责加载和运行动态链接的程序。</p>
 <ul>
-<li>动态链接器的主要职责：</li>
+<li>动态链接器的主要职责：<ol>
 <li><strong>解析依赖库：</strong> 加载程序运行所需的共享库（如 <code>libc</code><heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。</li>
 <li><strong>符号绑定：</strong> 将程序中的符号（如 <code>printf</code>）与库中的实现进行关联。</li>
-<li><strong>初始化顺序：</strong> 在程序主函数运行前执行所需的初始化代码。</li>
-<li>动态链接器是一个独立的<span class="heti-skip"><span class="heti-spacing"> </span>ELF<span class="heti-spacing"> </span></span>文件，常见为 <code>/lib/x86_64-linux-gnu/ld-2.x.so</code>。</li>
-<li><span>ELF<span class="heti-spacing"> </span></span>文件头会指向这个动态链接器（通过 <code>.interp</code> 段指定<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。</li>
+<li><strong>初始化顺序：</strong> 在程序主函数运行前执行所需的初始化代码。
+- 动态链接器是一个独立的 ELF 文件，常见为 <code>/lib/x86_64-linux-gnu/ld-2.x.so</code>。
+- ELF 文件头会指向这个动态链接器（通过 <code>.interp</code> 段指定）。</li>
+</ol>
+</li>
 </ul>
 <p><strong><span>3.<span class="heti-spacing"> </span></span>偏移量是什么？</strong></p>
 <p>偏移量是指一个地址相对于基地址的距离。</p>
@@ -3891,9 +3893,11 @@ sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> <
 <ul>
 <li>使用<span class="heti-skip"><span class="heti-spacing"> </span>checksec<span class="heti-spacing"> </span></span>检查<span class="heti-skip"><span class="heti-spacing"> </span>ELF<span class="heti-spacing"> </span></span>文件保护开启的状态</li>
 <li><span>IDApro<span class="heti-spacing"> </span></span>逆向分析程序漏洞（逻辑复杂的可以使用动态调试）</li>
-<li>编写<span class="heti-skip"><span class="heti-spacing"> </span>python<span class="heti-spacing"> </span></span>的<span class="heti-skip"><span class="heti-spacing"> </span>exp<span class="heti-spacing"> </span></span>脚本进行攻击</li>
+<li>编写<span class="heti-skip"><span class="heti-spacing"> </span>python<span class="heti-spacing"> </span></span>的<span class="heti-skip"><span class="heti-spacing"> </span>exp<span class="heti-spacing"> </span></span>脚本进行攻击<ul>
 <li>（若攻击不成功）进行<span class="heti-skip"><span class="heti-spacing"> </span>GDB<span class="heti-spacing"> </span></span>动态调试，查找原因</li>
 <li>（若攻击成功）获取<span><span class="heti-spacing"> </span>flag</span>，编写<span><span class="heti-spacing"> </span>Writeup</span></li>
+</ul>
+</li>
 </ul>
 <h3 id="_6">常见错误<a class="headerlink" href="#_6" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <div class="admonition note">
@@ -4248,10 +4252,12 @@ c
 <p class="admonition-title">一些小例子</p>
 <ul>
 <li><code>%12345678c</code><span>:<span class="heti-spacing"> </span></span>输出时填充空格，将输出共<span class="heti-skip"><span class="heti-spacing"> </span>12345678<span class="heti-spacing"> </span></span>个字符</li>
-<li><code>%hhd</code><span>:<span class="heti-spacing"> </span></span>宽度限制为<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>字节（length modifier）</li>
+<li><code>%hhd</code><span>:<span class="heti-spacing"> </span></span>宽度限制为<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>字节（length modifier）<ul>
 <li><code>%hd</code><span>:<span class="heti-spacing"> </span></span>宽度限制为<span class="heti-skip"><span class="heti-spacing"> </span>2<span class="heti-spacing"> </span></span>字节</li>
 <li><code>%d</code><span>:<span class="heti-spacing"> </span></span>宽度限制为<span class="heti-skip"><span class="heti-spacing"> </span>4<span class="heti-spacing"> </span></span>字节</li>
 <li><code>%ld</code><span>:<span class="heti-spacing"> </span></span>宽度限制为<span class="heti-skip"><span class="heti-spacing"> </span>8<span class="heti-spacing"> </span></span>字节</li>
+</ul>
+</li>
 <li><code>%7$p</code><span>: $<span class="heti-spacing"> </span></span>可以指定参数位置，将第<span class="heti-skip"><span class="heti-spacing"> </span>7<span class="heti-spacing"> </span></span>个参数作为地址输出</li>
 <li><code>%n</code><span>:<span class="heti-spacing"> </span></span>将已经输出的字符数量存储到指针参数指向的地址中</li>
 </ul><span><span class="heti-spacing"> </span></span></div>

@@ -3206,12 +3206,10 @@
 <ul>
 <li>在发送主机和接收主机对之间传送段（segment）</li>
 <li>在发送端将段封装到数据报中</li>
-<li>
-<p>在接收端，将段上交给传输层实体</p>
-</li>
-<li>
-<p>转发：通过单个路口；分组从路由器的输入接口转发到合适的输出接口</p>
-</li>
+<li>在接收端，将段上交给传输层实体</li>
+</ul>
+<ul>
+<li>转发：通过单个路口；分组从路由器的输入接口转发到合适的输出接口</li>
 <li>路由：规划源到目标的路线；全局功能</li>
 </ul>
 <blockquote>
@@ -3237,9 +3235,11 @@
 <h3 id="-">数据平面 转发<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>本地功能<a class="headerlink" href="#-" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>转发：根据路由表进行分组的转发，决定从路由器输入端口到达的分组如何转发到输出端口</p>
 <ul>
-<li>转发功能：</li>
+<li>转发功能：<ul>
 <li>传统方式：基于目标地址<span class="heti-skip"><span class="heti-spacing"> </span>+<span class="heti-spacing"> </span></span>转发表</li>
 <li><span>SDN<span class="heti-spacing"> </span></span>方式：基于多个字段<span class="heti-skip"><span class="heti-spacing"> </span>+<span class="heti-spacing"> </span></span>流表</li>
+</ul>
+</li>
 </ul>
 <p>泛洪——一传十十传百</p>
 <h3 id="-_1">控制平面 路由<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>全局功能<a class="headerlink" href="#-_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
@@ -3249,9 +3249,11 @@
 <p>分布式的实现</p>
 <p>控制平面计算路由表</p>
 <ul>
-<li><span>2<span class="heti-spacing"> </span></span>个控制平面方法<span><span class="heti-spacing"> </span>:</span></li>
+<li><span>2<span class="heti-spacing"> </span></span>个控制平面方法<span><span class="heti-spacing"> </span>:</span><ul>
 <li>传统的路由算法<span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span>在路由器中被实现</li>
 <li><span>SDN<span class="heti-spacing"> </span></span>在远程的服务器中实现</li>
+</ul>
+</li>
 </ul>
 <h2 id="_3">数据平面<a class="headerlink" href="#_3" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <h3 id="router"><code>Router</code> 路由器<a class="headerlink" href="#router" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
@@ -3278,24 +3280,20 @@ use maps but instead prefers to ask for directions.</p>
 </ul>
 <p><strong>bus</strong></p>
 <ul>
-<li>
-<p>总线竞争<span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span>交换速度受限于总线带宽</p>
-</li>
-<li>
-<p><span>1<span class="heti-spacing"> </span></span>次处理一个分组</p>
-</li>
+<li>总线竞争<span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span>交换速度受限于总线带宽</li>
+</ul>
+<ul>
+<li><span>1<span class="heti-spacing"> </span></span>次处理一个分组</li>
 </ul>
 <p><strong>crossbar</strong></p>
 <ul>
-<li>
-<p>Banyan（榕树）网络，<span>crossbar(<span class="heti-spacing"> </span></span>纵横<span class="heti-skip"><span class="heti-spacing"> </span>)<span class="heti-spacing"> </span></span>和其它的互联网络被开发，将多个处理器连接成多处理器</p>
-</li>
-<li>
-<p>当分组从端口<span class="heti-skip"><span class="heti-spacing"> </span>A<span class="heti-spacing"> </span></span>到达，转给端口<span><span class="heti-spacing"> </span>Y</span>；控制器短接相应的两个总线</p>
-</li>
-<li>
-<p>高级设计：将数据报分片为固定长度的信元，通过交换网络交换</p>
-</li>
+<li>Banyan（榕树）网络，<span>crossbar(<span class="heti-spacing"> </span></span>纵横<span class="heti-skip"><span class="heti-spacing"> </span>)<span class="heti-spacing"> </span></span>和其它的互联网络被开发，将多个处理器连接成多处理器</li>
+</ul>
+<ul>
+<li>当分组从端口<span class="heti-skip"><span class="heti-spacing"> </span>A<span class="heti-spacing"> </span></span>到达，转给端口<span><span class="heti-spacing"> </span>Y</span>；控制器短接相应的两个总线</li>
+</ul>
+<ul>
+<li>高级设计：将数据报分片为固定长度的信元，通过交换网络交换</li>
 </ul>
 <h4 id="schedule"><code>schedule</code> 调度策略<a class="headerlink" href="#schedule" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p>解决输出链路问题</p>
@@ -3341,12 +3339,10 @@ use maps but instead prefers to ask for directions.</p>
 <p>主机与物理链路之间的边界叫作接口<span><span class="heti-spacing"> </span>( interface)</span>，路由器与它的任意一条链路之间的边界也叫作接口。</p>
 <p><strong>一个<span class="heti-skip"><span class="heti-spacing"> </span>IP<span class="heti-spacing"> </span></span>地址和一个接口相关联</strong>（<span>32<span class="heti-spacing"> </span></span>位）</p>
 <ul>
-<li>
-<p>子网前缀一样</p>
-</li>
-<li>
-<p>收发在子网的内部一跳可达</p>
-</li>
+<li>子网前缀一样</li>
+</ul>
+<ul>
+<li>收发在子网的内部一跳可达</li>
 </ul>
 <blockquote>
 <p>一个子网可以看做一个家庭，一个<span class="heti-skip"><span class="heti-spacing"> </span>IP<span class="heti-spacing"> </span></span>看做一个成员，发到家就行；</p>
@@ -3478,35 +3474,33 @@ C类：192.168.0.0 - 192.168.255.255     MASK  255.255.255.0</p>
 <p><span>NAT<span class="heti-spacing"> </span></span>路由器上的一张<span class="heti-skip"><span class="heti-spacing"> </span>NAT<span class="heti-spacing"> </span></span>转换表<span><span class="heti-spacing"> </span>(</span><code>NAT translation table</code><span><span class="heti-spacing"> </span>)</span> ，并且在表项
 中包含了端口号及IP 地址。</p>
 <ul>
-<li>
-<p>外出数据包：替换源地址和端口号为<span class="heti-skip"><span class="heti-spacing"> </span>NAT IP<span class="heti-spacing"> </span></span>地址和新的端口号，目标<span class="heti-skip"><span class="heti-spacing"> </span>IP<span class="heti-spacing"> </span></span>和端口不变</p>
-</li>
-<li>
-<p>记住每个转换替换对（在<span class="heti-skip"><span class="heti-spacing"> </span>NAT<span class="heti-spacing"> </span></span>转换表中）</p>
-</li>
-<li>
-<p>进入数据包：替换目标<span class="heti-skip"><span class="heti-spacing"> </span>IP<span class="heti-spacing"> </span></span>地址和端口号，采用存储在<span class="heti-skip"><span class="heti-spacing"> </span>NAT<span class="heti-spacing"> </span></span>表中的<span class="heti-skip"><span class="heti-spacing"> </span>mapping<span class="heti-spacing"> </span></span>表</p>
-</li>
+<li>外出数据包：替换源地址和端口号为<span class="heti-skip"><span class="heti-spacing"> </span>NAT IP<span class="heti-spacing"> </span></span>地址和新的端口号，目标<span class="heti-skip"><span class="heti-spacing"> </span>IP<span class="heti-spacing"> </span></span>和端口不变</li>
+</ul>
+<ul>
+<li>记住每个转换替换对（在<span class="heti-skip"><span class="heti-spacing"> </span>NAT<span class="heti-spacing"> </span></span>转换表中）</li>
+</ul>
+<ul>
+<li>进入数据包：替换目标<span class="heti-skip"><span class="heti-spacing"> </span>IP<span class="heti-spacing"> </span></span>地址和端口号，采用存储在<span class="heti-skip"><span class="heti-spacing"> </span>NAT<span class="heti-spacing"> </span></span>表中的<span class="heti-skip"><span class="heti-spacing"> </span>mapping<span class="heti-spacing"> </span></span>表</li>
 </ul>
 <p><img alt="image-20240201204851149" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240201204851149.png"/></p>
 <h4 id="_11">弊端<a class="headerlink" href="#_11" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <ul>
 <li>路由器只应该对第<span class="heti-skip"><span class="heti-spacing"> </span>3<span class="heti-spacing"> </span></span>层做信息处理，而这里对端口号（<span>4<span class="heti-spacing"> </span></span>层）作了处
   理</li>
-<li>违反了<span class="heti-skip"><span class="heti-spacing"> </span>end-to-end<span class="heti-spacing"> </span></span>原则</li>
+<li>违反了<span class="heti-skip"><span class="heti-spacing"> </span>end-to-end<span class="heti-spacing"> </span></span>原则<ul>
 <li>端到端原则：复杂性放到网络边缘；无需借助中转和变换，就可以直接传送到目标主机</li>
 <li><span>NAT<span class="heti-spacing"> </span></span>可能要被一些应用设计者考虑<span><span class="heti-spacing"> </span>, eg, P2P applications</span></li>
 <li>外网的机器无法主动连接到内网的机器上</li>
+</ul>
+</li>
 <li>地址短缺问题可以被<span class="heti-skip"><span class="heti-spacing"> </span>IPv6<span class="heti-spacing"> </span></span>解决</li>
 </ul>
 <h3 id="ipv6">IPV6<a class="headerlink" href="#ipv6" title="anchor link to this section for reference">¶</a></h3>
 <ul>
-<li>
-<p>头部<span class="heti-skip"><span class="heti-spacing"> </span>40<span class="heti-spacing"> </span></span>个字节，传输中不允许分片</p>
-</li>
-<li>
-<p><span>128<span class="heti-spacing"> </span></span>位<span class="heti-skip"><span class="heti-spacing"> </span>IP<span class="heti-spacing"> </span></span>地址</p>
-</li>
+<li>头部<span class="heti-skip"><span class="heti-spacing"> </span>40<span class="heti-spacing"> </span></span>个字节，传输中不允许分片</li>
+</ul>
+<ul>
+<li><span>128<span class="heti-spacing"> </span></span>位<span class="heti-skip"><span class="heti-spacing"> </span>IP<span class="heti-spacing"> </span></span>地址</li>
 </ul>
 <p><img alt="image-20240426232040298" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240426232040298.png"/></p>
 <h4 id="_12">报文格式<a class="headerlink" href="#_12" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
@@ -3604,18 +3598,16 @@ C类：192.168.0.0 - 192.168.255.255     MASK  255.255.255.0</p>
 <p>使用<span class="heti-skip"><span class="heti-spacing"> </span>LS<span class="heti-spacing"> </span></span>算法
  LS 分组在网络中（一个AS内部）分发</p>
 <ul>
-<li>
-<p>路由计算采用<span class="heti-skip"><span class="heti-spacing"> </span>Dijkstra<span class="heti-spacing"> </span></span>算法</p>
-</li>
-<li>
-<p>通告信息会传遍<span class="heti-skip"><span class="heti-spacing"> </span>AS<span class="heti-spacing"> </span></span>全部（通过泛洪）</p>
-</li>
-<li>
-<p>安全<span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span>所有的<span class="heti-skip"><span class="heti-spacing"> </span>OSPF<span class="heti-spacing"> </span></span>报文都是经过认证的<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>防止恶意的攻击<span><span class="heti-spacing"> </span>)</span></p>
-</li>
-<li>
-<p>允许有多个代价相同的路径存在<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>在<span class="heti-skip"><span class="heti-spacing"> </span>RIP<span class="heti-spacing"> </span></span>协议中只有一个<span><span class="heti-spacing"> </span>)</span></p>
-</li>
+<li>路由计算采用<span class="heti-skip"><span class="heti-spacing"> </span>Dijkstra<span class="heti-spacing"> </span></span>算法</li>
+</ul>
+<ul>
+<li>通告信息会传遍<span class="heti-skip"><span class="heti-spacing"> </span>AS<span class="heti-spacing"> </span></span>全部（通过泛洪）</li>
+</ul>
+<ul>
+<li>安全<span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span>所有的<span class="heti-skip"><span class="heti-spacing"> </span>OSPF<span class="heti-spacing"> </span></span>报文都是经过认证的<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>防止恶意的攻击<span><span class="heti-spacing"> </span>)</span></li>
+</ul>
+<ul>
+<li>允许有多个代价相同的路径存在<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>在<span class="heti-skip"><span class="heti-spacing"> </span>RIP<span class="heti-spacing"> </span></span>协议中只有一个<span><span class="heti-spacing"> </span>)</span></li>
 </ul>
 <p>在<span class="heti-skip"><span class="heti-spacing"> </span>IP<span class="heti-spacing"> </span></span>数据报上直接传送<span class="heti-skip"><span class="heti-spacing"> </span>OSPF<span class="heti-spacing"> </span></span>报文<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>而不是通过<span class="heti-skip"><span class="heti-spacing"> </span>UDP<span class="heti-spacing"> </span></span>和<span><span class="heti-spacing"> </span>TCP)</span></p>
 <p>网络比较大，分成若干区域</p>
@@ -3628,15 +3620,13 @@ C类：192.168.0.0 - 192.168.255.255     MASK  255.255.255.0</p>
 <p>满足安全性和管理问题、规模问题</p>
 <ul>
 <li>自治区内：</li>
-<li>
-<p>自治区之间：路由聚集，对外表现成</p>
-</li>
-<li>
-<p><code>eBGP</code><span>:<span class="heti-spacing"> </span></span>从相邻的<span class="heti-skip"><span class="heti-spacing"> </span>ASes<span class="heti-spacing"> </span></span>那里获得子网可达信息；转发子网收到的其他<span class="heti-skip"><span class="heti-spacing"> </span>AS<span class="heti-spacing"> </span></span>子网可达信息，将<code>iBGP</code>得到的信息通过<code>eBGP</code>传出去</p>
-</li>
-<li>
-<p><code>iBGP</code><span>:<span class="heti-spacing"> </span></span>将获得的子网可达信息传遍到<span class="heti-skip"><span class="heti-spacing"> </span>AS<span class="heti-spacing"> </span></span>内部的所有路由器</p>
-</li>
+<li>自治区之间：路由聚集，对外表现成</li>
+</ul>
+<ul>
+<li><code>eBGP</code><span>:<span class="heti-spacing"> </span></span>从相邻的<span class="heti-skip"><span class="heti-spacing"> </span>ASes<span class="heti-spacing"> </span></span>那里获得子网可达信息；转发子网收到的其他<span class="heti-skip"><span class="heti-spacing"> </span>AS<span class="heti-spacing"> </span></span>子网可达信息，将<code>iBGP</code>得到的信息通过<code>eBGP</code>传出去</li>
+</ul>
+<ul>
+<li><code>iBGP</code><span>:<span class="heti-spacing"> </span></span>将获得的子网可达信息传遍到<span class="heti-skip"><span class="heti-spacing"> </span>AS<span class="heti-spacing"> </span></span>内部的所有路由器</li>
 </ul>
 <p>基于距离矢量算法（路径矢量）——不仅仅是距离矢量，还包括到达各个目标网络的详细路径（<span>AS<span class="heti-spacing"> </span></span>序号的列表）能够避免简单<span class="heti-skip"><span class="heti-spacing"> </span>DV<span class="heti-spacing"> </span></span>算法的路由环路问题</p>
 <p><img alt="image-20240215163137452" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240215163137452.png"/></p>
@@ -3702,25 +3692,25 @@ C类：192.168.0.0 - 192.168.255.255     MASK  255.255.255.0</p>
 <p>网络是可编程的，底层硬件标准化，网络设备软件化</p>
 <p><img alt="image-20240201121228823" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240201121228823.png"/></p>
 <ul>
-<li>
-<p>网络设备数据平面和控制平面分离</p>
-</li>
+<li>网络设备数据平面和控制平面分离</li>
+</ul>
+<ul>
 <li>
 <p>数据平面<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>分组交换机</p>
+<ul>
+<li>将路由器、交换机和目前大多数网络设备的功能进一步抽象成：按照流表（由控制平面设置的控制逻辑）进行<span><span class="heti-spacing"> </span>PDU</span>（帧、分组）的动作（包括转发、丢弃、拷贝、泛洪、阻塞）</li>
+<li>统一化设备功能：<span>SDN<span class="heti-spacing"> </span></span>交换机（分组交换机<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，执行控制逻辑</li>
+</ul>
 </li>
-<li>
-<p>将路由器、交换机和目前大多数网络设备的功能进一步抽象成：按照流表（由控制平面设置的控制逻辑）进行<span><span class="heti-spacing"> </span>PDU</span>（帧、分组）的动作（包括转发、丢弃、拷贝、泛洪、阻塞）</p>
-</li>
-<li>
-<p>统一化设备功能：<span>SDN<span class="heti-spacing"> </span></span>交换机（分组交换机<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，执行控制逻辑</p>
-</li>
+</ul>
+<ul>
 <li>
 <p>控制平面<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>控制器<span class="heti-skip"><span class="heti-spacing"> </span>+<span class="heti-spacing"> </span></span>网络应用</p>
-</li>
-<li>
-<p>分离、集中</p>
-</li>
+<ul>
+<li>分离、集中</li>
 <li>计算和下发控制逻辑：流表</li>
+</ul>
+</li>
 </ul>
 <h4 id="openflow-matchaction"><span>OpenFlow<span class="heti-spacing"> </span></span><code>match+action</code>模式<a class="headerlink" href="#openflow-matchaction" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p>可以实现路由器、交换机、防火墙、负载均衡设备等功能</p>
@@ -3734,16 +3724,14 @@ C类：192.168.0.0 - 192.168.255.255     MASK  255.255.255.0</p>
 </ul>
 <p><strong>抽象</strong></p>
 <ul>
-<li>
-<p>路由器
+<li>路由器
   • match: 最长前缀匹配
-  • action: 通过一条链路转发</p>
-</li>
-<li>
-<p>交换机
+  • action: 通过一条链路转发</li>
+</ul>
+<ul>
+<li>交换机
   • match: 目标MAC地址
-  • action: 转发或者泛洪</p>
-</li>
+  • action: 转发或者泛洪</li>
 <li><strong>防火墙</strong>
   • match: IP地址和TCP/UDP端口号
   • action: 允许或者禁止</li>

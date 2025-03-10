@@ -3813,25 +3813,23 @@ c&amp;d\end{bmatrix}
 <ol>
 <li>求解平衡状态</li>
 <li>写出雅可比矩阵</li>
-<li>求解<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A|_{x_{e1}},A|_{x_{e2}}\)</span><span class="heti-spacing"> </span></span>的特征值</li>
-<li>都为负，渐近稳定<br/></li>
-<li>存在正，不稳定<br/></li>
-<li>含有<span><span class="heti-spacing"> </span>0</span>，该法失效<br/></li>
+<li>求解<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A|_{x_{e1}},A|_{x_{e2}}\)</span><span class="heti-spacing"> </span></span>的特征值
+- 都为负，渐近稳定<br/>
+- 存在正，不稳定<br/>
+- 含有0，该法失效<br/></li>
 </ol>
 <p><a href="https://www.bilibili.com/video/BV1cR4y1Q7ra">李雅普诺夫稳定性解题方法总结</a></p>
 <h3 id="lyapunov_2"><span>Lyapunov<span class="heti-spacing"> </span></span>第二方法——直接法<a class="headerlink" href="#lyapunov_2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ol>
 <li>选择一个<span class="heti-skip"><span class="heti-spacing"> </span>Lyapunov<span class="heti-spacing"> </span></span>函数</li>
-<li>
-<p>求导数</p>
-</li>
-<li>
-<p>稳定： <span><span class="arithmatex">\(V\)</span><span class="heti-spacing"> </span></span>正定，<span><span class="arithmatex">\(\dot{V}\)</span><span class="heti-spacing"> </span></span>半负定；<br/></p>
-</li>
+<li>求导数</li>
+</ol>
+<ul>
+<li>稳定： <span><span class="arithmatex">\(V\)</span><span class="heti-spacing"> </span></span>正定，<span><span class="arithmatex">\(\dot{V}\)</span><span class="heti-spacing"> </span></span>半负定；<br/></li>
 <li>渐进稳定<span class="heti-skip"><span class="heti-spacing"> </span>: <span class="arithmatex">\(V\)</span><span class="heti-spacing"> </span></span>正定，<span><span class="arithmatex">\(\dot{V}\)</span><span class="heti-spacing"> </span></span>负定；或者<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\dot{V}\)</span><span class="heti-spacing"> </span></span>半负定，且<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(x\ne 0\)</span><span class="heti-spacing"> </span></span>时候，<span><span class="arithmatex">\(\dot{V}\)</span><span class="heti-spacing"> </span></span>不恒为<span><span class="heti-spacing"> </span>0</span><br/></li>
 <li>全局渐进稳定：如果<span><span class="heti-spacing"> </span><span class="arithmatex">\(||x||\rightarrow \infty,V(x) \rightarrow \infty\)</span></span><br/></li>
 <li>不稳定：<span><span class="arithmatex">\(\dot{V(x)}\)</span><span class="heti-spacing"> </span></span>正定<br/></li>
-</ol>
+</ul>
 <div class="arithmatex">\[
 \begin{aligned}
 \dot{V} &amp;= \begin{bmatrix} \frac{\partial V}{\partial x_1} &amp; \frac{\partial V}{\partial x_2} \end{bmatrix} \begin{bmatrix} f_1 \\ f_2 \end{bmatrix} \\
@@ -3907,17 +3905,15 @@ b_c = T_c^{-1} b = \begin{bmatrix} 0 \\ 0 \\ \vdots \\ 1 \end{bmatrix}
 <p>其中，<span><span class="arithmatex">\(\mathbf{A}\)</span><span class="heti-spacing"> </span></span>的特征值<span><span class="heti-spacing"> </span><span class="arithmatex">\(\lambda\)</span></span></p>
 <ol>
 <li><span><span class="arithmatex">\(\lambda\)</span><span class="heti-spacing"> </span></span>的实部决定的了收敛性和收敛速度</li>
-<li>
-<p>如果极点是虚数，必定有共轭，且表示有振动</p>
-</li>
-<li>
-<p>状态反馈不会改变系统的零点；不改变不能控子系统的极点；可任意改变能控子系统的极点</p>
-</li>
+<li>如果极点是虚数，必定有共轭，且表示有振动</li>
+</ol>
+<ul>
+<li>状态反馈不会改变系统的零点；不改变不能控子系统的极点；可任意改变能控子系统的极点</li>
 <li>对于系统<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\((A,B)\)</span>,<span class="heti-spacing"> </span></span>若存在矩阵<span class="heti-skip"><span class="heti-spacing"> </span>K<span class="heti-spacing"> </span></span>使得<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\((A+BK,B)\)</span><span class="heti-spacing"> </span></span>稳定，则称系统<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\((A,B)\)</span><span class="heti-spacing"> </span></span>是可镇定的；</li>
 <li><span><span class="arithmatex">\((A,B)\)</span><span class="heti-spacing"> </span></span>可镇定的充要条件：<span><span class="arithmatex">\((A,B)\)</span><span class="heti-spacing"> </span></span>的不能控子系统稳定</li>
 <li>极点任意配置条件：系统完全能控（否则只能在根轨迹线上移动）</li>
 <li>静态输出反馈控制<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(u=r+Ky = r+KCx\)</span><span class="heti-spacing"> </span></span>不改变能控性和能观性</li>
-</ol>
+</ul>
 <div class="admonition tip">
 <p class="admonition-title">控制器<span class="heti-skip"><span class="heti-spacing"> </span>u<span class="heti-spacing"> </span></span>的两大作用</p>
 <ul>

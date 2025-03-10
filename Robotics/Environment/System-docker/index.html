@@ -3109,20 +3109,16 @@ Docker<span class="w"> </span>Compose<span class="w"> </span>version<span class=
 <div class="tabbed-block"></div>
 </div>
 </div>
-<ul>
-<li>version：指定<span class="heti-skip"><span class="heti-spacing"> </span>Compose<span class="heti-spacing"> </span></span>文件格式<span class="heti-skip"><span class="heti-spacing"> </span>yaml<span class="heti-spacing"> </span></span>的规则版本，版本决定可用的配置选项</li>
-<li>service：定义了应用中的服务，每个服务可以使用不同的镜像、环境设置和依赖关系<ul>
-<li>web：自己构建的镜像</li>
-<li>build：用于构建镜像，指定构建镜像的<span class="heti-skip"><span class="heti-spacing"> </span>dockerfile<span class="heti-spacing"> </span></span>的上下文路径</li>
-<li>ports：映射容器和宿主机的端口</li>
-<li>volumes：挂载本地目录到指定容器目录，用于数据持久化或在容器之间共享数据</li>
-<li>links：与<span class="heti-skip"><span class="heti-spacing"> </span>redis<span class="heti-spacing"> </span></span>服务连接</li>
-</ul>
-</li>
-<li>redis：构建指定镜像<span><span class="heti-spacing"> </span>redis</span></li>
-<li>image：从指定的镜像中启动容器，可以是存储仓库、标签以及镜像<span><span class="heti-spacing"> </span>ID</span></li>
-<li>volumes：用于数据持久化和共享的数据卷定义，常用于数据库存储、配置文件、日志等数据的持久化</li>
-</ul>
+<p>- version：指定<span class="heti-skip"><span class="heti-spacing"> </span>Compose<span class="heti-spacing"> </span></span>文件格式<span class="heti-skip"><span class="heti-spacing"> </span>yaml<span class="heti-spacing"> </span></span>的规则版本，版本决定可用的配置选项
+  - service：定义了应用中的服务，每个服务可以使用不同的镜像、环境设置和依赖关系
+    - web：自己构建的镜像
+      - build：用于构建镜像，指定构建镜像的 dockerfile 的上下文路径
+      - ports：映射容器和宿主机的端口
+      - volumes：挂载本地目录到指定容器目录，用于数据持久化或在容器之间共享数据
+      - links：与redis服务连接
+  - redis：构建指定镜像redis
+  - image：从指定的镜像中启动容器，可以是存储仓库、标签以及镜像 ID
+  - volumes：用于数据持久化和共享的数据卷定义，常用于数据库存储、配置文件、日志等数据的持久化</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="" id="__tabbed_3_1" name="__tabbed_3" type="radio"/><div class="tabbed-labels"><label for="__tabbed_3_1">实例</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

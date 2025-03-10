@@ -3289,9 +3289,9 @@ Step 4: 评估新状态：
 </div>
 <ol>
 <li><strong>初始解：</strong> 随机选择一个初始解，并设置初始温度。</li>
-<li><strong>迭代过程：</strong></li>
-<li>在当前解的邻域中随机选择一个新的解。</li>
-<li>计算新解的能量（或成本）与当前解的能量之差<span><span class="heti-spacing"> </span><span class="arithmatex">\(\Delta E\)</span></span>。
+<li><strong>迭代过程：</strong>
+- 在当前解的邻域中随机选择一个新的解。
+- 计算新解的能量（或成本）与当前解的能量之差<span class="arithmatex">\(\Delta E\)</span>。
 如果新解的能量更低（<span class="arithmatex">\(\Delta E&lt;0\)</span>），则接受该新解；如果新解的能量更高，则以一定概率接受该解</li>
 <li><strong>退火：</strong> 逐步降低温度，通常使用冷却调度（如指数冷却）来控制温度的下降。</li>
 <li><strong>终止条件：</strong> 算法在达到预设的迭代次数或温度低于某一阈值时终止。</li>

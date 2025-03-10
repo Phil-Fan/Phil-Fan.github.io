@@ -3314,12 +3314,10 @@
 </ol>
 <h3 id="3"><span>3<span class="heti-spacing"> </span></span>级流水线<a class="headerlink" href="#3" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ul>
-<li>
-<p>取指令<span><span class="heti-spacing"> </span>(fetch)</span>、译码<span class="heti-skip"><span class="heti-spacing"> </span>(decode)<span class="heti-spacing"> </span></span>和执行<span><span class="heti-spacing"> </span>(execute)</span></p>
-</li>
-<li>
-<p>为什么可以用：三部分需要的资源是不一样的</p>
-</li>
+<li>取指令<span><span class="heti-spacing"> </span>(fetch)</span>、译码<span class="heti-skip"><span class="heti-spacing"> </span>(decode)<span class="heti-spacing"> </span></span>和执行<span><span class="heti-spacing"> </span>(execute)</span></li>
+</ul>
+<ul>
+<li>为什么可以用：三部分需要的资源是不一样的</li>
 </ul>
 <p>在执行一条指令的同时对下一条指令进行译码，并将第三条指令从存储器中取出。可以显著提高效率</p>
 <p><img alt="image-20240619140056526" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240619140056526.png"/></p>
@@ -3416,17 +3414,17 @@
 2) SWD: 2线制接口</p>
 <h3 id="_5">中断<a class="headerlink" href="#_5" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ul>
-<li>
-<p>中断优先级可动态重新设置</p>
-</li>
-<li>
-<p>中断数目可配置为<span><span class="heti-spacing"> </span>1</span>～240</p>
-</li>
+<li>中断优先级可动态重新设置</li>
+</ul>
+<ul>
+<li>中断数目可配置为<span><span class="heti-spacing"> </span>1</span>～240</li>
+</ul>
+<ul>
 <li>
 <p>中断优先级的数目可配置为<span><span class="heti-spacing"> </span>1</span>～<span>8<span class="heti-spacing"> </span></span>位（1～<span>256<span class="heti-spacing"> </span></span>级）</p>
+<p>（<span>0<span class="heti-spacing"> </span></span>优先级最高，<span>255<span class="heti-spacing"> </span></span>优先级最低）</p>
 </li>
 </ul>
-<p>（<span>0<span class="heti-spacing"> </span></span>优先级最高，<span>255<span class="heti-spacing"> </span></span>优先级最低）</p>
 <ul>
 <li>处理模式和线程模式具有独立的堆栈和特权等级</li>
 </ul>
@@ -3555,12 +3553,10 @@ SUBS  R0,R0,#1            ;R0=R0-1
 <h3 id="416"><span>4<span class="heti-spacing"> </span></span>个通用<span class="heti-skip"><span class="heti-spacing"> </span>16<span class="heti-spacing"> </span></span>位定时器<a class="headerlink" href="#416" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ul>
 <li>计数模式：上升、下降、上升和下降<heti-adjacent class="heti-adjacent-half">；</heti-adjacent>（对比<span><span class="heti-spacing"> </span>51</span>，工作模式多）</li>
-<li>
-<p><span>T1<span class="heti-spacing"> </span></span>为增强型，带互补输出，紧急停止等功能，可用于电机控制</p>
-</li>
-<li>
-<p>中断产生条件：定时器溢出、比较值相等、扑获引脚有指定的跳变<heti-adjacent class="heti-adjacent-half">。</heti-adjacent>（对比<span class="heti-skip"><span class="heti-spacing"> </span>51<span class="heti-spacing"> </span></span>定时器中断事件类型多）</p>
-</li>
+<li><span>T1<span class="heti-spacing"> </span></span>为增强型，带互补输出，紧急停止等功能，可用于电机控制</li>
+</ul>
+<ul>
+<li>中断产生条件：定时器溢出、比较值相等、扑获引脚有指定的跳变<heti-adjacent class="heti-adjacent-half">。</heti-adjacent>（对比<span class="heti-skip"><span class="heti-spacing"> </span>51<span class="heti-spacing"> </span></span>定时器中断事件类型多）</li>
 </ul>
 <h3 id="124systick-timer"><span>1<span class="heti-spacing"> </span></span>个<span class="heti-skip"><span class="heti-spacing"> </span>24<span class="heti-spacing"> </span></span>位<code>systick timer</code><a class="headerlink" href="#124systick-timer" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>为<span class="heti-skip"><span class="heti-spacing"> </span>OS<span class="heti-spacing"> </span></span>配置，产生<span class="heti-skip"><span class="heti-spacing"> </span>OS<span class="heti-spacing"> </span></span>的任务扫描节拍；</p>
@@ -3683,12 +3679,10 @@ SUBS  R0,R0,#1            ;R0=R0-1
 <ul>
 <li>每个<span class="heti-skip"><span class="heti-spacing"> </span>ADC<span class="heti-spacing"> </span></span>有多达<span class="heti-skip"><span class="heti-spacing"> </span>16<span class="heti-spacing"> </span></span>个外部通道；</li>
 <li><span>ADC<span class="heti-spacing"> </span></span>时钟是<span class="heti-skip"><span class="heti-spacing"> </span>PCLK2<span class="heti-spacing"> </span></span>经过预分频器得到；</li>
-<li>
-<p><span>A/D<span class="heti-spacing"> </span></span>转换时间<span><span class="heti-spacing"> </span>1~1.5us</span></p>
-</li>
-<li>
-<p><span>ADC<span class="heti-spacing"> </span></span>工作电压<span><span class="heti-spacing"> </span>: 2.4 V to 3.6 V</span>；</p>
-</li>
+<li><span>A/D<span class="heti-spacing"> </span></span>转换时间<span><span class="heti-spacing"> </span>1~1.5us</span></li>
+</ul>
+<ul>
+<li><span>ADC<span class="heti-spacing"> </span></span>工作电压<span><span class="heti-spacing"> </span>: 2.4 V to 3.6 V</span>；</li>
 <li>输入信号电压范围<span><span class="heti-spacing"> </span>: VREF-</span> ≤ VIN ≤ VREF+</li>
 </ul>
 <p>电压转换公式：按照比例进行分配</p>

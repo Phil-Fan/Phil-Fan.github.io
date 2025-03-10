@@ -3825,39 +3825,43 @@
 <h2 id="expression">Expression<a class="headerlink" href="#expression" title="anchor link to this section for reference">¶</a></h2>
 <ul>
 <li>注释</li>
-<li>
-<p>乘法<code>*</code></p>
-</li>
-<li>
-<p>幂次<code>**</code></p>
-</li>
-<li>
-<p>`a//b≡⌊a/b⌋</p>
-</li>
+<li>乘法<code>*</code></li>
+</ul>
+<ul>
+<li>幂次<code>**</code></li>
+<li>`a//b≡⌊a/b⌋</li>
+</ul>
+<ul>
 <li>
 <p>两种特殊的赋值：</p>
-</li>
-<li>
-<p>连续赋值：<code>a = b = 6</code></p>
-</li>
-<li>
-<p>同步赋值：<code>a, b = 4, 5</code></p>
-</li>
+<ul>
+<li>连续赋值：<code>a = b = 6</code></li>
+</ul>
+<ul>
+<li>同步赋值：<code>a, b = 4, 5</code></li>
+</ul>
+<ul>
 <li>
 <p>a =6</p>
 <p>b =7
 a, b = b, a</p>
 </li>
 </ul>
+</li>
+</ul>
 <h3 id="_1">中缀、前缀、后缀<a class="headerlink" href="#_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ul>
-<li>前缀</li>
-</ul>
+<li>
+<p>前缀</p>
 <p><code>!a</code>，<code>-b</code></p>
-<ul>
-<li>中缀</li>
+</li>
 </ul>
+<ul>
+<li>
+<p>中缀</p>
 <p><code>a+b</code>， <code>a*b</code></p>
+</li>
+</ul>
 <ul>
 <li>后缀</li>
 </ul>
@@ -3928,17 +3932,17 @@ hex(m)将整数m转化为十六进制字符串</p>
 <li><code>print("面积是：", area)</code></li>
 <li>
 <p><code>print(a, end=', ')</code></p>
-</li>
-<li>
-<p><code>print()</code>里的<code>end=</code>用来指定这次输出之后自动输出什么</p>
-</li>
+<ul>
+<li><code>print()</code>里的<code>end=</code>用来指定这次输出之后自动输出什么</li>
 <li>默认是<code>\n</code>，表示要换一行</li>
 <li>如果要控制输出结果的小数点后的位数，就必须使用格式控制：</li>
 <li><code>print(f"面积是：{area:.2f}")</code></li>
 <li>字符串前面的<code>f</code>表示格式字符串，其中的<code>{}</code>中的名字会被同名的变量的值所替换，<code>:</code>后面的内容表示输出的格式（可以省略）</li>
-<li>
-<p><code>.2f</code>表示小数点后保留两位小数的浮点数</p>
+<li><code>.2f</code>表示小数点后保留两位小数的浮点数</li>
+</ul>
 </li>
+</ul>
+<ul>
 <li>
 <h3 id="format"><span>format<span class="heti-spacing"> </span></span>格式化输出<a class="headerlink" href="#format" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">({:[</span><span class="n">fill</span><span class="p">][</span><span class="n">align</span><span class="p">][</span><span class="n">width</span><span class="p">]}</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
@@ -3946,12 +3950,12 @@ hex(m)将整数m转化为十六进制字符串</p>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="si">{:.3f}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">s</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">format</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="s1">'.3f'</span><span class="p">))</span>
 </code></pre></div>
+<p><code>fill</code>：任意一个字符<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>比如<span><span class="heti-spacing"> </span>#</span> 、 <span>*<span class="heti-spacing"> </span></span>等<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>默认空格填充
+<code>width</code>：字段宽度,如果未指定,那么字段宽度由内容确定,这种情况下的对齐选项没有意义
+<code>data</code>：填充的数据
+<code>align</code>：对齐方式</p>
 </li>
 </ul>
-<p><code>fill</code>：任意一个字符<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>比如<span><span class="heti-spacing"> </span>#</span> 、 <span>*<span class="heti-spacing"> </span></span>等<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>默认空格填充
-  <code>width</code>：字段宽度,如果未指定,那么字段宽度由内容确定,这种情况下的对齐选项没有意义
-  <code>data</code>：填充的数据
-  <code>align</code>：对齐方式</p>
 <div class="highlight"><pre><span></span><code><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="o">=</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
 
 <span class="n">a</span><span class="p">,</span><span class="n">b</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>  <span class="c1">## a,b是字符串类型</span>
@@ -4123,10 +4127,12 @@ hex(m)将整数m转化为十六进制字符串</p>
 <h3 id="vs">局部变量<span class="heti-skip"><span class="heti-spacing"> </span>vs<span class="heti-spacing"> </span></span>全局变量<a class="headerlink" href="#vs" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ul>
 <li><span>Python<span class="heti-spacing"> </span></span>无需定义变量，第一次对一个变量的赋值就产生了这个变量</li>
-<li>在函数内</li>
+<li>在函数内<ul>
 <li>对一个变量的赋值，如果之前没有<span class="heti-skip"><span class="heti-spacing"> </span>global<span class="heti-spacing"> </span></span>声明，就产生了一个局部变量</li>
 <li>取一个变量的值，如果之前没有产生过，就去使用全局变量（默认）</li>
 <li>这之后再赋值就出错</li>
+</ul>
+</li>
 <li>规则：如果要在函数中使用全局变量，就在函数一开始使用<span class="heti-skip"><span class="heti-spacing"> </span>global<span class="heti-spacing"> </span></span>声明</li>
 </ul>
 <h3 id="_5">作用域<a class="headerlink" href="#_5" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
@@ -4134,27 +4140,23 @@ hex(m)将整数m转化为十六进制字符串</p>
 <p><code>scope</code>作用域</p>
 <p><code>life cycle</code> 生存周期 </p>
 <ul>
-<li>
-<p>命名空间里保存了从标识符到对象的映射</p>
-</li>
-<li>
-<p>当在<span class="heti-skip"><span class="heti-spacing"> </span>Python<span class="heti-spacing"> </span></span>中执⾏⼀个代码块时，它拥有三个命名空间：局部、全局和内置</p>
-</li>
+<li>命名空间里保存了从标识符到对象的映射</li>
 </ul>
-<p><span>global<span class="heti-spacing"> </span></span>关键字</p>
 <ul>
 <li>
-<p>如希望在函数中使⽤全局变量，需要⽤<span class="heti-skip"><span class="heti-spacing"> </span>global<span class="heti-spacing"> </span></span>关键字声明</p>
+<p>当在<span class="heti-skip"><span class="heti-spacing"> </span>Python<span class="heti-spacing"> </span></span>中执⾏⼀个代码块时，它拥有三个命名空间：局部、全局和内置</p>
+<p><span>global<span class="heti-spacing"> </span></span>关键字</p>
+<ul>
+<li>如希望在函数中使⽤全局变量，需要⽤<span class="heti-skip"><span class="heti-spacing"> </span>global<span class="heti-spacing"> </span></span>关键字声明</li>
+</ul>
+<ul>
+<li>在函数内，一个变量一经赋值就创建了一个局部变量</li>
+<li>这之后再试图用<code>global</code>来访问同名的全局变量是错误的</li>
+</ul>
 </li>
-<li>
-<p>在函数内，一个变量一经赋值就创建了一个局部变量</p>
-</li>
-<li>
-<p>这之后再试图用<code>global</code>来访问同名的全局变量是错误的</p>
-</li>
-<li>
-<p><code>nonlocal</code></p>
-</li>
+</ul>
+<ul>
+<li><code>nonlocal</code></li>
 </ul>
 <h2 id="statement">Statement<a class="headerlink" href="#statement" title="anchor link to this section for reference">¶</a></h2>
 <h3 id="assignment"><span>assignment<span class="heti-spacing"> </span></span>赋值语句<a class="headerlink" href="#assignment" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
@@ -4224,12 +4226,10 @@ hex(m)将整数m转化为十六进制字符串</p>
 <li>在<code>except 异常类型</code>子句中找对应的异常类型，如果找到的话，执行后面的语句块</li>
 <li>如果找不到，则执行<code>except</code>后面的语句块<span><span class="heti-spacing"> </span>N+2</span></li>
 <li>如果程序正常执行没有发生异常，则继续执行<code>else</code>后的语句块<span><span class="heti-spacing"> </span>N+3</span></li>
-<li>
-<p>无论异常是否发生，最后都执行<code>finally</code>后面语句块<span><span class="heti-spacing"> </span>N+4</span></p>
-</li>
-<li>
-<p><span>raise<span class="heti-spacing"> </span></span>抛出异常</p>
-</li>
+<li>无论异常是否发生，最后都执行<code>finally</code>后面语句块<span><span class="heti-spacing"> </span>N+4</span></li>
+</ul>
+<ul>
+<li><span>raise<span class="heti-spacing"> </span></span>抛出异常</li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="k">raise</span> <span class="ne">Exception</span>
 <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">'load overload'</span><span class="p">)</span>
@@ -4382,12 +4382,10 @@ hex(m)将整数m转化为十六进制字符串</p>
 <span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </code></pre></div>
 <ul>
-<li>
-<p>函数要先定义，再使用</p>
-</li>
-<li>
-<p>Give each function exactly one job</p>
-</li>
+<li>函数要先定义，再使用</li>
+</ul>
+<ul>
+<li>Give each function exactly one job</li>
 <li>Don't repeat yourself</li>
 <li>Define functions generally</li>
 </ul>
@@ -4402,18 +4400,22 @@ hex(m)将整数m转化为十六进制字符串</p>
 <ul>
 <li>
 <p>分类</p>
-</li>
+<ul>
 <li>
 <p>Pure Function</p>
 <p>just return values like<code>abs</code>,<code>pow</code></p>
 </li>
+</ul>
+<ul>
 <li>
 <p>Non-pure function </p>
 <p>have side effects. like <code>print</code></p>
 </li>
-<li>
-<p>signature</p>
+</ul>
 </li>
+</ul>
+<ul>
+<li>signature</li>
 </ul>
 <p>函数的签名包括函数名、参数列表和返回类型。它用于标识函数并提供有关如何调用函数的重要信息。</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="o">&lt;</span><span class="n">name</span><span class="o">&gt;</span> <span class="p">(</span><span class="o">&lt;</span><span class="n">function</span> <span class="n">parameter</span><span class="o">&gt;</span><span class="p">)</span>
@@ -4440,8 +4442,8 @@ hex(m)将整数m转化为十六进制字符串</p>
 <h3 id="call">调用<code>Call</code><a class="headerlink" href="#call" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>when you call a function, it <strong>creates</strong> a new frame</p>
 <ul>
-<li>再计算所有参数后，才可以执行这个函数</li>
-</ul>
+<li>
+<p>再计算所有参数后，才可以执行这个函数</p>
 <p>ex1：函数才可以被调用<code>g(f(2))</code><span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span><code>f()</code>首先被调用，计算出<code>f(2)</code>之后，<code>g()</code>才被调用</p>
 <p>ex2：<span>statement<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>function<span class="heti-spacing"> </span></span>的区别</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">with_if_statement</span><span class="p">():</span>
@@ -4453,6 +4455,8 @@ hex(m)将整数m转化为十六进制字符串</p>
 <span class="k">def</span><span class="w"> </span><span class="nf">with_if_function</span><span class="p">():</span>
     <span class="k">return</span> <span class="n">if_function</span><span class="p">(</span><span class="n">cond</span><span class="p">(),</span> <span class="n">true_func</span><span class="p">(),</span> <span class="n">false_func</span><span class="p">())</span>
 </code></pre></div>
+</li>
+</ul>
 <ul>
 <li>在函数开始执行后，同一个变量都指向同一个<code>frame</code>当中的值，不会出现一会局部变量，一会全局变量的情况</li>
 </ul>
@@ -4463,33 +4467,37 @@ hex(m)将整数m转化为十六进制字符串</p>
 <span class="c1">#UnboundLocalError: local varibale x referenced before assignment</span>
 </code></pre></div>
 <ul>
+<li>如果要将函数作为一个参数，那么需要格外注意是传入的是这个函数（不带括号<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，还是这个函数的返回值（带括号）</li>
+</ul>
+<ul>
 <li>
-<p>如果要将函数作为一个参数，那么需要格外注意是传入的是这个函数（不带括号<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，还是这个函数的返回值（带括号）</p>
-</li>
+</li></ul>
+<ul>
 <li>
-</li><li>
 <p>调用函数时，传递参数的值有四种方式：</p>
-</li>
-<li>
-<p>位置参数</p>
-</li>
+<ul>
+<li>位置参数</li>
 <li>关键字参数，如<code>end=','</code></li>
 <li>默认值参数</li>
-<li>
-<p>可变数量参数</p>
+<li>可变数量参数</li>
+</ul>
 </li>
+</ul>
+<ul>
 <li>
 <p>关键字参数</p>
+<ul>
+<li>为了避免位置参数带来的混乱，调⽤参数时可以指定对应参数的名字，这是关键字参数，它甚⾄可以采⽤与函数定义不同的顺序调⽤</li>
+</ul>
 </li>
-<li>
-<p>为了避免位置参数带来的混乱，调⽤参数时可以指定对应参数的名字，这是关键字参数，它甚⾄可以采⽤与函数定义不同的顺序调⽤</p>
-</li>
-<li>
-<p>位置参数和关键字参数混合</p>
-</li>
+</ul>
+<ul>
+<li>位置参数和关键字参数混合</li>
+</ul>
+<ul>
 <li>
 <p>默认值参数（缺省<span><span class="heti-spacing"> </span>sheng</span>）</p>
-</li>
+<ul>
 <li>
 <p>默认参数值在函数对象被创建时计算</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span> <span class="n">arg</span><span class="p">,</span> <span class="n">result</span><span class="o">=</span><span class="p">[]):</span><span class="c1">##实现了持续存储</span>
@@ -4499,12 +4507,16 @@ hex(m)将整数m转化为十六进制字符串</p>
 <span class="n">init</span><span class="p">(</span><span class="s1">'b'</span><span class="p">)</span>
 </code></pre></div>
 </li>
+</ul>
+</li>
+</ul>
+<ul>
 <li>
 <p>不定长数目参数 – 形参前面加上星号</p>
-</li>
-<li>
-<p>当函数参数数⽬不确定时，星号将⼀组可变数量的位置参数集合成参数值的<strong>元组</strong></p>
-</li>
+<ul>
+<li>当函数参数数⽬不确定时，星号将⼀组可变数量的位置参数集合成参数值的<strong>元组</strong></li>
+</ul>
+<ul>
 <li>
 <p>print()</p>
 <div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="o">*</span><span class="nb">object</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s2">" "</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span><span class="n">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>	
@@ -4516,50 +4528,56 @@ hex(m)将整数m转化为十六进制字符串</p>
 <li><code>file=sys.stdout</code>：输出到屏幕</li>
 </ul>
 </li>
-<li>
-<p>实参前面加上星号<span class="heti-skip"><span class="heti-spacing"> </span>-&gt;<span class="heti-spacing"> </span></span>容器拆包</p>
-</li>
-<li>
-<p><code>*</code>表示将序列拆成⼀个个单独的实参，</p>
-</li>
-<li>
-<p>⽽<code>**</code>则表示将字典拆成⼀个个单独的带变量名的实参</p>
-</li>
-<li>
-<p>收集参数到字典中—<code>**</code></p>
+</ul>
 </li>
 </ul>
+<ul>
+<li>
+<p>实参前面加上星号<span class="heti-skip"><span class="heti-spacing"> </span>-&gt;<span class="heti-spacing"> </span></span>容器拆包</p>
+<ul>
+<li><code>*</code>表示将序列拆成⼀个个单独的实参，</li>
+<li>⽽<code>**</code>则表示将字典拆成⼀个个单独的带变量名的实参</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>
+<p>收集参数到字典中—<code>**</code></p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">countnum</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="o">**</span><span class="n">d</span><span class="p">):</span> <span class="c1">#计算参数个数</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">d</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">countnum</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="n">x1</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span><span class="n">x2</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">x3</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span><span class="n">x4</span><span class="o">=</span><span class="mi">89</span><span class="p">)</span>
 </code></pre></div>
+</li>
+</ul>
 <ul>
 <li>
 <p>仅限关键字参数</p>
+<ul>
+<li>只能传入关键字参数。仅限关键字参数不可缺省（除非有默认值<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，且只能强制性通过关键字传参</li>
+</ul>
+<ul>
+<li>可变参数后面的关键字参数都是仅限关键字参数（一旦使用了可变参数，之后的参数都必须通过关键字传递）</li>
+</ul>
+<ul>
+<li>也可以用单星号<span class="heti-skip"><span class="heti-spacing"> </span>"*"<span class="heti-spacing"> </span></span>表示不接受任何可变参数，它可以作为普通参数的结束标志</li>
+</ul>
 </li>
-<li>
-<p>只能传入关键字参数。仅限关键字参数不可缺省（除非有默认值<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，且只能强制性通过关键字传参</p>
-</li>
-<li>
-<p>可变参数后面的关键字参数都是仅限关键字参数（一旦使用了可变参数，之后的参数都必须通过关键字传递）</p>
-</li>
-<li>
-<p>也可以用单星号<span class="heti-skip"><span class="heti-spacing"> </span>"*"<span class="heti-spacing"> </span></span>表示不接受任何可变参数，它可以作为普通参数的结束标志</p>
-</li>
-<li>
-<p>当实参是不可变对象时，形参值改变不会影响实参！</p>
-</li>
-<li>
-<p>当实参是可变对象时，形参值改变可能会影响实参！</p>
-</li>
+</ul>
+<ul>
+<li>当实参是不可变对象时，形参值改变不会影响实参！</li>
+</ul>
+<ul>
+<li>当实参是可变对象时，形参值改变可能会影响实参！</li>
 </ul>
 <h3 id="return"><span>return<span class="heti-spacing"> </span></span>返回<a class="headerlink" href="#return" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ul>
 <li>函数⽤<span class="heti-skip"><span class="heti-spacing"> </span>return<span class="heti-spacing"> </span></span>语句返回值</li>
-<li><span>return<span class="heti-spacing"> </span></span>后⾯的表达式的值就成为这次函数调⽤的返回值</li>
+<li><span>return<span class="heti-spacing"> </span></span>后⾯的表达式的值就成为这次函数调⽤的返回值<ul>
 <li><strong>如函数没有⽤<span class="heti-skip"><span class="heti-spacing"> </span>return<span class="heti-spacing"> </span></span>语句返回，这时函数返回的值为<code>None</code></strong>；</li>
 <li>如果<span class="heti-skip"><span class="heti-spacing"> </span>return<span class="heti-spacing"> </span></span>后⾯没有表达式，调⽤的返回值也为<code>None</code></li>
+</ul>
+</li>
 <li><code>None</code>是<span class="heti-skip"><span class="heti-spacing"> </span>Python<span class="heti-spacing"> </span></span>中⼀个特殊的值，虽然它不表示任何数据，但仍然具有重要的作⽤</li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="c1"># None is not displayed by the interpreter as the value of an expreesion</span>
@@ -4574,13 +4592,11 @@ hex(m)将整数m转化为十六进制字符串</p>
 <span class="ne">TypeError</span>
 </code></pre></div>
 <ul>
-<li>
-<p><span>Python<span class="heti-spacing"> </span></span>支持函数一次返回多个值</p>
-</li>
+<li><span>Python<span class="heti-spacing"> </span></span>支持函数一次返回多个值</li>
+</ul>
+<ul>
 <li>
 <p>返回的多个值和接收多个参数是一样的，以<strong>元组</strong>的形式打包传递</p>
-</li>
-</ul>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">a</span><span class="o">//</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="o">%</span><span class="n">b</span>
 <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="n">f</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
@@ -4589,6 +4605,8 @@ hex(m)将整数m转化为十六进制字符串</p>
 <span class="n">x</span><span class="o">=</span><span class="n">f</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="c1">##元组</span>
 </code></pre></div>
+</li>
+</ul>
 <ul>
 <li>可以将函数作为参数传给另一个函数</li>
 <li>将函数作为字典的值储存</li>
@@ -4755,15 +4773,13 @@ hex(m)将整数m转化为十六进制字符串</p>
 <h3 id="_15">常见函数<a class="headerlink" href="#_15" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <h4 id="zip"><code>zip</code>函数<a class="headerlink" href="#zip" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <ul>
-<li>
-<p><code>zip()</code>函数⽤于将可迭代的对象作为参数，将对象中对应的元素打包成一个元组，然后返回由这些元组组成的列表或迭代器</p>
-</li>
-<li>
-<p>如果各个迭代器的元素个数不⼀致，则返回列表⻓度与最短的对象相同</p>
-</li>
-<li>
-<p>参数说明：iterable – ⼀个或多个序列返回值：<span>*<span class="heti-spacing"> </span></span>返回元组列表</p>
-</li>
+<li><code>zip()</code>函数⽤于将可迭代的对象作为参数，将对象中对应的元素打包成一个元组，然后返回由这些元组组成的列表或迭代器</li>
+</ul>
+<ul>
+<li>如果各个迭代器的元素个数不⼀致，则返回列表⻓度与最短的对象相同</li>
+</ul>
+<ul>
+<li>参数说明：iterable – ⼀个或多个序列返回值：<span>*<span class="heti-spacing"> </span></span>返回元组列表</li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="c1">##字典键值互换</span>
 <span class="n">d</span><span class="o">=</span><span class="p">{</span><span class="s1">'blue'</span><span class="p">:</span><span class="mi">500</span><span class="p">,</span><span class="s1">'red'</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="s1">'white'</span><span class="p">:</span><span class="mi">300</span><span class="p">}</span>
@@ -4792,12 +4808,16 @@ hex(m)将整数m转化为十六进制字符串</p>
 </ul>
 <p>分类</p>
 <ul>
-<li>sequence </li>
+<li>sequence <ul>
 <li>strings</li>
 <li>tuples</li>
-<li>containers</li>
+</ul>
+</li>
+<li>containers<ul>
 <li>sets</li>
 <li>dictionary</li>
+</ul>
+</li>
 </ul>
 <h3 id="_16">一些<a class="headerlink" href="#_16" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <h4 id="lazy-sequence-processing"><code>lazy sequence processing</code><a class="headerlink" href="#lazy-sequence-processing" title="anchor link to this section for reference">¶</a></h4>
@@ -4853,25 +4873,23 @@ hex(m)将整数m转化为十六进制字符串</p>
 </ul>
 <h4 id="_19">字符串计算<a class="headerlink" href="#_19" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <ul>
-<li>
-<p><code>len()</code>返回字符串的长度</p>
-</li>
-<li>
-<p>字符串的<code>*</code>可以产生重复的长字符串</p>
-</li>
+<li><code>len()</code>返回字符串的长度</li>
 </ul>
-<p>​ <code>'*'*10</code> → <code>**********</code></p>
 <ul>
 <li>
-<p><code>+</code>可以连接两个字符串</p>
+<p>字符串的<code>*</code>可以产生重复的长字符串</p>
+<p>​ <code>'*'*10</code> → <code>**********</code></p>
 </li>
-<li>
-<p>字符串中的数据（字符）是<span class="heti-skip"><span class="heti-spacing"> </span>==<span class="heti-spacing"> </span></span>不能修改<span class="heti-skip"><span class="heti-spacing"> </span>==<span class="heti-spacing"> </span></span>的。</p>
-</li>
-<li>
-<p>去除嵌套
-将嵌套列表中的 子元素 合并，可以用<code>sum</code>函数，第二个参数传入一个空列表<code>[]</code>即可</p>
-<blockquote>
+</ul>
+<ul>
+<li><code>+</code>可以连接两个字符串</li>
+</ul>
+<ul>
+<li>字符串中的数据（字符）是<span class="heti-skip"><span class="heti-spacing"> </span>==<span class="heti-spacing"> </span></span>不能修改<span class="heti-skip"><span class="heti-spacing"> </span>==<span class="heti-spacing"> </span></span>的。</li>
+</ul>
+<ul>
+<li>去除嵌套
+将嵌套列表中的 子元素 合并，可以用<code>sum</code>函数，第二个参数传入一个空列表<code>[]</code>即可<blockquote>
 <p>注意：<span>sum<span class="heti-spacing"> </span></span>函数的参数包括两个（<span>iterable<span class="heti-spacing"> </span></span>可迭代对象，<span>start<span class="heti-spacing"> </span></span>求和的初始值<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，<span>sum<span class="heti-spacing"> </span></span>会把可迭代对象内的元素加在<span class="heti-skip"><span class="heti-spacing"> </span>start<span class="heti-spacing"> </span></span>参数传入的初始值上。
 因此，如果初始值是个列表，那么可迭代对象也必须要是个列表，且必须是嵌套列表，因为只有这个列表元素也是列表时，这些元素才能跟初始值列表相加。
 <a href="https://www.cnblogs.com/oceanicstar/p/9517159.html">列表的重复 到 用sum展开二层嵌套列表将子元素合并 - 海上流星 - 博客园</a></p>
@@ -4942,41 +4960,47 @@ hex(m)将整数m转化为十六进制字符串</p>
 </code></pre></div>
 <h4 id="_22">字符串的函数<a class="headerlink" href="#_22" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <ul>
-<li><code>find()</code></li>
-</ul>
+<li>
+<p><code>find()</code></p>
 <p>在字符串中查找子字符串所在的位置，如果找不到就返回<span><span class="heti-spacing"> </span>-1</span>。当子字符串是单个字符时，就是查找这个字符第一次出现的位置</p>
 <p>还有第二和第三个参数，用来表示从哪里开始，到哪里结束</p>
 <p><code>rfind()</code> 从后向前寻找</p>
-<ul>
-<li><code>count()</code></li>
+</li>
 </ul>
+<ul>
+<li>
+<p><code>count()</code></p>
 <p>统计子字符串出现的次数</p>
 <p>当子字符串里面只有一个字符时，就是统计字符出现的次数</p>
+</li>
+</ul>
 <ul>
-<li>
-<p><code>strip()、rstrip()</code>和<code>lstrip()</code>去掉字符串两端的空格</p>
-</li>
-<li>
-<p><code>replace()</code><span>#<span class="heti-spacing"> </span></span>替换子字符串为其他子字符串</p>
-</li>
-<li>
-<p><code>upper()、lower()、title()</code>调整大小写</p>
-</li>
-<li>
-<p><code>ord()</code>用于获得单个字符的<span class="heti-skip"><span class="heti-spacing"> </span>Unicode<span class="heti-spacing"> </span></span>编码</p>
-</li>
+<li><code>strip()、rstrip()</code>和<code>lstrip()</code>去掉字符串两端的空格</li>
+</ul>
+<ul>
+<li><code>replace()</code><span>#<span class="heti-spacing"> </span></span>替换子字符串为其他子字符串</li>
+</ul>
+<ul>
+<li><code>upper()、lower()、title()</code>调整大小写</li>
+</ul>
+<ul>
+<li><code>ord()</code>用于获得单个字符的<span class="heti-skip"><span class="heti-spacing"> </span>Unicode<span class="heti-spacing"> </span></span>编码</li>
+</ul>
+<ul>
 <li>
 <p><code>chr()</code>用于获得某个编码所代表的字符</p>
+<p><code>chr(ord('A')+1)</code> </p>
 </li>
 </ul>
-<p><code>chr(ord('A')+1)</code> </p>
 <ul>
-<li>字符串<code>join</code>：用字符串做分隔符将列表中的元素组成一个字符串</li>
-</ul>
+<li>
+<p>字符串<code>join</code>：用字符串做分隔符将列表中的元素组成一个字符串</p>
 <div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'hello'</span><span class="p">,</span><span class="s1">'good'</span><span class="p">,</span><span class="s1">'boy'</span><span class="p">,</span><span class="s1">'wii'</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">' '</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">':'</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
 </code></pre></div>
+</li>
+</ul>
 <h4 id="iterate"><span>iterate<span class="heti-spacing"> </span></span>遍历字符串<a class="headerlink" href="#iterate" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <div class="highlight"><pre><span></span><code><span class="n">s</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
 <span class="c1">##下标写法</span>
@@ -4997,12 +5021,10 @@ hex(m)将整数m转化为十六进制字符串</p>
  <span class="nb">print</span><span class="p">(</span><span class="n">every_char</span><span class="p">)</span>
 </code></pre></div>
 <ul>
-<li>
-<p><strong><code>enumerate()</code>函数</strong>用于将一个可遍历的数据对象<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>如列表、元组或字符串<span class="heti-skip"><span class="heti-spacing"> </span>)<span class="heti-spacing"> </span></span>组合为一个索引序列，同时列出数据和数据下标，一般用在<span class="heti-skip"><span class="heti-spacing"> </span>for<span class="heti-spacing"> </span></span>循环当中</p>
-</li>
-<li>
-<p>逆序的写法</p>
-</li>
+<li><strong><code>enumerate()</code>函数</strong>用于将一个可遍历的数据对象<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>如列表、元组或字符串<span class="heti-skip"><span class="heti-spacing"> </span>)<span class="heti-spacing"> </span></span>组合为一个索引序列，同时列出数据和数据下标，一般用在<span class="heti-skip"><span class="heti-spacing"> </span>for<span class="heti-spacing"> </span></span>循环当中</li>
+</ul>
+<ul>
+<li>逆序的写法</li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="c1">## 字符串切片</span>
 <span class="n">a</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
@@ -5011,8 +5033,8 @@ hex(m)将整数m转化为十六进制字符串</p>
 <span class="c1">## 利用列表</span>
 </code></pre></div>
 <ul>
-<li>修改字符串的方法</li>
-</ul>
+<li>
+<p>修改字符串的方法</p>
 <div class="highlight"><pre><span></span><code><span class="c1">##转换成列表，修改后用join变成新字符串</span>
 <span class="n">s1</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
 <span class="n">s1</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'E'</span>
@@ -5026,6 +5048,8 @@ hex(m)将整数m转化为十六进制字符串</p>
 <span class="n">s</span> <span class="o">=</span> <span class="s1">'Abcdef'</span>
 <span class="n">s</span><span class="o">=</span><span class="n">s</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">'bcd'</span><span class="p">,</span><span class="s1">'123'</span><span class="p">)</span>
 </code></pre></div>
+</li>
+</ul>
 <h4 id="split">Split<a class="headerlink" href="#split" title="anchor link to this section for reference">¶</a></h4>
 <div class="highlight"><pre><span></span><code><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'/'</span><span class="p">))</span>
 </code></pre></div>
@@ -5037,29 +5061,33 @@ hex(m)将整数m转化为十六进制字符串</p>
 <p>列表变量是列表的管理者，不是所有者</p>
 <h4 id="_23">初始化<a class="headerlink" href="#_23" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <ul>
-<li>
-<p><code>[]</code>，列表字面量用<code>[]</code>表示，里面的元素之间用逗号<code>,</code>分隔</p>
-</li>
+<li><code>[]</code>，列表字面量用<code>[]</code>表示，里面的元素之间用逗号<code>,</code>分隔</li>
+</ul>
+<ul>
 <li>
 <p>一个序列容器乘以一个整数，可以形成一个新的重复若干遍的容器</p>
-</li>
-</ul>
 <div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s1">'6'</span><span class="o">*</span><span class="mi">23</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="mi">3</span><span class="p">)</span>
 </code></pre></div>
-<ul>
-<li>“列表字面量”是一个表达式而非常量</li>
+</li>
 </ul>
+<ul>
+<li>
+<p>“列表字面量”是一个表达式而非常量</p>
 <div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="n">t</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span><span class="p">,</span> <span class="n">a</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 </code></pre></div>
-<ul>
-<li>用切片可以复制和赋值整个列表</li>
+</li>
 </ul>
+<ul>
+<li>
+<p>用切片可以复制和赋值整个列表</p>
 <div class="highlight"><pre><span></span><code><span class="n">name</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
 <span class="n">name</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">]</span>  <span class="c1"># [1, 2, 5, 6, 7]</span>
 <span class="n">name</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span>   <span class="c1"># [1, 2, 9, 10]</span>
 </code></pre></div>
+</li>
+</ul>
 <ul>
 <li>用<span class="heti-skip"><span class="heti-spacing"> </span>del<span class="heti-spacing"> </span></span>语句删除元素</li>
 </ul>
@@ -5075,90 +5103,88 @@ hex(m)将整数m转化为十六进制字符串</p>
 </code></pre></div>
 <h4 id="_25">比较<a class="headerlink" href="#_25" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <ul>
-<li>
-<p>比较是从左到右逐个元素（字符）比较的，一旦在某个位置上的元素已经可以比较出结果，就不再比较下去了</p>
-</li>
-<li>
-<p>当两个序列不等长时，比较到多出来的那个位置为止，此时短的序列的元素值以<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>计算</p>
-</li>
-<li>
-<p>对于字符串中的字符，是按照它们的<span class="heti-skip"><span class="heti-spacing"> </span>Unicode<span class="heti-spacing"> </span></span>编码来比较的</p>
-</li>
+<li>比较是从左到右逐个元素（字符）比较的，一旦在某个位置上的元素已经可以比较出结果，就不再比较下去了</li>
+</ul>
+<ul>
+<li>当两个序列不等长时，比较到多出来的那个位置为止，此时短的序列的元素值以<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>计算</li>
+</ul>
+<ul>
+<li>对于字符串中的字符，是按照它们的<span class="heti-skip"><span class="heti-spacing"> </span>Unicode<span class="heti-spacing"> </span></span>编码来比较的</li>
 </ul>
 <h4 id="_26">函数<a class="headerlink" href="#_26" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <ul>
-<li>
-<p><code>range()</code>用来产生一个数列的迭代器 <code>range(b, e, s)</code>不包含右边界</p>
-</li>
+<li><code>range()</code>用来产生一个数列的迭代器 <code>range(b, e, s)</code>不包含右边界</li>
+</ul>
+<ul>
 <li>
 <p><code>list()</code>可以把这个迭代器转成列表</p>
+<p>增</p>
 </li>
 </ul>
-<p>增</p>
 <ul>
-<li>
-<p><code>append()</code>：在列表后面增加一个元素<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>返回<code>None</code></p>
-</li>
-<li>
-<p><code>extend()</code>：把另一个列表的内容添加到列表的后面</p>
-</li>
-<li>
-<p><code>insert()</code>：插入</p>
-</li>
-<li>
-<p><code>append()</code>和<code>extend()</code>添加一个列表时是不同的</p>
-</li>
-<li>
-<p><code>insert()</code>插入到指定位置之前，插入的位置不存在时，加到最后</p>
-</li>
+<li><code>append()</code>：在列表后面增加一个元素<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>返回<code>None</code></li>
+</ul>
+<ul>
+<li><code>extend()</code>：把另一个列表的内容添加到列表的后面</li>
+</ul>
+<ul>
+<li><code>insert()</code>：插入</li>
+</ul>
+<ul>
+<li><code>append()</code>和<code>extend()</code>添加一个列表时是不同的</li>
+</ul>
+<ul>
+<li><code>insert()</code>插入到指定位置之前，插入的位置不存在时，加到最后</li>
+</ul>
+<ul>
 <li>
 <p><code>copy()</code>：复制列表</p>
+<p>删</p>
 </li>
 </ul>
-<p>删</p>
+<ul>
+<li><code>remove()</code>：删除第一次出现的那个元素，如果没有，则<code>TypeError</code></li>
+</ul>
+<ul>
+<li><code>del()</code> 删除指定位置上的元素</li>
+</ul>
+<ul>
+<li><code>[x:x+1]=[]</code>也可以删除某个位置上的元素</li>
+</ul>
+<ul>
+<li><code>[:]=[]</code>可以清空整个列表</li>
+</ul>
 <ul>
 <li>
-<p><code>remove()</code>：删除第一次出现的那个元素，如果没有，则<code>TypeError</code></p>
-</li>
-<li>
-<p><code>del()</code> 删除指定位置上的元素</p>
-</li>
-<li>
-<p><code>[x:x+1]=[]</code>也可以删除某个位置上的元素</p>
-</li>
-<li>
-<p><code>[:]=[]</code>可以清空整个列表</p>
-</li>
-<li>
 <p><code>pop()</code>：弹出指定位置的元素，不指定则弹出最后一个。返回最后一个值</p>
-</li>
-</ul>
 <div class="highlight"><pre><span></span><code><span class="c1">### 抛空一个表</span>
 <span class="n">line</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
 <span class="k">while</span> <span class="n">line</span><span class="p">:</span>
   <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">pop</span><span class="p">())</span>
 </code></pre></div>
 <p>查</p>
-<ul>
-<li>
-<p><code>index()</code>：查找第一次出现的位置 列表中不用字符串中的<span class="heti-skip"><span class="heti-spacing"> </span>find<span class="heti-spacing"> </span></span>函数<span class="heti-skip"><span class="heti-spacing"> </span>;<span class="heti-spacing"> </span></span>查不到<code>ValueError</code></p>
-</li>
-<li>
-<p><code>reverse()</code>：反转自己</p>
-</li>
-<li>
-<p><code>sum()</code> </p>
-</li>
-<li>
-<p><code>len()</code></p>
-</li>
-<li>
-<p><code>min(),max()</code></p>
 </li>
 </ul>
+<ul>
+<li><code>index()</code>：查找第一次出现的位置 列表中不用字符串中的<span class="heti-skip"><span class="heti-spacing"> </span>find<span class="heti-spacing"> </span></span>函数<span class="heti-skip"><span class="heti-spacing"> </span>;<span class="heti-spacing"> </span></span>查不到<code>ValueError</code></li>
+</ul>
+<ul>
+<li><code>reverse()</code>：反转自己</li>
+</ul>
+<ul>
+<li><code>sum()</code> </li>
+</ul>
+<ul>
+<li><code>len()</code></li>
+</ul>
+<ul>
+<li>
+<p><code>min(),max()</code></p>
 <p>改</p>
 <div class="highlight"><pre><span></span><code><span class="n">c</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
 </code></pre></div>
+</li>
+</ul>
 <h4 id="_27">列表推导式<a class="headerlink" href="#_27" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p><code>[ expression for item in iterable ]</code></p>
 <div class="highlight"><pre><span></span><code><span class="n">nl</span><span class="o">=</span><span class="p">[</span><span class="n">number</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span> <span class="k">if</span> <span class="n">number</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span>
@@ -5190,9 +5216,11 @@ hex(m)将整数m转化为十六进制字符串</p>
 <h4 id="_28">高阶函数与列表<a class="headerlink" href="#_28" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <h5 id="map-"><code>map()</code><span>-<span class="heti-spacing"> </span></span>应用于所有元素<a class="headerlink" href="#map-" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h5>
 <ul>
-<li><code>map(f, sq)</code> </li>
-</ul>
+<li>
+<p><code>map(f, sq)</code> </p>
 <p>函数将函数<code>f</code>作用到可枚举量<code>sq</code>的每个元素上去，并返回结果组成的<code>map</code>对象，<code>map</code>对象本身是一个可枚举量</p>
+</li>
+</ul>
 <div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])))</span> 
 <span class="c1"># 使⽤ lambda 匿名函数</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">])))</span>
@@ -5239,9 +5267,11 @@ hex(m)将整数m转化为十六进制字符串</p>
 <ul>
 <li><code>iterable</code> – 序列，如字符串，列表，元组等</li>
 <li><code>key</code> – ⽤来进⾏⽐较的函数，这个函数只有⼀个参数，参数的值就是取⾃于可迭代对象中的一个元素，函数返回在这个元素上的一个计算结果来作排序，通常当元素本身是一个复合类型（如列表、字典）时，取其中的某个元素</li>
-<li>reverse– 排序规则</li>
+<li>reverse– 排序规则<ul>
 <li><code>reverse = True</code> 降序</li>
 <li><code>reverse = False</code> 升序（默认）</li>
+</ul>
+</li>
 </ul>
 <h3 id="tuple">元组<code>Tuple</code><a class="headerlink" href="#tuple" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ul>
@@ -5265,10 +5295,12 @@ hex(m)将整数m转化为十六进制字符串</p>
 <li>直接给变量赋值⼀个集合字面量</li>
 <li>使⽤<code>set()</code>创建⼀个空集合</li>
 <li>使⽤<span class="heti-skip"><span class="heti-spacing"> </span>set()<span class="heti-spacing"> </span></span>将列表或元组转换成集合</li>
-<li>集合的值不重复，创建集合的时候，<span>python<span class="heti-spacing"> </span></span>会消除重复的值。</li>
+<li>集合的值不重复，创建集合的时候，<span>python<span class="heti-spacing"> </span></span>会消除重复的值。<ul>
 <li><strong>集合的元素是不可变对象</strong></li>
 <li>但是集合本身是可变的</li>
 <li>集合内的元素是⽆序的，所以不能通过下标来访问集合元素</li>
+</ul>
+</li>
 </ul>
 <h4 id="_31">函数<a class="headerlink" href="#_31" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <table>
@@ -5426,13 +5458,11 @@ hex(m)将整数m转化为十六进制字符串</p>
 </ul>
 <h4 id="_35">创建<a class="headerlink" href="#_35" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <ul>
-<li>
-<p>可以⽤<span class="heti-skip"><span class="heti-spacing"> </span>{}<span class="heti-spacing"> </span></span>或者<span class="heti-skip"><span class="heti-spacing"> </span>dict()<span class="heti-spacing"> </span></span>来创建空字典</p>
-</li>
+<li>可以⽤<span class="heti-skip"><span class="heti-spacing"> </span>{}<span class="heti-spacing"> </span></span>或者<span class="heti-skip"><span class="heti-spacing"> </span>dict()<span class="heti-spacing"> </span></span>来创建空字典</li>
+</ul>
+<ul>
 <li>
 <p>⽤<code>{}</code>或<code>dict()</code>创建字典</p>
-</li>
-</ul>
 <div class="highlight"><pre><span></span><code><span class="n">fac</span><span class="o">=</span><span class="p">{</span><span class="s1">'math'</span><span class="p">:</span> <span class="s1">'0001'</span><span class="p">,</span> <span class="s1">'python'</span><span class="p">:</span> <span class="s1">'0002'</span><span class="p">,</span> <span class="s1">'c'</span><span class="p">:</span> <span class="s1">'0003'</span><span class="p">}</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">fac</span><span class="p">)</span>
 
@@ -5447,20 +5477,20 @@ hex(m)将整数m转化为十六进制字符串</p>
 <span class="n">user_info</span><span class="o">=</span> <span class="s1">'{"name" : "john", "gender" : "male", "age": 28}'</span>
 <span class="n">user_dict</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">user_info</span><span class="p">)</span>
 </code></pre></div>
+</li>
+</ul>
 <h4 id="_36">操作<a class="headerlink" href="#_36" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <ul>
-<li>
-<p>删：<code>del</code></p>
-</li>
-<li>
-<p>改</p>
-</li>
-<li>
-<p>查：<code>in</code>和<code>not in</code></p>
-</li>
-<li>
-<p>遍历：<code>for</code></p>
-</li>
+<li>删：<code>del</code></li>
+</ul>
+<ul>
+<li>改</li>
+</ul>
+<ul>
+<li>查：<code>in</code>和<code>not in</code></li>
+</ul>
+<ul>
+<li>遍历：<code>for</code></li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="c1">###用items()实现字典遍历</span>
 <span class="n">score</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'张三'</span><span class="p">:</span><span class="mi">78</span><span class="p">,</span> <span class="s1">'李四'</span><span class="p">:</span><span class="mi">92</span><span class="p">,</span> <span class="s1">'王五'</span><span class="p">:</span><span class="mi">89</span><span class="p">}</span>
@@ -5651,77 +5681,73 @@ next(s)
 <li><code>import &lt;模块名&gt;</code>就是执⾏由模块名代表的程序</li>
 <li>
 <p>引入模块中的函数另⼀⽅法</p>
-</li>
-<li>
-<p><code>from &lt;模块名&gt; import  *</code></p>
 <ul>
+<li><code>from &lt;模块名&gt; import  *</code><ul>
 <li>这种⽅法引⼊模块中的所有函数，调⽤的时候不需要再加模块名</li>
 </ul>
 </li>
-<li>
-<p><code>from &lt;模块名&gt; import &lt;函数名&gt;</code></p>
+</ul>
 <ul>
+<li><code>from &lt;模块名&gt; import &lt;函数名&gt;</code><ul>
 <li>这种⽅法引⼊模块中的单个函数，调⽤的时候也不需要再加模块名</li>
 </ul>
 </li>
-<li>
-<p>模块名字空间</p>
-</li>
-<li>
-<p>每个<span class="heti-skip"><span class="heti-spacing"> </span>py<span class="heti-spacing"> </span></span>文件是一个模块，模块名就是文件名</p>
-</li>
-<li>
-<p>在每个模块里的全局变量和函数是模块内的，在模块内部可以直接使用，在模块外部要通过模块的名字引用</p>
-</li>
-<li>
-<p>用哪个<span class="heti-skip"><span class="heti-spacing"> </span>py<span class="heti-spacing"> </span></span>文件启动程序，那个<span class="heti-skip"><span class="heti-spacing"> </span>py<span class="heti-spacing"> </span></span>文件的模块的模块空间就是全局名字空间</p>
-</li>
-<li>
-<p><code>dir(模块名)</code>：显示模块属性</p>
-</li>
+<li>模块名字空间</li>
+</ul>
+<ul>
+<li>每个<span class="heti-skip"><span class="heti-spacing"> </span>py<span class="heti-spacing"> </span></span>文件是一个模块，模块名就是文件名</li>
+</ul>
+<ul>
+<li>在每个模块里的全局变量和函数是模块内的，在模块内部可以直接使用，在模块外部要通过模块的名字引用</li>
+</ul>
+<ul>
+<li>用哪个<span class="heti-skip"><span class="heti-spacing"> </span>py<span class="heti-spacing"> </span></span>文件启动程序，那个<span class="heti-skip"><span class="heti-spacing"> </span>py<span class="heti-spacing"> </span></span>文件的模块的模块空间就是全局名字空间</li>
+</ul>
+<ul>
+<li><code>dir(模块名)</code>：显示模块属性</li>
 <li><code>__main__</code></li>
 <li>程序运⾏时，解释器会制造变量<code>__name__</code></li>
 <li>如果模块作为主程序运⾏，<code>__name__</code>变量的值是 <code>__main__</code></li>
-<li>
-<p>如果模块被另⼀模块导⼊，<code>__name__</code>变量的值是 模块名</p>
-</li>
-<li>
-<p>作为主程序运⾏（⽂件名<span><span class="heti-spacing"> </span>factorial.py</span>）</p>
+<li>如果模块被另⼀模块导⼊，<code>__name__</code>变量的值是 模块名</li>
+</ul>
+<ul>
+<li>作为主程序运⾏（⽂件名<span><span class="heti-spacing"> </span>factorial.py</span>）</li>
+</ul>
 </li>
 </ul>
 <h3 id="sys"><code>sys</code>模块<a class="headerlink" href="#sys" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ul>
 <li>如果<span class="heti-skip"><span class="heti-spacing"> </span>area.py<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>triangle.py<span class="heti-spacing"> </span></span>上述两个⽂件在同⼀个⽬录下，通过<span class="heti-skip"><span class="heti-spacing"> </span>Python<span class="heti-spacing"> </span></span>运⾏主程序<span class="heti-skip"><span class="heti-spacing"> </span>area.py,<span class="heti-spacing"> </span></span>会引⽤<span class="heti-skip"><span class="heti-spacing"> </span>triangle<span class="heti-spacing"> </span></span>模块，执⾏函数<span><span class="heti-spacing"> </span>area</span></li>
 <li>如不在同⼀⽬录，可⽤<span class="heti-skip"><span class="heti-spacing"> </span>sys<span class="heti-spacing"> </span></span>模块加⼊搜索路径后调⽤。</li>
-<li>
-<p>模块的查找路径：<code>sys.path</code></p>
-</li>
+<li>模块的查找路径：<code>sys.path</code></li>
+</ul>
+<ul>
 <li>
 <p><span>sys<span class="heti-spacing"> </span></span>模块中的常⽤函数和其他重要对象</p>
-</li>
-<li>
-<p><code>sys.argv</code>：命令行参数</p>
-</li>
-<li>
-<p><code>sys.exit([arg])</code>：程序中间的退出，<code>arg=0</code>为正常退出</p>
-</li>
-<li>
-<p><code>sys.getdefaultencoding()</code>：获取系统当前编码</p>
-</li>
-<li>
-<p><code>sys.setdefaultencoding()</code>：设置系统默认编码</p>
-</li>
-<li>
-<p><code>sys.getfilesystemencoding()</code>：获取⽂件系统使⽤的编码⽅式，<span>Windows<span class="heti-spacing"> </span></span>下返回<span><span class="heti-spacing"> </span>'mbcs'</span>，<span>mac<span class="heti-spacing"> </span></span>下返回<span><span class="heti-spacing"> </span>'utf-8'</span></p>
-</li>
-<li>
-<p><code>sys.path</code>：模块搜索路径的字符串列表</p>
-</li>
-<li>
-<p><code>sys.platform</code>：获取当前系统平台</p>
-</li>
-<li>
-<p><code>sys.stdin, sys.stdout, sys.stderr</code>： 变量包含与标准<span class="heti-skip"><span class="heti-spacing"> </span>I/O<span class="heti-spacing"> </span></span>流对应的流对象<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>如果需要更好地控制输出<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>⽽<code>print</code>不能满⾜你的要求<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>它们就是你所需要的<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>你也可以替换它们<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>这时候你就可以重定向输出和输⼊到其它设备<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>或者以⾮标准的 ⽅式处理它们</p>
+<ul>
+<li><code>sys.argv</code>：命令行参数</li>
+</ul>
+<ul>
+<li><code>sys.exit([arg])</code>：程序中间的退出，<code>arg=0</code>为正常退出</li>
+</ul>
+<ul>
+<li><code>sys.getdefaultencoding()</code>：获取系统当前编码</li>
+</ul>
+<ul>
+<li><code>sys.setdefaultencoding()</code>：设置系统默认编码</li>
+</ul>
+<ul>
+<li><code>sys.getfilesystemencoding()</code>：获取⽂件系统使⽤的编码⽅式，<span>Windows<span class="heti-spacing"> </span></span>下返回<span><span class="heti-spacing"> </span>'mbcs'</span>，<span>mac<span class="heti-spacing"> </span></span>下返回<span><span class="heti-spacing"> </span>'utf-8'</span></li>
+</ul>
+<ul>
+<li><code>sys.path</code>：模块搜索路径的字符串列表</li>
+</ul>
+<ul>
+<li><code>sys.platform</code>：获取当前系统平台</li>
+</ul>
+<ul>
+<li><code>sys.stdin, sys.stdout, sys.stderr</code>： 变量包含与标准<span class="heti-skip"><span class="heti-spacing"> </span>I/O<span class="heti-spacing"> </span></span>流对应的流对象<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>如果需要更好地控制输出<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>⽽<code>print</code>不能满⾜你的要求<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>它们就是你所需要的<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>你也可以替换它们<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>这时候你就可以重定向输出和输⼊到其它设备<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>或者以⾮标准的 ⽅式处理它们</li>
+</ul>
 </li>
 </ul>
 <h3 id="_40">命令行参数<a class="headerlink" href="#_40" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
@@ -5746,18 +5772,14 @@ next(s)
 <ul>
 <li>类（类型<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>： <code>int、 float 、bool 、string list 、tuple 、dict 、set</code></li>
 <li>对象举例： <code>3，[5.7,’a’]，{1:4,2:5}</code></li>
-<li>
-<p><code>type()</code>函数判断对象的类</p>
-</li>
-<li>
-<p>类<span class="heti-skip"><span class="heti-spacing"> </span>(class):<span class="heti-spacing"> </span></span>定义属性<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>数据<span class="heti-skip"><span class="heti-spacing"> </span>)<span class="heti-spacing"> </span></span>和⾏为（⽅法）的模板</p>
-</li>
-<li>
-<p>实例<span><span class="heti-spacing"> </span>(instance)</span>：是⽤类产⽣的对象，</p>
-</li>
-<li>
-<p>术语对象<span class="heti-skip"><span class="heti-spacing"> </span>(object)<span class="heti-spacing"> </span></span>和实例<span class="heti-skip"><span class="heti-spacing"> </span>(instance)<span class="heti-spacing"> </span></span>经常是可以互换的</p>
-</li>
+<li><code>type()</code>函数判断对象的类</li>
+</ul>
+<ul>
+<li>类<span class="heti-skip"><span class="heti-spacing"> </span>(class):<span class="heti-spacing"> </span></span>定义属性<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>数据<span class="heti-skip"><span class="heti-spacing"> </span>)<span class="heti-spacing"> </span></span>和⾏为（⽅法）的模板</li>
+<li>实例<span><span class="heti-spacing"> </span>(instance)</span>：是⽤类产⽣的对象，</li>
+</ul>
+<ul>
+<li>术语对象<span class="heti-skip"><span class="heti-spacing"> </span>(object)<span class="heti-spacing"> </span></span>和实例<span class="heti-skip"><span class="heti-spacing"> </span>(instance)<span class="heti-spacing"> </span></span>经常是可以互换的</li>
 <li>使⽤圆点运算符<span class="heti-skip"><span class="heti-spacing"> </span>(.)<span class="heti-spacing"> </span></span>引⽤⽅法和属性</li>
 <li>类有⾃⼰名字空间</li>
 <li>每个对象也有⾃⼰的名字空间</li>
@@ -5786,24 +5808,26 @@ next(s)
 <ul>
 <li>
 <p><code>__init__()</code></p>
+<ul>
+<li><code>__init__()</code>⽅法是<span class="heti-skip"><span class="heti-spacing"> </span>Python<span class="heti-spacing"> </span></span>类中的⼀种特殊⽅法，⽅法名的开始和结束都是双下划线，该⽅法称为构造⽅法，当创建类的对象时，它被⾃动调⽤</li>
+</ul>
+<ul>
+<li><code>__init__()</code>⽅法中可以声明类所产⽣的对象属性，并可为其赋初始值。该⽅法有⼀个特点，不能有返回值，因为它是⽤来构造对象的，调⽤后实例化了⼀个该类型的对象</li>
+</ul>
 </li>
-<li>
-<p><code>__init__()</code>⽅法是<span class="heti-skip"><span class="heti-spacing"> </span>Python<span class="heti-spacing"> </span></span>类中的⼀种特殊⽅法，⽅法名的开始和结束都是双下划线，该⽅法称为构造⽅法，当创建类的对象时，它被⾃动调⽤</p>
-</li>
-<li>
-<p><code>__init__()</code>⽅法中可以声明类所产⽣的对象属性，并可为其赋初始值。该⽅法有⼀个特点，不能有返回值，因为它是⽤来构造对象的，调⽤后实例化了⼀个该类型的对象</p>
-</li>
+</ul>
+<ul>
 <li>
 <p><code>self</code>参数</p>
-</li>
-<li>
-<p>类的实例⽅法有⼀个名为<code>self</code>的参数，并且必须是⽅法的第⼀个形参（如果有多个形参的话<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，<code>self</code>参数代表将来要创建的对象本身</p>
-</li>
-<li>
-<p>在类的⽅法中访问实例变量（数据成员）时需要以<span class="heti-skip"><span class="heti-spacing"> </span>self<span class="heti-spacing"> </span></span>为前缀</p>
-</li>
-<li>
-<p>在外部通过对象调⽤对象⽅法时并不需要传递这个参数，如果在外部通过类调⽤对象⽅法则需要显式为<code>self</code>参数传值</p>
+<ul>
+<li>类的实例⽅法有⼀个名为<code>self</code>的参数，并且必须是⽅法的第⼀个形参（如果有多个形参的话<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，<code>self</code>参数代表将来要创建的对象本身</li>
+</ul>
+<ul>
+<li>在类的⽅法中访问实例变量（数据成员）时需要以<span class="heti-skip"><span class="heti-spacing"> </span>self<span class="heti-spacing"> </span></span>为前缀</li>
+</ul>
+<ul>
+<li>在外部通过对象调⽤对象⽅法时并不需要传递这个参数，如果在外部通过类调⽤对象⽅法则需要显式为<code>self</code>参数传值</li>
+</ul>
 </li>
 </ul>
 <h3 id="_44">封装<a class="headerlink" href="#_44" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
@@ -5814,7 +5838,7 @@ next(s)
 </ul>
 <h3 id="_45">方法和属性类型<a class="headerlink" href="#_45" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ul>
-<li><span>Python<span class="heti-spacing"> </span></span>类中成员：</li>
+<li><span>Python<span class="heti-spacing"> </span></span>类中成员：<ul>
 <li>数据成员（变量、属性）</li>
 <li>类数据成员</li>
 <li>实例数据成员<ul>
@@ -5823,13 +5847,17 @@ next(s)
 </ul>
 </li>
 <li>⽅法（函数）<ul>
-<li>实例⽅法：</li>
+<li>实例⽅法：<ul>
 <li>公有</li>
 <li>私有 ：⽅法名以两个下划线<code>__</code>开头</li>
 </ul>
 </li>
+</ul>
+</li>
 <li>类⽅法 ： <a class="magiclink magiclink-github magiclink-mention" href="https://github.com/classmethod" title="GitHub User: classmethod">@classmethod</a></li>
 <li>静态⽅法：<a class="magiclink magiclink-github magiclink-mention" href="https://github.com/staticmethod" title="GitHub User: staticmethod">@staticmethod</a></li>
+</ul>
+</li>
 <li>在<span class="heti-skip"><span class="heti-spacing"> </span>Python<span class="heti-spacing"> </span></span>中，以下划线开头的⽅法名和变量名有特殊的含义，尤其是在类的定义中</li>
 </ul>
 <h2 id="_46">文件<a class="headerlink" href="#_46" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
@@ -5839,11 +5867,13 @@ next(s)
 <ul>
 <li><code>fileobj</code>是<code>open()</code>返回的文件对象</li>
 <li><code>filename</code>是该文件的文件名</li>
-<li><code>mode</code>是指明文件类型和操作的字符串</li>
+<li><code>mode</code>是指明文件类型和操作的字符串<ul>
 <li><code>mode</code>的第一个字母表明对其的操作</li>
 <li><code>mode</code>的第二个字母是文件类型：<ul>
 <li><code>t</code>（可省略）代表文本类型文件</li>
 <li><code>b</code>代表二进制类型文件</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -5939,12 +5969,18 @@ next(s)
 </table>
 <h3 id="_49">文字编码<a class="headerlink" href="#_49" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ul>
-<li><span>ANSI<span class="heti-spacing"> </span></span>编码：</li>
+<li><span>ANSI<span class="heti-spacing"> </span></span>编码：<ul>
 <li><span>Windows<span class="heti-spacing"> </span></span>常用的编码</li>
-<li><span>UTF-8<span class="heti-spacing"> </span></span>编码：</li>
+</ul>
+</li>
+<li><span>UTF-8<span class="heti-spacing"> </span></span>编码：<ul>
 <li><span>UTF-8<span class="heti-spacing"> </span></span>是缺省编码格式</li>
-<li>中文编码：</li>
+</ul>
+</li>
+<li>中文编码：<ul>
 <li>GB2312，GBK</li>
+</ul>
+</li>
 <li><span>Windows<span class="heti-spacing"> </span></span>可在<span class="heti-skip"><span class="heti-spacing"> </span>cmd<span class="heti-spacing"> </span></span>下用<code>chcp</code>命令查看</li>
 <li>默认会以本地编码打开文件</li>
 <li>打开编码为<span class="heti-skip"><span class="heti-spacing"> </span>GBK<span class="heti-spacing"> </span></span>的文件： <code>open(&lt;文件名&gt;，&lt;模式&gt;，encoding='GBK')</code></li>

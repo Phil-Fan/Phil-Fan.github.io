@@ -2959,7 +2959,8 @@
 <li><a href="#_19">变量</a></li>
 </ul>
 </li>
-<li><a href="#shell_2"><span>shell<span class="heti-spacing"> </span></span>流程控制</a></li>
+<li><a href="#shell_2"><span>Shell<span class="heti-spacing"> </span></span>运算符</a></li>
+<li><a href="#shell_3"><span>shell<span class="heti-spacing"> </span></span>流程控制</a></li>
 <li><a href="#shell-script"><span>shell script<span class="heti-spacing"> </span></span>常见脚本</a></li>
 </ul>
 </li>
@@ -2996,27 +2997,27 @@
 </ul>
 <h2 id="linux_2"><span>Linux<span class="heti-spacing"> </span></span>版本<a class="headerlink" href="#linux_2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <ul>
-<li>
-<p>内核版本</p>
-</li>
+<li>内核版本</li>
+</ul>
+<ul>
 <li>
 <p>发行版本</p>
+<p><img alt="image-20220914202059333" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20220914202059333.png"/></p>
 </li>
 </ul>
-<p><img alt="image-20220914202059333" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20220914202059333.png"/></p>
 <p><a href="https://blog.csdn.net/qq_37085158/article/details/126993054"><span>Linux<span class="heti-spacing"> </span></span>学习系列一：<span>Linux<span class="heti-spacing"> </span></span>的简单介绍以及命令行的基本操作<span class="heti-skip"><span class="heti-spacing"> </span>_<span class="heti-spacing"> </span></span>奋斗的西瓜瓜的博客<span class="heti-skip"><span class="heti-spacing"> </span>-CSDN<span class="heti-spacing"> </span></span>博客</a></p>
 <p><img alt="image-20220923151034743" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20220923151034743.png"/></p>
 <p><img alt="image-20220928185154283" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20220928185154283.png"/></p>
 <ul>
-<li>
-<p><span>GUI<span class="heti-spacing"> </span></span>图形用户界面</p>
-</li>
+<li><span>GUI<span class="heti-spacing"> </span></span>图形用户界面</li>
+</ul>
+<ul>
 <li>
 <p>常用 命令</p>
-</li>
-</ul>
 <p>多命令同时运行</p>
 <p><span>|<span class="heti-spacing"> </span></span>命令</p>
+</li>
+</ul>
 <ul>
 <li>开关机</li>
 </ul>
@@ -3026,33 +3027,31 @@
 <ul>
 <li>
 <p>UID </p>
+<ul>
+<li><span>500~65535<span class="heti-spacing"> </span></span>普通用户</li>
+<li><span>0<span class="heti-spacing"> </span></span>超级用户</li>
+</ul>
 </li>
-<li>
-<p><span>500~65535<span class="heti-spacing"> </span></span>普通用户</p>
-</li>
-<li>
-<p><span>0<span class="heti-spacing"> </span></span>超级用户</p>
-</li>
-<li>
-<p>PID process identification</p>
-</li>
-<li>
-<p>useradd </p>
-</li>
-<li>
-<p>文件分类
-    p表示命名管道文件 </p>
-<p><span>d<span class="heti-spacing"> </span></span>表示目录文件 </p>
+</ul>
+<ul>
+<li>PID process identification</li>
+</ul>
+<ul>
+<li>useradd </li>
+</ul>
+<ul>
+<li>文件分类
+    p表示命名管道文件 <p><span>d<span class="heti-spacing"> </span></span>表示目录文件 </p>
 <p><span>l<span class="heti-spacing"> </span></span>表示符号连接文件 </p>
 <p><span>-<span class="heti-spacing"> </span></span>表示普通文件 </p>
 <p><span>s<span class="heti-spacing"> </span></span>表示<span class="heti-skip"><span class="heti-spacing"> </span>socket<span class="heti-spacing"> </span></span>文件 </p>
 <p><span>c<span class="heti-spacing"> </span></span>表示字符设备文件 </p>
 <p><span>b<span class="heti-spacing"> </span></span>表示块设备文件 </p>
 </li>
+</ul>
+<ul>
 <li>
 <p>特殊访问位置</p>
-</li>
-</ul>
 <p><a href="https://blog.csdn.net/csdn_leidada/article/details/122223958"><span>linux<span class="heti-spacing"> </span></span>一文带你彻底搞懂特殊权限位<span><span class="heti-spacing"> </span>suid</span>，sgid，<span>sticky_<span class="heti-spacing"> </span></span>大雷编程的博客<span class="heti-skip"><span class="heti-spacing"> </span>-CSDN<span class="heti-spacing"> </span></span>博客<span class="heti-skip"><span class="heti-spacing"> </span>_suid<span class="heti-spacing"> </span></span>位</a></p>
 <p>通过有效用户标识实现</p>
 <p>SUID :  set-user-ID</p>
@@ -3079,37 +3078,43 @@
 <p>文件和目录操作权限不同：</p>
 <p>对于目录来说，<span>read<span class="heti-spacing"> </span></span>权限是读取<span><span class="heti-spacing"> </span>list</span>，<span>write<span class="heti-spacing"> </span></span>是更改文件名字、移动、删除等等</p>
 <p><span>execute<span class="heti-spacing"> </span></span>权限是<span class="heti-skip"><span class="heti-spacing"> </span>search<span class="heti-spacing"> </span></span>权限，也就是是否可以<span><span class="heti-spacing"> </span>access</span></p>
-<ul>
-<li>用户 用户组</li>
+</li>
 </ul>
+<ul>
+<li>
+<p>用户 用户组</p>
 <p><span>user = u =<span class="heti-spacing"> </span></span>用户</p>
 <p><span>group = g =<span class="heti-spacing"> </span></span>用户组</p>
 <p><span>others = o =<span class="heti-spacing"> </span></span>其他人</p>
 <p><span>r = read   w = write    x = execute<span class="heti-spacing"> </span></span>可执行</p>
 <p>没有则用 ‘-’ 替代</p>
 <p>顺序<span><span class="heti-spacing"> </span>u -&gt; g -&gt; o</span></p>
+</li>
+</ul>
 <ul>
-<li>
-<p>chgrp = change group </p>
-</li>
-<li>
-<p>chown = change owner</p>
-</li>
+<li>chgrp = change group </li>
+</ul>
+<ul>
+<li>chown = change owner</li>
+</ul>
+<ul>
 <li>
 <p>chmod = </p>
-</li>
-</ul>
 <p>r = 4 ， w  = 2 , x = 1</p>
 <p>rwx = 7, rw = 6</p>
-<ul>
-<li>chattr</li>
+</li>
 </ul>
+<ul>
+<li>
+<p>chattr</p>
 <p><code>chattr +i XXX</code>防止删除</p>
+</li>
+</ul>
 <h2 id="_4">目录处理<a class="headerlink" href="#_4" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p>~ home directory</p>
 <ul>
-<li>ls  -list\</li>
-</ul>
+<li>
+<p>ls  -list\</p>
 <p><a href="https://linux.cn/article-5109-1.html">技术<span class="heti-skip"><span class="heti-spacing"> </span>|Linux<span class="heti-spacing"> </span></span>中的<span class="heti-skip"><span class="heti-spacing"> </span>15<span class="heti-spacing"> </span></span>个基本‘ls’命令示例</a></p>
 <div class="highlight"><pre><span></span><code>ls<span class="w"> </span>-<span class="w"> </span>d<span class="w"> </span><span class="c1">#列出目录本身  </span>
 
@@ -3128,19 +3133,23 @@ ls<span class="w"> </span>-h
 文件以最近访问顺序排序：-t
 以彩色文本显示输出结果：--color<span class="o">=</span>auto
 </code></pre></div>
-<ul>
-<li>mkdir = make directories</li>
+</li>
 </ul>
-<p><span>mkdir -p<span class="heti-spacing"> </span></span>递归创建 没有这个目录就创建一个目录</p>
 <ul>
 <li>
-<p>rmdir = remove directory</p>
+<p>mkdir = make directories</p>
+<p><span>mkdir -p<span class="heti-spacing"> </span></span>递归创建 没有这个目录就创建一个目录</p>
 </li>
+</ul>
+<ul>
+<li>rmdir = remove directory</li>
+</ul>
+<ul>
 <li>
 <p>cd = change directory</p>
+<p>cd - cd to the directory you previously in</p>
 </li>
 </ul>
-<p>cd - cd to the directory you previously in</p>
 <ul>
 <li><span>fasd:<span class="heti-spacing"> </span></span>快速跳转</li>
 </ul>
@@ -3163,22 +3172,22 @@ z<span class="w"> </span>foo<span class="w"> </span>cd到最近操作的匹配<s
 zz<span class="w"> </span>foo<span class="w"> </span>列出最近操作的路径匹配<span class="s1">'foo'</span>的目录，通过序号选择，然后cd进目录
 </code></pre></div>
 <ul>
-<li>
-<p>pwd = print working directory</p>
-</li>
-<li>
-<p><span>cp = copy       cp -rp -r -p<span class="heti-spacing"> </span></span>保留属性</p>
-</li>
-<li>
-<p>mv = move</p>
-</li>
+<li>pwd = print working directory</li>
+</ul>
+<ul>
+<li><span>cp = copy       cp -rp -r -p<span class="heti-spacing"> </span></span>保留属性</li>
+</ul>
+<ul>
+<li>mv = move</li>
+</ul>
+<ul>
 <li>
 <p>rm = remove    </p>
-</li>
-</ul>
 <p><span>rm -i<span class="heti-spacing"> </span></span>先询问再删除<span class="heti-skip"><span class="heti-spacing"> </span>//<span class="heti-spacing"> </span></span>询问是否删除</p>
 <p><span>rm - rf<span class="heti-spacing"> </span></span>文件或目录 </p>
 <p><span>-r<span class="heti-spacing"> </span></span>目录（<strong>非常危险</strong>）</p>
+</li>
+</ul>
 <ul>
 <li><span>echo<span class="heti-spacing"> </span></span>打印</li>
 </ul>
@@ -3189,26 +3198,22 @@ zz<span class="w"> </span>foo<span class="w"> </span>列出最近操作的路径
 <p>基于 <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Tech/Places/Frecency_algorithm"><em>frecency</em> </a>对文件和文件排序，也就是说它会同时针对频率（<em>frequency</em>）和时效（<em>recency</em>）进行排序。默认情况下，<code>fasd</code>使用命令 <code>z</code> 帮助我们快速切换到最常访问的目录。</p>
 <p>例如， 如果您经常访问<code>/home/user/files/cool_project</code> 目录，那么可以直接使用 <code>z cool</code> 跳转到该目录</p>
 <ul>
-<li>
-<p>autojump</p>
-</li>
-<li>
-<p>tree</p>
-</li>
-<li>
-<p>nnn</p>
-</li>
+<li>autojump</li>
+</ul>
+<ul>
+<li>tree</li>
+</ul>
+<ul>
+<li>nnn</li>
 </ul>
 <h2 id="_6">文件处理<a class="headerlink" href="#_6" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p>编码形式存储<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>文本文件   </p>
 <p>二进制存储<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>二进制文件</p>
 <ul>
-<li>
-<p><span>xdg-open :<span class="heti-spacing"> </span></span>自动寻找合适方式打开文件，相当于鼠标双击</p>
-</li>
-<li>
-<p><span>convert<span class="heti-spacing"> </span></span>转换文件格式</p>
-</li>
+<li><span>xdg-open :<span class="heti-spacing"> </span></span>自动寻找合适方式打开文件，相当于鼠标双击</li>
+</ul>
+<ul>
+<li><span>convert<span class="heti-spacing"> </span></span>转换文件格式</li>
 </ul>
 <div class="highlight"><pre><span></span><code>convert a.{jpg,png}
 convert a.jpg a.png
@@ -3243,23 +3248,23 @@ convert a.jpg a.png
 \#也就是/tmp/cangls 是硬链接文件
 </code></pre></div>
 <ul>
-<li>-s：建立软链接文件。如果不加<span class="heti-skip"><span class="heti-spacing"> </span>"-s"<span class="heti-spacing"> </span></span>选项，则建立硬链接文件；</li>
-</ul>
+<li>
+<p>-s：建立软链接文件。如果不加<span class="heti-skip"><span class="heti-spacing"> </span>"-s"<span class="heti-spacing"> </span></span>选项，则建立硬链接文件；</p>
 <p>符号链接：<span>inode<span class="heti-spacing"> </span></span>号不同</p>
+</li>
+</ul>
 <ul>
 <li>-f：强制。如果目标文件已经存在，则删除目标文件后再建立链接文件</li>
 </ul>
 <h3 id="_7">查找文件<a class="headerlink" href="#_7" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ul>
-<li>
-<p><span>which<span class="heti-spacing"> </span></span>查询脚本文件<span class="heti-skip"><span class="heti-spacing"> </span>-a<span class="heti-spacing"> </span></span>全列出来</p>
-</li>
+<li><span>which<span class="heti-spacing"> </span></span>查询脚本文件<span class="heti-skip"><span class="heti-spacing"> </span>-a<span class="heti-spacing"> </span></span>全列出来</li>
+</ul>
+<ul>
 <li>
 <p>find   </p>
-</li>
-<li>
-<p>atime = access time    </p>
-</li>
+<ul>
+<li>atime = access time    </li>
 <li>ctime = status time  </li>
 <li>mtime = modification time</li>
 </ul>
@@ -3317,10 +3322,14 @@ find<span class="w"> </span>.<span class="w"> </span>-name<span class="w"> </spa
 <span class="c1">#6 用exec选项执行cp命令  </span>
 find<span class="w"> </span>.<span class="w"> </span>-name<span class="w"> </span><span class="s2">"*.log"</span><span class="w"> </span>-exec<span class="w"> </span>cp<span class="w"> </span><span class="o">{}</span><span class="w"> </span>test3<span class="w"> </span><span class="se">\;</span>
 </code></pre></div>
-<ul>
-<li>locate </li>
+</li>
 </ul>
+<ul>
+<li>
+<p>locate </p>
 <p><span>-i<span class="heti-spacing"> </span></span>大小写 </p>
+</li>
+</ul>
 <h3 id="shell">查找<span class="heti-skip"><span class="heti-spacing"> </span>shell<span class="heti-spacing"> </span></span>命令<a class="headerlink" href="#shell" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ul>
 <li>history</li>
@@ -3467,12 +3476,14 @@ RS<span class="w">                 </span>控制记录分隔符
 </code></pre></div>
 <h3 id="_10">排序<a class="headerlink" href="#_10" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ul>
-<li><span>sort<span class="heti-spacing"> </span></span>文件排序</li>
-</ul>
+<li>
+<p><span>sort<span class="heti-spacing"> </span></span>文件排序</p>
 <p><span>-d<span class="heti-spacing"> </span></span>字典序</p>
 <p><span>-n<span class="heti-spacing"> </span></span>数值大小</p>
 <p><span>-k + number<span class="heti-spacing"> </span></span>第几列排序</p>
 <p><span>sort<span class="heti-spacing"> </span></span>可针对文本文件的内容，以行为单位来排序。</p>
+</li>
+</ul>
 <ul>
 <li><span>uniq<span class="heti-spacing"> </span></span>删去重复行</li>
 </ul>
@@ -3516,28 +3527,28 @@ Linux<span class="w"> </span><span class="m">85</span><span class="w"> </span>
 </code></pre></div>
 <h3 id="_12">字符转换命令<a class="headerlink" href="#_12" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ul>
-<li><span>tr<span class="heti-spacing"> </span></span>文字删除<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>文字替换</li>
-</ul>
+<li>
+<p><span>tr<span class="heti-spacing"> </span></span>文字删除<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>文字替换</p>
 <p><span>-d<span class="heti-spacing"> </span></span>删除该字符串</p>
 <p><code>last | tr '[a-z]' '[A-Z]'</code></p>
 <p><code>last | tr -d ':'</code> 删除冒号</p>
-<ul>
-<li>
-<p>col</p>
-</li>
-<li>
-<p>join</p>
-</li>
-<li>
-<p><span>paste<span class="heti-spacing"> </span></span>两行贴贴，<span>tab<span class="heti-spacing"> </span></span>分隔</p>
-</li>
-<li>
-<p><span>expand<span class="heti-spacing"> </span></span>把<span class="heti-skip"><span class="heti-spacing"> </span>tab<span class="heti-spacing"> </span></span>转换为空格<span class="heti-skip"><span class="heti-spacing"> </span>-t<span class="heti-spacing"> </span></span>转换为多少个空格</p>
-</li>
-<li>
-<p><span>wc  = word count<span class="heti-spacing"> </span></span>统计指定文件中的字节数、字数、行数</p>
 </li>
 </ul>
+<ul>
+<li>col</li>
+</ul>
+<ul>
+<li>join</li>
+</ul>
+<ul>
+<li><span>paste<span class="heti-spacing"> </span></span>两行贴贴，<span>tab<span class="heti-spacing"> </span></span>分隔</li>
+</ul>
+<ul>
+<li><span>expand<span class="heti-spacing"> </span></span>把<span class="heti-skip"><span class="heti-spacing"> </span>tab<span class="heti-spacing"> </span></span>转换为空格<span class="heti-skip"><span class="heti-spacing"> </span>-t<span class="heti-spacing"> </span></span>转换为多少个空格</li>
+</ul>
+<ul>
+<li>
+<p><span>wc  = word count<span class="heti-spacing"> </span></span>统计指定文件中的字节数、字数、行数</p>
 <div class="highlight"><pre><span></span><code>-c<span class="w"> </span>统计字节数。
 -l<span class="w"> </span>统计行数。
 -m<span class="w"> </span>统计字符数。这个标志不能与<span class="w"> </span>-c<span class="w"> </span>标志一起使用。
@@ -3546,15 +3557,21 @@ Linux<span class="w"> </span><span class="m">85</span><span class="w"> </span>
 -help<span class="w"> </span>显示帮助信息
 --version<span class="w"> </span>显示版本信息
 </code></pre></div>
+</li>
+</ul>
 <h2 id="_13">文件系统<a class="headerlink" href="#_13" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <ul>
-<li>目录结构</li>
-</ul>
+<li>
+<p>目录结构</p>
 <p><img alt="image-20221012190235970" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20221012190235970.png"/></p>
-<ul>
-<li>主要目录</li>
+</li>
 </ul>
+<ul>
+<li>
+<p>主要目录</p>
 <p><img alt="image-20221012191017659" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20221012191017659.png"/><img alt="image-20221012191029196" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20221012191029196.png"/></p>
+</li>
+</ul>
 <p><span>bin<span class="heti-spacing"> </span></span>可执行文件</p>
 <p><span>sys<span class="heti-spacing"> </span></span>系统相关</p>
 <p>root</p>
@@ -3570,20 +3587,20 @@ Linux<span class="w"> </span><span class="m">85</span><span class="w"> </span>
 <h2 id="bash"><span>bash<span class="heti-spacing"> </span></span>基础与配置<a class="headerlink" href="#bash" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p><a href="https://github.com/skywind3000/awesome-cheatsheets/blob/master/languages/bash.sh">awesome-cheatsheets/languages/bash.sh at master · skywind3000/awesome-cheatsheets · GitHub</a></p>
 <ul>
-<li>bash = Bourne Again Shell</li>
-</ul>
+<li>
+<p>bash = Bourne Again Shell</p>
 <p><span>bash<span class="heti-spacing"> </span></span>是命令解释程序，也是程序设计语言</p>
+</li>
+</ul>
 <ul>
-<li>
-<p>功能：history 、 命令与文件补全 、 程序脚本<span><span class="heti-spacing"> </span>shell script</span> 、 通配符<span><span class="heti-spacing"> </span>wildcard</span></p>
+<li>功能：history 、 命令与文件补全 、 程序脚本<span><span class="heti-spacing"> </span>shell script</span> 、 通配符<span><span class="heti-spacing"> </span>wildcard</span></li>
+</ul>
+<ul>
+<li>程序头：脚本文件名、Author、Date、Description、<p><img alt="image-20221120191459094" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20221120191459094.png"/><img alt="image-20221120191821981" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20221120191821981.png"/></p>
 </li>
-<li>
-<p>程序头：脚本文件名、Author、Date、Description、</p>
-<p><img alt="image-20221120191459094" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20221120191459094.png"/><img alt="image-20221120191821981" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20221120191821981.png"/></p>
-</li>
-<li>
-<p>注释</p>
-</li>
+</ul>
+<ul>
+<li>注释</li>
 </ul>
 <p>多行注释</p>
 <div class="highlight"><pre><span></span><code>:<span class="s">&lt;&lt;num</span>
@@ -3693,43 +3710,53 @@ diff<span class="w"> </span>&lt;<span class="o">(</span>ls<span class="w"> </spa
 </tbody>
 </table>
 <ul>
-<li><span>type<span class="heti-spacing"> </span></span>类似于<span class="heti-skip"><span class="heti-spacing"> </span>which<span class="heti-spacing"> </span></span>找到执行文件</li>
-</ul>
+<li>
+<p><span>type<span class="heti-spacing"> </span></span>类似于<span class="heti-skip"><span class="heti-spacing"> </span>which<span class="heti-spacing"> </span></span>找到执行文件</p>
 <p>显示类型</p>
 <p><strong>内部命令、外部命令</strong>：内部命令不创建进程、外部命令创建进程</p>
 <p><a href="https://blog.csdn.net/coding_dong/article/details/103576071"><span>Linux shell<span class="heti-spacing"> </span></span>内部命令和外部命令</a></p>
-<ul>
-<li><span>ps<span class="heti-spacing"> </span></span>查看进程属性</li>
+</li>
 </ul>
+<ul>
+<li>
+<p><span>ps<span class="heti-spacing"> </span></span>查看进程属性</p>
 <p>ps -a</p>
-<ul>
-<li>前台后台</li>
+</li>
 </ul>
+<ul>
+<li>
+<p>前台后台</p>
 <p>加<strong>&amp;</strong>变成后台：大量计算、查找</p>
 <p><span>fg  = foreground<span class="heti-spacing"> </span></span>后台转到前台</p>
 <p>​    <span>bg = background  + "%<span class="heti-spacing"> </span></span>作业号<span><span class="heti-spacing"> </span>"</span></p>
-<ul>
-<li>作业、作业号</li>
+</li>
 </ul>
+<ul>
+<li>
+<p>作业、作业号</p>
 <p>查看作业<span><span class="heti-spacing"> </span>jobs</span></p>
 <p>定时执行<span><span class="heti-spacing"> </span>at</span></p>
 <p>分号：顺序进行 
-   与号：并发执行</p>
-<ul>
-<li>终止进程 </li>
+ 与号：并发执行</p>
+</li>
 </ul>
+<ul>
+<li>
+<p>终止进程 </p>
 <p><ctrl></ctrl></p>
 <p>kill -9（强制） </p>
 <p><span>-15 +<span class="heti-spacing"> </span></span>进程号</p>
-<ul>
-<li>
-<p>睡眠<span><span class="heti-spacing"> </span>sleep n</span></p>
-</li>
-<li>
-<p><span>&amp;&amp;<span class="heti-spacing"> </span></span>成功则运行</p>
 </li>
 </ul>
+<ul>
+<li>睡眠<span><span class="heti-spacing"> </span>sleep n</span></li>
+</ul>
+<ul>
+<li>
+<p><span>&amp;&amp;<span class="heti-spacing"> </span></span>成功则运行</p>
 <p><span>||<span class="heti-spacing"> </span></span>失败才运行</p>
+</li>
+</ul>
 <h3 id="_17">管道<a class="headerlink" href="#_17" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>管道是进程之间的通讯机制</p>
 <p>经过几道手续之后再输出</p>
@@ -3772,75 +3799,89 @@ $<span class="w"> </span>cat<span class="w"> </span>url-list.txt<span class="w">
 </code></pre></div>
 <h3 id="_18">重定向<a class="headerlink" href="#_18" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ul>
-<li>输出</li>
-</ul>
+<li>
+<p>输出</p>
 <p><span>stdout  &gt;&gt;<span class="heti-spacing"> </span></span>累加<span class="heti-skip"><span class="heti-spacing"> </span>&gt;<span class="heti-spacing"> </span></span>覆盖</p>
 <p><span>stderr  2&gt;&gt;<span class="heti-spacing"> </span></span>累加<span class="heti-skip"><span class="heti-spacing"> </span>2&gt;<span class="heti-spacing"> </span></span>覆盖</p>
 <p>输出到同一个文件<span><span class="heti-spacing"> </span>2&gt;&amp;1</span></p>
-<ul>
-<li>输入</li>
+</li>
 </ul>
+<ul>
+<li>
+<p>输入</p>
 <p>stdin &lt;</p>
 <p><span>stdin &lt;&lt;<span class="heti-spacing"> </span></span>结束输入<span><span class="heti-spacing"> </span>ex: &lt;&lt;"eof"</span></p>
+</li>
+</ul>
 <p><img alt="image-20230108112132673" src="D:My%20UniClassLinuxLinux%20%E5%BA%94%E7%94%A8%E6%8A%80%E6%9C%AF%E5%9F%BA%E7%A1%80image-20230108112132673.png"/></p>
 <h3 id="_19">变量<a class="headerlink" href="#_19" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ul>
-<li>单引号：所见即所得；双引号或者没有引号：会先解析变量；</li>
-</ul>
+<li>
+<p>单引号：所见即所得；双引号或者没有引号：会先解析变量；</p>
 <p><a href="https://blog.csdn.net/K346K346/article/details/86752313"><span>Shell<span class="heti-spacing"> </span></span>双引号和单引号的区别<span class="heti-skip"><span class="heti-spacing"> </span>_shell<span class="heti-spacing"> </span></span>中单引号和双引号的区别<span class="heti-skip"><span class="heti-spacing"> </span>_<span class="heti-spacing"> </span></span>恋喵大鲤鱼的博客<span class="heti-skip"><span class="heti-spacing"> </span>-CSDN<span class="heti-spacing"> </span></span>博客</a></p>
+</li>
+</ul>
+<ul>
+<li>命令串太长 反斜杠<span><span class="heti-spacing"> </span>+ enter</span></li>
+</ul>
 <ul>
 <li>
-<p>命令串太长 反斜杠<span><span class="heti-spacing"> </span>+ enter</span></p>
-</li>
-<li>
 <p><span>echo<span class="heti-spacing"> </span></span>显示变量</p>
-</li>
-</ul>
 <p><code>echo $+变量名</code></p>
 <p>等号左右不能有空格、开头不能是数字、<strong>用转义特殊字符</strong></p>
 <p><span>unset<span class="heti-spacing"> </span></span>删除变量</p>
+</li>
+</ul>
 <ul>
 <li>
 <p><span>env = environment<span class="heti-spacing"> </span></span>列出环境变量</p>
-</li>
-<li>
-<p>HOME</p>
-</li>
-<li>
-<p>SHELL</p>
-</li>
-<li>
-<p>MAIL</p>
-</li>
-<li>
-<p>PATH</p>
-</li>
-<li>
-<p><span>LANG<span class="heti-spacing"> </span></span>语系数据</p>
-</li>
+<ul>
+<li>HOME</li>
+</ul>
+<ul>
+<li>SHELL</li>
+</ul>
+<ul>
+<li>MAIL</li>
+</ul>
+<ul>
+<li>PATH</li>
+</ul>
+<ul>
+<li><span>LANG<span class="heti-spacing"> </span></span>语系数据</li>
+</ul>
+<ul>
 <li>
 <p><span>RANDOM<span class="heti-spacing"> </span></span>随机数</p>
 <ul>
-<li>declare Set variable values and attributes.</li>
-</ul>
+<li>
+<p>declare Set variable values and attributes.</p>
 <p>生成<span class="heti-skip"><span class="heti-spacing"> </span>0-9<span class="heti-spacing"> </span></span>的随机数</p>
 <p><code>declare -i number=$RANMDOM*10/32768 ; echo $number</code></p>
 </li>
+</ul>
+</li>
+</ul>
+<ul>
 <li>
 <p><span>$<span class="heti-spacing"> </span></span>本<span class="heti-skip"><span class="heti-spacing"> </span>SHELL<span class="heti-spacing"> </span></span>的线程代号 即<span><span class="heti-spacing"> </span>PID</span></p>
 <p><span>ex  echo $$<span class="heti-spacing"> </span></span>即输出<span><span class="heti-spacing"> </span>proceesID</span></p>
 </li>
-<li>
-<p>？上一个执行命令回传值</p>
-</li>
-<li>
-<p><span>PWD<span class="heti-spacing"> </span></span>当前工作目录</p>
-</li>
-<li>
-<p><span>export<span class="heti-spacing"> </span></span>自定义变量变成环境变量</p>
+</ul>
+<ul>
+<li>？上一个执行命令回传值</li>
+</ul>
+<ul>
+<li><span>PWD<span class="heti-spacing"> </span></span>当前工作目录</li>
+</ul>
 </li>
 </ul>
+<ul>
+<li>
+<p><span>export<span class="heti-spacing"> </span></span>自定义变量变成环境变量</p>
 <p>​ 子进程继承父进程的环境变量</p>
+</li>
+</ul>
 <h4 id="_20">括号问题<a class="headerlink" href="#_20" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <ul>
 <li>双引号</li>
@@ -3865,54 +3906,52 @@ SayHello
 <p><img alt="image-20221120191523907" src="C:/Users/Philfan/AppData/Roaming/Typora/typora-user-images/image-20221120191523907.png"/></p>
 <p><span>0<span class="heti-spacing"> </span></span>表示正常执行，非零值表示有错误发生</p>
 <ul>
-<li>
-<p><code>$0</code> <span>-<span class="heti-spacing"> </span></span>脚本名</p>
-</li>
-<li>
-<p><code>$1</code> 到<code>$9</code><span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>脚本的参数。 <code>$1</code> 是第一个参数，依此类推。</p>
-</li>
-<li>
-<p><code>$@</code> <span>-<span class="heti-spacing"> </span></span>所有参数</p>
-</li>
-<li>
-<p><code>$#</code> <span>-<span class="heti-spacing"> </span></span>参数个数</p>
-</li>
-<li>
-<p><code>$?</code> <span>-<span class="heti-spacing"> </span></span>前一个命令的返回值</p>
-</li>
-<li>
-<p><code>$$</code> <span>-<span class="heti-spacing"> </span></span>当前脚本的进程识别码</p>
-</li>
-<li>
-<p><code>!!</code> <span>-<span class="heti-spacing"> </span></span>完整的上一条命令，包括参数。常见应用：当你因为权限不足执行命令失败时，可以使用 <code>sudo !!</code>再尝试一次。</p>
-</li>
-<li>
-<p><code>$_</code> <span>-<span class="heti-spacing"> </span></span>上一条命令的最后一个参数。如果你正在使用的是交互式<span><span class="heti-spacing"> </span>shell</span>，你可以通过按下 <code>Esc</code> 之后键入<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>来获取这个值。
-  (下划线) 表示的是打印上一个输入参数行, 当这个命令在开头时, 打印输出文档的绝对路径名.</p>
-</li>
-<li>
-<p><span>$-<span class="heti-spacing"> </span></span>是<span class="heti-skip"><span class="heti-spacing"> </span>set<span class="heti-spacing"> </span></span>命令的 –<span>h<span class="heti-spacing"> </span></span>和 –<span>B<span class="heti-spacing"> </span></span>的参数<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>表示使用内置的<span class="heti-skip"><span class="heti-spacing"> </span>set<span class="heti-spacing"> </span></span>命令扩展解释之后的参数行<span><span class="heti-spacing"> </span>,</span> 
-     具体分别表示为, 记住工作路径, 和允许使用 ! 历史扩展, 详细请参阅 set 命令.</p>
-</li>
+<li><code>$0</code> <span>-<span class="heti-spacing"> </span></span>脚本名</li>
+</ul>
+<ul>
+<li><code>$1</code> 到<code>$9</code><span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>脚本的参数。 <code>$1</code> 是第一个参数，依此类推。</li>
+</ul>
+<ul>
+<li><code>$@</code> <span>-<span class="heti-spacing"> </span></span>所有参数</li>
+</ul>
+<ul>
+<li><code>$#</code> <span>-<span class="heti-spacing"> </span></span>参数个数</li>
+</ul>
+<ul>
+<li><code>$?</code> <span>-<span class="heti-spacing"> </span></span>前一个命令的返回值</li>
+</ul>
+<ul>
+<li><code>$$</code> <span>-<span class="heti-spacing"> </span></span>当前脚本的进程识别码</li>
+</ul>
+<ul>
+<li><code>!!</code> <span>-<span class="heti-spacing"> </span></span>完整的上一条命令，包括参数。常见应用：当你因为权限不足执行命令失败时，可以使用 <code>sudo !!</code>再尝试一次。</li>
+</ul>
+<ul>
+<li><code>$_</code> <span>-<span class="heti-spacing"> </span></span>上一条命令的最后一个参数。如果你正在使用的是交互式<span><span class="heti-spacing"> </span>shell</span>，你可以通过按下 <code>Esc</code> 之后键入<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>来获取这个值。
+  (下划线) 表示的是打印上一个输入参数行, 当这个命令在开头时, 打印输出文档的绝对路径名.</li>
+</ul>
+<ul>
+<li><span>$-<span class="heti-spacing"> </span></span>是<span class="heti-skip"><span class="heti-spacing"> </span>set<span class="heti-spacing"> </span></span>命令的 –<span>h<span class="heti-spacing"> </span></span>和 –<span>B<span class="heti-spacing"> </span></span>的参数<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>表示使用内置的<span class="heti-skip"><span class="heti-spacing"> </span>set<span class="heti-spacing"> </span></span>命令扩展解释之后的参数行<span><span class="heti-spacing"> </span>,</span> 
+     具体分别表示为, 记住工作路径, 和允许使用 ! 历史扩展, 详细请参阅 set 命令.</li>
 </ul>
 <h4 id="_22">变量读取、数组、声明<a class="headerlink" href="#_22" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <ul>
-<li>
-<p><span>read +<span class="heti-spacing"> </span></span>变量<span class="heti-skip"><span class="heti-spacing"> </span>-p<span class="heti-spacing"> </span></span>接提示符<span class="heti-skip"><span class="heti-spacing"> </span>-t<span class="heti-spacing"> </span></span>接时间</p>
-</li>
+<li><span>read +<span class="heti-spacing"> </span></span>变量<span class="heti-skip"><span class="heti-spacing"> </span>-p<span class="heti-spacing"> </span></span>接提示符<span class="heti-skip"><span class="heti-spacing"> </span>-t<span class="heti-spacing"> </span></span>接时间</li>
+</ul>
+<ul>
 <li>
 <p><span>declare / typeset<span class="heti-spacing"> </span></span>声明变量类型</p>
-</li>
-</ul>
 <p><span>-a<span class="heti-spacing"> </span></span>定义为数组<span class="heti-skip"><span class="heti-spacing"> </span>-i<span class="heti-spacing"> </span></span>定义为<span class="heti-skip"><span class="heti-spacing"> </span>integer -x<span class="heti-spacing"> </span></span>与<span class="heti-skip"><span class="heti-spacing"> </span>export<span class="heti-spacing"> </span></span>一样</p>
 <p><strong>bash</strong>中数值运算仅支持整数</p>
 <div class="highlight"><pre><span></span><code><span class="nb">read</span><span class="w"> </span>-p<span class="w"> </span><span class="s2">"输入网站名:"</span><span class="w"> </span>website
 <span class="nb">echo</span><span class="w"> </span><span class="s2">"你输入的网站名是 </span><span class="nv">$website</span><span class="s2">"</span><span class="w"> </span>
 <span class="nb">exit</span><span class="w"> </span><span class="m">0</span>
 </code></pre></div>
-<ul>
-<li>数组定义   <mark>没有逗号</mark></li>
+</li>
 </ul>
+<ul>
+<li>
+<p>数组定义   <mark>没有逗号</mark></p>
 <div class="highlight"><pre><span></span><code><span class="nv">a1</span><span class="o">=(</span><span class="m">0</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">1</span><span class="o">)</span>
 <span class="nv">echo</span><span class="o">=</span><span class="si">${</span><span class="nv">a1</span><span class="p">[1]</span><span class="si">}</span>
 //*和@获取所有元素
@@ -3924,10 +3963,12 @@ SayHello
 <p>关联数组</p>
 <div class="highlight"><pre><span></span><code><span class="nb">declare</span><span class="w"> </span>-A<span class="w"> </span>array_name
 </code></pre></div>
+</li>
+</ul>
 <ul>
 <li>
 <p>变量删除、替代、替换</p>
-</li>
+<ul>
 <li>
 <p>删除</p>
 <p>从前到后删除符合选项的最短字符</p>
@@ -3936,18 +3977,24 @@ SayHello
 <p><span>%<span class="heti-spacing"> </span></span>从后向前删除</p>
 <p><span>%%<span class="heti-spacing"> </span></span>从后向前删除最长项数<span><span class="heti-spacing"> </span>z</span></p>
 </li>
+</ul>
+<ul>
 <li>
 <p>替换</p>
 <p><strong><span>/<span class="heti-spacing"> </span></span>旧<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>新  第一个</strong></p>
 <p><strong><span>//<span class="heti-spacing"> </span></span>旧<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>新   全部</strong></p>
 </li>
-<li>
-<p>变量别名<span><span class="heti-spacing"> </span>alias</span></p>
+</ul>
 </li>
 </ul>
+<ul>
+<li>
+<p>变量别名<span><span class="heti-spacing"> </span>alias</span></p>
 <p><code>alias lm='ls -l | more</code></p>
 <p><code>alias rm='rm -i'</code></p>
-<p><span>## Shell<span class="heti-spacing"> </span></span>运算符</p>
+<h2 id="shell_2"><span>Shell<span class="heti-spacing"> </span></span>运算符<a class="headerlink" href="#shell_2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+</li>
+</ul>
 <ul>
 <li><span>bc<span class="heti-spacing"> </span></span>数学运算</li>
 </ul>
@@ -3970,28 +4017,30 @@ SayHello
 <span class="nb">false</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"This will always run"</span>
 <span class="c1"># This will always run</span>
 </code></pre></div>
-<ul>
-<li>
-<p>eval</p>
-<p>二次扫描</p>
-<p>可以实现指针效果</p>
-<div class="highlight"><pre><span></span><code><span class="nv">x</span><span class="o">=</span><span class="m">50</span>
-<span class="nv">a</span><span class="o">=</span>x
-<span class="nb">eval</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$$</span>a
-</code></pre></div>
-</li>
-<li>
-<p><span>set<span class="heti-spacing"> </span></span>命令</p>
-<div class="highlight"><pre><span></span><code><span class="nb">set</span><span class="w"> </span><span class="k">$(</span>date<span class="k">)</span>
-<span class="nb">echo</span><span class="w"> </span><span class="nv">$1</span><span class="w"> </span><span class="nv">$3</span>
+<p>- eval</p>
+<div class="highlight"><pre><span></span><code>二次扫描
 
-<span class="nb">set</span><span class="w"> </span>--<span class="w"> </span><span class="k">$(</span>ls<span class="w"> </span>-l<span class="w"> </span><span class="nv">$demo</span><span class="k">)</span>
-<span class="c1">#--用来让后面的-不被识别成为set的参数</span>
+可以实现指针效果
+
+``` bash
+x=50
+a=x
+eval echo $$a
+```
 </code></pre></div>
-<p>把<span class="heti-skip"><span class="heti-spacing"> </span>set<span class="heti-spacing"> </span></span>后的命令转换为<span class="heti-skip"><span class="heti-spacing"> </span>$<span class="heti-spacing"> </span></span>变量</p>
-<p><img alt="image-20221207201248626" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20221207201248626.png"/></p>
-</li>
-</ul>
+<p><span>- set<span class="heti-spacing"> </span></span>命令</p>
+<div class="highlight"><pre><span></span><code>```bash
+set $(date)
+echo $1 $3
+
+set -- $(ls -l $demo)
+#--用来让后面的-不被识别成为set的参数
+```
+
+把set后的命令转换为$变量
+
+![image-20221207201248626](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20221207201248626.png)
+</code></pre></div>
 <p>expr</p>
 <p>用反引号</p>
 <ul>
@@ -4097,10 +4146,10 @@ SayHello
 <p>test –<span>x File<span class="heti-spacing"> </span></span>文件存在并且可执行</p>
 <p><img alt="image-20221130201554312" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20221130201554312.png"/></p>
 <p><img alt="image-20221130213319747" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20221130213319747.png"/></p>
-<h2 id="shell_2"><span>shell<span class="heti-spacing"> </span></span>流程控制<a class="headerlink" href="#shell_2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="shell_3"><span>shell<span class="heti-spacing"> </span></span>流程控制<a class="headerlink" href="#shell_3" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <ul>
-<li>if-else</li>
-</ul>
+<li>
+<p>if-else</p>
 <div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span>condition1
 <span class="k">then</span>
 <span class="w">    </span>command1
@@ -4111,9 +4160,11 @@ SayHello
 <span class="w">    </span>commandN
 <span class="k">fi</span>
 </code></pre></div>
-<ul>
-<li>for</li>
+</li>
 </ul>
+<ul>
+<li>
+<p>for</p>
 <div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span>var<span class="w"> </span><span class="k">in</span><span class="w"> </span>item1<span class="w"> </span>item2<span class="w"> </span>...<span class="w"> </span>itemN
 <span class="k">do</span>
 <span class="w">    </span>command1
@@ -4129,19 +4180,23 @@ SayHello
 <span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$str</span>
 <span class="k">done</span>
 </code></pre></div>
+</li>
+</ul>
 <ul>
-<li>while
-  <div class="highlight"><pre><span></span><code><span class="k">while</span><span class="w"> </span>condition
+<li>
+<p>while
+  </p><div class="highlight"><pre><span></span><code><span class="k">while</span><span class="w"> </span>condition
 <span class="k">do</span>
 <span class="w">    </span><span class="nb">command</span>
 <span class="k">done</span>
-</code></pre></div></li>
-</ul>
+</code></pre></div>
 <p><span>(())<span class="heti-spacing"> </span></span>两个圆括号</p>
 <p><span>()<span class="heti-spacing"> </span></span>一个圆括号</p>
 <p>$()</p>
 <p>$(())</p>
 <p>${}</p>
+</li>
+</ul>
 <h2 id="shell-script"><span>shell script<span class="heti-spacing"> </span></span>常见脚本<a class="headerlink" href="#shell-script" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p><a href="https://zhuanlan.zhihu.com/p/264346586">一篇教会你写<span class="heti-skip"><span class="heti-spacing"> </span>90%<span class="heti-spacing"> </span></span>的<span class="heti-skip"><span class="heti-spacing"> </span>shell<span class="heti-spacing"> </span></span>脚本<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>知乎<span><span class="heti-spacing"> </span>(zhihu.com)</span></a></p>
 <h1 id="_26">网络相关<a class="headerlink" href="#_26" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h1>
@@ -4192,39 +4247,39 @@ This<span class="w"> </span>may<span class="w"> </span>be<span class="w"> </span
 </code></pre></div>
 <h2 id="_33">宏<a class="headerlink" href="#_33" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <ul>
-<li>
-<p><code>q{字符}</code> 来开始在寄存器<code>{字符}</code>中录制宏</p>
-</li>
-<li>
-<p><code>q</code>停止录制</p>
-</li>
-<li>
-<p><code>@{字符}</code> 重放宏</p>
-</li>
-<li>
-<p>宏的执行遇错误会停止</p>
-</li>
-<li>
-<p><code>{计数}@{字符}</code>执行一个宏<span class="heti-skip"><span class="heti-spacing"> </span>{<span class="heti-spacing"> </span></span>计数<span class="heti-skip"><span class="heti-spacing"> </span>}<span class="heti-spacing"> </span></span>次</p>
-</li>
+<li><code>q{字符}</code> 来开始在寄存器<code>{字符}</code>中录制宏</li>
+</ul>
+<ul>
+<li><code>q</code>停止录制</li>
+</ul>
+<ul>
+<li><code>@{字符}</code> 重放宏</li>
+</ul>
+<ul>
+<li>宏的执行遇错误会停止</li>
+</ul>
+<ul>
+<li><code>{计数}@{字符}</code>执行一个宏<span class="heti-skip"><span class="heti-spacing"> </span>{<span class="heti-spacing"> </span></span>计数<span class="heti-skip"><span class="heti-spacing"> </span>}<span class="heti-spacing"> </span></span>次</li>
+</ul>
+<ul>
 <li>
 <p>宏可以递归</p>
+<ul>
+<li>首先用<code>q{字符}q</code>清除宏</li>
+<li>录制该宏，用 <code>@{字符}</code> 来递归调用该宏 （在录制完成之前不会有任何操作）</li>
+</ul>
 </li>
-<li>
-<p>首先用<code>q{字符}q</code>清除宏</p>
-</li>
-<li>
-<p>录制该宏，用 <code>@{字符}</code> 来递归调用该宏 （在录制完成之前不会有任何操作）</p>
-</li>
+</ul>
+<ul>
 <li>
 <p>例子：将<span class="heti-skip"><span class="heti-spacing"> </span>xml<span class="heti-spacing"> </span></span>转成<span><span class="heti-spacing"> </span>json (file)</span></p>
-</li>
-<li>
-<p>一个有 “name” / “email” 键对象的数组</p>
-</li>
-<li>
-<p>用一个<span class="heti-skip"><span class="heti-spacing"> </span>Python<span class="heti-spacing"> </span></span>程序？</p>
-</li>
+<ul>
+<li>一个有 “name” / “email” 键对象的数组</li>
+</ul>
+<ul>
+<li>用一个<span class="heti-skip"><span class="heti-spacing"> </span>Python<span class="heti-spacing"> </span></span>程序？</li>
+</ul>
+<ul>
 <li>
 <p>用<span class="heti-skip"><span class="heti-spacing"> </span>sed /<span class="heti-spacing"> </span></span>正则表达式</p>
 <ul>
@@ -4234,52 +4289,56 @@ This<span class="w"> </span>may<span class="w"> </span>be<span class="w"> </span
 <li>…</li>
 </ul>
 </li>
+</ul>
+<ul>
 <li>
 <p><span>Vim<span class="heti-spacing"> </span></span>命令<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>宏</p>
 <ul>
-<li>
-<p><code>Gdd</code><span>,<span class="heti-spacing"> </span></span><code>ggdd</code>删除第一行和最后一行</p>
-</li>
+<li><code>Gdd</code><span>,<span class="heti-spacing"> </span></span><code>ggdd</code>删除第一行和最后一行</li>
+</ul>
+<ul>
 <li>
 <p>格式化最后一个元素的宏 （寄存器</p>
-</li>
-</ul>
 <div class="highlight"><pre><span></span><code>e
 </code></pre></div>
 <p>）</p>
 <ul>
 <li>跳转到有 <code>&lt;name&gt;</code> 的行</li>
-<li>
-<p><code>qe^r"f&gt;s": "&lt;ESC&gt;f&lt;C"&lt;ESC&gt;q</code></p>
-</li>
-<li>
-<p>格式化一个</p>
+<li><code>qe^r"f&gt;s": "&lt;ESC&gt;f&lt;C"&lt;ESC&gt;q</code></li>
+</ul>
 </li>
 </ul>
+<ul>
+<li>
+<p>格式化一个</p>
 <p>的宏</p>
 <ul>
 <li>跳转到有 <code>&lt;person&gt;</code> 的行</li>
-<li>
-<p><code>qpS{&lt;ESC&gt;j@eA,&lt;ESC&gt;j@ejS},&lt;ESC&gt;q</code></p>
-</li>
-<li>
-<p>格式化一个</p>
+<li><code>qpS{&lt;ESC&gt;j@eA,&lt;ESC&gt;j@ejS},&lt;ESC&gt;q</code></li>
+</ul>
 </li>
 </ul>
+<ul>
+<li>
+<p>格式化一个</p>
 <p>标签然后转到另外一个的宏</p>
 <ul>
 <li>跳转到有 <code>&lt;person&gt;</code> 的行</li>
-<li>
-<p><code>qq@pjq</code></p>
+<li><code>qq@pjq</code></li>
+</ul>
 </li>
+</ul>
+<ul>
 <li>
 <p>执行宏到文件尾</p>
+<ul>
+<li><code>999@q</code></li>
+</ul>
 </li>
-<li>
-<p><code>999@q</code></p>
-</li>
-<li>
-<p>手动移除最后的 <code>,</code> 然后加上 <code>[</code> 和 <code>]</code> 分隔符</p>
+</ul>
+<ul>
+<li>手动移除最后的 <code>,</code> 然后加上 <code>[</code> 和 <code>]</code> 分隔符</li>
+</ul>
 </li>
 </ul>
 </li>

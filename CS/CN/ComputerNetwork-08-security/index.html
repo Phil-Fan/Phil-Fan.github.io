@@ -3279,9 +3279,11 @@
 <p>阻止非法的修改<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>对非授权内容的访问</p>
 <p><span>2.<span class="heti-spacing"> </span></span>只允许认证的用户能否访问内部网络资源<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>经过认证的用户<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>主机集合<span><span class="heti-spacing"> </span>)</span></p>
 <ul>
-<li><span>2<span class="heti-spacing"> </span></span>种类型的防火墙<span><span class="heti-spacing"> </span>:</span></li>
+<li><span>2<span class="heti-spacing"> </span></span>种类型的防火墙<span><span class="heti-spacing"> </span>:</span><ul>
 <li>网络级别：分组过滤器</li>
 <li>应用级别：应用程序网关</li>
+</ul>
+</li>
 </ul>
 <p>规则</p>
 <ul>
@@ -3352,16 +3354,16 @@
 <p><img alt="image-20240217111255212" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240217111255212.png" style="zoom:50%;"/></p>
 <p>在所有流量上放置<span><span class="heti-spacing"> </span>sensor</span></p>
 <ul>
-<li>
-<p>深入分组检查<span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span>检查分组的内容<span class="heti-skip"><span class="heti-spacing"> </span>(e.g.,<span class="heti-spacing"> </span></span>检查分组中的特征串已知攻击数据库的病毒和攻击串</p>
-</li>
+<li>深入分组检查<span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span>检查分组的内容<span class="heti-skip"><span class="heti-spacing"> </span>(e.g.,<span class="heti-spacing"> </span></span>检查分组中的特征串已知攻击数据库的病毒和攻击串</li>
+</ul>
+<ul>
 <li>
 <p>检查分组间的相关性，判断是否是有害的分组</p>
+<p>• 端口扫描
+• 网络映射
+• DoS 攻击</p>
 </li>
 </ul>
-<p>• 端口扫描
-  • 网络映射
-  • DoS 攻击</p>
 <p>映射<span><span class="heti-spacing"> </span>:</span></p>
 <ul>
 <li>在攻击之前： “踩点” – 发现在网络上实现了哪些服务</li>
@@ -3404,18 +3406,18 @@
 </li>
 <li>
 <p>服务器返回 <code>401</code> 状态，要求客户端提供用户名和密码进行认证<heti-adjacent class="heti-adjacent-half">。</heti-adjacent>（验证失败的时候，响应头会加上<code>WWW-Authenticate: Basic realm="请求域"</code><heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，如下所示：</p>
-</li>
-</ol>
 <div class="highlight"><pre><span></span><code>401 Unauthorized
 WWW-Authenticate： Basic realm="WallyWorld"
 </code></pre></div>
-<ol>
-<li>客户端将输入的用户名密码用<code>Base64</code>进行编码后，采用非加密的明文方式传送给服务器；</li>
-</ol>
+</li>
+<li>
+<p>客户端将输入的用户名密码用<code>Base64</code>进行编码后，采用非加密的明文方式传送给服务器；</p>
 <div class="highlight"><pre><span></span><code>Authorization: Basic xxxxxxxxxx.
 </code></pre></div>
-<ol>
-<li>服务器将 <code>Authorization</code> 头中的用户名密码解码并取出，进行验证，如果认证成功，则返回相应的资源；如果认证失败，则仍返回 <code>401</code> 状态，要求重新进行认证。</li>
+</li>
+<li>
+<p>服务器将 <code>Authorization</code> 头中的用户名密码解码并取出，进行验证，如果认证成功，则返回相应的资源；如果认证失败，则仍返回 <code>401</code> 状态，要求重新进行认证。</p>
+</li>
 </ol>
 <h4 id="digest-authentication">摘要认证<span><span class="heti-spacing"> </span>digest authentication</span><a class="headerlink" href="#digest-authentication" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p>该认证是<span class="heti-skip"><span class="heti-spacing"> </span>HTTP1.1<span class="heti-spacing"> </span></span>提出的基本认证的替代方法，不包含密码的明文传递。 摘要认证使用<code>随机数 + MD5 加密哈希函数</code>来对用户名、密码进行加密，在上述第二步时，服务器返回随机字符串 <code>nonnce</code> 之后，客户端发送摘要<code>MD5（HA1:nonce:HA2）</code>。 其中<code>HA1=MD5(username:realm:password),HA2=MD5(method:digestURI)</code>。</p>

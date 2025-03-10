@@ -3364,8 +3364,10 @@
 <p>设<span class="heti-skip"><span class="heti-spacing"> </span>G = (V, E)<span class="heti-spacing"> </span></span>是一个带权有向图，其中<span class="heti-skip"><span class="heti-spacing"> </span>V<span class="heti-spacing"> </span></span>是顶点集合，<span>E<span class="heti-spacing"> </span></span>是边集合，<span>w(u, v)<span class="heti-spacing"> </span></span>表示从顶点<span class="heti-skip"><span class="heti-spacing"> </span>u<span class="heti-spacing"> </span></span>到顶点<span class="heti-skip"><span class="heti-spacing"> </span>v<span class="heti-spacing"> </span></span>的权重。<span>Floyd<span class="heti-spacing"> </span></span>算法的数学描述如下：</p>
 <ol>
 <li>初始化<span><span class="heti-spacing"> </span>$ D[i][j] = w(i, j)<span class="arithmatex">\(，如果\)</span> i = j<span class="arithmatex">\(，则\)</span> D[i][j] = 0<span class="arithmatex">\(；如果\)</span> (i, j) in E$</span>，则<span><span class="heti-spacing"> </span><span class="arithmatex">\(D[i][j] = \infty\)</span></span>。</li>
-<li>对于每个<span><span class="heti-spacing"> </span>$ k in V$</span>，执行以下操作：</li>
+<li>对于每个<span><span class="heti-spacing"> </span>$ k in V$</span>，执行以下操作：<ul>
 <li>对于每个<span><span class="heti-spacing"> </span>$ i, j in V$</span>，如果<span><span class="heti-spacing"> </span><span class="arithmatex">\(D[i][k] + D[k][j] &lt; D[i][j]\)</span></span>，则更新<span><span class="heti-spacing"> </span><span class="arithmatex">\(D[i][j] = D[i][k] + D[k][j]\)</span></span>。</li>
+</ul>
+</li>
 </ol>
 <div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">V</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">V</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -3403,27 +3405,29 @@
 <p><strong>数学推导</strong></p>
 <ul>
 <li><code>P(v_j)</code>：表示到点<code>v_j</code>的最短距离。</li>
-<li>
-<p><code>T^{(k)}(v_j)</code>：表示搜索到第<code>k</code>步时，到<code>T</code>点<code>v_j</code>的最短距离。</p>
-</li>
+<li><code>T^{(k)}(v_j)</code>：表示搜索到第<code>k</code>步时，到<code>T</code>点<code>v_j</code>的最短距离。</li>
+</ul>
+<ol>
 <li>
 <p><strong>设定初值</strong><span>(<span class="heti-spacing"> </span></span>将起点以外距离都设置为无穷<span><span class="heti-spacing"> </span>)</span></p>
-</li>
+<ul>
 <li><span class="arithmatex">\(T^{(0)}(v_1) = 0\)</span></li>
-<li>
-<p><span class="arithmatex">\(T^{(0)}(v_j) = \infty \quad j = 2, 3, ..., n\)</span></p>
+<li><span class="arithmatex">\(T^{(0)}(v_j) = \infty \quad j = 2, 3, ..., n\)</span></li>
+</ul>
 </li>
 <li>
 <p><strong>确定<span class="heti-skip"><span class="heti-spacing"> </span>P<span class="heti-spacing"> </span></span>点</strong>（从所有未访问的点中，找出当前距离最小的）<strong><span>(!!!<span class="heti-spacing"> </span></span>贪心体现在此处<span><span class="heti-spacing"> </span>)</span></strong></p>
-</li>
-<li>
-<p><span class="arithmatex">\(P(v_j) = \min\limits_j \{ T^{(k)}(v_j) \}\)</span></p>
+<ul>
+<li><span class="arithmatex">\(P(v_j) = \min\limits_j \{ T^{(k)}(v_j) \}\)</span></li>
+</ul>
 </li>
 <li>
 <p><strong>更新<span class="heti-skip"><span class="heti-spacing"> </span>T<span class="heti-spacing"> </span></span>值</strong>（进行松弛操作）</p>
-</li>
+<ul>
 <li><span><span class="arithmatex">\(T^{(k+1)}(v_j) = \min\limits_i \{ T^{(k)}(v_j), P(v_j) + l_{ij} \}\)</span><span class="heti-spacing"> </span></span>其中，<span><span class="arithmatex">\(l_{ij}\)</span><span class="heti-spacing"> </span></span>表示边的权重。</li>
 </ul>
+</li>
+</ol>
 <h4 id="_10">复杂度分析<a class="headerlink" href="#_10" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <div class="arithmatex">\[
 正常情况\quad O(n^2)\\
@@ -3547,12 +3551,10 @@
 <h4 id="_20"><strong>增广链</strong><a class="headerlink" href="#_20" title="anchor link to this section for reference">¶</a></h4>
 <p>设<span class="heti-skip"><span class="heti-spacing"> </span>f<span class="heti-spacing"> </span></span>是一个可行流，<span><span class="arithmatex">\(\mu\)</span><span class="heti-spacing"> </span></span>是从发点到收点的一条链，<span><span class="arithmatex">\(\mu\)</span><span class="heti-spacing"> </span></span>满足以下条件时为增广链<span><span class="heti-spacing"> </span>:</span></p>
 <ul>
-<li>
-<p>若弧<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\((v_i,v_j)\)</span><span class="heti-spacing"> </span></span>是前向弧，则<span><span class="heti-spacing"> </span><span class="arithmatex">\(0\le f_{ij} \le c_{ij}\)</span></span>，即<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\mu^+\)</span><span class="heti-spacing"> </span></span>中每一条弧<strong>都要是非饱和弧</strong></p>
-</li>
-<li>
-<p>若弧<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\((v_i,v_j)\)</span><span class="heti-spacing"> </span></span>是后向弧，则<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(0\le f_{ij} \le c_{ij}\)</span><span class="heti-spacing"> </span></span>即<span><span class="heti-spacing"> </span><span class="arithmatex">\(\mu^-\)</span></span>​中每一条弧<strong>都要是非零流弧</strong></p>
-</li>
+<li>若弧<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\((v_i,v_j)\)</span><span class="heti-spacing"> </span></span>是前向弧，则<span><span class="heti-spacing"> </span><span class="arithmatex">\(0\le f_{ij} \le c_{ij}\)</span></span>，即<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\mu^+\)</span><span class="heti-spacing"> </span></span>中每一条弧<strong>都要是非饱和弧</strong></li>
+</ul>
+<ul>
+<li>若弧<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\((v_i,v_j)\)</span><span class="heti-spacing"> </span></span>是后向弧，则<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(0\le f_{ij} \le c_{ij}\)</span><span class="heti-spacing"> </span></span>即<span><span class="heti-spacing"> </span><span class="arithmatex">\(\mu^-\)</span></span>​中每一条弧<strong>都要是非零流弧</strong></li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">可行流成为最大流的充分必要条件</p>

@@ -3308,23 +3308,21 @@
 </li>
 <li>
 <p>电脑进入<code>cmd</code>，输入<code>ipconfig</code>找到电脑自己的<span class="heti-skip"><span class="heti-spacing"> </span>IPv4<span class="heti-spacing"> </span></span>地址，例如<code>192.168.127.1</code></p>
-</li>
-</ol>
 <p>这里<span class="heti-skip"><span class="heti-spacing"> </span>192.168<span class="heti-spacing"> </span></span>是<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>类<span><span class="heti-spacing"> </span>IP</span>，是内网中返回的</p>
-<ol>
-<li>看看<span class="heti-skip"><span class="heti-spacing"> </span>Clash<span class="heti-spacing"> </span></span>界面的<span class="heti-skip"><span class="heti-spacing"> </span>Port<span class="heti-spacing"> </span></span>是多少，不用管那个<span><span class="heti-spacing"> </span>Socks Port</span>。例如，<span>Port<span class="heti-spacing"> </span></span>是<code>1125</code></li>
-</ol>
+</li>
+<li>
+<p>看看<span class="heti-skip"><span class="heti-spacing"> </span>Clash<span class="heti-spacing"> </span></span>界面的<span class="heti-skip"><span class="heti-spacing"> </span>Port<span class="heti-spacing"> </span></span>是多少，不用管那个<span><span class="heti-spacing"> </span>Socks Port</span>。例如，<span>Port<span class="heti-spacing"> </span></span>是<code>1125</code></p>
 <p>在<span class="heti-skip"><span class="heti-spacing"> </span>SSR<span class="heti-spacing"> </span></span>中，是看本地端口，例如，本地端口是<span><span class="heti-spacing"> </span>1125</span></p>
-<ol>
+</li>
 <li>
 <p>手机或其它设备先连接上电脑<span class="heti-skip"><span class="heti-spacing"> </span>win10<span class="heti-spacing"> </span></span>的自带热点，进入手机 <strong>WiFi</strong> 的详细设置界面</p>
 </li>
 <li>
 <p>把选项 <strong>代理</strong> 从 <strong>无</strong> 改成 <strong>手动</strong> ，选项 <strong>主机名</strong> 设置为<code>192.168.127.1</code>，选项 <strong>代理服务器端口</strong> 改为<code>1125</code>，确认即可</p>
-</li>
-</ol>
 <p><img alt="Screenshot 2024-02-02 at 00.24.51.jpeg" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/Screenshot%202024-02-02%20at%2000.24.51.jpeg.png" style="zoom: 25%;"/></p>
 <p><img alt="Screenshot 2024-02-02 at 00.25.19.jpeg" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/Screenshot%202024-02-02%20at%2000.25.19.jpeg.png" style="zoom: 25%;"/></p>
+</li>
+</ol>
 <h2 id="iphonepc">使用“共享文件夹”实现<span class="heti-skip"><span class="heti-spacing"> </span>iPhone<span class="heti-spacing"> </span></span>与<span class="heti-skip"><span class="heti-spacing"> </span>PC<span class="heti-spacing"> </span></span>间文件快速传输<a class="headerlink" href="#iphonepc" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <blockquote>
 <p>参考文献：<a href="https://zhuanlan.zhihu.com/p/145540093">如何通过“共享文件夹”实现<span class="heti-skip"><span class="heti-spacing"> </span>iPhone<span class="heti-spacing"> </span></span>与<span class="heti-skip"><span class="heti-spacing"> </span>PC<span class="heti-spacing"> </span></span>间文件快速传输</a></p>
@@ -3409,9 +3407,11 @@
 </div>
 <h3 id="app">第一步——如何抓包手机<span><span class="heti-spacing"> </span>APP</span><a class="headerlink" href="#app" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ul>
-<li>第一种是用电脑给手机提供热点，相当于电脑当作了手机的流量来源，直接在电脑上使用抓包工具（如<code>wireshark</code>等）进行分析即可。</li>
-</ul>
+<li>
+<p>第一种是用电脑给手机提供热点，相当于电脑当作了手机的流量来源，直接在电脑上使用抓包工具（如<code>wireshark</code>等）进行分析即可。</p>
 <p><img alt="image-20240318085112013" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240318085112013.png"/></p>
+</li>
+</ul>
 <ul>
 <li>第二种我也没有试过，直接使用手机端的抓包<span class="heti-skip"><span class="heti-spacing"> </span>APP<span class="heti-spacing"> </span></span>进行分析。</li>
 </ul>

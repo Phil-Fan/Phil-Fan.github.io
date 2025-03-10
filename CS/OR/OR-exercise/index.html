@@ -3454,9 +3454,11 @@ $$</p>
 </blockquote>
 <ul>
 <li><strong>单纯形法</strong>：单纯形法是一种用于求解线性规划问题的迭代算法。它通过在可行域的顶点之间移动，逐步逼近最优解。在线性规划问题中，如果最优解存在，那么它一定是可行域的顶点之一。因此，单纯形法的收敛点是全局最优解。</li>
-<li><strong>最速下降法</strong>：最速下降法是一种用于求解无约束优化问题的迭代算法。它通过沿着目标函数梯度的反方向移动，逐步逼近最优解。最速下降法的收敛点取决于目标函数的类型和初始点的选择。</li>
+<li><strong>最速下降法</strong>：最速下降法是一种用于求解无约束优化问题的迭代算法。它通过沿着目标函数梯度的反方向移动，逐步逼近最优解。最速下降法的收敛点取决于目标函数的类型和初始点的选择。<ul>
 <li>如果目标函数是凸函数，那么最速下降法的收敛点是全局最优解。因为在凸函数中，局部最优解和全局最优解是一致的。</li>
 <li>如果目标函数是非凸函数，那么最速下降法的收敛点可能是局部最优解。因为在非凸函数中，存在多个局部最优解，而最速下降法可能会陷入其中之一。</li>
+</ul>
+</li>
 </ul>
 <blockquote>
 <p>选择迭代方向：最速下降法，牛顿法，共轭梯度法。 这三种方法适合在寻优的哪个时期使用，为什么？</p>
@@ -3580,27 +3582,29 @@ V_{1,n}\left({s_{l}}, p_{1, n}^{*}\right) \\
 <p><strong>数学推导</strong></p>
 <ul>
 <li><code>P(v_j)</code>：表示到点<code>v_j</code>的最短距离。</li>
-<li>
-<p><code>T^{(k)}(v_j)</code>：表示搜索到第<code>k</code>步时，到<code>T</code>点<code>v_j</code>的最短距离。</p>
-</li>
+<li><code>T^{(k)}(v_j)</code>：表示搜索到第<code>k</code>步时，到<code>T</code>点<code>v_j</code>的最短距离。</li>
+</ul>
+<ol>
 <li>
 <p><strong>设定初值</strong><span>(<span class="heti-spacing"> </span></span>将起点以外距离都设置为无穷<span><span class="heti-spacing"> </span>)</span></p>
-</li>
+<ul>
 <li><span class="arithmatex">\(T^{(0)}(v_1) = 0\)</span></li>
-<li>
-<p><span class="arithmatex">\(T^{(0)}(v_j) = \infty \quad j = 2, 3, ..., n\)</span></p>
+<li><span class="arithmatex">\(T^{(0)}(v_j) = \infty \quad j = 2, 3, ..., n\)</span></li>
+</ul>
 </li>
 <li>
 <p><strong>确定<span class="heti-skip"><span class="heti-spacing"> </span>P<span class="heti-spacing"> </span></span>点</strong>（从所有未访问的点中，找出当前距离最小的）</p>
-</li>
-<li>
-<p><span class="arithmatex">\(P(v_j) = \min\limits_j \{ T^{(k)}(v_j) \}\)</span></p>
+<ul>
+<li><span class="arithmatex">\(P(v_j) = \min\limits_j \{ T^{(k)}(v_j) \}\)</span></li>
+</ul>
 </li>
 <li>
 <p><strong>更新<span class="heti-skip"><span class="heti-spacing"> </span>T<span class="heti-spacing"> </span></span>值</strong>（进行松弛操作）</p>
-</li>
+<ul>
 <li><span><span class="arithmatex">\(T^{(k+1)}(v_j) = \min\limits_i \{ T^{(k)}(v_j), P(v_j) + l_{ij} \}\)</span><span class="heti-spacing"> </span></span>其中，<span><span class="arithmatex">\(l_{ij}\)</span><span class="heti-spacing"> </span></span>表示边的权重。</li>
 </ul>
+</li>
+</ol>
 <p><strong>可以用于求最长路。</strong></p>
 <ol>
 <li>正权边图中求最长路可使用<span><span class="heti-spacing"> </span>SPFA</span></li>

@@ -3437,24 +3437,24 @@ D) register
 </ul>
 <p><code>if,else,goto,switch,case,do,while,for,continue,break,return,default,typedef</code></p>
 <ul>
-<li>
-<p>存储类说明保留字<span><span class="heti-spacing"> </span>:</span>
-<code>auto,register,extern,static</code></p>
-</li>
+<li>存储类说明保留字<span><span class="heti-spacing"> </span>:</span>
+<code>auto,register,extern,static</code></li>
+</ul>
+<ul>
 <li>
 <p>长度运算符保留字<span><span class="heti-spacing"> </span>:</span><code>sizeof</code></p>
-</li>
-</ul>
 <div class="highlight"><pre><span></span><code><span class="n">不是C语言提供的合法关键字是</span><span class="w"> </span><span class="n">C</span>
 <span class="w">    </span><span class="n">A</span><span class="p">)</span><span class="w"> </span><span class="k">switch</span>
 <span class="w">    </span><span class="n">B</span><span class="p">)</span><span class="w"> </span><span class="kt">char</span>
 <span class="w">    </span><span class="n">C</span><span class="p">)</span><span class="w"> </span><span class="n">Case</span>
 <span class="w">    </span><span class="n">D</span><span class="p">)</span><span class="w"> </span><span class="k">default</span>
 </code></pre></div>
+</li>
+</ul>
 <h2 id="_2"><strong>二、数据类型、运算符和表达式（很重要）</strong><a class="headerlink" href="#_2" title="anchor link to this section for reference">¶</a></h2>
 <h3 id="1_1"><strong><span>1.<span class="heti-spacing"> </span></span>常量</strong><a class="headerlink" href="#1_1" title="anchor link to this section for reference">¶</a></h3>
 <ul>
-<li>整型常量</li>
+<li>整型常量<ul>
 <li>十进制整数<ul>
 <li>123、-120</li>
 <li>%d</li>
@@ -3477,7 +3477,9 @@ D) register
 <li>long <strong>以<span class="heti-skip"><span class="heti-spacing"> </span>L<span class="heti-spacing"> </span></span>为结尾</strong></li>
 <li>unsigned <strong>以<span class="heti-skip"><span class="heti-spacing"> </span>U<span class="heti-spacing"> </span></span>为结尾</strong></li>
 <li>二进制 <strong>以<span><span class="heti-spacing"> </span>B</span>、<span>b<span class="heti-spacing"> </span></span>结尾</strong></li>
-<li>浮点型常量</li>
+</ul>
+</li>
+<li>浮点型常量<ul>
 <li>十进制小数形式<ul>
 <li>小数形式是由数字和小数点组成的一种实数表示形式</li>
 <li>例如<code>0.123</code>、<code>.123</code>、<code>123.</code>、<code>0.0</code>等都是合法的实型常量<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>实数、浮点数<span><span class="heti-spacing"> </span>)</span></li>
@@ -3490,7 +3492,9 @@ D) register
 </ul>
 </li>
 <li><strong>浮点数默认为<span class="heti-skip"><span class="heti-spacing"> </span>double<span class="heti-spacing"> </span></span>型</strong></li>
-<li>字符型常量</li>
+</ul>
+</li>
+<li>字符型常量<ul>
 <li>普通字符<ul>
 <li>单引号括起</li>
 <li><span>ASCII<span class="heti-spacing"> </span></span>码表示（<span>0~255<span class="heti-spacing"> </span></span>整型）</li>
@@ -3503,58 +3507,73 @@ D) register
 <li><code>\xhh</code>二位十六进制的<span class="heti-skip"><span class="heti-spacing"> </span>ASCII<span class="heti-spacing"> </span></span>码 <code>\x41='A'</code></li>
 </ul>
 </li>
-<li>字符串常量</li>
+</ul>
+</li>
+<li>字符串常量<ul>
 <li>双引号括起</li>
 <li>字符串所占字节数为其中的字符数<span><span class="heti-spacing"> </span>+1</span>（<code>'\0'</code>字符串结束标志）</li>
-<li>
-<p>不要忘记最后的<span><span class="heti-spacing"> </span>0</span></p>
+<li>不要忘记最后的<span><span class="heti-spacing"> </span>0</span></li>
+</ul>
 </li>
-<li>
-<p><strong>题型：判断正确表示的常量</strong></p>
-<p>下列正确的转义字符是<span><span class="heti-spacing"> </span>( D )</span>
-  A.'''   B.'97'  C.'0xab'  D.'\'</p>
-<p>以下正确的字符常量是<span><span class="heti-spacing"> </span>( B )</span>
-  A.'412'  B.255    C.'08'    D. ''</p>
-<p>下列实型常数表示形式不正确的是<span><span class="heti-spacing"> </span>( C )</span>
-  A．327.   B．1.48e4    C．.5E-10    D．2.1e4</p>
-<p>下面四个选项中，均非浮点数正确表示的选项是<span><span class="heti-spacing"> </span>( D )</span>
-  A.160.  0.12    e3
-  B.-.18   123e4   0.0
-  C.-e3   234     1e3
-  D.123   2e4.2   .e5</p>
+</ul>
+<ul>
+<li><strong>题型：判断正确表示的常量</strong><div class="highlight"><pre><span></span><code>下列正确的转义字符是( D )
+A.'''   B.'\97'  C.'\0xab'  D.'\\'
+
+以下正确的字符常量是( B )
+A.'\412'  B.255    C.'\08'    D. '\'
+
+下列实型常数表示形式不正确的是( C )
+A．327.   B．1.48e4    C．.5E-10    D．2.1e4
+
+下面四个选项中，均非浮点数正确表示的选项是( D )
+A.160.  0.12    e3
+B.-.18   123e4   0.0
+C.-e3   234     1e3
+D.123   2e4.2   .e5
+</code></pre></div>
 </li>
-<li>
-<p><strong>题型：常量所占字节</strong></p>
-<p><span>sizeof(5.0)<span class="heti-spacing"> </span></span>的值为<span><span class="heti-spacing"> </span>( D )</span>
-  A. 5
-  B. 4
-  C. 2
-  D. 8</p>
-<p>在<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言中，下列表达式的值最大的是<span><span class="heti-spacing"> </span>( D )</span>
-  A. sizeof('a');
-  B. sizeof(97);
-  C. sizeof("aaaa");
-  D. sizeof(97.0);</p>
+</ul>
+<ul>
+<li><strong>题型：常量所占字节</strong><div class="highlight"><pre><span></span><code>sizeof(5.0)的值为( D )
+A. 5
+B. 4
+C. 2
+D. 8
+
+在C语言中，下列表达式的值最大的是( D )
+A. sizeof('a');
+B. sizeof(97);
+C. sizeof("aaaa");
+D. sizeof(97.0);
+</code></pre></div>
 </li>
-<li>
-<p><strong>题型：进制转换</strong></p>
-<p>下列程序段的输出结果是：<strong><em>8=10</em></strong>_____
-  int i=010,j=16;
-  printf("%d=%xn",i,j);</p>
+</ul>
+<ul>
+<li><strong>题型：进制转换</strong><div class="highlight"><pre><span></span><code>下列程序段的输出结果是：___8=10________
+int i=010,j=16;
+printf("%d=%x\n",i,j);
+</code></pre></div>
 </li>
 </ul>
 <h3 id="2"><strong><span>2.<span class="heti-spacing"> </span></span>变量</strong><a class="headerlink" href="#2" title="anchor link to this section for reference">¶</a></h3>
 <ul>
-<li>整型变量</li>
+<li>整型变量<ul>
 <li><span>int 4<span class="heti-spacing"> </span></span>字节</li>
 <li><span>short 2<span class="heti-spacing"> </span></span>字节</li>
 <li><span>long 4<span class="heti-spacing"> </span></span>字节</li>
-<li>浮点型变量</li>
+</ul>
+</li>
+<li>浮点型变量<ul>
 <li><span>float 4<span class="heti-spacing"> </span></span>字节</li>
 <li><span>double 8<span class="heti-spacing"> </span></span>字节</li>
-<li>字符变量</li>
+</ul>
+</li>
+<li>字符变量<ul>
 <li><span>char 1<span class="heti-spacing"> </span></span>字节</li>
 <li><strong><span>C<span class="heti-spacing"> </span></span>语言允许对整型变量赋以字符值，也允许对字符变量赋以整型值</strong></li>
+</ul>
+</li>
 </ul>
 <p><img alt="image-20221229103520570" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20221229103520570.png"/></p>
 <p><a href="https://www.cnblogs.com/bigclould/p/9322248.html#:~:text=static%E5%8F%98%E9%87%8F%E6%98%AF%E6%8C%87%E9%9D%99%E6%80%81%E7%9A%84%E5%8F%98%E9%87%8F%EF%BC%8C%E4%B8%8D%E7%AE%A1%E6%98%AF%E5%9C%A8%E5%85%A8%E5%B1%80%E8%BF%98%E6%98%AF%E5%B1%80%E9%83%A8%E5%A3%B0%E6%98%8E%E7%9A%84static%E5%8F%98%E9%87%8F%E9%83%BD%E5%AD%98%E6%94%BE%E4%BA%8E%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F%E5%8C%BA%E5%9F%9F%EF%BC%8C%E6%89%80%E4%BB%A5%E5%AE%83%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E6%98%AF%E4%BB%8E%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%A7%8B%E5%88%B0%E7%A8%8B%E5%BA%8F%E7%BB%93%E6%9D%9F%E3%80%82,%E4%BD%86%E6%98%AFstatic%E5%8F%98%E9%87%8F%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%B9%B6%E4%B8%8D%E7%AD%89%E5%90%8C%E4%BA%8E%E5%AE%83%E7%9A%84%E7%94%9F%E5%AD%98%E5%91%A8%E6%9C%9F%EF%BC%8C%E5%AE%83%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%86%B3%E5%AE%9A%E4%BA%8E%E5%AE%83%E8%A2%AB%E5%AE%9A%E4%B9%89%E7%9A%84%E4%BD%8D%E7%BD%AE%E3%80%82%20%E5%8F%AF%E4%BB%A5%E8%AE%A4%E4%B8%BAstatic%E5%8F%98%E9%87%8F%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F&lt;%3D%E7%94%9F%E5%AD%98%E5%91%A8%E6%9C%9F%E3%80%82"><span>static<span class="heti-spacing"> </span></span>作用：静态变量的生存周期和作用域<span class="heti-skip"><span class="heti-spacing"> </span>- bigclould -<span class="heti-spacing"> </span></span>博客园<span><span class="heti-spacing"> </span>(cnblogs.com)</span></a></p>
@@ -3569,16 +3588,16 @@ D) register
 </ul>
 <h4 id="_4">存储类型<a class="headerlink" href="#_4" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <ul>
-<li><span>C<span class="heti-spacing"> </span></span>语言的四种存储类型：</li>
+<li><span>C<span class="heti-spacing"> </span></span>语言的四种存储类型：<ul>
 <li>动态存储 <code>auto</code>（自动）         </li>
 <li>动态存储 <code>register</code>（寄存器）   </li>
 <li>静态存储 <code>static</code>（静态）     </li>
-<li>
-<p>静态存储 <code>extern</code>（外部）</p>
+<li>静态存储 <code>extern</code>（外部）</li>
+</ul>
 </li>
-<li>
-<p><strong>若存储在动态存储区中的变量没有初始化，则变量的值是不确定的，而对于存储在静态存储区中的变量，则系统自动初始化与变量类型相同的<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>初值</strong></p>
-</li>
+</ul>
+<ul>
+<li><strong>若存储在动态存储区中的变量没有初始化，则变量的值是不确定的，而对于存储在静态存储区中的变量，则系统自动初始化与变量类型相同的<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>初值</strong></li>
 <li><strong>凡是在函数外声明的变量（全局变量）储存在静态存储区；凡是在函数内（包括<span class="heti-skip"><span class="heti-spacing"> </span>main<span class="heti-spacing"> </span></span>函数）前面没加<span class="heti-skip"><span class="heti-spacing"> </span>static<span class="heti-spacing"> </span></span>声明的变量，都储存在动态存储区。</strong></li>
 <li>凡是函数中未指定存储类别的局部变量，其隐含的存储类型为<strong>auto</strong></li>
 </ul>
@@ -3665,44 +3684,51 @@ D) register
 <ul>
 <li>
 <p>a -&gt; 97       A -&gt; 65     0 -&gt; 48</p>
-<p>假设<span class="heti-skip"><span class="heti-spacing"> </span>a=2,b='2',s="2",<span class="heti-spacing"> </span></span>下列逻辑表达式中值为<span><span class="heti-spacing"> </span>1</span>（真）的是<span><span class="heti-spacing"> </span>A</span>
-  A.(s[1]&gt;'a')|| ~(a+b)
-  B.(b&gt;a) &amp;&amp; (s[2]='0')
-  C.!(s+1 &amp;&amp; b-a)
-  D.!a&gt;b &amp;&amp; ~(a&gt;b)</p>
-<p>在<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>程序中，下面（B）不能表示逻辑值“真”
-  A.(a=1,b=2)   B.4&gt;&gt;3    C.-0.01   D."false"</p>
-<p>以下程序运行输出值是<span><span class="heti-spacing"> </span>2 1 1</span>
-    int a=1,b=0,c;
-    c=++a || ++b; 
-    b=!b;
-    printf("%d %d %d",a,b,c)</p>
-<p>以下程序的输出值是<span><span class="heti-spacing"> </span>A</span>
-    static int x,y,z;
-    z += (x=1)||(y=2)
-    printf("%d#%d",y,z)
-  A.0#1    B.2#1    C.2#2   D.z的值不确定</p>
-<div class="highlight"><pre><span></span><code>B
+<div class="highlight"><pre><span></span><code>假设 a=2,b='2',s="2",下列逻辑表达式中值为1（真）的是 A
+A.(s[1]&gt;'a')|| ~(a+b)
+B.(b&gt;a) &amp;&amp; (s[2]='\0')
+C.!(s+1 &amp;&amp; b-a)
+D.!a&gt;b &amp;&amp; ~(a&gt;b)
+
+在C程序中，下面（B）不能表示逻辑值“真”
+A.(a=1,b=2)   B.4&gt;&gt;3    C.-0.01   D."false"
+
+以下程序运行输出值是 2 1 1
+  int a=1,b=0,c;
+  c=++a || ++b; 
+  b=!b;
+  printf("%d %d %d",a,b,c)
+
+以下程序的输出值是 A
+  static int x,y,z;
+  z += (x=1)||(y=2)
+  printf("%d#%d",y,z)
+A.0#1    B.2#1    C.2#2   D.z的值不确定
+
+  B
+下列语句执行后n的值为：
+n=(4 &gt; 4 - !2) &amp;&amp; (2 &gt; 1) || (2 &amp;&amp;6);
+A)  0  B)  1  C)  6  D)  以上均不对
+
+下列程序段的输出结果为（A）
+int a=1,b=2,c=2,t;
+while (a&lt;b&lt;c)
+{
+  t=a;
+  a=b;
+  b=t;
+  c--;
+}
+printf("%d,%d,%d"a,b,c)
+A.1,2,0   B.2,1,0   C.1,2,1   D.2,1,1
+
+假设有定义:int x=10;则表达式0&lt;=x&lt;=9的值是____1____
+
+表达式!!5的值为___1____
 </code></pre></div>
-<p>下列语句执行后<span class="heti-skip"><span class="heti-spacing"> </span>n<span class="heti-spacing"> </span></span>的值为：
-  n=(4 &gt; 4 - !2) &amp;&amp; (2 &gt; 1) || (2 &amp;&amp;6);
-  A)  0  B)  1  C)  6  D)  以上均不对</p>
-<p>下列程序段的输出结果为（A）
-  int a=1,b=2,c=2,t;
-  while (a&lt;b&lt;c)
-  {
-    t=a;
-    a=b;
-    b=t;
-    c–;
-  }
-  printf("%d,%d,%d"a,b,c)
-  A.1,2,0   B.2,1,0   C.1,2,1   D.2,1,1</p>
-<p>假设有定义<span class="heti-skip"><span class="heti-spacing"> </span>:int x=10;<span class="heti-spacing"> </span></span>则表达式<span class="heti-skip"><span class="heti-spacing"> </span>0&lt;=x&lt;=9<span class="heti-spacing"> </span></span>的值是<strong><em>_1</em></strong>_</p>
-<p>表达式<span class="heti-skip"><span class="heti-spacing"> </span>!!5<span class="heti-spacing"> </span></span>的值为<strong><em>1</em></strong>_</p>
+<p><strong>易考点：位运算（转换为二进制运算、保证运算位数一致）</strong></p>
 </li>
 </ul>
-<p><strong>易考点：位运算（转换为二进制运算、保证运算位数一致）</strong></p>
 <p><span>(<span class="heti-spacing"> </span></span>双目运算符中<span><span class="heti-spacing"> </span>)</span> <strong>算术运算符<span class="heti-skip"><span class="heti-spacing"> </span>&gt;<span class="heti-spacing"> </span></span>移位运算符<span class="heti-skip"><span class="heti-spacing"> </span>&gt;<span class="heti-spacing"> </span></span>比较<span class="heti-skip"><span class="heti-spacing"> </span>&gt;<span class="heti-spacing"> </span></span>等于<span class="heti-skip"><span class="heti-spacing"> </span>&gt;<span class="heti-spacing"> </span></span>位运算符</strong></p>
 <div class="highlight"><pre><span></span><code>  变量a=1,b='1',c=1.0,d="1"，下列运算不能进行的是 C
   A.b/a--     B.~a|!b     C.c^++a     D.d+a-b
@@ -3756,25 +3782,15 @@ D) register
 <h2 id="_6"><strong>四、结构</strong><a class="headerlink" href="#_6" title="anchor link to this section for reference">¶</a></h2>
 <h3 id="1if-switch"><strong>①选择结构<span><span class="heti-spacing"> </span>if</span> 、switch</strong><a class="headerlink" href="#1if-switch" title="anchor link to this section for reference">¶</a></h3>
 <p><strong><span>if<span class="heti-spacing"> </span></span>语句经典陷阱</strong></p>
-<ul>
-<li><code>a=5;b=6</code> </li>
-<li><code>if (a&gt;b);a++;b++;</code><ul>
-<li>a=6 b=7</li>
-</ul>
-</li>
-<li><code>if (a&gt;b){a++;b++;}</code><ul>
-<li>a=5 b=6</li>
-</ul>
-</li>
-<li><code>if (a&gt;b) a++;b++;</code><ul>
-<li>a=5 b=7</li>
-</ul>
-</li>
-<li><code>if (a=b) a++;b++;</code><ul>
-<li>a=7 b=7</li>
-</ul>
-</li>
-</ul>
+<p>+ <code>a=5;b=6</code> 
+  + <code>if (a&gt;b);a++;b++;</code>
+    + a=6 b=7
+  + <code>if (a&gt;b){a++;b++;}</code>
+    + a=5 b=6
+  + <code>if (a&gt;b) a++;b++;</code>
+    + a=5 b=7
+  + <code>if (a=b) a++;b++;</code>
+    + a=7 b=7</p>
 <p><a href="https://blog.csdn.net/King_Louis_/article/details/90263800"><span>if<span class="heti-spacing"> </span></span>语句判断真假的几种情况<span class="heti-skip"><span class="heti-spacing"> </span>_<span class="heti-spacing"> </span></span>那朵云好像只狗哦的博客<span class="heti-skip"><span class="heti-spacing"> </span>-CSDN<span class="heti-spacing"> </span></span>博客<span class="heti-skip"><span class="heti-spacing"> </span>_if0<span class="heti-spacing"> </span></span>是真还是假</a></p>
 <p><strong><span>switch<span class="heti-spacing"> </span></span>语句注意点</strong></p>
 <p></p><div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">switch</span><span class="w"> </span><span class="p">()</span>
@@ -3809,21 +3825,16 @@ D) register
 <span class="p">}</span>
 </code></pre></div>
   - 表达式1：给某些变量赋初值
-<ul>
-<li>
-<p>表达式<span><span class="heti-spacing"> </span>2</span>：表明循环的终止条件</p>
-</li>
-<li>
-<p>表达式<span><span class="heti-spacing"> </span>3</span>：用于循环中修改某些变量的值
+<p><span>-<span class="heti-spacing"> </span></span>表达式<span><span class="heti-spacing"> </span>2</span>：表明循环的终止条件</p>
+<p><span>-<span class="heti-spacing"> </span></span>表达式<span><span class="heti-spacing"> </span>3</span>：用于循环中修改某些变量的值
     <strong>注意：</strong>
 <strong>表达式<span><span class="heti-spacing"> </span>1</span>、2、<span>3<span class="heti-spacing"> </span></span>可以全部或部分省略，但是<code>；</code>永远不能省略 
     <code>for(;;)</code>=<code>while(1)</code></strong>
 <strong>表达式<span><span class="heti-spacing"> </span>1</span>、2、<span>3<span class="heti-spacing"> </span></span>都可由包含逗号运算符的多个表达式组成</strong>
 <strong>陷阱：</strong>
 <strong>空语句 <code>for（i=0;i&lt;100;i++);</code> 依然是要注意分号</strong></p>
-<p><mark>注意递归调用的输出顺序问题！！</mark></p>
-</li>
-</ul>
+<div class="highlight"><pre><span></span><code>==注意递归调用的输出顺序问题！！==
+</code></pre></div>
 <p><strong>题型：<span>for<span class="heti-spacing"> </span></span>循环执行了几次（循环变量最终的值）</strong></p>
 <div class="highlight"><pre><span></span><code>  循环 for(i=1,j=6; ++i!=--j; ) s=i+j;  循环语句体将执行 D
   A、 2次    B、 3次    C、 4次    D、 以上均不是
@@ -3886,29 +3897,35 @@ D) register
 <p>会返回首元素类型的指针</p>
 <h3 id="_9">一维数组<a class="headerlink" href="#_9" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ol>
-<li>全部赋初值</li>
+<li>全部赋初值<ul>
 <li>定义时可省略下标 <ul>
 <li>int a[]={0,2,4,6,8,10}</li>
 </ul>
 </li>
-<li>部分赋初值<ul>
-<li>定义时不可省略下标</li>
-<li>系统为前几个元素赋初值，而剩下的数组元素赋初值<span><span class="heti-spacing"> </span>0</span></li>
-<li>int b[15]={1,3,5,7,9}</li>
 </ul>
 </li>
-<li>若是静态存储的数组，如果没有初始化，系统自动给所有的数组元素赋<span><span class="heti-spacing"> </span>0</span>
-<code>static int a[10]</code></li>
+<li>部分赋初值
+    + 定义时不可省略下标
+    + 系统为前几个元素赋初值，而剩下的数组元素赋初值0
+      + int b[15]={1,3,5,7,9}
++ 若是静态存储的数组，如果没有初始化，系统自动给所有的数组元素赋0
+  <code>static int a[10]</code></li>
 </ol>
 <h3 id="_10">二维数组<a class="headerlink" href="#_10" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ul>
-<li>按行初始化 —— 每一对花括号对应一行的元素</li>
+<li>按行初始化 —— 每一对花括号对应一行的元素<ul>
 <li><code>int a[2][3]={{1,2,3},{4,5,6}};</code></li>
-<li>按存放顺序初始化</li>
+</ul>
+</li>
+<li>按存放顺序初始化<ul>
 <li><code>int a[2][3]={1,2,3,4,5,6};</code></li>
+</ul>
+</li>
 <li><strong>注意：在初始化二维数组时可省略第一维大小，但第二维大小不能省略</strong></li>
-<li><code>int a[][3]={1,2,3,4,5,6};</code>  √</li>
+<li><code>int a[][3]={1,2,3,4,5,6};</code>  √<ul>
 <li><code>int a[2][]={1,2,3,4,5,6};</code> ×</li>
+</ul>
+</li>
 </ul>
 <h3 id="_11">字符串<a class="headerlink" href="#_11" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ul>
@@ -3931,19 +3948,23 @@ D) register
 <ul>
 <li>
 <p><code>strcmp</code></p>
-</li>
+<ul>
 <li>
 <p>自左向右逐个字符相比（<strong>按<span class="heti-skip"><span class="heti-spacing"> </span>ASCII<span class="heti-spacing"> </span></span>值大小</strong>相比较<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，直到出现<strong>不同</strong>的字符或遇<span class="heti-skip"><span class="heti-spacing"> </span>'0'<span class="heti-spacing"> </span></span>为止。如：</p>
 <p>​   1."A"&lt;"B" 2."A"&lt;"AB" 3."Apple"&lt;"Banana" 4."A"&lt;"a" 5."compare"&lt;"computer"</p>
 </li>
+</ul>
+<ul>
 <li>
 <p>返回值为正数，负数，0 。而确切数值是依赖不同的<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>实现的。 </p>
 <p>当两个字符串不相等时，<span>C<span class="heti-spacing"> </span></span>标准没有规定返回值会是<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>或<span><span class="heti-spacing"> </span>-1</span>，只规定了正数和负数。</p>
 <p>有些会把两个字符的<span class="heti-skip"><span class="heti-spacing"> </span>ASCII<span class="heti-spacing"> </span></span>码之差作为比较结果由函数值返回。</p>
 </li>
-<li>
-<p>关于 <code>sizeof</code> 和 <code>strlen</code> 的区别</p>
+</ul>
 </li>
+</ul>
+<ul>
+<li>关于 <code>sizeof</code> 和 <code>strlen</code> 的区别</li>
 </ul>
 <p><a href="https://zhuanlan.zhihu.com/p/93054021">聊点基础的–<span>sizeof,strlen,<span class="heti-spacing"> </span></span>数组<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>字符串在一起能整哪些坑？</a></p>
 <p><a href="https://zhuanlan.zhihu.com/p/79210633">NULL，0，'0'<heti-adjacent class="heti-adjacent-quarter">，</heti-adjacent>“0”，<span>"0"<span class="heti-spacing"> </span></span>你真的分得清吗？</a></p>
@@ -3978,15 +3999,13 @@ D) register
 <p><code>int</code> 可以没有返回值</p>
 <p><code>return</code> 不代表有返回值，可以用<code>return;</code>跳出函数</p>
 <ul>
-<li>
-<p>在<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言中，函数的定义顺序是有讲究的：默认情况下，只有后面定义的函数才可以调用前面定义过的函数</p>
-</li>
-<li>
-<p>如果想把函数的定义写在<span class="heti-skip"><span class="heti-spacing"> </span>main<span class="heti-spacing"> </span></span>函数后面，而且<span class="heti-skip"><span class="heti-spacing"> </span>main<span class="heti-spacing"> </span></span>函数能正常调用这些函数，那就必须在<span class="heti-skip"><span class="heti-spacing"> </span>main<span class="heti-spacing"> </span></span>函数的前面进行函数的声明（声明函数的时候可以省略参数名称）</p>
-</li>
-<li>
-<p><code>int sum(int, int);</code></p>
-</li>
+<li>在<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言中，函数的定义顺序是有讲究的：默认情况下，只有后面定义的函数才可以调用前面定义过的函数</li>
+</ul>
+<ul>
+<li>如果想把函数的定义写在<span class="heti-skip"><span class="heti-spacing"> </span>main<span class="heti-spacing"> </span></span>函数后面，而且<span class="heti-skip"><span class="heti-spacing"> </span>main<span class="heti-spacing"> </span></span>函数能正常调用这些函数，那就必须在<span class="heti-skip"><span class="heti-spacing"> </span>main<span class="heti-spacing"> </span></span>函数的前面进行函数的声明（声明函数的时候可以省略参数名称）</li>
+</ul>
+<ul>
+<li><code>int sum(int, int);</code></li>
 </ul>
 <p><span>main<span class="heti-spacing"> </span></span>函数的<span class="heti-skip"><span class="heti-spacing"> </span>[C<span class="heti-spacing"> </span></span>语言中<span class="heti-skip"><span class="heti-spacing"> </span>int main(int argc,char *argv<span class="heti-spacing"> </span></span><a href="https://www.jb51.net/article/107168.htm"><span class="heti-skip"><span class="heti-spacing"> </span>])<span class="heti-spacing"> </span></span>的两个参数详解<span class="heti-skip"><span class="heti-spacing"> </span>_C<span class="heti-spacing"> </span></span>语言<span class="heti-skip"><span class="heti-spacing"> </span>_<span class="heti-spacing"> </span></span>脚本之家<span><span class="heti-spacing"> </span>(jb51.net)</span></a></p>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="cpf">&lt;stdio.h&gt;</span>
@@ -3998,12 +4017,10 @@ D) register
 </code></pre></div>
 <h3 id="_13">形参和实参<a class="headerlink" href="#_13" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ul>
-<li>
-<p>形参<strong>只能是变量</strong>，在被定义的函数中，必须指定形参的类型。 </p>
-</li>
-<li>
-<p>没有确定的值 </p>
-</li>
+<li>形参<strong>只能是变量</strong>，在被定义的函数中，必须指定形参的类型。 </li>
+</ul>
+<ul>
+<li>没有确定的值 </li>
 <li>形参变量在未出现函数调用时，并不占用内存，只在<strong>调用时才占用</strong>。调用结束后，将释放内存。 </li>
 <li>实参可以是<strong>常量、变量、表达式、函数</strong>等<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>无论实参是何种类型的量，在进行函数调用时，它们都必须具有确定的值，以便把这些值传送给形参。 因此应预先用赋值，输入等办法使实参获得确定值。 </li>
 <li>开辟内存存储数据</li>
@@ -4029,28 +4046,32 @@ D) register
 </code></pre></div>
 <p>动态内存分配</p>
 <ul>
-<li>malloc = memory allocate</li>
-</ul>
+<li>
+<p>malloc = memory allocate</p>
 <p>void *malloc(unsigned size)</p>
 <p>申请成功返回开始指针，不成功返回<span><span class="heti-spacing"> </span>NULL</span></p>
-<ul>
-<li>void *calloc(unsigned n, unsigned size)</li>
+</li>
 </ul>
+<ul>
+<li>
+<p>void *calloc(unsigned n, unsigned size)</p>
 <p><span>n<span class="heti-spacing"> </span></span>个长度为<span class="heti-skip"><span class="heti-spacing"> </span>size<span class="heti-spacing"> </span></span>的空间</p>
 <p>返回内存起始地址的指针</p>
-<ul>
-<li>
-<p>void free(void *ptr)</p>
-</li>
-<li>
-<p>先要初始化<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>好习惯<span><span class="heti-spacing"> </span>int *p  = NULL</span></p>
-</li>
-<li>
-<p>使用指针操作数组效率更高</p>
 </li>
 </ul>
+<ul>
+<li>void free(void *ptr)</li>
+</ul>
+<ul>
+<li>先要初始化<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>好习惯<span><span class="heti-spacing"> </span>int *p  = NULL</span></li>
+</ul>
+<ul>
+<li>
+<p>使用指针操作数组效率更高</p>
 <p><span>struct+<span class="heti-spacing"> </span></span>指针 <mark>（*p）注意先打括号</mark></p>
 <p>访问结构的成员时使用成员运算符<span><span class="heti-spacing"> </span>"."</span>，而通过指针访问结构的成员时，则使用指向运算符<span><span class="heti-spacing"> </span>"-&gt;"</span></p>
+</li>
+</ul>
 <div class="highlight"><pre><span></span><code><span class="cp">#1 </span>
 <span class="n">函数返回值是指针的</span><span class="err">，</span><span class="n">不能返回函数内部的局部变量的地址</span><span class="err">，</span><span class="n">因为函数内部的局部变量在函数运行结束后生存期结束</span><span class="err">；</span>
 
@@ -4069,8 +4090,8 @@ D) register
 <h2 id="_16"><strong>八、结构体</strong><a class="headerlink" href="#_16" title="anchor link to this section for reference">¶</a></h2>
 <ul>
 <li>结构体指针 <code>(*sp).name=sp-&gt;name</code></li>
-<li>嵌套结构体</li>
-</ul>
+<li>
+<p>嵌套结构体</p>
 <div class="highlight"><pre><span></span><code><span class="n">已知职工记录描述如下</span><span class="err">，</span><span class="n">下列正确赋值方式是</span><span class="err">（</span><span class="n">B</span><span class="err">）</span>
 <span class="k">struct</span><span class="w"> </span><span class="nc">worker</span>
 <span class="p">{</span>
@@ -4088,45 +4109,53 @@ D) register
 <span class="n">C</span><span class="p">.</span><span class="n">w</span><span class="p">.</span><span class="n">day</span><span class="o">=</span><span class="mi">25</span>
 <span class="n">D</span><span class="p">.</span><span class="n">w</span><span class="p">.</span><span class="n">birth</span><span class="p">.</span><span class="n">month</span><span class="o">=</span><span class="mi">10</span><span class="p">;</span>
 </code></pre></div>
+</li>
+</ul>
 <h2 id="_17"><strong>九、宏定义</strong><a class="headerlink" href="#_17" title="anchor link to this section for reference">¶</a></h2>
 <p>本质是一种预处理命令，可以出现在程序中的任何位置，习惯上我们尽可能将预处理指令写在源程序开头，其有效范围是从定义开始到文件结束</p>
 <ul>
-<li>
-<p>行首以<span class="heti-skip"><span class="heti-spacing"> </span>#<span class="heti-spacing"> </span></span>标识的控制行都是预处理命令</p>
-</li>
-<li>
-<p><span>C<span class="heti-spacing"> </span></span>语言的预处理主要有三个方面的内容： <span>1.<span class="heti-spacing"> </span></span>宏定义； <span>2.<span class="heti-spacing"> </span></span>文件包含； <span>3.<span class="heti-spacing"> </span></span>条件编译。 </p>
-</li>
+<li>行首以<span class="heti-skip"><span class="heti-spacing"> </span>#<span class="heti-spacing"> </span></span>标识的控制行都是预处理命令</li>
 </ul>
-<p><span>include&lt;&gt;<span class="heti-spacing"> </span></span>到系统设定的文件夹寻找；而用“”括号括起来的先到当前文件夹寻找，再到系统文件夹寻找</p>
 <ul>
 <li>
-<p>编译分为：预处理、编译、汇编、链接</p>
+<p><span>C<span class="heti-spacing"> </span></span>语言的预处理主要有三个方面的内容： <span>1.<span class="heti-spacing"> </span></span>宏定义； <span>2.<span class="heti-spacing"> </span></span>文件包含； <span>3.<span class="heti-spacing"> </span></span>条件编译。 </p>
+<p><span>include&lt;&gt;<span class="heti-spacing"> </span></span>到系统设定的文件夹寻找；而用“”括号括起来的先到当前文件夹寻找，再到系统文件夹寻找</p>
 </li>
-<li>
-<p>不带参数的宏定义</p>
-</li>
+</ul>
+<ul>
+<li>编译分为：预处理、编译、汇编、链接</li>
+</ul>
+<ul>
+<li>不带参数的宏定义<ul>
 <li><code>#define N 100</code> </li>
 <li><span>N<span class="heti-spacing"> </span></span>为宏名，<span>100<span class="heti-spacing"> </span></span>是宏的内容（宏所表示的字符串）</li>
 <li>在预处理阶段，对程序中所有出现的“宏名”，预处理器都会用宏定义中的字符串区代换，这称为“宏替换”或“宏展开”。</li>
-<li>带参数的宏</li>
+</ul>
+</li>
+<li>带参数的宏<ul>
 <li>除了一般的字符串替换，还要做参数代换</li>
 <li><strong>宏替换只作替换，不做计算，不做表达式求解</strong> </li>
 <li><em>#define S(a,b) a*b
-          area=S(3,2)；第一步被换为area=a*b; ，第二步被换为area=3*2;</em></li>
+        area=S(3,2)；第一步被换为area=a*b; ，第二步被换为area=3*2;</em></li>
 <li>容易有问题<span><span class="heti-spacing"> </span>:</span></li>
 <li><em>#define S® r*r
-            area=S(a+b);第一步换为area=r*r;,第二步被换为area=a+b*a+b;
-            正确的宏定义是#define S® ®*®</em></li>
+          area=S(a+b);第一步换为area=r*r;,第二步被换为area=a+b*a+b;
+          正确的宏定义是#define S® ®*®</em></li>
+</ul>
+</li>
 <li><strong>宏定义的精髓是替换，且要替换得一模一样</strong>
-  因此：</li>
+  因此：<ul>
 <li>宏定义末尾不加分号</li>
 <li>宏名和参数的括号间不能有空格</li>
-<li>宏定义可以实现一些函数的功能</li>
+</ul>
+</li>
+<li>宏定义可以实现一些函数的功能<ul>
 <li><em>#define MAX(a,b) (a&gt;b)?a:b</em>
-    区别：<ul>
+  区别：<ul>
 <li>宏展开使源程序变长，函数调用不会</li>
 <li>宏展开不占运行时间，只占编译时间，函数调用占运行时间（分配内存、保留现场、值传递、返回值）</li>
+</ul>
+</li>
 </ul>
 </li>
 <li><strong>有关宏定义的题目，要把宏定义全部展开之后再进行运算！！</strong></li>
@@ -4272,33 +4301,35 @@ D) register
 </code></pre></div>
 <h2 id="_21"><strong>十一、基础算法</strong><a class="headerlink" href="#_21" title="anchor link to this section for reference">¶</a></h2>
 <ul>
-<li>质数判断</li>
-</ul>
+<li>
+<p>质数判断</p>
 <p><span>O(n)<span class="heti-spacing"> </span></span>遍历判断</p>
 <p><span>O(nlogn)<span class="heti-spacing"> </span></span>素数筛<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>埃氏筛</p>
-<ul>
-<li>GCD</li>
+</li>
 </ul>
+<ul>
+<li>
+<p>GCD</p>
 <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">gcd</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">){</span>
 <span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">gcd</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">x</span><span class="o">%</span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
+</li>
+</ul>
 <ul>
 <li>
 <p><mark>排序算法</mark></p>
-</li>
-<li>
-<p>桶排序</p>
-</li>
+<ul>
+<li>桶排序</li>
 <li>快速排序</li>
 <li>归并排序</li>
-<li>
-<p>选择排序</p>
-</li>
-<li>
-<p>二分算法</p>
+<li>选择排序</li>
+</ul>
 </li>
 </ul>
+<ul>
+<li>
+<p>二分算法</p>
 <p>注意二分板子的打法，注意<span class="heti-skip"><span class="heti-spacing"> </span>+1<span class="heti-spacing"> </span></span>问题</p>
 <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Count</span><span class="w"> </span><span class="mi">-1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">mid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">l</span><span class="o">+</span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
 <span class="k">while</span><span class="p">(</span><span class="n">l</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">r</span><span class="p">){</span><span class="w"> </span>
@@ -4306,7 +4337,9 @@ D) register
 <span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">mid</span><span class="p">])</span><span class="w">     </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mid</span><span class="p">;</span>
 <span class="w">    </span><span class="k">else</span><span class="w">                    </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mid</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div></div>
+</code></pre></div>
+</li>
+</ul></div>
 <aside class="md-source-file">
 <span class="md-source-file__fact">
 <span class="md-icon" title="最后更新">

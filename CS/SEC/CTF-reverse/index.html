@@ -3265,12 +3265,10 @@ IR：中间表达式</p>
 <p>可执行文件
 - Windows：PE/PE32+ (Port Executable)</p>
 <ul>
-<li>
-<p>Mac：Mach-O (Mach Object)</p>
-</li>
-<li>
-<p>Linux：ELF (Executable and Linkable Format)</p>
-</li>
+<li>Mac：Mach-O (Mach Object)</li>
+</ul>
+<ul>
+<li>Linux：ELF (Executable and Linkable Format)</li>
 </ul>
 <h2 id="elf">ELF<a class="headerlink" href="#elf" title="anchor link to this section for reference">¶</a></h2>
 <p><a href="https://www.cnblogs.com/jiqingwu/p/elf_explore_2.html"><span>ELF<span class="heti-spacing"> </span></span>文件头</a></p>
@@ -3383,15 +3381,13 @@ IR：中间表达式</p>
 <p>把所有需要的文件都链接到一个<span class="heti-skip"><span class="heti-spacing"> </span>elf<span class="heti-spacing"> </span></span>当中，不存在外部符号</p>
 </blockquote>
 </li>
-<li>
-<p>动态链接：处理更慢，文件小</p>
-<blockquote>
+<li>动态链接：处理更慢，文件小<blockquote>
 <p>电脑上只存一个<span><span class="heti-spacing"> </span>printf</span>，需要的时候去链接</p>
 </blockquote>
 </li>
-<li>
-<p>PLT: Procedure Linkage Table</p>
-<blockquote>
+</ul>
+<ul>
+<li>PLT: Procedure Linkage Table<blockquote>
 <p>动态链接中的实现细节</p>
 </blockquote>
 </li>
@@ -3491,12 +3487,10 @@ libc.so.6 =&gt; /lib/x86_64-linux-gnu/libc.so.6 (0x00007f9bddd66000) #libc
 </div>
 <h2 id="elf_3"><span>ELF<span class="heti-spacing"> </span></span>的交互、调试<a class="headerlink" href="#elf_3" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <ul>
-<li>绝对路径<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>相对路径<ul>
-<li>-h / –help</li>
-<li>manual</li>
-<li><span>PATH<span class="heti-spacing"> </span></span>路径</li>
-</ul>
-</li>
+<li>绝对路径<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>相对路径
+    * -h / –help
+    * manual
+    * PATH 路径</li>
 </ul>
 <p><strong>通过虚拟机或者沙箱进行交互</strong></p>
 <ul>
@@ -3510,28 +3504,28 @@ libc.so.6 =&gt; /lib/x86_64-linux-gnu/libc.so.6 (0x00007f9bddd66000) #libc
 - python pwntools 库</p>
 <p>调试工具</p>
 <ul>
-<li>
-<p><code>strace</code>：追踪系统调用<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>操作系统提供给程序的库<span><span class="heti-spacing"> </span>)</span></p>
-</li>
-<li>
-<p><code>ltrace</code>：追踪调用的库（只对动态链接程序有用）</p>
-</li>
+<li><code>strace</code>：追踪系统调用<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>操作系统提供给程序的库<span><span class="heti-spacing"> </span>)</span></li>
+</ul>
+<ul>
+<li><code>ltrace</code>：追踪调用的库（只对动态链接程序有用）</li>
 </ul>
 <h3 id="gdbgnu-debug">gdb：GNU debug<a class="headerlink" href="#gdbgnu-debug" title="anchor link to this section for reference">¶</a></h3>
 <ul>
-<li>调试模式</li>
+<li>调试模式<ul>
 <li>调试器执行模式</li>
 <li><span>attach<span class="heti-spacing"> </span></span>模式</li>
-<li>
-<p><span>remote<span class="heti-spacing"> </span></span>模式</p>
+<li><span>remote<span class="heti-spacing"> </span></span>模式</li>
+</ul>
 </li>
-<li>
-<p>常用调试功能</p>
-</li>
+</ul>
+<ul>
+<li>常用调试功能<ul>
 <li>执行断点</li>
 <li>硬件断点</li>
 <li>查看寄存器<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>内存</li>
 <li><span>set<span class="heti-spacing"> </span></span>修改寄存器<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>内存</li>
+</ul>
+</li>
 </ul>
 <p>● <span>gdb<span class="heti-spacing"> </span></span>插件</p>
 <div class="highlight"><pre><span></span><code>run

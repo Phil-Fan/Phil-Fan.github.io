@@ -3259,12 +3259,10 @@
 <h3 id="2edc">服务<span><span class="heti-spacing"> </span>2</span>：<span>EDC<span class="heti-spacing"> </span></span>检错和纠错<a class="headerlink" href="#2edc" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p><span>Error Detection and Correction<span class="heti-spacing"> </span></span>差错检测和纠正位<strong>在相邻两个节点之间完成可靠数据传递</strong></p>
 <ul>
-<li>
-<p>低差错率，不控制</p>
-</li>
-<li>
-<p>高差错率，上层代价大所以要控制</p>
-</li>
+<li>低差错率，不控制</li>
+</ul>
+<ul>
+<li>高差错率，上层代价大所以要控制</li>
 </ul>
 <h3 id="3">服务<span><span class="heti-spacing"> </span>3</span>：链路接入<a class="headerlink" href="#3" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p><span>MAC<span class="heti-spacing"> </span></span>协议规定了帧在链路上传输的规则。用于协调多个节点的帧传输</p>
@@ -3293,9 +3291,9 @@
 </li>
 <li>
 <p>发送方<span class="heti-skip"><span class="heti-spacing"> </span>sender<span class="heti-spacing"> </span></span>有<span class="heti-skip"><span class="heti-spacing"> </span>D<span class="heti-spacing"> </span></span>位，向左移动<span class="heti-skip"><span class="heti-spacing"> </span>R<span class="heti-spacing"> </span></span>位补零</p>
+<p>接收方用位串除以（从左往右按位异或）多项式得到余数<span><span class="heti-spacing"> </span>R</span>，即为校验</p>
 </li>
 </ol>
-<p>接收方用位串除以（从左往右按位异或）多项式得到余数<span><span class="heti-spacing"> </span>R</span>，即为校验</p>
 <div class="arithmatex">\[
 &amp;D\cdot 2^r\oplus R = n\cdot G\\
 &amp;\Rightarrow D\cdot 2^r\oplus R \oplus R = n\cdot G \oplus R\\
@@ -3354,19 +3352,19 @@
 </ul>
 <h5 id="_7">缺点<a class="headerlink" href="#_7" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h5>
 <ul>
-<li>
-<p>存在冲突，浪费时隙</p>
-</li>
-<li>
-<p>即使有帧要发送，仍然有可能存在空闲的时隙</p>
-</li>
+<li>存在冲突，浪费时隙</li>
+</ul>
+<ul>
+<li>即使有帧要发送，仍然有可能存在空闲的时隙</li>
+</ul>
+<ul>
 <li>
 <p>节点检测冲突的时间<span class="heti-skip"><span class="heti-spacing"> </span>&lt;<span class="heti-spacing"> </span></span>帧传输的时间；必须传完 </p>
-</li>
-</ul>
 <blockquote>
 <p>鸡蛋坏了也要吃完</p>
 </blockquote>
+</li>
+</ul>
 <ul>
 <li>需要时钟上同步</li>
 </ul>
@@ -3432,11 +3430,11 @@ f_{max} &amp;= 17.5\%
 </li>
 <li>
 <p><code>exponential backoff</code>二进制指数退避算法<br/></p>
-</li>
-</ol>
 <p>如果放弃，适配器进入指数退避状态在第<span class="heti-skip"><span class="heti-spacing"> </span>m<span class="heti-spacing"> </span></span>次失败后，适配器随机选择一个<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\({0,1,2,\dots,2^m-1}\)</span><span class="heti-spacing"> </span></span>中选择<span><span class="heti-spacing"> </span>K</span><br/></p>
 <p>等待<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(K*512\)</span><span class="heti-spacing"> </span></span>位时，然后转到步骤<span><span class="heti-spacing"> </span>2</span><br/>碰撞窗口最大是<span><span class="heti-spacing"> </span>1024</span></p>
 <p>等待时间增加了<br/></p>
+</li>
+</ol>
 <blockquote>
 <p><span>"<span class="heti-spacing"> </span></span>了不得啦，这里有冲突啊啊啊啊<span><span class="heti-spacing"> </span>"</span> </p>
 <p>强化冲突：让所有站点都知道冲突</p>
@@ -3478,14 +3476,14 @@ efficiency = \frac{1}{1+5T_{prop}/t_{trans}}
 <p>802.11: <strong>没有冲突检测，做不了<span><span class="heti-spacing"> </span>CD</span></strong></p>
 <ul>
 <li>无法检测冲突：自身信号远远大于其他节点信号；有衰减</li>
-<li>即使能<span><span class="heti-spacing"> </span>CD</span>：不冲突<span class="heti-skip"><span class="heti-spacing"> </span>!=<span class="heti-spacing"> </span></span>成功<br/></li>
+<li>即使能<span><span class="heti-spacing"> </span>CD</span>：不冲突<span class="heti-skip"><span class="heti-spacing"> </span>!=<span class="heti-spacing"> </span></span>成功<br/><ul>
 <li>无法<span><span class="heti-spacing"> </span>CD</span>，一旦发送一股脑全部发送完毕，不<span><span class="heti-spacing"> </span>CD</span><br/></li>
-<li>
-<p>为了避免无<span class="heti-skip"><span class="heti-spacing"> </span>CD<span class="heti-spacing"> </span></span>带来的信道利用率低的问题，事前进行冲突避免<br/></p>
+<li>为了避免无<span class="heti-skip"><span class="heti-spacing"> </span>CD<span class="heti-spacing"> </span></span>带来的信道利用率低的问题，事前进行冲突避免<br/></li>
+</ul>
 </li>
-<li>
-<p>冲突也有可能是成功的</p>
-</li>
+</ul>
+<ul>
+<li>冲突也有可能是成功的</li>
 </ul>
 <p><img alt="image-20240418001217281" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240418001217281.png"/></p>
 <p>无线链路特性，需要每帧确认；例如：由于隐藏终端问题，在接收端可能形成干扰<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>接收方没有正确地收到。</p>
@@ -3602,12 +3600,10 @@ c) 另外一个选择就是不使用任何地址；不用MAC地址，则每到�
 <p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240426140148724.png"/></p>
 <p><span>ARP<span class="heti-spacing"> </span></span>表中没有目标主机的项目：</p>
 <ul>
-<li>
-<p>发送方构造一个<span><span class="heti-spacing"> </span>ARP packet</span>，有几个字段，包括发送和接受<span class="heti-skip"><span class="heti-spacing"> </span>IP<span class="heti-spacing"> </span></span>地址<span class="heti-skip"><span class="heti-spacing"> </span>&amp;MAC<span class="heti-spacing"> </span></span>地址</p>
-</li>
-<li>
-<p>向适配器发送一个<span class="heti-skip"><span class="heti-spacing"> </span>ARP<span class="heti-spacing"> </span></span>查询分组，适配器用<span class="heti-skip"><span class="heti-spacing"> </span>MAC<span class="heti-spacing"> </span></span>广播地址（<code>FF-FF-FF-FF-FF-FF</code>）发送分组</p>
-</li>
+<li>发送方构造一个<span><span class="heti-spacing"> </span>ARP packet</span>，有几个字段，包括发送和接受<span class="heti-skip"><span class="heti-spacing"> </span>IP<span class="heti-spacing"> </span></span>地址<span class="heti-skip"><span class="heti-spacing"> </span>&amp;MAC<span class="heti-spacing"> </span></span>地址</li>
+</ul>
+<ul>
+<li>向适配器发送一个<span class="heti-skip"><span class="heti-spacing"> </span>ARP<span class="heti-spacing"> </span></span>查询分组，适配器用<span class="heti-skip"><span class="heti-spacing"> </span>MAC<span class="heti-spacing"> </span></span>广播地址（<code>FF-FF-FF-FF-FF-FF</code>）发送分组</li>
 <li>每个适配器检查目标<span class="heti-skip"><span class="heti-spacing"> </span>IP<span class="heti-spacing"> </span></span>和自己是否匹配，匹配的发送一个响应<span class="heti-skip"><span class="heti-spacing"> </span>ARP<span class="heti-spacing"> </span></span>分组，更新源适配器的<span class="heti-skip"><span class="heti-spacing"> </span>ARP<span class="heti-spacing"> </span></span>表</li>
 </ul>
 <div class="admonition note">
@@ -3645,12 +3641,10 @@ c) 另外一个选择就是不使用任何地址；不用MAC地址，则每到�
 <li>目的地址<span class="heti-skip"><span class="heti-spacing"> </span>6<span class="heti-spacing"> </span></span>字节：目的适配器的<span class="heti-skip"><span class="heti-spacing"> </span>MAC<span class="heti-spacing"> </span></span>地址</li>
 <li>源地址<span class="heti-skip"><span class="heti-spacing"> </span>6<span class="heti-spacing"> </span></span>字节</li>
 <li>类型字段<span class="heti-skip"><span class="heti-spacing"> </span>2<span class="heti-spacing"> </span></span>字节：除了<span class="heti-skip"><span class="heti-spacing"> </span>IP<span class="heti-spacing"> </span></span>之外的网络层协议，如<span><span class="heti-spacing"> </span>ARP</span>，IPX。</li>
-<li>
-<p><span>CRC 4<span class="heti-spacing"> </span></span>字节</p>
-</li>
-<li>
-<p>无连接：帧传输前，发送方和接收方之间没有握手（本身可靠性较高</p>
-</li>
+<li><span>CRC 4<span class="heti-spacing"> </span></span>字节</li>
+</ul>
+<ul>
+<li>无连接：帧传输前，发送方和接收方之间没有握手（本身可靠性较高</li>
 <li>不可靠：接收方适配器不发送<span class="heti-skip"><span class="heti-spacing"> </span>ACKs<span class="heti-spacing"> </span></span>或<span class="heti-skip"><span class="heti-spacing"> </span>NAKs<span class="heti-spacing"> </span></span>给发送方</li>
 </ul>
 <p>使用<span class="heti-skip"><span class="heti-spacing"> </span>MAC<span class="heti-spacing"> </span></span>协议：<span>CSMA/CD<span class="heti-spacing"> </span></span>二进制指数退避算法</p>

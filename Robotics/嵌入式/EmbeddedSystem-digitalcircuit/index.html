@@ -3374,9 +3374,11 @@
 <ul>
 <li>移位和相加</li>
 <li>反码</li>
-<li>补码</li>
+<li>补码<ul>
 <li>最高位符号位：<span>0<span class="heti-spacing"> </span></span>正<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>负</li>
 <li>正数不变，负数反码<span><span class="heti-spacing"> </span>+1</span></li>
+</ul>
+</li>
 </ul>
 <blockquote>
 <p><a href="https://zhuanlan.zhihu.com/p/99082236"><strong>为什么要采用反码和补码？？</strong></a><span>(<span class="heti-spacing"> </span></span>参考这篇知乎文档<span><span class="heti-spacing"> </span>)</span></p>
@@ -3434,15 +3436,13 @@ $$
 <h3 id="_11">设计方法<a class="headerlink" href="#_11" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>一、逻辑抽象</p>
 <ul>
-<li>
-<p>分析因果关系，确定输入<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>输出变量</p>
-</li>
-<li>
-<p>定义逻辑状态的含意（赋值）</p>
-</li>
-<li>
-<p>列出真值表</p>
-</li>
+<li>分析因果关系，确定输入<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>输出变量</li>
+</ul>
+<ul>
+<li>定义逻辑状态的含意（赋值）</li>
+</ul>
+<ul>
+<li>列出真值表</li>
 </ul>
 <p>二、写出函数式</p>
 <p>三、选定器件类型</p>
@@ -3520,12 +3520,10 @@ $$
 <h3 id="_20">编码器<a class="headerlink" href="#_20" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>本节参考了写的非常清楚的一篇笔记——<a href="https://zhuanlan.zhihu.com/p/569801290">自上而下理解优先编码器</a></p>
 <ul>
-<li>
-<p><strong>编码</strong>：是将信息从一种形式或格式转换为另一种形式的过程。在数字电路中，用预先规定的方法，将一些逻辑信号转换成二进制数代码，这个过程就称为编码。</p>
-</li>
-<li>
-<p><strong>编码器</strong>：实现编码这一过程的集成组合逻辑电路器件。</p>
-</li>
+<li><strong>编码</strong>：是将信息从一种形式或格式转换为另一种形式的过程。在数字电路中，用预先规定的方法，将一些逻辑信号转换成二进制数代码，这个过程就称为编码。</li>
+</ul>
+<ul>
+<li><strong>编码器</strong>：实现编码这一过程的集成组合逻辑电路器件。</li>
 </ul>
 <h4 id="_21">普通编码器<a class="headerlink" href="#_21" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p>任何时刻只允许输入一个编码信号</p>
@@ -3729,12 +3727,10 @@ $$
 <p>时序图</p>
 <h4 id="_35">说功能<a class="headerlink" href="#_35" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <ul>
-<li>
-<p>功能</p>
-</li>
-<li>
-<p>是否自启动</p>
-</li>
+<li>功能</li>
+</ul>
+<ul>
+<li>是否自启动</li>
 </ul>
 <p>能自启动：存在无效状态，但是没有形成循环</p>
 <p>不能自启动：无效状态形成循环</p>
@@ -3791,15 +3787,13 @@ $$
 <p><strong>74LS162</strong>——同步置数，同步清零</p>
 <p><strong><span>n<span class="heti-spacing"> </span></span>进制计数器</strong></p>
 <ul>
-<li>
-<p>写出状态<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(S_{N-1}\)</span><span class="heti-spacing"> </span></span>的二进制代码</p>
-</li>
-<li>
-<p>求归零逻辑表达式</p>
-</li>
-<li>
-<p>画出连线图</p>
-</li>
+<li>写出状态<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(S_{N-1}\)</span><span class="heti-spacing"> </span></span>的二进制代码</li>
+</ul>
+<ul>
+<li>求归零逻辑表达式</li>
+</ul>
+<ul>
+<li>画出连线图</li>
 </ul>
 <p><strong>大容量<span class="heti-skip"><span class="heti-spacing"> </span>N<span class="heti-spacing"> </span></span>进制计数器</strong></p>
 <p><img alt="image-20240320122514306" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240320122514306.png" style="zoom:50%;"/></p>

@@ -3357,18 +3357,16 @@ f(x_2) \geq f(x_1) + \nabla f(x_1)^T (x_2 - x_1)
 <p>几何意义：函数曲线向上弯曲。</p>
 <h4 id="_6">性质<a class="headerlink" href="#_6" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <ul>
-<li>
-<p>凸函数的非负线性组合仍为凸函数。</p>
-</li>
-<li>
-<p>若<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(f(x)\)</span><span class="heti-spacing"> </span></span>是定义在凸集<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\mathbb{R}^n\)</span><span class="heti-spacing"> </span></span>上的凸函数，则其<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\beta\)</span><span class="heti-spacing"> </span></span>水平集<span><span class="heti-spacing"> </span><span class="arithmatex">\(S_\beta\)</span></span>​ 为凸集。</p>
-<blockquote>
+<li>凸函数的非负线性组合仍为凸函数。</li>
+</ul>
+<ul>
+<li>若<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(f(x)\)</span><span class="heti-spacing"> </span></span>是定义在凸集<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\mathbb{R}^n\)</span><span class="heti-spacing"> </span></span>上的凸函数，则其<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\beta\)</span><span class="heti-spacing"> </span></span>水平集<span><span class="heti-spacing"> </span><span class="arithmatex">\(S_\beta\)</span></span>​ 为凸集。<blockquote>
 <p>半平面是凸集</p>
 </blockquote>
 </li>
-<li>
-<p>对于凸函数<span><span class="heti-spacing"> </span><span class="arithmatex">\(f(x)\)</span></span>，若存在<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(x^* \in \mathbb{R}^n\)</span><span class="heti-spacing"> </span></span>满足</p>
-</li>
+</ul>
+<ul>
+<li>对于凸函数<span><span class="heti-spacing"> </span><span class="arithmatex">\(f(x)\)</span></span>，若存在<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(x^* \in \mathbb{R}^n\)</span><span class="heti-spacing"> </span></span>满足</li>
 </ul>
 <div class="arithmatex">\[
 \nabla f(x^*)^T (x - x^*) \geq 0 \quad \forall x \in \mathbb{R}^n
@@ -3378,12 +3376,10 @@ f(x_2) \geq f(x_1) + \nabla f(x_1)^T (x_2 - x_1)
 <p>站在山谷底看，哪里都是向上走</p>
 </blockquote>
 <ul>
-<li>
-<p>对于凸目标函数，<span><span class="arithmatex">\(\nabla f(x^*) = 0\)</span><span class="heti-spacing"> </span></span>是<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(x^*\)</span><span class="heti-spacing"> </span></span>为极小值的充要条件。</p>
-</li>
-<li>
-<p>对于凸目标函数，局部极小点也是全局最小点。</p>
-</li>
+<li>对于凸目标函数，<span><span class="arithmatex">\(\nabla f(x^*) = 0\)</span><span class="heti-spacing"> </span></span>是<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(x^*\)</span><span class="heti-spacing"> </span></span>为极小值的充要条件。</li>
+</ul>
+<ul>
+<li>对于凸目标函数，局部极小点也是全局最小点。</li>
 </ul>
 <h3 id="_7">凸优化<a class="headerlink" href="#_7" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>函数是凸函数，可行域是凸集；凹函数求最大值其实是一样的，加一个负号就可以了</p>
@@ -3399,21 +3395,17 @@ f\left[\lambda x_{1}^{*}+(1-\lambda) x_{2}^{*}\right]&lt;\lambda f\left(x_{1}^{*
 \]</div>
 <p>最优解的唯一性为数值解法提供了方便。</p>
 <ul>
-<li>
-<p>凸规划下的<span class="heti-skip"><span class="heti-spacing"> </span>KKT<span class="heti-spacing"> </span></span>条件为最优解的充要条件</p>
-</li>
-<li>
-<p>线性规划<span><span class="heti-spacing"> </span>(LP): linprog</span></p>
-</li>
+<li>凸规划下的<span class="heti-skip"><span class="heti-spacing"> </span>KKT<span class="heti-spacing"> </span></span>条件为最优解的充要条件</li>
+</ul>
+<ul>
+<li>线性规划<span><span class="heti-spacing"> </span>(LP): linprog</span></li>
 <li>混合整数线性规划<span><span class="heti-spacing"> </span>(MILP): intlinprog</span></li>
 <li>二次规划<span><span class="heti-spacing"> </span>(QP): quadprog</span></li>
 <li>二阶锥规划<span><span class="heti-spacing"> </span>(SOCP): coneprog</span></li>
-<li>
-<p>半定规划<span class="heti-skip"><span class="heti-spacing"> </span>(SDP): Yalmip<span class="heti-spacing"> </span></span>中调用<span class="heti-skip"><span class="heti-spacing"> </span>SDP<span class="heti-spacing"> </span></span>求解器</p>
-</li>
-<li>
-<p>无约束极值问题<span><span class="heti-spacing"> </span>: fminunc</span></p>
-</li>
+<li>半定规划<span class="heti-skip"><span class="heti-spacing"> </span>(SDP): Yalmip<span class="heti-spacing"> </span></span>中调用<span class="heti-skip"><span class="heti-spacing"> </span>SDP<span class="heti-spacing"> </span></span>求解器</li>
+</ul>
+<ul>
+<li>无约束极值问题<span><span class="heti-spacing"> </span>: fminunc</span></li>
 <li>有约束极值问题<span><span class="heti-spacing"> </span>: fmincon</span></li>
 </ul>
 <div class="arithmatex">\[
@@ -3689,12 +3681,10 @@ g_j(x^{(0)} + \lambda p) \geq 0
 <p><img alt="image-20240521161306273" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240521161306273.png" style="zoom:50%;"/></p>
 <blockquote>
 <ul>
-<li>
-<p>对于紧致的约束条件，<span class="arithmatex">\(g(x^*) = 0\)</span>，但是<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\sum_{j=1}^l \mu_j \nabla g_j(X^*)\)</span><span class="heti-spacing"> </span></span>应该等于负梯度，<span class="arithmatex">\(\lambda_i \neq 0\)</span></p>
-</li>
-<li>
-<p>对于松弛的约束条件，将<span><span class="heti-spacing"> </span><span class="arithmatex">\(x^*\)</span></span>​带入方程，一定是小于（大于）<span>0<span class="heti-spacing"> </span></span>的，最重要的是要让梯度在<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\lambda_i\)</span><span class="heti-spacing"> </span></span>的作用下不对结果起作用；<br/>在红线上的，在<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\lambda_i&gt;0\)</span><span class="heti-spacing"> </span></span>的情况下，是不能实现与负梯度相同的，所以<span><span class="heti-spacing"> </span><span class="arithmatex">\(\lambda_i=0\)</span></span></p>
-</li>
+<li>对于紧致的约束条件，<span class="arithmatex">\(g(x^*) = 0\)</span>，但是<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\sum_{j=1}^l \mu_j \nabla g_j(X^*)\)</span><span class="heti-spacing"> </span></span>应该等于负梯度，<span class="arithmatex">\(\lambda_i \neq 0\)</span></li>
+</ul>
+<ul>
+<li>对于松弛的约束条件，将<span><span class="heti-spacing"> </span><span class="arithmatex">\(x^*\)</span></span>​带入方程，一定是小于（大于）<span>0<span class="heti-spacing"> </span></span>的，最重要的是要让梯度在<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\lambda_i\)</span><span class="heti-spacing"> </span></span>的作用下不对结果起作用；<br/>在红线上的，在<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\lambda_i&gt;0\)</span><span class="heti-spacing"> </span></span>的情况下，是不能实现与负梯度相同的，所以<span><span class="heti-spacing"> </span><span class="arithmatex">\(\lambda_i=0\)</span></span></li>
 </ul>
 </blockquote>
 <h4 id="slater"><span>Slater<span class="heti-spacing"> </span></span>条件——强对偶的充分条件<a class="headerlink" href="#slater" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
@@ -3940,11 +3930,9 @@ f(x) \approx f\left(x^{(k)}\right)+\nabla f\left(x^{(k)}\right)^{T}\left(x-x^{(k
 </div>
 <ul>
 <li>设<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A\)</span><span class="heti-spacing"> </span></span>为对称矩阵，二次函数<span><span class="heti-spacing"> </span><span class="arithmatex">\(f(x)=\frac{1}{2} x^T A x+b^T x+c\)</span></span></li>
-<li>驻点方程<span><span class="heti-spacing"> </span>: <span class="arithmatex">\(\nabla f(x)=Ax+b=0\)</span></span><ul>
-<li>有解<span><span class="heti-spacing"> </span>: <span class="arithmatex">\(\text{rank} A=\text{rank}[A \quad b]\)</span></span></li>
-<li>无解<span><span class="heti-spacing"> </span>: <span class="arithmatex">\(\text{rank} A \neq \text{rank}[A \quad b]\)</span></span></li>
-</ul>
-</li>
+<li>驻点方程<span><span class="heti-spacing"> </span>: <span class="arithmatex">\(\nabla f(x)=Ax+b=0\)</span></span>
+    + 有解: <span class="arithmatex">\(\text{rank} A=\text{rank}[A \quad b]\)</span>
+    + 无解: <span class="arithmatex">\(\text{rank} A \neq \text{rank}[A \quad b]\)</span></li>
 <li><span>Hessian<span class="heti-spacing"> </span></span>矩阵<span><span class="heti-spacing"> </span>: <span class="arithmatex">\(\nabla^2 f(x)=A\)</span></span>​</li>
 </ul>
 <p>例<span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span>抛物面</p>
@@ -4250,12 +4238,10 @@ x_{2}^{*}=0
 <p>种群迭代</p>
 <p>理论上可收敛到全局最优解。</p>
 <ul>
-<li>
-<p>模式定理</p>
-</li>
-<li>
-<p><span>Markov<span class="heti-spacing"> </span></span>链分析</p>
-</li>
+<li>模式定理</li>
+</ul>
+<ul>
+<li><span>Markov<span class="heti-spacing"> </span></span>链分析</li>
 </ul>
 <p>实际当适应度函数值的变化很小或达到最大种群迭代次数时终止</p>
 <h3 id="_35">模拟退火<a class="headerlink" href="#_35" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>

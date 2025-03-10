@@ -3433,35 +3433,45 @@ This browser does not support PDFs
 <h3 id="1"><strong><span>1.<span class="heti-spacing"> </span></span>发电系统</strong><a class="headerlink" href="#1" title="anchor link to this section for reference">¶</a></h3>
 <ul>
 <li><strong>功能</strong>：将一次能源（如煤炭、天然气、水力、核能、风能、太阳能等）转化为电能。</li>
-<li><strong>主要设施</strong>：</li>
+<li><strong>主要设施</strong>：<ul>
 <li><strong>传统电厂</strong>：火力发电厂（燃煤、燃气<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>、水电站、核电站。</li>
 <li><strong>可再生能源电厂</strong>：风力发电场、光伏电站、生物质能电站等。</li>
+</ul>
+</li>
 </ul>
 <h3 id="2"><strong><span>2.<span class="heti-spacing"> </span></span>输电系统</strong><a class="headerlink" href="#2" title="anchor link to this section for reference">¶</a></h3>
 <ul>
 <li><strong>功能</strong>：将发电厂产生的高压电能远距离输送至负荷中心，减少损耗。</li>
-<li><strong>关键组成部分</strong>：</li>
+<li><strong>关键组成部分</strong>：<ul>
 <li><strong>输电线路</strong>：通常采用高压（<span>110kV<span class="heti-spacing"> </span></span>及以上）或特高压（如<span class="heti-skip"><span class="heti-spacing"> </span>±800kV<span class="heti-spacing"> </span></span>直流、<span>1000kV<span class="heti-spacing"> </span></span>交流<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，如中国的“西电东送”工程。</li>
 <li><strong>变电站</strong>：升压（发电厂出口）和降压（靠近用户侧）变压器、断路器、隔离开关等。</li>
 <li><strong>区域电网互联</strong>：通过主干网连接不同区域，提高供电可靠性和资源调配能力（如欧洲跨国电网<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。</li>
 </ul>
+</li>
+</ul>
 <h3 id="3"><strong><span>3.<span class="heti-spacing"> </span></span>配电系统</strong><a class="headerlink" href="#3" title="anchor link to this section for reference">¶</a></h3>
 <ul>
 <li><strong>功能</strong>：将输电系统的高压电能降压后分配到终端用户。</li>
-<li><strong>结构</strong>：</li>
+<li><strong>结构</strong>：<ul>
 <li><strong>电压等级</strong>：中压（10kV~35kV）和低压（220V/380V<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。</li>
 <li><strong>网络类型</strong>：辐射状（树状<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>、环状或网状，以提高可靠性。</li>
 <li><strong>设备</strong>：配电变压器、开关柜、电缆<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>架空线路、无功补偿装置等。</li>
 </ul>
+</li>
+</ul>
 <h3 id="4"><strong><span>4.<span class="heti-spacing"> </span></span>用电系统</strong><a class="headerlink" href="#4" title="anchor link to this section for reference">¶</a></h3>
 <ul>
-<li><strong>用户分类</strong>：</li>
+<li><strong>用户分类</strong>：<ul>
 <li><strong>工业用户</strong>：高耗能、对电压稳定性要求高（如钢铁厂<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。</li>
 <li><strong>商业与居民用户</strong>：负荷波动大，需满足日常用电需求。</li>
 <li><strong>特殊用户</strong>：医院、数据中心等对供电可靠性要求极高。</li>
-<li><strong>技术发展</strong>：</li>
+</ul>
+</li>
+<li><strong>技术发展</strong>：<ul>
 <li>智能电表、需求响应（用户参与调峰<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。</li>
 <li>电动汽车充电设施等新型负荷的接入。</li>
+</ul>
+</li>
 </ul>
 <h3 id="_4"><strong>电力系统的主要特点</strong><a class="headerlink" href="#_4" title="anchor link to this section for reference">¶</a></h3>
 <ol>
@@ -3618,26 +3628,18 @@ I_{30} = \frac{S_{30}}{\sqrt{3}U_N}
 <p class="admonition-title">综合系数取值</p>
 <ol>
 <li>
-<p>车间干线上的计算负荷</p>
-<ul>
-<li><span class="arithmatex">\(K_{\Sigma p} = 0.85 \sim 0.95\)</span></li>
-<li><span class="arithmatex">\(K_{\Sigma q} = 0.90 \sim 0.97\)</span></li>
-</ul>
+<p>车间干线上的计算负荷
+    - <span class="arithmatex">\(K_{\Sigma p} = 0.85 \sim 0.95\)</span>
+    - <span class="arithmatex">\(K_{\Sigma q} = 0.90 \sim 0.97\)</span></p>
 </li>
 <li>
-<p>低压母线上的计算负荷</p>
-<ol>
-<li>由用电设备组计算负荷直接相加来计算时<ul>
-<li><span class="arithmatex">\(K_{\Sigma p} = 0.85 \sim 0.90\)</span></li>
-<li><span class="arithmatex">\(K_{\Sigma q} = 0.85 \sim 0.95\)</span></li>
-</ul>
-</li>
-<li>由车间干线计算负荷直接相加来计算时<ul>
-<li><span class="arithmatex">\(K_{\Sigma p} = 0.90 \sim 0.95\)</span></li>
-<li><span class="arithmatex">\(K_{\Sigma q} = 0.93 \sim 0.97\)</span></li>
-</ul>
-</li>
-</ol>
+<p>低压母线上的计算负荷
+    1. 由用电设备组计算负荷直接相加来计算时
+        - <span class="arithmatex">\(K_{\Sigma p} = 0.85 \sim 0.90\)</span>
+        - <span class="arithmatex">\(K_{\Sigma q} = 0.85 \sim 0.95\)</span>
+    2. 由车间干线计算负荷直接相加来计算时
+        - <span class="arithmatex">\(K_{\Sigma p} = 0.90 \sim 0.95\)</span>
+        - <span class="arithmatex">\(K_{\Sigma q} = 0.93 \sim 0.97\)</span></p>
 </li>
 </ol>
 </div>

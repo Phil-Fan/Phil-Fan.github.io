@@ -3431,17 +3431,15 @@ x<span class="w"> </span>/10i<span class="w"> </span><span class="nv">$pc</span>
 </ol>
 <p>执行方法</p>
 <ul>
-<li>
-<p><span>interactive<span class="heti-spacing"> </span></span>界面
-</p><div class="highlight"><pre><span></span><code>(gdb) file test.exe 
+<li><span>interactive<span class="heti-spacing"> </span></span>界面
+<div class="highlight"><pre><span></span><code>(gdb) file test.exe 
 (gdb) source mycmd.gdb 
-</code></pre></div>
-</li>
-<li>
-<p>在命令行中运行<span class="heti-skip"><span class="heti-spacing"> </span>gdb<span class="heti-spacing"> </span></span>的<span class="heti-skip"><span class="heti-spacing"> </span>batch<span class="heti-spacing"> </span></span>模式命令
-</p><div class="highlight"><pre><span></span><code>gdb --batch --command=cmd.gdb --args test.exe &lt;add necessary parameters here&gt; 
-</code></pre></div>
-</li>
+</code></pre></div></li>
+</ul>
+<ul>
+<li>在命令行中运行<span class="heti-skip"><span class="heti-spacing"> </span>gdb<span class="heti-spacing"> </span></span>的<span class="heti-skip"><span class="heti-spacing"> </span>batch<span class="heti-spacing"> </span></span>模式命令
+<div class="highlight"><pre><span></span><code>gdb --batch --command=cmd.gdb --args test.exe &lt;add necessary parameters here&gt; 
+</code></pre></div></li>
 </ul>
 <h3 id="gdb_2"><code>.gdb</code>脚本<a class="headerlink" href="#gdb_2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>使用<code>.gdb</code>脚本进行自动调试</p>

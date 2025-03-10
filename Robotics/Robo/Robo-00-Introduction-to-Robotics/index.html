@@ -3440,14 +3440,14 @@
 </ul>
 <h4 id="_5">相关知识<a class="headerlink" href="#_5" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <ul>
-<li>
-<p>delay()/delayMicroseconds()：用于延时，第一个单位为毫秒，第二个为微秒。  </p>
-</li>
+<li>delay()/delayMicroseconds()：用于延时，第一个单位为毫秒，第二个为微秒。  </li>
+</ul>
+<ul>
 <li>
 <p><span>analogWrite():<span class="heti-spacing"> </span></span>模拟<span class="heti-skip"><span class="heti-spacing"> </span>I/O<span class="heti-spacing"> </span></span>口输出，一般用于<span class="heti-skip"><span class="heti-spacing"> </span>PWM<span class="heti-spacing"> </span></span>输出，如：</p>
+<p>analogWrite(13,127)，为在<span class="heti-skip"><span class="heti-spacing"> </span>13<span class="heti-spacing"> </span></span>号引脚处输出一个占空比为<span class="heti-skip"><span class="heti-spacing"> </span>50%<span class="heti-spacing"> </span></span>的<span class="heti-skip"><span class="heti-spacing"> </span>PWM<span class="heti-spacing"> </span></span>方波，后一参数<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>表示关， <span>255<span class="heti-spacing"> </span></span>表示全开  </p>
 </li>
 </ul>
-<p>analogWrite(13,127)，为在<span class="heti-skip"><span class="heti-spacing"> </span>13<span class="heti-spacing"> </span></span>号引脚处输出一个占空比为<span class="heti-skip"><span class="heti-spacing"> </span>50%<span class="heti-spacing"> </span></span>的<span class="heti-skip"><span class="heti-spacing"> </span>PWM<span class="heti-spacing"> </span></span>方波，后一参数<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>表示关， <span>255<span class="heti-spacing"> </span></span>表示全开  </p>
 <div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="n">pinMode</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span><span class="n">OUTPUT</span><span class="p">);</span><span class="c1">//设定13号端口为输出</span>
@@ -3474,9 +3474,11 @@
 <p>精度</p>
 <ul>
 <li>稳定性：输入量恒定，输出量向一个方向偏移（温漂、零漂）</li>
-<li>精度</li>
+<li>精度<ul>
 <li>准确度：测量值对真值的偏移程度</li>
 <li>精密度：测量相同对象，每次得到不同值</li>
+</ul>
+</li>
 </ul>
 <h3 id="_9">动态特性<a class="headerlink" href="#_9" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p><img alt="image-20240416111624968" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416111624968.png"/></p>
@@ -3745,9 +3747,11 @@ $$</p>
 <ul>
 <li><strong>将液体压力转化为机械能</strong></li>
 <li>利用<strong>不可压缩的流体</strong>，将作用于某一点的力传递到另一点，这种流体通常是<strong>工业液压油</strong> </li>
-<li>由液压源、伺服阀、传感器、执行机构等构成</li>
+<li>由液压源、伺服阀、传感器、执行机构等构成<ul>
 <li>优点： 重量轻、尺寸小、动作平稳、快速性好、产生的力 力矩非常大 。</li>
 <li>缺点： 易漏油、维护困难；不确定性和非线性因素多，控制和校正不如电气式方便</li>
+</ul>
+</li>
 </ul>
 <p><img alt="image-20240422162943114" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240422162943114.png"/></p>
 <h2 id="_35">五、传动<a class="headerlink" href="#_35" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
