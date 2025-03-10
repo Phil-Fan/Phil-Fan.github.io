@@ -188,3 +188,48 @@ $$
 ### 使用Matlab求解
 
 给定DH参数表，计算$^0_N\mathrm{T}$
+
+
+```matlab
+function T_final = compute_DH(DH_params)
+    n = size(DH_params, 1);  % Number of joints
+    T_final = eye(4);
+    
+    for i = 1:n
+        theta_i = DH_params(i, 4);
+        d_i = DH_params(i, 3);
+        a_i_minus_1 = DH_params(i, 2);
+        alpha_i_minus_1 = DH_params(i, 1);
+        
+        T_i = [
+            cos(theta_i), -sin(theta_i), 0, a_i_minus_1;
+            sin(theta_i) * cos(alpha_i_minus_1), cos(theta_i) * cos(alpha_i_minus_1), -sin(alpha_i_minus_1), -sin(alpha_i_minus_1) * d_i;
+            sin(theta_i) * sin(alpha_i_minus_1), cos(theta_i) * sin(alpha_i_minus_1), cos(alpha_i_minus_1), cos(alpha_i_minus_1) * d_i;
+            0, 0, 0, 1
+        ];
+        fprintf('T_%d = \n', i);
+        disp(T_i);
+        T_final = T_final * T_i;
+    end
+    fprintf('Final Transformation Matrix T = \n');
+    disp(T_final);
+end
+```
+
+使用示例
+
+```matlab
+syms theta_1 theta_2 theta_3 L_1 L_2 L_3;
+
+DH_params = [
+    0,0,0, theta_1;
+    pi/2, L_1, 0, theta_2;
+    0,L_2,0,theta_3;
+    0,L_3,0,0;
+];
+
+T_final = compute_DH(DH_params);
+```
+效果
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250310162148977.png)
