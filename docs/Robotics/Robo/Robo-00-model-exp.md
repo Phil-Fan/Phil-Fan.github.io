@@ -54,14 +54,87 @@
 - `CTRL+ALT+C`：将焦点放在Lua命令行控制栏上
 - `CTRL+L`：清除状态栏（当焦点在Lua命令行控制栏上时）
 
+## 实验课简介
 
-## 仿真实验1：机械臂正、逆运动学求解
+从春4-春7周
 
 !!! note "实验器材"
     - ZJU-I型桌面机械臂
     - 机器人关节模组
     - CoppeliaSim
     - Python、Matlab、VSCode
+
+### 代码框架
+
+!!! tip "双击icon可以打开代码"
+
+仿真中单位为米
+
+- Robot中`SuctionCup_end`点展示的为机械臂末端的坐标点（仿真中为Dummy），通过选中坐标点可以在左上角查看位姿信息（其中角度为欧拉角`X-Y’-Z’`）。PS：调用API得到的姿态信息为四元数，请注意转换。
+- `Platform1`为搬运起点的平台，其中四个物块的`SuckPoint`为吸盘的吸附中心点；`Platform2`为搬运终点的平台，其中`PlacePoint`为物块放置中心点；`Pond`为染色池，`Start`和`End`分别为起点和终点位置。PS：以上均只对位置进行了规定，但由于误差的存在，建议在规划时留一定的余量。
+- 吸盘的吸附条件：吸盘与吸附中心点的Z轴夹角应小于$5^{\circ}$，吸附位置应在吸附中心点为圆心、半径为0.02m的圆内，吸盘离物体的距离不能超过0.005m。
+- 在运行过程中、暂停时可以读取机械臂位置、速度、加速度和吸盘开关的状态，如下图所示。PS：停止会直接关闭。
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250310144640863.png)
+> 图片来源于实验要求
+
+### Robot/Script.py
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250310144840873.png)
+
+
+- `sysCall_init()` 完成各关节角的计算
+- `sysCall_actuation()`中将规划好的关节角通过`move(q, state)`函数传输给机械臂。
+- `move(q, state)`：
+  - `q`:机械臂各关节角度，数据类型`6*1 ndarray`，**单位rad**；
+  - `state`，吸盘开关，数据类型`bool`。
+  - 返回值：运行成功与否，数据类型`bool`。
+
+```python title="例程，拿起一个物块，停一下再扔掉" hl_lines="2 3"
+if t < 5.2:
+    q = trajPlaningDemo(self.q0, self.q1, t, 5) # return the joint angles at time t
+    state = False # vacumm gripper is off
+    
+# vacumm gripper takes effect from t=5.2s to 5.5s    
+elif t < 5.5:
+    q = self.q1      # keeps the robot still at q1
+    state = True  # vacumm gripper is on
+
+# lift a block and move to q2    
+elif t < 8.7:
+    q = trajPlaningDemo(self.q1, self.q2, t-5.5, 3)
+    state = True
+
+# release the vaccum gripper
+elif t < 9:
+    q = self.q2 
+    state = False
+else:
+    # robot moves from q2 to q0 within 5s
+    q = trajPlaningDemo(self.q2, self.q0, t-9, 5)
+    state = False
+```
+
+| 时间 (秒) | 任务描述 | 夹持器状态 |
+|-----------|----------|------------|
+| 0 - 5.2 | 机器人从 `q0` 移动到 `q1` | ❌ 关闭 |
+| 5.2 - 5.5 | 机器人停留在 `q1`，夹持器启动 | ✅ 开启 |
+| 5.5 - 8.7 | 机器人从 `q1` 移动到 `q2`（搬运物体） | ✅ 开启 |
+| 8.7 - 9 | 机器人停在 `q2`，夹持器关闭（释放物体） | ❌ 关闭 |
+| 9 - 14 | 机器人从 `q2` 移动回 `q0` | ❌ 关闭 |
+| > 20 | 停止仿真 | ❌ 关闭 |
+
+### 问题与解决
+
+!!! question "Traceback (most recent call last): UnicodeDecodeError: 'utf-8' codec can't decode byte 0xbb in position 27: invalid start byte"
+    检查路径中是否有中文地址，改成英文
+
+!!! question "AttributeError: module 'IK' has no attribute 'IKSolver'"
+    在`.py`文件的开头，修改正确的IK文件夹的位置
+
+
+## 仿真实验1：机械臂正、逆运动学求解
+
+
 
 ### 机械臂几何参数
 
@@ -141,6 +214,7 @@
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250310103409385.png)
 
 要求：
+
 1. 起点位姿$(0.117,0.334,0.499,-2.019,-0.058,-2.190)$
 2. 终点位姿$(0.32,-0.25,0.16,3,0.265,-0.84)$
 3. 初始速度：0；终点速度：0；运行时间：2秒
@@ -155,20 +229,18 @@
 
     **最终提交文件**，需包括
 
-    1）组号-实验报告`.docx/pdf`（推荐pdf）
-    2）组号-代码文件`.rar/zip`：Coppeliasim仿真软件的`.ttt`文件及包含的其他代码文件
-    3）组号-仿真结果`.mp4/mov/其他视频文件`格式：机械臂轨迹规划仿真实验的录屏文件（文件大小应小于50Mb，推荐使用`Win+G`中的“捕获”进行录制）
+    1）组号-实验报告`.docx/pdf`（推荐pdf）<br>
+    2）组号-代码文件`.rar/zip`：Coppeliasim仿真软件的`.ttt`文件及包含的其他代码文件<br>
+    3）组号-仿真结果`.mp4/mov/其他视频文件`格式：机械臂轨迹规划仿真实验的录屏文件（文件大小应小于50Mb，推荐使用`Win+G`中的“捕获”进行录制）<br>
 
 ## 实物实验1：六自由度机械臂物体抓取与放置实验
 
 1. 编写程序控制ZJU-I型机械臂，实现木块抓取与搬运，具体流程为：
-    a) 机械臂从零位置启动，运行至起始区域；
-    b) 启动真空吸爪，抓取起始区域内的木块，移动至A点
-    $(370，-90，115)$；
-    c) 移动过程中控制木块从A点沿直线路径运动至B点
-    $(288，-288，115)$；
-    d) 控制从B点到达目标区域，目标区域位置为机械臂1号关节旋转角度$90^\circ$所在位置；
-    e) 抓取第二个木块放置到目标区域，并堆叠在第一个模块上，二者姿态保持一致；
+   - 机械臂从零位置启动，运行至起始区域；
+   - 启动真空吸爪，抓取起始区域内的木块，移动至A点$(370,-90,115)$；
+   - 移动过程中控制木块从A点沿直线路径运动至B点$(288,-288,115)$；
+   - 控制从B点到达目标区域，目标区域位置为机械臂1号关节旋转角度$90^\circ$所在位置；
+   - 抓取第二个木块放置到目标区域，并堆叠在第一个模块上，二者姿态保持一致；
 2. 程序中需要编写正、逆运动学求解代码、轨迹规划代码，要求机械臂无碰撞、所有关节速度平滑；
 3. 分组完成实验，每组提交一份实验报告，内容不超过4页；
 
