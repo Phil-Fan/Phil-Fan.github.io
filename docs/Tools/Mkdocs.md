@@ -19,6 +19,9 @@
 - [ ] not finished
 ```
 
+
+
+
 ### 代码块
 [Code blocks(代码块) - Material for MkDocs](https://wdk-docs.github.io/mkdocs-material-docs/reference/code-blocks/#annotations-with-numbers)
 
@@ -152,6 +155,24 @@ plugins:
 !!! tip "tip"
 
 !!! note "note"
+
+!!! question "这是 question 类型的提示框"
+    这是一个问题，请回答！
+
+!!! warning "这是 warning 类型的提示框"
+    注意！注意！注意！
+
+!!! success "这是 success 类型的提示框"
+    恭喜你，完成了一个任务！
+
+!!! example "这是 example 类型的提示框"
+
+!!! info "这是 info 类型的提示框"
+
+!!! abstract "这是 abstract 类型的提示框"
+
+!!! quote "这是 quote 类型的提示框"
+
 
 ### 插件
 
@@ -302,6 +323,18 @@ picgo中的设置如下
 
 [利用 PicGo 快速迁移 Gitee 图床外链图片到服务器-腾讯云开发者社区-腾讯云](https://cloud.tencent.com/developer/article/1975652)
 
+
+### 解决列表无法嵌套的问题
+
+> 来自 [解决 mkdocs 不支持无序列表嵌套 - SegmentFault 思否](https://segmentfault.com/a/1190000042842937)
+
+安装 `mdx_truly_sane_lists` 
+
+```shell
+pip install mdx_truly_sane_lists
+```
+
+然后在 `mkdoc.yml` 的 `markdown_extensions` 添加 `mdx_truly_sane_lists` 就好了
 
 
 

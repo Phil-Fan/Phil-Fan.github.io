@@ -1,3 +1,6 @@
+---
+comments: true
+---
 # 钢琴曲目欣赏
 
 [考试歌单——网易云歌单](http://163cn.tv/xE63rhC)

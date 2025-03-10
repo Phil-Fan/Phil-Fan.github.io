@@ -103,17 +103,18 @@ https://www.investor.org.cn/learning_center/gmjytx/bk/kj/202302/P020230228549608
 ### 主要参与者
 
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250309155732099.png)
-监管机构：证监会
+监管机构：证监会（正部级，国务院直属机构）
 
 
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=1252419664&bvid=BV1wJ4m1j7Df&cid=1483221140&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=450px height=600px></iframe>
 
-
-### 券商
+#### 券商
 
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250309155809896.png)
 
 **中信证券为行业内最大的公司**
 
+三中一华：中信证券、中金证券、中信建投、华泰
 
 === "按照业务分类"
     - **头部券商**：中信证券（投行业务领先）、华泰证券（财富管理）、国泰君安（综合服务）。  
@@ -130,14 +131,43 @@ https://www.investor.org.cn/learning_center/gmjytx/bk/kj/202302/P020230228549608
 
 #### 券商主要业务
 - **股票经纪**，就是买卖股票收佣金；
-- **投行业务**：帮助上市公司或未上市公司去发股、发债，收交易佣金
+- **投行业务**：帮助上市公司或未上市公司去发股、发债，收交易佣金；承销保荐
 - **研究所**，各类卖方研究员，向大家推荐哪些股票和债券有投资机会的人，有利于走向买方机构，比如保险、公募、大PE；
+- **两融业务** 融资融券
+
+
 - **投资业务**，比如中金下面的中金资本，和很多大企业搞的各类PE和VC基金。
+
+
+#### 期货公司
+
+- 期货经纪
+- 期货资产管理：受人之托，代人理财
+
+
+
+#### 基金公司
+
+- 公募私募（是否公开募集资金，公募10块起，普通人也可买）
+
+
+#### 支持经营机构
+
+中介服务：
+
+- 律所（796家）
+- 会计（103家）
+- 评估（273家）
+- 评级（13家）
+
+咨询顾问：
+- 证券投资咨询（80家）
+- 基金投资顾问（60家）
 
 
 !!! info "常见黑话"
     - 一级二级（是否上市，上市后有很强的信息披露）
-    - 公募私募（是否公开募集资金，公募10块起，普通人也可买）
+ 
     - 买方卖方
 
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250309161757622.png)

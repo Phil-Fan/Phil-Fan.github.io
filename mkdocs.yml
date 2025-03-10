@@ -84,6 +84,7 @@ markdown_extensions:
   - footnotes  # 支持脚注
   - md_in_html  # 允许在HTML块中使用Markdown
   - tables  # 支持表格
+  - mdx_truly_sane_lists # 嵌套列表（需要pip安装）
 
   # 目录生成
   - toc:
