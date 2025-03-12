@@ -47,6 +47,10 @@
     Modified DH方法是XZ类变换：先绕着i坐标系的的$X_i$轴旋转和平移，再绕着坐标系i的$Z_i$轴进行旋转和平移；(题目中使用这种方法)
 
 
+!!! question "这里各种DH的方法没有太搞清楚"
+    之前看到知乎上
+
+
 ### 运动学参量
 
 - 连杆扭转角$\alpha_{i-1}$：绕$X_{i-1}$轴，从$Z_{i-1}$轴旋转到Zi轴的角度
@@ -189,13 +193,18 @@ $$
 
 给定DH参数表，计算$^0_N\mathrm{T}$
 
+在化简的过程当中，常常苦恼化简太慢的问题。而且casio等计算器并不能处理带符号的化简。
 
-```matlab
+在室友的介绍下，学了一下Matlab的符号计算方法，还是比较好用的。
+
+
+```matlab title="解算步骤" hl_lines="6"
 function T_final = compute_DH(DH_params)
     n = size(DH_params, 1);  % Number of joints
     T_final = eye(4);
     
     for i = 1:n
+        % Extract DH parameters for joint i, attention the order!
         theta_i = DH_params(i, 4);
         d_i = DH_params(i, 3);
         a_i_minus_1 = DH_params(i, 2);
@@ -216,11 +225,12 @@ function T_final = compute_DH(DH_params)
 end
 ```
 
-使用示例
 
-```matlab
+
+```matlab title="使用示例"
 syms theta_1 theta_2 theta_3 L_1 L_2 L_3;
 
+# order: alpha,a,d,theta
 DH_params = [
     0,0,0, theta_1;
     pi/2, L_1, 0, theta_2;
@@ -230,6 +240,7 @@ DH_params = [
 
 T_final = compute_DH(DH_params);
 ```
+
 效果
 
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250310162148977.png)

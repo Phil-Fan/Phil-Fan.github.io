@@ -412,6 +412,17 @@ net user
 ![image-20240422084315579](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240422084315579.png)
 
 
+## edge
+
+### 快捷键
+
+- ctrl+tab 切换下一个标签页
+- ctrl+shift+tab 切换上一个标签页
+- ctrl+H 历史记录
+- ctrl+J 下载
+
+<iframe src="https://support.microsoft.com/zh-cn/microsoft-edge/microsoft-edge-%E4%B8%AD%E7%9A%84%E9%94%AE%E7%9B%98%E5%BF%AB%E6%8D%B7%E6%96%B9%E5%BC%8F-50d3edab-30d9-c7e4-21ce-37fe2713cfad" width="100%" height="600px"></iframe>
+
 
 ## vscode
 ### 使用

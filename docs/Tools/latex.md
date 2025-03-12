@@ -1,17 +1,24 @@
 # Latex备忘录
 
 ## 环境与配置
+!!! attention "本章节是本地环境的部署，如果您想使用在线环境or配环境苦手，请跳至下一章节"
 
 ### `TexLive` | windows 的 `LaTeX `环境
 
 #### Texlive 安装
+
+可以参考下面的教程
+<iframe src="https://mirrors.zju.edu.cn/CTAN/info/install-latex-guide-zh-cn/install-latex-guide-zh-cn.pdf" width="100%" height="600px" style="border: none;">
+This browser does not support PDFs
+</iframe>
+
 
 [Installing TeX Live over the Internet - TeX Users Group (tug.org)](https://www.tug.org/texlive/acquire-netinstall.html)
 
 [CTAN | ZJU Mirror](https://mirror.zju.edu.cn/docs/CTAN/)
 
 
-[常见问题](https://mirrors.zju.edu.cn/CTAN/info/install-latex-guide-zh-cn/install-latex-guide-zh-cn.pdf)
+
 
 在进入安装界面前，可以选择镜像源
 
@@ -87,6 +94,12 @@ If you can see this document with the title, sections, and the equation above, t
 
 
 ### `LaTeX` + `Latex Workshop` + VScode
+
+> **参考资料**
+> [论文神器 VS Code + LaTex + LaTex Workshop](https://blog.csdn.net/qq_41140138/article/details/125966870)
+> [VS Code Latex 极为简单方便的正反向定位解决办法](https://blog.csdn.net/daodao098/article/details/140791192)
+
+
 
 下载`Latex Workshop`插件。
 
@@ -214,8 +227,6 @@ If you can see this document with the title, sections, and the equation above, t
 在 VS Code 中选择 快捷键设置 （`Keyboard Shortcuts`），搜索 `SyncTeX from cursor` ”`，将对应的快捷键改成你想要的组合，保存之后就可以通过快捷键组合实现反向搜索。
 
 
-[论文神器 VS Code + LaTex + LaTex Workshop](https://blog.csdn.net/qq_41140138/article/details/125966870)
-[VS Code Latex 极为简单方便的正反向定位解决办法](https://blog.csdn.net/daodao098/article/details/140791192)
 
 
 !!! bug "chetex：warning ..."
@@ -226,6 +237,14 @@ If you can see this document with the title, sections, and the equation above, t
     ```
 
     [教程](https://blog.csdn.net/weixin_40935730/article/details/121680692)
+
+
+!!! attention "个人感觉vsc里面的报错不是特别智能，查看problem报错有时候定位不到问题"
+    总结几个常见的报错：
+    - 图片位置错误/路径错误
+    - 没有闭合的括号或者指令
+
+    可以先把图片注释掉，看看能不能调好
 
 点击左侧的编译和查看pdf，就可以啦~
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240630191728.png)
@@ -309,6 +328,8 @@ required to use pdflatex/xelatex/lualatex.
 
     这一个章节面向0 latex 基础小白，使用`overleaf`平台，希望实现的效果是基本掌握后，只用15-20min就能完成日常论文/实验报告作业的排版。
 
+
+!!! attention "本文写于2024年，有些信息可能有些过时，请注意甄别"
 
 
 === "我为什么要用latex"
