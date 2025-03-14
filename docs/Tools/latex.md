@@ -1,318 +1,5 @@
 # Latex备忘录
 
-## 环境与配置
-!!! attention "本章节是本地环境的部署，如果您想使用在线环境or配环境苦手，请跳至下一章节"
-
-### `TexLive` | windows 的 `LaTeX `环境
-
-#### Texlive 安装
-
-可以参考下面的教程
-<iframe src="https://mirrors.zju.edu.cn/CTAN/info/install-latex-guide-zh-cn/install-latex-guide-zh-cn.pdf" width="100%" height="600px" style="border: none;">
-This browser does not support PDFs
-</iframe>
-
-
-[Installing TeX Live over the Internet - TeX Users Group (tug.org)](https://www.tug.org/texlive/acquire-netinstall.html)
-
-[CTAN | ZJU Mirror](https://mirror.zju.edu.cn/docs/CTAN/)
-
-
-
-
-在进入安装界面前，可以选择镜像源
-
-安装texworks前端可以不选
-
-texlive安装比较慢，需要耐心等待
-
-安装后，搜索“查看高级系统设置”，修改环境变量，将texlive安装目录下的`bin/windows`目录加入到系统环境变量中
-
-然后在cmd中输入`tex -v`，如果出现版本号，说明安装成功
-
-```shell title="验证代码"
-tex -v
-latex -v
-xelatex -v
-bibtex -v
-```
-
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240904110729.png)
-
-#### Texstudio 下载
-
-[Releases · texstudio-org/texstudio](https://github.com/texstudio-org/texstudio/releases/)
-
-- 将语言设置为中文。依次选择Opitions->Configure TeXstudio
-
-- 修改中文界面后，我们可以选择左侧命令设置不同编译器，外部PDF查看器，和参看文献的执行程序。点击1处，可以将上述提到的3，4，5等的路径设置为TeXlive安装路径下对应的exe执行程序。点击2处，就可恢复默认。
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240904105850.png)
--  默认编译器、默认PDF查看器、默认文献工具等设置；点击构建选项，可以修改默认编译器、PDF查看器和默认文献工具等。若写中文论文，则需修改默认编译器为XelaTeX. 若为英文，则用PdfLaTex。
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240904105924.png)
-- 设置默认字体编码和添加行号：点击编辑器选项，一般默认字体编码为UTF-8（一般不修改）。显示行号默认：所有行号。添加行号，可以快速定位某个词或句的位置。此外，当程序报错时，可快速定位到出错位置，方便修改。
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240904110012.png)
-
-
-```latex title="测试代码"
-\documentclass{article}
-\usepackage{amsmath}
-
-\begin{document}
-
-\title{TeX Live Configuration Test}
-\author{Your Name}
-\date{\today}
-
-\maketitle
-
-\section{Introduction}
-This is a simple document to test if TeX Live is configured correctly.
-
-\section{Mathematics}
-Here is a simple mathematical equation:
-\begin{equation}
-    E = mc^2
-\end{equation}
-
-\section{Conclusion}
-If you can see this document with the title, sections, and the equation above, then your TeX Live installation is working correctly.
-
-\end{document}
-```
-
-编译后显示下面的页面，说明编译成功
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240904110244.png)
-
-
-**参考文献编译**
-
-在设置页面，选择bibtex为默认
-
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240731211334.png)
-
-对于texstudio来说，应该是F6+F8+F6+F6
-
-
-### `LaTeX` + `Latex Workshop` + VScode
-
-> **参考资料**
-> [论文神器 VS Code + LaTex + LaTex Workshop](https://blog.csdn.net/qq_41140138/article/details/125966870)
-> [VS Code Latex 极为简单方便的正反向定位解决办法](https://blog.csdn.net/daodao098/article/details/140791192)
-
-
-
-下载`Latex Workshop`插件。
-
-按`ctrl+,`进入设置，点击右上角的“白纸”图标，选择`setting.json`。
-
-在`setting.json`中加入以下语句
-
-添加完成后，重新启动VScode。
-
-```json
-// LATEX settings
-"editor.minimap.enabled": true,
-"latex-workshop.latex.tools": [	
-    {
-        "name": "pdflatex",
-        "command": "pdflatex",
-        "args": [
-            "-synctex=1",
-            "-interaction=nonstopmode",
-            "-file-line-error",
-            "%DOCFILE%"
-        ]
-    },
-    {
-        "name": "xelatex",
-        "command": "xelatex",
-        "args": [
-            "-synctex=1",
-            "-interaction=nonstopmode",
-            "-file-line-error",
-            "%DOCFILE%"
-        ]
-    },
-    {
-        "name": "bibtex",
-        "command": "bibtex",
-        "args": [
-            "%DOCFILE%"
-        ]
-    }
-],
-"latex-workshop.latex.recipes": [
-    {
-        "name": "xelatex",
-        "tools": [
-            "xelatex"
-        ],
-    },
-    {
-        "name": "pdflatex",
-        "tools": [
-            "pdflatex"
-        ]
-    },
-    {
-        "name": "xe->bib->xe->xe",
-        "tools": [
-            "xelatex",
-            "bibtex",
-            "xelatex",
-            "xelatex"
-        ]
-    },
-    {
-        "name": "pdf->bib->pdf->pdf",
-        "tools": [
-            "pdflatex",
-            "bibtex",
-            "pdflatex",
-            "pdflatex"
-        ]
-    }
-],
-"latex-workshop.latex.clean.fileTypes": [
-    "*.aux",
-    "*.bbl",
-    "*.blg",
-    "*.idx",
-    "*.ind",
-    "*.lof",
-    "*.lot",
-    "*.out",
-    "*.toc",
-    "*.acn",
-    "*.acr",
-    "*.alg",
-    "*.glg",
-    "*.glo",
-    "*.gls",
-    "*.ist",
-    "*.fls",
-    "*.log",
-    "*.fdb_latexmk"
-],
-//tex文件浏览器，可选项为"none" "browser" "tab" "external"
-"latex-workshop.view.pdf.viewer": "tab",
-//自动编译tex文件
-"latex-workshop.latex.autoBuild.run": "onFileChange",
-//显示内容菜单：（1）编译文件；（2）定位游标
-"latex-workshop.showContextMenu": true,
-//显示错误
-"latex-workshop.message.error.show": false,
-//弹窗显示警告
-"latex-workshop.message.warning.show": false,
-//从使用的包中自动补全命令和环境
-"latex-workshop.intellisense.package.enabled": true,
-//设置为never，为不清除辅助文件
-"latex-workshop.latex.autoClean.run": "never",
-//设置vscode编译tex文档时的默认编译链
-"latex-workshop.latex.recipe.default": "lastUsed",
-// 用于反向同步的内部查看器的键绑定。ctrl/cmd +点击(默认)或双击
-// ctrl-click 代表 ctrl + 左键单击
-// double-click 代表左键双击反向定位
-"latex-workshop.view.pdf.internal.synctex.keybinding": "double-click",
-```
-
-**正向定位**
-
-```json title="鼠标双击正向定位"
-"latex-workshop.view.pdf.internal.synctex.keybinding": "double-click",
-```
-
-**反向定位**
-
-在 VS Code 中选择 快捷键设置 （`Keyboard Shortcuts`），搜索 `SyncTeX from cursor` ”`，将对应的快捷键改成你想要的组合，保存之后就可以通过快捷键组合实现反向搜索。
-
-
-
-
-!!! bug "chetex：warning ..."
-    在`setting.json`中加入
-
-    ```
-    "latex.linter.enabled": false
-    ```
-
-    [教程](https://blog.csdn.net/weixin_40935730/article/details/121680692)
-
-
-!!! attention "个人感觉vsc里面的报错不是特别智能，查看problem报错有时候定位不到问题"
-    总结几个常见的报错：
-    - 图片位置错误/路径错误
-    - 没有闭合的括号或者指令
-
-    可以先把图片注释掉，看看能不能调好
-
-点击左侧的编译和查看pdf，就可以啦~
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240630191728.png)
-
-### `IguanaTex` | LaTeX in PPT
-
-假设已经安装好了Texlive
-
-[IguanaTex - A Free Latex Add-In for PowerPoint on Windows and Mac (jonathanleroux.org)](https://www.jonathanleroux.org/software/iguanatex/)
-
-**注意设置好路径**
-
-
-
-#### [`GhostScript`](https://ghostscript.com/releases/gsdnld.html) and [`ImageMagick`](https://www.imagemagick.org/script/download.php#windows)
-
-required to use pdflatex/xelatex/lualatex.
-
-1. **Install and set path to GhostScript and ImageMagick**:
-
-- Set the **full** path to `gswin32c.exe` or `gswin64c.exe` (note the "`c`"!) and to ImageMagick's magick.exe in the "Main Settings" window.
-- Best way to make sure the path is correct is to use the "..." button next to each path and navigate to the correct file.
-- Some default paths include `%USERPROFILE%`. It is recommended to click on "..." to make sure the path gets properly converted to the actual user profile path.
-
-#### **`TeX2img`**（SVG）
-
-(Optional): [TeX2img](https://github.com/abenori/TeX2img), used for vector graphics output via EMF ([Download](https://www.ms.u-tokyo.ac.jp/~abenori/soft/index.html#TEX2IMG)). Note that vector graphics output via SVG is now recommended if you have Office 2019 or 365.
-
-- Only needed for vector graphics support via EMF (compared to SVG, pros: available on all PowerPoint versions, fully modifiable shapes; cons: some displays randomly suffer from distortions)
-- Download from [this link](https://www.ms.u-tokyo.ac.jp/~abenori/soft/index.html#TEX2IMG) (more details on TeX2img on their [Github repo](https://github.com/abenori/TeX2img))
-- After unpacking TeX2img somewhere on your machine, run TeX2img.exe once to let it automatically set the various paths to latex/ghostscript, then set the **full** path to `TeX2imgc.exe` (note the "`c`"!) in the "Main Settings" window.
-
-!!! bug "中文公式输入错误"
-
-![image-20240609200702478](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240609200702478.png)
-
-```latex
-\documentclass{article}
-\usepackage{amsmath}
-\pagestyle{empty}
-
-\begin{document}
-\begin{align*}
-  
-\end{align*}
-\end{document}
-```
-
-
-### paste image —— 图片插入助手
-
-这个插件可以使用快捷键插入图片，免去了写htbp等的麻烦，还可以插入到指定路径下。
-
-!!! bug "根路径不是report文件夹怎么办"
-
-```json title="setting"
-"pasteImage.insertPattern": "\\begin{figure}[htbp]\n \\centering\n \\includegraphics[width=0.7\\textwidth]{figure/${imageSyntaxPrefix}${imageFilePath}${imageSyntaxSuffix}}\n \\caption{  }\n \\label{  }\n\\end{figure}"
-```
-```latex title="插入图片"
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.7\textwidth]{${imageSyntaxPrefix}${imageFilePath}${imageSyntaxSuffix}}
-    \caption{  } 
-\end{figure}
-```
-
-
-
 
 
 ## Overleaf | 边学边用的使用指南
@@ -339,8 +26,8 @@ required to use pdflatex/xelatex/lualatex.
     - 公式、图表、参考文献都可以自动标号
 
 === "我为什么要用overleaf"
-    - 云端自动保存、不怕写了半天的论文突然消失
     - 不用进行包管理、环境配置简单、打开网址就可以用
+    - 云端自动保存、不怕写了半天的论文突然消失
     - 有很多模版供使用
 
 这里分享4个我自己魔改的模版，基本上覆盖到了大部分的日常学习场景。
@@ -606,7 +293,346 @@ required to use pdflatex/xelatex/lualatex.
 
     [合法免费白嫖 Overleaf 高级会员方法，解决编译时间限制问题（已失效）](https://www.cc98.org/topic/5749388)
 
-## 排版
+
+
+## 本地环境配置
+!!! attention "本章节是本地环境的部署，如果您想使用在线环境or配环境苦手，请跳过"
+
+### `TexLive` | windows 的 `LaTeX `环境
+
+#### Texlive 安装
+
+可以参考下面的教程
+<iframe src="https://mirrors.zju.edu.cn/CTAN/info/install-latex-guide-zh-cn/install-latex-guide-zh-cn.pdf" width="100%" height="600px" style="border: none;">
+This browser does not support PDFs
+</iframe>
+
+
+[Installing TeX Live over the Internet - TeX Users Group (tug.org)](https://www.tug.org/texlive/acquire-netinstall.html)
+
+[CTAN | ZJU Mirror](https://mirror.zju.edu.cn/docs/CTAN/)
+
+
+
+
+在进入安装界面前，可以选择镜像源
+
+安装texworks前端可以不选
+
+texlive安装比较慢，需要耐心等待
+
+安装后，搜索“查看高级系统设置”，修改环境变量，将texlive安装目录下的`bin/windows`目录加入到系统环境变量中
+
+然后在cmd中输入`tex -v`，如果出现版本号，说明安装成功
+
+```shell title="验证代码"
+tex -v
+latex -v
+xelatex -v
+bibtex -v
+```
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240904110729.png)
+
+#### Texstudio 下载
+
+[Releases · texstudio-org/texstudio](https://github.com/texstudio-org/texstudio/releases/)
+
+- 将语言设置为中文。依次选择Opitions->Configure TeXstudio
+
+- 修改中文界面后，我们可以选择左侧命令设置不同编译器，外部PDF查看器，和参看文献的执行程序。点击1处，可以将上述提到的3，4，5等的路径设置为TeXlive安装路径下对应的exe执行程序。点击2处，就可恢复默认。
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240904105850.png)
+-  默认编译器、默认PDF查看器、默认文献工具等设置；点击构建选项，可以修改默认编译器、PDF查看器和默认文献工具等。若写中文论文，则需修改默认编译器为XelaTeX. 若为英文，则用PdfLaTex。
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240904105924.png)
+- 设置默认字体编码和添加行号：点击编辑器选项，一般默认字体编码为UTF-8（一般不修改）。显示行号默认：所有行号。添加行号，可以快速定位某个词或句的位置。此外，当程序报错时，可快速定位到出错位置，方便修改。
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240904110012.png)
+
+
+```latex title="测试代码"
+\documentclass{article}
+\usepackage{amsmath}
+
+\begin{document}
+
+\title{TeX Live Configuration Test}
+\author{Your Name}
+\date{\today}
+
+\maketitle
+
+\section{Introduction}
+This is a simple document to test if TeX Live is configured correctly.
+
+\section{Mathematics}
+Here is a simple mathematical equation:
+\begin{equation}
+    E = mc^2
+\end{equation}
+
+\section{Conclusion}
+If you can see this document with the title, sections, and the equation above, then your TeX Live installation is working correctly.
+
+\end{document}
+```
+
+编译后显示下面的页面，说明编译成功
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240904110244.png)
+
+
+**参考文献编译**
+
+在设置页面，选择bibtex为默认
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240731211334.png)
+
+对于texstudio来说，应该是F6+F8+F6+F6
+
+
+### `LaTeX` + `Latex Workshop` + VScode
+
+> **参考资料**
+> [论文神器 VS Code + LaTex + LaTex Workshop](https://blog.csdn.net/qq_41140138/article/details/125966870)
+> [VS Code Latex 极为简单方便的正反向定位解决办法](https://blog.csdn.net/daodao098/article/details/140791192)
+
+
+
+下载`Latex Workshop`插件。
+
+按`ctrl+,`进入设置，点击右上角的“白纸”图标，选择`setting.json`。
+
+在`setting.json`中加入以下语句
+
+添加完成后，重新启动VScode。
+
+```json
+// LATEX settings
+"editor.minimap.enabled": true,
+"latex-workshop.latex.tools": [	
+    {
+        "name": "pdflatex",
+        "command": "pdflatex",
+        "args": [
+            "-synctex=1",
+            "-interaction=nonstopmode",
+            "-file-line-error",
+            "%DOCFILE%"
+        ]
+    },
+    {
+        "name": "xelatex",
+        "command": "xelatex",
+        "args": [
+            "-synctex=1",
+            "-interaction=nonstopmode",
+            "-file-line-error",
+            "%DOCFILE%"
+        ]
+    },
+    {
+        "name": "bibtex",
+        "command": "bibtex",
+        "args": [
+            "%DOCFILE%"
+        ]
+    }
+],
+"latex-workshop.latex.recipes": [
+    {
+        "name": "xelatex",
+        "tools": [
+            "xelatex"
+        ],
+    },
+    {
+        "name": "pdflatex",
+        "tools": [
+            "pdflatex"
+        ]
+    },
+    {
+        "name": "xe->bib->xe->xe",
+        "tools": [
+            "xelatex",
+            "bibtex",
+            "xelatex",
+            "xelatex"
+        ]
+    },
+    {
+        "name": "pdf->bib->pdf->pdf",
+        "tools": [
+            "pdflatex",
+            "bibtex",
+            "pdflatex",
+            "pdflatex"
+        ]
+    }
+],
+"latex-workshop.latex.clean.fileTypes": [
+    "*.aux",
+    "*.bbl",
+    "*.blg",
+    "*.idx",
+    "*.ind",
+    "*.lof",
+    "*.lot",
+    "*.out",
+    "*.toc",
+    "*.acn",
+    "*.acr",
+    "*.alg",
+    "*.glg",
+    "*.glo",
+    "*.gls",
+    "*.ist",
+    "*.fls",
+    "*.log",
+    "*.fdb_latexmk"
+],
+//tex文件浏览器，可选项为"none" "browser" "tab" "external"
+"latex-workshop.view.pdf.viewer": "tab",
+//自动编译tex文件
+"latex-workshop.latex.autoBuild.run": "onFileChange",
+//显示内容菜单：（1）编译文件；（2）定位游标
+"latex-workshop.showContextMenu": true,
+//显示错误
+"latex-workshop.message.error.show": false,
+//弹窗显示警告
+"latex-workshop.message.warning.show": false,
+//从使用的包中自动补全命令和环境
+"latex-workshop.intellisense.package.enabled": true,
+//设置为never，为不清除辅助文件
+"latex-workshop.latex.autoClean.run": "never",
+//设置vscode编译tex文档时的默认编译链
+"latex-workshop.latex.recipe.default": "lastUsed",
+// 用于反向同步的内部查看器的键绑定。ctrl/cmd +点击(默认)或双击
+// ctrl-click 代表 ctrl + 左键单击
+// double-click 代表左键双击反向定位
+"latex-workshop.view.pdf.internal.synctex.keybinding": "double-click",
+```
+
+**正向定位**
+
+```json title="鼠标双击正向定位"
+"latex-workshop.view.pdf.internal.synctex.keybinding": "double-click",
+```
+
+**反向定位**
+
+在 VS Code 中选择 快捷键设置 （`Keyboard Shortcuts`），搜索 `SyncTeX from cursor` ”`，将对应的快捷键改成你想要的组合，保存之后就可以通过快捷键组合实现反向搜索。
+
+
+
+
+!!! bug "chetex：warning ..."
+    在`setting.json`中加入
+
+    ```
+    "latex.linter.enabled": false
+    ```
+
+    [教程](https://blog.csdn.net/weixin_40935730/article/details/121680692)
+
+
+!!! attention "个人感觉vsc里面的报错不是特别智能，查看problem报错有时候定位不到问题"
+    总结几个常见的报错：
+    - 图片位置错误/路径错误
+    - 没有闭合的括号或者指令
+
+    可以先把图片注释掉，看看能不能调好
+
+点击左侧的编译和查看pdf，就可以啦~
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240630191728.png)
+
+### `IguanaTex` | LaTeX in PPT
+
+!!! attention "这个产品需求其实挺怪的，适用"
+
+
+假设已经安装好了Texlive
+
+[IguanaTex - A Free Latex Add-In for PowerPoint on Windows and Mac (jonathanleroux.org)](https://www.jonathanleroux.org/software/iguanatex/)
+
+**注意设置好路径**
+
+
+
+#### [`GhostScript`](https://ghostscript.com/releases/gsdnld.html) and [`ImageMagick`](https://www.imagemagick.org/script/download.php#windows)
+
+required to use pdflatex/xelatex/lualatex.
+
+1. **Install and set path to GhostScript and ImageMagick**:
+
+- Set the **full** path to `gswin32c.exe` or `gswin64c.exe` (note the "`c`"!) and to ImageMagick's magick.exe in the "Main Settings" window.
+- Best way to make sure the path is correct is to use the "..." button next to each path and navigate to the correct file.
+- Some default paths include `%USERPROFILE%`. It is recommended to click on "..." to make sure the path gets properly converted to the actual user profile path.
+
+#### **`TeX2img`**（SVG）
+
+(Optional): [TeX2img](https://github.com/abenori/TeX2img), used for vector graphics output via EMF ([Download](https://www.ms.u-tokyo.ac.jp/~abenori/soft/index.html#TEX2IMG)). Note that vector graphics output via SVG is now recommended if you have Office 2019 or 365.
+
+- Only needed for vector graphics support via EMF (compared to SVG, pros: available on all PowerPoint versions, fully modifiable shapes; cons: some displays randomly suffer from distortions)
+- Download from [this link](https://www.ms.u-tokyo.ac.jp/~abenori/soft/index.html#TEX2IMG) (more details on TeX2img on their [Github repo](https://github.com/abenori/TeX2img))
+- After unpacking TeX2img somewhere on your machine, run TeX2img.exe once to let it automatically set the various paths to latex/ghostscript, then set the **full** path to `TeX2imgc.exe` (note the "`c`"!) in the "Main Settings" window.
+
+!!! bug "中文公式输入错误"
+
+![image-20240609200702478](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240609200702478.png)
+
+```latex
+\documentclass{article}
+\usepackage{amsmath}
+\pagestyle{empty}
+
+\begin{document}
+\begin{align*}
+  
+\end{align*}
+\end{document}
+```
+
+
+### paste image —— 图片插入助手
+
+这个插件可以使用快捷键插入图片，免去了写htbp等的麻烦，还可以插入到指定路径下。
+
+!!! bug "根路径不是report文件夹怎么办"
+
+按`F1`输入`setting`，在`setting.json`中加入
+
+```json title="setting"
+"pasteImage.insertPattern": "\\begin{figure}[htbp]\n \\centering\n \\includegraphics[width=0.4\\textwidth]{figures/${imageSyntaxPrefix}${imageFilePath}${imageSyntaxSuffix}}\n \\caption{  }\n \\label{  }\n\\end{figure}"
+```
+
+按`F1`,输入shortcut,打开快捷键设置，把latex workshop中的 `ctrl+alt+v` 预览去掉（因为和paste image的快捷键冲突了）
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250314153206120.png)
+
+然后就可以使用快捷键`ctrl+alt+v`插入图片了，可以根据需要修改快捷键和插入的格式。
+
+```latex title="插入图片"
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.7\textwidth]{${imageSyntaxPrefix}${imageFilePath}${imageSyntaxSuffix}}
+    \caption{  } 
+\end{figure}
+```
+
+
+
+## 问题解决与技巧
+
+### 有用网站
+
+公式识别：
+
+- [simpletex](https://simpletex.cn/ai/latex_ocr)
+- 使用deepseek等llm工具
+- [opendatalab/MinerU](https://github.com/opendatalab/MinerU): A high-quality tool for convert PDF to Markdown and JSON.一站式开源高质量数据提取工具，将PDF转换成Markdown和JSON格式。
+
+公式查询：
+
+
 
 ### 字号与字体
 
@@ -638,6 +664,7 @@ required to use pdflatex/xelatex/lualatex.
 ```
 
 首行不能缩进
+
 ```latex
 \usepackage{indentfirst} 
 \setlength{\parindent}{2em} % 控制首行缩进  
@@ -653,6 +680,7 @@ required to use pdflatex/xelatex/lualatex.
 
 \title{题目}
 ```
+
 ### 换行换页
 
 ```latex
@@ -667,6 +695,7 @@ required to use pdflatex/xelatex/lualatex.
 \hyphenpenalty=5000
 \tolerance=1000
 ```
+
 可以把这两个参数的调整加到tex文件里。hyphenpenalty的意思比较显而易见，这个值越大断字出现的就越少。tolerance越大，换行就会越少，也就是说，latex会把本该断开放到下一行的单词，整个儿的留在当前行。调这两个值就可以得到不一样的排版，有可能可以解决断字太多的问题。
 
 也可以手动指定。
@@ -675,27 +704,10 @@ required to use pdflatex/xelatex/lualatex.
 ```
 
 
-### 图片位置
-
-[htbp]
-
-
-
-缩小放大
-
-
-
-
-
-
-
-
-
-
-
 ## 公式与符号
 
-[公式快查](https://latex.emoryhuang.cn/posts/)
+!!! attention "本章节记录一些老忘记的公式和用法，如果需要速查，推荐使用[这个网站](https://latex.emoryhuang.cn/posts/)"
+
 
 ### 希腊符号
 

@@ -157,16 +157,15 @@ else:
 1. 写出ZJU-I型桌面机械臂的DH参数；
 2. 写出ZJU-I型机械臂的正运动学解（不用给出最终的齐次变换矩阵的具体代数式），并采用$XY'Z'$欧拉角表示末端执行器姿态；
 3. 将以下5组关节角参数带入正运动学解，计算机械臂末端Tip点的空间位置，计算末端执行器的姿态，以$XY'Z'$欧拉角表示结果，写出计算过程；
-   - 第一组：$\left(\frac{\pi}{6}, \frac{\pi}{6}, 0, \frac{\pi}{3}, 0\right)$
-   - 第二组：$\left(\frac{\pi}{6}, \frac{\pi}{6}, \frac{\pi}{3}, 0, \frac{\pi}{6}\right)$
-   - 第三组：$\left(\frac{\pi}{2}, 0, \frac{\pi}{2}, \frac{\pi}{3}, \frac{\pi}{6}\right)$
-   - 第四组：$\left(-\frac{\pi}{6}, -\frac{\pi}{6}, \frac{\pi}{3}, 0, \frac{\pi}{6}\right)$
-   - 第五组：$\left(\frac{\pi}{12}, \frac{\pi}{12}, \frac{\pi}{12}, \frac{\pi}{12}, \frac{\pi}{12}\right)$
+   - 第一组：$\left(\frac{\pi}{6}, 0,\frac{\pi}{6}, 0, \frac{\pi}{3}, 0\right)$
+   - 第二组：$\left(\frac{\pi}{6}, \frac{\pi}{6}, \frac{\pi}{3}, 0,\frac{\pi}{3},  \frac{\pi}{6}\right)$
+   - 第三组：$\left(\frac{\pi}{2}, 0, \frac{\pi}{2}, -\frac{\pi}{3}, \frac{\pi}{3}, \frac{\pi}{6}\right)$
+   - 第四组：$\left(-\frac{\pi}{6}, -\frac{\pi}{6}, -\frac{\pi}{3}, 0, \frac{\pi}{12}, \frac{\pi}{2}\right)$
+   - 第五组：$\left(\frac{\pi}{12}, \frac{\pi}{12}, \frac{\pi}{12}, \frac{\pi}{12}, \frac{\pi}{12}, \frac{\pi}{12}\right)$
 4. 将以上5组关节角分别输入仿真程序，将仿真得到的末端位姿与第3步得到的计算结果进行比对。
-
 5. 写出ZJU-I型桌面机械臂的逆运动学解析解（可选）；
 6. 将如下5组末端位姿参数分别代入逆运动学解（可使用自带的逆运动学求解器进行相关计算），计算对应的5组关节角；
-   - 第一组：$(0.117, 0.334, 0.499, -2.019, -0.058, -2.190)$
+   - 第一组：$(0.117,0.334,0.499,-2.019,-0.058, -2.190)$
    - 第二组：$(-0.066, 0.339, 0.444, -2.618, -0.524, -3.141)$
    - 第三组：$(0.3, 0.25, 0.26, -2.64, 0.59, -2.35)$
    - 第四组：$(0.42, 0, 0.36, 3.14, 1, -1.57)$
@@ -188,30 +187,180 @@ else:
 
 ### DH参数
 
-
 ||$\alpha$|$a$|$d$|$\theta$|
 |---|---|---|---|---|
 |1|0|0|0.23|$\theta_1$|
 |2|$-\pi/2$|0|-0.054|$\theta_2-\pi/2$|
 |3|0|0.185|0|$\theta_3$|
 |4|0|0.170|0.077|$\theta_4+\pi/2$|
-|5|$\pi/2$|0|0.077|$\theta_5$|
-|6|$\pi/2$|0|0||$\theta_6$|
-|7|0|0|0.855|0|
+|5|$\pi/2$|0|0.077|$\theta_5+\pi/2$|
+|6|$\pi/2$|0|0.0855|$\theta_6$|
 
 
 ### 正运动学
 
+!!! note "任务在要求干什么"
+    1. 在仿真软件中，输入要求的关节角，从起始位置运动到这个要求的位置
+    2. 通过手算/matlab/python，计算出末端执行器最后的变换矩阵
+    3. 将计算出的末端执行器的位置和姿态与仿真软件中的结果进行比对
 
 
+**仿真软件执行**
+
+```python title="仿真软件当中执行的代码"
+def sysCall_actuation():
+    q0 = np.zeros(6) # initialize q0 with all zeros
+    q1 = np.array([np.pi/6, 0, np.pi/6, 0, np.pi/3, 0])
+    q2 = np.array([np.pi/6, np.pi/6, np.pi/3, 0, np.pi/3, np.pi/6])
+    q3 = np.array([np.pi/2, 0, np.pi/2, -np.pi/3, np.pi/3, np.pi/6])
+    q4 = np.array([-np.pi/6, -np.pi/6, -np.pi/3, 0, np.pi/12, np.pi/2])
+    q5 = np.array([np.pi/12, np.pi/12, np.pi/12, np.pi/12, np.pi/12, np.pi/12])
+
+    t = sim.getSimulationTime()
+    q = trajPlaningDemo(q0, q1, t, 2) # 修改这里改成不同的点
+    print(sim.getObjectPosition(sim.getObject('/Robot/SuctionCup/SuctionCup_end'))+sim.getObjectOrientation(sim.getObject('/Robot/SuctionCup/SuctionCup_end'))) # 输出位置信息
+    a = move(q,0)
+```
+
+
+**解算变换矩阵，计算末端参数**
+
+
+需要特别注意的点：
+
+- 注意DH参数表当中的单位，图片中的单位是毫米，软件当中是米
+- 注意$\theta$的初始值，需要保证$\theta_i = 0$时候，机械臂初始位姿正确($\pm\frac{\pi}{2}$的原因)
+- 需要特别注意最后的欧拉角表示是XYZ表示方法，所以由旋转矩阵计算欧拉角的时候需要注意更换一下公式；
+
+```Matlab title="使用Matlab计算变换矩阵"
+calculate_XYZ_euler_angles([pi/6, 0, pi/6, 0, pi/3, 0],1);
+calculate_XYZ_euler_angles([pi/6, pi/6, pi/3, 0, pi/3, pi/6],2);
+calculate_XYZ_euler_angles([pi/2, 0, pi/2, -pi/3, pi/3, pi/6],3);
+calculate_XYZ_euler_angles([-pi/6, -pi/6, -pi/3, 0, pi/12, pi/2],4);
+calculate_XYZ_euler_angles([pi/12, pi/12, pi/12, pi/12, pi/12, pi/12],5);
+
+
+function calculate_XYZ_euler_angles(theta_values,i)
+    fprintf("%d",i);
+    % 基础DH参数表
+    DH_params_base = [
+        0, 0, 0.23, 0;
+        -pi/2, 0, -0.054, -pi/2;
+        0, 0.185, 0, 0;
+        0, 0.170, 0.077, pi/2;
+        pi/2, 0, 0.077, pi/2;
+        pi/2, 0, 0.0855, 0
+    ];
+
+    % 创建完整的DH参数表
+    DH_params = DH_params_base;
+    for i = 1:length(theta_values)
+        DH_params(i, 4) = theta_values(i) + DH_params_base(i, 4);  % 添加theta值
+    end
+
+    % 计算最终变换矩阵
+    T_final = compute_DH(DH_params);
+    fprintf('Position\n');
+    disp(T_final(1:3,4));
+    
+    % 需要特别注意这里是XYZ方法
+    R = T_final(1:3, 1:3);
+
+    beta_calc = asin( R(1, 3));
+    alpha_calc = atan2(-R(2, 3), R(3, 3));
+    gamma_calc = atan2(-R(1, 2), R(1, 1));
+
+    euler_angles_deg = rad2deg([alpha_calc, beta_calc, gamma_calc]); % 转换为弧度
+    fprintf('Angle\n');
+    disp(euler_angles_deg);
+end
+```
+
+```matlab title="计算变换矩阵"
+function T_final = compute_DH(DH_params)
+    n = size(DH_params, 1);  % Number of joints
+    T_final = eye(4);
+  
+    for i = 1:n
+        theta_i = DH_params(i, 4);
+        d_i = DH_params(i, 3);
+        a_i_minus_1 = DH_params(i, 2);
+        alpha_i_minus_1 = DH_params(i, 1);
+      
+        % 计算每个关节的变换矩阵 MDH方法
+        T_i = [
+            cos(theta_i), -sin(theta_i), 0, a_i_minus_1;
+            sin(theta_i) * cos(alpha_i_minus_1), cos(theta_i) * cos(alpha_i_minus_1), -sin(alpha_i_minus_1), -sin(alpha_i_minus_1) * d_i;
+            sin(theta_i) * sin(alpha_i_minus_1), cos(theta_i) * sin(alpha_i_minus_1), cos(alpha_i_minus_1), cos(alpha_i_minus_1) * d_i;
+            0, 0, 0, 1
+        ];
+      
+        T_final = T_final * T_i;
+    end
+  
+    % 打印最终变换矩阵
+    fprintf('Final Transformation Matrix T = \n');
+    disp(T_final);
+end
+```
+
+**对比得到结果**
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250314104911633.png)
 
 ### 逆运动学
 
+这里使用`IK`库即可求解基础解
+
+但是需要注意的是，关节角度有限制，所以需要将不符合关节角度限制的解去除。这里使用了`np.all`函数加上逻辑表达式进行判断，简化了逻辑判断
+
+步骤：
+
+1. 使用逆运动学求解器得到解（可能有多个，按照要求选择一个）
+2. 将解带入正运动学
+3. 观察末端坐标和给定坐标是否一致
 
 
+```python title="逆运动学求解与验证" hl_lines="21 29" linenums="1"
+def sysCall_init():
+    sim = require('sim')
+    # initialization the simulation
+    doSomeInit()    # must have   
 
+    angles_array = np.array([
+        [0.117, 0.334, 0.499, -2.019, -0.058, -2.190],
+        [-0.066, 0.339, 0.444, -2.618, -0.524, -3.141],
+        [0.3, 0.25, 0.26, -2.64, 0.59, -2.35],
+        [0.42, 0, 0.36, 3.14, 1, -1.57],
+        [0.32, -0.25, 0.16, 3, 0.265, -0.84]
+    ])
+    
+    iks = IK.IKSolver()
+    i = 2 # 手动从0-4
+    angles = iks.solve(angles_array[i])
+    
+    min_vals = np.radians([-200, -90, -120, -150, -150, -180])
+    max_vals = np.radians([200, 90, 120, 150, 150, 180])
 
+    valid_columns = ((min_vals[:, None] <= angles) & (angles <= max_vals[:, None])).all(axis=0) # 验证是否在范围内
+    valid_angles = angles[:, valid_columns].transpose() # 把符合条件的列提取出来
+    print(valid_angles)
+    global test_example
+    test_example = valid_angles[0] # 从符合的样例当中抽选一个
+    
+    
+def sysCall_actuation():
+    t = sim.getSimulationTime()
+    q = trajPlaningDemo(q0, test_example, t, 2)
+    a = move(q,0)
+    if(t>2.5):
+        print(sim.getObjectPosition(sim.getObject('/Robot/SuctionCup/SuctionCup_end'))+sim.getObjectOrientation(sim.getObject('/Robot/SuctionCup/SuctionCup_end')))
+        sim.pauseSimulation() # 暂停,也可以使用stopSimulation()
+```
 
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250314102228374.png)
+
+可以看到红框的部分是一致的，可以验证了逆运动学的正确性
 
 ## 仿真实验2 ：机械臂点到点轨迹规划
 
@@ -289,6 +438,7 @@ pip install tensorflow
 ```
 
 pybullet的官方也提供了一些好玩的demo，不过这些demo需要额外下载，先进入windows下一个你想要安放这些baselines的目录，然后输入：
+
 ```bash
 git clone https://github.com/openai/baselines.git
 cd baselines
