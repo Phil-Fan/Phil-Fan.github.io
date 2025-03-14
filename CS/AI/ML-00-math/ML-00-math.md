@@ -42,7 +42,7 @@
     $$
     \|x\|_\infty = \max\{|x_1|, \cdots, |x_m|\}
     $$
-
+    
     用于worst case control等领域
 
 
@@ -199,11 +199,11 @@ $$
     假设 $\mathbf{A}x = m$, 则 $\langle x,m \rangle = x^{\mathbf{H}} m = x^{\mathbf{H}} \mathbf{A} x$
 
     所以正定意味着x,m夹角小于90度
-
+    
     任意输入，输出偏离都不会太大，都是一个锐角
-
+    
     正定的话，所有特征值都大于零
-
+    
     $$
     x_i^T A x_i > 0 \implies x_i^T \lambda_i x_i > 0 \implies \lambda_i \|x_i\|^2 > 0 \implies \lambda_i > 0
     $$
@@ -220,14 +220,14 @@ $$
     矩阵的行列式等于其特征值的乘积<br>
     
     对于一个 $n \times n$ 的方阵 $A$，如果它有 $n$ 个线性无关的特征向量 $v_1, v_2, \ldots, v_n$，那么 $A$ 可以表示为：
-
+    
     $$ 
     A = V \Lambda V^{\mathbf{H}}\\
     det(A) = det(V) \cdot det(\Lambda) \cdot det(V^{\mathbf{H}}) = det(\Lambda) 
     $$
-
+    
     而特征向量矩阵 $V$ 是正交矩阵$V\cdot V^{\mathbf{H}} = I$；所以 $det(V) = 1$
-
+    
     又因为 $det(\Lambda) = \lambda_1 \lambda_2 \cdots \lambda_n$，所以 $A$ 的行列式等于它的特征值的乘积。
 
 
@@ -284,7 +284,7 @@ $$
 ??? note "应用：自相关矩阵求逆$\hat{R}^{-1}(n)$"
 
     $\lambda$用来表征遗忘因子;$\lambda$越小，越倾向于线性现在的数据
-
+    
     $$
     (\lambda R + xx^H)^{-1} = \lambda^{-1}R^{-1} - \frac{(\lambda^{-1}R^{-1}x)(\lambda^{-1}R^{-1}x)^H}{1 + \lambda^{-1}x^HR^{-1}x}
     $$
@@ -297,9 +297,9 @@ $$
     \hat{R}^{-1}(n) &= \lambda^{-1}\hat{R}^{-1}(n-1) - g(n)g^H(n)
     \end{align*}
     $$
-
+    
     更新公式
-
+    
     $$
     \begin{align*}
     \bar{g}(n) &= \lambda^{-1}\hat{R}^{-1}(n-1)x(n)\\
@@ -308,45 +308,47 @@ $$
     \end{align*}
     $$
 
-#### 左右逆
+
+
+#### Moore-Penrose Inverse | 伪逆矩阵
 
 !!! note "构造方法：想要构造成已经学过的方阵的求逆问题"
+	都是构造一个方阵
+
+对于方程 $\mathbf{Ax} = \mathbf{b}$,其中$\mathbf{A}_{m\times n}$， $m$代表方程的个数，$n$代表未知数的个数
 
 === "左逆"
 
-    仅当 $m \geq n$ 时，矩阵 $A$ 可能有**左逆矩阵** $L = \left(A^HA\right)^{-1}A^H$
+    仅当 $m \geq n$ 时("Tall matrix")，说明这个时候方程的数目大于未知数的个数，方程是过定(overdetermined)的。矩阵 $A$ 可能有**左逆矩阵** 
+    
+    $$
+    A^\dagger_L = \left(A^HA\right)^{-1}A^H
+    $$
+    
+    左逆列满秩的时候一定存在
+    
+    **超定方程最小二乘解**
 
-    左逆：列满秩的时候一定存在
-    "Tall matrix" m>n
 
-    超定方程最小二乘解
+
+
 
 === "右逆"
 
-    仅当 $m \leq n$ 时，矩阵 $A$ 可能有**右逆矩阵** $L = A^H\left(AA^H\right)^{-1}$
-
-    右逆：行满秩的时候一定存在
-
+    仅当 $m \leq n$ 时("fat matrix")，方程数目小于未知数的个数，方程式欠定的。矩阵 $A$ 可能有**右逆矩阵** 
+    
+    $$
+    A^\dagger_R = A^H\left(AA^H\right)^{-1}
+    $$
+    
+    右逆行满秩的时候一定存在
+    
     欠定方程最小范数解
-
-
-
-
-
 
 **computational demanding**
 
 
-
-
-### Moore-Penrose Inverse | 伪逆矩阵
-$A^\dagger$
-
 ### Matrix Norms
-
-
-
-
 
 三维到二维的变换 $T : \mathbb{R}^3 \mapsto \mathbb{R}^2$
 
@@ -407,7 +409,7 @@ $$
 === "右 Kronecker 积"
 
     $m \times n$ 矩阵 $A = [a_{11}, \cdots, a_{mn}]$ 和 $p \times q$ 矩阵 $B$ 的右 Kronecker 积记作 $A \otimes B$，是一个 $mp \times nq$ 矩阵，定义为
-
+    
     $$
     A \otimes B = [a_{ij}B]_{m \times n}^{p \times q} = \begin{bmatrix} a_{11}B & a_{12}B & \cdots & a_{1n}B \\ a_{21}B & a_{22}B & \cdots & a_{2n}B \\ \vdots & \vdots & \ddots & \vdots \\ a_{m1}B & a_{m2}B & \cdots & a_{mn}B \end{bmatrix}
     $$
@@ -415,7 +417,7 @@ $$
 === "左 Kronecker 积"
 
     $m \times n$ 矩阵 $A$ 和 $p \times q$ 矩阵 $B = [b_{11}, \cdots, b_{pq}]$ 的左 Kronecker 积 $A \otimes B$ 是一个 $mp \times nq$ 矩阵，定义为
-
+    
     $$
     [A \otimes B]_{\text{left}} = [Ab_{ij}]_{m \times n}^{p \times q} = [b_{ij}A]_{p \times q}^{m \times n} = \begin{bmatrix} Ab_{11} & Ab_{12} & \cdots & Ab_{1q} \\ Ab_{21} & Ab_{22} & \cdots & Ab_{2q} \\ \vdots & \vdots & \ddots & \vdots \\ Ab_{p1} & Ab_{p2} & \cdots & Ab_{pq} \end{bmatrix}
     $$
@@ -429,7 +431,7 @@ $$
     $$
     A = \begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix},B = \begin{bmatrix} 5 & 6 \\ 7 & 8 \end{bmatrix}
     $$
-
+    
     $$
     A \otimes B = \begin{bmatrix} 1 \cdot B & 2 \cdot B \\ 3 \cdot B & 4 \cdot B \end{bmatrix}
     $$
@@ -574,17 +576,17 @@ DFT:有限长离散序列，时域离散，频域离散
     $\hat{x} = F x$
 
     $F = \begin{bmatrix} 1 & 1 & \cdots & 1 \\ 1 & \omega & \cdots & \omega^{N-1} \\ \vdots & \vdots & \ddots & \vdots \\ 1 & \omega^{N-1} & \cdots & \omega^{(N-1)(N-1)} \end{bmatrix}$，其中 $\omega = e^{-j \frac{2\pi}{N}}$，称为Fourier矩阵
-
+    
     - $F^H F = F F^H = N I$
     - $F^{-1} = \frac{1}{N} F^H = \frac{1}{N} F^*$
 
 === "DFT逆变换"
     $x = F^{-1} \hat{x} = \frac{1}{N} F^* \hat{x}$
-   
+
     $$
     \begin{bmatrix} x_0 \\ x_1 \\ \vdots \\ x_{N-1} \end{bmatrix} = \frac{1}{N} \begin{bmatrix} 1 & 1 & \cdots & 1 \\ 1 & \omega^* & \cdots & (\omega^{N-1})^* \\ \vdots & \vdots & \ddots & \vdots \\ 1 & (\omega^{N-1})^* & \cdots & (\omega^{(N-1)(N-1)})^* \end{bmatrix} \begin{bmatrix} X_0 \\ X_1 \\ \vdots \\ X_{N-1} \end{bmatrix}
     $$
-
+    
     $x_n = \frac{1}{N} \sum_{k=0}^{N-1} X_k e^{j \frac{2\pi kn}{N}}$，其中 $n = 0, 1, \ldots, N-1$
 
 **傅里叶矩阵是一个酉矩阵**
@@ -617,7 +619,7 @@ $$
 
 任何一条对角线的元素取相同值：
 
-$$ 
+$$
 A = \begin{bmatrix} a_0 & a_{-1} & a_{-2} & \cdots & a_{-n} \\ a_1 & a_0 & a_{-1} & \cdots & a_{-n+1} \\ a_2 & a_1 & a_0 & \cdots & a_{-n+2} \\ \vdots & \vdots & \vdots & \ddots & \vdots \\ a_n & a_{n-1} & a_{n-2} & \cdots & a_0 \end{bmatrix} = [a_{i-j}]_{i,j=0}^n 
 $$
 
@@ -625,7 +627,7 @@ $$
 
 若一个复 Toeplitz 矩阵的元素满足复共轭对称关系 $ a_{-i} = a_i^* $，则称为 Hermitian Toeplitz 矩阵：
 
-$$ 
+$$
 A = \begin{bmatrix} a_0 & a_1^* & a_2^* & \cdots & a_n^* \\ a_1 & a_0 & a_1^* & \cdots & a_{n-1}^* \\ a_2 & a_1 & a_0 & \cdots & a_{n-2}^* \\ \vdots & \vdots & \vdots & \ddots & \vdots \\ a_n & a_{n-1} & a_{n-2} & \cdots & a_0 \end{bmatrix} 
 $$
 
@@ -638,7 +640,7 @@ $$
 
 
     $y = H \cdot x$
-
+    
     $$ 
     H = \begin{bmatrix} h_0 & 0 & 0 & \cdots & 0 \\ h_1 & h_0 & 0 & \cdots & 0 \\ h_2 & h_1 & h_0 & \cdots & 0 \\ \vdots & \vdots & \vdots & \ddots & \vdots \\ h_{K-1} & h_{K-2} & h_{K-3} & \cdots & h_0 \end{bmatrix} 
     $$
@@ -648,13 +650,83 @@ $$
 
 正方矩阵 $A \in \mathbb{C}^{(n+1) \times (n+1)}$ 称为 Hankel 矩阵，若：
 
-$$ 
+$$
 A = \begin{bmatrix} a_0 & a_1 & a_2 & \cdots & a_n \\ a_1 & a_2 & a_3 & \cdots & a_{n+1} \\ a_2 & a_3 & a_4 & \cdots & a_{n+2} \\ \vdots & \vdots & \vdots & \ddots & \vdots \\ a_n & a_{n+1} & a_{n+2} & \cdots & a_{2n} \end{bmatrix} 
 $$
 
 ## 方程求解
 奇异的意思是：冗余、重复、线性相关
 非奇异的意思是：线性无关
+
+> 参考资料 [线性方程组的最小二乘解和最小范数解 - 一以知行](https://zhuanlan.zhihu.com/p/503664717)
+
+### 最小二乘解
+
+
+
+目标是最小化**残差向量** $\mathbf{r} = A \mathbf{x} - \mathbf{b}$的**欧几里得范数**，即
+
+$$
+\min_{\mathbf{x}} \| A \mathbf{x} - \mathbf{b} \|_2^2
+$$
+
+通过求导并令导数为零，可以得到
+
+$$
+2 \cdot A^T (Ax - b) = 0
+$$
+
+假设$A^T A$可逆，则最小二乘解为：
+
+$$
+\mathbf{x}_{\text{LS}} = (A^T A)^{-1} A^T \mathbf{b}
+$$
+
+### 最小范数解
+
+
+
+也就是离原点最近的解
+
+
+
+**Minimize** $\| x \|$
+
+**Subject to**: $A x = b$
+
+直接给出结论，此时问题的最小范数解是：
+$$
+x^* = A^T (A A^T)^{-1} b
+$$
+（注意与上面最小二乘式的区别），下面给出证明。
+
+**证明**：令上述问题的解为 $x^* = A^T (A A^T)^{-1} b$，注意
+
+$$
+\begin{align}
+\| x \|^2 &= \| (x - x^*) + x^* \|^2\\
+&= ((x - x^*) + x^*)^T ((x - x^*) + x^*)\\
+&= \| x - x^* \|^2 + \| x^* \|^2 + 2 x^{*T} (x - x^*)
+\end{align}
+$$
+
+由于
+$$
+\begin{align}
+x^{*T} (x - x^*) &= [A^T (A A^T)^{-1} b]^T [x - A^T (A A^T)^{-1} b]\\
+&= b^T (A A^T)^{-1} [A x - (A A^T) (A A^T)^{-1} b]\\
+&= b^T (A A^T)^{-1} (b - b)\\
+&= 0
+\end{align}
+$$
+
+故有
+$$
+\| x \|^2 = \| x - x^* \|^2 + \| x^* \|^2
+$$
+
+由于对于所有 $x \neq x^*$，都有 $\| x - x^* \|^2 > 0$ 成立，因此，对于所有 $x \neq x^*$，都有 $\| x \|^2 > \| x^* \|^2$，即 $\| x \| > \| x^* \|$，显然 $x^*$ 是惟一的。证明完毕。
+
 
 
 ### 向量空间
@@ -718,7 +790,7 @@ $$
 
     **求特征向量**：
     - 对于每个特征值 $\lambda_i$，求解特征向量 $v_i$，这些特征向量将构成矩阵 $P$ 的列。
-
+    
     **构造对角矩阵和特征向量矩阵**：
     - 对角矩阵 $\Lambda$：
         
@@ -732,7 +804,7 @@ $$
     $$
         
     - 特征向量矩阵 $P$：
-
+    
     $$
     P = \begin{bmatrix}
     | & | & & | \\
@@ -740,7 +812,7 @@ $$
     | & | & & |
     \end{bmatrix}
     $$
-
+    
     **验证对角化**：
     - 验证 $A = P \Lambda P^{-1}$ 是否成立。
 
@@ -789,7 +861,18 @@ $$
 
 ### 行偏导
 
-### 列偏导（梯度）
+### 列偏导（梯度
+
+
+
+
+
+
+
+特例：$y \in R^{m\times 1}$, $\mathbf{A} \in R^{m\times m}$
+
+- $\frac{\partial{\mathbf{A}\mathbf{X}}}{\partial{\mathbf{X}}} = \mathbf{A}^T$
+- $\frac{\partial{\mathbf{X}^T\mathbf{A}\mathbf{X}}}{\partial{\mathbf{X}}} = \mathbf{A}^T\mathbf{X} + \mathbf{AX}$
 
 
 

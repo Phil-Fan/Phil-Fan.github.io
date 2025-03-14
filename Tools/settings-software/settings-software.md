@@ -94,3 +94,10 @@
 
 - HackBar
 - Cookie-Editor
+
+
+## Zotero 插件
+
+[Zotero 中文社区 | Zotero 中文维护小组](https://zotero-chinese.com/)
+
+- [windingwind/zotero-better-notes](https://github.com/windingwind/zotero-better-notes/tree/master?tab=readme-ov-file#-install): Everything about note management. All in Zotero.
