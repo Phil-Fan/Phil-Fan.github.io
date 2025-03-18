@@ -54,13 +54,6 @@ sudo -H pip3 install -U pip
 sudo -H pip install jetson-stats
 ```
 
-```shell title="CUDA"
-export LD_LIBRARY_PATH=/usr/local/cuda/lib64
-export PATH=/usr/local/cuda/bin:$PATH
-export CUDA_HOME=/usr/local/cuda
-#更新环境变量配置
-source ~/.bashrc
-```
 
 ```shell title="验证"
 nvcc -V
@@ -68,4 +61,17 @@ nvcc -V
 
 
 
+!!! question "A module that was compiled using NumPy 1.x cannot be run in NumPy 2.0.0"
 
+    i fix this problem using the experience on [here](https://stackoverflow.com/questions/78641150/a-module-that-was-compiled-using-numpy-1-x-cannot-be-run-in-numpy-2-0-0)
+
+    ```shell
+    pip uninstall numpy
+    pip install numpy==1.26.4
+    ```
+
+
+
+[jp6/cu126 index](https://pypi.jetson-ai-lab.dev/jp6/cu126)
+
+[Jetson Zoo - eLinux.org](https://elinux.org/Jetson_Zoo)

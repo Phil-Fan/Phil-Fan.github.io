@@ -228,6 +228,25 @@ $ ssh user.name@ip
 
 [理解公钥和私钥](https://zhuanlan.zhihu.com/p/113522792) 
 
+
+### git代理
+
+```shell title="代理的配置"
+#http代理
+git config --global http.proxy 'http://127.0.0.1:7890'
+#https代理
+git config --global https.proxy 'http://127.0.0.1:7890'
+#http代理
+git config --global http.proxy 'socks5://127.0.0.1:7890'
+#https代理
+git config --global https.proxy 'socks5://127.0.0.1:7890'
+ 
+#取消http代理
+git config --global --unset http.proxy
+#取消https代理
+git config --global --unset https.proxy
+```
+
 ## 问题与解决
 
 ###  连接不上 `port 443 Couldn‘t connect to server`
