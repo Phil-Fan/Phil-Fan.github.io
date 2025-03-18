@@ -1,4 +1,24 @@
-# 机械臂
+# 09 | 实验 —— 机械臂仿真与实验
+## 实验要求
+
+
+**地点**：石虎山基地
+**时间**：春4-春7周
+
+**课程安排**
+
+- [x] 第一周：仿真 - 机械臂正逆运动学求解
+- [ ] 第二周：仿真 - 机械臂轨迹规划
+- [ ] 第三周：实物 - 机械臂抓取与放置实验
+
+
+**实验器材**
+
+- ZJU-I型桌面机械臂
+- 机器人关节模组
+- CoppeliaSim
+- Python、Matlab 
+
 ## Coppeliasim
 
 - [用户手册](https://www.coppeliarobotics.com/helpFiles/index.html)
@@ -54,16 +74,7 @@
 - `CTRL+ALT+C`：将焦点放在Lua命令行控制栏上
 - `CTRL+L`：清除状态栏（当焦点在Lua命令行控制栏上时）
 
-## 实验课简介
-
-从春4-春7周
-
-!!! note "实验器材"
-    - ZJU-I型桌面机械臂
-    - 机器人关节模组
-    - CoppeliaSim
-    - Python、Matlab、VSCode
-
+## 代码框架入门 - 例程讲解
 ### 代码框架
 
 !!! tip "双击icon可以打开代码"
@@ -207,7 +218,7 @@ else:
 
 **仿真软件执行**
 
-```python title="仿真软件当中执行的代码"
+```python title="仿真软件当中执行的代码" hl_lines="10 11" linenums="1"
 def sysCall_actuation():
     q0 = np.zeros(6) # initialize q0 with all zeros
     q1 = np.array([np.pi/6, 0, np.pi/6, 0, np.pi/3, 0])
@@ -232,7 +243,7 @@ def sysCall_actuation():
 - 注意$\theta$的初始值，需要保证$\theta_i = 0$时候，机械臂初始位姿正确($\pm\frac{\pi}{2}$的原因)
 - 需要特别注意最后的欧拉角表示是XYZ表示方法，所以由旋转矩阵计算欧拉角的时候需要注意更换一下公式；
 
-```Matlab title="使用Matlab计算变换矩阵"
+```Matlab title="使用Matlab计算变换矩阵" linenums="1"
 calculate_XYZ_euler_angles([pi/6, 0, pi/6, 0, pi/3, 0],1);
 calculate_XYZ_euler_angles([pi/6, pi/6, pi/3, 0, pi/3, pi/6],2);
 calculate_XYZ_euler_angles([pi/2, 0, pi/2, -pi/3, pi/3, pi/6],3);
@@ -276,7 +287,7 @@ function calculate_XYZ_euler_angles(theta_values,i)
 end
 ```
 
-```matlab title="计算变换矩阵"
+```matlab title="计算变换矩阵" linenums="1"
 function T_final = compute_DH(DH_params)
     n = size(DH_params, 1);  % Number of joints
     T_final = eye(4);
@@ -318,10 +329,10 @@ end
 
 1. 使用逆运动学求解器得到解（可能有多个，按照要求选择一个）
 2. 将解带入正运动学
-3. 观察末端坐标和给定坐标是否一致
+3. 观察末端坐标和原先给定坐标是否一致
 
 
-```python title="逆运动学求解与验证" hl_lines="21 29" linenums="1"
+```python title="逆运动学求解与验证" hl_lines="21 30 33" linenums="1"
 def sysCall_init():
     sim = require('sim')
     # initialization the simulation

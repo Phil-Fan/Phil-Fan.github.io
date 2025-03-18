@@ -6,6 +6,8 @@
 - 矩阵求微分
 - 向量求导、矩阵求导
 - 矩阵求逆（逆矩阵、伪逆）
+- 二次型
+- 奇异值分解
 
 ## 时变位姿
 
@@ -139,9 +141,8 @@ $$
 
 复杂变换在某个局部点可以看作线性变换
 
-【（干货）《雅可比矩阵是什么东西》3Blue1Brown，搬自可汗学院。 【自制中文字幕】】 【精准空降到 03:53】 https://www.bilibili.com/video/
 
-<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=79626296&bvid=BV1NJ411r7ja/?share_source=copy_web&vd_source=1ce3320d605852426ce5ccfc9b31eb50&t=233&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=450px height=600px></iframe>
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=79626296&bvid=BV1NJ411r7ja/?share_source=copy_web&vd_source=1ce3320d605852426ce5ccfc9b31eb50&t=233&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=80% height=auto></iframe>
 
 
 
@@ -204,7 +205,7 @@ $$
 
 
 
-#### 参考系变换
+### 不同frame变换
 
 $$
 ^i\boldsymbol{J}(\boldsymbol{\Phi})=\begin{pmatrix}{}_0^i\boldsymbol{R}&0\\0&{}_0^i\boldsymbol{R}\end{pmatrix}\boldsymbol{J}(\boldsymbol{\Phi})
@@ -330,7 +331,7 @@ v_e^T (J J^T)^{-1} v_e = (U^T v_e)^T \Sigma^{-2} (U^T v_e)
 $$
 
 
-此时，$ \Sigma^{-2} = \text{diag}(\sigma_1^{-2}, \sigma_2^{-2}, \cdots, \sigma_m^{-2}) $ 为 $ m $ 维对角矩阵。记 $ \alpha = U^T v_e $
+此时，$\Sigma^{-2} = \text{diag}(\sigma_1^{-2}, \sigma_2^{-2}, \cdots, \sigma_m^{-2})$ 为 $m$ 维对角矩阵。记 $\alpha = U^T v_e$
 
 $$
 v_e^T (J J^T)^{-1} v_e - \alpha^T \Sigma^{-2} \alpha = \sum_{i=1}^m \frac{\alpha_i^2}{\sigma_i^2} \leq 1
@@ -433,14 +434,7 @@ $$
 
 ??? note "证明"
 
-    若刚体姿态矩阵为$R = \begin{pmatrix}
-    r_{11} & r_{12} & r_{13} \\
-    r_{21} & r_{22} & r_{23} \\
-    r_{31} & r_{32} & r_{33}\end{pmatrix}$,刚体角速度 $\omega$为：$\omega = \begin{pmatrix}
-    \omega_x \\
-    \omega_y \\
-    \omega_z
-    \end{pmatrix}$
+    若刚体姿态矩阵为 $R = \begin{pmatrix}    r_{11} & r_{12} & r_{13} \\    r_{21} & r_{22} & r_{23} \\    r_{31} & r_{32} & r_{33}\end{pmatrix}$ ,刚体角速度 $\omega$ 为：$\omega = \begin{pmatrix}    \omega_x \\    \omega_y \\    \omega_z    \end{pmatrix}$
 
     $$
     \dot{R} R^T = S\\
@@ -504,8 +498,10 @@ $$
     同理可得：
 
     $$
+    \begin{align*}
     \omega_y = \dot{r}_{11} r_{31} + \dot{r}_{12} r_{32} + \dot{r}_{13} r_{33} = \begin{pmatrix} 0 & c\alpha & s\alpha s\beta \end{pmatrix} \dot{\Psi}\\
     \omega_z = \dot{r}_{21} r_{11} + \dot{r}_{22} r_{12} + \dot{r}_{23} r_{13} = \begin{pmatrix} 1 & 0 & c\beta \end{pmatrix} \dot{\Psi}
+    \end{align*}
     $$
 
 
@@ -551,9 +547,9 @@ $$
 
 **物体平衡的条件：** 合力为0，合力矩为0
 
-> 参考资料
-> [力矩、力偶矩、弯矩的区别是什么？ - 知乎](https://www.zhihu.com/question/23371844?sort=created)
-> [力矩的本质是什么？与力偶有什么关系？ - 知乎](https://www.zhihu.com/question/398334639/answer/1258696609)
+> 参考资料<br>
+> [力矩、力偶矩、弯矩的区别是什么？ - 知乎](https://www.zhihu.com/question/23371844?sort=created)<br>
+> [力矩的本质是什么？与力偶有什么关系？ - 知乎](https://www.zhihu.com/question/398334639/answer/1258696609)<br>
 
 
 **力的平移原理**
@@ -598,14 +594,33 @@ $$
 \end{align*}
 $$
 
-- 转动型关节需要考虑施加多少力矩
-- 平动型关节需要考虑施加多少力
-- 需要对力矩进行正交分解
+
+!!! note "转动型关节需要考虑施加多少力矩,平动型关节需要考虑施加多少力.需要对(力，力矩)向量进行正交分解"
+
+
+**转动型关节$i$**
+
+$f_i$ 不是主动力而是约束力，它阻止连杆 $i$ 作直线运动；$n_i$ 阻止连杆 $i$ 作旋转运动。在 $\{i\}$ 中对 $n_i$ 进行正交分解，可得到 1 个沿 $\hat{z}_i$ 的力矩向量和 1 个垂直于 $\hat{z}_i$ 的力矩向量，垂直于 $\hat{z}_i$ 的力矩向量是约束力矩，沿 $\hat{z}_i$ 的力矩向量是主动力矩，主动力矩需由关节 $i$ 的旋转驱动器提供，主动力矩可表示为 $\tau_i \hat{z}_i$，其中
+
+$$
+\tau_i = |n_i| \cos \theta = |n_i| |\hat{z}_i| \cos \theta = n_i^{\mathrm{T}} \hat{z}_i
+$$
+
+**平动型关节$i$**
+
+$n_i$ 是约束力矩。在 $\{i\}$ 中对 $f_i$ 进行正交分解，得到 1 个主动力和 1 个约束力，需由关节 $i$ 的直线驱动器提供的主动力表示为 $\tau_i \hat{z}_i$，其中
+
+$$
+\tau_i = f_i^{\mathrm{T}} \hat{z}_i
+$$
+
 
 !!! example "例子"
     ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250313112419504.png)
     ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250313112444810.png)
     > 课本习题
+
+
 ### 力域中的雅可比
 笛卡尔力映射到关节上的力矩，不需要求解逆运动学
 
@@ -647,4 +662,120 @@ $$
     $$ 
     \tau = J^T F 
     $$
+
+## 题型
+
+
+### 基础公式记忆
+
+
+**z-y-x 欧拉角** 公式
+$$
+\begin{align}
+R_{z,y,x}(\alpha,\beta,\gamma) = \begin{pmatrix}
+c\alpha c\beta & c\alpha s\beta s\gamma-s\alpha c\gamma & c\alpha s\beta c\gamma+s\alpha s\gamma \\
+s\alpha c\beta & s\alpha s\beta s\gamma+c\alpha c\gamma & s\alpha s\beta c\gamma-c\alpha s\gamma \\
+-s\beta & c\beta s\gamma & c\beta c\gamma
+\end{pmatrix}
+\end{align}
+$$
+
+
+MDH建模下，坐标系**齐次变换矩阵**
+
+
+$^{i-1}_i \!T$ 表示坐标系 $\{i-1\}$ 到坐标系 $\{i\}$ 的变换矩阵，i从1开始
+
+$$
+^{i-1}_i \!T = \begin{pmatrix}
+\cos \theta_i & -\sin \theta_i & 0 & a_{i-1} \\
+\sin \theta_i \cos \alpha_{i-1} & \cos \theta_i \cos \alpha_{i-1} & -\sin \alpha_{i-1} & -\sin \alpha_{i-1} d_i \\
+\sin \theta_i \sin \alpha_{i-1} & \cos \theta_i \sin \alpha_{i-1} & \cos \alpha_{i-1} & \cos \alpha_{i-1} d_i \\
+0 & 0 & 0 & 1
+\end{pmatrix}
+$$
+
+几种常见的齐次变换矩阵
+
+### 求雅可比矩阵 - 向量积构造法
+
+
+$O_i$是坐标系${i}$的原点位置，$\hat{Z}_i$是转轴单位向量，这里要特别注意，$\hat{Z}_i$需要在世界坐标系下表出
+
+- 若第 $i$ 个关节为平动型关节，则：$v_N^{(i)} = d_i \hat{Z}_i \quad \omega_N^{(i)} = 0$
+- 若第 $i$ 个关节为转动型关节，则：$v_N^{(i)} = \dot{\theta}_i \hat{Z}_i \times (O_N - O_i) \quad \omega_N^{(i)} = \dot{\theta}_i \hat{Z}_i$
+
+
+
+### 求雅可比矩阵 - 速度传递
+
+公式不要记错，这里要注意 $^{i+1}_i\!R$ 需要使用 $^{i}_{i+1}\!R^T$ 进行求解
+
+**转动型关节**
+
+角速度：连杆 i+1 针对世界坐标系角速度在{i+1}坐标系的表示
+
+$$
+^{i+1}\!\omega_{i+1} = ^{i+1}_i\!R {^i\omega_i} + \dot{\theta}_{i+1} {}^{i+1}\!\hat{Z}_{i+1}\\
+$$
+
+> 其中，$\hat{Z}_{i+1}$ 是轴 $i+1$在 ${i+1}$ 中的表示；${\theta}_{i+1}$ 是转动型关节 $i+1$ 的关节转速。
+
+线速度：连杆i+1 针对世界坐标系线速度在{i+1}坐标系的表示
+
+$$
+{}^{i+1}\!v_{i+1} = {^{i+1}_iR} (^iv_i + ^i\omega_i \times {^iP_{i+1}})
+$$
+
+> 连杆的长度隐含在了 $^iP_{i+1}$ 叉乘项当中
+
+**平动型**
+
+角速度：不变
+
+$$
+^{i+1}\omega_{i+1} = _i^{i+1}R {^i\omega_i}
+$$
+
+
+线速度：要加一个在轴线上的速度
+
+$$
+^{i+1}v_{i+1} = _i^{i+1}R (^iv_i + ^i\omega_i \times ^iP_{i+1}) + \dot{d_{i+1}} \hat{Z}_{i+1}
+$$
+
+
+
+
+### 求雅可比矩阵 - 力传递
+
+
+$$
+\begin{align*}
+^i f_i = ^{i}_{i+1}R ^{i+1} f_{i+1}\\
+^i n_i = ^{i}_{i+1}R^{i+1} n_{i+1} + ^{i}P_{i+1} \times ^{i}f_{i+1}
+\end{align*}
+$$
+
+
+转动型关节需要考虑施加多少力矩,平动型关节需要考虑施加多少力.需要对(力，力矩)向量进行正交分解
+
+
+
+**转动型关节$i$**
+
+$$
+\tau_i = |n_i| \cos \theta = |n_i| |\hat{z}_i| \cos \theta = n_i^{\mathrm{T}} \hat{z}_i
+$$
+
+**平动型关节$i$**
+
+$$
+\tau_i = f_i^{\mathrm{T}} \hat{z}_i
+$$
+
+
+
+### 求雅可比矩阵 - 运动学方程微分
+
 

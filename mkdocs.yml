@@ -279,7 +279,7 @@ nav:
       - Robotics/Robo/Robo-00-model-6-Dynamics.md
       - Robotics/Robo/Robo-00-model-7-Control.md
       - Robotics/Robo/Robo-00-model-8-ForceControl.md
-      - Robotics/Robo/Robo-00-model-exp.md
+      - Robotics/Robo/Robo-00-model-9-exp.md
     - Robotics/Robo/Robo-01-sensor&detection.md
     - Robotics/Robo/Robo-02-0-navigation.md
     - Robotics/Robo/Robo-02-1-localization.md
@@ -303,6 +303,7 @@ nav:
     - Robotics/嵌入式/焊接.md
     - Robotics/嵌入式/EmbeddedSystem-experiment.md
     - Robotics/嵌入式/外设.md
+    - Robotics/嵌入式/PLC.md
     - Robotics/Robo/Robo-Drone_experiment.md
     - Robotics/Robo/Robo-Drone-explore.md
     
@@ -494,6 +495,7 @@ nav:
   - Tools/settings-software.md
   - Tools/settings-windows.md
   - Tools/settings-macos.md
+  - Tools/settings-pc.md
   
 
 - "生命因你而火热":
