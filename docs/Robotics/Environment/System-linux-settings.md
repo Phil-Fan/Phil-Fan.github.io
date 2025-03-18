@@ -34,12 +34,8 @@ JU090-6039P-08409-8J0QH-2YR7F
 打开`.vmx`文件，修改` virtualHW.version = "19"`一行至` virtualHW.version = "16"` 
 
 
-
-## 系统烧录
-
-
-
 ## 系统配置
+
 
 ### 换源
 
@@ -237,8 +233,16 @@ sudo passwd root
 vim ~/.bashrc
 ```
 
+### 截图
+
+
+- 使用 screen
+- 使用键盘上面的 print screen
+
+
 
 ## 通用软件
+
 
 ```shell
 apt-get install git
@@ -251,8 +255,27 @@ apt-get install vim
 - rg(ripgrep)：快速搜索
 - fzf ： 模糊搜索
 
+### 安装软件的一些常见命令
+
+```shell
+sudo dpkg -i xxx.deb
+```
 
 
+```shell
+tar -xzvf xxxx.tar.gz
+```
+
+
+### chorme
+
+```shell title="installment"
+sudo apt install chromium-browser
+```
+
+```shell title="verify"
+chromium-browser --version
+```
 
 ### terminator
 
@@ -288,6 +311,9 @@ sudo apt-get install terminator
 |`Ctrl+Shift+Z`|    从放大至全屏的某一窗口回到多窗格界面|
 
 ### vscode
+
+可以使用fishros进行安装
+
 [vscode on Kali](https://blog.csdn.net/CM_STC89C52/article/details/127296320)
 
 1. 用内嵌的浏览器搜索vscode，下载vscode的.deb格式的安装包
@@ -388,6 +414,7 @@ ssh-copy-id name@ip
 清华镜像地址：`https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/`
 
 按照你系统的架构选择合适的下载
+
 ```shell
 uname -m
 ```
@@ -395,27 +422,27 @@ uname -m
 ```shell
 wget https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/Miniconda3-py39_24.7.1-0-Linux-aarch64.sh
 ```
+
 下载后执行得到的文件
+
 ```shell
 bash Miniconda3-py39_24.7.1-0-Linux-aarch64.sh
 ```
 
 一路点enter和yes，最后重启终端，得到带有`(base)`的提示符，说明安装成功
 
-### 新立得 
+如果出现了错误，有可能是因为使用的是‵sh`的原因。
+
+进入
 
 ```shell
-sudo apt install -y synaptic
+vi Miniconda3-py39_24.7.1-0-Linux-aarch64.sh
 ```
-### nano
-常见操作
 
-|操作|快捷键|
-|---|---|
-|保存|`Ctrl + O`|
-|退出|`Ctrl + X`|
-|删除|`Ctrl + K`|
-
+把第一行从 ‵#!/bin/sh`改成
+```shell
+#!/bin/bash
+```
 ### todesk
 [ToDesk远程桌面软件-免费安全流畅的远程连接电脑手机](https://www.todesk.com/linux.html)
 
@@ -477,6 +504,21 @@ sudo systemctl status jupyter.service
 ```
 
 访问 `localhost:8888`即可看到，如果有公网的ip也可以访问到
+### 新立得 
+
+```shell
+sudo apt install -y synaptic
+```
+### nano
+常见操作
+
+|操作|快捷键|
+|---|---|
+|保存|`Ctrl + O`|
+|退出|`Ctrl + X`|
+|删除|`Ctrl + K`|
+
+
 
 
 
@@ -487,6 +529,30 @@ sudo systemctl status jupyter.service
 ### VPN
 
 [linux install clash](https://zhuanlan.zhihu.com/p/2852384493)
+
+
+uname -a
+
+如果输出包含 x86_64 使用下面命令安装:
+
+```shell
+wget https://github.com/clashdownload/Clash_for_Windows/releases/download/0.20.39/Clash.for.Windows-0.20.39-x64-linux.tar.gz
+```
+
+如果输出包含 aarch64 使用下面命令安装:
+
+```shell
+wget https://github.com/clashdownload/Clash_for_Windows/releases/download/0.20.39/Clash.for.Windows-0.20.39-arm64-linux.tar.gz
+```
+
+如果 wget 下载不了，到 Windows 把这两个链接输进去下载好，再用 u 盘拷贝到你的 Linux 系统也是一样的。
+
+
+找到你下载的安装包，解压提取，打开文件夹，里面有一个 `cfw` 文件，双击就是 Clash 了。如果不行，请在该文件夹内打开终端，使用`./cfw`命令执行它。
+
+进入网络设置，把proxy改成这个样子
+
+
 
 
 ```shell title="终端走代理"

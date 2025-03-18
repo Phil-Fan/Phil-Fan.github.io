@@ -36,8 +36,30 @@ Jetson Orin Nano 是 Jetson Nano 的升级版，算力提升了80倍，高达 40
 > [Jetson 开发系列：Orin Nano 开箱！一款强大的嵌入式&物联网开发板\_jetson orin nano算力-CSDN博客](https://blog.csdn.net/u010522887/article/details/142677847)
 
 
+### ssd安装
+
+M.2 80 尺寸的ssd
+
+### SDK Manager
 [SDK Manager | NVIDIA 开发者](https://developer.nvidia.cn/sdk-manager)
 
+
+遇到的问题：
+
+- 烧录到中间一半，停止，failed
+- 中间有几个包安装不上：
+
+一些不算是经验的经验
+
+- 保持耐心，不要急
+- 不要提前连接显示器
+- 可以给电脑和nano都连一下网线，可以的话给主机开一下梯子
+
+
+[Jetson Zoo - eLinux.org](https://elinux.org/Jetson_Zoo)
+
+
+### jtop
 
 ```shell title="jetpack jtop installment"
 sudo apt update
@@ -59,6 +81,10 @@ sudo -H pip install jetson-stats
 nvcc -V
 ```
 
+### pytorch
+
+根据官方的回答，jetpack 6.2 软件列表在[jp6/cu126 index](https://pypi.jetson-ai-lab.dev/jp6/cu126)
+
 
 
 !!! question "A module that was compiled using NumPy 1.x cannot be run in NumPy 2.0.0"
@@ -72,6 +98,3 @@ nvcc -V
 
 
 
-[jp6/cu126 index](https://pypi.jetson-ai-lab.dev/jp6/cu126)
-
-[Jetson Zoo - eLinux.org](https://elinux.org/Jetson_Zoo)
