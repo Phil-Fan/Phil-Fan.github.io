@@ -36,8 +36,30 @@ Jetson Orin Nano 是 Jetson Nano 的升级版，算力提升了80倍，高达 40
 > [Jetson 开发系列：Orin Nano 开箱！一款强大的嵌入式&物联网开发板\_jetson orin nano算力-CSDN博客](https://blog.csdn.net/u010522887/article/details/142677847)
 
 
+### ssd安装
+
+M.2 80 尺寸的ssd
+
+### SDK Manager
 [SDK Manager | NVIDIA 开发者](https://developer.nvidia.cn/sdk-manager)
 
+
+遇到的问题：
+
+- 烧录到中间一半，停止，failed
+- 中间有几个包安装不上：
+
+一些不算是经验的经验
+
+- 保持耐心，不要急
+- 不要提前连接显示器
+- 可以给电脑和nano都连一下网线，可以的话给主机开一下梯子
+
+
+[Jetson Zoo - eLinux.org](https://elinux.org/Jetson_Zoo)
+
+
+### jtop
 
 ```shell title="jetpack jtop installment"
 sudo apt update
@@ -54,18 +76,25 @@ sudo -H pip3 install -U pip
 sudo -H pip install jetson-stats
 ```
 
-```shell title="CUDA"
-export LD_LIBRARY_PATH=/usr/local/cuda/lib64
-export PATH=/usr/local/cuda/bin:$PATH
-export CUDA_HOME=/usr/local/cuda
-#更新环境变量配置
-source ~/.bashrc
-```
 
 ```shell title="验证"
 nvcc -V
 ```
 
+### pytorch
+
+根据官方的回答，jetpack 6.2 软件列表在[jp6/cu126 index](https://pypi.jetson-ai-lab.dev/jp6/cu126)
+
+
+
+!!! question "A module that was compiled using NumPy 1.x cannot be run in NumPy 2.0.0"
+
+    i fix this problem using the experience on [here](https://stackoverflow.com/questions/78641150/a-module-that-was-compiled-using-numpy-1-x-cannot-be-run-in-numpy-2-0-0)
+
+    ```shell
+    pip uninstall numpy
+    pip install numpy==1.26.4
+    ```
 
 
 

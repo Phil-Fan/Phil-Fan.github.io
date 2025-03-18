@@ -34,12 +34,8 @@ JU090-6039P-08409-8J0QH-2YR7F
 打开`.vmx`文件，修改` virtualHW.version = "19"`一行至` virtualHW.version = "16"` 
 
 
-
-## 系统烧录
-
-
-
 ## 系统配置
+
 
 ### 换源
 
@@ -140,40 +136,61 @@ sudo apt-get upgrade
 ### 中文系统
 在系統中添加中文語言，既可以顯示中文，也可以輸入中文。
 
-### 分辨率
+Fcitx：谷歌拼音、搜狗拼音、搜狗五笔拼音
+IBus：智能拼音，五笔（86版）
+XIM：略(现在用的相对比较少)
 
 ```shell
-xrandr
-xrandr -s 1280x768
-xrandr -s 1 #(1是顺序号，即xrandr给出的2560ｘ1600。)
+sudo apt-get update
+sudo apt-get install fcitx-bin
+
+sudo apt-get install fcitx-table 
+sudo apt-get install fcitx-table-all
 ```
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240914102150.png)
 
 
+[在Ubuntu20.04中安装中文输入法 - 知乎](https://zhuanlan.zhihu.com/p/529892064)
 
-在`/boot/grub/`下的`menu.lst`文件
+### 蓝牙操作
 
-先cat menu.lst 查看文件内容。
+打开系统蓝牙
+
 ```shell
-gedit menu.lst
-vim menu.lst
+systemctl status bluetooth
 ```
-等都可以改。其中这个vga=788就是控制你的分辨率与色彩模式的，你可以把它改成你的显示器支持的你喜欢的任意模式。
 
-[linux 下更改分辨率](https://blog.csdn.net/SueMagic/article/details/89399959)
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240914224410.png)
+
+```shell
+sudo service bluetooth start
+```
+
+```shell
+sudo /etc/init.d/bluetooth restart
+```
+
+```shell title="管理界面"
+bluetoothctl
+```
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240914224418.png)
+输入以下命令
+
+```shell
+list 
+scan on 
+devices
+power on
+agent on 
+default-agent
+pair yourDeviceMAC
+```
 
 
-!!! failure "无法获得锁 /var/lib/dpkg/lock-frontend - open "
-    ```shell
-    ps -e | grep apt
-    ```
 
-    ```
-    > 3209 ? 00:00:00 apt.systemd.dai
-    > 3213 ? 00:00:00 apt.systemd.dai
-    ```
-    
-    杀死进程并切换到sudo权限[完美解决“无法获得锁 /var/lib/dpkg/lock-frontend - open (11: 资源暂时不可用)无法获取 dpkg 前端锁 (/var/lib/dpkg/lock-f”的问题](https://blog.csdn.net/diaodaa/article/details/104516036)
+
+其中pair后面跟上扫描出的键盘的MAC地址，根据提示输入密码，显示配对成功，此时，在桌面的设置界面“我的设备”中可以看到蓝牙中键盘为已配对状态，但此时可能依然无法成功连接。
+
 
 ### 查看系统信息
 
@@ -216,8 +233,16 @@ sudo passwd root
 vim ~/.bashrc
 ```
 
+### 截图
+
+
+- 使用 screen
+- 使用键盘上面的 print screen
+
+
 
 ## 通用软件
+
 
 ```shell
 apt-get install git
@@ -230,20 +255,27 @@ apt-get install vim
 - rg(ripgrep)：快速搜索
 - fzf ： 模糊搜索
 
-### 新立得 
+### 安装软件的一些常见命令
 
 ```shell
-sudo apt install -y synaptic
+sudo dpkg -i xxx.deb
 ```
-### nano
-常见操作
 
-|操作|快捷键|
-|---|---|
-|保存|`Ctrl + O`|
-|退出|`Ctrl + X`|
-|删除|`Ctrl + K`|
 
+```shell
+tar -xzvf xxxx.tar.gz
+```
+
+
+### chorme
+
+```shell title="installment"
+sudo apt install chromium-browser
+```
+
+```shell title="verify"
+chromium-browser --version
+```
 
 ### terminator
 
@@ -279,6 +311,9 @@ sudo apt-get install terminator
 |`Ctrl+Shift+Z`|    从放大至全屏的某一窗口回到多窗格界面|
 
 ### vscode
+
+可以使用fishros进行安装
+
 [vscode on Kali](https://blog.csdn.net/CM_STC89C52/article/details/127296320)
 
 1. 用内嵌的浏览器搜索vscode，下载vscode的.deb格式的安装包
@@ -379,6 +414,7 @@ ssh-copy-id name@ip
 清华镜像地址：`https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/`
 
 按照你系统的架构选择合适的下载
+
 ```shell
 uname -m
 ```
@@ -386,48 +422,216 @@ uname -m
 ```shell
 wget https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/Miniconda3-py39_24.7.1-0-Linux-aarch64.sh
 ```
+
 下载后执行得到的文件
+
 ```shell
 bash Miniconda3-py39_24.7.1-0-Linux-aarch64.sh
 ```
 
 一路点enter和yes，最后重启终端，得到带有`(base)`的提示符，说明安装成功
 
+如果出现了错误，有可能是因为使用的是‵sh`的原因。
 
-### nomachine
-## 外设与硬件
-### 蓝牙操作
-
-打开系统蓝牙
-```shell
-systemctl status bluetooth
-```
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240914224410.png)
-```shell
-sudo service bluetooth start
-```
+进入
 
 ```shell
-sudo /etc/init.d/bluetooth restart
+vi Miniconda3-py39_24.7.1-0-Linux-aarch64.sh
 ```
 
-```shell title="管理界面"
-bluetoothctl
-```
-
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240914224418.png)
-输入以下命令
+把第一行从 ‵#!/bin/sh`改成
 ```shell
-list 
-scan on 
-devices
-power on
-agent on 
-default-agent
-pair yourDeviceMAC
+#!/bin/bash
+```
+### todesk
+[ToDesk远程桌面软件-免费安全流畅的远程连接电脑手机](https://www.todesk.com/linux.html)
+
+
+- arm [download](https://dl.todesk.com/linux/todesk-v4.7.2.0-arm64.deb)
+
+```shell
+sudo apt-get install libappindicator3-1
+
+sudo apt-get install ./todesk-v4.7.2.0-arm64.deb
 ```
 
-其中pair后面跟上扫描出的键盘的MAC地址，根据提示输入密码，显示配对成功，此时，在桌面的设置界面“我的设备”中可以看到蓝牙中键盘为已配对状态，但此时可能依然无法成功连接。
+
+```shell
+todesk
+```
+### jupyter
+
+```shell
+pip install jupyter jupyterlab
+sudo reboot
+```
+
+```shell title="生成配置文件"
+jupyter lab --generate-config
+```
+
+
+设置开机启动
+
+```shell
+sudo vim /etc/systemd/system/jupyter-lab.service
+```
+
+
+```
+[Unit]
+Description=Jupyter Lab Server
+After=network.target
+
+[Service]
+Type=simple
+User=usslab
+WorkingDirectory=/home/<name>/
+ExecStart=/<path>/jupyter-lab --port 8888 --no-browser
+
+[Install]
+WantedBy=multi-user.target
+```
+
+
+```shell title="启动服务"
+sudo systemctl enable jupyter.service
+sudo systemctl start jupyter.service
+```
+
+```shell title="检查服务"
+sudo systemctl status jupyter.service
+```
+
+访问 `localhost:8888`即可看到，如果有公网的ip也可以访问到
+### 新立得 
+
+```shell
+sudo apt install -y synaptic
+```
+### nano
+常见操作
+
+|操作|快捷键|
+|---|---|
+|保存|`Ctrl + O`|
+|退出|`Ctrl + X`|
+|删除|`Ctrl + K`|
+
+
+
+
+
+
+
+## 网络
+
+### VPN
+
+[linux install clash](https://zhuanlan.zhihu.com/p/2852384493)
+
+
+uname -a
+
+如果输出包含 x86_64 使用下面命令安装:
+
+```shell
+wget https://github.com/clashdownload/Clash_for_Windows/releases/download/0.20.39/Clash.for.Windows-0.20.39-x64-linux.tar.gz
+```
+
+如果输出包含 aarch64 使用下面命令安装:
+
+```shell
+wget https://github.com/clashdownload/Clash_for_Windows/releases/download/0.20.39/Clash.for.Windows-0.20.39-arm64-linux.tar.gz
+```
+
+如果 wget 下载不了，到 Windows 把这两个链接输进去下载好，再用 u 盘拷贝到你的 Linux 系统也是一样的。
+
+
+找到你下载的安装包，解压提取，打开文件夹，里面有一个 `cfw` 文件，双击就是 Clash 了。如果不行，请在该文件夹内打开终端，使用`./cfw`命令执行它。
+
+进入网络设置，把proxy改成这个样子
+
+
+
+
+```shell title="终端走代理"
+export http_proxy=http://your_proxy_server:your_proxy_port
+export https_proxy=http://your_proxy_server:your_proxy_port
+```
+
+
+
+
+
+### 连接wifi
+
+```shell    
+sudo vim /etc/netplan/50-cloud-init.yaml
+```
+
+```yaml
+network:
+  ethernets:
+    enp2s0:
+      dhcp4: true
+  wifis:
+    wlan0:
+      dhcp4: true
+      access-points:
+        "<ssid>":
+          password: "<passowrd>"
+  version: 2
+```
+
+
+设置好之后退出，重启网络
+```shell
+sudo netplan apply
+```
+
+1.该编辑文件中**不能出现制表符**，要不然会有问题；在执行后面的命令会报错；
+
+2.改文件的编辑必须严格按照格式来，**是分层的**，用空格来退格
+
+[启动 netplan-wpa-wlan0.sevice 失败：未找到单元 netplan-wpa-wlan0.service - ubuntu](https://askoverflow.dev/ubuntu/question/1291424/failed-to-start-netplan-wpa-wlan0-sevice-unit-netplan-wpa-wlan0-service-not-fou/)
+!!! tip "注意事项"
+    出现类似错误：`line8 column 6:cloud not find expected` 提示是**冒号：后面没加空格**
+
+    出现类似错误：`netplan found character that cannot start any token`，提示是没有按五个层次写配置文档，一定要**下一层比上一层多空一格或以上。**
+
+    出现类似错误： `Invalid YAML: inconsistent indentation:`  #缩进不对，就是**每一层没有严格缩进**
+
+
+```shell
+sudo apt install net-tools wireless-tools network-manager
+```
+### 校网验证
+`net2.zju.edu.cn`
+
+
+[QSCTech/zjunet: Command Line Scripts for ZJU (VPN / WLAN / DNS)](https://github.com/QSCTech/zjunet)
+
+w3m之类的命令行浏览器试试
+
+[比较简单的ubuntu 18.04 有线连接校园网的方法 - CC98论坛](https://www.cc98.org/topic/4899317/1#1)
+
+
+### 路由
+[静态路由](https://blog.csdn.net/u010521062/article/details/114067036)
+
+[Linux 配置静态IP](https://www.cnblogs.com/chy18883701161/p/12396035.html)
+
+
+
+
+### 内网穿透
+[校园网内登录寝室电脑远程桌面和ssh连接WSL - 知乎](https://zhuanlan.zhihu.com/p/627393030)
+[干货 | 在校园网中用ssh连接宿舍电脑](https://kegalas.top/p/%E5%B9%B2%E8%B4%A7-%E5%9C%A8%E6%A0%A1%E5%9B%AD%E7%BD%91%E4%B8%AD%E7%94%A8ssh%E8%BF%9E%E6%8E%A5%E5%AE%BF%E8%88%8D%E7%94%B5%E8%84%91/)
+
+
+
+
 
 ## 压缩
 ```shell title="递归压缩"
@@ -625,74 +829,6 @@ umount /dev/hda2
 > pywin32库没有安装好 [Python 如何通过Python访问Windows网络上的共享文件夹|极客教程](https://geek-docs.com/python/python-ask-answer/311_python_using_python_how_can_i_access_a_shared_folder_on_windows_network.html)
 
 
-
-
-## 网络
-
-### 连接wifi
-
-```shell    
-sudo vim /etc/netplan/50-cloud-init.yaml
-```
-
-```yaml
-network:
-  ethernets:
-    enp2s0:
-      dhcp4: true
-  wifis:
-    wlan0:
-      dhcp4: true
-      access-points:
-        "<ssid>":
-          password: "<passowrd>"
-  version: 2
-```
-
-
-设置好之后退出，重启网络
-```shell
-sudo netplan apply
-```
-
-1.该编辑文件中**不能出现制表符**，要不然会有问题；在执行后面的命令会报错；
-
-2.改文件的编辑必须严格按照格式来，**是分层的**，用空格来退格
-
-[启动 netplan-wpa-wlan0.sevice 失败：未找到单元 netplan-wpa-wlan0.service - ubuntu](https://askoverflow.dev/ubuntu/question/1291424/failed-to-start-netplan-wpa-wlan0-sevice-unit-netplan-wpa-wlan0-service-not-fou/)
-!!! tip "注意事项"
-    出现类似错误：`line8 column 6:cloud not find expected` 提示是**冒号：后面没加空格**
-
-    出现类似错误：`netplan found character that cannot start any token`，提示是没有按五个层次写配置文档，一定要**下一层比上一层多空一格或以上。**
-
-    出现类似错误： `Invalid YAML: inconsistent indentation:`  #缩进不对，就是**每一层没有严格缩进**
-
-
-```shell
-sudo apt install net-tools wireless-tools network-manager
-```
-### 校网验证
-`net2.zju.edu.cn`
-
-
-[QSCTech/zjunet: Command Line Scripts for ZJU (VPN / WLAN / DNS)](https://github.com/QSCTech/zjunet)
-
-w3m之类的命令行浏览器试试
-
-[比较简单的ubuntu 18.04 有线连接校园网的方法 - CC98论坛](https://www.cc98.org/topic/4899317/1#1)
-
-
-### 路由
-[静态路由](https://blog.csdn.net/u010521062/article/details/114067036)
-
-[Linux 配置静态IP](https://www.cnblogs.com/chy18883701161/p/12396035.html)
-
-
-
-
-### 内网穿透
-[校园网内登录寝室电脑远程桌面和ssh连接WSL - 知乎](https://zhuanlan.zhihu.com/p/627393030)
-[干货 | 在校园网中用ssh连接宿舍电脑](https://kegalas.top/p/%E5%B9%B2%E8%B4%A7-%E5%9C%A8%E6%A0%A1%E5%9B%AD%E7%BD%91%E4%B8%AD%E7%94%A8ssh%E8%BF%9E%E6%8E%A5%E5%AE%BF%E8%88%8D%E7%94%B5%E8%84%91/)
 
 
 ## 用户设置
