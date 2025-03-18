@@ -1,6 +1,7 @@
-# 大纲
+# 00 | 课程大纲与复习
 
 ![](https://github.com/robinvista/Mathematica/raw/master/gif/2.gif)
+> 图源网络
 
 
 !!! note "课程信息"
