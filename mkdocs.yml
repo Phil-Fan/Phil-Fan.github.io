@@ -251,6 +251,7 @@ nav:
     - Robotics/嵌入式/EmbeddedSystem-stm32.md
     - Robotics/嵌入式/Arduino.md
     - Robotics/嵌入式/RaspberryPi.md
+    - Robotics/嵌入式/JetsonNano.md
     - Robotics/嵌入式/FPGA.md
     - Robotics/嵌入式/ComputerControl.md
 
@@ -378,6 +379,7 @@ nav:
     - CS/CN/ComputerNetwork-07-问题探究.md
     - CS/CN/ComputerNetwork-08-security.md
     - CS/CN/DingBot.md
+    - CS/CN/PT.md
     
   - "OR | 运筹学 ":
     - CS/OR/OR-exercise.md
@@ -434,6 +436,9 @@ nav:
       - CS/AI/SEC-03-blackbox.md
       - CS/AI/SEC-04-GANS.md
       - CS/AI/SEC-thesis.md
+    
+    - "LLM | 大模型相关":
+      - CS/llm/llm.md
       
          
   - "CV | 计算机视觉":
@@ -471,12 +476,14 @@ nav:
   - "Dev":
     - CS/missing_knowledge.md
     - CS/Dev/rules.md
+    - CS/Dev/CI-CD.md
     - CS/Dev/tampermonkey.md
 
 
 - Tools:
   - Tools/Git.md
   - Tools/gdb.md
+  - Tools/reveal.js.md
   - Tools/Makefile.md
       
   - "效率":
