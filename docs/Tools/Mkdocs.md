@@ -324,6 +324,9 @@ picgo中的设置如下
 [利用 PicGo 快速迁移 Gitee 图床外链图片到服务器-腾讯云开发者社区-腾讯云](https://cloud.tencent.com/developer/article/1975652)
 
 
+[替换的工具 - 时光](https://blog.shiguang666.eu.org/2024/10/15/6b65681b29d7/#%E4%B8%80%E3%80%81%E9%9C%80%E6%B1%82%E6%8F%8F%E8%BF%B0)
+
+[jarvanstack/markpic: 一键下载 markdown 中图片, 并通过 picgo 上传图片到图床并替换链接](https://github.com/jarvanstack/markpic)
 ### 解决列表无法嵌套的问题
 
 > 来自 [解决 mkdocs 不支持无序列表嵌套 - SegmentFault 思否](https://segmentfault.com/a/1190000042842937)
