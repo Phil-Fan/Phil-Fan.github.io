@@ -239,7 +239,7 @@ vim ~/.bashrc
 - 使用 screen
 - 使用键盘上面的 print screen
 
-
+[如何在 Ubuntu 中截取屏幕截图（5 种简单方法）](https://techblik.com/%E5%A6%82%E4%BD%95%E5%9C%A8-ubuntu-%E4%B8%AD%E6%88%AA%E5%8F%96%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%EF%BC%885-%E7%A7%8D%E7%AE%80%E5%8D%95%E6%96%B9%E6%B3%95%EF%BC%89/)
 
 ## 通用软件
 
@@ -443,6 +443,28 @@ vi Miniconda3-py39_24.7.1-0-Linux-aarch64.sh
 ```shell
 #!/bin/bash
 ```
+
+### node
+使用fishros进行安装
+
+
+```shell
+npm install --global yarn
+```
+
+```shell
+yarn --version
+```
+
+### picgo 
+
+[Molunerfinn/PicGo](https://github.com/Molunerfinn/PicGo?tab=readme-ov-file):rocket:A simple & beautiful tool for pictures uploading built by vue-cli-electron-builder
+
+```shell
+npm i @vue/cli-service
+```
+
+
 ### todesk
 [ToDesk远程桌面软件-免费安全流畅的远程连接电脑手机](https://www.todesk.com/linux.html)
 
@@ -459,6 +481,8 @@ sudo apt-get install ./todesk-v4.7.2.0-arm64.deb
 ```shell
 todesk
 ```
+
+
 ### jupyter
 
 ```shell
