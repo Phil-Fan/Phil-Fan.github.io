@@ -233,6 +233,16 @@ sudo passwd root
 vim ~/.bashrc
 ```
 
+### 打开文件夹
+
+```shell title="安装"
+sudo apt-get install nautilus
+```
+
+```shell
+nautilus .
+```
+
 ### 截图
 
 
@@ -455,15 +465,85 @@ npm install --global yarn
 ```shell
 yarn --version
 ```
+### 坚果云
+> 参考帖子 [记录Ubuntu22.04安装坚果云](https://blog.csdn.net/weixin_45788868/article/details/140736624) 感谢
+
+```shell
+wget https://www.jianguoyun.com/static/exe/installer/nutstore_linux_src_installer.tar.gz
+```
+
+```shell
+sudo tar zxf nutstore_linux_src_installer.tar.gz
+```
+
+```
+cd nutstore_linux_src_installer
+```
+
+```shell
+sudo ./update-toolchain.sh
+```
+
+!!! question "这里我报错了，少一个库"
+    没搞明白，就全装了
+
+    ```shell
+    sudo aptitude install libnautilus-extension4
+    sudo aptitude install libnautilus-extension1a
+    sudo aptitude install libnautilus-extension-dev
+    ```     
+
+
+
+```shell
+sudo ./configure
+```
+
+```shell
+sudo make
+```
+
+```shell
+sudo make install
+```
+
+```shell title="download other things"
+./runtime_bootstrap
+```
+
+直接按1
+
+### wechat
+[Weixin for Linux](https://linux.weixin.qq.com/en)
+
+### typora
+> 参考[Ubuntu22.04环境下使用Typora\_typora ubuntu-CSDN博客](https://blog.csdn.net/weixin_73546177/article/details/132033297)
+> [WittonBell/typoraCracker: A patch and keygen tools for typora.](https://github.com/WittonBell/typoraCracker)
+
+```shell title="官网教程"
+wget -qO - https://typora.io/linux/public-key.asc | sudo tee /etc/apt/trusted.gpg.d/typora.asc
+# add Typora's repository
+sudo add-apt-repository 'deb https://typora.io/linux ./'
+sudo apt update
+# install typora
+sudo apt install typora
+```
+
+我下载的二进制文件，没有用这个
 
 ### picgo 
 
 [Molunerfinn/PicGo](https://github.com/Molunerfinn/PicGo?tab=readme-ov-file):rocket:A simple & beautiful tool for pictures uploading built by vue-cli-electron-builder
 
 ```shell
+cd Picgo
+
+
+```shell
 npm i @vue/cli-service
 ```
 
+[ubuntu PicGo安装和腾讯云图床配置，超详细！！！-CSDN博客](https://blog.csdn.net/qq_42584874/article/details/116534328)
 
 ### todesk
 [ToDesk远程桌面软件-免费安全流畅的远程连接电脑手机](https://www.todesk.com/linux.html)
@@ -476,7 +556,6 @@ sudo apt-get install libappindicator3-1
 
 sudo apt-get install ./todesk-v4.7.2.0-arm64.deb
 ```
-
 
 ```shell
 todesk
