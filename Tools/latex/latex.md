@@ -387,6 +387,59 @@ If you can see this document with the title, sections, and the equation above, t
 
 对于texstudio来说，应该是F6+F8+F6+F6
 
+### MacTex ｜ MacOS 上的LaTeX环境
+
+> 参考资料： [macOS 配置 LaTeX—MacTeX+TeXstudio/VS Code - 知乎](https://zhuanlan.zhihu.com/p/407527454)
+
+
+```shell title="brew安装mactex"
+brew install mactex --cask
+```
+
+要等比较久，可以先开着去做其他事情
+
+会自己下一个Texshop，可以验证一下是否安装成功了
+
+
+```latex
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{ctex}
+
+\begin{document}
+
+\title{LaTeX 环境验证}
+\author{你的名字}
+\date{\today}
+
+\maketitle
+
+\section{引言}
+这是一个简单的 LaTeX 文档，用于验证环境是否正常工作。
+
+\section{数学公式}
+以下是一个数学公式的示例：
+
+\begin{align}
+    E = Mc^2
+\end{align}
+
+
+\section{列表}
+以下是一个无序列表的示例：
+\begin{itemize}
+    \item 项目 1
+    \item 项目 2
+    \item 项目 3
+\end{itemize}
+
+\section{总结}
+如果你能够看到这个文档的正常输出，那么你的 LaTeX 环境已经设置成功。
+
+\end{document}
+```
+
+
 
 ### `LaTeX` + `Latex Workshop` + VScode
 
@@ -402,7 +455,7 @@ If you can see this document with the title, sections, and the equation above, t
 
 在`setting.json`中加入以下语句
 
-添加完成后，重新启动VScode。
+添加完成后，**重新启动VScode**。
 
 ```json
 // LATEX settings

@@ -8,7 +8,11 @@ mac默认使用zsh
 - 空格预览文件
 - 按住Command+空格，打开“聚焦“
 - fn+backspace = del
-- 
+- command+q 退出应用程序
+
+## 触控板
+
+两指左滑 - 通知中心
 
 ## 小技巧
 同时重命名多个文件
@@ -116,6 +120,22 @@ npm install -g lodash
 - Acrobat
 - LR
 
+
+### picgo
+[Release 2.3.1 · Molunerfinn/PicGo](https://github.com/Molunerfinn/PicGo/releases/tag/v2.3.1)
+
+下载之后进行dwg的安装，因为 PicGo 没有签名，所以会被 macOS 的安全检查所拦下,安装后会显示已经损坏，这个时候需要根据[PicGo/FAQ.md](https://github.com/Molunerfinn/PicGo/blob/dev/FAQ.md)中的方法进行操作
+
+```shell title="信任开发者"
+sudo spctl --master-disable
+```
+
+```shell title="放行picgo"
+xattr -cr /Applications/PicGo.app
+```
+
+
+
 ## 效率工具
 ### Aifred：better 聚焦
 
@@ -183,7 +203,7 @@ brew install mactex --cask
 ## conda 环境
 
 [Miniconda — Anaconda documentation](https://docs.anaconda.com/miniconda/)
-[miniconda下载 m1/m2](https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-arm64.sh)
+[miniconda下载 m1/m2](https://repo.anaconda.com/minpiconda/Miniconda3-latest-MacOSX-arm64.sh)
 [MAC OS m2安装和卸载miniconda - 知乎](https://zhuanlan.zhihu.com/p/619566718)
 安装
 ```shell
