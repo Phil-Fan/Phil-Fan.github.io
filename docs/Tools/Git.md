@@ -192,7 +192,7 @@ git config --global --unset credential.helper
 
 ```shell
 cd ~
-ssh-keygen -t rsa -C "xxx@xxx.com" # 这里输入你的邮箱
+ssh-sskeygen -t rsa -C "xxx@xxx.com" # 这里输入你的邮箱
 cd .ssh
 cat id_rsa.pub # 复制到github的ssh设置中
 ```
