@@ -7,8 +7,8 @@ mac默认使用zsh
 
 - 空格预览文件
 - 按住Command+空格，打开“聚焦“
-- shift+command+3: 截图完整屏幕
-- shift+command+4: 截图部分屏幕
+- fn+backspace = del
+- 
 
 ## 小技巧
 同时重命名多个文件
@@ -16,6 +16,168 @@ mac默认使用zsh
 
 
 ## 软件配置指南
+
+鼠标反转： 自然滚动去掉
+
+### homebrew
+首先需要配置好vpn
+
+```shell title="安装homebrew"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+```shell title="系统会跳出三个指令让你执行，类似于"
+echo >> /Users/philfan/.zprofile
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/philfan/.zprofile
+eval "$(/opt/homebrew/bin/brew shellenv)"
+```
+
+```shell title="验证安装"
+brew help
+```
+
+
+### cli工具
+
+```shell title="wget 安装"
+brew install wget
+```
+
+### vscode
+
+**Shift + Command + P** 打开设置，输入 `shell command` 找到`Shell Command: Install ‘code’ command in PATH`
+
+
+### xcode
+
+[Xcode on the Mac App Store](https://apps.apple.com/us/app/xcode/id497799835?mt=12)
+
+```shell
+xcode-select --install
+```
+
+显示 command line tools are already installed
+
+### ssh
+
+### git
+
+### jenkins
+[Jenkins](https://www.jenkins.io/)
+
+
+```shell
+brew install jenkins
+```
+
+### NVM
+
+[nvm-sh/nvm](https://github.com/nvm-sh/nvm): Node Version Manager - POSIX-compliant bash script to manage multiple active node.js versions
+
+
+```shell
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.2/install.sh | bash
+```
+
+```shell
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use # This loads nvm, without auto-using the default version
+```
+
+```shell title="验证"
+nvm -vx
+```
+
+### node
+
+使用NVM进行管理
+
+```shell
+nvm install stable
+```
+
+```shell
+npm install -g tldr
+npm install -g typescript
+npm install -g @vue/cli
+npm install -g vuepress
+npm install -g @angular/cli
+npm install -g eslint
+npm install -g gitbook-cli
+npm install -g lodash
+```
+
+### creative cloud
+
+201： 说明是网络问题
+
+- PS
+- AI
+- Acrobat
+- LR
+
+## 效率工具
+### Aifred：better 聚焦
+
+[Mac效率神器Alfred系列教程---Alfred概述 - 知乎](https://zhuanlan.zhihu.com/p/33199992)
+
+### Iterm2：更nb的终端
+[iTerm2安装配置使用指南——保姆级 - 知乎](https://zhuanlan.zhihu.com/p/550022490)
+
+
+```shell title="oh my zsh"
+sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+```
+
+
+```shell title="声明高亮插件zsh-syntax-highlighting"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+
+```shell
+#编辑配置文件
+vim ~/.zshrc
+
+#在最后一行增加下面的代码
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 
+
+#退出编辑后执行使配置生效
+source ~/.zshrc 
+```
+
+### spectacle： 窗口移动
+
+[Carthage/Carthage: A simple, decentralized dependency manager for Cocoa](https://github.com/Carthage/Carthage?tab=readme-ov-file#installing-carthage)
+
+```shell
+brew install carthage
+```
+
+[spectacle](https://github.com/eczarny/spectacle/releases/tag/1.2)
+
+下载release即可，需要安装一个环境，按步骤来即可
+
+
+### Vanilla： 隐藏菜单栏
+
+
+按住 Command 键同时拖动应用图标 进入相应区域，就完成了对应用图标的隐藏 / 显示设置，这要比 Bartender 便捷高效许多。
+
+[Vanilla，精简 Mac 菜单栏应用图标，小巧轻量还免费丨App+1 - 少数派](https://sspai.com/post/39036)
+
+### [Scroll Reverser ](https://pilotmoon.com/scrollreverser/) 调整滚轮方向
+
+
+
+
+## latex
+
+
+```shell
+brew install mactex --cask
+```
+
+等着就完事了
 
 
 ## conda 环境

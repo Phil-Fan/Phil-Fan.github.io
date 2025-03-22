@@ -20,16 +20,16 @@
 **以下为macos专属**
 
 - 开发工具Alfred: [Alfred - Productivity App for macOS](https://www.alfredapp.com/) 教程[Mac效率神器Alfred系列教程---Alfred概述 - 知乎](https://zhuanlan.zhihu.com/p/33199992)
-- 开发工具iTerm2：[iTerm2 - macOS Terminal Replacement](https://iterm2.com/)教程：[iTerm2安装配置使用指南——保姆级 - 知乎](https://zhuanlan.zhihu.com/p/550022490)
+- 开发工具iTerm2：[iTerm2 - macOS Terminal Replacement](https://iterm2.com/)<br>教程：[iTerm2安装配置使用指南——保姆级 - 知乎](https://zhuanlan.zhihu.com/p/550022490)
 - 窗口管理：[eczarny/spectacle: Spectacle allows you to organize your windows without using a mouse.](https://github.com/eczarny/spectacle)
-- Sip：color picker
+- [sip](https://sipapp.io/)：color picker
 - airserver：投屏
 - [Vanilla](https://matthewpalmer.net/vanilla/)：菜单栏隐藏
 - [SpaceLauncher](https://spacelauncherapp.com/)：空格为主的热键
 - [Xnip](https://zh.xnipapp.com/)：Mac上方便好用的截图工具
-- Fliqlo：翻盖时钟屏保，Mac的经典屏保
+- [Fliqlo](https://fliqlo.com/)：翻盖时钟屏保，Mac的经典屏保
 - [Kap](https://getkap.co/):gif recorder
-- [Kevin-De-Koninck/Clean-Me](https://github.com/Kevin-De-Koninck/Clean-Me): A macOS system analyser and cleaner
+- [cleaner one](https://cleanerone.trendmicro.com/) 清理工具
 
 
 **以下为windows专属：**
