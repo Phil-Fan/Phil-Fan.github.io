@@ -247,6 +247,10 @@ git config --global --unset http.proxy
 git config --global --unset https.proxy
 ```
 
+### .gitignore的配置
+
+有时候不想要`.git`,`.DS_Store` 等文件，那么就需要在`.gitignore`中写清楚
+
 ## 问题与解决
 
 ###  连接不上 `port 443 Couldn‘t connect to server`

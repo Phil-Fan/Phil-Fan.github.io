@@ -67,6 +67,11 @@
 - [memset0/Learning-at-ZJU-Helper](https://github.com/memset0/Learning-at-ZJU-Helper): 学在浙大/智云课堂 辅助脚本<br>
 - [PeiPei233/zju-learning-assistant](https://github.com/PeiPei233/zju-learning-assistant): 帮你快速下载所有课件<br>
 
+!!! note "注意macos没有签名时候需要手动信任"
+    ```shell
+    xattr -cr /Applications/zju-learning-assistant.app
+    ```
+
 
 ## edge/chorme 插件
 
