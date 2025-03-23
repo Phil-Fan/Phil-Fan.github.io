@@ -9,11 +9,19 @@ mac默认使用zsh
 - 按住Command+空格，打开“聚焦“
 - fn+backspace = del
 - command+q 退出应用程序
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=1851423987&bvid=BV1mW421w7Jw&cid=1457785582&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=100% height=600px></iframe>
 
 ## 触控板
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=1550039500&bvid=BV12y421e7t2&cid=1428208208&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=90% height=600px></iframe>
 
 两指左滑 - 通知中心
 
+
+## 文件管理
+
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=1304948465&bvid=BV1XM4m1k7hg&cid=1556194945&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=1905750778&bvid=BV1LS411N723&cid=1594491744&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=90% height=600px></iframe>
 ## 小技巧
 同时重命名多个文件
 - 拆字法打字
@@ -73,6 +81,22 @@ xcode-select --install
 ```shell
 brew install jenkins
 ```
+### paragon： NTFS读写
+
+在使用硬盘传数据的时候，老是报`错误代码 -50`，搜了一下才发现mac原生是不支持NTFS文件系统的
+
+!!! info "什么是NTFS"
+    NTFS（New Technology File System）是由微软开发的一种文件系统，最早在 Windows NT 操作系统中引入。它是 Windows 系统的默认文件系统，用于存储和检索硬盘上的数据。
+
+官网地址
+
+[Microsoft NTFS for Mac | Paragon Software](https://www.paragon-software.com/home/ntfs-mac/)
+
+
+搜了一下发现希捷的官网有一个免费的版本
+
+[Paragon 驱动程序 | Seagate 中国](https://www.seagate.com/cn/zh/support/software/paragon/)
+
 
 ### NVM
 
@@ -134,9 +158,27 @@ sudo spctl --master-disable
 xattr -cr /Applications/PicGo.app
 ```
 
+### docker
+
+### typora
+
+### jetbrains
+ZJU有企业账号，在校网环境下面登陆
+
+
+### wps
+zju有企业账号，SSO登陆输入ZJU，验证登陆即可
+
+
+### adobe系列
 
 
 ## 效率工具
+
+### icloud 软件 + icloud书签实现edge和safari的同步
+
+rt，在windows上下载[icloud](icloud.en.uptodown.com/windows/download)软件，安装后登录icloud账号，再在edge上下载[icloud书签](https://microsoftedge.microsoft.com/addons/detail/icloud-%E4%B9%A6%E7%AD%BE/lbfbbhdljlmhnpbcdcajkdanonpgbhlh)插件，安装后登录icloud账号，即可实现edge和safari的同步
+
 ### Aifred：better 聚焦
 
 [Mac效率神器Alfred系列教程---Alfred概述 - 知乎](https://zhuanlan.zhihu.com/p/33199992)
@@ -188,7 +230,7 @@ brew install carthage
 ### [Scroll Reverser ](https://pilotmoon.com/scrollreverser/) 调整滚轮方向
 
 
-
+## safari 使用指南
 
 ## latex
 

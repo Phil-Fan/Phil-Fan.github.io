@@ -31,7 +31,8 @@ comments: true
 
 再放少量油，下蒜末、姜片、小米辣、泡椒炒香，将牛肉回锅，放入鸡精和一小盖泡椒水，最后放入香菜炒软即可出锅。
 
-![alt text](2f8ef153a666bc37701359f23b0587ec.JPG)
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/2f8ef153a666bc37701359f23b0587ec.JPG)
+
 
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/IMG_1081.JPG)
 
