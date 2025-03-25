@@ -1,45 +1,5 @@
-# E：一只爬虫
-
-[TOC]
-
-
-
-
-
-
-
-## 安装库
-
-本次项目共用到以下库
-
-```py
-import json
-import re
-import time
-
-from bs4 import BeautifulSoup
-import request
-import openpyxl
-```
-
-
-
-## Task python
-
-在寒假中预习了一点点python的基础语法，写过两三个有意思的小项目，但操作并不熟练，而爬虫需要对python掌握比较熟练，
-
-所以在第一晚（3.17晚），我按照期末复习的c的经验，参照翁恺老师的`mo`平台，在之前笔记的基础上，整理了一份python语法小册子（附录: ./python笔记.pd）
-
-并制作了一个任务完成学习路径大纲
-
-
-
-
-
-##  Task1 request
-
-首先，我按照报名表的推荐先看了三个阅读文档
-
+# Crawler
+##  request
 
 
 ### telnet
@@ -58,47 +18,6 @@ import openpyxl
 - **HTTP Methods:** The protocol currently contains 8 methods for requesting a URI: , , , , , , , . In this article we focused on the most commonly used one: `OPTIONS``GET``HEAD``POST``PUT``DELETE``TRACE``CONNECT``GET`
 - **HTTP Headers:** The headers are additional data sent by the user agent to give more context about the transaction going on between the client and the server. Some of them will help the server reply in the most appropriate way.
 
-
-
-### http协议
-
-[Dev.Opera — HTTP — 应用程序级协议](https://dev.opera.com/articles/http-basic-introduction/)
-
-[URL与URI，有联系有区别？ - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/38120321)
-
-[【秒懂】https协议原理_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1g34y1C7nk/?spm_id_from=333.788.recommend_more_video.1&vd_source=bf5a9eaf9e79a7d744cd3934132c0d2f)
-
-[【03-理论课】什么是HTTP请求和响应？_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1d54y1g7db?p=4&vd_source=bf5a9eaf9e79a7d744cd3934132c0d2f)
-
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20230317000407361.png" alt="image-20230317000407361" style="zoom:50%;" />
-
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20230317000547921.png" alt="image-20230317000547921" style="zoom: 50%;" />
-
-
-
-- 公钥加密，私钥解密
-
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20230317000919721.png" alt="image-20230317000919721" style="zoom:50%;" />
-
-- 私钥签名
-
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20230317001042136.png" alt="image-20230317001042136" style="zoom:50%;" />
-
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20230317002849138.png" alt="image-20230317002849138" style="zoom:50%;" />
-
-
-
-## Task1-bonus 模拟登陆
-
-我之前对前端的了解并不多，所以这次也学到了很多知识
-
-up主Genji的公开课算是小小白了解一个大概的挺好的课程，学习了最基础的课程
-
-[【00-先导课】爆肝两个月！拜托三连了！这绝对是全B站最用心（没有之一）的Python+爬虫公开课程，从入门到（不）入狱 ！_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1d54y1g7db?p=1&vd_source=bf5a9eaf9e79a7d744cd3934132c0d2f)
-
-
-
-### Requests库
 
 ！！！！[python中requests库使用方法详解 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/137649301)
 
@@ -128,7 +47,7 @@ up主Genji的公开课算是小小白了解一个大概的挺好的课程，学�
 
 
 
-### beautiful soup 库
+## beautiful soup 库
 
 BeautifulSoup这个库
 
@@ -152,7 +71,7 @@ http://beautifulsoup.readthedocs.org/zh_CN/latest
 
 ![img](https://www.runoob.com/wp-content/uploads/2018/10/8c591d54457bb033812a2b0364011e9c_articlex.png)
 
-
+## 反爬
 
 ###  反爬虫手段
 
@@ -175,98 +94,3 @@ http://beautifulsoup.readthedocs.org/zh_CN/latest
 [(27条消息) 【爬虫进阶】常见的反爬手段和解决方法（建议收藏）_总结反爬虫的目的和常用手段_ZSYL的博客-CSDN博客](https://blog.csdn.net/qq_46092061/article/details/119807084)
 
 
-
-### 遇到的问题
-
-- 虚拟环境的安装
-
-- scrapy文件下不同文件间的引用问题：需要设置根目录
-
-  ```py
-  from demospider.items import MovieItem
-  ```
-
-  
-
-- 类型错误导致报错，
-
-- 导入库时候：先导入标准库，再导入三方库，再导入自定义
-
-- 子类的重写要和父类长得一样就不会报错
-
-- 钩子方法-》函数回调callback
-
-- 管道配置：数字小的先执行，数字大的后执行
-
-  ```py
-  def open_spider ->开始需要干什么
-  def close_spider -> 结束需要做什么
-  def process_item -> 拿到每条数据做什么
-  ```
-
-- `self.parse()` 和 `self.parse` 前者是执行 后者是地址!!!!不要搞反了（查了20min的bug
-
-  !!!!!!!!!!!!!!!!!!!!!!!!!
-
-
-
-- 中间插了个广告，而浏览器内置的广告拦截器会让这个地方网址直接加载不出来，爬的时候导致报错
-
-​			解决方案：判定读到的URL中是否包含BV号，如果没有就跳过	
-
-
-
-- `url`合并问题，用``urljoin`函数
-
-​		[urllib.parse — Parse URLs into components — Python 3.11.2 documentation](https://docs.python.org/3/library/urllib.parse.html#module-urllib.parse)
-
-- 最后到了一个困扰了我很久的问题，就是页面分析的问题
-
-  页面的源代码和在F12中查看的元素中并不一样，可能是有
-
-selector的css选择器
-
-[CSS 选择器参考手册 (w3school.com.cn)](https://www.w3school.com.cn/cssref/css_selectors.asp)
-
-
-
-关键词中文转换
-
-
-
-视频分p问题
-
-bvid、aid、cid的问题
-
-
-
-- 有没有更快捷的方法可以获取到准确的点赞投币数字呢
-
-这个请求头的返回 包含了这个准确值
-
-[(27条消息) Python实现对Bilibili视频点赞等信息的爬取_Samue1Zhu的博客-CSDN博客](https://blog.csdn.net/Samue1_Zhu/article/details/106230610)
-
-
-
-中文编码问题
-
-[urllib.parse — Parse URLs into components — Python 3.11.2 documentation](https://docs.python.org/3/library/urllib.parse.html)
-
-Crawled (200)
-
-第一页和第二页网页元素不一样
-
-```css
-(首页)#i_cecream > div > div:nth-child(2) > div.search-content--gray.search-content > div > div > div > div.video.i_wrapper.search-all-list > div.video-list.row > div:nth-child(1) 
-(非)#i_cecream > div > div:nth-child(2) > div.search-content--gray.search-content > div > div > div.video-list.row > div:nth-child(2)
-```
-
-
-
-
-
-bvid获取
-
-[BiliBili的bvid查询cid | 叉叉白 (xxwhite.com)](https://blog.xxwhite.com/2020/03230.bilibili-bvid.html#解释)
-
-[哔哩哔哩开放平台 (bilibili.com)](https://openhome.bilibili.com/)

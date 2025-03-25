@@ -204,6 +204,7 @@ nav:
   - Class/习概.md
   
   - Oral:
+    - Class/English/IELTS.md
     - Class/English/Oral-Practice.md
     - Class/English/Oral-Tips.md
     - Class/English/TOFEL-speaking-training.md
@@ -215,7 +216,8 @@ nav:
       - Class/ITP/ITP-Management.md
       - Class/ITP/ITP-创业营销.md
       - Class/ITP/ITP-商业模式.md
-      - Class/ITP/ITP-市场分析与调研.md   
+      - Class/ITP/ITP-市场分析与调研.md
+      - Class/ITP/ITP-Law.md
       
   - Finance:
     - Class/Fin/invest.md
@@ -238,6 +240,7 @@ nav:
     - Class/Books/Marxist principles.md
     - Class/Philosophy.md
     - Class/Philosophy-by-topic.md
+    - Class/Books/strategy.md
      
   
 - Robotics:
@@ -325,6 +328,7 @@ nav:
     - CS/Language/C.md
     - CS/Language/C++.md
     - CS/Language/Python.md
+    - CS/Language/crawler.md
     - "Python速查":
       - "Seaborn": https://seaborn.pydata.org/api.html
       - "Pandas": https://pandas.pydata.org/docs/reference/index.html
@@ -379,7 +383,7 @@ nav:
     - CS/CN/ComputerNetwork-07-问题探究.md
     - CS/CN/ComputerNetwork-08-security.md
     - CS/CN/DingBot.md
-    - CS/CN/PT.md
+    - CS/CN/Router.md
     
   - "OR | 运筹学 ":
     - CS/OR/OR-exercise.md
@@ -399,6 +403,7 @@ nav:
 
     - "ML | 机器学习": 
       - CS/AI/ML-01-intro.md
+      - CS/AI/ML-01-metrics.md
       - CS/AI/ML-02-LinearRegression.md
       - CS/AI/ML-03-DecisionTree.md
       - CS/AI/ML-04-SVM.md
@@ -435,7 +440,6 @@ nav:
       - CS/AI/SEC-02-whitebox.md
       - CS/AI/SEC-03-blackbox.md
       - CS/AI/SEC-04-GANS.md
-      - CS/AI/SEC-thesis.md
     
     - "LLM | 大模型相关":
       - CS/llm/llm.md
@@ -509,8 +513,6 @@ nav:
   - "🏫浙大": classes_in_zju.md
   - "💐插花": else/flower.md
   - "🍚豆知识": else/bean_knowledge.md
-  # - else/interview.md
-
   - "🏃运动":
     - else/exercise-fit.md
     - else/exercise-swimming.md
