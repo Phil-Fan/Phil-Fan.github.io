@@ -324,6 +324,7 @@ sudo apt-get install terminator
 
 可以使用fishros进行安装
 
+
 [vscode on Kali](https://blog.csdn.net/CM_STC89C52/article/details/127296320)
 
 1. 用内嵌的浏览器搜索vscode，下载vscode的.deb格式的安装包
@@ -512,6 +513,67 @@ sudo make install
 ```
 
 直接按1
+
+
+[坚果云linux命令行 • Worktile社区](https://worktile.com/kb/ask/422312.html)
+
+
+webDAV 的使用
+
+[用命令行在Linux同步坚果云 | Practice](https://tobyqin.cn/posts/2019-05-06/jianguoyun-command-line/)
+
+
+```shell title="登录坚果云账号"
+nutstore login
+```
+
+```shell title="退出坚果云账号"
+nutstore logout
+```
+
+```shell title="查看当前已经同步的文件和文件夹"
+nutstore list sync
+```
+
+```shell title="同步指定的文件或文件夹"
+nutstore sync <文件或文件夹路径>
+```
+
+```shell title="取消同步指定的文件或文件夹"
+nutstore unsync <文件或文件夹路径>
+```
+
+```shell title="查看同步状态"
+nutstore status
+```
+
+```shell title="上传文件或文件夹到坚果云"
+nutstore upload <文件或文件夹路径>
+```
+
+```shell title="下载文件或文件夹"
+nutstore download <文件或文件夹路径>
+```
+
+```shell title="删除坚果云上的文件或文件夹"
+nutstore delete <文件或文件夹路径>
+```
+
+```shell title="创建文件夹"
+nutstore mkdir <文件夹路径>
+```
+
+```shell title="查看文件或文件夹的详细信息"
+nutstore info <文件或文件夹路径>
+```
+
+```shell title="查看账号信息"
+nutstore account
+```
+
+```shell title="查看帮助信息"
+nutstore help
+```
 
 ### wechat
 [Weixin for Linux](https://linux.weixin.qq.com/en)

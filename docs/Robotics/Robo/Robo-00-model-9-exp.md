@@ -40,6 +40,21 @@
 > Python: `python的安装路径\python.exe`
 > Anaconda: `anaconda的安装路径\envs\env_name\python.exe`
 
+```shell title="创建CoppeliaSim的Python环境"
+conda create -n robot python=3.10
+conda activate robot
+```
+
+```shell title="查询python位置" linenums="1"
+which python
+```
+
+
+```shell title="install python packages"
+pip install pyzmq
+pip install cbor
+```
+
 
 !!! tip "仿真环境验证"
     完成上述仿真环境配置后，进入Coppeliasim软件，右键`new scene`中的`Floor`，选择`Add -> Associated child script -> Non Threaded -> Python`

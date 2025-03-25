@@ -70,7 +70,7 @@
 !!! note "注意macos没有签名时候需要手动信任"
     ```shell
     xattr -cr /Applications/zju-learning-assistant.app
-    ```
+    ``` 
 
 
 ## edge/chorme 插件

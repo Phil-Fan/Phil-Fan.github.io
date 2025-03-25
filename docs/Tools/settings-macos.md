@@ -11,6 +11,11 @@ mac默认使用zsh
 - command+q 退出应用程序
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=1851423987&bvid=BV1mW421w7Jw&cid=1457785582&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=100% height=600px></iframe>
 
+```shell title="open Finder in terminal"
+open .
+```
+
+
 ## 触控板
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=1550039500&bvid=BV12y421e7t2&cid=1428208208&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=90% height=600px></iframe>
 
@@ -56,6 +61,9 @@ brew install wget
 ```
 
 ### vscode
+
+`ctl + ~` 打开终端:注意是英文状态下面
+
 
 **Shift + Command + P** 打开设置，输入 `shell command` 找到`Shell Command: Install ‘code’ command in PATH`
 
@@ -186,6 +194,12 @@ rt，在windows上下载[icloud](icloud.en.uptodown.com/windows/download)软件�
 ### Iterm2：更nb的终端
 [iTerm2安装配置使用指南——保姆级 - 知乎](https://zhuanlan.zhihu.com/p/550022490)
 
+设置启动热键
+
+第一步：preference -> keys ->Create a Dedicated Hotkey Window
+第二步骤：设置Hotkey，我设置和Linux差不多布局的command（Ctrl+Alt+T）
+
+
 
 ```shell title="oh my zsh"
 sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
@@ -241,6 +255,17 @@ brew install mactex --cask
 
 等着就完事了
 
+
+## Apple Script
+
+- 系统自带的“脚本编辑器”
+- vscode中`code runner`插件
+
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=887179224&bvid=BV1NK4y1T7wA&cid=311009872&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=100% height=600px></iframe>
+
+> 参考资料
+> [AppleScript 入门：探索 macOS 自动化 - 少数派](https://sspai.com/post/46912)
+> [kevin-funderburg/AppleScripts: My collection of AppleScripts I've developed or acquired over the years.](https://github.com/kevin-funderburg/AppleScripts)
 
 ## conda 环境
 
