@@ -430,6 +430,227 @@ def sysCall_actuation():
 3. 分组完成实验，每组提交一份实验报告，内容不超过4页；
 
 
+### 实验解释
+
+!!! note "说人话：这个实验在干什么"
+    1. 需要找到一个没有坏的机械臂，很多组的都已经坏掉了
+    2. 连接串口，运行老师给到的测试程序，看看能不能动
+    3. 期望的现象：机械臂从起始位置运动到第一个物体，吸盘吸附物体，移动到A点，再直线移动到B点，再移动到目标区域，放下物体
+    4. B点的操作是类似的
+
+
+遇到的问题与解决方法：
+
+1. 连接不上机械臂：
+    - 解决方法：检查串口是否正确，USB线是否连接好，电源是否打开；红色紧急停止按钮不要旋下去
+    - mac当中需要使用`ls /dev/tty.*`来查看串口，注意权限问题；但是老师也没有提供arm架构下的库文件，所以只有intel架构的mac才能做这个实验
+
+
+### 例程解释
+
+例程中主要给了两组函数，分别实现使用五次多项式规划两点之间轨迹和三点之间轨迹的规划（可以指定中间点的位置和速度）。
+
+####  `quinticCurvePlanning(startPosition, endPosition, time)`
+
+
+```python title="两点间五次多项式轨迹规划"
+# 返回值kArray为多项式系数
+def quinticCurvePlanning(startPosition, endPosition, time):
+    timeMatrix = np.matrix([
+        [         0,           0,             0,          0,        0,   1],
+        [   time**5,     time**4,       time**3,    time**2,     time,   1],
+        [         0,           0,             0,          0,        1,   0],
+        [ 5*time**4,   4*time**3,     3*time**2,     2*time,        1,   0],
+        [         0,           0,             0,          2,        0,   0],
+        [20*time**3,  12*time**2,        6*time,          2,        0,   0]
+    ])
+    invTimeMatrix = np.linalg.inv(timeMatrix)
+    kArray = []
+    for i in range(len(startPosition)):
+        X = np.matrix([startPosition[i], endPosition[i], 0, 0, 0, 0]).T
+        k = np.dot(invTimeMatrix, X)
+        kArray.append(k)
+    return kArray
+```
+
+- **作用**: 计算两点间五次多项式轨迹的系数。
+- **输入**: 
+  - `startPosition`: 起始位置数组。
+  - `endPosition`: 终止位置数组。
+  - `time`: 运动时间。
+- **输出**: 多项式系数数组 `kArray`。
+- **原理**: 构造时间矩阵，求逆矩阵，计算多项式系数。
+
+
+#### `quinticCurveExcute(kArray, time)`
+
+- **作用**: 根据五次多项式系数和时间计算关节位置。
+- **输入**: 
+  - `kArray`: 多项式系数数组。
+  - `time`: 当前时间。
+- **输出**: 当前关节位置数组 `jointPositions`。
+- **原理**: 将时间代入多项式计算关节位置。
+
+```python title="两点间规划，求得当前时刻下的关节位置值"
+def quinticCurveExcute(kArray, time):
+    timeVector = np.matrix([time**5,     time**4,       time**3,    time**2,     time,   1]).T
+    jointPositions = []
+    for i in range(6):
+        jointPosition = np.dot(kArray[i].T, timeVector)
+        jointPositions.append(jointPosition[0, 0])
+    return np.array(jointPositions)
+```
+
+#### `quinticCurvePlanning2(...)`
+
+- **作用**: 计算三点间五次多项式轨迹的系数。
+- **输入**: 
+  - `startPosition`: 起始位置数组。
+  - `middlePosition`: 中间位置数组。
+  - `endPosition`: 终止位置数组。
+  - `midVel`: 中间点速度。
+  - `time`: 起点到中间点时间。
+  - `time1`: 起点到终点时间。
+- **输出**: 多项式系数数组 `kArray`。
+- **原理**: 构造时间矩阵，求逆矩阵，计算多项式系数。
+
+
+```python title="三点间五次多项式轨迹规划"
+# 返回值kArray为多项式系数，其中起点终点速度均为零，中间点速度可以规划，为入参midVel
+# 其中time为起点到中间点的运动时间，time1为起始点到终点的运动时间（即整段规划的运动时间）
+def quinticCurvePlanning2(startPosition, middlePosition, endPosition, midVel, time, time1):
+    timeMatrix = np.matrix([
+        [          0,            0,              0,           0,        0,   1],
+        [    time**5,      time**4,        time**3,     time**2,     time,   1],
+        [   time1**5,     time1**4,       time1**3,    time1**2,    time1,   1],
+        [          0,            0,              0,           0,        1,   0],
+        [  5*time**4,    4*time**3,      3*time**2,      2*time,        1,   0],
+        [ 5*time1**4,   4*time1**3,     3*time1**2,     2*time1,        1,   0],
+    ])
+    invTimeMatrix = np.linalg.inv(timeMatrix)
+    kArray = []
+    for i in range(len(startPosition)):
+        X = np.matrix([startPosition[i], middlePosition[i], endPosition[i], 0, midVel, 0]).T
+        k = np.dot(invTimeMatrix, X)
+        kArray.append(k)
+    return kArray
+```
+
+#### `quinticCurveExcute2(kArray, time)`
+
+```python title="三点间规划，求得当前时刻下的关节位置值"
+def quinticCurveExcute2(kArray, time):
+    timeVector = np.matrix([time**5,     time**4,       time**3,    time**2,     time,   1]).T
+    jointPositions = []
+    for i in range(6):
+        jointPosition = np.dot(kArray[i].T, timeVector)
+        jointPositions.append(jointPosition[0, 0])
+    return np.array(jointPositions)
+```
+
+
+- **作用**: 根据三点间五次多项式系数和时间计算关节位置。
+- **输入**: 
+  - `kArray`: 多项式系数数组。
+  - `time`: 当前时间。
+- **输出**: 当前关节位置数组 `jointPositions`。
+- **原理**: 将时间代入多项式计算关节位置。
+
+
+
+### 一些需要注意的点
+    
+1. 起始点是需要自己确定的，我自己选的是和A点x相同，y大一些的两个点
+2. 旋转90度的坐标位置可以通过简单的全等三角形知识得出
+3. 需要注意坐标系当中的单位问题，之前实验中的单位是米，这里是毫米
+4. 贵重物品最好远离机械臂，避免代码中的bug导致机械臂突然发疯
+
+
+### 求解代码
+```
+# from Robot.Robot import Robot
+import numpy as np
+import until
+import time
+from until import InverseKinamatics
+import math
+
+def go(r, runtime, *k_list):
+    T, t, flag = 0.02, 0, 0
+    r.go_home()
+    while t < runtime[-1]:
+        start = time.time()
+        for i, k in enumerate(k_list):
+            if runtime[i] <= t < runtime[i + 1]:
+                if i == 1 and not flag:
+                    time.sleep(2)
+                    flag = 1
+                if i == 3:
+                    q = until.quinticCurveExcute2(k, t - runtime[i])
+                else:   
+                    q = until.quinticCurveExcute(k, t - runtime[i])
+                break
+        else:
+            time.sleep(2)
+            r.go_home()
+            break
+        r.syncMove(np.reshape(q, (6, 1)))
+        t += T
+        time.sleep(max(0, T - (time.time() - start)))
+```
+
+```python title="获取坐标点" hl_lines="3" linenums="1"
+def get_position():
+    q0 = np.zeros(6)
+    object_1 = InverseKinamatics(np.array([0.370,0.010,0.10, -np.pi, 0, -np.pi/2]), q0)/math.pi*180
+    P_A_1 = InverseKinamatics(np.array([0.370,-0.090,0.21, -np.pi, 0, -np.pi/2]), object_1)/math.pi*180
+    P_B_1 = InverseKinamatics(np.array([0.288,-0.288,0.21, -np.pi, 0, -np.pi/2]), P_A_1)/math.pi*180
+    helper_1 = InverseKinamatics(np.array([0.01,-0.37,0.25, -np.pi, 0, -np.pi/2]), P_B_1)/math.pi*180
+    end_1 = InverseKinamatics(np.array([0.01,-0.37,0.11, -np.pi, 0, -np.pi/2]), helper_1)/math.pi*180
+    
+    
+    object_2 = InverseKinamatics(np.array([0.370,0.120,0.10, -np.pi, 0, -np.pi/2]), q0)/math.pi*180
+    P_A_2 = InverseKinamatics(np.array([0.370,-0.090,0.21, -np.pi, 0, -np.pi/2]), object_2)/math.pi*180
+    P_B_2 = InverseKinamatics(np.array([0.288,-0.288,0.21, -np.pi, 0, -np.pi/2]), P_A_2)/math.pi*180
+    helper_2 = InverseKinamatics(np.array([0.01,-0.37,0.30, -np.pi, 0, -np.pi/2]), P_B_2)/math.pi*180
+    end_2 = InverseKinamatics(np.array([0.01,-0.37,0.17, -np.pi, 0, -np.pi/2]), helper_2)/math.pi*180
+    return q0, object_1, P_A_1, P_B_1, helper_1,end_1, object_2, P_A_2, P_B_2, helper_2,end_2
+```
+
+```python title="控制逻辑"
+def move():
+    # com: Windows: "COM3" Linux: "/dev/ttyUSB0" Mac: "/dev/tty.usbserial-*"
+    r = Robot(com='COM9', baud=250000)
+    r.connect()
+
+    q0, object_1, P_A_1, P_B_1, helper_1,end_1, object_2, P_A_2, P_B_2, helper_2,end_2 = get_position()
+    
+    t1 = [2,3,2,4]
+    runtime = [sum(t1[:i+1]) for i in range(len(t1))]
+
+    # 抓取第一个物体
+
+    k_0 = until.quinticCurvePlanning(q0,object_1,t1[0])
+    k_1 = until.quinticCurvePlanning(object_1,P_A_1,t1[1])
+    k_2 = until.quinticCurvePlanning(P_A_1,P_B_1,t1[2])
+    k_3 = until.quinticCurvePlanning2(P_B_1,helper_1,end_1,t1[3]*0.45,t1[3]) # 经过中间点的轨迹规划
+    go(r,runtime,k_0,k_1,k_2,k_3)
+
+    # 抓取第二个物体
+    
+    k_0 = until.quinticCurvePlanning(q0,object_2,t1[0])
+    k_1 = until.quinticCurvePlanning(object_2,P_A_2,t1[1])
+    k_2 = until.quinticCurvePlanning(P_A_2,P_B_2,t1[2])
+    k_3 = until.quinticCurvePlanning2(P_B_2,helper_2,end_2,t1[3]*0.45,t1[3])
+    go(r,runtime,k_0,k_1,k_2,k_3) # 经过中间点的轨迹规划
+
+if __name__ == '__main__': 
+    move()
+```
+
+
+
+
 
 ## Explore
 ### Pybullet环境配置

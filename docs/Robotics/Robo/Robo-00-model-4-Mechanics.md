@@ -670,6 +670,8 @@ $$
 
 
 **z-y-x 欧拉角** 公式
+
+
 $$
 \begin{align}
 R_{z,y,x}(\alpha,\beta,\gamma) = \begin{pmatrix}
@@ -808,7 +810,7 @@ $$
 \tau = J^T F 
 $$
 
-取转置，得到 $\boldsymbol{^iJ}$
+取转置，得到 $\boldsymbol{^iJ}$，是末端坐标系下的雅可比矩阵
 
 但是要注意到，这里的雅可比矩阵需要转到全局下
 

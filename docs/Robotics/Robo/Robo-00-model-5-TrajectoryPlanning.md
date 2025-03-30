@@ -29,6 +29,7 @@ $$
 $$
 
 其中：
+
 - $\phi_0$ 为起始位置，
 - $\phi_f$ 为终止位置，
 - $t$ 为当前时间，
@@ -367,8 +368,10 @@ $$
     由于匀速旋转，对于 $t \in [0, 1]$，$\mathbf{r}_0$ 与 $\mathbf{r}_t$ 的夹角是 $t\theta$，$\mathbf{r}_1$ 与 $\mathbf{r}_t$ 的夹角是 $(1-t)\theta$，则由欧拉参数内积与夹角余弦值的关系，有
 
     $$
+    \begin{align*}
     \mathbf{r}_0 \cdot \mathbf{r}_t = \cos(t\theta)\\
     \mathbf{r}_t \cdot \mathbf{r}_1 = \cos((1-t)\theta)
+    \end{align*}
     $$
 
     同时，$\mathbf{r}_t$ 可以表示为 $\mathbf{r}_0$ 和 $\mathbf{r}_1$ 的线性组合，即
@@ -442,3 +445,6 @@ def slerp(q1, q2, t):
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250324203708.png)
 
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250324203627.png)
+
+### matlab求解方程
+

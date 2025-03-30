@@ -12,13 +12,23 @@ comments: true
 ## 烹饪原理
 
 
+## 食材
+
+### 牛肉部位（潮汕&西餐）
+
+牛小排=匙皮
+牛腩排=匙仁
+眼肉盖  /眼肉侧唇=吊龙伴
+眼肉/上脑/西冷=一整条吊龙
+菲力=牛里脊
+板腱=匙柄
+牛后胸=肥胼
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/IMG_1233.jpeg)
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/IMG_1234.jpeg)
 
 ## 炒菜 - 荤
-
-
-### 可乐鸡翅
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/8ec0e18363aba3d20826d0a18005012.jpg)
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/587a06bde367c9b1249bcaa3d804d2e.jpg)
 
 
 ### 小炒黄牛肉
@@ -70,19 +80,30 @@ comments: true
 3. 倒入双椒，翻炒均匀。
 
 
+### 可乐鸡翅
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/8ec0e18363aba3d20826d0a18005012.jpg)
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/587a06bde367c9b1249bcaa3d804d2e.jpg)
+
+
 
 ## 炒菜 - 素
 ### 清炒西兰花
 - 食材：西兰花
 - 调料：蒜、盐、食用油
 
-注意：西兰花从根部用剪刀剪碎，不是切开。
-
-1. 西兰花整颗加淀粉泡洗后，切小块清洗干净，切蒜末备用。
-2. 锅中加适量清水和几滴食用油，水开后西兰花下锅煮一分钟捞出。
-3. 锅中倒油，炒香蒜末，倒入西兰花，加入一勺蚝油、两勺生抽，炒熟出锅。
+1. 西兰花从根部用剪刀剪碎，不是切开。
+2. 盆中放水、加盐和淀粉泡洗后，
+3. 调料汁，一些生抽 盐和蚝油；调一点点淀粉水，水多淀粉少
+4. 锅中加适量清水和几滴食用油，水开后西兰花下锅煮一分钟捞出。
+5. 锅中倒油，炒香蒜末（油温不要太高，高了发苦），倒入料汁收汁，放入西兰花翻炒均匀，出锅前加淀粉水翻炒，再加一点油翻炒，出锅
 
 ![清炒西兰花](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250309141042087.png)
+
+
+!!! note "怎么可以更清淡一点"
+
+
+!!! note "怎么可以蒜味少一点"
 
 
 变式：番茄鸡蛋西兰花
@@ -116,9 +137,12 @@ comments: true
 
 步骤：
 
-1. 先用盐、淀粉、料酒、生抽进行腌制
-2. 加姜丝，淋上蒸鱼豉油，蒸20min左右
-3. 出锅的时候放一点葱花，可以淋一点热油
+1. 给鱼改刀，把鱼骨切断
+2. 先用盐、淀粉、料酒、生抽，葱段、姜丝进行腌制
+3. 加姜片，蒸20min左右，鱼下面可以垫一下勺子，让两面都可以受热
+4. 准备葱丝、姜丝、辣椒丝，热油
+5. 蒸好之后，倒去水份、挑取姜片，放入葱丝、姜丝、剁椒，热油淋上去
+6. 出锅的时候放一点葱花，放蒸鱼豉油
 
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/fee7d4415b8c6b1c13497dc999e0bf4d.JPG)
 
@@ -140,6 +164,9 @@ comments: true
 
 ![虾仁蒸蛋1](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250309141132352.png)
 ![虾仁蒸蛋2](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250309141142229.png)
+
+
+
 
 ## 凉菜
 ### 凉拌黄瓜
@@ -167,6 +194,9 @@ comments: true
 4. 炖煮。
 
 [相关视频](https://www.xiaohongshu.com/explore/67b1ba1b000000002602ed4b?app_platform=ios&app_version=8.69.4&share_from_user_hidden=true&xsec_source=app_share&type=video&xsec_token=CB2WKvE8y85b22ACisZtUeaT0EQMxt1Rb4AnxZfbRT-zg=&author_share=1&xhsshare=WeixinSession&shareRedId=ODk2Qjg5OUA2NzUyOTgwNjc7OTk8OjtK&apptime=1740673071&share_id=df6449f87a4b44aaafe722c56032b922)
+
+### 椰子牛肉火锅
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/IMG_1235.jpeg)
 
 
 ## 面食

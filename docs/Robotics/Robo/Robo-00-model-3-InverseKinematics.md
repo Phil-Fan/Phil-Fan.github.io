@@ -26,6 +26,7 @@
 
 === "和差化积公式"
     高中搜到一个口诀感觉特别形象，这里记一下
+    
     - $\sin\alpha+\sin\beta = 2\sin\frac{\alpha + \beta}{2}\cos\frac{\alpha - \beta}{2}$  帅+帅 = 帅哥
     - $\sin\alpha-\sin\beta = 2\cos\frac{\alpha + \beta}{2}\sin\frac{\alpha - \beta}{2}$ 帅-帅 = 哥帅
     - $\cos\alpha+\cos\beta = 2\cos\frac{\alpha + \beta}{2}\cos\frac{\alpha - \beta}{2}$ 哥+哥 = 哥哥

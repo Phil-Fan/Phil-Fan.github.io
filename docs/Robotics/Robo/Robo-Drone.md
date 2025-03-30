@@ -231,9 +231,9 @@ MIT、ETH、ZJU、HKUST
 
 $u_1$ 表示推力,$u_2$ 表示力矩。
 
-- Y:$ \sum F_y = -u_1 \sin(\phi) = m\ddot{y} $
-- Z：$ \sum F_z = -mg + u_1 \cos(\phi) = m\ddot{z} $
-- 力矩：$ M = u_2 = I_{xx}\ddot{\phi} $
+- Y:$\sum F_y = -u_1 \sin(\phi) = m\ddot{y}$
+- Z：$\sum F_z = -mg + u_1 \cos(\phi) = m\ddot{z}$
+- 力矩：$M = u_2 = I_{xx}\ddot{\phi}$
 
 **线性化**
 

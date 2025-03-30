@@ -36,6 +36,17 @@ open .
 
 鼠标反转： 自然滚动去掉
 
+### 软件已损坏？怎么解决
+
+```shell title="信任开发者"
+sudo spctl --master-disable
+```
+
+```shell title="放行picgo"
+xattr -cr /Applications/xxx.app
+```
+
+
 ### homebrew
 首先需要配置好vpn
 
@@ -177,6 +188,15 @@ ZJU有企业账号，在校网环境下面登陆
 ### wps
 zju有企业账号，SSO登陆输入ZJU，验证登陆即可
 
+
+### qq音乐歌单导入apple music
+
+1. 获取 qq 音乐的歌单 id
+2. 通过 id 获取歌单曲目
+3. 通过 [Tune My Music](https://www.tunemymusic.com/zh-CN/transfer) 向 apple music 导入歌单曲目
+
+
+> 参考文章：[将 QQ 音乐的歌单导入 apple music - 知乎](https://zhuanlan.zhihu.com/p/666443150)
 
 ### adobe系列
 
