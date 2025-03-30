@@ -1,8 +1,10 @@
 /.idea/
 /.obsidian/
-*/.DS_Store/
 */.git/
 */.vscode/
+.DS_Store
+**/.DS_Store
+.DS_Store?
 /docs/else/postgraduate/
 
 
