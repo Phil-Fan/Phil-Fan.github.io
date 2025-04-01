@@ -1,7 +1,9 @@
-/.idea/
+**/.idea/
+.idea/
+.vscode/
+**/.vscode/
 /.obsidian/
 */.git/
-*/.vscode/
 .DS_Store
 **/.DS_Store
 .DS_Store?

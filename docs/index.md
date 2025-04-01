@@ -73,4 +73,4 @@ comments: true
 - jupyter notebook下 数学公式渲染错误
 - jupyter notebook下不同的block标题会从0开始记录
 - 公式在不翻墙的情况下加载太慢
-- **多级列表渲染不出来**
+- 插入pdf的时候，在vscode当中会跳下载页面

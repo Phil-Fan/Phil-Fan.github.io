@@ -1,5 +1,5 @@
 # 06 | 动力学
-（Dynamics）
+
 描述了执行器的驱动扭矩与机械臂运动之间的关系。
 
 主要讲解牛顿-欧拉迭代动力学方程和拉格朗日动力学方程。
@@ -116,8 +116,8 @@ $$
 把运动化到了face space上面；知道了任意一点的位置和动量，就可以知道它的运动轨迹；
 
 
-<iframe src="https://static1.squarespace.com/static/611b0e99ffc7aa45df0df283/t/664509416beeaf1f4526e773/1715800385413/Problem+Sheet.pdf" width="100%" height="600px" style="border: none;">
-This browser does not support PDFs
+<iframe src="https://static1.squarespace.com/static/611b0e99ffc7aa45df0df283/t/664509416beeaf1f4526e773/1715800385413/Problem+Sheet.pdf" width="100%" height="600px" style="border: none;" title="Problem Sheet PDF">
+This browser does not support PDFs.
 </iframe>
 
 [Solutions to the Problem Sheet: Lagrangian and Hamiltonian Mechanics in Under 20 Minutes — Physics with Elliot](https://www.physicswithelliot.com/store/p/lagrangian-hamiltonian-mini-solution)
@@ -145,6 +145,9 @@ This browser does not support PDFs
 非对角元素称为惯性积
 
 
+### 平移
+
+### 旋转
 
 
 ### 与其他物理量的联系

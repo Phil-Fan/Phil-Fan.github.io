@@ -492,10 +492,13 @@ $$
 - source $a>0 \ and \ d > 0$
 - saddle $ad < 0$
 
-非常无敌的视频 [Advanced控制理论\_4\_爱情中的数学\_Phase Portrait 动态系统分析\_哔哩哔哩\_bilibili](https://www.bilibili.com/video/BV19x41177Mo?spm_id_from=333.788.videopod.sections&vd_source=8b7a5460b512357b2cf80ce1cefc69f5)
+非常无敌的视频
+
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=15795540&bvid=BV19x41177Mo&cid=25722388&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=600px height=450px></iframe>
 
 > 绘制相平面图像[MathWorks-Teaching-Resources/Phase-Plane-and-Slope-Field: Apps for qualitative ODE analysis.](https://github.com/MathWorks-Teaching-Resources/Phase-Plane-and-Slope-Field)
-性
+
+
 
 ### 稳定条件
 
@@ -522,6 +525,35 @@ $$
 
 
 !!! tip "稳定性都是相对于某个稳定状态$x_e$而言"
+
+
+
+??? info "自治系统与非自治系统"
+    >  来源：[什么是自治系统、非自治系统、时不变系统、时变系统？ - 知乎](https://zhuanlan.zhihu.com/p/441100050)
+    
+    考虑如下系统：
+
+    $$
+    \dot{x} = f(t, x)
+    $$
+
+    其中 $x = [x_1, x_2, \ldots, x_n]^T \in \mathbb{R}^n$ 是系统状态，$t > 0$ 是时间。
+
+    $f(t, x)$ 中显含时间 $t$ 的系统就是**非自治系统**（nonautonomous system），也称**时变系统**（time varying system）。
+
+    如果不显含时间 $t$，即
+
+    $$
+    \dot{x} = f(x)
+    $$
+
+    称为**自治系统**（autonomous system），也称为**时不变系统**（time invariant system）。
+
+    注1：决定自治和非自治的是是否“显含时间 $t$”。注意这里的描述是“显含”而不是“不含”。事实上，$x$ 本身就是时间的函数，即 $x = x(t)$，也就是说系统 (1) 的完整描述是 $\dot{x}(t) = f(t, x(t))$，系统 (2) 的完整描述是 $\dot{x}(t) = f(x(t))$。$x(\cdot)$ 中包含的时间 $t$ 对于系统来说不是显含的，而是隐含的，所以 $x(\cdot)$ 中所包含的时间 $t$ 与判断系统是否自治无关。
+
+    注2：如果 $f$ 是线性的，那么系统 (1) 就是**线性非自治系统**（线性时变系统），系统 (2) 就是**线性自治系统**（线性时不变系统）。
+
+    
 
 
 **Lyapunov: the origin(equilibrium point at the origin) is stable**（在于有界）
@@ -551,6 +583,8 @@ $\exists \delta(t_0)>0: ||x(t_0)||<\delta(t_0) \Rightarrow \lim_{t\rightarrow\in
 
 ### Lyapunov第一方法——间接法
 
+通过求解系统的微分方程式，然后根据解的性质来判断系统的稳定性
+
 1. 求解平衡状态
 2. 写出雅可比矩阵
 3. 求解$A|_{x_{e1}},A|_{x_{e2}}$的特征值
@@ -562,6 +596,11 @@ $\exists \delta(t_0)>0: ||x(t_0)||<\delta(t_0) \Rightarrow \lim_{t\rightarrow\in
 [李雅普诺夫稳定性解题方法总结](https://www.bilibili.com/video/BV1cR4y1Q7ra)
 
 ### Lyapunov第二方法——直接法
+
+若系统的某个平衡状态是渐近稳定的，则随着系统的运动，其存储的能量将随时间的增长而不断衰减，直至系统运动趋于平衡状态，而能量趋于极小值。
+
+Lyapunov创建了一个可以模拟系统能量的 **“广义能量”函数** ，根据这个标量函数的性质，可以判断系统的稳定性。该方法不必求解系统的微分方程，就可以直接判断其稳定性。
+
 
 1. 选择一个Lyapunov函数
 2. 求导数
