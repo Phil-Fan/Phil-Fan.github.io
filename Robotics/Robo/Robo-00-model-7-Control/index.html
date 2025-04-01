@@ -893,11 +893,124 @@
 </li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    07 | 运动控制
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
 <a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
     07 | 运动控制
   </span>
 </a>
+<nav aria-label="目录" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_1">
+<span class="md-ellipsis">
+      前置知识
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+<span class="md-ellipsis">
+      独立关节控制
+    </span>
+</a>
+<nav aria-label="独立关节控制" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+<span class="md-ellipsis">
+      关节建模
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+<span class="md-ellipsis">
+      传递函数
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pd">
+<span class="md-ellipsis">
+      PD控制器
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pid">
+<span class="md-ellipsis">
+      PID控制器 ｜ 消除静差
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pid_1">
+<span class="md-ellipsis">
+      前馈PID ｜ 消除参考输入影响
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_5">
+<span class="md-ellipsis">
+      转矩前馈控制
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_6">
+<span class="md-ellipsis">
+      集中控制
+    </span>
+</a>
+<nav aria-label="集中控制" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pd_1">
+<span class="md-ellipsis">
+      重力补偿PD控制
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_7">
+<span class="md-ellipsis">
+      逆运动学控制
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_8">
+<span class="md-ellipsis">
+      鲁棒控制 ｜ 估计参数
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_9">
+<span class="md-ellipsis">
+      自适应控制 ｜ 动态估计参数
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../Robo-00-model-8-ForceControl/">
@@ -3002,6 +3115,111 @@
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
 <nav aria-label="目录" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_1">
+<span class="md-ellipsis">
+      前置知识
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+<span class="md-ellipsis">
+      独立关节控制
+    </span>
+</a>
+<nav aria-label="独立关节控制" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+<span class="md-ellipsis">
+      关节建模
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+<span class="md-ellipsis">
+      传递函数
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pd">
+<span class="md-ellipsis">
+      PD控制器
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pid">
+<span class="md-ellipsis">
+      PID控制器 ｜ 消除静差
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pid_1">
+<span class="md-ellipsis">
+      前馈PID ｜ 消除参考输入影响
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_5">
+<span class="md-ellipsis">
+      转矩前馈控制
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_6">
+<span class="md-ellipsis">
+      集中控制
+    </span>
+</a>
+<nav aria-label="集中控制" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pd_1">
+<span class="md-ellipsis">
+      重力补偿PD控制
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_7">
+<span class="md-ellipsis">
+      逆运动学控制
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_8">
+<span class="md-ellipsis">
+      鲁棒控制 ｜ 估计参数
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_9">
+<span class="md-ellipsis">
+      自适应控制 ｜ 动态估计参数
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
 </nav>
 </div>
 </div>
@@ -3010,16 +3228,201 @@
 <article class="md-content__inner md-typeset">
 <div><h1 id="07"><span>07 |<span class="heti-spacing"> </span></span>运动控制<a class="headerlink" href="#07" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>44<span class="heti-spacing"> </span></span>个字 </p>
+<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>2529<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>10<span class="heti-spacing"> </span></span>分钟</p>
 </div>
-<p>（Motion Control）
-通过传感器检测运动状态，利用反馈调整执行器的输入，补偿系统误差，以实现期望的轨迹。</p></div>
+<p>通过传感器检测运动状态，末端和环境没有接触的情况下，<strong>设计出关节执行器输入的闭环控制律</strong>（也称闭环控制器<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，使得各关节较好地<strong>跟踪期望轨迹</strong>。</p>
+<p>两种设计思路</p>
+<ul>
+<li>将带执行器的机器人作为多输入多输出的受控对象，设计出利用全部关节期望轨迹及反馈信息计算全部关节执行器输入的控制器，即<strong>集中控制</strong>；</li>
+<li>另一种是分别将每个关节作为单输入单输出的受控对象，设计出利用本关节期望轨迹及反馈信息计算本关节执行器输入的单变量控制器，即<strong>独立关节控制</strong>。</li>
+</ul>
+<div class="admonition todo">
+<p class="admonition-title">todo</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 独立关节控制</li>
+<li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 关节建模方法与记忆</li>
+<li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 转矩前馈控制</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 重力补偿<span class="heti-skip"><span class="heti-spacing"> </span>PD<span class="heti-spacing"> </span></span>控制</li>
+<li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 逆运动学控制</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 鲁棒控制</li>
+<li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 自适应控制</li>
+<li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 各个方法优缺点，应用范围</li>
+</ul>
+</div>
+<h2 id="_1">前置知识<a class="headerlink" href="#_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<ol>
+<li>方块图的化简、梅森增益公式、信号流图</li>
+<li>二阶系统的时域响应的参数</li>
+<li>准确性：<ul>
+<li>劳斯判据</li>
+<li>稳态误差计算；终值定理</li>
+</ul>
+</li>
+<li><span>PID<span class="heti-spacing"> </span></span>系统的设计；调参方法</li>
+<li><span>Lyapunov<span class="heti-spacing"> </span></span>稳定性定理</li>
+<li>奇异值分解</li>
+</ol>
+<h2 id="_2">独立关节控制<a class="headerlink" href="#_2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h3 id="_3">关节建模<a class="headerlink" href="#_3" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<div class="admonition note">
+<p class="admonition-title">这里有很多字母，联系英文进行记忆</p>
+</div>
+<p>减速器：其实是扭矩放大器，代价是转速的下降</p>
+<p>编码器：对转速进行观测</p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250401120430.png"/></p>
+<h3 id="_4">传递函数<a class="headerlink" href="#_4" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250401121056.png"/></p>
+<h3 id="pd"><span>PD<span class="heti-spacing"> </span></span>控制器<a class="headerlink" href="#pd" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>无扰动的情况下无静差</p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/202504011210339.png"/></p>
+<p>这里化简的时候使用梅森增益公式求解比较简单</p>
+<h3 id="pid"><span>PID<span class="heti-spacing"> </span></span>控制器 ｜ 消除静差<a class="headerlink" href="#pid" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>带一个积分环节</p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/202504011209180.png"/></p>
+<h3 id="pid_1">前馈<span><span class="heti-spacing"> </span>PID</span> ｜ 消除参考输入影响<a class="headerlink" href="#pid_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/202504011208914.png"/></p>
+<h2 id="_5">转矩前馈控制<a class="headerlink" href="#_5" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<p>对关节干扰进行推算，增加补偿量主动消减干扰的影响</p>
+<h2 id="_6">集中控制<a class="headerlink" href="#_6" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<div class="admonition note">
+<p class="admonition-title">可以看出教材是一步步逐渐递进的，各个方法需要准确获取的参数越来越少，鲁棒性越来越强</p>
+</div>
+<div class="arithmatex">\[
+\eta_iT_{ei}=\eta_iC_{Ti}V_{ci}-\eta_i^2\frac{C_{Ti}k_{ei}}{k_{ui}\pi_{pi}+R_{mi}}\dot{\theta}_i
+\]</div>
+<p><span><span class="arithmatex">\(\eta_i T_{e i}\)</span><span class="heti-spacing"> </span></span>是第<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(i\)</span><span class="heti-spacing"> </span></span>个关节电机（含减速器）对机器人的驱动转矩。记</p>
+<p><span class="arithmatex">\(\tau = \begin{pmatrix} \eta_1 T_{e 1} \\ \vdots \\ \eta_N T_{e N} \end{pmatrix}, \tau_d = \begin{pmatrix} \eta_1 C_{T 1} V_{c 1} \\ \vdots \\ \eta_N C_{T N} V_{c N} \end{pmatrix}, B_e = \begin{pmatrix} \eta_1^2 \frac{C_{T 1} k_{e 1}}{k_{u 1} \pi_{p 1} + R_{m 1}} &amp; \cdots &amp; \eta_N^2 \frac{C_{T N} k_{e N}}{k_{u N} \pi_{p N} + R_{m N}} \end{pmatrix}, \dot{\Phi} = \begin{pmatrix} \dot{\theta}_1 \\ \vdots \\ \dot{\theta}_N \end{pmatrix}\)</span></p>
+<p>则对于全部关节电机，有</p>
+<p><span class="arithmatex">\(\tau = \tau_d - B_e \dot{\Phi}\)</span></p>
+<p>与机器人动力学方程式合并，得到集中控制的被控对象模型</p>
+<div class="arithmatex">\[
+M(\Phi) \ddot{\Phi} + C(\Phi, \dot{\Phi}) \dot{\Phi} + L \dot{\Phi} + G(\Phi) = \tau_d
+\]</div>
+<p>式中，<span><span class="arithmatex">\(L = B + B_e\)</span><span class="heti-spacing"> </span></span>为正定对角矩阵。</p>
+<p><strong>集中控制的任务在于设计计算<span><span class="heti-spacing"> </span><span class="arithmatex">\(\tau_d\)</span></span> （相当于计算各关节电机期望电流）的算法，使得<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\Phi\)</span><span class="heti-spacing"> </span></span>跟踪<span><span class="heti-spacing"> </span><span class="arithmatex">\(\Phi_d\)</span></span>。</strong></p>
+<h3 id="pd_1">重力补偿<span class="heti-skip"><span class="heti-spacing"> </span>PD<span class="heti-spacing"> </span></span>控制<a class="headerlink" href="#pd_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>重力力矩在控制中往往被视为一种非线性扰动，但是重力矩的数学模型可获取，因此，可作为一种已知的非线性扰动。直接补偿掉，在推导控制算法时就不需要考虑重力项了。</p>
+<p>在实验中，重力补偿的明显作用有两点：<span>1.<span class="heti-spacing"> </span></span>在位置控制时，能够增加机器人的动态性能，动态跟踪误差相比无重力补偿时更小。在无积分的位置控制器中，如<span class="heti-skip"><span class="heti-spacing"> </span>PD<span class="heti-spacing"> </span></span>控制器，重力补偿能够减少稳态误差。</p>
+<p><strong>控制律为</strong></p>
+<div class="arithmatex">\[
+\boldsymbol{\tau}_d=\boldsymbol{\Lambda}_P(\boldsymbol{\Phi}_d-\boldsymbol{\Phi})-\boldsymbol{\Lambda}_D\dot{\boldsymbol{\Phi}}+\boldsymbol{G}(\boldsymbol{\Phi})
+\]</div>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250401112408.png"/></p>
+<div class="admonition note">
+<p class="admonition-title"><span>Lyapunov<span class="heti-spacing"> </span></span>方法证明收敛</p>
+<div class="arithmatex">\[
+M\ddot{\Phi}=\Lambda_P\widetilde{\Phi}-(C+L+\Lambda_D)\dot{\Phi}
+\]</div>
+<p>取<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\((\widetilde{\Phi}^T,\dot{\Phi}^T)^T\)</span><span class="heti-spacing"> </span></span>为该闭环系统的状态，则其状态方程为</p>
+<div class="arithmatex">\[
+\begin{pmatrix}\dot{\Phi}\\\ddot{\Phi}\end{pmatrix}=\begin{pmatrix}0&amp;-I\\M^{-1}\Lambda_P&amp;-M^{-1}(C+L+\Lambda_D)\end{pmatrix}\begin{pmatrix}\widetilde{\Phi}\\\dot{\Phi}\end{pmatrix}
+\]</div>
+<p>表明这是一个自治系统且原点是系统的平衡状态。构造正定李亚普诺夫函数</p>
+<div class="arithmatex">\[
+V_L(\widetilde{\Phi},\dot{\Phi})=\frac{1}{2}\dot{\Phi}^TM\dot{\Phi}+\frac{1}{2}\widetilde{\Phi}^T\Lambda_P\widetilde{\Phi}
+\]</div>
+<p>那么</p>
+<div class="arithmatex">\[
+\begin{align*}
+\dot{V}_L(\widetilde{\Phi},\dot{\Phi})&amp;=\dot{\Phi}^TM\ddot{\Phi}+\frac{1}{2}\dot{\Phi}^TM\dot{\Phi}+\dot{\widetilde{\Phi}}^T\Lambda_P\widetilde{\Phi}\\
+&amp;=\dot{\Phi}^T(\Lambda_P\widetilde{\Phi}-(C+L+\Lambda_D)\dot{\Phi})+\frac{1}{2}\dot{\Phi}^TM\dot{\Phi}-\dot{\Phi}^T\Lambda_P\widetilde{\Phi}\\
+&amp;=\frac{1}{2}\dot{\Phi}^T(M-2C)\dot{\Phi}-\dot{\Phi}^T(L+\Lambda_D)\dot{\Phi}
+\end{align*}
+\]</div>
+<p>注意到<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\dot{M}-2C\)</span><span class="heti-spacing"> </span></span>的反对称性使得<span><span class="heti-spacing"> </span><span class="arithmatex">\(\dot{\Phi}^T(\dot{M}-2C)\dot{\Phi}=0\)</span></span>，于是</p>
+<div class="arithmatex">\[
+\dot{V}_L(\widetilde{\Phi},\dot{\Phi})=-\dot{\Phi}^T(L+\Lambda_D)\dot{\Phi}
+\]</div>
+<p>这意味着<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\dot{V}_L(\widetilde{\Phi},\dot{\Phi})\)</span><span class="heti-spacing"> </span></span>半负定（<span><span class="arithmatex">\(\dot{V}_L(\widetilde{\Phi},\dot{\Phi})=0\)</span><span class="heti-spacing"> </span></span>时，<span><span class="arithmatex">\(\widetilde{\Phi}\)</span><span class="heti-spacing"> </span></span>可以非零<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。接下来，需要证明<span><span class="heti-spacing"> </span><span class="arithmatex">\(\dot{V}_L(\widetilde{\Phi},\dot{\Phi})\)</span></span></p>
+<div class="admonition info">
+<p class="admonition-title">自治系统与非自治系统</p>
+<blockquote>
+<p>来源：<a href="https://zhuanlan.zhihu.com/p/441100050">什么是自治系统、非自治系统、时不变系统、时变系统？ <span>-<span class="heti-spacing"> </span></span>知乎</a></p>
+</blockquote>
+<p>考虑如下系统：</p>
+<div class="arithmatex">\[
+\dot{x} = f(t, x)
+\]</div>
+<p>其中<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(x = [x_1, x_2, \ldots, x_n]^T \in \mathbb{R}^n\)</span><span class="heti-spacing"> </span></span>是系统状态，<span><span class="arithmatex">\(t &gt; 0\)</span><span class="heti-spacing"> </span></span>是时间。</p>
+<p><span><span class="arithmatex">\(f(t, x)\)</span><span class="heti-spacing"> </span></span>中显含时间<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(t\)</span><span class="heti-spacing"> </span></span>的系统就是<strong>非自治系统</strong>（nonautonomous system<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，也称<strong>时变系统</strong>（time varying system<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。</p>
+<p>如果不显含时间<span><span class="heti-spacing"> </span><span class="arithmatex">\(t\)</span></span>，即</p>
+<div class="arithmatex">\[
+\dot{x} = f(x)
+\]</div>
+<p>称为<strong>自治系统</strong>（autonomous system<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，也称为<strong>时不变系统</strong>（time invariant system<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。</p>
+<p>注<span><span class="heti-spacing"> </span>1</span>：决定自治和非自治的是是否“显含时间<span><span class="heti-spacing"> </span><span class="arithmatex">\(t\)</span></span>”。注意这里的描述是“显含”而不是“不含”。事实上，<span><span class="arithmatex">\(x\)</span><span class="heti-spacing"> </span></span>本身就是时间的函数，即<span><span class="heti-spacing"> </span><span class="arithmatex">\(x = x(t)\)</span></span>，也就是说系统<span class="heti-skip"><span class="heti-spacing"> </span>(1)<span class="heti-spacing"> </span></span>的完整描述是<span><span class="heti-spacing"> </span><span class="arithmatex">\(\dot{x}(t) = f(t, x(t))\)</span></span>，系统<span class="heti-skip"><span class="heti-spacing"> </span>(2)<span class="heti-spacing"> </span></span>的完整描述是<span><span class="heti-spacing"> </span><span class="arithmatex">\(\dot{x}(t) = f(x(t))\)</span></span>。<span><span class="arithmatex">\(x(\cdot)\)</span><span class="heti-spacing"> </span></span>中包含的时间<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(t\)</span><span class="heti-spacing"> </span></span>对于系统来说不是显含的，而是隐含的，所以<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(x(\cdot)\)</span><span class="heti-spacing"> </span></span>中所包含的时间<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(t\)</span><span class="heti-spacing"> </span></span>与判断系统是否自治无关。</p>
+<p>注<span><span class="heti-spacing"> </span>2</span>：如果<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(f\)</span><span class="heti-spacing"> </span></span>是线性的，那么系统<span class="heti-skip"><span class="heti-spacing"> </span>(1)<span class="heti-spacing"> </span></span>就是<strong>线性非自治系统</strong>（线性时变系统<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，系统<span class="heti-skip"><span class="heti-spacing"> </span>(2)<span class="heti-spacing"> </span></span>就是<strong>线性自治系统</strong>（线性时不变系统<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">反对称矩阵二次型为<span><span class="heti-spacing"> </span>0</span></p>
+<p><strong>标量的转置是本身</strong></p>
+<p>如果<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A\)</span><span class="heti-spacing"> </span></span>是反对称矩阵，即<span><span class="heti-spacing"> </span><span class="arithmatex">\(A^T = -A\)</span></span>，则对于任意向量<span><span class="heti-spacing"> </span><span class="arithmatex">\(x\)</span></span>，有<span><span class="heti-spacing"> </span><span class="arithmatex">\(x^T A x = 0\)</span></span>。这显然成立，因为：</p>
+<div class="arithmatex">\[
+x^T A x = x^T (-A^T) x = -x^T A^T x = -(x^T A x)^T = -x^T A x
+\]</div>
+<p>所以<span><span class="heti-spacing"> </span><span class="arithmatex">\(2x^T A x = 0\)</span></span>，即<span><span class="heti-spacing"> </span><span class="arithmatex">\(x^T A x = 0\)</span></span>。</p>
+</div>
+<p>不恒为零：从任意非零初态（<span class="arithmatex">\(\widetilde{\Phi}^{T}(0)\)</span> <span class="arithmatex">\(\dot{\Phi}^{T}(0)\)</span>）<span><span class="arithmatex">\(^{T}\)</span><span class="heti-spacing"> </span></span>出发的解（<span class="arithmatex">\(\widetilde{\Phi}^{T}(t)\)</span> <span class="arithmatex">\(\dot{\Phi}^{T}(t)\)</span>）<span><span class="arithmatex">\(^{T}\)</span><span class="heti-spacing"> </span></span>不会有<span><span class="heti-spacing"> </span><span class="arithmatex">\(\dot{V}_{L}(\widetilde{\Phi}(t), \dot{\Phi}(t)) \equiv 0\)</span></span>。</p>
+<p>采用反证法，假设从某非零初态（<span class="arithmatex">\(\widetilde{\Phi}^{T}(0)\)</span> <span class="arithmatex">\(\dot{\Phi}^{T}(0)\)</span>）<span><span class="arithmatex">\(^{T}\)</span><span class="heti-spacing"> </span></span>出发的解（<span class="arithmatex">\(\widetilde{\Phi}^{T}(t)\)</span> <span class="arithmatex">\(\dot{\Phi}^{T}(t)\)</span>）<span><span class="arithmatex">\(^{T}\)</span><span class="heti-spacing"> </span></span>有<span><span class="heti-spacing"> </span><span class="arithmatex">\(\dot{V}_{L}(\widetilde{\Phi}(t), \dot{\Phi}(t)) \equiv 0\)</span></span>，即<span><span class="heti-spacing"> </span><span class="arithmatex">\(-\dot{\Phi}^{T}(t)(L + \Lambda_{D})\dot{\Phi}(t) \equiv 0\)</span></span>。显然<span><span class="heti-spacing"> </span><span class="arithmatex">\(\dot{\Phi}(t) \equiv 0\)</span></span>，其导函数<span><span class="heti-spacing"> </span><span class="arithmatex">\(\ddot{\Phi}(t) \equiv 0\)</span></span>，进而由式（8-83）知<span><span class="heti-spacing"> </span><span class="arithmatex">\(\ddot{\Phi}(t) \equiv 0\)</span></span>。于是（<span class="arithmatex">\(\widetilde{\Phi}^{T}(t)\)</span> <span class="arithmatex">\(\dot{\Phi}^{T}(t)\)</span>）<span class="arithmatex">\(^{T} \equiv 0\)</span>，则初态（<span class="arithmatex">\(\widetilde{\Phi}^{T}(0)\)</span> <span class="arithmatex">\(\dot{\Phi}^{T}(0)\)</span>）<span class="arithmatex">\(^{T} = 0\)</span>，这与非零初态假设矛盾<heti-adjacent class="heti-adjacent-quarter">，</heti-adjacent>“不恒为零”得证。最后，当<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\|[\widetilde{\Phi}^{T} \quad \dot{\Phi}^{T}]^{T}\| \rightarrow \infty\)</span><span class="heti-spacing"> </span></span>时，有<span><span class="heti-spacing"> </span><span class="arithmatex">\(V_{L}(\widetilde{\Phi}, \dot{\Phi}) \rightarrow \infty\)</span></span>。</p>
+<p>综上，系统式的原点平衡状态是大范围渐近稳定的。因此，对任意初态（<span class="arithmatex">\(\widetilde{\Phi}^{T}(0)\)</span> <span class="arithmatex">\(\dot{\Phi}^{T}(0)\)</span>）<span class="arithmatex">\(^{T}\)</span>，有</p>
+<div class="arithmatex">\[
+\lim_{{t \to +\infty}} (\widetilde{\Phi}^{T}(t) \quad \dot{\Phi}^{T}(t))^{T} = 0
+\]</div>
+<p>重力补偿<span class="heti-skip"><span class="heti-spacing"> </span>PD<span class="heti-spacing"> </span></span>控制可以使<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\Phi\)</span><span class="heti-spacing"> </span></span>收敛于定常的<span><span class="heti-spacing"> </span><span class="arithmatex">\(\Phi_d\)</span></span>，适用于一种静止位形运动到另一种静止位形</p>
+</div>
+<h3 id="_7">逆运动学控制<a class="headerlink" href="#_7" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>在反馈中利用补偿将复杂非线性模型 化成<span class="heti-skip"><span class="heti-spacing"> </span>N<span class="heti-spacing"> </span></span>个无耦合的单变量的线性模型</p>
+<p>采用补偿：</p>
+<div class="arithmatex">\[
+\boldsymbol{\tau}_d=\boldsymbol{M}(\boldsymbol{\Phi})\boldsymbol{\alpha}_\phi+\boldsymbol{C}(\boldsymbol{\Phi},\dot{\boldsymbol{\Phi}})\dot{\boldsymbol{\Phi}}+\boldsymbol{L}\dot{\boldsymbol{\Phi}}+\boldsymbol{G}(\boldsymbol{\Phi})
+\]</div>
+<p>得到：</p>
+<div class="arithmatex">\[
+\ddot{\Phi} = \alpha_\Phi
+\]</div>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250401092616.png"/></p>
+<p>所以控制律为</p>
+<div class="arithmatex">\[
+\alpha_{\phi}=\ddot{\boldsymbol{\Phi}}_{d}+K_{D}\dot{\widetilde{\boldsymbol{\Phi}}}+K_{P}\widetilde{\boldsymbol{\Phi}}
+\]</div>
+<p>其中，<span><span class="arithmatex">\(\ddot{\boldsymbol{\Phi}}_{d}+K_{D}\dot{\widetilde{\boldsymbol{\Phi}}}\)</span><span class="heti-spacing"> </span></span>是前馈的部分<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>即框图左上角的部分</p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/202504010926579.png"/></p>
+<h3 id="_8">鲁棒控制 ｜ 估计参数<a class="headerlink" href="#_8" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p><span><span class="arithmatex">\(M(\boldsymbol{\Phi})\ddot{\boldsymbol{\Phi}}+C(\boldsymbol{\Phi},\dot{\boldsymbol{\Phi}})\dot{\boldsymbol{\Phi}}+L\dot{\boldsymbol{\Phi}}+G(\boldsymbol{\Phi})=\boldsymbol{\tau}_d\)</span><span class="heti-spacing"> </span></span>的参数值无法准确获取，使用估计值进行控制</p>
+<p>控制律</p>
+<div class="arithmatex">\[
+\boldsymbol{\alpha}_{\phi}=\ddot{\boldsymbol{\Phi}}_{d}+\boldsymbol{K}_{D}\dot{\widetilde{\boldsymbol{\Phi}}}+\boldsymbol{K}_{P}\widetilde{\boldsymbol{\Phi}}+\boldsymbol{\Xi}
+\]</div>
+<p>其中，<span><span class="arithmatex">\(\boldsymbol{\Xi}\)</span><span class="heti-spacing"> </span></span>是不确定性项</p>
+<div class="arithmatex">\[
+\boldsymbol{\Xi}=\boldsymbol{B}_r(\boldsymbol{\varphi})=\begin{cases}(\rho_1+\rho_2\|\boldsymbol{\varphi}\|)\frac{\overline{B}^\mathrm{T}\boldsymbol{P}_L\boldsymbol{\varphi}}{\|\overline{B}^\mathrm{T}\boldsymbol{P}_L\boldsymbol{\varphi}\|},&amp;\text{当}\|\overline{\boldsymbol{B}}^\mathrm{T}\boldsymbol{P}_L\boldsymbol{\varphi}\|\neq0\text{时}\\\\0,&amp;\text{当}\|\overline{\boldsymbol{B}}^\mathrm{T}\boldsymbol{P}_L\boldsymbol{\varphi}\|=0\text{时}&amp;\end{cases}
+\]</div>
+<p>一些参数的定义如下</p>
+<div class="arithmatex">\[
+\begin{align*}
+&amp;\rho_{1}&gt;\frac{1}{1-\gamma_{3}}(\gamma_{3}\gamma_{2}+\overline{m}\gamma_{1})\\
+&amp;\rho_{2}&gt;\frac{\gamma_{3}\left\|(K_{P}\quad K_{D})\right\|}{1-\gamma_{3}}\\
+\text{正数}\quad&amp;\gamma_1&gt;\|\widetilde{\boldsymbol{\Gamma}}(\boldsymbol{\Phi},\dot{\boldsymbol{\Phi}})\| = \|\tilde{C}(\boldsymbol{\Phi},\dot{\boldsymbol{\Phi}})\dot{\boldsymbol{\Phi}}+\widetilde{\boldsymbol{L}}\dot{\boldsymbol{\Phi}}+\widetilde{\boldsymbol{G}}(\boldsymbol{\Phi})\|\\
+\text{正数}\quad &amp;\gamma_2&gt;\|\ddot{\boldsymbol{\Phi}}_d\|\\
+\text{非负数}\quad1&gt;&amp;\gamma_3\ge\|\boldsymbol I-\boldsymbol M^{-1}(\boldsymbol{\Phi})\hat{M}(\boldsymbol{\Phi})\|
+\end{align*}
+\]</div>
+<ul>
+<li>矩阵范数采用矩阵最大的奇异值</li>
+<li><span><span class="arithmatex">\(K_P\)</span>,<span class="arithmatex">\(K_D\)</span><span class="heti-spacing"> </span></span>采用逆运动学控制设计，保证大范围渐进稳定</li>
+<li>正数<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\overline{m}\)</span><span class="heti-spacing"> </span></span>大于<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(M^{-1}(\boldsymbol{\Phi})\)</span><span class="heti-spacing"> </span></span>的最大奇异值和正数<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\underline{m}\)</span><span class="heti-spacing"> </span></span>小于<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(M^{-1}(\boldsymbol{\Phi})\)</span><span class="heti-spacing"> </span></span>的最小奇异值，再取<span><span class="heti-spacing"> </span><span class="arithmatex">\(\hat{M}(\boldsymbol{\Phi})=\frac2{\underline{m}+\overline{m}}\boldsymbol{I}\)</span></span>，可以保证<span><span class="heti-spacing"> </span><span class="arithmatex">\(\left\|\boldsymbol{I}-\boldsymbol{M}^{-1}(\boldsymbol{\Phi})\hat{\boldsymbol{M}}(\boldsymbol{\Phi})\right\|\leqslant\frac{\overline{m}-\underline{m}}{\underline{m}+\overline{m}}=\gamma_{3}&lt;1\)</span></span></li>
+</ul>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250401101152.png"/></p>
+<p>又根据<span class="heti-skip"><span class="heti-spacing"> </span>Lyapunov<span class="heti-spacing"> </span></span>稳定性定理，可以证明，保证在不确定性<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\Delta\)</span><span class="heti-spacing"> </span></span>下<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\boldsymbol{\Phi}\)</span><span class="heti-spacing"> </span></span>对<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\boldsymbol{\Phi}_d\)</span><span class="heti-spacing"> </span></span>的渐近跟踪。</p>
+<h3 id="_9">自适应控制 ｜ 动态估计参数<a class="headerlink" href="#_9" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>在鲁棒控制中，参数的估计是不变的。</p>
+<p>自适应控制的思想就是使用在控制过程中观测到的数据，动态更新估计不确定性参数的值。</p></div>
 <aside class="md-source-file">
 <span class="md-source-file__fact">
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年3月18日 14:50:15</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年4月1日 12:23:28</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">
