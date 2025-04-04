@@ -162,18 +162,49 @@ PID部分也可以参照[PID - Youtube](https://www.youtube.com/watch?v=UR0hOmja
         自控A4-沐长风.pdf
 ```
 
-## 思维导图
 
-### 控制系统建模
+## 控制系统建模
 
 ![连续系统](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/%E8%BF%9E%E7%BB%AD%E7%B3%BB%E7%BB%9F.svg)
 
+### 实例
 
 
-### 控制系统性能
+### 非线性系统
+
+## 控制系统性能
 
 ![时域分析](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/%E6%97%B6%E5%9F%9F%E5%88%86%E6%9E%90.svg)
+### 微分方程
+
+### 传递函数
+### Laplace变换
+
+### 时域性能指标
+
+二阶系统的特征多项式通常表示为：
+
+$$
+s^2 + 2\zeta\omega_ns + \omega_n^2
+$$
+
+其中：
+- $s$ 是复数频率变量。
+- $\zeta$ 是阻尼比。
+- $\omega_n$ 是无阻尼系统的自然频率
+  
+
+**动态指标性能**
+
+1. **上升时间（Rise Time）**: $T_r = \frac{\pi - \beta}{\omega_n \sqrt{1 - \zeta^2}}$
+2. **峰值时间（Peak Time）**: $T_p = \frac{\pi}{\omega_d} = \frac{\pi}{\omega_n \sqrt{1 - \zeta^2}}$  ，峰值时间的等高线是一条射线，且等峰值线是虚轴相同。
+3. **超调量（Overshoot）**: $\sigma = e^{-\frac{\zeta \pi}{\sqrt{1 - \zeta^2}}}$  ，超调量只由阻尼比 $\zeta$ 决定。
+4. **调节时间（Settling Time）**:  
+  - 5%误差: $T_s \approx \frac{3}{\zeta \omega_n}$  
+  - 2%误差: $T_s \approx \frac{4}{\zeta \omega_n}$
+5. **衰减比（Damping Ratio）**: $n = \frac{\sigma}{B'} = e^{-\frac{2\zeta \pi}{\sqrt{1 - \zeta^2}}}$
+
 ![控制系统性能](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F%E6%80%A7%E8%83%BD.svg)
 
-### 控制系统校正与设计
-
+## 控制系统校正与设计
+  f

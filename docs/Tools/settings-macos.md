@@ -9,6 +9,12 @@ mac默认使用zsh
 - 按住Command+空格，打开“聚焦“
 - fn+backspace = del
 - command+q 退出应用程序
+- command + [ 返回上一级
+- command + ] 前往下一级
+- command + control + 空格 ： emoji
+- shift + option + b：颜文字
+- 使用声调打字：tab
+
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=1851423987&bvid=BV1mW421w7Jw&cid=1457785582&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=100% height=600px></iframe>
 
 ```shell title="open Finder in terminal"
@@ -263,8 +269,24 @@ brew install carthage
 
 ### [Scroll Reverser ](https://pilotmoon.com/scrollreverser/) 调整滚轮方向
 
+### Open in Terminal： finder打开终端
+
+[OpenInTerminal/Resources/README-Config.md at master · Ji4n1ng/OpenInTerminal](https://github.com/Ji4n1ng/OpenInTerminal/blob/master/Resources/README-Config.md)
+
+```shell title="输入这个指令，查找插件的uid"
+pluginkit -mAD -p com.apple.FinderSync -vvv
+```
+
+```shell title="把-u 后边的参数换成你显示的uid即可"
+pluginkit -e "use" -u "C21A713E-0EED-4E97-8DB2-5B9EA96A1F28"
+```
+
+需要在访达上面自定义工具栏，然后添加open in terminal
+
+在软件里面也可以设置快捷键打开
 
 ## safari 使用指南
+
 
 ## latex
 

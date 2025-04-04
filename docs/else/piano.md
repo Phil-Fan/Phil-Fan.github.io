@@ -23,7 +23,7 @@ comments: true
     - **时间:** 2025年春夏
     - **地点:** 西3-B109
     - **成绩组成：** 出勤10%+两次平时作业10%（交了就有分）+小组展示10%（不超过20min）+期中测试20% + 期末测试10%看谱+40%演奏 
-    - 风格：更侧重原理和乐理
+    - 风格：更侧重原理和乐理；上课会先有小组展示，节奏型的练习，后面会讲一些乐理
 
 ### 课堂流程
 零基础的内容应该是按照巴斯蒂安成人钢琴教程（第一册），乐理会简单涉及一点，但是不会很深入。
@@ -131,20 +131,27 @@ yq琴房拆掉以后，买了电子琴之后，都在宿舍零零散散的练习
 
 ## 基础
 
-### 音阶训练
+### C大调音阶训练
 
 要注意左右手的指法
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240924171307.png)
 
+### G大调音阶训练
 
+### 节奏训练
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250402194134.png)
 ### 和弦练习
 和弦练习，这里要注意125和135指法的转换
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241008095233.png)
 
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241029135550.png)
 
+分解和弦，这里要注意左手的交叉，要从右手的上面穿过去；一般可以加一个渐强/渐弱
 
-## 练习曲目
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250402200749.png)
+
+## 练习曲目(陈曦老师)
 
 
 ### 音程练习
@@ -163,6 +170,44 @@ yq琴房拆掉以后，买了电子琴之后，都在宿舍零零散散的练习
 ### When the Saints Go Marching In
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250305202649437.png)
 
+
+### 惊愕 海顿（简化版）
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250402203838.png)
+
+### 梦的回声
+
+难点：延音踏板的使用
+
+使用不同的力度展示/
+
+rit：渐慢
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250402203933.png)
+
+
+### little playmates
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250402204819.png)
+
+左右手来回变换的旋律
+marcato：强
+
+
+### What shall we do with the drunken sailor?
+
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250402205020.png)
+
+
+### Patterns
+
+120bpm 比较快
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250402205119.png)
+
+
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=512848884&bvid=BV153411w72N&cid=757079532&p=1&t=64&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+
+### Hansel and Gretel
 
 
 ## 练习曲目（陈列老师）

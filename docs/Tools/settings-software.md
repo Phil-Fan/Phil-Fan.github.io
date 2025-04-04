@@ -33,6 +33,7 @@
 - [Fliqlo](https://fliqlo.com/)：翻盖时钟屏保，Mac的经典屏保
 - [Kap](https://getkap.co/):gif recorder
 - windows 虚拟机 [Parallels Desktop](https://www.parallels.cn/products/desktop/trial/)，可以找一个tb店解锁
+- [waydabber/BetterDisplay](https://github.com/waydabber/BetterDisplay?tab=readme-ov-file)：没钱上4K显示器的解决方案，Unlock your displays on your Mac! Flexible HiDPI scaling
 
 **以下为windows专属：**
 

@@ -129,6 +129,18 @@ comments: true
 
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/ad393f3e90c68ca2cbd6c6e30d829ca8.JPG)
 
+### 丝瓜炒鸡蛋
+
+1. 丝瓜切好，鸡蛋打散，加盐腌制
+2. 热锅冷油，放入鸡蛋炒熟盛出
+3. 加油，放丝瓜简单炒炒
+4. 加入适量水，焖一会儿
+5. 放入鸡蛋，翻炒均匀
+6. 加生抽、蚝油、淀粉水
+7. 出锅
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250403091130.png)
+
 ## 蒸煮
 ### 清蒸鲈鱼
 - 食材：鲈鱼

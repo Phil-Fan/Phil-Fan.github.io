@@ -80,22 +80,6 @@ c小调：命运交响曲、悲怆奏鸣曲；莫扎特：幻想曲
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=452984114&bvid=BV1yj411n7vu&cid=1384888121&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"></iframe>
 
 
-## 贝多芬
-### “月光”奏鸣曲第一乐章 Op.27-2
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241203133647.png)
-
-很少有的以慢板开始的乐曲
-
-三连音的带附点的节奏
-
-<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=593291852&bvid=BV1mq4y1k7FW&cid=489652407&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"></iframe>
-
-### “热情”奏鸣曲第一乐章 Op.57
-
-
-<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=77995904&bvid=BV1PJ411B7xk&cid=133441845&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"></iframe>
-
-
 ## 德彪西
 开辟了很多音色、踏板的不同使用方法
 
@@ -140,6 +124,39 @@ c小调：命运交响曲、悲怆奏鸣曲；莫扎特：幻想曲
 
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=645908506&bvid=BV1wY4y1K7qc&cid=844712354&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"></iframe>
 
+## 海顿
+![](https://bkimg.cdn.bcebos.com/pic/a5c27d1ed21b0ef4af23b820d6c451da80cb3e80?x-bce-process=image/format,f_auto/watermark,image_d2F0ZXIvYmFpa2UyNzI,g_7,xp_5,yp_5,P_20/resize,m_lfit,limit_1,h_1080)
+维也纳古典乐派的创始人，被誉为“交响乐之父”和“弦乐四重奏之父”，以创作器乐作品见长。
+
+非常幽默，喜欢开玩笑
+
+- **职业生涯**  
+    29岁起为匈牙利埃斯特哈齐（Esterházy）皇室创作，持续将近30年。1790年后，往返于维也纳与伦敦之间。
+
+- **作曲习惯**  
+    在钢琴上即兴弹奏，直到一个完美的主题被呈现。创作时通常只写出简单的旋律草稿，之后配上复杂的和声和乐器。
+
+- **主要作品**  
+    - 104首交响曲  
+    - 68首弦乐四重奏  
+    - 20首协奏曲  
+    - 29首键盘乐重奏  
+    - 47首键盘乐奏鸣曲  
+    - 15部歌剧  
+    - 12首弥撒曲
+### 海顿 C大调第60钢琴奏鸣曲第一乐章 Hob.XVI:50
+
+
+### No.94 “惊愕”交响曲第一乐章 Hob.I:94
+
+
+突然转调，C小调比较邪恶的感觉
+
+海顿希望吸引到专业和小白的听众
+
+
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=5860188&bvid=BV1Rs411r7tR&cid=9516289&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+
 
 ## 莫扎特
 
@@ -162,6 +179,24 @@ Mozart写了27首钢琴协奏曲，只有两手是小调的歌曲
 课堂展示版本：内田华子版本（指挥+钢琴）
 
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=285338467&bvid=BV1Kf4y1S7sF&cid=181746272&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"></iframe>
+
+
+## 贝多芬
+### “月光”奏鸣曲第一乐章 Op.27-2
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241203133647.png)
+
+很少有的以慢板开始的乐曲
+
+三连音的带附点的节奏
+
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=593291852&bvid=BV1mq4y1k7FW&cid=489652407&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"></iframe>
+
+### “热情”奏鸣曲第一乐章 Op.57
+
+
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=77995904&bvid=BV1PJ411B7xk&cid=133441845&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"></iframe>
+
+
 
 ## 拉赫玛尼诺夫
 ### C小调第二钢琴协奏曲第一乐章 Op.18
@@ -255,7 +290,8 @@ dang bang bang bang
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=19801305&bvid=BV1pW41177Hj&cid=32290850&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"></iframe>
 
 
-### 海顿 C大调第60钢琴奏鸣曲第一乐章 Hob.XVI:50
+
+
 
 ### 门德尔松 春之歌 Op.62-6
 有很多波音

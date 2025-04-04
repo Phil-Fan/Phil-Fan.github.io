@@ -52,6 +52,12 @@ comments: true
 分享一个讲的特别好的视频
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=554651512&bvid=BV1Cv4y1w7vo&cid=736686109&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="600px" height="450px"></iframe>
 
+右手练习
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250402194134.png)
+
+左手练习
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250402201144.png)
+
 ### 长琶音
 
 ### 颤音
@@ -75,32 +81,27 @@ comments: true
 > 中国的音阶叫做 宫商角徵羽
 
 
+## 和声
+
+旋律配上和弦
+
+配和声没有正确与否，只有品味的区别
+
+- 这个小节在弹什么音
+- 下一个小节弹什么音
+- 应该多久换一个和弦：和弦换太快的话，音乐听起来很忙碌
 
 
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=29000392&bvid=BV1Vs411u7We&cid=50300678&p=1&t=80&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
 
-## 和弦
+C和弦
 
-### 三和弦
+G7和弦：so si re fa
 
-### 七和弦
+F和弦：
 
-
-### 九和弦
-
-### 和弦转位
-
-
-### 挂留和弦
-
-### 属和弦
-
-### 和弦走向
-万能和弦 1451 6326 6415 6251
-
-
-
-## 调式
-
+!!! note "例子——视奏并配和弦"
+    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250402200942.png)
 
 
 

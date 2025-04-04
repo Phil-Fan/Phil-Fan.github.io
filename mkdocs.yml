@@ -58,7 +58,7 @@ theme:
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: deep purple
+      primary: blue
       toggle:
         icon: material/weather-sunny
         name: Switch to dark mode
@@ -66,7 +66,7 @@ theme:
     # Palette toggle for dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: deep purple
+      primary: black
       toggle:
         icon: material/weather-night
         name: Switch to light mode
@@ -256,7 +256,8 @@ nav:
     - Robotics/嵌入式/RaspberryPi.md
     - Robotics/嵌入式/JetsonNano.md
     - Robotics/嵌入式/FPGA.md
-    - Robotics/嵌入式/ComputerControl.md
+    - Robotics/嵌入式/PcCtl.md
+    - Robotics/嵌入式/PcCtl-PLC.md
 
   - "Control Theory":
     - Robotics/Control/Control-01-自动控制原理.md
@@ -621,3 +622,5 @@ plugins:
       video_controls: True
       css_style:
         width: "50%"
+  
+  - lilypondsw

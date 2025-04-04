@@ -31,33 +31,122 @@
 4. PID系统的设计；调参方法
 5. Lyapunov稳定性定理
 6. 奇异值分解
+## 传感器：旋转编码器——测关节转角转速
+
+原理：**光栅圆盘**——在不透光的圆盘上等宽等间隔的透光狭缝，把转角/转速转换成光传感器接收到的脉冲的数量
+
+
+方法
+
+- **高速**：频率法（M法）——计算单位时间内的脉冲数。
+- **低速**：周期法（T法）——计算相邻脉冲间的时间间隔。
+- **综合**：M/T法——结合频率法和周期法，适用于全速段，分辨率高，广泛应用。
 
 
 ## 独立关节控制
 
-### 关节建模
-
-
 !!! note "这里有很多字母，联系英文进行记忆"
 
-减速器：其实是扭矩放大器，代价是转速的下降
+### 电机建模
+
+
+
+| 符号       | 描述                                   | 英文翻译                          |
+|------------|----------------------------------------|-----------------------------------|
+| $T_{ei}$   | 电机转矩                               | Motor torque                     |
+| $C_{Ti}$   | 转矩系数                               | Torque coefficient               |
+| $I_{mi}$   | 电机的电流                             | Motor current                    |
+| $E_{mi}$   | 电机的电动势                           | Motor voltage                    |
+| $\omega_{mi}$ | 电机的转速                           | Motor speed                      |
+| $k_{ei}$   | 电机的反电动势常数                     | Back EMF constant                |
+| $R_{mi}$   | 电机的电阻                             | Motor resistance                 |
+| $U_{mi}$   | 电机的电压                             | Motor voltage                    |
+| $k_{ui}$   | 关节 $i$ 电机驱动器的增益；节省能量，用小功率的器件控制大功率的电机 | Joint $i$ motor driver gain      |
+
+带驱动器的直流有刷电机模型：转矩&转速
+
+$$
+T_{ei} = C_{ti} \cdot I_{mi}
+$$
+
+$$
+\omega_{mi} = (\frac{k_{ui}}{k_{ei}})U_{ci} - (\frac{R_{mi}}{k_{ei}})I_{mi}
+$$
+
+### 关节建模与传递函数
+$\theta_{mi}$ 电机转角
+$\theta_{i}$ 关节i转角
+$T_{ei}$    电机的输出力矩
+$T_{ai}$ 输入齿轮对关节的作用力矩
+$T_{li}$  反作用力的力矩，后续方程可以约掉
+$T_{ci}$ 干扰力矩
+$b_{mi},b_{ai}$ 轴承的粘性摩擦系数
+$J$ 转动惯量
+
+
+减速器：其实是扭矩放大器，代价是转速的下降 
 
 编码器：对转速进行观测
 
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250401120430.png)
 
+电机动力学：$J_{mi}\dot{\omega}_{mi}=T_{ei}-T_{li}-b_{mi}\omega_{mi}$
+关节侧动力学： $J_{ai}\dot{\omega}_{i}=T_{ai}-T_{ci}-b_{ai}\omega_{i}$
+转速关系：$\omega_i = \frac{\omega_{mi}}{\eta_i}$，转速下降，扭矩上升
 
-### 传递函数
+使用$\eta * eq1 + eq2$可以得到关节模型
+
+$J_{ci}\ddot{\theta}_{i}+B_{ci}\dot{\theta}_{i}=J_{ci}\dot{\omega}_{i}+B_{ci}\omega_{i}=K_{ci}U_{ci}-T_{ci}$
+
+- 输入量：$U_{ci}$
+- 干扰输入$T_{ci}$
+- 输出 $\theta_i$
 
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250401121056.png)
 
+Laplace变换
+
+$$
+J_{ci}s^2\theta_i(s)+B_{ci}s\theta_i(s)=K_{ci}U_{ci}(s)-T_{ci}(s)
+$$
+
+得到系统的传递函数
+
+$$
+\theta_i(s)=\frac{K_{ci}}{s(J_{ci}s+B_{ci})}U_{ci}(s)-\frac{1}{s(J_{ci}s+B_{ci})}T_{ci}(s)
+$$
 
 ### PD控制器
 
-无扰动的情况下无静差
+
+反馈信号是：被控对象的输出$\theta_i$ 和其微分
+
+控制算法：
+
+$$
+\begin{align*}
+U_{ci}(s) = k_{P_i}\widetilde{\theta}_i(s) - k_{D_i}\omega_i(s)\\
+\widetilde{\theta}_i(s) = \theta_{di}(s) - \theta_i(s)    
+\end{align*}
+$$
 
 
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/202504011210339.png)
+
+$$
+\theta_{i}(s)=\frac{k_{Pi}K_{ci}}{J_{ci}s^{2}+(B_{ci}+k_{Di}K_{ci})s+k_{Pi}K_{ci}}\theta_{di}(s)-\frac{1}{J_{ci}s^{2}+(B_{ci}+k_{Di}K_{ci})s+k_{Pi}K_{ci}}T_{ci}(s)
+$$
+
+#### 稳定性分析
+!!! note "这里需要用到二阶动态性能的一些公式以及稳定性分析中的劳斯判据知识"
+
+误差传递函数
+
+$$
+\tilde{\theta}_i\left(s\right)= \theta_{di}\left(s\right) - \theta_i\left(s\right)
+$$
+
+无扰动的情况下无静差
 
 这里化简的时候使用梅森增益公式求解比较简单
 
@@ -74,7 +163,7 @@
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/202504011208914.png)
 
 
-## 转矩前馈控制
+### 转矩前馈控制
 
 对关节干扰进行推算，增加补偿量主动消减干扰的影响
 

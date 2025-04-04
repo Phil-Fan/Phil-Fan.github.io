@@ -3,6 +3,8 @@ comments: true
 ---
 # 乐理
 
+> 本篇非原创，仅供个人学习使用，感谢原作者的辛勤付出。
+
 [B站最通俗易懂的乐理课程（30集），零基础轻松学！适用于作曲编曲、钢琴、吉他、声乐。\_哔哩哔哩\_bilibili](https://www.bilibili.com/video/BV1Hg411w7n2/)
 
 [习题 | Musicca](https://www.musicca.com/zh/exercises/)
@@ -208,7 +210,37 @@ bpm: beat per minute
 (6)尝试将以上顺阶和弦用到其他调自然音阶中.
 
 
-### 调式
+
+
+
+## 和弦
+
+从大小调中同时演奏符合音程关系的多个音    - 三和弦：大调音阶前三个，常见的包括（Do Mi So），（Re Fa La），（Mi So Do）        - 大三和弦和小三和弦 - 五度环：弹和弦神器
+
+![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/4d3fqpu0.jpg)
+
+
+### 三和弦
+
+### 七和弦
+
+
+### 九和弦
+
+### 和弦转位
+
+
+### 挂留和弦
+
+### 属和弦
+
+### 和弦走向
+万能和弦 1451 6326 6415 6251
+
+
+
+## 调式
+
 注明了唱名和音名的对应关系，如1=C
 
 !!! note "规律"
@@ -218,11 +250,6 @@ bpm: beat per minute
 
 ![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/qqfcyxzm.jpg)
 
-
-### 和弦
-从大小调中同时演奏符合音程关系的多个音    - 三和弦：大调音阶前三个，常见的包括（Do Mi So），（Re Fa La），（Mi So Do）        - 大三和弦和小三和弦 - 五度环：弹和弦神器
-
-![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/4d3fqpu0.jpg)
 
 
 ## 进阶拓展
