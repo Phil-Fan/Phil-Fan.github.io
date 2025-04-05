@@ -343,17 +343,6 @@ nav:
     - Robotics/嵌入式/外设.md
     - Robotics/Robo/Robo-Drone_experiment.md
     - Robotics/Robo/Robo-Drone-explore.md
-    
-
-  - "环境配置":
-    - Robotics/Calculator.md
-    - Robotics/Environment/System-Linux.md 
-    - Robotics/Environment/System-ROS.md   
-    - Robotics/Environment/System-linux-settings.md
-    - Robotics/Environment/System-kali-settings.md
-    - Robotics/Environment/System-python-settings.md
-    - Robotics/Environment/System-server.md
-    - Robotics/Environment/System-docker.md
 
 
 - "CS":
@@ -489,88 +478,98 @@ nav:
 
 
 - Tools:
-  - Tools/Git.md
-  - Tools/gdb.md
-  - Tools/reveal.js.md
-  - Tools/Makefile.md
-      
-  - "效率":
-    - Tools/markdown.md
-    - Tools/Mkdocs.md
-    - Tools/JekyII.md
-    - Tools/latex.md
-    - "Latex公式速查": https://latex.emoryhuang.cn/posts/
-    - Tools/vim.md
-    
-  - Tools/tableau.md
-  - Tools/matlab.md
-  - Tools/solidworks.md
-  - Tools/sites.md
-  
-  - Tools/settings-software.md
-  - Tools/settings-windows.md
-  - Tools/settings-macos.md
-  - Tools/settings-pc.md
+  - Efficiency:
+    - Tools/Efficiency/latex.md
+    - Tools/Efficiency/sites.md
+    - Tools/Efficiency/Makefile.md
+    - Tools/Efficiency/markdown.md
+    - Tools/Efficiency/vim.md
+
+  - Environment:
+    - Tools/Environment/Mkdocs.md
+    - Tools/Environment/Docker.md
+    - Tools/Environment/JekyII.md
+    - Tools/Environment/Linux.md
+    - Tools/Environment/Python.md
+    - Tools/Environment/ROS.md
+    - Tools/Environment/reveal.js.md
+
+  - Software:
+    - Tools/Software/Git.md
+    - Tools/Software/Calculator.md
+    - Tools/Software/GDB.md
+    - Tools/Software/Matlab.md
+    - Tools/Software/Solidworks.md
+    - Tools/Software/Tableau.md
+    - Tools/Software/AdobeIllustrator.md
+    - Tools/Software/AdobePhotoshop.md
+
+  - "工作环境配置":
+    - Tools/Environment/settings-software.md
+    - Tools/Environment/settings-pc.md
+    - Tools/Environment/settings-macos.md
+    - Tools/Environment/settings-windows.md
+    - Tools/Environment/settings-linux.md
+    - Tools/Environment/settings-linux-kali.md
+    - Tools/Environment/settings-server.md
   
 
 - "生命因你而火热":
   - "🏫浙大": classes_in_zju.md
-  - "💐插花": else/flower.md
-  - "🍚豆知识": else/bean_knowledge.md
+  - Interest/bean_knowledge.md
   - "🏃运动":
-    - else/exercise-fit.md
-    - else/exercise-swimming.md
-    - else/exercise-tennis.md
-    - else/dance.md
+    - Interest/Exercise/exercise-fit.md
+    - Interest/Exercise/exercise-swimming.md
+    - Interest/Exercise/exercise-tennis.md
+    - Interest/Exercise/dance.md
 
   - "🥢食为天":
-    - else/eat.md
-    - else/coffee.md
+    - Interest/Eat/eat.md
+    - Interest/Eat/coffee.md
 
   - "🗺️出行":
-    - else/Travel/C-Driving.md
-    - else/Travel/C-journey.md
-    - else/Travel/C-J-杭州.md
-    - else/Travel/C-J-浙江.md
-    - else/Travel/C-J-江西.md
-    - else/Travel/C-J-四川.md
-    - else/Travel/C-J-安徽.md
-    - else/Travel/C-J-HK.md
-    - else/Travel/C-J-Japan.md
-    - else/Travel/C-J-MY.md
-    - else/Travel/C-J-MY-KK.md
-    - else/Travel/C-J-MY-KL.md
+    - Interest/Travel/C-Driving.md
+    - Interest/Travel/C-journey.md
+    - Interest/Travel/C-J-杭州.md
+    - Interest/Travel/C-J-浙江.md
+    - Interest/Travel/C-J-江西.md
+    - Interest/Travel/C-J-四川.md
+    - Interest/Travel/C-J-安徽.md
+    - Interest/Travel/C-J-HK.md
+    - Interest/Travel/C-J-Japan.md
+    - Interest/Travel/C-J-MY.md
+    - Interest/Travel/C-J-MY-KK.md
+    - Interest/Travel/C-J-MY-KL.md
 
   - "🎶音乐":
-    - else/music_theory.md
-    - else/piano.md
-    - else/piano_learning.md
-    - else/piano_songs.md
-    - else/music_classification.md
+    - Interest/Music/music_theory.md
+    - Interest/Music/piano.md
+    - Interest/Music/piano_learning.md
+    - Interest/Music/piano_songs.md
+    - Interest/Music/music_classification.md
+    - Interest/Music/music_band.md
 
-  - "🎨设计":
-    - Tools/design.md
-    - Tools/powerpoint.md
-    - Tools/AdobePhotoshop.md
-    - Tools/AdobeIllustrator.md
-    
-  - "📸摄影":
-    - Tools/Photography-base.md
-    - Tools/Photography-Landscape.md
-    - Tools/Photography-Portrait.md
+  - "🎨审美":
+    - Interest/Aesthetic/flower.md
+    - Interest/Aesthetic/design.md
+    - Interest/Aesthetic/powerpoint.md
+    - Interest/Aesthetic/Photography-base.md
+    - Interest/Aesthetic/Photography-Landscape.md
+    - Interest/Aesthetic/Photography-Portrait.md
 
   - "🎮游戏":
-    - else/fifa.md
+    - Interest/Game/fifa.md
 
   - "💡常识":
-    - else/common_knowledge/social_security.md
-    - else/common_knowledge/insurance_social_insurance.md
-    - else/common_knowledge/insurance_commercial_insurance.md
-    - else/common_knowledge/labour.md
-    - else/common_knowledge/tax.md
-    - else/common_knowledge/accident.md
-    - else/common_knowledge/house.md
-    - else/common_knowledge/rent.md
+    - Interest/CommonKnowledge/social_security.md
+    - Interest/CommonKnowledge/insurance_social_insurance.md
+    - Interest/CommonKnowledge/insurance_commercial_insurance.md
+    - Interest/CommonKnowledge/labour.md
+    - Interest/CommonKnowledge/tax.md
+    - Interest/CommonKnowledge/accident.md
+    - Interest/CommonKnowledge/house.md
+    - Interest/CommonKnowledge/rent.md
+
     
 
 

@@ -1,4 +1,4 @@
-# Kali Linux配置
+# Kali Linux
 !!! note "本篇记录一下Kali Linux的配置"
 
 

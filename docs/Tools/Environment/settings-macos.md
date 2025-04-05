@@ -1,4 +1,4 @@
-# MacOS 备忘录
+# MacOS
 ## 基础
 mac默认使用zsh
 
