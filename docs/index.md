@@ -23,8 +23,6 @@ comments: true
     小型飞机控制 dRehmFlight
 
     微观经济学
-    证券投资学——李兴建 <br>
-    
     
     听一下随机过程
     
