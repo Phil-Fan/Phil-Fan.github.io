@@ -2,7 +2,7 @@
 comments: true
 ---
 
-# 食
+# 中餐食谱
 本文仅供个人记录做菜用法，不做任何商业用途。
 
 !!! attention "本文图片部分来源为小红书帖子，右下角有博主的号码"
@@ -27,6 +27,53 @@ comments: true
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/IMG_1233.jpeg)
 
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/IMG_1234.jpeg)
+
+
+### 活虾处理
+
+去虾线
+
+
+## 准备学的菜
+
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=113694075785764&bvid=BV1ZukYYPEUu&cid=27466663925&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=600px height=450px></iframe>
+
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=114084431272643&bvid=BV1d2XSYuEmb&cid=28628879904&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=600px height=450px></iframe>
+
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=114186487078644&bvid=BV1giQ9YzEna&cid=28941878702&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=600px height=450px></iframe>
+
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=1156673175&bvid=BV1KZ421L7Pn&cid=1658966877&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=600px height=450px></iframe>
+
+
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=1356530394&bvid=BV1wz421q7aJ&cid=25697783269&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=600px height=450px></iframe>
+
+
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=113076405797308&bvid=BV1DQHbejEo2&cid=25727795846&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=600px height=450px></iframe>
+
+
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=113405692288330&bvid=BV12xS9YbEZ8&cid=26558334930&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=600px height=450px></iframe>
+
+## 主菜
+
+### 糖醋排骨
+
+- 肉的选择：猪小排
+- 调料：生抽、老抽、盐、糖、料酒、葱姜蒜、八角、桂皮、香叶
+- 其他：淀粉、食用油
+
+1. 排骨加食盐和淀粉，搅拌均匀，腌制，吸出血水，清洗干净。
+2. 锅中加冷水，放入排骨，煮水，瞥去浮沫，等颜色变得清澈后捞出
+3. 锅中放少油，煎几片生姜，放排骨，翻炒均匀，煎至金黄色，加酱油，翻炒均匀，加花雕酒，翻炒均匀。
+4. 加入热水至没过排骨，放入八角、桂皮、香叶、冰糖、十三香，小火炖煮35min
+5. 快要收汁的时候，加盐、放适量的醋、可以加几颗冰糖，大火收汁，翻炒，出锅
+6. 可以加点香葱
+
+!!! note "收汁要注意时间，不要太长，要时刻注意不要糊锅"
+
+
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=607507467&bvid=BV1i84y1a77w&cid=958251711&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=600px height=450px></iframe>
+
+### 红烧肉
 
 ## 炒菜 - 荤
 
@@ -140,6 +187,16 @@ comments: true
 7. 出锅
 
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250403091130.png)
+
+### 香椿炒鸡蛋
+
+!!! note "香椿必须焯水，否则有亚硝酸盐"
+
+1. 香椿加食盐洗净，焯水（锅中加食盐和食用油），至变色后捞出（大概1min）
+2. 切去根部，切成小段
+3. 按喜好和鸡蛋炒在一块，可以摊饼、也可以炒散
+
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=383244240&bvid=BV17Z4y1m7CJ&cid=574540183&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=600px height=450px></iframe>
 
 ## 蒸煮
 ### 清蒸鲈鱼

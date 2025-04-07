@@ -47,6 +47,7 @@ CPU是电脑的核心，它负责执行各种计算任务。它的性能决定�
 ---
 
 ## **3. 内存（RAM）—— 电脑的短期记忆**  
+
 **代表品牌：金士顿（Kingston）、芝奇（G.Skill）、海盗船（Corsair）**  
 
 内存负责存储CPU运行时的临时数据，容量和速度都会影响软件运行的流畅度。  
@@ -54,6 +55,8 @@ CPU是电脑的核心，它负责执行各种计算任务。它的性能决定�
 - **容量（GB）**：主流建议 **16GB**，游戏/创作建议 **32GB** 或以上。  
 - **频率（MHz）**：影响数据传输速度，如 **3200MHz、6000MHz**。  
 - **类型（DDR4/DDR5）**：最新的DDR5更快，但主板需要支持。  
+
+[CrystalDiskInfo](https://crystalmark.info/redirect.php?product=CrystalDiskInfoInstaller)
 
 ---
 

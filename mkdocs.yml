@@ -194,7 +194,7 @@ extra_javascript:
 nav:
 - Home: 
   - index.md
-  - "友链": reference.md
+  - "友链": friends.md
     
 - Class:
   - Class/signal.md
@@ -245,17 +245,9 @@ nav:
 
 - Math:
   - Math/logic.md
+  - Math/ComplexFunction.md
   - LinearAlgebra:
     - Math/LinearAlgebra/MatrixTheory.md
-  - OR:
-    - Math/OR/OR-00-index.md
-    - Math/OR/OR-01-programming.md
-    - Math/OR/OR-02-nonlinear.md
-    - Math/OR/OR-03-graph.md
-    - Math/OR/OR-04-DP.md
-    - Math/OR/OR-05-1-GameTheory.md
-    - Math/OR/OR-05-2-GameTheoryModel.md
-    - Math/OR/OR-06-QueuingTheory.md
   - Statistic:
     - Math/Statistic/00-intro.md
     - Notebook page: Math/Statistic/01-probability.ipynb
@@ -272,6 +264,16 @@ nav:
     - Math/Statistic/12-data_mining.md
     - Math/Statistic/big_data_security&privacy_protection.md
     - Math/Statistic/variable.md
+  - OR:
+    - Math/OR/OR-00-index.md
+    - Math/OR/OR-01-programming.md
+    - Math/OR/OR-02-nonlinear.md
+    - Math/OR/OR-03-graph.md
+    - Math/OR/OR-04-DP.md
+    - Math/OR/OR-05-1-GameTheory.md
+    - Math/OR/OR-05-2-GameTheoryModel.md
+    - Math/OR/OR-06-QueuingTheory.md
+  
   
   
 - Robotics:

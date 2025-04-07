@@ -87,7 +87,7 @@
 **更好体验**
 
 - global speed：最好用的倍速
-- Vimium C：使用vim全键盘操作浏览器
+- Vimium C：使用vim全键盘操作浏览器; tutorial:[vimium 成神之路-键盘党的胜利 - 知乎](https://zhuanlan.zhihu.com/p/64533566)
 - ADguard：去除广告
 - Circle阅读助手：沉浸式阅读，纯净阅读
 - 油猴/篡改猴：更多脚本/插件

@@ -113,10 +113,10 @@ $$
 
 把运动化到了face space上面；知道了任意一点的位置和动量，就可以知道它的运动轨迹；
 
-
+<!-- 
 <iframe src="https://static1.squarespace.com/static/611b0e99ffc7aa45df0df283/t/664509416beeaf1f4526e773/1715800385413/Problem+Sheet.pdf" width="100%" height="600px" style="border: none;" title="Problem Sheet PDF">
 This browser does not support PDFs.
-</iframe>
+</iframe> -->
 
 [Solutions to the Problem Sheet: Lagrangian and Hamiltonian Mechanics in Under 20 Minutes — Physics with Elliot](https://www.physicswithelliot.com/store/p/lagrangian-hamiltonian-mini-solution)
 
@@ -145,8 +145,68 @@ This browser does not support PDFs.
 
 ### 平移
 
+平行移轴定理
+
+
+$$
+^AI=^CI+m(P_c^TP_cI_3-P_cP_c^T)
+$$
+
+
+
+!!! note "证明"
+      [惯性张量平移和旋转复合变换的一般形式及其应用](https://kns.cnki.net/kcms2/article/abstract?v=3uoqIhG8C44YLTlOAiTRKibYlV5Vjs7ioT0BO4yQ4m_mOgeS2ml3UBt1_jNAC5FWGTuwtmvqCZOd-5qJirfABTOF29Nadr21&uniplatform=NZKPT)
+
+
+
 ### 旋转
 
+假设物体的质心在坐标系$0$中为$O_0$，在坐标系$b$中为$O_b$
+
+物体的转动惯量在坐标系$i$中为$I^b$，物体的转动惯量在坐标系$0$中为$I^0$。
+
+$$
+^bI=(_b^0R^T)(^0I)(_b^0R)
+$$
+
+
+$$
+{}^0I=({}_b^0R)({}^bI)({}_b^0R^T)$$
+
+
+!!! note "证明"
+      动能这个标量在不同坐标系下是一致的，可以有下面的式子
+
+      $$
+      T = \frac{1}{2}(^{0}\omega^T)(^{0}I)(^{0}\omega)
+      $$
+
+      $$
+      T = \frac{1}{2}(^{b}\omega^T)(^{b}I)(^{b}\omega)
+      $$
+
+      展开第一个式子，有
+
+      $$
+      \begin{align*}
+      T &= \frac{1}{2}(^{0}\omega^T)(^{0}I)(^{0}\omega)\\
+      &= \frac{1}{2}(^{b}R^{b}\omega)^T(^{0}I)(^{0}R^{b}\omega)\\
+      &= \frac{1}{2}(^{b}\omega^T)(^{b}R^T)(^{0}I)(^{b}R)(^{b}\omega)
+      \end{align*}
+      $$
+
+      所以
+
+      $$
+      {}^{b}I = ({}^{0}R^T)({}^{0}I)({}^{0}R)
+      $$
+
+
+      进一步，两边左乘$({}^{0}R)$，右乘$({}^{b}R^T)$，可得：
+
+      $$
+      {}^{0}I = ({}^{0}R)({}^{b}I)({}^{0}R^T)
+      $$
 
 ### 与其他物理量的联系
 
@@ -156,13 +216,20 @@ This browser does not support PDFs.
 
 ## 迭代动力学方程
 
-### 外推法
+!!! note "先进行外推，再进行内推"
+    先进行外推，得到每个连杆的加速度、质心加速度、力和力矩
+    
+    然后再进行内推，得到每个关节的力和力矩。
+
+!!! attention "注意旋转关节R和平移关节P的公式区别"
+
+### 外推
 
 | **物理量**       | **公式**|
 |------------------|-----------------------|
 | **角速度**       | $^{i+1}\omega_{i+1} = {}^{i+1}_i R \cdot {}^i \omega_i$|
 | **角加速度**     | $^{i+1}\dot{\omega}_{i+1} = {}^{i+1}_i R \cdot {}^i \dot{\omega}_i$|
-| **加速度**       | $^{i+1}\dot{v}_{i+1} = {}^{i+1}_i R \left[ {}^i \dot{\omega}_i \times O_{i+1} + {}^i \omega_i \times \left( {}^i \omega_i \times ^iO_{i+1} \right) + {}^i \dot{v_i} \right] + 2 \cdot {}^{i+1} \omega_{i+1} \times \dot{d}_{i+1} ^{i+1} \hat{Z}_{i+1}  \ + \ \ddot{d}_{i+1}\cdot {}^{i+1} \hat{Z}_{i+1}$ |
+| **加速度**       | $^{i+1}\dot{v}_{i+1} = {}^{i+1}_i R \left[ {}^i \dot{\omega}_i \times O_{i+1} + {}^i \omega_i \times \left( {}^i \omega_i \times ^iO_{i+1} \right) + {}^i \dot{v_i} \right] + 2 \cdot {}^{i+1} \omega_{i+1} \times \dot{d}_{i+1} ^{i+1} \hat{Z}_{i+1}  \ + \ \ddot{d}_{i+1}\cdot {}^{i+1} \hat{Z}_{i+1}$ <br> 注意这里不是$2^{i+1}$,不要看错|
 | **质心加速度**   | $^{i+1}\dot{v}_{C_{i+1}} = {}^{i+1}_i \dot{\omega}_{i+1} \times {}^{i+1} P_{C_{i+1}} + {}^{i+1} \omega_{i+1} \times \left( {}^{i+1} \omega_{i+1} \times {}^{i+1} P_{C_{i+1}} \right) + {}^{i+1} \dot{v}_{i+1}$ |
 | **力**           | $^{i+1} F_{i+1} = m_{i+1} \cdot {}^{i+1}_i \dot{v}_{C_{i+1}}$ |
 | **力矩**         | $^{i+1}N_{i+1} = {}^{C_{i+1}} I_{i+1} \cdot {}^{i+1}\dot{\omega}_{i+1} + {}^{i+1} \omega_{i+1} \times{}^{C_{i+1}} I_{i+1} \cdot {}^{i+1} \omega_{i+1}$ |
@@ -186,7 +253,7 @@ This browser does not support PDFs.
 - **角加速度初始值**：  ${}^0 \dot{\omega}_0 = (0,0,0)^T$
 - **加速度初始值（含重力）**：  ${}^0 v_0 = (0, g, 0)^T$
 
-### 内推法
+### 内推
 
 连杆力 ${}^i f_i = {}_{i+1}^i R {}^{i+1} f_{i+1} + {}^i F_i$
 
@@ -197,12 +264,14 @@ This browser does not support PDFs.
 - 转动：$\tau_i = {}^i n_i^T \cdot{}^i \hat{Z}_i$
 - 平动：$\tau_i= {}^i f_i^T \cdot {}^i \hat{Z}_i$
 
+!!! attention "注意旋转关节R和平移关节P的公式区别"
+
 
 ## 拉格朗日动力学方程
 
 ### 计算方法：
 
-- 首先计算雅可比矩阵、旋转矩阵、惯性张量
+- **首先计算雅可比矩阵、旋转矩阵、惯性张量**，这一步非常重要且基础，后续的计算都依赖于这一步,~~算错的话可能一两个小时白干~~
 - 计算$\boldsymbol{M}(\boldsymbol{\Phi})$, $\boldsymbol{C}(\boldsymbol{\Phi},\dot{\boldsymbol{\Phi}})$ 和 $\boldsymbol{G}(\boldsymbol{\Phi})$
 - 带入公式，求解动力学方程
 
@@ -212,7 +281,7 @@ $$
 
 每一项的计算方法如下：
 
-- $\boldsymbol{M}(\boldsymbol{\Phi})=\sum_{i=1}^{N}(m_{i}(\boldsymbol{J}_{P}^{(i)})^{\mathrm{T}}\boldsymbol{J}_{P}^{(i)}+(\boldsymbol{J}_{0}^{(i)})^{\mathrm{T}0}\boldsymbol{R}^{C_{i}}\boldsymbol{I}_{ii}^{0}\boldsymbol{R}^{\mathrm{T}}\boldsymbol{J}_{0}^{(i)})$
+- $\boldsymbol{M}(\boldsymbol{\Phi})=\sum_{i=1}^{N}(m_{i}(\boldsymbol{J}_{P}^{(i)})^{\mathrm{T}}\boldsymbol{J}_{P}^{(i)}+(\boldsymbol{J}_{0}^{(i)})^{\mathrm{T}0}\boldsymbol{R}^{C_{i}}\boldsymbol{I}_{ii}^{0}\boldsymbol{R}^{\mathrm{T}}\boldsymbol{J}_{0}^{(i)})$，M一般可以化简，如果形式太过复杂，观察一下有没有正负号写错了
 - $\boldsymbol{C}(\boldsymbol{\Phi},\dot{\boldsymbol{\Phi}})= \left.\left(\begin{array}{ccccccc}\sum_{k}c_{k11}\dot{\phi}_{k}&\sum_{k}c_{k21}\dot{\phi}_{k}&\cdots&\sum_{k}c_{kj1}\dot{\phi}_{k}&\cdots&\sum_{k}c_{kN1}\dot{\phi}_{k}\\\sum_{k}c_{k12}\dot{\phi}_{k}&\sum_{k}c_{k22}\dot{\phi}_{k}&\cdots&\sum_{k}c_{kj2}\dot{\phi}_{k}&\cdots&\sum_{k}c_{kN2}\dot{\phi}_{k}\\\vdots&\vdots&&\vdots&&\vdots\\\sum_{k}c_{k11}\dot{\phi}_{k}&\sum_{k}c_{k21}\dot{\phi}_{k}&\cdots&\sum_{k}c_{kj1}\dot{\phi}_{k}&\cdots&\sum_{k}c_{kNi}\dot{\phi}_{k}\\\vdots&\vdots&&\vdots&&\vdots\\\sum_{k}c_{k1N}\dot{\phi}_{k}&\sum_{k}c_{k2N}\dot{\phi}_{k}&\cdots&\sum_{k}c_{kjN}\dot{\phi}_{k}&\cdots&\sum_{k}c_{kNN}\dot{\phi}_{k}\end{array}\right.\right)$
 - $c_{jki}=\frac{1}{2}\left(\frac{\partial m_{ik}}{\partial\phi_{j}}+\frac{\partial m_{ij}}{\partial\phi_{k}}-\frac{\partial m_{kj}}{\partial\phi_{i}}\right)=c_{kji}$
 - $G(\boldsymbol{\Phi})=\binom{g_1(\boldsymbol{\Phi})}{g_N(\boldsymbol{\Phi})}$, 其中$g_i(\boldsymbol{\Phi})=\frac{\partial u}{\partial\phi_i}=-\sum_{j=1}^Nm_j^0g^\mathrm{T} \frac{\partial^0\boldsymbol{P}_{C_j}}{\partial\phi_i}$
@@ -221,3 +290,8 @@ $$
 ### 性质
 
 $\dot{\boldsymbol{M}}(\boldsymbol{\Phi})-2\boldsymbol{C}(\boldsymbol{\Phi},\dot{\boldsymbol{\Phi}})$ 是反对称的
+
+
+## 题目
+
+带对公式、耐心计算

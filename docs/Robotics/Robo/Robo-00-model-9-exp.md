@@ -566,89 +566,140 @@ def quinticCurveExcute2(kArray, time):
 4. 贵重物品最好远离机械臂，避免代码中的bug导致机械臂突然发疯
 
 
+
+此外，我们在实验的过程中也发现，由于机械臂的精度不够，会有零漂现象，每次运动到同一坐标点的姿态会有几毫米左右的误差，本实验也没有设计闭环控制，因此在抓取物体的过程中，会遇到由于误差导致的抓取点不准确的问题。
+
+物体的初始摆放位置也非常关键，重复实验的时候需要对初始坐标进行标定。
+
+由于吸盘在吸附的时候并不是水平的，所以在落下的时候，会有一边先行落下，这个时候会带来一定的误差，我们采用加一个中间点的方式来解决这个问题。先移动到目标点上方的位置，再缓缓落下。
+
 ### 求解代码
-```
-# from Robot.Robot import Robot
+
+
+```python title="规划代码"
+from Robot.Robot import Robot
 import numpy as np
 import until
 import time
 from until import InverseKinamatics
 import math
 
-def go(r, runtime, *k_list):
+def go(r, runtime, k_0,k_1,k_2,k_3,k_4,k_5):
+    """
+    "r: Robot object"
+    "runtime: 每次移动的时间""
+    两个轨迹都用这个函数来规划，注意时间的设置
+    """
     T, t, flag = 0.02, 0, 0
     r.go_home()
     while t < runtime[-1]:
         start = time.time()
-        for i, k in enumerate(k_list):
-            if runtime[i] <= t < runtime[i + 1]:
-                if i == 1 and not flag:
-                    time.sleep(2)
-                    flag = 1
-                if i == 3:
-                    q = until.quinticCurveExcute2(k, t - runtime[i])
-                else:   
-                    q = until.quinticCurveExcute(k, t - runtime[i])
-                break
-        else:
-            time.sleep(2)
+    
+        if t < runtime[0]:
+            q = until.quinticCurveExcute(k_0,t) 
+        elif t >= runtime[0] and t < runtime[1]:
+            if not flag:
+                time.sleep(3)
+                flag = 1
+            q = until.quinticCurveExcute(k_1,t-runtime[0])
+        elif t >= runtime[1] and t < runtime[2]:
+            flag = 0
+            q = until.linear_trajectory_execute(k_2,t-runtime[1])
+        elif t >= runtime[2] and t < runtime[3]:
+            q = until.quinticCurveExcute2(k_3,t-runtime[2])
+        elif t >= runtime[3] and t < runtime[4]:
+            q = until.linear_trajectory_execute(k_4,t-runtime[3])
+        elif t >= runtime[4] and t < runtime[5]:
+            if not flag:
+                time.sleep(1.5)
+                flag = 1
+        elif t >= runtime[5] and t < runtime[6]:
+            q = until.linear_trajectory_execute(k_5,t-runtime[5])
+        elif t >= runtime[6] and t < runtime[7]:
+            time.sleep(1.5)
             r.go_home()
+            time.sleep(1)
             break
+        else:
+            break
+        # 控制机械臂运动，syncMove输入格式为6*1的np.array，单位为度，代表的含义是当前周期下机械臂关节的位置
+        # 注意速度约束
         r.syncMove(np.reshape(q, (6, 1)))
-        t += T
-        time.sleep(max(0, T - (time.time() - start)))
+        # 更新时间
+        t = t + T
+        # 定时器操作
+        end = time.time()
+        spend_time = end - start
+        if spend_time < T:
+            time.sleep(T - spend_time)
 ```
 
 ```python title="获取坐标点" hl_lines="3" linenums="1"
 def get_position():
+    """
+    获取物体的位姿
+    """
+
     q0 = np.zeros(6)
-    object_1 = InverseKinamatics(np.array([0.370,0.010,0.10, -np.pi, 0, -np.pi/2]), q0)/math.pi*180
-    P_A_1 = InverseKinamatics(np.array([0.370,-0.090,0.21, -np.pi, 0, -np.pi/2]), object_1)/math.pi*180
-    P_B_1 = InverseKinamatics(np.array([0.288,-0.288,0.21, -np.pi, 0, -np.pi/2]), P_A_1)/math.pi*180
-    helper_1 = InverseKinamatics(np.array([0.01,-0.37,0.25, -np.pi, 0, -np.pi/2]), P_B_1)/math.pi*180
-    end_1 = InverseKinamatics(np.array([0.01,-0.37,0.11, -np.pi, 0, -np.pi/2]), helper_1)/math.pi*180
+    object_1 = InverseKinamatics(np.array([0.370,0.010,0.074, -np.pi, 0, -np.pi/2]), q0)/math.pi*180
+    helper_0 = InverseKinamatics(np.array([0.370,0.010,0.10, -np.pi, 0, -np.pi/2]), object_1)/math.pi*180 # 先升起来，防止地面摩擦导致滑动
+    P_A_1 = InverseKinamatics(np.array([0.370,-0.090,0.21, -np.pi, 0, 0]), helper_0)/math.pi*180
+    P_B_1 = InverseKinamatics(np.array([0.288,-0.288,0.21, -np.pi, 0, 0]), P_A_1)/math.pi*180
+    helper_1 = InverseKinamatics(np.array([0.01,-0.37,0.15, -np.pi, 0, 0]), P_B_1)/math.pi*180
+    end_1 = InverseKinamatics(np.array([0.01,-0.37,0.081, -np.pi, 0, 0]), helper_1)/math.pi*180
     
     
-    object_2 = InverseKinamatics(np.array([0.370,0.120,0.10, -np.pi, 0, -np.pi/2]), q0)/math.pi*180
-    P_A_2 = InverseKinamatics(np.array([0.370,-0.090,0.21, -np.pi, 0, -np.pi/2]), object_2)/math.pi*180
-    P_B_2 = InverseKinamatics(np.array([0.288,-0.288,0.21, -np.pi, 0, -np.pi/2]), P_A_2)/math.pi*180
-    helper_2 = InverseKinamatics(np.array([0.01,-0.37,0.30, -np.pi, 0, -np.pi/2]), P_B_2)/math.pi*180
-    end_2 = InverseKinamatics(np.array([0.01,-0.37,0.17, -np.pi, 0, -np.pi/2]), helper_2)/math.pi*180
+    object_2 = InverseKinamatics(np.array([0.370,0.120,0.074, -np.pi, 0, -np.pi/2]), q0)/math.pi*180
+    helper_00 = InverseKinamatics(np.array([0.370,0.120,0.10, -np.pi, 0, -np.pi/2]), object_2)/math.pi*180
+    P_A_2 = InverseKinamatics(np.array([0.370,-0.090,0.21, -np.pi, 0, 0]), helper_00)/math.pi*180
+    P_B_2 = InverseKinamatics(np.array([0.288,-0.288,0.21, -np.pi, 0, 0]), P_A_2)/math.pi*180
+    helper_2 = InverseKinamatics(np.array([0.01,-0.37,0.24, -np.pi, 0, 0]), P_B_2)/math.pi*180
+    end_2 = InverseKinamatics(np.array([0.01,-0.37,0.12, -np.pi, 0,0]), helper_2)/math.pi*180
     return q0, object_1, P_A_1, P_B_1, helper_1,end_1, object_2, P_A_2, P_B_2, helper_2,end_2
 ```
 
 ```python title="控制逻辑"
+
 def move():
     # com: Windows: "COM3" Linux: "/dev/ttyUSB0" Mac: "/dev/tty.usbserial-*"
     r = Robot(com='COM9', baud=250000)
     r.connect()
 
     q0, object_1, P_A_1, P_B_1, helper_1,end_1, object_2, P_A_2, P_B_2, helper_2,end_2 = get_position()
+    print( q0, object_1, P_A_1, P_B_1, helper_1,end_1, object_2, P_A_2, P_B_2, helper_2,end_2)
     
-    t1 = [2,3,2,4]
+    t1 = [2,3,2,4,3,1,2.5,3] # 时间选用了一个数组和一个前缀和来设置，避免一直改参数
     runtime = [sum(t1[:i+1]) for i in range(len(t1))]
-
     # 抓取第一个物体
 
-    k_0 = until.quinticCurvePlanning(q0,object_1,t1[0])
-    k_1 = until.quinticCurvePlanning(object_1,P_A_1,t1[1])
-    k_2 = until.quinticCurvePlanning(P_A_1,P_B_1,t1[2])
-    k_3 = until.quinticCurvePlanning2(P_B_1,helper_1,end_1,t1[3]*0.45,t1[3]) # 经过中间点的轨迹规划
-    go(r,runtime,k_0,k_1,k_2,k_3)
+    k_0 = until.quinticCurvePlanning(q0,object_1,t1[0]) # 运动到起始点
+    k_1 = until.quinticCurvePlanning(object_1,P_A_1,t1[1]) # 运动到A点
+    k_2 = until.linear_trajectory_planning(P_A_1,P_B_1,t1[2]) # 运动到B点
+    k_3 = until.quinticCurvePlanning(P_B_1,helper_1,t1[3]) # 运动到终点正上方
+    k_4 = until.linear_trajectory_planning(helper_1,end_1,t1[4]) # 落下
+    k_5 = until.linear_trajectory_planning(end_1,helper_1,t1[6]) # 离开的时候，先升起来，防止由于吸盘的位置导致物体姿态不稳定
+    go(r,runtime,k_0,k_1,k_2,k_3,k_4,k_5)
 
     # 抓取第二个物体
     
     k_0 = until.quinticCurvePlanning(q0,object_2,t1[0])
     k_1 = until.quinticCurvePlanning(object_2,P_A_2,t1[1])
-    k_2 = until.quinticCurvePlanning(P_A_2,P_B_2,t1[2])
-    k_3 = until.quinticCurvePlanning2(P_B_2,helper_2,end_2,t1[3]*0.45,t1[3])
-    go(r,runtime,k_0,k_1,k_2,k_3) # 经过中间点的轨迹规划
-
-if __name__ == '__main__': 
-    move()
+    k_2 = until.linear_trajectory_planning(P_A_2,P_B_2,t1[2])
+    k_3 = until.quinticCurvePlanning(P_B_2,helper_2,t1[3])
+    k_4 = until.linear_trajectory_planning(helper_2,end_2,t1[4])
+    k_5 = until.linear_trajectory_planning(end_2,helper_2,t1[6])
+    go(r,runtime,k_0,k_1,k_2,k_3,k_4,k_5) # 经过中间点的轨迹规划
 ```
 
+采用的逻辑是：
 
+- 使用五次多项式轨迹规划运动到起始物块位置。
+- 启动吸盘吸附物块。
+- 通过直线运动抬升物块一小段距离，避免与地面发生摩擦。
+- 使用五次多项式轨迹规划运动到A点。
+- 通过直线运动将物块从A点移动到B点。
+- 使用五次多项式轨迹规划运动到目标区域的上方位置。
+- 通过直线运动下落至目标点，完成物块的放置。
 
 
 
