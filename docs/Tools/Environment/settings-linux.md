@@ -687,8 +687,6 @@ sudo apt install -y synaptic
 
 
 
-
-
 ## 网络
 
 ### VPN
@@ -790,9 +788,32 @@ w3m之类的命令行浏览器试试
 
 
 
-### 内网穿透
-[校园网内登录寝室电脑远程桌面和ssh连接WSL - 知乎](https://zhuanlan.zhihu.com/p/627393030)
-[干货 | 在校园网中用ssh连接宿舍电脑](https://kegalas.top/p/%E5%B9%B2%E8%B4%A7-%E5%9C%A8%E6%A0%A1%E5%9B%AD%E7%BD%91%E4%B8%AD%E7%94%A8ssh%E8%BF%9E%E6%8E%A5%E5%AE%BF%E8%88%8D%E7%94%B5%E8%84%91/)
+### 端口占用
+
+```shell
+sudo lsof -i :<port>
+```
+这个命令可以查看端口被哪个进程占用
+
+```shell title="杀死进程"
+kill -9 <pid>
+```
+
+```shell title="查看占用"
+netstat -tulpen | grep <port>
+```
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1035,6 +1056,20 @@ sudo usermod -a -G sudo username
     这条命令会安装所有以libxcb为前缀的库，确保系统中所有与XCB相关的依赖项都被正确安装。这一步成功解决了Qt无法加载xcb插件的问题，程序也顺利启动并运行。这表明，问题的根源在于某些关键的XCB依赖项缺失，而通过这种“一网打尽”的方式，我们可以确保所有相关的依赖项都得到满足。
 
 ## Java
+
+### 默认java版本
+
+```shell
+export JAVA_HOME=/usr/jdk1.8.0_181 //jdk解压文件目录地址
+export PATH=$JAVA_HOME/bin:$PATH
+export CLASSPATH=$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+```
+
+
+
+
+### 
+[HMCL-dev/HMCL: A Minecraft Launcher which is multi-functional, cross-platform and popular](https://github.com/HMCL-dev/HMCL)
 
 ### `.jar`文件打开方式
 

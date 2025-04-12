@@ -45,6 +45,101 @@ ssh <alias>
 - Xshell
 - PuTTY
 
+## 任务运行
+
+### 使用 `nohup` 后台运行任务
+
+`nohup` 命令用于以忽略挂起信号的方式运行另一个命令。这在后台运行进程时特别有用，即使终端会话关闭，进程仍然会继续运行。
+
+
+1. **使用 `nohup` 运行命令：**
+
+   要使用 `nohup` 在后台运行命令，可以使用以下语法：
+
+   ```bash
+   nohup command &
+   ```
+
+   - `command`: 您要运行的命令。
+   - `&`: 这个符号用于在后台运行命令。
+
+2. **输出重定向：**
+
+   默认情况下，`nohup` 将输出重定向到当前目录中的一个名为 `nohup.out` 的文件。如果您想为输出指定一个不同的文件，可以使用：
+
+   ```bash
+   nohup command > output.log 2>&1 &
+   ```
+
+   - `> output.log`: 将标准输出重定向到 `output.log`。
+   - `2>&1`: 将标准错误重定向到与标准输出相同的文件。
+
+3. **检查正在运行的进程：**
+
+   要检查正在运行的后台进程列表，可以使用：
+
+   ```bash
+   jobs
+   ```
+
+4. **将后台进程带到前台：**
+
+   如果需要将后台进程带到前台，请使用：
+
+   ```bash
+   fg %job_number
+   ```
+
+   - `%job_number`: 进程的作业号，可以使用 `jobs` 命令找到。
+
+5. **终止后台进程：**
+
+   要终止后台进程，可以使用带有进程 ID (PID) 的 `kill` 命令：
+
+   ```bash
+   kill -9 PID
+   ```
+
+   - `PID`: 您要终止的任务的进程 ID。
+
+### 使用 `Screen` 持续运行任务
+
+1. 安装 Screen
+   ```bash
+   sudo apt-get install screen
+   ```
+
+2. 创建 Screen 窗口
+   ```bash
+   screen -S <name>
+   ```
+   - `<name>` 可以设置为 `ssh`、`ftp` 等，用于标识该 Screen 窗口的用途。
+
+3. 启动项目
+   - 执行 `screen -S <name>` 后，系统会跳入新窗口，在此窗口中启动项目。
+
+4. 退出并保存
+   - 完全退出：`exit`（不会保存 session）。
+   - 分离窗口：按 `CTRL-a` 然后按 `d`，可以退出 SSH 登录而不影响 Screen 程序的执行。
+
+5. 常用命令
+   - 查看 Screen 进程：
+     ```bash
+     screen -ls
+     ```
+   - 进入 Screen 进程：
+     - 如果只有一个 Screen 进程：
+       ```bash
+       screen -r -d
+       ```
+     - 如果有多个 Screen 进程，通过 PID 进入：
+       ```bash
+       screen -r -d <PID>
+       ```
+       示例：
+       ```bash
+       screen -r -d 1805
+       ```
 
 
 ## 远程连接
@@ -116,6 +211,32 @@ C:\Users\username\.ssh\
 
 - scp(linux to linux)
 - wget
+
+
+
+## 运维工具
+### 宝塔面板
+
+
+
+### 1Panel
+[1Panel 文档](https://1panel.cn/docs/installation/online_installation/)
+
+```shell title="安装1Panel,ubuntu"
+curl -sSL https://resource.fit2cloud.com/1panel/package/quick_start.sh -o quick_start.sh && sudo bash quick_start.sh
+```
+
+配置镜像加速选择`y`
+
+使用`1pcl`命令行工具进行管理，[命令行工具 - 1Panel 文档](https://1panel.cn/docs/installation/cli/)
+
+!!! note "如果使用的是云服务器，需要配置安全组规则"
+    在安全组当中，选择添加规则
+
+    - 目的：`20410/20410`
+    - 源：`0.0.0.0/0`
+
+    然后点保存即可，不需要重启云服务器，保存后自动生效。
 
 ## 显卡相关
 ### 环境配置
@@ -225,16 +346,6 @@ htop能够更直观的显示活跃进程，单个进程或多个线程的具体�
 
 
 
-### 杀死进程
-
-```shell
-kill -9 <pid>
-```
-
-```shell title="windows杀死无效进程"
-taskkill /PID 进程号 -F -T  
-```
-但是感觉任务管理器更方便一点... :laughing:
 
 ### 查看用户
 ```shell
@@ -305,6 +416,45 @@ GTX 代表更高级的游戏独显，后来随着技术进步，出现了光线�
 
 
 > [【显卡科普】小白必看的入门显卡科普，关于显卡的原理、结构、作用 - 知乎](https://zhuanlan.zhihu.com/p/156083352)
+
+
+
+## 进程管理
+
+### 查看进程
+- **查看所有进程：**
+  ```bash
+  ps -aux
+  ```
+  列出所有正在运行的进程。
+
+
+- **查看特定用户的进程：**
+  ```bash
+  ps -u username
+  ```
+  列出特定用户的所有进程。
+
+### 终止进程
+
+- **通过 PID 终止进程：**
+  ```bash
+  kill -9 PID
+  ```
+  强制终止指定 PID 的进程。
+
+```shell title="windows杀死无效进程"
+taskkill /PID 进程号 -F -T  
+```
+但是感觉任务管理器更方便一点... :laughing:
+
+
+
+- **通过进程名终止进程：**
+  ```bash
+  pkill process_name
+  ```
+  终止所有匹配指定进程名的进程。
 ## Aliyun
 ### 无影云电脑
 
@@ -314,7 +464,7 @@ GTX 代表更高级的游戏独显，后来随着技术进步，出现了光线�
 
 #### 上传文件
 
-使用workbench，在文件一栏中选择“打开新文件树”
+使用workbench，在文件一栏中选择"打开新文件树"
 
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241118233039.png)
 
@@ -330,7 +480,11 @@ GTX 代表更高级的游戏独显，后来随着技术进步，出现了光线�
 
 ## AutoDL
 
-
+```shell title="创建虚拟环境"
+conda create -n tf python=3.7           # 构建一个虚拟环境，名为：tf
+conda init bash && source /root/.bashrc # 更新bashrc中的环境变量
+conda activate tf                       # 切换到创建的虚拟环境：tf
+```
 ### 无法加载Hugging Face
 
 === "实测成功的方法"

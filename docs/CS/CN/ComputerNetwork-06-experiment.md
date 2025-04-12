@@ -3,10 +3,7 @@ comments: true
 ---
 # 计网实验探索
 
-使用的工具
 
-- Wireshark
-- Burpsuite
 
 ## TCP
 
@@ -15,29 +12,6 @@ comments: true
     比如，在“包1”中，最初的相对序列号的值是0，但是最下方面板中的ASCII码显示真实序列号的值是0xf61c6cbe，转化为10进制为4129057982<br>
 	可以选择Wireshark菜单栏中的 **Edit** -> **Preferences** ->**protocols** ->**TCP**，去掉**Relative sequence number**后面勾选框中的√即可<br>
 
-
-
-## Clash给手机提供代理
-
-1. 确定电脑可以通过clash进行正常连接，或者能通过SSR连接
-
-2. 打开Clash的`Allow Lan` ，这一步是为了让Clash允许局域网连接（在SSR中，则是允许来自局域网的连接）
-
-3. 电脑进入`cmd`，输入`ipconfig`找到电脑自己的IPv4地址，例如`192.168.127.1`
-
-   这里192.168是C类IP，是内网中返回的
-
-4. 看看Clash界面的Port是多少，不用管那个Socks Port。例如，Port是`1125`
-
-   在SSR中，是看本地端口，例如，本地端口是1125
-
-5. 手机或其它设备先连接上电脑win10的自带热点，进入手机 **WiFi** 的详细设置界面
-
-6. 把选项 **代理** 从 **无** 改成 **手动** ，选项 **主机名** 设置为`192.168.127.1`，选项 **代理服务器端口** 改为`1125`，确认即可
-
-   <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/Screenshot%202024-02-02%20at%2000.24.51.jpeg.png" alt="Screenshot 2024-02-02 at 00.24.51.jpeg" style="zoom: 25%;" />
-
-   <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/Screenshot%202024-02-02%20at%2000.25.19.jpeg.png" alt="Screenshot 2024-02-02 at 00.25.19.jpeg" style="zoom: 25%;" />
 
 ## 使用“共享文件夹”实现iPhone与PC间文件快速传输
 
@@ -301,24 +275,7 @@ def cancel_appointment(scheduled_id):
 内网穿透就是将内网的服务暴露给公网访问
 
 
-[1Panel 文档](https://1panel.cn/docs/installation/online_installation/)
-
-```shell title="安装1Panel,ubuntu"
-curl -sSL https://resource.fit2cloud.com/1panel/package/quick_start.sh -o quick_start.sh && sudo bash quick_start.sh
-```
-
-配置镜像加速选择`y`
-
-使用`1pcl`命令行工具进行管理，[命令行工具 - 1Panel 文档](https://1panel.cn/docs/installation/cli/)
-
-!!! note "如果使用的是云服务器，需要配置安全组规则"
-    在安全组当中，选择添加规则
-
-    - 目的：`20410/20410`
-    - 源：`0.0.0.0/0`
-
-    然后点保存即可，不需要重启云服务器，保存后自动生效。
-
+### Server端配置    
 下载安装包
 
 
@@ -350,14 +307,32 @@ webServer.password = "admin"            # 后台登录密码
 
 访问公网ip的7500端口，可以查看frp服务状态以及统计信息
 
-!!! note "注意这里需要在aliyun控制台的安全组中添加7000和7500端口"
 
-接下来配置客户端侧（frpc = frp client）
+
+
+!!! note "注意这里需要在aliyun控制台的安全组中添加7000和7500端口"
+    ```shell title="开放服务端端口"
+    sudo ufw allow 7000/tcp    # FRP主端口
+    sudo ufw allow 7500/tcp    # 仪表盘
+    sudo ufw allow 40443/tcp   # HTTP穿透
+    sudo ufw allow 40800/tcp   # HTTPS穿透
+    ```
+
+
 
 ```shell title="后台运行"
 #服务器端
 nohup ./frps -c frps.toml &
+```
 
+
+### Client端配置
+
+接下来配置客户端侧（frpc = frp client）
+
+
+
+```shell title="客户端"
 #客户端
 nohup ./frpc -c frpc.toml &
 ```
@@ -368,6 +343,51 @@ sudo vi /etc/rc.local
 #自行修改为绝对路径
 nohup /root/frp/frpc -c /root/frp/frpc.toml &
 ```
+
+```shell title="编辑frpc.ini"
+[common]
+server_addr = <server_ip>
+server_port = 7000              # 服务端bind_port
+auth.token = "your_secure_token_here"
+
+# ----------- TCP穿透示例（SSH服务）------------
+[ssh]
+type = tcp
+local_ip = 127.0.0.1
+local_port = 22
+remote_port = 6000
+```
+
+!!! note "特别注意，字符串要加双引号，数字和ip不要加双引号，尽量不要写注释"
+
+
+```shell title="启动"
+./frpc -c frpc.ini
+```
+
+这个时候，服务端应该会收到客户端的连接请求，可以看到类似如下信息
+
+```shell title="成功信息"
+
+```
+
+
+```shell title="可以使用这个指令查看server有没有监测端口，如果没有的话就是配置错误问题"
+sudo netstat -tulnp | grep ':6000'
+```
+
+
+```shell title="ssh连接"
+ssh -p 6000 <client_username>@<server_ip>
+```
+
+要特别注意这里是client的username，而不是server的username
+
+这个时候应该就可以配置成功了
+
+
+
+
 
 [error unmarshaling JSON: while decoding JSON: json: cannot unmarshal string into Go value of type v1.ServerConfig · Issue #3657 · fatedier/frp](https://github.com/fatedier/frp/issues/3657)
 

@@ -6,7 +6,8 @@ mac默认使用zsh
 ## 快捷键
 
 - 空格预览文件
-- 按住Command+空格，打开“聚焦“
+- 按住Comm
+- and+空格，打开“聚焦“
 - fn+backspace = del
 - command+q 退出应用程序
 - command + [ 返回上一级
@@ -208,6 +209,14 @@ zju有企业账号，SSO登陆输入ZJU，验证登陆即可
 > 参考文章：[将 QQ 音乐的歌单导入 apple music - 知乎](https://zhuanlan.zhihu.com/p/666443150)
 
 ### adobe系列
+
+### bandzip
+
+[Bandizip (Mac) - 如何在Mac上更改默认应用程序](https://www.bandisoft.com/bandizip.mac/howto/default-app-changer/)
+
+```shell title="设置为访达扩展"
+pluginkit -e "use" -i "com.bandisoft.mac.bandizip.findersyncextension"
+```
 
 
 ## 效率工具

@@ -244,7 +244,7 @@ nav:
      
 
 - Math:
-  - Math/logic.md
+  - Math/Logic.md
   - Math/ComplexFunction.md
   - LinearAlgebra:
     - Math/LinearAlgebra/MatrixTheory.md
@@ -387,6 +387,7 @@ nav:
     - CS/CN/ComputerNetwork-08-security.md
     - CS/CN/DingBot.md
     - CS/CN/Router.md
+    - CS/CN/software.md
     
     
   - "AI | 人工智能": 
@@ -438,6 +439,7 @@ nav:
     
     - "LLM | 大模型相关":
       - CS/llm/llm.md
+      - CS/llm/MCP.md
       
          
   - "CV | 计算机视觉":
@@ -562,6 +564,7 @@ nav:
 
   - "🎮游戏":
     - Interest/Game/fifa.md
+    - Interest/Game/MC.md
 
   - "💡常识":
     - Interest/CommonKnowledge/social_security.md
