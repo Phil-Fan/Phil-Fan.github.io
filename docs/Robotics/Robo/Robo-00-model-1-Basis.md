@@ -6,6 +6,9 @@
 - **姿态**：物体上固定坐标系相对于参考坐标系的方位
 
 
+
+
+
 | 表示方法 | 核心思想 | 公式 | 缺点 |
 | --- | --- | --- | --- |
 | **旋转矩阵** | 使用3x3矩阵表示三维旋转 | $\mathbf{R} = \begin{pmatrix} r_{11} & r_{12} & r_{13} \\ r_{21} & r_{22} & r_{23} \\ r_{31} & r_{32} & r_{33} \end{pmatrix}$ | 1. 参数多（9个），冗余<br> 2. 难以直观理解旋转过程<br> 3. 插值复杂 |
@@ -73,7 +76,8 @@ $$
 ^A_BR = \begin{bmatrix} ^A\!X_B & ^A\!Y_B & ^A\!Z_B \end{bmatrix} = \begin{bmatrix} r_{11} & r_{12} & r_{13} \\ r_{21} & r_{22} & r_{23} \\ r_{31} & r_{32} & r_{33} \end{bmatrix}
 $$
 
-**性质**<br>
+**性质**
+
 - 旋转矩阵是正交矩阵，即$^A_B\!R^T = ^A_B\!R^{-1} = ^B_A\!R$<br>
 - 旋转矩阵的行列式为1，即$\det(^A_B\!R) = 1$<br>
 
@@ -414,11 +418,14 @@ $\forall R \in SO(3)$可用$R_{z,y,x}(\alpha, \beta, \gamma)$表示出来
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=771397545&bvid=BV1Nr4y1j7kn&cid=788925183&p=1&autoplay=0&t=40" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=100% height=600px></iframe>
 
 
-对欧拉角的变换是有序的,欧拉角只记录结果，不记录过程
+**直观理解：**
+
+欧拉角描述的**不是转动过程**，而是一个**变换**，只记录结果，不记录过程
 
 欧拉角描述相对于初始状态的变换，只和最终状态有关，与过程无关。（外边的轴转动会带动里面的轴转动）
 
-欧拉角描述的**不是转动过程**，而是一个**变换**
+
+
 
 !!! example "例子"
     ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250224203714801.png)
@@ -428,6 +435,23 @@ $\forall R \in SO(3)$可用$R_{z,y,x}(\alpha, \beta, \gamma)$表示出来
     物体将先绕x旋转（初始的x），再绕y旋转90，最后绕z旋转（这个z和初始的x轴其实已经重合了）。
 
     所以理解的关键是要明白，欧拉角描述的**是一个变换**，而不是一个连续的转动过程。**后面的变换使用的是前面变换的坐标系。**
+
+    $$
+    \begin{align}
+    \mathbf{R_z}(\theta) \mathbf{R_y}(\frac{\pi}{2}) \mathbf{R_x}(\alpha) 
+    &= \begin{bmatrix}
+    0 & \cos(\theta) \cdot \sin(\alpha) - \cos(\alpha) \cdot \sin(\theta) & \sin(\alpha) \cdot \sin(\theta) + \cos(\alpha) \cdot \cos(\theta) \\
+    0 & \sin(\alpha) \cdot \sin(\theta) + \cos(\alpha) \cdot \cos(\theta) & \cos(\alpha) \cdot \sin(\theta) - \cos(\theta) \cdot \sin(\alpha) \\
+    -1 & 0 & 0
+    \end{bmatrix}\\
+    &= \begin{bmatrix}
+    0 & \sin(\alpha - \theta) & \cos(\alpha - \theta) \\
+    0 & \cos(\alpha - \theta) & -\sin(\alpha - \theta) \\
+    -1 & 0 & 0
+    \end{bmatrix}\\
+    &= \mathbf{R_y}(\frac{\pi}{2}) \mathbf{R_x}(\alpha - \theta)
+    \end{align}
+    $$
 
 
 !!! note "命题 $R_z(\pm \pi + \alpha) R_y(\pm \pi - \beta) R_x(\pm \pi + \gamma) = R_z(\alpha) R_y(\beta) R_x(\gamma)$"
@@ -639,7 +663,7 @@ $$
 ij = k, ji = -k, jk = i, kj = -i, ki = j, ik = -j
 $$
 
-> $ij = k$推导过程： ijk = -1等式左右同时右乘k 
+> $ij = k$推导过程： ijk = -1等式左右同时右乘k <br>
 > $ji = -k$推导过程： ijk = -1等式左右同时右乘kj, 得 $i = -jk$,得证
 
 对任意 $[\eta \,\ \varepsilon_1 \,\ \varepsilon_2 \,\ \varepsilon_3]^T \in \mathbb{R}^4$，其对应的四元数 $q$ 为：
@@ -674,38 +698,6 @@ $$
 === "模长"
 
     $\eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3$的模长$|\eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3| = \sqrt{\eta^2 + \varepsilon_1^2 + \varepsilon_2^2 + \varepsilon_3^2}$
-
-### 单位四元数
-
-- **定义**：单位四元数是模长等于1的四元数。
-- **关系**：单位四元数与欧拉参数一一对应。
-
-- **单位四元数的乘积仍然是单位四元数**
-> 证明：使用Grassmann积，$\mathbb{U}$中任意两个向量的Grassmann积仍是$\mathbb{U}$中的向量
-
-- **单位四元数的逆是其共轭**，即$(\eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3)(\eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3)^* = (\eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3)^*(\eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3) = 1$
-> 证明思路：按照乘法的公式进行分解，就可以发现i,j,k的系数都消掉了，而常数项因为共轭，所以和为1
-
-
-
-
-!!! note "兼容性"
-    旋转矩阵基于欧拉参数表示为：
-
-    $$
-    A_B^B R = R_\varepsilon(\eta) = \begin{bmatrix}
-    2(\eta^2 + \varepsilon_1^2) - 1 & 2(\varepsilon_1 \varepsilon_2 - \eta \varepsilon_3) & 2(\varepsilon_1 \varepsilon_3 + \eta \varepsilon_2) \\
-    2(\varepsilon_1 \varepsilon_2 + \eta \varepsilon_3) & 2(\eta^2 + \varepsilon_2^2) - 1 & 2(\varepsilon_2 \varepsilon_3 - \eta \varepsilon_1) \\
-    2(\varepsilon_1 \varepsilon_3 - \eta \varepsilon_2) & 2(\varepsilon_2 \varepsilon_3 + \eta \varepsilon_1) & 2(\eta^2 + \varepsilon_3^2) - 1
-    \end{bmatrix}
-    $$
-
-    上述三维向量的转换公式可基于单位四元数表示为：
-
-    $$
-    ix_2 + jy_2 + kz_2 = (\eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3)(ix_1 + jy_1 + kz_1)(\eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3)^*
-    $$
-
 
 ### Grassmann积
 
@@ -747,6 +739,40 @@ $$
 
     如果还有 $\begin{bmatrix}\xi \\ \delta\end{bmatrix} \in \mathbb{U}$，则 $[\xi \quad \delta^T]A^TA\begin{bmatrix}\xi \\ \delta\end{bmatrix} = 1$ 即 $\begin{bmatrix}\eta\xi - \varepsilon^T\delta \\ \xi\varepsilon + \eta\delta + \varepsilon \times \delta\end{bmatrix} \in \mathbb{U}$
 
+
+
+
+
+### 单位四元数
+
+- **定义**：单位四元数是模长等于1的四元数。
+- **关系**：单位四元数与欧拉参数一一对应。
+
+- **单位四元数的乘积仍然是单位四元数**
+> 证明：使用Grassmann积，$\mathbb{U}$中任意两个向量的Grassmann积仍是$\mathbb{U}$中的向量
+
+- **单位四元数的逆是其共轭**，即$(\eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3)(\eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3)^* = (\eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3)^*(\eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3) = 1$
+> 证明思路：按照乘法的公式进行分解，就可以发现i,j,k的系数都消掉了，而常数项因为共轭，所以和为1
+
+
+
+
+!!! note "兼容性"
+    旋转矩阵基于欧拉参数表示为：
+
+    $$
+    A_B^B R = R_\varepsilon(\eta) = \begin{bmatrix}
+    2(\eta^2 + \varepsilon_1^2) - 1 & 2(\varepsilon_1 \varepsilon_2 - \eta \varepsilon_3) & 2(\varepsilon_1 \varepsilon_3 + \eta \varepsilon_2) \\
+    2(\varepsilon_1 \varepsilon_2 + \eta \varepsilon_3) & 2(\eta^2 + \varepsilon_2^2) - 1 & 2(\varepsilon_2 \varepsilon_3 - \eta \varepsilon_1) \\
+    2(\varepsilon_1 \varepsilon_3 - \eta \varepsilon_2) & 2(\varepsilon_2 \varepsilon_3 + \eta \varepsilon_1) & 2(\eta^2 + \varepsilon_3^2) - 1
+    \end{bmatrix}
+    $$
+
+    上述三维向量的转换公式可基于单位四元数表示为：
+
+    $$
+    ix_2 + jy_2 + kz_2 = (\eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3)(ix_1 + jy_1 + kz_1)(\eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3)^*
+    $$
 
 
 ### 可视化与参考资料

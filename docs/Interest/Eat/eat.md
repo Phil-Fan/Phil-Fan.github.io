@@ -13,7 +13,8 @@ comments: true
 2. 如何把握加水的量
 
 
-## 食材
+## 食材选购
+
 
 ### 牛肉部位（潮汕&西餐）
 
@@ -30,29 +31,34 @@ comments: true
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/IMG_1234.jpeg)
 
 
+## 食材处理
+
+### 切成想要的形状
+
+
+### 肉的纹理
+
+
 ### 活虾处理
 
 去虾线
 
 
 ## 准备学的菜
-
+红烧牛肉
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=113694075785764&bvid=BV1ZukYYPEUu&cid=27466663925&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=600px height=450px></iframe>
 
+葱烧大排
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=114084431272643&bvid=BV1d2XSYuEmb&cid=28628879904&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=600px height=450px></iframe>
 
-<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=114186487078644&bvid=BV1giQ9YzEna&cid=28941878702&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=600px height=450px></iframe>
-
-<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=1156673175&bvid=BV1KZ421L7Pn&cid=1658966877&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=600px height=450px></iframe>
 
 
+土匪猪肝
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=1356530394&bvid=BV1wz421q7aJ&cid=25697783269&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=600px height=450px></iframe>
 
-
+水煮肉片
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=113076405797308&bvid=BV1DQHbejEo2&cid=25727795846&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=600px height=450px></iframe>
 
-
-<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=113405692288330&bvid=BV12xS9YbEZ8&cid=26558334930&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=600px height=450px></iframe>
 
 ## 主菜
 
@@ -77,6 +83,9 @@ comments: true
 ### 红烧肉
 
 ### 土豆炖牛腩
+
+
+
 - 食材：牛腩、土豆、胡萝卜
 - 姜、蒜、八角、桂皮、香叶、
 - 生抽、老抽、料酒、盐、糖、食用油、淀粉、郫县豆瓣
@@ -111,6 +120,9 @@ comments: true
 - 出锅前加盐调味
 
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/IMG_1612.JPG)
+
+
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=114186487078644&bvid=BV1giQ9YzEna&cid=28941878702&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=600px height=450px></iframe>
 
 ## 炒菜 - 荤
 
@@ -196,6 +208,10 @@ comments: true
 3. 放入五花肉炒至变色，放入料酒、生抽、蚝油、白糖、盐、鸡精翻炒均匀
 
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/c9000b183134d58263473ff5b0673135.jpg)
+
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=1156673175&bvid=BV1KZ421L7Pn&cid=1658966877&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=600px height=450px></iframe>
+
+
 
 ## 炒菜 - 素
 ### 清炒西兰花
@@ -345,7 +361,7 @@ comments: true
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/IMG_1235.jpeg)
 
 
-## 面食
+## 面食 & 主食
 ### 番茄菜疙瘩
 1. 菠菜焯水10秒钟，变软即可，切成小段。
 2. 西红柿切成小块。
@@ -362,3 +378,8 @@ comments: true
 ![烹饪过程2](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250309141116734.png)
 
 ### 如何煮一碗nb的泡面
+
+
+### 鸡蛋饼
+
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=113405692288330&bvid=BV12xS9YbEZ8&cid=26558334930&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=600px height=450px></iframe>

@@ -436,7 +436,7 @@ def sysCall_actuation():
     1. 需要找到一个没有坏的机械臂，很多组的都已经坏掉了
     2. 连接串口，运行老师给到的测试程序，看看能不能动
     3. 期望的现象：机械臂从起始位置运动到第一个物体，吸盘吸附物体，移动到A点，再直线移动到B点，再移动到目标区域，放下物体
-    4. B点的操作是类似的
+    4. 第二个物体的操作是类似的
 
 
 遇到的问题与解决方法：
@@ -634,7 +634,7 @@ def go(r, runtime, k_0,k_1,k_2,k_3,k_4,k_5):
             time.sleep(T - spend_time)
 ```
 
-```python title="获取坐标点" hl_lines="3" linenums="1"
+```python title="获取坐标点" hl_lines="7" linenums="1"
 def get_position():
     """
     获取物体的位姿

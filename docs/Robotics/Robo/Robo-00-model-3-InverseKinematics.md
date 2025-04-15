@@ -1,5 +1,19 @@
 # 03 | 逆运动学 - 已知位姿求解角度
 
+本章内容：给定工具坐标系的位置和姿态，解算出个各关节变量；
+
+笛卡尔空间转换到关节空间
+
+
+**主要内容**：
+
+- [ ] 自由度
+- [ ] 工作空间
+- [x] 解存在性与选择
+- [x] 几何法
+- [x] 解析法
+
+
 ## 数学基础：三角变换
 
 
@@ -51,8 +65,9 @@ $\frac{a}{\sin A}=\frac{b}{\sin B}=\frac{c}{\sin C}=2R$
 - $b^{2}=a^{2}+c^{2}-2ac\cos B$
 - $c^{2}=a^{2}+b^{2}-2ab\cos C$
 
+## 工作空间与自由度
 
-给定工具坐标系的位置和姿态，解算出个各关节变量
+### 自由度 ｜ Degrees of Freedom
 
 ??? info "自由度 - 刚体本身具有可独立运动方向的数目"
     > 手臂：7自由度；无穷多个解
@@ -73,7 +88,7 @@ $\frac{a}{\sin A}=\frac{b}{\sin B}=\frac{c}{\sin C}=2R$
     >
     > 想想开门时拧钥匙的动作，这个情况下是人胳膊的末端机构（手）的三维位置没有变（始终在钥匙孔前），但是末端机构（手）的三维旋转变了（转动了钥匙）。人能够实现这个简单的动作，就是因为我们的胳膊有7个自由度。
 
-
+### 工作空间 ｜ Workspace
 - 工作空间：机械臂末端执行器所能到达的范围。
 - **灵巧工作空间**：机械臂末端执行器能够从各个方向到达的空间区域。
 - **可达工作空间**：机械臂末端执行器至少从一个方向上可以到达的空间。
@@ -83,22 +98,66 @@ $\frac{a}{\sin A}=\frac{b}{\sin B}=\frac{c}{\sin C}=2R$
 !!! question "如何描述工作空间"
 
 ## 解存在性与选择
-$^0_6 \!T$ 自由度为6，12个
+$^0_6 \!T$ 自由度为6个
 
 由于是 nonlinear transcendental equations(非线性超越方程组)问题，6未知数6方程式不代表具有唯一解。
 
 
+### PIEPER 准则
+
+当如下条件之一满足时，一个6自由度运动学结构具有闭合形式的运动学逆解：（**充分条件**）
+
+1、三个连续的转动关节的轴相交于同一点
+2、三个连续的转动关节的轴平行
+
+
+
+
+### 多解处理方法 —— 最短行程
 
 
 若同一位姿有多个解，系统最终只能选择一个解，比较合理的一种选择是取“最短行程”解
 
-计算最短行程需要加权，使得选择侧重于移动小连杆而不是移动大连杆
+计算最短行程需要加权，倾向于选择移动小连杆而不是移动大连杆（更省能量）
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250304115453821.png)
-> 图片来源课程组ppt
+!!! example "例子"
+
+    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250304115453821.png)
+    > 图片来源课程组ppt
 
 
-这四个姿态位姿都相同，每种手部都有2种
+    这四个姿态位姿都相同，但是对于每种手部都有2种解，一共有8个解。
+
+## 几何法 - 引入几何方法
+由于操作臂是平面的，因此可利用平面几何关系直接求解
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250305082111521.png)
+
+
+
+注意到三个连杆角度之和即为连杆3的姿态：$\theta_1 + \theta_2 + \theta_3 = \phi$,由此可求得 $\theta_3$。
+
+应用反正切公式：$\beta = \arctan 2(y, x)$
+
+应用余弦定理：$\cos \psi = \frac{x^2 + y^2 + l_1^2 - l_2^2}{2l_1 \sqrt{x^2 + y^2}}$
+
+可解得$\psi \in [0^\circ, 180^\circ]$
+
+进一步，可得：
+
+$$
+\theta_1 = \begin{cases} 
+\beta + \psi, & \text{若 } \theta_2 \leq 0 \\
+\beta - \psi, & \text{若 } \theta_2 > 0 
+\end{cases}
+$$
+
+**特别要注意这个是平行四边形，而不是菱形，所以两种情况用的证明三角形略有不同，但是结论是统一的**。
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250305082434990.png)
+
+
+
 
 ## 解析（代数）法 - 解析表达式表出
 [机器人的运动学解——逆向运动学解 - 知乎](https://zhuanlan.zhihu.com/p/450749372)
@@ -128,7 +187,7 @@ s_{\phi} & c_{\phi} & 0 & y \\
 \end{pmatrix}
 $$
 
- 得到四个非线性方程：
+得到四个非线性方程：
 
 $$
 \begin{cases}
@@ -149,9 +208,14 @@ $$
 推导得到：
 
 $$
-x^2 + y^2 = l_1^2 + l_2^2 + 2l_1 l_2 (c_1 c_{12} + s_1 s_{12})\\
-= l_1^2 + l_2^2 + 2l_1 l_2 (c_1^2 c_2 - c_1 s_1 s_2 + s_1^2 c_2 + s_1 c_1 s_2)\\
-= l_1^2 + l_2^2 + 2l_1 l_2 c_2\\
+\begin{align}
+x^2 + y^2 &= l_1^2 + l_2^2 + 2l_1 l_2 (c_1 c_{12} + s_1 s_{12})\\
+&= l_1^2 + l_2^2 + 2l_1 l_2 (c_1^2 c_2 - c_1 s_1 s_2 + s_1^2 c_2 + s_1 c_1 s_2)\\
+&= l_1^2 + l_2^2 + 2l_1 l_2 c_2
+\end{align}
+$$
+
+$$
 c_2 = \frac{x^2 + y^2 - l_1^2 - l_2^2}{2l_1 l_2}
 $$
 
@@ -194,8 +258,7 @@ $$
 如果 $a + c = 0$，那么 $\theta = 180^\circ$
 
 ### 3轴相交 PIEPER解法
-具有6个旋转关节的操作臂存在封闭解的充分条件是相邻的三个关节
-轴线相交于一点
+具有6个旋转关节的操作臂存在封闭解的**充分条件**是相邻的三个关节轴线相交于一点
 
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250304120834902.png)
 
@@ -254,86 +317,87 @@ $$
 
 === "求解 $\theta_3$"
 
-简化表达，得到：
+    简化表达，得到：
 
-$$
-r = (k_1 c_2 + k_2 s_2) 2a_1 + k_3, z = (k_1 s_2 - k_2 c_2) s \alpha_1 + k_4
-$$
+    $$
+    r = (k_1 c_2 + k_2 s_2) 2a_1 + k_3, z = (k_1 s_2 - k_2 c_2) s \alpha_1 + k_4
+    $$
 
-其中：
+    其中：
 
-$$
-\begin{align}
-k_1 &= f_1\\
-k_2 &= -f_2\\
-k_3 &= f_1^2 + f_2^2 + f_3^2 + a_1^2 + d_2^2 + 2d_2 f_3\\
-k_4 &= f_3 c \alpha_1 + d_2 c \alpha_1
-\end{align}
-$$
+    $$
+    \begin{align}
+    k_1 &= f_1\\
+    k_2 &= -f_2\\
+    k_3 &= f_1^2 + f_2^2 + f_3^2 + a_1^2 + d_2^2 + 2d_2 f_3\\
+    k_4 &= f_3 c \alpha_1 + d_2 c \alpha_1
+    \end{align}
+    $$
 
-1. **若 $a_1 = 0$**，则：
-   
-$$
-r = k_3 = f_1^2 + f_2^2 + f_3^2 + a_1^2 + d_2^2 + 2d_2 f_3
-$$
+    1. **若 $a_1 = 0$**，则：
+    
+    $$
+    r = k_3 = f_1^2 + f_2^2 + f_3^2 + a_1^2 + d_2^2 + 2d_2 f_3
+    $$
 
-注意到：
+    注意到：
 
-$$
-\begin{align}
-f_1 &= f_1(\theta_3) = a_3 c_3 + d_4 s \alpha_3 s_3 + a_2\\
-f_2 &= f_2(\theta_3) = a_3 s \alpha_2 s_3 - d_4 s \alpha_2 c \alpha_3 c_3 - d_4 s \alpha_2 c \alpha_3 s \alpha_3 - d_3 s \alpha_2\\
-f_3 &= f_3(\theta_3) = a_3 s \alpha_2 s_3 - d_4 s \alpha_2 s \alpha_2 c \alpha_3 + d_4 c \alpha_2 c \alpha_3 + d_3 c \alpha_2
-\end{align}
-$$
+    $$
+    \begin{align}
+    f_1 &= f_1(\theta_3) = a_3 c_3 + d_4 s \alpha_3 s_3 + a_2\\
+    f_2 &= f_2(\theta_3) = a_3 s \alpha_2 s_3 - d_4 s \alpha_2 c \alpha_3 c_3 - d_4 s \alpha_2 c \alpha_3 s \alpha_3 - d_3 s \alpha_2\\
+    f_3 &= f_3(\theta_3) = a_3 s \alpha_2 s_3 - d_4 s \alpha_2 s \alpha_2 c \alpha_3 + d_4 c \alpha_2 c \alpha_3 + d_3 c \alpha_2
+    \end{align}
+    $$
 
-将 $u = \tan \frac{\theta_3}{2}$，$c_3 = \frac{1 - u^2}{1 + u^2}$，$s_3 = \frac{2u}{1 + u^2}$ 代入，可将 $r = k_3$ 化为 $u$ 的二次方程。利用二次方程可以得到 $\theta_3$。
+    将 $u = \tan \frac{\theta_3}{2}$，$c_3 = \frac{1 - u^2}{1 + u^2}$，$s_3 = \frac{2u}{1 + u^2}$ 代入，可将 $r = k_3$ 化为 $u$ 的二次方程。利用二次方程可以得到 $\theta_3$。
 
-1. **若 $s \alpha_1 = 0$**，则 $z = k_4$，同样采用化简为多项式的办法，由二次方程得 $\theta_3$。
+    1. **若 $s \alpha_1 = 0$**，则 $z = k_4$，同样采用化简为多项式的办法，由二次方程得 $\theta_3$。
 
-2. **否则**，消去 $s_2$ 和 $c_2$，得到：
+    2. **否则**，消去 $s_2$ 和 $c_2$，得到：
 
-$$
-\frac{(r - k_3)^2}{4a_1^2} + \frac{(z - k_4)^2}{s^2 \alpha_1^2} = k_1^2 + k_2^2
-$$
+    $$
+    \frac{(r - k_3)^2}{4a_1^2} + \frac{(z - k_4)^2}{s^2 \alpha_1^2} = k_1^2 + k_2^2
+    $$
 
-采用化简为多项式的办法，可得到一个四次方程，由此解得 $\theta_3$。
+    采用化简为多项式的办法，可得到一个四次方程，由此解得 $\theta_3$。
 
 === "求解 $\theta_2$"
 
-根据：
+    根据：
 
-$$
-r = (k_1 c_2 + k_2 s_2) 2a_1 + k_3\\
-z = (k_1 s_2 - k_2 c_2) s \alpha_1 + k_4
-$$
+    $$
+    r = (k_1 c_2 + k_2 s_2) 2a_1 + k_3\\
+    z = (k_1 s_2 - k_2 c_2) s \alpha_1 + k_4
+    $$
 
-可解得 $\theta_2$。
+    可解得 $\theta_2$。
 
 === "求解 $\theta_1$"
-根据：
 
-$$
-\begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} c_1 g_1 - s_1 g_2 \\ s_1 g_1 + c_1 g_2 \end{pmatrix}
-$$
+    根据：
 
-$x$ 和 $y$ 是已知的，可解得 $\theta_1$。
+    $$
+    \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} c_1 g_1 - s_1 g_2 \\ s_1 g_1 + c_1 g_2 \end{pmatrix}
+    $$
+
+    $x$ 和 $y$ 是已知的，可解得 $\theta_1$。
 
 === "求解 $\theta_4, \theta_5, \theta_6$"
 
-求出 $\theta_1, \theta_2, \theta_3$ 后，若 $\theta_4 = 0$ 可计算出坐标系{4}相对于基坐标的姿态：
+    求出 $\theta_1, \theta_2, \theta_3$ 后，若 $\theta_4 = 0$ 可计算出坐标系{4}相对于基坐标的姿态：
 
-$$
-{}^0_4 \mathbf{R} |_{\theta_4 = 0} = {}^0_3 \mathbf{R} {}^3_4 \mathbf{R} |_{\theta_4 = 0} = {}^0_1 \mathbf{R} {}^1_2 \mathbf{R} {}^2_3 \mathbf{R} {}^3_4 \mathbf{R} |_{\theta_4 = 0}
-$$
+    $$
+    {}^0_4 \mathbf{R} |_{\theta_4 = 0} = {}^0_3 \mathbf{R} {}^3_4 \mathbf{R} |_{\theta_4 = 0} = {}^0_1 \mathbf{R} {}^1_2 \mathbf{R} {}^2_3 \mathbf{R} {}^3_4 \mathbf{R} |_{\theta_4 = 0}
+    $$
 
-再由已知的 ${}^0_6 \mathbf{R}$，坐标系{6}的期望姿态与坐标系{4}的姿态差别仅在于最后三个关节的作用：
+    再由已知的 ${}^0_6 \mathbf{R}$，坐标系{6}的期望姿态与坐标系{4}的姿态差别仅在于最后三个关节的作用：
 
-$$
-{}^6_4 \mathbf{R} |_{\theta_4 = 0} = {}^6 \mathbf{R}^1 |_{\theta_4 = 0} {}^0 \mathbf{R}^6
-$$
+    $$
+    {}^6_4 \mathbf{R} |_{\theta_4 = 0} = {}^6 \mathbf{R}^1 |_{\theta_4 = 0} {}^0 \mathbf{R}^6
+    $$
 
-对于任何一个4、5、6轴相互正交的6R操作臂，最后三个关节角是一种欧拉角，即 ${}^6 \mathbf{R}^4 |_{\theta = 0}$ 可由这种欧拉角表示。这时，$\theta_4, \theta_5, \theta_6$ 可用欧拉角解法求得。
+    对于任何一个4、5、6轴相互正交的6R操作臂，最后三个关节角是一种欧拉角，即 ${}^6 \mathbf{R}^4 |_{\theta = 0}$ 可由这种欧拉角表示。这时，$\theta_4, \theta_5, \theta_6$ 可用欧拉角解法求得。
 
 
 !!! tip "两种解相当于是手性，右手形和左手形"
@@ -341,40 +405,22 @@ $$
 
 ### PUMA560的一种代数方法
 
+!!! info "PUMA560是一款具有球形腕的机械臂，其关节4、5、6的旋转轴相交于第五个关节坐标系的原点处"
 
 
 
-
-这里要注意，求解$\theta_4$的时候，如果$\theta_5 = 0$,那么可以看图发现，轴4和轴6是重合的，这个时候不可以唯一确定$\theta_4$,所有可能的结果都可能是$theta_4$与$\theta_6$的和或差 
-
-
-
-## 几何法 - 引入几何方法
-由于操作臂是平面的，因此可利用平面几何关系直接求解
-
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250305082111521.png)
+这里要注意，求解$\theta_4$的时候，如果$\theta_5 = 0$,那么可以看图发现，轴4和轴6是重合的，这个时候不可以唯一确定$\theta_4$,所有可能的结果都可能是$\theta_4$与$\theta_6$的和或差 
 
 
 
-注意到三个连杆角度之和即为连杆3的姿态：$\theta_1 + \theta_2 + \theta_3 = \phi$,由此可求得 $\theta_3$。
-
-应用反正切公式：$\beta = \arctan 2(y, x)$
-
-应用余弦定理：$\cos \psi = \frac{x^2 + y^2 + l_1^2 - l_2^2}{2l_1 \sqrt{x^2 + y^2}}$
-
-可解得$\psi \in [0^\circ, 180^\circ]$
-
-进一步，可得：
-
-$$
-\theta_1 = \begin{cases} 
-\beta + \psi, & \text{若 } \theta_2 \leq 0 \\
-\beta - \psi, & \text{若 } \theta_2 > 0 
-\end{cases}
-$$
-
-**特别要注意这个是平行四边形，而不是菱形，所以两种情况用的证明三角形略有不同，但是结论是统一的**。
-
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250305082434990.png)
 
 ## 数值法 - 有限元或者数值逼近
+
+## 求解代码
+
+
+基于ZJUI的代码
+
+```python title="求解代码" hl_lines="1" linenums="1"
+
+```
