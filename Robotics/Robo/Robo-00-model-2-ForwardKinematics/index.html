@@ -1237,6 +1237,13 @@
 <nav aria-label="连体坐标系建立" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#dhdh">
+<span class="md-ellipsis">
+      标准DH和非标准DH的区别
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#_2">
 <span class="md-ellipsis">
       运动学参量
@@ -3283,6 +3290,13 @@
 <nav aria-label="连体坐标系建立" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#dhdh">
+<span class="md-ellipsis">
+      标准DH和非标准DH的区别
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#_2">
 <span class="md-ellipsis">
       运动学参量
@@ -3347,23 +3361,31 @@
 <article class="md-content__inner md-typeset">
 <div><h1 id="02-"><span>02 |<span class="heti-spacing"> </span></span>正运动学<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>已知角度求末端位姿<a class="headerlink" href="#02-" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>2536<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"></path></svg></span> <span>35<span class="heti-spacing"> </span></span>行代码 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>10<span class="heti-spacing"> </span></span>分钟</p>
+<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>2425<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"></path></svg></span> <span>35<span class="heti-spacing"> </span></span>行代码 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>10<span class="heti-spacing"> </span></span>分钟</p>
 </div>
 <p>本章的<strong>正运动学</strong>问题，就是<strong>将关节空间转化到笛卡尔空间</strong>当中去。</p>
-<p>我们的目的就是获取机械臂末端相对于机械臂基座的位姿，首先要建立起连杆之间的变换关系，这里比较重要的搞明白连杆坐标系的<strong>建立</strong>以及<strong>变换</strong>（先建立，再变换）</p>
+<details class="note">
+<summary>关节空间和笛卡尔空间</summary>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">关节空间<span class="heti-skip"><span class="heti-spacing"> </span>(Joint Space)<span class="heti-spacing"> </span></span></label><label for="__tabbed_1_2">笛卡尔空间<span><span class="heti-spacing"> </span>(Cartesian Space)</span></label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>关节空间是通过机器人的关节参数来描述机器人配置的空间。在关节空间中，机器人的每个关节都有一个关联的参数，如角度或距离，这些参数描述了机器人的当前配置。<br/>
-在关节空间中，机器人的运动是通过改变关节参数来实现的，例如，改变关节角或关节位置。
-关节空间分析是机器人运动学和控制的基础，它为控制算法和路径规划提供了一个直观的框架。</p>
+<p>参数是关节的角度（旋转关节）或位移（移动关节）</p>
+<p>关节空间分析是机器人运动学和控制的基础，它为控制算法和路径规划提供了一个直观的框架。</p>
 </div>
 <div class="tabbed-block">
-<p>笛卡尔空间是通过笛卡尔坐标系统来描述机器人末端执行器（例如机器人手或工具）的位置和方向的空间。<br/>
-在笛卡尔空间中，机器人的运动是通过改变末端执行器的位置和方向来实现的，通常使用x, y, z坐标和欧拉角或四元数来描述末端执行器的位置和方向。笛卡尔空间分析为机器人的任务规划和执行提供了一个直观和可视化的框架，它使得能够直接描述和控制机器人在物理世界中的运动。</p>
+<p>参数是<span class="heti-skip"><span class="heti-spacing"> </span>x, y, z<span class="heti-spacing"> </span></span>坐标和欧拉角或四元数，描述末端执行器的位置和方向。</p>
+<p>笛卡尔空间分析为机器人的任务规划和执行提供了一个直观和可视化的框架，它使得能够直接描述和控制机器人在物理世界中的运动。</p>
 </div>
 </div>
 </div>
+</details>
+<p>我们的目的就是获取机械臂末端相对于机械臂基座的位姿，首先要建立起连杆之间的变换关系。需要搞明白连杆坐标系的<strong>建立</strong>以及<strong>变换</strong>（先建立，再变换）</p>
+<p><strong>主要内容</strong></p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 连体坐标系的建立 —— <span>MDH<span class="heti-spacing"> </span></span>和<span><span class="heti-spacing"> </span>SDH</span>、运动学参量表的列写</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 连体坐标系的变换 —— 齐次变换矩阵相乘</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 正运动学问题：几何法、矩阵法</li>
+</ul>
 <h2 id="_1">连体坐标系建立<a class="headerlink" href="#_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p>我觉得下面这一篇博文图片和解释比较清楚，这里要着重区别一下连杆转角和关节角</p>
 <blockquote>
@@ -3373,9 +3395,9 @@
 <p><strong>坐标系建立规则</strong><span>(<span class="heti-spacing"> </span></span>非标准<span class="heti-skip"><span class="heti-spacing"> </span>D-HDenavit-Hartenberg<span class="heti-spacing"> </span></span>方法<span><span class="heti-spacing"> </span>)</span></p>
 <ul>
 <li>根据题目信息确定式<span class="heti-skip"><span class="heti-spacing"> </span>R(revolute joint)<span class="heti-spacing"> </span></span>还是<span class="heti-skip"><span class="heti-spacing"> </span>P(prismatic joint)<span class="heti-spacing"> </span></span>固定在关节轴<span class="heti-skip"><span class="heti-spacing"> </span>i<span class="heti-spacing"> </span></span>上的坐标系命名为坐标系<span><span class="heti-spacing"> </span><span class="arithmatex">\(\{i\}\)</span></span>（轴<span class="heti-skip"><span class="heti-spacing"> </span>i<span class="heti-spacing"> </span></span>的方向由设计者给定）</li>
-<li><strong>先确定<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(Z\)</span><span class="heti-spacing"> </span></span>轴</strong>，坐标系<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\{i\}\)</span><span class="heti-spacing"> </span></span>的<span class="heti-skip"><span class="heti-spacing"> </span>Z<span class="heti-spacing"> </span></span>轴与关节轴<span class="heti-skip"><span class="heti-spacing"> </span>i<span class="heti-spacing"> </span></span>的轴线重合</li>
-<li><strong>再确定原点</strong>，坐标系<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\{i\}\)</span><span class="heti-spacing"> </span></span>的原点为公共垂线<span class="heti-skip"><span class="heti-spacing"> </span>ai<span class="heti-spacing"> </span></span>与关节轴<span class="heti-skip"><span class="heti-spacing"> </span>i<span class="heti-spacing"> </span></span>轴线的交点</li>
-<li><strong>再确定<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(X\)</span><span class="heti-spacing"> </span></span>轴</strong>，<span><span class="arithmatex">\(\{i\}\)</span><span class="heti-spacing"> </span></span>的<span class="heti-skip"><span class="heti-spacing"> </span>X<span class="heti-spacing"> </span></span>轴与公共垂线<span class="heti-skip"><span class="heti-spacing"> </span>ai<span class="heti-spacing"> </span></span>重合</li>
+<li><strong>先确定<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(Z\)</span><span class="heti-spacing"> </span></span>轴</strong>，坐标系<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\{i\}\)</span><span class="heti-spacing"> </span></span>的<span class="heti-skip"><span class="heti-spacing"> </span>Z<span class="heti-spacing"> </span></span>轴与关节轴<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\{i\}\)</span><span class="heti-spacing"> </span></span>的轴线重合</li>
+<li><strong>再确定原点</strong>，坐标系<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\{i\}\)</span><span class="heti-spacing"> </span></span>的原点为公共垂线<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(a_i\)</span><span class="heti-spacing"> </span></span>与关节轴<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\{i\}\)</span><span class="heti-spacing"> </span></span>轴线的交点</li>
+<li><strong>再确定<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(X\)</span><span class="heti-spacing"> </span></span>轴</strong>，<span><span class="arithmatex">\(\{i\}\)</span><span class="heti-spacing"> </span></span>的<span class="heti-skip"><span class="heti-spacing"> </span>X<span class="heti-spacing"> </span></span>轴与公共垂线<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(a_i\)</span><span class="heti-spacing"> </span></span>重合</li>
 <li><strong>最后确立<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(Y\)</span><span class="heti-spacing"> </span></span>轴</strong>，根据右手定则确定坐标系<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\{i\}\)</span><span class="heti-spacing"> </span></span>的<span class="heti-skip"><span class="heti-spacing"> </span>Y<span class="heti-spacing"> </span></span>轴<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>大拇指指向<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(Z\)</span>,<span class="heti-spacing"> </span></span>右手螺旋确定<span><span class="heti-spacing"> </span>)</span></li>
 </ul>
 <div class="admonition info">
@@ -3387,24 +3409,21 @@
 </ul>
 <p>这样的<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(T\)</span><span class="heti-spacing"> </span></span>中的<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(R\)</span><span class="heti-spacing"> </span></span>部分就是一个单位阵，加上一个平移向量即可</p>
 </div>
-<div class="admonition tip">
-<p class="admonition-title">标准<span class="heti-skip"><span class="heti-spacing"> </span>DH<span class="heti-spacing"> </span></span>和非标准<span class="heti-skip"><span class="heti-spacing"> </span>DH<span class="heti-spacing"> </span></span>的区别</p>
-<p>（1）<strong>固连坐标系不同</strong> <br/>
-Stantard DH方法关节i上固连的是i-1坐标系，即坐标系建在连杆的输出端；MDH关节i上固连的是i坐标系，即坐标系建在连杆的输入端。<br/>
-（2）<strong>坐标系变换顺序不同</strong> <br/>
-Stantard DH方法是ZX类变换：先绕着i-1坐标系的的<span class="arithmatex">\(Z_{i-1}\)</span>轴旋转和平移，再绕着坐标系i的<span class="arithmatex">\(X_i\)</span>轴进行旋转和平移；（个人记忆方法：ZYX表示最常用，所以standtard使用这种）<br/>
-Modified DH方法是XZ类变换：先绕着i坐标系的的<span class="arithmatex">\(X_i\)</span>轴旋转和平移，再绕着坐标系i的<span class="arithmatex">\(Z_i\)</span>轴进行旋转和平移；(题目中使用这种方法)</p>
-</div>
-<div class="admonition question">
-<p class="admonition-title">这里各种<span class="heti-skip"><span class="heti-spacing"> </span>DH<span class="heti-spacing"> </span></span>的方法没有太搞清楚</p>
-<p>之前看到知乎上</p>
-</div>
+<h3 id="dhdh">标准<span class="heti-skip"><span class="heti-spacing"> </span>DH<span class="heti-spacing"> </span></span>和非标准<span class="heti-skip"><span class="heti-spacing"> </span>DH<span class="heti-spacing"> </span></span>的区别<a class="headerlink" href="#dhdh" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>（1）<strong>固连坐标系不同</strong> <br/></p>
+<p><span>Stantard DH<span class="heti-spacing"> </span></span>方法关节<span class="heti-skip"><span class="heti-spacing"> </span>i<span class="heti-spacing"> </span></span>上固连的是<span class="heti-skip"><span class="heti-spacing"> </span>i-1<span class="heti-spacing"> </span></span>坐标系，即坐标系建在连杆的输出端；<span>MDH<span class="heti-spacing"> </span></span>关节<span class="heti-skip"><span class="heti-spacing"> </span>i<span class="heti-spacing"> </span></span>上固连的是<span class="heti-skip"><span class="heti-spacing"> </span>i<span class="heti-spacing"> </span></span>坐标系，即坐标系建在连杆的输入端。</p>
+<p>（2）<strong>坐标系变换顺序不同</strong> <br/></p>
+<p><span>Stantard DH<span class="heti-spacing"> </span></span>方法是<span class="heti-skip"><span class="heti-spacing"> </span>ZX<span class="heti-spacing"> </span></span>类变换：先绕着<span class="heti-skip"><span class="heti-spacing"> </span>i-1<span class="heti-spacing"> </span></span>坐标系的的<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(Z_{i-1}\)</span><span class="heti-spacing"> </span></span>轴旋转和平移，再绕着坐标系<span class="heti-skip"><span class="heti-spacing"> </span>i<span class="heti-spacing"> </span></span>的<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(X_i\)</span><span class="heti-spacing"> </span></span>轴进行旋转和平移<heti-adjacent class="heti-adjacent-half">；</heti-adjacent>（个人记忆方法：<span>ZYX<span class="heti-spacing"> </span></span>表示最常用，所以<span class="heti-skip"><span class="heti-spacing"> </span>standtard<span class="heti-spacing"> </span></span>使用这种）</p>
+<p><span>Modified DH<span class="heti-spacing"> </span></span>方法是<span class="heti-skip"><span class="heti-spacing"> </span>XZ<span class="heti-spacing"> </span></span>类变换：先绕着<span class="heti-skip"><span class="heti-spacing"> </span>i<span class="heti-spacing"> </span></span>坐标系的的<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(X_i\)</span><span class="heti-spacing"> </span></span>轴旋转和平移，再绕着坐标系<span class="heti-skip"><span class="heti-spacing"> </span>i<span class="heti-spacing"> </span></span>的<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(Z_i\)</span><span class="heti-spacing"> </span></span>轴进行旋转和平移；<span>(<span class="heti-spacing"> </span></span>题目中使用这种方法<span><span class="heti-spacing"> </span>)</span> </p>
+<blockquote>
+<p>先把<span class="heti-skip"><span class="heti-spacing"> </span>Z<span class="heti-spacing"> </span></span>轴调整好，再调整<span class="heti-skip"><span class="heti-spacing"> </span>X<span class="heti-spacing"> </span></span>轴</p>
+</blockquote>
 <h3 id="_2">运动学参量<a class="headerlink" href="#_2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ul>
-<li>连杆扭转角<span><span class="heti-spacing"> </span><span class="arithmatex">\(\alpha_{i-1}\)</span></span>：绕<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(X_{i-1}\)</span><span class="heti-spacing"> </span></span>轴，从<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(Z_{i-1}\)</span><span class="heti-spacing"> </span></span>轴旋转到<span class="heti-skip"><span class="heti-spacing"> </span>Zi<span class="heti-spacing"> </span></span>轴的角度</li>
-<li>连杆长度<span><span class="heti-spacing"> </span><span class="arithmatex">\(a_{i-1}\)</span></span>：沿<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(X_{i-1}\)</span><span class="heti-spacing"> </span></span>轴，从<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(Z_{i-1}\)</span><span class="heti-spacing"> </span></span>轴移动到<span class="heti-skip"><span class="heti-spacing"> </span>Zi<span class="heti-spacing"> </span></span>轴的距离（公垂线段为<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>的时候，当<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(a_{i-1} = 0\)</span><span class="heti-spacing"> </span></span>时，我们并不将零长度的<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(r_{O_{i-1}P_i}\)</span><span class="heti-spacing"> </span></span>视为传统的零向量，而是在与轴<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(i-1\)</span><span class="heti-spacing"> </span></span>和轴<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(i\)</span><span class="heti-spacing"> </span></span>同时垂直的方向中选一个作为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(r_{O_{i-1}P_i}\)</span><span class="heti-spacing"> </span></span>的正方向）</li>
-<li>关节角<span><span class="heti-spacing"> </span><span class="arithmatex">\(\theta_i\)</span></span>：沿<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(Z_{i-1}\)</span><span class="heti-spacing"> </span></span>轴，从<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(X_{i-1}\)</span><span class="heti-spacing"> </span></span>轴旋转到<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(X_i\)</span><span class="heti-spacing"> </span></span>轴的角度</li>
+<li>连杆扭转角<span><span class="heti-spacing"> </span><span class="arithmatex">\(\alpha_{i-1}\)</span></span>：绕<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(X_{i-1}\)</span><span class="heti-spacing"> </span></span>轴，从<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(Z_{i-1}\)</span><span class="heti-spacing"> </span></span>轴旋转到<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(Z_i\)</span><span class="heti-spacing"> </span></span>轴的角度</li>
+<li>连杆长度<span><span class="heti-spacing"> </span><span class="arithmatex">\(a_{i-1}\)</span></span>：沿<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(X_{i-1}\)</span><span class="heti-spacing"> </span></span>轴，从<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(Z_{i-1}\)</span><span class="heti-spacing"> </span></span>轴移动到<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(Z_i\)</span><span class="heti-spacing"> </span></span>轴的距离（公垂线段为<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>的时候，当<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(a_{i-1} = 0\)</span><span class="heti-spacing"> </span></span>时，我们并不将零长度的<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(r_{O_{i-1}P_i}\)</span><span class="heti-spacing"> </span></span>视为传统的零向量，而是在与轴<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(i-1\)</span><span class="heti-spacing"> </span></span>和轴<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(i\)</span><span class="heti-spacing"> </span></span>同时垂直的方向中选一个作为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(r_{O_{i-1}P_i}\)</span><span class="heti-spacing"> </span></span>的正方向）</li>
 <li>连杆轴距<span><span class="heti-spacing"> </span><span class="arithmatex">\(d_i\)</span></span>：沿<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(Z_{i-1}\)</span><span class="heti-spacing"> </span></span>轴，从<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(X_{i-1}\)</span><span class="heti-spacing"> </span></span>轴移动到<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(X_i\)</span><span class="heti-spacing"> </span></span>轴的距离</li>
+<li>关节角<span><span class="heti-spacing"> </span><span class="arithmatex">\(\theta_i\)</span></span>：沿<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(Z_{i-1}\)</span><span class="heti-spacing"> </span></span>轴，从<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(X_{i-1}\)</span><span class="heti-spacing"> </span></span>轴旋转到<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(X_i\)</span><span class="heti-spacing"> </span></span>轴的角度</li>
 </ul>
 <h2 id="_3">连体坐标系变换<a class="headerlink" href="#_3" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250301174641450.png"/></p>
@@ -3436,25 +3455,25 @@ Modified DH方法是XZ类变换：先绕着i坐标系的的<span class="arithmat
 </ol>
 <div class="admonition tip">
 <p class="admonition-title">理解变换中的变量和不变量</p>
-<p><span>- <span class="arithmatex">\(a_{i-1}\)</span><span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\alpha_{i-1}\)</span><span class="heti-spacing"> </span></span>是固定不变的参数，不会随着 <strong>关节<span><span class="heti-spacing"> </span>i</span></strong> 的运动而变化（这里这里说的是关节<span class="heti-skip"><span class="heti-spacing"> </span>i<span class="heti-spacing"> </span></span>和关节<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(i-1\)</span><span class="heti-spacing"> </span></span>的关系）</p>
+<p><span><span class="arithmatex">\(a_{i-1}\)</span><span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\alpha_{i-1}\)</span><span class="heti-spacing"> </span></span>是固定不变的参数，不会随着 <strong>关节<span><span class="heti-spacing"> </span>i</span></strong> 的运动而变化（这里这里说的是关节<span class="heti-skip"><span class="heti-spacing"> </span>i<span class="heti-spacing"> </span></span>和关节<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(i-1\)</span><span class="heti-spacing"> </span></span>的关系）</p>
 <p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250301190411843.png"/></p>
 <blockquote>
 <p>这样画可能可以理解关节<span class="heti-skip"><span class="heti-spacing"> </span>i<span class="heti-spacing"> </span></span>的行为不会影响之前的关节参数。
 而且要注意：<strong>关节的旋转是指绕轴进行转动，而不是轴本身进行转动，第一次看的时候在这里有误区</strong></p>
 </blockquote>
-<p><span>-<span class="heti-spacing"> </span></span>若关节<span class="heti-skip"><span class="heti-spacing"> </span>i<span class="heti-spacing"> </span></span>是转动关节，则<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(d_i\)</span><span class="heti-spacing"> </span></span>是固定不变的参数，<span><span class="arithmatex">\(\theta_i\)</span><span class="heti-spacing"> </span></span>是会随着关节<span class="heti-skip"><span class="heti-spacing"> </span>i<span class="heti-spacing"> </span></span>的运动而变化的关节变量，即：<span>3<span class="heti-spacing"> </span></span>个连杆参数<span><span class="heti-spacing"> </span><span class="arithmatex">\(a_{i-1}, \alpha_{i-1}, d_i\)</span></span>；<span>1<span class="heti-spacing"> </span></span>个关节变量<span><span class="heti-spacing"> </span><span class="arithmatex">\(\theta_i\)</span></span>
-  - 若关节i是滑动关节，则<span class="arithmatex">\(\theta_i\)</span>是固定不变的参数，<span class="arithmatex">\(d_i\)</span>是会随着关节i的运动而变化的关节变量，即：3个连杆参数 <span class="arithmatex">\(a_{i-1}, \alpha_{i-1}, \theta_i\)</span>；1个关节变量 <span class="arithmatex">\(d_i\)</span></p>
-<p><span>-<span class="heti-spacing"> </span></span>一个有<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(N\)</span><span class="heti-spacing"> </span></span>个关节的串联机构，有<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(4N\)</span><span class="heti-spacing"> </span></span>个运动学参量，其中<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(3N\)</span><span class="heti-spacing"> </span></span>个是连杆参数、<span><span class="arithmatex">\(N\)</span><span class="heti-spacing"> </span></span>个是关节变量，它们包含了串联机构的全部空间几何信息</p>
+<ul>
+<li>若关节<span class="heti-skip"><span class="heti-spacing"> </span>i<span class="heti-spacing"> </span></span>是转动关节，则<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(d_i\)</span><span class="heti-spacing"> </span></span>是固定不变的参数，<span><span class="arithmatex">\(\theta_i\)</span><span class="heti-spacing"> </span></span>是会随着关节<span class="heti-skip"><span class="heti-spacing"> </span>i<span class="heti-spacing"> </span></span>的运动而变化的关节变量，即：<span>3<span class="heti-spacing"> </span></span>个连杆参数<span><span class="heti-spacing"> </span><span class="arithmatex">\(a_{i-1}, \alpha_{i-1}, d_i\)</span></span>；<span>1<span class="heti-spacing"> </span></span>个关节变量<span><span class="heti-spacing"> </span><span class="arithmatex">\(\theta_i\)</span></span></li>
+<li>若关节<span class="heti-skip"><span class="heti-spacing"> </span>i<span class="heti-spacing"> </span></span>是滑动关节，则<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\theta_i\)</span><span class="heti-spacing"> </span></span>是固定不变的参数，<span><span class="arithmatex">\(d_i\)</span><span class="heti-spacing"> </span></span>是会随着关节<span class="heti-skip"><span class="heti-spacing"> </span>i<span class="heti-spacing"> </span></span>的运动而变化的关节变量，即：<span>3<span class="heti-spacing"> </span></span>个连杆参数<span><span class="heti-spacing"> </span><span class="arithmatex">\(a_{i-1}, \alpha_{i-1}, \theta_i\)</span></span>；<span>1<span class="heti-spacing"> </span></span>个关节变量<span><span class="heti-spacing"> </span><span class="arithmatex">\(d_i\)</span></span></li>
+</ul>
+<p>一个有<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(N\)</span><span class="heti-spacing"> </span></span>个关节的串联机构，有<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(4N\)</span><span class="heti-spacing"> </span></span>个运动学参量，其中<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(3N\)</span><span class="heti-spacing"> </span></span>个是连杆参数、<span><span class="arithmatex">\(N\)</span><span class="heti-spacing"> </span></span>个是关节变量，它们包含了串联机构的全部空间几何信息</p>
 </div>
 <h2 id="_4">题型<a class="headerlink" href="#_4" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<h3 id="_5">列写运动学参量表<a class="headerlink" href="#_5" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<p>注意坐标系轴要建立正确</p>
 <p><span><span class="arithmatex">\(a_i\)</span><span class="heti-spacing"> </span></span>的求解：相当于求异面直线之间的距离，可以采用</p>
 <div class="arithmatex">\[
 a = \frac{|\vec{M_1M_2} \cdot (\vec{i_1} \times \vec{i_2})|}{|\vec{i_1} \times \vec{i_2}|}
 \]</div>
-<div class="admonition example">
-<p class="admonition-title">运动学参量表的计算</p>
+<h3 id="_5">列写运动学参量表<a class="headerlink" href="#_5" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>注意坐标系轴要建立正确</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="" id="__tabbed_2_1" name="__tabbed_2" type="radio"/><input id="__tabbed_2_2" name="__tabbed_2" type="radio"/><input id="__tabbed_2_3" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="__tabbed_2_1">例<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span></label><label for="__tabbed_2_2">例<span class="heti-skip"><span class="heti-spacing"> </span>2<span class="heti-spacing"> </span></span></label><label for="__tabbed_2_3">正运动学问题</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -3501,10 +3520,13 @@ c_{23} &amp; -s_{23} &amp; 0 &amp; a_2 c_2 \\
 </div>
 </div>
 </div>
-</div>
 <h3 id="_6">列写齐次变换矩阵<a class="headerlink" href="#_6" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>写齐次变换矩阵的时候，可以从<strong>基向量表出</strong>的角度进行。使用原坐标系表示现在坐标系的基</p>
 <p>这样在<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\alpha_{i-1}\)</span><span class="heti-spacing"> </span></span>为<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>或<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\pm\frac{\pi}{2}\)</span><span class="heti-spacing"> </span></span>的时候，可以简化计算。</p>
+<blockquote>
+<p>基向量表出可以看这个视频理解</p>
+</blockquote>
+<iframe allowfullscreen="true" border="0" frameborder="no" framespacing="0" height="450px" scrolling="no" src="//player.bilibili.com/player.html?isOutside=true&amp;aid=44855426&amp;bvid=BV1ib411t7YR&amp;cid=80579031&amp;p=13&amp;autoplay=0&amp;t=168" width="600px"></iframe>
 <h3 id="_7">求末端位置与姿态<a class="headerlink" href="#_7" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p><strong>方法<span><span class="heti-spacing"> </span>1</span></strong><span>:<span class="heti-spacing"> </span></span>几何法转换为三角函数问题（仅适用于平面问题<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>即<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\alpha_i\)</span><span class="heti-spacing"> </span></span>为<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>的时候，比较方便）</p>
 <p><strong>方法<span><span class="heti-spacing"> </span>2</span></strong><span>:<span class="heti-spacing"> </span></span>矩阵法（适用于任意维度）</p>
@@ -3513,12 +3535,14 @@ c_{23} &amp; -s_{23} &amp; 0 &amp; a_2 c_2 \\
 \]</div>
 <p>其中，向量<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\vec{P}\)</span><span class="heti-spacing"> </span></span>代表了机器人末端相对于机器人基座的位置，矩阵<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(R\)</span><span class="heti-spacing"> </span></span>代表了机器人末端相对于机器人基座的姿态（如果要求解角度的话，相当于旋转矩阵转换为欧拉角）</p>
 <div class="admonition tip">
-<p class="admonition-title"><span>Casio fx-991 CNX<span class="heti-spacing"> </span></span>计算器的矩阵计算方法需要掌握（参考<code>/环境配置/计算器</code>页面）</p>
+<p class="admonition-title"><span>Casio fx-991 CNX<span class="heti-spacing"> </span></span>计算器的矩阵计算方法需要掌握</p>
 </div>
 <h3 id="matlab">使用<span class="heti-skip"><span class="heti-spacing"> </span>Matlab<span class="heti-spacing"> </span></span>求解<a class="headerlink" href="#matlab" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>给定<span class="heti-skip"><span class="heti-spacing"> </span>DH<span class="heti-spacing"> </span></span>参数表，计算<span><span class="heti-spacing"> </span><span class="arithmatex">\(^0_N\mathrm{T}\)</span></span></p>
-<p>在化简的过程当中，常常苦恼化简太慢的问题。而且<span class="heti-skip"><span class="heti-spacing"> </span>casio<span class="heti-spacing"> </span></span>等计算器并不能处理带符号的化简。</p>
-<p>在室友的介绍下，学了一下<span class="heti-skip"><span class="heti-spacing"> </span>Matlab<span class="heti-spacing"> </span></span>的符号计算方法，还是比较好用的。</p>
+<p>在化简的过程当中，常常苦恼化简太慢的问题。而且<span class="heti-skip"><span class="heti-spacing"> </span>casio<span class="heti-spacing"> </span></span>等计算器并不能处理带符号的化简。在室友的介绍下，学了一下<span class="heti-skip"><span class="heti-spacing"> </span>Matlab<span class="heti-spacing"> </span></span>的符号计算方法，还是比较好用的。</p>
+<blockquote>
+<p>使用<span class="heti-skip"><span class="heti-spacing"> </span>Matlab<span class="heti-spacing"> </span></span>的在线编辑器</p>
+</blockquote>
 <div class="highlight"><span class="filename">解算步骤</span><pre><span></span><code><span class="k">function</span><span class="w"> </span>T_final<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">compute_DH</span><span class="p">(</span>DH_params<span class="p">)</span>
 <span class="w">    </span><span class="n">n</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">size</span><span class="p">(</span><span class="n">DH_params</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w">  </span><span class="c">% Number of joints</span>
 <span class="w">    </span><span class="n">T_final</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">eye</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
@@ -3563,7 +3587,7 @@ c_{23} &amp; -s_{23} &amp; 0 &amp; a_2 c_2 \\
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年3月18日 14:50:15</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年4月16日 00:38:09</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">
