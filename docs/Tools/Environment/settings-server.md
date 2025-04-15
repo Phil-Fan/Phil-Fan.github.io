@@ -104,42 +104,239 @@ ssh <alias>
 
 ### 使用 `Screen` 持续运行任务
 
+[远程神器 screen命令的保姆级详解教程+举例-CSDN博客](https://blog.csdn.net/weixin_39925939/article/details/121033427)
+
+
 1. 安装 Screen
    ```bash
    sudo apt-get install screen
    ```
 
-2. 创建 Screen 窗口
-   ```bash
-   screen -S <name>
+#### 增
+
+```bash
+screen -S <name>
+```
+- `<name>` 可以设置为 `ssh`、`ftp` 等，用于标识该 Screen 窗口的用途。
+
+#### 改
+```bash title="会允许你输入新的名字"
+Ctrl-a A
+```
+
+
+#### 查
+
+
+```bash
+screen -ls
+```
+
+#### 窗口管理
+
+- **分离窗口**：按 `CTRL-a` 然后按 `d`，可以退出 SSH 登录而不影响 Screen 程序的执行。
+
+- **关闭当前窗口**：
+  ```bash
+  Ctrl-a k
+  ```
+
+- **新建子窗口**：
+  ```bash
+  Ctrl-a c  #在当前的会话下面生成一个新的窗口并切换过去
+  ```
+
+- **列出所有子窗口**：
+  ```bash
+  Ctrl-a w  #列出当前窗口
+  ```
+
+
+
+- 如果只有一个 Screen 进程：
+   ```bash title="恢复运行"
+   screen -r -d
    ```
-   - `<name>` 可以设置为 `ssh`、`ftp` 等，用于标识该 Screen 窗口的用途。
 
-3. 启动项目
-   - 执行 `screen -S <name>` 后，系统会跳入新窗口，在此窗口中启动项目。
+- 如果有多个 Screen 进程，通过 PID 进入：
+   ```bash
+   screen -r -d <PID>
+   ```
+   示例：
+   ```bash
+   screen -r -d 1805
+   ```
 
-4. 退出并保存
-   - 完全退出：`exit`（不会保存 session）。
-   - 分离窗口：按 `CTRL-a` 然后按 `d`，可以退出 SSH 登录而不影响 Screen 程序的执行。
 
-5. 常用命令
-   - 查看 Screen 进程：
+
+#### 删
+
+- 完全退出：`exit`（不会保存 session）。
+
+
+1. **方法一：在 Screen 会话内终止**
+   - 先重新连接到要终止的 Screen 会话：
      ```bash
-     screen -ls
+     screen -r <PID>
      ```
-   - 进入 Screen 进程：
-     - 如果只有一个 Screen 进程：
-       ```bash
-       screen -r -d
-       ```
-     - 如果有多个 Screen 进程，通过 PID 进入：
-       ```bash
-       screen -r -d <PID>
-       ```
-       示例：
-       ```bash
-       screen -r -d 1805
-       ```
+   - 在会话内输入 `exit` 或按 `Ctrl+d` 来终止会话。
+
+2. **方法二：直接从外部终止**
+   ```bash
+   screen -X -S <PID> quit
+   ```
+   或
+   ```bash
+   screen -X -S <session_name> quit
+   ```
+   这会直接终止指定的 Screen 会话，无需先连接到会话。
+
+
+
+清理会话
+```bash
+screen -wipe #清理那些dead的会话
+```
+
+[远程神器 screen命令的保姆级详解教程+举例-CSDN博客](https://blog.csdn.net/weixin_39925939/article/details/121033427)
+
+## 内网穿透
+
+公网：人人都可以访问
+
+内网：需要特定的网络才可以访问
+
+内网穿透就是将内网的服务暴露给公网访问
+
+
+### Server端配置    
+下载安装包
+
+
+```shell title="解压"
+tar -zxvf frp_0.61.2_linux_amd64.tar.gz
+```
+
+```shell title="进入目录"
+cd frp_0.61.2_linux_amd64
+```
+
+```shell title="编辑frps.toml"
+vim frps.toml
+```
+
+```toml title="frps.toml"
+bindPort = 7000      # 服务端与客户端通信端口
+# vhostHTTPPort = 80   # 如果客户端需要使用http服务，在这里配置代理端口
+
+auth.token = "token"                    # 身份验证令牌，frpc要与frps一致
+
+# Server Dashboard，可以查看frp服务状态以及统计信息
+webServer.addr = "0.0.0.0"              # 后台管理地址
+webServer.port = 7500                   # 后台管理端口
+webServer.user = "admin"                # 后台登录用户名
+webServer.password = "admin"            # 后台登录密码
+```
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250318114804586.png)
+
+访问公网ip的7500端口，可以查看frp服务状态以及统计信息
+
+
+
+
+!!! note "注意这里需要在aliyun控制台的安全组中添加7000和7500端口"
+    ```shell title="开放服务端端口"
+    sudo ufw allow 7000/tcp    # FRP主端口
+    sudo ufw allow 7500/tcp    # 仪表盘
+    sudo ufw allow 40443/tcp   # HTTP穿透
+    sudo ufw allow 40800/tcp   # HTTPS穿透
+    ```
+
+
+
+```shell title="后台运行"
+#服务器端
+nohup ./frps -c frps.toml &
+```
+
+
+### Client端配置
+
+接下来配置客户端侧（frpc = frp client）
+
+
+
+```shell title="客户端"
+#客户端
+nohup ./frpc -c frpc.toml &
+```
+
+```shell title="开机自启动"
+sudo vi /etc/rc.local  
+
+#自行修改为绝对路径
+nohup /root/frp/frpc -c /root/frp/frpc.toml &
+```
+
+```shell title="编辑frpc.ini"
+[common]
+server_addr = <server_ip>
+server_port = 7000              # 服务端bind_port
+auth.token = "your_secure_token_here"
+
+# ----------- TCP穿透示例（SSH服务）------------
+[ssh]
+type = tcp
+local_ip = 127.0.0.1
+local_port = 22
+remote_port = 6000
+```
+
+!!! note "特别注意，字符串要加双引号，数字和ip不要加双引号，尽量不要写注释"
+
+
+```shell title="启动"
+./frpc -c frpc.ini
+```
+
+这个时候，服务端应该会收到客户端的连接请求，可以看到类似如下信息
+
+```shell title="成功信息"
+
+```
+
+
+```shell title="可以使用这个指令查看server有没有监测端口，如果没有的话就是配置错误问题"
+sudo netstat -tulnp | grep ':6000'
+```
+
+
+```shell title="ssh连接"
+ssh -p 6000 <client_username>@<server_ip>
+```
+
+要特别注意这里是client的username，而不是server的username
+
+这个时候应该就可以配置成功了
+
+
+!!! note "如果报错了试着使用su权限运行一下，说不定可以"
+
+
+
+
+[error unmarshaling JSON: while decoding JSON: json: cannot unmarshal string into Go value of type v1.ServerConfig · Issue #3657 · fatedier/frp](https://github.com/fatedier/frp/issues/3657)
+
+
+| **场景**                     | **代理类型** | **本地端口** | **远程端口** | **用途** |
+|------------------------------|-------------|--------------|--------------|----------|
+| 远程 SSH 访问                | TCP         | 22           | 6000         | 远程 SSH 进内网服务器 |
+| 内网 Web 服务器访问          | HTTP        | 8080         | 8081         | 访问本地网站 |
+| 访问家中 NAS / 服务器        | TCP         | 445/5005     | 4445/5055    | 远程访问 SMB 或 WebDAV |
+| 远程数据库访问               | TCP         | 3306/5432    | 13306/15432  | 远程连接 MySQL / PostgreSQL |
+| 远程桌面（RDP）              | TCP         | 3389         | 13389        | 远程控制 Windows |
+| 远程管理 Docker API          | TCP         | 2375         | 12375        | 远程管理 Docker |
+
 
 
 ## 远程连接

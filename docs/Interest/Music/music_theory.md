@@ -220,12 +220,21 @@ bpm: beat per minute
 ![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/4d3fqpu0.jpg)
 
 
+### 和弦命名
+
+类似于确定一个三角形需要SAS或者ASA
+
+确定一个和弦需要知道和弦的根音和和弦的类型，所以可以命名根音和音程关系，就可以确定一个和弦
+
+- 用大写字母表示根音：CDEFGAB
+- 用小写字母表示和弦的类型
+  - 大三和弦：省略、maj、M 
+  - 小三和弦：m*；min
+  - 减三和弦：dim*；diminished
+
+
 ### 三和弦
 
-### 七和弦
-
-
-### 九和弦
 
 ### 和弦转位
 
@@ -250,6 +259,9 @@ bpm: beat per minute
 
 ![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/qqfcyxzm.jpg)
 
+### 调式音阶
+
+如何从海量的和弦中选出好听的组合？
 
 
 ## 进阶拓展

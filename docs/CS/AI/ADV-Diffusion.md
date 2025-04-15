@@ -1,7 +1,26 @@
 # Diffusion Model
 
+## 正向
 
-## EXP - Diffusion Policy: Diffusion applied to control
+
+## 反向
+
+
+## 参考资料
+
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=112707088943539&bvid=BV1xih7ecEMb&cid=500001601124266&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" height="450" width="600"></iframe>
+
+
+## EXP-1 - CV - 使用 diffusion 生成图像
+
+
+## EXP-2 - CV - diffusion model in MineCraft
+
+
+## EXP-3 - LLM - 使用 diffusion 生成文本
+
+
+## EXP-4 - RL - Diffusion Policy
 
 1. **安装 Anaconda**
 
@@ -80,3 +99,6 @@
      ```
 
 以上就是关于 diffusion policy 的代码复现全部过程，详细文章及代码请看：[https://diffusion-policy.cs.columbia.edu](https://diffusion-policy.cs.columbia.edu)
+
+
+

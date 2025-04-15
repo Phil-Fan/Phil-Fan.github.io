@@ -449,7 +449,7 @@ brew install mactex --cask
 > [VS Code Latex 极为简单方便的正反向定位解决办法](https://blog.csdn.net/daodao098/article/details/140791192)
 
 
-
+#### setting 配置
 下载`Latex Workshop`插件。
 
 按`ctrl+,`进入设置，点击右上角的“白纸”图标，选择`setting.json`。
@@ -565,18 +565,42 @@ brew install mactex --cask
 "latex-workshop.view.pdf.internal.synctex.keybinding": "double-click",
 ```
 
-**正向定位**
+#### **正向定位**
 
 ```json title="鼠标双击正向定位"
 "latex-workshop.view.pdf.internal.synctex.keybinding": "double-click",
 ```
 
-**反向定位**
+#### **反向定位**
 
 在 VS Code 中选择 快捷键设置 （`Keyboard Shortcuts`），搜索 `SyncTeX from cursor` ”`，将对应的快捷键改成你想要的组合，保存之后就可以通过快捷键组合实现反向搜索。
 
 
+#### **快捷键**
 
+F1  输入`Open Keyboard Shortcuts`
+
+在`keybindings.json`中加入
+```json title="快捷键，可以自己改key binding"
+{
+    "key": "cmd+b",
+    "scope": "latex",
+    "command": "editor.action.insertSnippet",
+    "when": "editorTextFocus && editorLangId == 'latex'",
+    "args": {
+        "snippet": "\\textbf{$TM_SELECTED_TEXT}$0"
+    }
+},
+{
+    "key": "ctrl+i",
+    "scope": "latex",
+    "command": "editor.action.insertSnippet",
+    "when": "editorTextFocus && editorLangId == 'latex'",
+    "args": {
+        "snippet": "\\textit{$TM_SELECTED_TEXT}$0"
+    }
+}
+```
 
 !!! bug "chetex：warning ..."
     在`setting.json`中加入

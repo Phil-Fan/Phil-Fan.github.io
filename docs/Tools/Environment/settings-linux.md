@@ -65,9 +65,7 @@ vim /etc/apt/sources.list
     [ubuntu | 镜像站使用帮助 | 清华大学开源软件镜像站 | Tsinghua Open Source Mirror](https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/)
 
     ```shell
-    # 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释
-    deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal main restricted universe multiverse
-    # deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal main restricted universe multiverse
+    estricted universe multiverse
     deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-updates main restricted universe multiverse
     # deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-updates main restricted universe multiverse
     deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-backports main restricted universe multiverse
@@ -102,7 +100,9 @@ vim /etc/apt/sources.list
     deb https://mirrors.ustc.edu.cn/ubuntu/ focal-backports main restricted universe multiverse
     deb-src https://mirrors.ustc.edu.cn/ubuntu/ focal-backports main restricted universe multiverse
     deb https://mirrors.ustc.edu.cn/ubuntu/ focal-security main restricted universe multiverse
-    deb-src https://mirrors.ustc.edu.cn/ubuntu/ focal-security main restricted universe multiverse
+    deb-src https://mirrors.ustc.edu.cn/ubuntu/ focal-security main restricted univ# 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释
+    deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal main restricted universe multiverse
+    # deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal main rerse multiverse
     deb https://mirrors.ustc.edu.cn/ubuntu/ focal-proposed main restricted universe multiverse
     deb-src https://mirrors.ustc.edu.cn/ubuntu/ focal-proposed main restricted universe multiverse
     ```

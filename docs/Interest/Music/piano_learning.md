@@ -123,6 +123,7 @@ F和弦：
 
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=63771647&bvid=BV1L4411U7Fj&cid=110717051&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="600px" height="450px"></iframe>
 
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250414083827.png)
 
 ## 流行曲目
 

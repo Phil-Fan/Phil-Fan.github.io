@@ -241,7 +241,6 @@ nav:
     - Class/Philosophy.md
     - Class/Philosophy-by-topic.md
     - Class/Books/strategy.md
-     
 
 - Math:
   - Math/Logic.md
@@ -264,6 +263,13 @@ nav:
     - Math/Statistic/12-data_mining.md
     - Math/Statistic/big_data_security&privacy_protection.md
     - Math/Statistic/variable.md
+  - "随机过程":
+    - Math/StochasticProcess/00-Index.md
+    - Math/StochasticProcess/01-Concept.md
+    - Math/StochasticProcess/02-Markov.md
+    - Math/StochasticProcess/03-Possion.md
+    - Math/StochasticProcess/04-Brown.md
+    - Math/StochasticProcess/05-StationaryProcess.md
   - OR:
     - Math/OR/OR-00-index.md
     - Math/OR/OR-01-programming.md
@@ -301,7 +307,6 @@ nav:
     - Robotics/Control/Control-04-optimal.md
     - Robotics/Control/Control-10-经典控制方法.md
     - Robotics/Control/Control-11-智能控制方法.md
-    - Robotics/Control/Control-20-电气控制.md
     - Robotics/Control/Control-21-供配电.md
 
   - "机器人":
@@ -430,6 +435,9 @@ nav:
 
     - "RL | 强化学习":
       - CS/AI/RL-01.md
+    
+    - "ADV | 前沿":
+      - CS/AI/ADV-Diffusion.md
 
     - "SEC | 人工智能安全":
       - CS/AI/SEC-01-attack.md
