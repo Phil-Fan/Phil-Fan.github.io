@@ -1241,6 +1241,17 @@
       数学基础：三角变换
     </span>
 </a>
+<nav aria-label="数学基础：三角变换" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#arctan2">
+<span class="md-ellipsis">
+      反正切 arctan2
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_2">
@@ -3333,6 +3344,17 @@
       数学基础：三角变换
     </span>
 </a>
+<nav aria-label="数学基础：三角变换" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#arctan2">
+<span class="md-ellipsis">
+      反正切 arctan2
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_2">
@@ -3453,7 +3475,7 @@
 <article class="md-content__inner md-typeset">
 <div><h1 id="03-"><span>03 |<span class="heti-spacing"> </span></span>逆运动学<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>已知位姿求解角度<a class="headerlink" href="#03-" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>3338<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"></path></svg></span> <span>1<span class="heti-spacing"> </span></span>行代码 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>13<span class="heti-spacing"> </span></span>分钟</p>
+<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>3495<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"></path></svg></span> <span>1<span class="heti-spacing"> </span></span>行代码 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>14<span class="heti-spacing"> </span></span>分钟</p>
 </div>
 <p>本章内容：给定工具坐标系的位置和姿态，解算出个各关节变量；</p>
 <p>笛卡尔空间转换到关节空间</p>
@@ -3526,6 +3548,39 @@
 <li><span class="arithmatex">\(b^{2}=a^{2}+c^{2}-2ac\cos B\)</span></li>
 <li><span class="arithmatex">\(c^{2}=a^{2}+b^{2}-2ab\cos C\)</span></li>
 </ul>
+<h3 id="arctan2">反正切<span><span class="heti-spacing"> </span>arctan2</span><a class="headerlink" href="#arctan2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="" id="__tabbed_2_1" name="__tabbed_2" type="radio"/><input id="__tabbed_2_2" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="__tabbed_2_1"><span>arctan2<span class="heti-spacing"> </span></span></label><label for="__tabbed_2_2"><span>arctan<span class="heti-spacing"> </span></span>的局限性</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><span><span class="arithmatex">\(\arctan2(y, x)\)</span><span class="heti-spacing"> </span></span>函数<strong>接受两个参数</strong>（<span><span class="arithmatex">\(y\)</span><span class="heti-spacing"> </span></span>和<span><span class="heti-spacing"> </span><span class="arithmatex">\(x\)</span></span><heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，而不是它们的比值，具有以下优势：</p>
+<ul>
+<li>能够正确区分四个象限</li>
+<li>可以处理<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(x = 0\)</span><span class="heti-spacing"> </span></span>的情况</li>
+<li>结果范围为<span><span class="heti-spacing"> </span><span class="arithmatex">\((-\pi, \pi]\)</span></span>，覆盖完整的角度范围</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<p><span>arctan<span class="heti-spacing"> </span></span>的局限性：只有一个参数<span><span class="heti-spacing"> </span><span class="arithmatex">\(\frac{y}{x}\)</span></span>，丢失了象限信息</p>
+<ul>
+<li><strong>无法区分象限</strong>：例如<span><span class="heti-spacing"> </span><span class="arithmatex">\(\arctan(\frac{1}{1}) = \arctan(\frac{-1}{-1}) = \frac{\pi}{4}\)</span></span>，但这两个点实际上在不同象限</li>
+<li><strong>当<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(x = 0\)</span><span class="heti-spacing"> </span></span>时无法计算</strong>（除零错误）</li>
+<li><strong>结果范围仅为<span><span class="heti-spacing"> </span><span class="arithmatex">\((-\frac{\pi}{2}, \frac{\pi}{2})\)</span></span></strong>，不能表示完整的<span class="heti-skip"><span class="heti-spacing"> </span>360°<span class="heti-spacing"> </span></span>范围</li>
+</ul>
+</div>
+</div>
+</div>
+<p>定义如下：</p>
+<div class="arithmatex">\[
+\text{arctan2}(y, x) = 
+\begin{cases}
+\arctan(y/x) &amp; \text{if } x &gt; 0 \\
+\arctan(y/x) + \pi &amp; \text{if } x &lt; 0 \text{ and } y \geq 0 \\
+\arctan(y/x) - \pi &amp; \text{if } x &lt; 0 \text{ and } y &lt; 0 \\
++\pi/2 &amp; \text{if } x = 0 \text{ and } y &gt; 0 \\
+-\pi/2 &amp; \text{if } x = 0 \text{ and } y &lt; 0 \\
+\text{undefined} &amp; \text{if } x = 0 \text{ and } y = 0
+\end{cases}
+\]</div>
 <h2 id="_2">工作空间与自由度<a class="headerlink" href="#_2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <h3 id="degrees-of-freedom">自由度 ｜ Degrees of Freedom<a class="headerlink" href="#degrees-of-freedom" title="anchor link to this section for reference">¶</a></h3>
 <details class="info">
@@ -3707,7 +3762,7 @@ r &amp;= x^2 + y^2 + z^2 \\
 &amp;= g_1^2 + g_2^2 + g_3^2 = f_1^2 + f_2^2 + f_3^2 + a_1^2 + d_2^2 + 2a_1(c_2 f_1 - s_2 f_2)
 \end{align}
 \]</div>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:4"><input checked="" id="__tabbed_2_1" name="__tabbed_2" type="radio"/><input id="__tabbed_2_2" name="__tabbed_2" type="radio"/><input id="__tabbed_2_3" name="__tabbed_2" type="radio"/><input id="__tabbed_2_4" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="__tabbed_2_1">求解<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\theta_3\)</span><span class="heti-spacing"> </span></span></label><label for="__tabbed_2_2">求解<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\theta_2\)</span><span class="heti-spacing"> </span></span></label><label for="__tabbed_2_3">求解<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\theta_1\)</span><span class="heti-spacing"> </span></span></label><label for="__tabbed_2_4">求解<span><span class="heti-spacing"> </span><span class="arithmatex">\(\theta_4, \theta_5, \theta_6\)</span></span></label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:4"><input checked="" id="__tabbed_3_1" name="__tabbed_3" type="radio"/><input id="__tabbed_3_2" name="__tabbed_3" type="radio"/><input id="__tabbed_3_3" name="__tabbed_3" type="radio"/><input id="__tabbed_3_4" name="__tabbed_3" type="radio"/><div class="tabbed-labels"><label for="__tabbed_3_1">求解<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\theta_3\)</span><span class="heti-spacing"> </span></span></label><label for="__tabbed_3_2">求解<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\theta_2\)</span><span class="heti-spacing"> </span></span></label><label for="__tabbed_3_3">求解<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\theta_1\)</span><span class="heti-spacing"> </span></span></label><label for="__tabbed_3_4">求解<span><span class="heti-spacing"> </span><span class="arithmatex">\(\theta_4, \theta_5, \theta_6\)</span></span></label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>简化表达，得到：</p>
@@ -3797,7 +3852,7 @@ z = (k_1 s_2 - k_2 c_2) s \alpha_1 + k_4
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年4月16日 00:38:09</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年4月16日 16:01:33</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">

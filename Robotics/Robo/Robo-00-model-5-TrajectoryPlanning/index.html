@@ -1324,11 +1324,18 @@
     </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#slerp_1">
+<span class="md-ellipsis">
+      Slerp拓展：对角速度有约束
+    </span>
+</a>
+</li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_12">
+<a class="md-nav__link" href="#_14">
 <span class="md-ellipsis">
       题型
     </span>
@@ -1336,14 +1343,14 @@
 <nav aria-label="题型" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_13">
+<a class="md-nav__link" href="#_15">
 <span class="md-ellipsis">
       多项式参数计算：时间、速度
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_14">
+<a class="md-nav__link" href="#_16">
 <span class="md-ellipsis">
       抛物线过渡计算
     </span>
@@ -1353,31 +1360,6 @@
 <a class="md-nav__link" href="#matlab">
 <span class="md-ellipsis">
       matlab求解方程
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_15">
-<span class="md-ellipsis">
-      有约束的轨迹规划（未提及）
-    </span>
-</a>
-<nav aria-label="有约束的轨迹规划（未提及）" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_16">
-<span class="md-ellipsis">
-      避障
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_17">
-<span class="md-ellipsis">
-      加速度/速度限制
     </span>
 </a>
 </li>
@@ -3420,11 +3402,18 @@
     </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#slerp_1">
+<span class="md-ellipsis">
+      Slerp拓展：对角速度有约束
+    </span>
+</a>
+</li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_12">
+<a class="md-nav__link" href="#_14">
 <span class="md-ellipsis">
       题型
     </span>
@@ -3432,14 +3421,14 @@
 <nav aria-label="题型" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_13">
+<a class="md-nav__link" href="#_15">
 <span class="md-ellipsis">
       多项式参数计算：时间、速度
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_14">
+<a class="md-nav__link" href="#_16">
 <span class="md-ellipsis">
       抛物线过渡计算
     </span>
@@ -3455,31 +3444,6 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_15">
-<span class="md-ellipsis">
-      有约束的轨迹规划（未提及）
-    </span>
-</a>
-<nav aria-label="有约束的轨迹规划（未提及）" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_16">
-<span class="md-ellipsis">
-      避障
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_17">
-<span class="md-ellipsis">
-      加速度/速度限制
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
 </ul>
 </nav>
 </div>
@@ -3489,10 +3453,42 @@
 <article class="md-content__inner md-typeset">
 <div><h1 id="05"><span>05 |<span class="heti-spacing"> </span></span>轨迹规划<a class="headerlink" href="#05" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>2401<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"></path></svg></span> <span>106<span class="heti-spacing"> </span></span>行代码 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>11<span class="heti-spacing"> </span></span>分钟</p>
+<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>3278<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"></path></svg></span> <span>291<span class="heti-spacing"> </span></span>行代码 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>16<span class="heti-spacing"> </span></span>分钟</p>
 </div>
 <p>为每个关节计算连续的运动轨迹，使末端执行器在空间中从点<span class="heti-skip"><span class="heti-spacing"> </span>A<span class="heti-spacing"> </span></span>移动到点<span><span class="heti-spacing"> </span>B</span></p>
-<p>[toc]</p>
+<p>难点：</p>
+<ul>
+<li>求解方程<span class="heti-skip"><span class="heti-spacing"> </span>;<span class="heti-spacing"> </span></span>公式理解</li>
+<li>列写方程之后，检查未知数个数和方程个数是否匹配</li>
+</ul>
+<div class="toc">
+<ul>
+<li><a href="#05"><span>05 |<span class="heti-spacing"> </span></span>轨迹规划</a><ul>
+<li><a href="#_1">关节空间规划</a><ul>
+<li><a href="#_2">线性插值</a></li>
+<li><a href="#_3">三次多项式：规划位置<span class="heti-skip"><span class="heti-spacing"> </span>&amp;<span class="heti-spacing"> </span></span>速度</a></li>
+<li><a href="#_4">三次<span class="heti-skip"><span class="heti-spacing"> </span>+<span class="heti-spacing"> </span></span>中间点</a></li>
+<li><a href="#_5">五次多项式：规划位置<span class="heti-skip"><span class="heti-spacing"> </span>&amp;<span class="heti-spacing"> </span></span>速度<span class="heti-skip"><span class="heti-spacing"> </span>&amp;<span class="heti-spacing"> </span></span>加速度</a></li>
+<li><a href="#_6">直线段<span class="heti-skip"><span class="heti-spacing"> </span>+<span class="heti-spacing"> </span></span>抛物线过渡</a></li>
+<li><a href="#_7">中间点<span class="heti-skip"><span class="heti-spacing"> </span>+<span class="heti-spacing"> </span></span>抛物线过渡</a></li>
+</ul>
+</li>
+<li><a href="#_10">笛卡尔空间规划</a><ul>
+<li><a href="#_11">等效轴角插值</a></li>
+<li><a href="#slerp">Slerp ｜ 四元数球面线性插值</a></li>
+<li><a href="#slerp_1"><span>Slerp<span class="heti-spacing"> </span></span>拓展：对角速度有约束</a></li>
+</ul>
+</li>
+<li><a href="#_14">题型</a><ul>
+<li><a href="#_15">多项式参数计算：时间、速度</a></li>
+<li><a href="#_16">抛物线过渡计算</a></li>
+<li><a href="#matlab"><span>matlab<span class="heti-spacing"> </span></span>求解方程</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
 <table>
 <thead>
 <tr>
@@ -3535,6 +3531,7 @@
 </tbody>
 </table>
 <h2 id="_1">关节空间规划<a class="headerlink" href="#_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<p>任务描述：给定末端工具坐标系的位置和姿态，逆运动学求解出各个位姿对应的关节角，然后利用插值计算每个关节的运动轨迹。</p>
 <table>
 <thead>
 <tr>
@@ -3634,31 +3631,51 @@
 <li>速度约束：第一段起点速度，第二段终点速度，中间点速度相等</li>
 <li>加速度联系约束：中间点加速度相等</li>
 </ul>
-<div class="highlight"><span class="filename">cubic_spline</span><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">cubic_spline</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">duration</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""</span>
-<span class="sd">    分段三次多项式插值</span>
-<span class="sd">    :param start: 起始点坐标</span>
-<span class="sd">    :param end: 终点坐标</span>
-<span class="sd">    :param t: 当前时间</span>
-<span class="sd">    :param duration: 总时长</span>
-<span class="sd">    :return: 当前时刻的位置</span>
-<span class="sd">    """</span>
-    <span class="k">if</span> <span class="n">t</span> <span class="o">&lt;</span> <span class="n">duration</span><span class="p">:</span>
-        <span class="n">tx</span> <span class="o">=</span> <span class="n">t</span> <span class="o">/</span> <span class="n">duration</span>
-        <span class="k">if</span> <span class="n">t</span> <span class="o">&lt;</span> <span class="mf">0.25</span> <span class="o">*</span> <span class="n">duration</span><span class="p">:</span>
-            <span class="n">tx</span> <span class="o">=</span> <span class="mi">32</span> <span class="o">/</span> <span class="mi">6</span> <span class="o">*</span> <span class="p">(</span><span class="n">tx</span> <span class="o">**</span> <span class="mi">3</span><span class="p">)</span>
-        <span class="k">elif</span> <span class="n">t</span> <span class="o">&lt;</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">duration</span><span class="p">:</span>
-            <span class="n">tx</span> <span class="o">=</span> <span class="o">-</span><span class="mi">32</span> <span class="o">/</span> <span class="mi">6</span> <span class="o">*</span> <span class="p">(</span><span class="n">tx</span> <span class="o">-</span> <span class="mf">0.25</span><span class="p">)</span> <span class="o">**</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">4</span> <span class="o">*</span> <span class="p">(</span><span class="n">tx</span> <span class="o">-</span> <span class="mf">0.25</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">tx</span> <span class="o">-</span> <span class="mf">0.25</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">12</span>
-        <span class="k">elif</span> <span class="n">t</span> <span class="o">&lt;</span> <span class="mf">0.75</span> <span class="o">*</span> <span class="n">duration</span><span class="p">:</span>
-            <span class="n">tx</span> <span class="o">=</span> <span class="o">-</span><span class="mi">32</span> <span class="o">/</span> <span class="mi">6</span> <span class="o">*</span> <span class="p">(</span><span class="n">tx</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">**</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">tx</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.5</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">tx</span> <span class="o">=</span> <span class="mi">32</span> <span class="o">/</span> <span class="mi">6</span> <span class="o">*</span> <span class="p">(</span><span class="n">tx</span> <span class="o">-</span> <span class="mf">0.75</span><span class="p">)</span> <span class="o">**</span> <span class="mi">3</span> <span class="o">-</span> <span class="mi">4</span> <span class="o">*</span> <span class="p">(</span><span class="n">tx</span> <span class="o">-</span> <span class="mf">0.75</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">tx</span> <span class="o">-</span> <span class="mf">0.75</span><span class="p">)</span> <span class="o">+</span> <span class="mi">11</span> <span class="o">/</span> <span class="mi">12</span>
-        <span class="n">x_array</span> <span class="o">=</span> <span class="n">start</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">tx</span><span class="p">)</span> <span class="o">+</span> <span class="n">end</span> <span class="o">*</span> <span class="n">tx</span>
-        <span class="n">x_angles</span> <span class="o">=</span> <span class="n">inverse_kinematics</span><span class="p">(</span><span class="n">x_array</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">x_angles</span> <span class="o">=</span> <span class="n">inverse_kinematics</span><span class="p">(</span><span class="n">end</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">x_angles</span>
-</code></pre></div>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250416154011.png"/></p>
+<div class="highlight"><table class="highlighttable"><tr><th class="filename" colspan="2"><span class="filename">三次<span class="heti-skip"><span class="heti-spacing"> </span>+<span class="heti-spacing"> </span></span>两个中间点</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">clc</span><span class="p">;</span><span class="n">clear</span><span class="p">;</span>
+<span class="o">%</span><span class="n">定义时间节点和位置</span><span class="err">（</span><span class="n">包含起点</span><span class="err">、</span><span class="n">两个中间点</span><span class="err">、</span><span class="n">终点</span><span class="err">）</span>
+<span class="n">t_points</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">];</span><span class="o">%</span><span class="n">时间参数</span>
+<span class="n">y_points</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">];</span><span class="o">%</span><span class="n">Y坐标</span><span class="err">：</span><span class="n">起点</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span><span class="n">中间点1</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="n">中间点2</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span><span class="n">终点</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="o">%</span><span class="n">拟合三次多项式</span><span class="err">（</span><span class="mi">4</span><span class="n">个点需要3次多项式</span><span class="err">）</span>
+<span class="hll"><span class="n">poly_y</span><span class="o">=</span><span class="n">polyfit</span><span class="p">(</span><span class="n">t_points</span><span class="p">,</span><span class="n">y_points</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span><span class="o">%</span><span class="n">Y方向多项式系数</span>
+</span>
+<span class="o">%</span><span class="n">生成密集插值点</span>
+<span class="n">t_dense</span><span class="o">=</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">100</span><span class="p">);</span>
+<span class="n">y_traj</span><span class="o">=</span><span class="n">polyval</span><span class="p">(</span><span class="n">poly_y</span><span class="p">,</span><span class="n">t_dense</span><span class="p">);</span><span class="o">%</span><span class="n">Y轨迹</span>
+
+<span class="o">%</span><span class="n">绘制结果</span>
+<span class="n">figure</span><span class="p">;</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">t_dense</span><span class="p">,</span><span class="n">y_traj</span><span class="p">,</span><span class="s1">'b-'</span><span class="p">,</span><span class="s1">'LineWidth'</span><span class="p">,</span><span class="mf">1.5</span><span class="p">);</span>
+<span class="n">hold</span> <span class="n">on</span><span class="p">;</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">t_points</span><span class="p">,</span><span class="n">y_points</span><span class="p">,</span><span class="s1">'ro'</span><span class="p">,</span><span class="s1">'MarkerSize'</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="s1">'MarkerFaceColor'</span><span class="p">,</span><span class="s1">'r'</span><span class="p">);</span>
+<span class="n">xlabel</span><span class="p">(</span><span class="s1">'t'</span><span class="p">);</span>
+<span class="n">ylabel</span><span class="p">(</span><span class="s1">'y'</span><span class="p">);</span>
+<span class="n">title</span><span class="p">(</span><span class="s1">'多项式轨迹（含两个中间点）'</span><span class="p">);</span>
+<span class="n">legend</span><span class="p">(</span><span class="s1">'多项式轨迹'</span><span class="p">,</span><span class="s1">'控制点'</span><span class="p">,</span><span class="s1">'Location'</span><span class="p">,</span><span class="s1">'SouthEast'</span><span class="p">);</span>
+<span class="n">grid</span> <span class="n">on</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
 <h3 id="_5">五次多项式：规划位置<span class="heti-skip"><span class="heti-spacing"> </span>&amp;<span class="heti-spacing"> </span></span>速度<span class="heti-skip"><span class="heti-spacing"> </span>&amp;<span class="heti-spacing"> </span></span>加速度<a class="headerlink" href="#_5" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>思路比较类似。</p>
 <div class="arithmatex">\[
@@ -3795,7 +3812,121 @@ t_{12} = t_{d12} - t_1 - \frac{1}{2} t_2
 <h2 id="_10">笛卡尔空间规划<a class="headerlink" href="#_10" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p>旋转矩阵和欧拉角不可以插值的原因：插值得到的<span class="heti-skip"><span class="heti-spacing"> </span>R<span class="heti-spacing"> </span></span>矩阵不一定属于<span><span class="heti-spacing"> </span>SO(3)</span></p>
 <h3 id="_11">等效轴角插值<a class="headerlink" href="#_11" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>等效轴角的表示：<span><span class="arithmatex">\((\hat{k}_{x},\hat{k}_{y},\hat{k}_{z})^{\mathrm{T}}\)</span><span class="heti-spacing"> </span></span>为等效单位转动轴，<span><span class="arithmatex">\(\theta\)</span><span class="heti-spacing"> </span></span>为绕该轴的转动量（这里单位为<span><span class="heti-spacing"> </span>°</span>）</p>
+<div class="arithmatex">\[
+\boldsymbol{K}=\left(\begin{array}{c} k_{x} \\ k_{y} \\ k_{z} \end{array}\right)=\theta\left(\begin{array}{c} \hat{k}_{x} \\ \hat{k}_{y} \\ \hat{k}_{z} \end{array}\right)
+\]</div>
+<details class="note">
+<summary>等效轴角表示并不唯一</summary>
+<div class="arithmatex">\[
+\left(\begin{array}{c} k_{x} \\ k_{y} \\ k_{z} \end{array}\right)=\left(\begin{array}{c} 450° \\ 900° \\ 1350° \end{array}\right)/\sqrt{14}
+\]</div>
+<p>可以表示围绕空间<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\((1,2,3)^{\mathrm{T}}/\sqrt{14}\)</span><span class="heti-spacing"> </span></span>轴旋转<span class="heti-skip"><span class="heti-spacing"> </span>450°<span class="heti-spacing"> </span></span>获得的姿态，该最终姿态也等于绕同一轴旋转<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(450°+360°n\)</span><span class="heti-spacing"> </span></span>的结果，这里<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(n\)</span><span class="heti-spacing"> </span></span>为任意整数。</p>
+<p>并且注意等效轴角在<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\theta =0\)</span><span class="heti-spacing"> </span></span>的时候无法表示，所以需要特殊处理。</p>
+</details>
+<p>对两个等效轴角表示的姿态</p>
+<div class="arithmatex">\[
+\boldsymbol{K}_{0}=\left(\begin{array}{c} k_{0x} \\ k_{0y} \\ k_{0z} \end{array}\right) \text { 和 } \boldsymbol{K}_{1}=\left(\begin{array}{c} k_{1x} \\ k_{1y} \\ k_{1z} \end{array}\right)
+\]</div>
+<p>插值时，通常应该选择使得<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\left\|\left(\begin{array}{c} k_{0x} \\ k_{0y} \\ k_{0z} \end{array}\right)-(\theta_{1}+360n)\left(\begin{array}{c} \hat{k}_{1x} \\ \hat{k}_{1y} \\ \hat{k}_{1z} \end{array}\right)\right\|\)</span><span class="heti-spacing"> </span></span>最小的<span><span class="heti-spacing"> </span><span class="arithmatex">\(n\)</span></span>，然后对<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\left(\begin{array}{c} k_{0x} \\ k_{0y} \\ k_{0z} \end{array}\right) \text { 和 } \left(\theta_{1}+360n\right)\left(\begin{array}{c} \hat{k}_{1x} \\ \hat{k}_{1y} \\ \hat{k}_{1z} \end{array}\right)\)</span><span class="heti-spacing"> </span></span>运用前面的多项式或带抛物线过渡直线段等插值方法。</p>
+<h4 id="_12">代码实现<a class="headerlink" href="#_12" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/rotation_animation.gif"/></p>
+<details class="note">
+<summary>编程实现等效轴角的插值，并比较不同<span class="heti-skip"><span class="heti-spacing"> </span>n<span class="heti-spacing"> </span></span>下的结果</summary>
+<div class="highlight"><span class="filename">等效轴角插值</span><pre><span></span><code><span class="n">clc</span><span class="p">;</span><span class="n">clear</span><span class="p">;</span>
+<span class="o">%</span><span class="n">主程序</span>
+<span class="o">%</span><span class="n">初始姿态示例</span><span class="err">：</span><span class="n">绕z轴旋转0和π</span><span class="o">/</span><span class="mi">2</span>
+<span class="n">K0</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">];</span> <span class="o">%</span><span class="n">初始姿态</span><span class="err">（</span><span class="n">无旋转</span><span class="err">）</span>
+<span class="n">n_values</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">];</span> <span class="o">%</span><span class="n">不同n值测试</span>
+
+<span class="o">%</span> <span class="n">创建3个子图</span>
+<span class="n">figure</span><span class="p">(</span><span class="s1">'Position'</span><span class="p">,[</span><span class="mi">100</span> <span class="mi">100</span> <span class="mi">1200</span> <span class="mi">400</span><span class="p">]);</span>
+<span class="n">subplot_handles</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span>
+<span class="n">h_x</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span>
+<span class="n">h_y</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span>
+<span class="n">h_z</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span>
+
+<span class="o">%</span> <span class="n">初始化3个子图</span>
+<span class="k">for</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">length</span><span class="p">(</span><span class="n">n_values</span><span class="p">)</span>
+    <span class="n">subplot_handles</span><span class="p">(</span><span class="n">j</span><span class="p">)</span> <span class="o">=</span> <span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">j</span><span class="p">);</span>
+    <span class="n">hold</span> <span class="n">on</span><span class="p">;</span>
+    <span class="n">grid</span> <span class="n">on</span><span class="p">;</span>
+    <span class="n">axis</span> <span class="n">equal</span><span class="p">;</span>
+    <span class="n">xlabel</span><span class="p">(</span><span class="s1">'X'</span><span class="p">);</span>
+    <span class="n">ylabel</span><span class="p">(</span><span class="s1">'Y'</span><span class="p">);</span>
+    <span class="n">zlabel</span><span class="p">(</span><span class="s1">'Z'</span><span class="p">);</span>
+    <span class="n">view</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+    <span class="n">xlim</span><span class="p">([</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span><span class="mf">1.5</span><span class="p">]);</span>
+    <span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span><span class="mf">1.5</span><span class="p">]);</span>
+    <span class="n">zlim</span><span class="p">([</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span><span class="mf">1.5</span><span class="p">]);</span>
+    <span class="n">title</span><span class="p">([</span><span class="s1">'n='</span><span class="p">,</span><span class="n">num2str</span><span class="p">(</span><span class="n">n_values</span><span class="p">(</span><span class="n">j</span><span class="p">))]);</span>
+    
+    <span class="o">%</span> <span class="n">初始化动画对象</span>
+    <span class="n">origin</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">;</span><span class="mi">0</span><span class="p">;</span><span class="mi">0</span><span class="p">];</span>
+    <span class="n">h_x</span><span class="p">(</span><span class="n">j</span><span class="p">)</span> <span class="o">=</span> <span class="n">quiver3</span><span class="p">(</span><span class="n">origin</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="n">origin</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="n">origin</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="s1">'r'</span><span class="p">,</span><span class="s1">'LineWidth'</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
+    <span class="n">h_y</span><span class="p">(</span><span class="n">j</span><span class="p">)</span> <span class="o">=</span> <span class="n">quiver3</span><span class="p">(</span><span class="n">origin</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="n">origin</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="n">origin</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="s1">'g'</span><span class="p">,</span><span class="s1">'LineWidth'</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
+    <span class="n">h_z</span><span class="p">(</span><span class="n">j</span><span class="p">)</span> <span class="o">=</span> <span class="n">quiver3</span><span class="p">(</span><span class="n">origin</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="n">origin</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="n">origin</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s1">'b'</span><span class="p">,</span><span class="s1">'LineWidth'</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
+<span class="n">end</span>
+
+<span class="o">%</span> <span class="n">创建动画</span>
+<span class="k">while</span> <span class="n">true</span> <span class="o">%</span> <span class="n">无限循环</span>
+    <span class="k">for</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">0</span><span class="p">:</span><span class="mf">0.01</span><span class="p">:</span><span class="mi">1</span> <span class="o">%</span> <span class="n">减小步长从0</span><span class="mf">.02</span><span class="n">到0</span><span class="mf">.01</span><span class="n">使动画更慢</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">length</span><span class="p">(</span><span class="n">n_values</span><span class="p">)</span>
+            <span class="n">n</span> <span class="o">=</span> <span class="n">n_values</span><span class="p">(</span><span class="n">j</span><span class="p">);</span>
+            <span class="n">K1</span> <span class="o">=</span> <span class="p">(</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="o">*</span><span class="n">n</span><span class="p">)</span><span class="o">*</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">];</span>
+            
+            <span class="o">%</span><span class="n">三次多项式插值</span>
+            <span class="n">kt</span> <span class="o">=</span> <span class="n">K0</span><span class="o">+</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">t</span><span class="o">^</span><span class="mi">2</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">t</span><span class="o">^</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">K1</span><span class="o">-</span><span class="n">K0</span><span class="p">);</span>
+            <span class="n">R</span> <span class="o">=</span> <span class="n">rotation_vector_to_matrix</span><span class="p">(</span><span class="n">kt</span><span class="p">);</span>
+            
+            <span class="o">%</span><span class="n">更新坐标轴</span>
+            <span class="n">x_axis</span> <span class="o">=</span> <span class="n">R</span><span class="o">*</span><span class="p">[</span><span class="mi">1</span><span class="p">;</span><span class="mi">0</span><span class="p">;</span><span class="mi">0</span><span class="p">];</span>
+            <span class="n">y_axis</span> <span class="o">=</span> <span class="n">R</span><span class="o">*</span><span class="p">[</span><span class="mi">0</span><span class="p">;</span><span class="mi">1</span><span class="p">;</span><span class="mi">0</span><span class="p">];</span>
+            <span class="n">z_axis</span> <span class="o">=</span> <span class="n">R</span><span class="o">*</span><span class="p">[</span><span class="mi">0</span><span class="p">;</span><span class="mi">0</span><span class="p">;</span><span class="mi">1</span><span class="p">];</span>
+            
+            <span class="nb">set</span><span class="p">(</span><span class="n">h_x</span><span class="p">(</span><span class="n">j</span><span class="p">),</span><span class="s1">'UData'</span><span class="p">,</span><span class="n">x_axis</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="s1">'VData'</span><span class="p">,</span><span class="n">x_axis</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="s1">'WData'</span><span class="p">,</span><span class="n">x_axis</span><span class="p">(</span><span class="mi">3</span><span class="p">));</span>
+            <span class="nb">set</span><span class="p">(</span><span class="n">h_y</span><span class="p">(</span><span class="n">j</span><span class="p">),</span><span class="s1">'UData'</span><span class="p">,</span><span class="n">y_axis</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="s1">'VData'</span><span class="p">,</span><span class="n">y_axis</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="s1">'WData'</span><span class="p">,</span><span class="n">y_axis</span><span class="p">(</span><span class="mi">3</span><span class="p">));</span>
+            <span class="nb">set</span><span class="p">(</span><span class="n">h_z</span><span class="p">(</span><span class="n">j</span><span class="p">),</span><span class="s1">'UData'</span><span class="p">,</span><span class="n">z_axis</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="s1">'VData'</span><span class="p">,</span><span class="n">z_axis</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="s1">'WData'</span><span class="p">,</span><span class="n">z_axis</span><span class="p">(</span><span class="mi">3</span><span class="p">));</span>
+        <span class="n">end</span>
+        <span class="n">drawnow</span><span class="p">;</span>
+        <span class="n">pause</span><span class="p">(</span><span class="mf">0.02</span><span class="p">);</span> <span class="o">%</span> <span class="n">添加暂停使动画更慢</span>
+    <span class="n">end</span>
+<span class="n">end</span>
+
+<span class="o">%</span><span class="n">旋转向量到旋转矩阵的函数</span>
+<span class="n">function</span> <span class="n">R</span> <span class="o">=</span> <span class="n">rotation_vector_to_matrix</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+    <span class="o">%</span> <span class="n">这个函数实现了罗德里格斯公式</span><span class="err">，</span><span class="n">将旋转向量转换为旋转矩阵</span>
+    <span class="o">%</span> <span class="n">输入k是旋转向量</span><span class="err">，</span><span class="n">包含了旋转轴方向和旋转角度</span><span class="p">(</span><span class="n">角度在向量的模长中</span><span class="p">)</span>
+    
+    <span class="o">%</span> <span class="mf">1.</span> <span class="n">计算旋转角度theta</span><span class="p">(</span><span class="n">弧度</span><span class="p">)</span><span class="err">，</span><span class="n">即旋转向量的模长</span>
+    <span class="n">theta</span> <span class="o">=</span> <span class="n">norm</span><span class="p">(</span><span class="n">k</span><span class="p">);</span>
+    
+    <span class="o">%</span> <span class="mf">2.</span> <span class="n">如果旋转角度为0</span><span class="err">，</span><span class="n">直接返回单位矩阵</span><span class="p">(</span><span class="n">不旋转</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">theta</span> <span class="o">==</span> <span class="mi">0</span>
+        <span class="n">R</span> <span class="o">=</span> <span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="n">end</span>
+    
+    <span class="o">%</span> <span class="mf">3.</span> <span class="n">计算单位旋转轴向量ne</span>
+    <span class="n">ne</span> <span class="o">=</span> <span class="n">k</span><span class="o">/</span><span class="n">theta</span><span class="p">;</span>  <span class="o">%</span> <span class="n">归一化得到单位向量</span>
+    
+    <span class="o">%</span> <span class="mf">4.</span> <span class="n">构造ne的叉积矩阵K</span><span class="err">，</span><span class="n">用于后续计算</span>
+    <span class="o">%</span> <span class="n">K</span> <span class="o">=</span> <span class="p">[</span><span class="n">ne</span><span class="p">]</span><span class="n">_</span><span class="err">×</span> <span class="n">是ne的叉积矩阵</span><span class="err">，</span><span class="n">满足K</span><span class="o">*</span><span class="n">v</span> <span class="o">=</span> <span class="n">ne</span> <span class="err">×</span> <span class="n">v</span>
+    <span class="n">K</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="n">ne</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span><span class="n">ne</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+        <span class="n">ne</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="n">ne</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+        <span class="o">-</span><span class="n">ne</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="n">ne</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="mi">0</span><span class="p">];</span>
+        
+    <span class="o">%</span> <span class="mf">5.</span> <span class="n">使用罗德里格斯公式计算旋转矩阵</span>
+    <span class="o">%</span> <span class="n">R</span> <span class="o">=</span> <span class="n">I</span> <span class="o">+</span> <span class="n">sin</span><span class="p">(</span><span class="n">θ</span><span class="p">)[</span><span class="n">k</span><span class="p">]</span><span class="n">_</span><span class="err">×</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">cos</span><span class="p">(</span><span class="n">θ</span><span class="p">))[</span><span class="n">k</span><span class="p">]</span><span class="n">_</span><span class="err">×</span><span class="o">^</span><span class="mi">2</span>
+    <span class="o">%</span> <span class="n">其中I是单位矩阵</span><span class="err">，</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="n">_</span><span class="err">×</span><span class="n">是叉积矩阵</span><span class="err">，</span><span class="n">θ是旋转角度</span>
+    <span class="n">R</span> <span class="o">=</span> <span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span><span class="o">*</span><span class="n">K</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="n">K</span><span class="o">*</span><span class="n">K</span><span class="p">);</span>
+<span class="n">end</span>
+</code></pre></div>
+</details>
 <h3 id="slerp">Slerp ｜ 四元数球面线性插值<a class="headerlink" href="#slerp" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<div class="admonition note">
+<p class="admonition-title"><span>Key Assumption: <span class="arithmatex">\(r_t\)</span><span class="heti-spacing"> </span></span>从<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(r_0\)</span><span class="heti-spacing"> </span></span>到<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(r_1\)</span><span class="heti-spacing"> </span></span>匀速旋转</p>
+</div>
 <div class="arithmatex">\[ 
 r_t = k_0 r_0 + k_1 r_1
 \]</div>
@@ -3805,7 +3936,7 @@ k_0 = \frac{\sin((1-t)\theta)}{\sin\theta} \quad k_1 = \frac{\sin(t\theta)}{\sin
 \end{align*}
 \]</div>
 <details class="note">
-<summary>证明</summary>
+<summary>证明方法：线性表出<span class="heti-skip"><span class="heti-spacing"> </span>&amp;<span class="heti-spacing"> </span></span>两个欧拉参数内积等于夹角<span class="heti-skip"><span class="heti-spacing"> </span>cos<span class="heti-spacing"> </span></span>值</summary>
 <p><span><span class="arithmatex">\(S^3\)</span><span class="heti-spacing"> </span></span>中的单位四元数<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3\)</span><span class="heti-spacing"> </span></span>与<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\mathrm{U}\)</span><span class="heti-spacing"> </span></span>中的欧拉参数<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\((\eta, \varepsilon_1, \varepsilon_2, \varepsilon_3)^T\)</span><span class="heti-spacing"> </span></span>一一对应。考虑两个用欧拉参数（等价于用单位四元数）表示的不同姿态：</p>
 <div class="arithmatex">\[
 \mathbf{r}_0 = (\eta, \varepsilon_1, \varepsilon_2, \varepsilon_3)^T
@@ -3855,6 +3986,255 @@ k_0 = \frac{\sin((1-t)\theta) - k_1\sin\theta}{\sin\theta}, k_1 = \frac{\sin(t\t
 \]</div>
 <p>式中，<span class="arithmatex">\(\theta = \cos^{-1}(\mathbf{r}_0 \cdot \mathbf{r}_1)\)</span>。</p>
 </details>
+<p>注意到单位四元数<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(r\)</span><span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="arithmatex">\(r\)</span><span class="heti-spacing"> </span></span>表示三维空间中的同一姿态。一般应该选取<strong>最短路径</strong>进行球面线性插值。</p>
+<p>因此如果两四元数的夹角为钝角，则可通过将其中一个四元数取负，再对得到的两个夹角为锐角的四元数进行球面线性插值。</p>
+<h4 id="_13">代码实现<a class="headerlink" href="#_13" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<p>需要下载<span class="heti-skip"><span class="heti-spacing"> </span>matlab<span class="heti-spacing"> </span></span>的<span class="heti-skip"><span class="heti-spacing"> </span>robotics toolbox<span class="heti-spacing"> </span></span>和
+<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/quaternion_animation.gif"/></p>
+<div class="highlight"><table class="highlighttable"><tr><th class="filename" colspan="2"><span class="filename">slerp_interpolation，<span>r0<span class="heti-spacing"> </span></span>到<span class="heti-skip"><span class="heti-spacing"> </span>r1<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>r0<span class="heti-spacing"> </span></span>到<span class="heti-skip"><span class="heti-spacing"> </span>-r1<span class="heti-spacing"> </span></span>的对比</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span>
+<span class="normal">79</span>
+<span class="normal">80</span>
+<span class="normal">81</span>
+<span class="normal">82</span>
+<span class="normal">83</span>
+<span class="normal">84</span>
+<span class="normal">85</span>
+<span class="normal">86</span>
+<span class="normal">87</span>
+<span class="normal">88</span>
+<span class="normal">89</span>
+<span class="normal">90</span>
+<span class="normal">91</span>
+<span class="normal">92</span>
+<span class="normal">93</span>
+<span class="normal">94</span>
+<span class="normal">95</span>
+<span class="normal">96</span>
+<span class="normal">97</span>
+<span class="normal">98</span>
+<span class="normal">99</span></pre></div></td><td class="code"><div><pre><span></span><code>%初始化
+clear;clc;close all;
+%定义初始和结束四元数（绕Y轴旋转90度）
+theta=pi/3;%90度
+r0=quaternion(1,0,0,0);%初始姿态（无旋转）
+r1=quaternion(cos(theta/2),0,sin(theta/2),0);%绕Y轴旋转theta
+
+% 创建两个子图
+h = figure('Position',[100 100 1200 400]);
+subplot_handles = zeros(1,2);
+h_x = zeros(1,2);
+h_y = zeros(1,2);
+h_z = zeros(1,2);
+
+% 初始化两个子图
+for j = 1:2
+    subplot_handles(j) = subplot(1,2,j);
+    hold on;
+    grid on;
+    axis equal;
+    xlabel('X');
+    ylabel('Y');
+    zlabel('Z');
+    view(3);
+    xlim([-1.5,1.5]);
+    ylim([-1.5,1.5]);
+    zlim([-1.5,1.5]);
+    if j == 1
+        title('r0到r1的四元数插值路径');
+    else
+        title('r0到-r1的四元数插值路径');
+    end
+    
+    % 初始化动画对象
+    origin = [0;0;0];
+    h_x(j) = quiver3(origin(1),origin(2),origin(3),1,0,0,'r','LineWidth',2);
+    h_y(j) = quiver3(origin(1),origin(2),origin(3),0,1,0,'g','LineWidth',2);
+    h_z(j) = quiver3(origin(1),origin(2),origin(3),0,0,1,'b','LineWidth',2);
+end
+
+% 创建动画帧
+filename = 'quaternion_animation.gif';
+for t = 0:0.02:1
+    % 第一个子图：r0到r1的插值
+    q_r1 = slerp(r0,r1,t);
+    x_r1 = quatrotate(compact(q_r1),[1,0,0]);
+    y_r1 = quatrotate(compact(q_r1),[0,1,0]);
+    z_r1 = quatrotate(compact(q_r1),[0,0,1]);
+    
+    set(h_x(1),'UData',x_r1(1),'VData',x_r1(2),'WData',x_r1(3));
+    set(h_y(1),'UData',y_r1(1),'VData',y_r1(2),'WData',y_r1(3));
+    set(h_z(1),'UData',z_r1(1),'VData',z_r1(2),'WData',z_r1(3));
+    
+    % 第二个子图：r0到-r1的插值
+    q_neg_r1 = slerp(r0,-r1,t);
+    x_neg_r1 = quatrotate(compact(q_neg_r1),[1,0,0]);
+    y_neg_r1 = quatrotate(compact(q_neg_r1),[0,1,0]);
+    z_neg_r1 = quatrotate(compact(q_neg_r1),[0,0,1]);
+    
+    set(h_x(2),'UData',x_neg_r1(1),'VData',x_neg_r1(2),'WData',x_neg_r1(3));
+    set(h_y(2),'UData',y_neg_r1(1),'VData',y_neg_r1(2),'WData',y_neg_r1(3));
+    set(h_z(2),'UData',z_neg_r1(1),'VData',z_neg_r1(2),'WData',z_neg_r1(3));
+    
+    drawnow;
+    
+    % 捕获当前帧并写入GIF
+    frame = getframe(h);
+    im = frame2im(frame);
+    [imind,cm] = rgb2ind(im,256);
+    if t == 0
+        imwrite(imind,cm,filename,'gif','Loopcount',inf,'DelayTime',0.02);
+    else
+        imwrite(imind,cm,filename,'gif','WriteMode','append','DelayTime',0.02);
+    end
+end
+
+function q_interp = slerp(q0,q1,t)
+    %将四元数转换为数组格式
+    q0_compact=compact(q0);
+    q1_compact=compact(q1);
+    %计算点积（四元数分量直接相乘）
+    
+    dot_prod=sum(q0_compact.*q1_compact);
+    %限制点积范围
+    dot_prod=min(max(dot_prod,-1),1);
+    theta=acos(dot_prod);
+    %处理θ为0的情况
+    if theta&lt;eps
+        q_interp=q0;
+        return;
+    end
+    %计算插值系数
+    k0=sin((1-t)*theta)/sin(theta);
+    k1=sin(t*theta)/sin(theta);
+    %线性组合并重新构造四元数
+    q_interp_compact=k0*q0_compact+k1*q1_compact;
+    q_interp=quaternion(q_interp_compact);
+    q_interp=normalize(q_interp);
+end
+</code></pre></div></td></tr></table></div>
+<h3 id="slerp_1"><span>Slerp<span class="heti-spacing"> </span></span>拓展：对角速度有约束<a class="headerlink" href="#slerp_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<div class="admonition note">
+<p class="admonition-title">当匀速旋转的假设不成立的时候，需要应用多项式规划</p>
+</div>
+<p>由于单位四元数球面线性插值方法<span class="heti-skip"><span class="heti-spacing"> </span>(Slerp)<span class="heti-spacing"> </span></span>的旋转角速度是定值， 此时直接应用<span class="heti-skip"><span class="heti-spacing"> </span>Slerp<span class="heti-spacing"> </span></span>公式进行规划是不行的。结合<span class="heti-skip"><span class="heti-spacing"> </span>Slerp<span class="heti-spacing"> </span></span>公式，给出上述要求下相应的姿态</p>
+<div class="admonition example">
+<p class="admonition-title">若单位四元数插值时，要求在初始姿态<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(r_0\)</span><span class="heti-spacing"> </span></span>和最终姿态<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(r_1\)</span><span class="heti-spacing"> </span></span>时的角速度均为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(0\)</span>,<span class="heti-spacing"> </span></span>且转动过程中角速度连续。</p>
+<p><strong>解答</strong></p>
+<p>设<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(r_0\)</span><span class="heti-spacing"> </span></span>与<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(r_1\)</span><span class="heti-spacing"> </span></span>的夹角为<span><span class="heti-spacing"> </span><span class="arithmatex">\(\theta\)</span></span>，<span><span class="arithmatex">\(r_0\)</span><span class="heti-spacing"> </span></span>与<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(r_t\)</span><span class="heti-spacing"> </span></span>的夹角为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\beta\)</span>,<span class="heti-spacing"> </span></span>令<span><span class="heti-spacing"> </span><span class="arithmatex">\(\beta = x(t)\theta\)</span></span>，<span class="arithmatex">\(t \in [0,1]\)</span></p>
+<div class="arithmatex">\[
+\begin{cases}
+x(0) = 0 \\
+x(1) = 1 \\
+x'(0) = x'(1) = 0 \\
+\text{且} x(t) \text{在} (0,1) \text{连续}
+\end{cases}
+\]</div>
+<p>不妨假设<span><span class="heti-spacing"> </span><span class="arithmatex">\(x(t) = a_1t^3 + a_2t^2 + a_3t + a_4\)</span></span></p>
+<div class="arithmatex">\[
+\begin{cases}
+x(0) = a_4 = 0 \\
+x(1) = a_1 + a_2 + a_3 = 1 \\
+x'(0) = a_3 = 0 \\
+x'(1) = 3a_1 + 2a_2 = 0
+\end{cases} 
+\Rightarrow
+\begin{cases}
+a_1 = -2 \\
+a_2 = 3 \\
+a_3 = a_4 = 0
+\end{cases}
+\]</div>
+<p>即<span><span class="heti-spacing"> </span><span class="arithmatex">\(x(t) = -2t^3 + 3t^2\)</span></span></p>
+<p>令<span><span class="heti-spacing"> </span><span class="arithmatex">\(r_t = k_0r_0 + k_1r_1\)</span></span>，有</p>
+<div class="arithmatex">\[
+\begin{cases}
+k_0 + k_1\cos\theta = \cos\beta \\
+k_0\cos\theta + k_1 = \cos(\theta - \beta)
+\end{cases}
+\Rightarrow k_0 = \frac{\sin(\theta - \beta)}{\sin\theta} \quad k_1 = \frac{\sin\beta}{\sin\theta}
+\]</div>
+<p>即</p>
+<div class="arithmatex">\[
+r_t = \frac{\sin((1-x(t))\theta)}{\sin\theta}r_0 + \frac{\sin(x(t)\theta)}{\sin\theta}r_1
+\]</div>
+</div>
 <div class="highlight"><span class="filename">slerp_interpolation</span><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">slerp</span><span class="p">(</span><span class="n">q1</span><span class="p">,</span> <span class="n">q2</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    球面线性插值（Slerp）</span>
@@ -3876,28 +4256,23 @@ k_0 = \frac{\sin((1-t)\theta) - k_1\sin\theta}{\sin\theta}, k_1 = \frac{\sin(t\t
     <span class="n">s0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="o">-</span> <span class="n">dot_product</span> <span class="o">*</span> <span class="n">s1</span>
     <span class="k">return</span> <span class="n">s0</span> <span class="o">*</span> <span class="n">q1</span> <span class="o">+</span> <span class="n">s1</span> <span class="o">*</span> <span class="n">q2</span>
 </code></pre></div>
-<h2 id="_12">题型<a class="headerlink" href="#_12" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<p>难点：求解方程</p>
-<p>列写方程之后，检查未知数个数和方程个数是否匹配</p>
-<h3 id="_13">多项式参数计算：时间、速度<a class="headerlink" href="#_13" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h2 id="_14">题型<a class="headerlink" href="#_14" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h3 id="_15">多项式参数计算：时间、速度<a class="headerlink" href="#_15" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250325084857.png"/></p>
 <p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250325084926.png"/></p>
-<h3 id="_14">抛物线过渡计算<a class="headerlink" href="#_14" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_16">抛物线过渡计算<a class="headerlink" href="#_16" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250324203708.png"/></p>
 <p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250324203627.png"/></p>
 <h3 id="matlab"><span>matlab<span class="heti-spacing"> </span></span>求解方程<a class="headerlink" href="#matlab" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ul>
 <li>方程写出来，丢给<span><span class="heti-spacing"> </span>gpt</span></li>
-</ul>
-<h2 id="_15">有约束的轨迹规划（未提及）<a class="headerlink" href="#_15" title="anchor link to this section for reference">¶</a></h2>
-<h3 id="_16">避障<a class="headerlink" href="#_16" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<h3 id="_17">加速度<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>速度限制<a class="headerlink" href="#_17" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3></div>
+</ul></div>
 <aside class="md-source-file">
 <span class="md-source-file__fact">
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年4月16日 00:38:09</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年4月16日 16:01:33</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">
