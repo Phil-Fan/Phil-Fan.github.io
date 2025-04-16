@@ -65,6 +65,44 @@ $\frac{a}{\sin A}=\frac{b}{\sin B}=\frac{c}{\sin C}=2R$
 - $b^{2}=a^{2}+c^{2}-2ac\cos B$
 - $c^{2}=a^{2}+b^{2}-2ab\cos C$
 
+
+### 反正切 arctan2
+
+=== "arctan2"
+
+    $\arctan2(y, x)$ 函数**接受两个参数**（$y$ 和 $x$），而不是它们的比值，具有以下优势：
+
+    - 能够正确区分四个象限
+    - 可以处理 $x = 0$ 的情况
+    - 结果范围为 $(-\pi, \pi]$，覆盖完整的角度范围
+
+=== "arctan 的局限性"
+
+    arctan 的局限性：只有一个参数$\frac{y}{x}$，丢失了象限信息
+    
+    - **无法区分象限**：例如 $\arctan(\frac{1}{1}) = \arctan(\frac{-1}{-1}) = \frac{\pi}{4}$，但这两个点实际上在不同象限
+    - **当 $x = 0$ 时无法计算**（除零错误）
+    - **结果范围仅为 $(-\frac{\pi}{2}, \frac{\pi}{2})$**，不能表示完整的 360° 范围
+
+
+
+
+定义如下：
+
+$$
+\text{arctan2}(y, x) = 
+\begin{cases}
+\arctan(y/x) & \text{if } x > 0 \\
+\arctan(y/x) + \pi & \text{if } x < 0 \text{ and } y \geq 0 \\
+\arctan(y/x) - \pi & \text{if } x < 0 \text{ and } y < 0 \\
++\pi/2 & \text{if } x = 0 \text{ and } y > 0 \\
+-\pi/2 & \text{if } x = 0 \text{ and } y < 0 \\
+\text{undefined} & \text{if } x = 0 \text{ and } y = 0
+\end{cases}
+$$
+
+
+
 ## 工作空间与自由度
 
 ### 自由度 ｜ Degrees of Freedom

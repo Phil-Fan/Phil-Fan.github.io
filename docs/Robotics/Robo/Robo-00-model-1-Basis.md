@@ -16,6 +16,8 @@
 | **等效轴角** | 用一个单位轴和一个旋转角表示旋转 | $(\mathbf{k}, \theta)$，其中$\mathbf{k} = (k_x, k_y, k_z)$为单位向量，$\theta$为旋转角。旋转矩阵为：<br>$\mathbf{R} = \mathbf{I} + \sin\theta \mathbf{K} + (1 - \cos\theta) \mathbf{K}^2$，<br>其中$\mathbf{K} = \begin{pmatrix} 0 & -k_z & k_y \\ k_z & 0 & -k_x \\ -k_y & k_x & 0 \end{pmatrix}$ | 1. 无法直接表示0°旋转（需特殊处理）<br>2. 插值时需注意旋转角的周期性 |
 | **四元数** | 使用四维超复数表示旋转 | $q = \eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3$，其中$\eta^2 + \varepsilon_1^2 + \varepsilon_2^2 + \varepsilon_3^2 = 1$。 | 参数最少（4个）避免了奇异性问题<br>1. 较难直观理解<br>2. 计算稍复杂（但比旋转矩阵简单） |
 
+[TOC]
+
 ## 数学基础
 
 === "向量点乘"
@@ -531,16 +533,64 @@ $\forall R \in SO(3)$可用$R_{z,y,x}(\alpha, \beta, \gamma)$表示出来
 
 ## 等效轴角 - 绕给定轴旋转一次
 
-**欧拉旋转定理**：若刚体从初姿态作任意定点转动后呈终姿态，则必可找到一个过该点的轴$K$及角度$\theta$，刚体从初姿态绕$K$作定轴转动$\theta$后呈终姿态
+### 欧拉旋转定理
 
-**罗德里格斯公式——求解旋转后向量**
+若刚体从初姿态作任意定点转动后呈终姿态，则必可找到一个过该点的轴$K$及角度$\theta$，刚体从初姿态绕$K$作定轴转动$\theta$后呈终姿态
+
+### 罗德里格斯公式 - 求解旋转后向量
 
 $$
 r_{OQ}' = r_{OQ} \cos \theta + (r_{OQ} \cdot r_{OK}) r_{OK} (1 - \cos \theta) + (r_{OK} \times r_{OQ}) \sin \theta
 $$
 
-> 其中$r_{OQ}$是初始点，$r_{OQ}'$是旋转后的点，$r_{OK}$是旋转轴上的单位向量，$\theta$是旋转角度
+> 其中$r_{OQ}'$是旋转后的点 
+> $r_{OQ}$是初始点，$r_{OK}$是旋转轴上的单位向量，$\theta$是旋转角度
 
+
+
+**旋转矩阵求解**
+
+$$
+R= \begin{pmatrix}k_x^2 \nu \theta + c \theta & k_x k_y \nu \theta - k_z s \theta & k_x k_z \nu \theta + k_y s \theta \\    k_x k_y \nu \theta + k_z s \theta & k_y^2 \nu \theta + c \theta & k_y k_z \nu \theta - k_x s \theta \\    k_x k_z \nu \theta - k_y s \theta & k_y k_z \nu \theta + k_x s \theta & k_z^2 \nu \theta + c \theta\end{pmatrix}
+$$
+
+
+其中$\nu \theta = 1-\cos \theta$
+    
+
+**矩阵形式**：两种等价表达
+
+$$
+\begin{align*}
+R &= I + \sin(\theta)N + (1 - \cos(\theta))N^2\\
+R &= \cos(\theta)\ast I + （1-\cos(\theta)) \ast n \ast n^T + \sin(\theta) \ast n
+\end{align*}
+$$
+
+其中,单位轴$n = \begin{pmatrix}n_x \\ n_y \\ n_z\end{pmatrix}$，反对称矩阵（叉积矩阵）$N$为
+
+$$
+N = \begin{bmatrix}
+0 & -n_z & n_y \\
+n_z & 0 & -n_x \\
+-n_y & n_x & 0
+\end{bmatrix}
+$$
+
+> 参考文献：[罗德里格斯公式附图推导，理解-CSDN博客](https://blog.csdn.net/renhaofan/article/details/103706544)
+
+#### 性质
+
+- 旋转$\theta$角度，等价于旋转$\theta+2k\pi$角度
+- $(n^\wedge, \theta) = (-n^\wedge, -\theta)$
+- 对于非常小的角度：$R(\omega, \theta) \approx I+\sin(\theta)\ast N \approx I+\theta\ast N = \begin{bmatrix}
+1 & -\omega_z & \omega_y \\
+\omega_z & 1 & \omega_x \\
+-\omega_y & \omega_x & 1
+\end{bmatrix}$
+
+
+#### 证明
 
 ??? note "可行性验证——罗德里格斯公式推导"
 
@@ -570,30 +620,33 @@ $$
 
     **$\mathbf{r}_{OK}$ 和$\mathbf{r}_{OP}$ 同方向，叉积为0**
 
-**旋转矩阵求解**
 
-$$
-R= \begin{pmatrix}k_x^2 \nu \theta + c \theta & k_x k_y \nu \theta - k_z s \theta & k_x k_z \nu \theta + k_y s \theta \\    k_x k_y \nu \theta + k_z s \theta & k_y^2 \nu \theta + c \theta & k_y k_z \nu \theta - k_x s \theta \\    k_x k_z \nu \theta - k_y s \theta & k_y k_z \nu \theta + k_x s \theta & k_z^2 \nu \theta + c \theta\end{pmatrix}
-$$
+!!! note "证明方法：利用极限的思想推导"
 
-其中$\nu \theta = 1-\cos \theta$
-    
-也可以表示为矩阵的形式
+    叫做exponential twist(Murray, Li, and Sastry 1994)，旋转$\theta$角度，等价于旋转k次$\theta/k$角度。
 
-$$
-R = I + \sin \theta [\mathbf{k}]_{\times} + (1 - \cos \theta) [\mathbf{k}]_{\times}^2
-$$
+    $$
+    R(n^\wedge, \theta) = \lim_{k \to \infty} \left(I + \frac{1}{k} (\theta \ast N)\right)^k = e^{\theta \ast N}
+    $$
 
-其中，$I$ 是单位矩阵，$[\mathbf{k}]_{\times}$ 是 $\mathbf{k}$ 的叉积矩阵：
+    $$
+    e^{\theta \ast N} = I + (\theta \ast N) + \frac{(\theta \ast N)^2}{2} + \frac{(\theta \ast N)^3}{3!} + ...
+    $$
 
-$$
-[\mathbf{k}]_{\times} = \begin{pmatrix}
-0 & -k_z & k_y \\
-k_z & 0 & -k_x \\
--k_y & k_x & 0
-\end{pmatrix}
-$$
+    因为$n$是单位向量，所以$N^2 = -I$（叉乘两次方向相反，可以画图理解一下）
 
+    $$
+    N^{k+2} = -N^k, k > 0
+    $$
+
+    所以
+
+    $$
+    \begin{align*}
+    e^{\theta \ast N} &= I + (\theta - \frac{\theta^3}{3!} + ...) \ast N + (\frac{\theta^2}{2} - \frac{\theta^4}{4!} + ...) \ast N^2\\
+    &= I + sin\theta \ast N + (1 - cos\theta) \ast N^2
+    \end{align*}
+    $$
 
 
 !!! note "证明两个无穷小旋转次序可以交换"
@@ -608,6 +661,38 @@ $$
     \end{pmatrix}
     \end{align*}
     $$
+
+#### 代码实现
+
+```m title="罗德里格斯公式"
+function R = rotation_vector_to_matrix(k)
+    % 这个函数实现了罗德里格斯公式，将旋转向量转换为旋转矩阵
+    % 输入k是旋转向量，包含了旋转轴方向和旋转角度(角度在向量的模长中)
+    
+    % 1. 计算旋转角度theta(弧度)，即旋转向量的模长
+    theta = norm(k);
+    
+    % 2. 如果旋转角度为0，直接返回单位矩阵(不旋转)
+    if theta == 0
+        R = eye(3);
+        return;
+    end
+    
+    % 3. 计算单位旋转轴向量ne
+    ne = k/theta;  % 归一化得到单位向量
+    
+    % 4. 构造ne的叉积矩阵K，用于后续计算
+    % K = [ne]_× 是ne的叉积矩阵，满足K*v = ne × v
+    K = [0,-ne(3),ne(2);
+         ne(3),0,-ne(1);
+         -ne(2),ne(1),0];
+         
+    % 5. 使用罗德里格斯公式计算旋转矩阵
+    % R = I + sin(θ)[k]_× + (1-cos(θ))[k]_×^2
+    % 其中I是单位矩阵，[k]_×是叉积矩阵，θ是旋转角度
+    R = eye(3) + sin(theta)*K + (1-cos(theta))*(K*K);
+end
+```
 
 
 ## 四元数
@@ -749,7 +834,34 @@ $$
 - **关系**：单位四元数与欧拉参数一一对应。
 
 - **单位四元数的乘积仍然是单位四元数**
-> 证明：使用Grassmann积，$\mathbb{U}$中任意两个向量的Grassmann积仍是$\mathbb{U}$中的向量
+
+!!! note "证明"
+    === "方法1"
+        使用Grassmann积，$\mathbb{U}$中任意两个向量的Grassmann积仍是$\mathbb{U}$中的向量
+
+    === "方法2"
+        设 $p$、$q$ 为两个单位四元数，我们有：
+
+        $$
+        |pq| = \sqrt{(pq)(pq)^*}
+        $$
+
+
+        由于 $p$ 和 $q$ 都是单位四元数，所以有：$|p| = 1 \quad \text{且} \quad |q| = 1$
+
+
+        根据四元数的共轭性质，我们有：
+
+        $$
+        (pq)^* = q^* p^*
+        $$
+
+
+        $$
+        |pq| = \sqrt{(pq)(q^* p^*)} = \sqrt{pqq^* p^*} =  \sqrt{pp^*} =1
+        $$
+
+        所以，两个单位四元数的乘积 $pq$ 的模等于 1，即 $pq$ 也是一个单位四元数。
 
 - **单位四元数的逆是其共轭**，即$(\eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3)(\eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3)^* = (\eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3)^*(\eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3) = 1$
 > 证明思路：按照乘法的公式进行分解，就可以发现i,j,k的系数都消掉了，而常数项因为共轭，所以和为1
@@ -774,8 +886,23 @@ $$
     ix_2 + jy_2 + kz_2 = (\eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3)(ix_1 + jy_1 + kz_1)(\eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3)^*
     $$
 
+### 如何旋转
 
-### 可视化与参考资料
+$$
+P' = qPq^{-1}
+$$
+
+表示四元数的旋转
+
+**证明过程可以参考**：[四元数和旋转(Quaternion & rotation) - 知乎](https://zhuanlan.zhihu.com/p/78987582)
+
+
+<iframe src="https://krasjet.github.io/quaternion/quaternion.pdf" width="100%" height="600px" style="border: none;">
+This browser does not support PDFs
+</iframe>
+
+
+### 可视化
 
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=33385105&bvid=BV1SW411y7W1&cid=58437850&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="600px"></iframe>
 
@@ -785,9 +912,6 @@ $$
 
 <iframe src="https://eater.net/quaternions/video/doublecover" width="100%" height="auto"></iframe>
 
-<iframe src="https://krasjet.github.io/quaternion/quaternion.pdf" width="100%" height="600px" style="border: none;">
-This browser does not support PDFs
-</iframe>
 
 ## Left or Right —— 右乘连体左乘基
 
@@ -1074,21 +1198,30 @@ $$
 \eta = \cos \frac{\theta}{2}, \quad \varepsilon = \begin{bmatrix} \varepsilon_1 \\ \varepsilon_2 \\ \varepsilon_3 \end{bmatrix} = \begin{bmatrix} k_x \sin \frac{\theta}{2} \\ k_y \sin \frac{\theta}{2} \\ k_z \sin \frac{\theta}{2} \end{bmatrix}
 $$
 
-**等效轴角 to 旋转矩阵** 罗德里格斯旋转公式|Rodrigues' rotation formula
+**等效轴角 to 旋转矩阵** ：罗德里格斯旋转公式|Rodrigues' rotation formula
+
+
+
+**矩阵形式**：两种等价表达
 
 $$
-R = I + \sin(\theta)K + (1 - \cos(\theta))K^2
+\begin{align*}
+R &= I + \sin(\theta)N + (1 - \cos(\theta))N^2\\
+R &= \cos(\theta)\ast I + （1-\cos(\theta)) \ast n \ast n^T + \sin(\theta) \ast n
+\end{align*}
 $$
 
-其中$K$是单位轴的反对称矩阵（叉积矩阵）
+其中,单位轴$n = \begin{pmatrix}n_x \\ n_y \\ n_z\end{pmatrix}$，反对称矩阵（叉积矩阵）$N$为
 
 $$
-K = \begin{bmatrix}
-0 & -k_z & k_y \\
-k_z & 0 & -k_x \\
--k_y & k_x & 0
+N = \begin{bmatrix}
+0 & -n_z & n_y \\
+n_z & 0 & -n_x \\
+-n_y & n_x & 0
 \end{bmatrix}
 $$
+
+
 
 也可以记忆公式
 
