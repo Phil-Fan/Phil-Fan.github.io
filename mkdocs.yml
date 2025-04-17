@@ -196,6 +196,49 @@ nav:
   - index.md
   - "友链": friends.md
     
+- Math:
+  - Math/Logic.md
+  - Math/ComplexFunction.md
+
+  - LinearAlgebra:
+    - Math/LinearAlgebra/MatrixTheory.md
+
+  - Statistic:
+    - Math/Statistic/00-intro.md
+    - Notebook page: Math/Statistic/01-probability.ipynb
+    - Notebook page: Math/Statistic/02-Univariate_Random_Variable.ipynb
+    - Notebook page: Math/Statistic/03-Multivariate_Random_Variable.ipynb
+    - Notebook page: Math/Statistic/04-Numerical_Features.ipynb
+    - Notebook page: Math/Statistic/05-Special_Functions.ipynb
+    - Notebook page: Math/Statistic/06-Parameter_Estimation.ipynb
+    - Notebook page: Math/Statistic/07-Hypothesis_Testing.ipynb
+    - Notebook page: Math/Statistic/08-Goodness_of_Fit.ipynb
+    - Notebook page: Math/Statistic/09-Regression.ipynb
+    - Notebook page: Math/Statistic/10-Multiple_Regression_and_Analysis_of_Variance.ipynb
+    - Math/Statistic/11-anova.md
+    - Math/Statistic/12-data_mining.md
+    - Math/Statistic/big_data_security&privacy_protection.md
+    - Math/Statistic/variable.md
+
+  - "随机过程":
+    - Math/StochasticProcess/00-Index.md
+    - Math/StochasticProcess/01-Concept.md
+    - Math/StochasticProcess/02-Markov.md
+    - Math/StochasticProcess/03-Possion.md
+    - Math/StochasticProcess/04-Brown.md
+    - Math/StochasticProcess/05-StationaryProcess.md
+    
+  - OR:
+    - Math/OR/OR-00-index.md
+    - Math/OR/OR-01-programming.md
+    - Math/OR/OR-02-nonlinear.md
+    - Math/OR/OR-03-graph.md
+    - Math/OR/OR-04-DP.md
+    - Math/OR/OR-05-1-GameTheory.md
+    - Math/OR/OR-05-2-GameTheoryModel.md
+    - Math/OR/OR-06-QueuingTheory.md
+  
+
 - Class:
   - Class/signal.md
   - Class/SocialSciences.md
@@ -242,44 +285,7 @@ nav:
     - Class/Philosophy-by-topic.md
     - Class/Books/strategy.md
 
-- Math:
-  - Math/Logic.md
-  - Math/ComplexFunction.md
-  - LinearAlgebra:
-    - Math/LinearAlgebra/MatrixTheory.md
-  - Statistic:
-    - Math/Statistic/00-intro.md
-    - Notebook page: Math/Statistic/01-probability.ipynb
-    - Notebook page: Math/Statistic/02-Univariate_Random_Variable.ipynb
-    - Notebook page: Math/Statistic/03-Multivariate_Random_Variable.ipynb
-    - Notebook page: Math/Statistic/04-Numerical_Features.ipynb
-    - Notebook page: Math/Statistic/05-Special_Functions.ipynb
-    - Notebook page: Math/Statistic/06-Parameter_Estimation.ipynb
-    - Notebook page: Math/Statistic/07-Hypothesis_Testing.ipynb
-    - Notebook page: Math/Statistic/08-Goodness_of_Fit.ipynb
-    - Notebook page: Math/Statistic/09-Regression.ipynb
-    - Notebook page: Math/Statistic/10-Multiple_Regression_and_Analysis_of_Variance.ipynb
-    - Math/Statistic/11-anova.md
-    - Math/Statistic/12-data_mining.md
-    - Math/Statistic/big_data_security&privacy_protection.md
-    - Math/Statistic/variable.md
-  - "随机过程":
-    - Math/StochasticProcess/00-Index.md
-    - Math/StochasticProcess/01-Concept.md
-    - Math/StochasticProcess/02-Markov.md
-    - Math/StochasticProcess/03-Possion.md
-    - Math/StochasticProcess/04-Brown.md
-    - Math/StochasticProcess/05-StationaryProcess.md
-  - OR:
-    - Math/OR/OR-00-index.md
-    - Math/OR/OR-01-programming.md
-    - Math/OR/OR-02-nonlinear.md
-    - Math/OR/OR-03-graph.md
-    - Math/OR/OR-04-DP.md
-    - Math/OR/OR-05-1-GameTheory.md
-    - Math/OR/OR-05-2-GameTheoryModel.md
-    - Math/OR/OR-06-QueuingTheory.md
-  
+
   
   
 - Robotics:

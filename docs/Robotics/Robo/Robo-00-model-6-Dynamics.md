@@ -1,8 +1,45 @@
 # 06 | 动力学
 
+!!! note "有了运动学，为什么还需要动力学？"
+      运动学可以让我们很好地完成如Pick and Place这一类任务，但是对于画一个圆这类的轨迹跟踪任务，运动学就无能为力了。（每时每刻需求解逆运动学不现实）；另外，如果涉及到施加力的控制（使用锉刀），单纯运动学也无法实现。
+
+      动力学的引入**允许我们更快、更精确地跟随需要的轨迹**
+
+      没有动力学加入控制回路的机器人能做的事情非常有限，它们速度无法做到很快、负载不能做很重、如果功率很大会非常危险。
+
+      > [干货 | 运动学好像够用了，我们为什么还需要动力学 - 知乎](https://zhuanlan.zhihu.com/p/341842510)
+
+
+动力学的目标：如果我们需要控制机器人按照一定的轨迹运动（别忘了轨迹是位置对时间的函数），那么**每个关节的驱动器施加多少扭矩**（旋转关节）或**力**（平移关节）
+
+有哪些力，有哪些运动（2x2 = 4种组合）
+
+- 关节空间的运动
+- 末端执行器空间的运动
+（可通过正/逆运动学转化）
+
+- 关节力/力矩
+- 末端执行器力/力矩
+（可通过雅可比矩阵转化）
+
 主要讲解牛顿-欧拉迭代动力学方程和拉格朗日动力学方程。
 
-## 前置知识
+
+
+
+## 前置知识 —— 刚体力学基础
+
+> [干货 | 机械臂的动力学（一）：牛顿欧拉法 - 知乎](https://zhuanlan.zhihu.com/p/341842610)
+
+
+
+|  | linear | angular |
+| --- | --- | --- |
+| 惯性 | 质量$m$ | 张量$\mathbf{I}$ |
+| 动量 | $m\mathbf{v}$ | $\mathbf{I}\boldsymbol{\omega}$ |
+| 外力 | 力$\mathbf{F}$ | 力矩$\boldsymbol{\tau}$ |
+| 加速度 | 线性加速度$\mathbf{a}$ | 角加速度$\boldsymbol{\alpha}$ |
+| 欧拉方程 | $\mathbf{F}=m\mathbf{a}$ | $\boldsymbol{\tau}=\mathbf{I}\boldsymbol{\alpha}+\boldsymbol{\omega}\times\mathbf{I}\boldsymbol{\omega}$ |
 
 ### 叉乘运算
 
@@ -21,9 +58,186 @@
    - **混合积**：$(\mathbf{a} \times \mathbf{b}) \cdot \mathbf{c}$ 表示平行六面体体积，满足轮换对称性：$(\mathbf{a} \times \mathbf{b}) \cdot \mathbf{c} = (\mathbf{b} \times \mathbf{c}) \cdot \mathbf{a} = (\mathbf{c} \times \mathbf{a}) \cdot \mathbf{b}$
    - **拉格朗日公式**：$\mathbf{a} \times (\mathbf{b} \times \mathbf{c}) = \mathbf{b}(\mathbf{a} \cdot \mathbf{c}) - \mathbf{c}(\mathbf{a} \cdot \mathbf{b})$
 
+
+### 欧拉第一定律 —— 惯性系
+
+### 欧拉第二定律 —— 角动量
+
 力矩：$\tau = r \times F$
 
-### 分析力学基础
+
+特别注意叉乘的顺序
+
+
+### 惯性张量
+> 参考资料：
+> [转动惯量、惯性张量、转动动能的推导 - 知乎](https://zhuanlan.zhihu.com/p/672567095)
+> [机器人动力学建模之理解惯性张量-CSDN博客](https://blog.csdn.net/handsome_for_kill/article/details/104615496)
+
+
+转动惯量是绕着某个轴的，而惯性张量是绕着某个点的。
+
+绕着x、y、z三个轴转动惯量恰好就是惯性张量的三个对角元素$I_{xx}, I_{yy}, I_{zz}$(称为惯性矩)
+
+非对角元素称为惯性积
+
+#### 与其他物理量的联系
+
+**转动惯量**
+
+引入力矩后，将一个物体看做由无数个质点组成，该物体在绕着某个轴转动时，除了轴处的质点，其余质点以到轴的距离为半径做圆周运动。为了更方便地研究转动，还需要定义出一些描述转动的物理量，如角位移，角速度，角加速度，可以理解为转动的位移，转动的快慢和转动状态变化的快慢，与描述平动的物理量对应。
+
+从牛顿定律出发，可以推导出一个结论，物体转动的加速度——角加速度，与该物体受到的合力矩成正比（听起来很像牛顿第二定律对吧），比例系数是个与物体本身的质量，和物体质量相对于转轴分布情况有关的量。这就是转动惯量。转动惯量与质量对应，描述物体转动时的惯性。受到相同的力矩，转动惯量越大的物体，角加速度越小。
+
+
+
+
+#### 平移
+
+平行移轴定理
+
+
+$$
+^AI=^CI+m(P_c^TP_cI_3-P_cP_c^T)
+$$
+
+
+
+!!! note "证明"
+      [惯性张量平移和旋转复合变换的一般形式及其应用](https://kns.cnki.net/kcms2/article/abstract?v=3uoqIhG8C44YLTlOAiTRKibYlV5Vjs7ioT0BO4yQ4m_mOgeS2ml3UBt1_jNAC5FWGTuwtmvqCZOd-5qJirfABTOF29Nadr21&uniplatform=NZKPT)
+
+
+
+#### 旋转
+
+假设物体的质心在坐标系$0$中为$O_0$，在坐标系$b$中为$O_b$
+
+物体的转动惯量在坐标系$i$中为$I^b$，物体的转动惯量在坐标系$0$中为$I^0$。
+
+$$
+^bI=(_b^0R^T)(^0I)(_b^0R)
+$$
+
+
+$$
+{}^0I=({}_b^0R)({}^bI)({}_b^0R^T)$$
+
+
+!!! note "证明"
+      动能这个标量在不同坐标系下是一致的，可以有下面的式子
+
+      $$
+      T = \frac{1}{2}(^{0}\omega^T)(^{0}I)(^{0}\omega)
+      $$
+
+      $$
+      T = \frac{1}{2}(^{b}\omega^T)(^{b}I)(^{b}\omega)
+      $$
+
+      展开第一个式子，有
+
+      $$
+      \begin{align*}
+      T &= \frac{1}{2}(^{0}\omega^T)(^{0}I)(^{0}\omega)\\
+      &= \frac{1}{2}(^{b}R^{b}\omega)^T(^{0}I)(^{0}R^{b}\omega)\\
+      &= \frac{1}{2}(^{b}\omega^T)(^{b}R^T)(^{0}I)(^{b}R)(^{b}\omega)
+      \end{align*}
+      $$
+
+      所以
+
+      $$
+      {}^{b}I = ({}^{0}R^T)({}^{0}I)({}^{0}R)
+      $$
+
+
+      进一步，两边左乘$({}^{0}R)$，右乘$({}^{b}R^T)$，可得：
+
+      $$
+      {}^{0}I = ({}^{0}R)({}^{b}I)({}^{0}R^T)
+      $$
+
+
+
+
+
+## 牛顿欧拉法迭代动力学方程
+
+
+!!! note "先进行外推，再进行内推"
+    **先进行外推**，得到每个连杆的加速度、质心加速度： 目的是根据牛顿-欧拉方程，计算出每个连杆的力和力矩
+
+    $$
+    F_{i}=m_{i}\dot{\boldsymbol{v}}_{i}\\
+    N_{i}=I_{Ci}\dot{\boldsymbol{\omega}}_{i}+\boldsymbol{\omega}_{i}\times I_{Ci}\boldsymbol{\omega}_{i}$$
+    
+    **再进行内推**，得到每个关节的力和力矩。
+
+    推导机械臂动力学的牛顿欧拉法是一个递归算法
+
+!!! attention "注意旋转关节R和平移关节P的公式区别"
+
+### 外推
+
+平动
+
+| **物理量**       | **公式**|
+|------------------|-----------------------|
+| **角速度**       | $^{i+1}\omega_{i+1} = {}^{i+1}_i R \cdot {}^i \omega_i$|
+| **角加速度**     | $^{i+1}\dot{\omega}_{i+1} = {}^{i+1}_i R \cdot {}^i \dot{\omega}_i$|
+| **加速度**       | $^{i+1}\dot{v}_{i+1} = {}^{i+1}_i R \left[ {}^i \dot{\omega}_i \times O_{i+1} + {}^i \omega_i \times \left( {}^i \omega_i \times ^iO_{i+1} \right) + {}^i \dot{v_i} \right] + 2 \cdot {}^{i+1} \omega_{i+1} \times \dot{d}_{i+1} ^{i+1} \hat{Z}_{i+1}  \ + \ \ddot{d}_{i+1}\cdot {}^{i+1} \hat{Z}_{i+1}$ <br> 注意这里不是$2^{i+1}$,不要看错|
+| **质心加速度**   | $^{i+1}\dot{v}_{C_{i+1}} = {}^{i+1}_i \dot{\omega}_{i+1} \times {}^{i+1} P_{C_{i+1}} + {}^{i+1} \omega_{i+1} \times \left( {}^{i+1} \omega_{i+1} \times {}^{i+1} P_{C_{i+1}} \right) + {}^{i+1} \dot{v}_{i+1}$ |
+| **力**           | $^{i+1} F_{i+1} = m_{i+1} \cdot {}^{i+1}_i \dot{v}_{C_{i+1}}$ |
+| **力矩**         | $^{i+1}N_{i+1} = {}^{C_{i+1}} I_{i+1} \cdot {}^{i+1}\dot{\omega}_{i+1} + {}^{i+1} \omega_{i+1} \times{}^{C_{i+1}} I_{i+1} \cdot {}^{i+1} \omega_{i+1}$ |
+
+
+转动
+
+| **物理量**       | **公式** |
+|------------------|-------------------|
+| **角速度**       | $^{i+1}\omega_{i+1} ={}^{i+1}_i R \cdot {}^i \omega_i + \dot{\theta}_{i+1} \cdot {}^{i+1} \hat{Z}_{i+1}$ |
+| **角加速度**     | $^{i+1}\dot{\omega}_{i+1} ={}^{i+1}_i R \cdot {}^i \dot{\omega}_i + {}^{i+1}_i R \cdot {}^i \omega_i \times  \dot{\theta}_{i+1} \cdot {}^{i+1} \hat{Z}_{i+1} + \ddot{\theta}_{i+1} \cdot {}^{i+1} \hat{Z}_{i+1}$ |
+| **加速度**       | $^{i+1}\dot{v}_{i+1} ={}^{i+1}_i R \left[ {}^i \dot{\omega}_i \times O_{i+1} + {}^i \omega_i \times \left( {}^i \omega_i \times {}^iO_{i+1} \right) + {}^i \dot{v_i} \right]$   |
+| **质心加速度**   | $^{i+1}\dot{v}_{C_{i+1}} ={}^{i+1}_i \dot{\omega}_{i+1} \times {}^{i+1} P_{C_{i+1}} + {}^{i+1} \omega_{i+1} \times \left( {}^{i+1} \omega_{i+1} \times {}^{i+1} P_{C_{i+1}} \right) + {}^{i+1} \dot{v}_{i+1}$ |
+| **力**           | $^{i+1} F_{i+1} =m_{i+1} \cdot {}^{i+1}_i \dot{v}_{C_{i+1}}$ |
+| **力矩**         | $^{i+1}N_{i+1} ={}^{C_{i+1}} I_{i+1} \cdot {}^{i+1}\dot{\omega}_{i+1} + {}^{i+1} \omega_{i+1} \times{}^{C_{i+1}} I_{i+1} \cdot {}^{i+1} \omega_{i+1}$ |
+
+注意事项
+
+
+- **角速度初始值**：  ${}^0 \omega_0 = (0,0,0)^T$
+- **角加速度初始值**：  ${}^0 \dot{\omega}_0 = (0,0,0)^T$
+- **加速度初始值（含重力）**：  ${}^0 v_0 = (0, g, 0)^T$
+
+### 内推
+
+连杆力 ${}^i f_i = {}_{i+1}^i R {}^{i+1} f_{i+1} + {}^i F_i$
+
+连杆力矩 ${}^i n_i = {}^i N_i + {}_{i+1}^i R {}^{i+1} n_{i+1} + {}^i P_{C_i} \times {}^i F_i + {}^i O_{i+1} \times {}_{i+1}^i R {}^{i+1} f_{i+1}$
+
+关节力/力矩 
+
+- 转动：$\tau_i = {}^i n_i^T \cdot{}^i \hat{Z}_i$
+- 平动：$\tau_i= {}^i f_i^T \cdot {}^i \hat{Z}_i$
+
+!!! attention "注意旋转关节R和平移关节P的公式区别"
+
+!!! note "推导方法"
+      静力平衡
+
+      对于一个连杆，一共有四个力，
+
+      所以可以计算出为了平衡，关节需要额外提供的力/力矩
+
+      $$
+      F_{i}=f_{i}-f_{i+1}\\
+      N_{i}=n_{i}-n_{i+1}+(-p_{c})\times f_{i}+(p_{i+1}-p_{c})\times(-f_{i+1})
+      $$
+
+      注意，这里需要转化到一个坐标系下面计算，所以需要用到旋转矩阵
+
+
+## 前置知识 —— 分析力学基础
 - 拉格朗日力学
   - 达朗贝尔原理
   - 拉格朗日方程；拉格朗日关系
@@ -122,151 +336,6 @@ This browser does not support PDFs.
 
 
 
-## 惯性张量
-> 参考资料：
-> [转动惯量、惯性张量、转动动能的推导 - 知乎](https://zhuanlan.zhihu.com/p/672567095)
-> [机器人动力学建模之理解惯性张量-CSDN博客](https://blog.csdn.net/handsome_for_kill/article/details/104615496)
-
-
-### 转动惯量
-
-引入力矩后，将一个物体看做由无数个质点组成，该物体在绕着某个轴转动时，除了轴处的质点，其余质点以到轴的距离为半径做圆周运动。为了更方便地研究转动，还需要定义出一些描述转动的物理量，如角位移，角速度，角加速度，可以理解为转动的位移，转动的快慢和转动状态变化的快慢，与描述平动的物理量对应。
-
-从牛顿定律出发，可以推导出一个结论，物体转动的加速度——角加速度，与该物体受到的合力矩成正比（听起来很像牛顿第二定律对吧），比例系数是个与物体本身的质量，和物体质量相对于转轴分布情况有关的量。这就是转动惯量。转动惯量与质量对应，描述物体转动时的惯性。受到相同的力矩，转动惯量越大的物体，角加速度越小。
-
-### 惯性张量
-
-转动惯量是绕着某个轴的，而惯性张量是绕着某个点的。
-
-绕着x、y、z三个轴转动惯量恰好就是惯性张量的三个对角元素$I_{xx}, I_{yy}, I_{zz}$(称为惯性矩)
-
-非对角元素称为惯性积
-
-
-### 平移
-
-平行移轴定理
-
-
-$$
-^AI=^CI+m(P_c^TP_cI_3-P_cP_c^T)
-$$
-
-
-
-!!! note "证明"
-      [惯性张量平移和旋转复合变换的一般形式及其应用](https://kns.cnki.net/kcms2/article/abstract?v=3uoqIhG8C44YLTlOAiTRKibYlV5Vjs7ioT0BO4yQ4m_mOgeS2ml3UBt1_jNAC5FWGTuwtmvqCZOd-5qJirfABTOF29Nadr21&uniplatform=NZKPT)
-
-
-
-### 旋转
-
-假设物体的质心在坐标系$0$中为$O_0$，在坐标系$b$中为$O_b$
-
-物体的转动惯量在坐标系$i$中为$I^b$，物体的转动惯量在坐标系$0$中为$I^0$。
-
-$$
-^bI=(_b^0R^T)(^0I)(_b^0R)
-$$
-
-
-$$
-{}^0I=({}_b^0R)({}^bI)({}_b^0R^T)$$
-
-
-!!! note "证明"
-      动能这个标量在不同坐标系下是一致的，可以有下面的式子
-
-      $$
-      T = \frac{1}{2}(^{0}\omega^T)(^{0}I)(^{0}\omega)
-      $$
-
-      $$
-      T = \frac{1}{2}(^{b}\omega^T)(^{b}I)(^{b}\omega)
-      $$
-
-      展开第一个式子，有
-
-      $$
-      \begin{align*}
-      T &= \frac{1}{2}(^{0}\omega^T)(^{0}I)(^{0}\omega)\\
-      &= \frac{1}{2}(^{b}R^{b}\omega)^T(^{0}I)(^{0}R^{b}\omega)\\
-      &= \frac{1}{2}(^{b}\omega^T)(^{b}R^T)(^{0}I)(^{b}R)(^{b}\omega)
-      \end{align*}
-      $$
-
-      所以
-
-      $$
-      {}^{b}I = ({}^{0}R^T)({}^{0}I)({}^{0}R)
-      $$
-
-
-      进一步，两边左乘$({}^{0}R)$，右乘$({}^{b}R^T)$，可得：
-
-      $$
-      {}^{0}I = ({}^{0}R)({}^{b}I)({}^{0}R^T)
-      $$
-
-### 与其他物理量的联系
-
-
-
-
-
-## 迭代动力学方程
-
-!!! note "先进行外推，再进行内推"
-    先进行外推，得到每个连杆的加速度、质心加速度、力和力矩
-    
-    然后再进行内推，得到每个关节的力和力矩。
-
-!!! attention "注意旋转关节R和平移关节P的公式区别"
-
-### 外推
-
-| **物理量**       | **公式**|
-|------------------|-----------------------|
-| **角速度**       | $^{i+1}\omega_{i+1} = {}^{i+1}_i R \cdot {}^i \omega_i$|
-| **角加速度**     | $^{i+1}\dot{\omega}_{i+1} = {}^{i+1}_i R \cdot {}^i \dot{\omega}_i$|
-| **加速度**       | $^{i+1}\dot{v}_{i+1} = {}^{i+1}_i R \left[ {}^i \dot{\omega}_i \times O_{i+1} + {}^i \omega_i \times \left( {}^i \omega_i \times ^iO_{i+1} \right) + {}^i \dot{v_i} \right] + 2 \cdot {}^{i+1} \omega_{i+1} \times \dot{d}_{i+1} ^{i+1} \hat{Z}_{i+1}  \ + \ \ddot{d}_{i+1}\cdot {}^{i+1} \hat{Z}_{i+1}$ <br> 注意这里不是$2^{i+1}$,不要看错|
-| **质心加速度**   | $^{i+1}\dot{v}_{C_{i+1}} = {}^{i+1}_i \dot{\omega}_{i+1} \times {}^{i+1} P_{C_{i+1}} + {}^{i+1} \omega_{i+1} \times \left( {}^{i+1} \omega_{i+1} \times {}^{i+1} P_{C_{i+1}} \right) + {}^{i+1} \dot{v}_{i+1}$ |
-| **力**           | $^{i+1} F_{i+1} = m_{i+1} \cdot {}^{i+1}_i \dot{v}_{C_{i+1}}$ |
-| **力矩**         | $^{i+1}N_{i+1} = {}^{C_{i+1}} I_{i+1} \cdot {}^{i+1}\dot{\omega}_{i+1} + {}^{i+1} \omega_{i+1} \times{}^{C_{i+1}} I_{i+1} \cdot {}^{i+1} \omega_{i+1}$ |
-
-
-转动
-
-| **物理量**       | **公式** |
-|------------------|-------------------|
-| **角速度**       | $^{i+1}\omega_{i+1} ={}^{i+1}_i R \cdot {}^i \omega_i + \dot{\theta}_{i+1} \cdot {}^{i+1} \hat{Z}_{i+1}$ |
-| **角加速度**     | $^{i+1}\dot{\omega}_{i+1} ={}^{i+1}_i R \cdot {}^i \dot{\omega}_i + {}^{i+1}_i R \cdot {}^i \omega_i \times  \dot{\theta}_{i+1} \cdot {}^{i+1} \hat{Z}_{i+1} + \ddot{\theta}_{i+1} \cdot {}^{i+1} \hat{Z}_{i+1}$ |
-| **加速度**       | $^{i+1}\dot{v}_{i+1} ={}^{i+1}_i R \left[ {}^i \dot{\omega}_i \times O_{i+1} + {}^i \omega_i \times \left( {}^i \omega_i \times {}^iO_{i+1} \right) + {}^i \dot{v_i} \right]$   |
-| **质心加速度**   | $^{i+1}\dot{v}_{C_{i+1}} ={}^{i+1}_i \dot{\omega}_{i+1} \times {}^{i+1} P_{C_{i+1}} + {}^{i+1} \omega_{i+1} \times \left( {}^{i+1} \omega_{i+1} \times {}^{i+1} P_{C_{i+1}} \right) + {}^{i+1} \dot{v}_{i+1}$ |
-| **力**           | $^{i+1} F_{i+1} =m_{i+1} \cdot {}^{i+1}_i \dot{v}_{C_{i+1}}$ |
-| **力矩**         | $^{i+1}N_{i+1} ={}^{C_{i+1}} I_{i+1} \cdot {}^{i+1}\dot{\omega}_{i+1} + {}^{i+1} \omega_{i+1} \times{}^{C_{i+1}} I_{i+1} \cdot {}^{i+1} \omega_{i+1}$ |
-
-注意事项
-
-
-- **角速度初始值**：  ${}^0 \omega_0 = (0,0,0)^T$
-- **角加速度初始值**：  ${}^0 \dot{\omega}_0 = (0,0,0)^T$
-- **加速度初始值（含重力）**：  ${}^0 v_0 = (0, g, 0)^T$
-
-### 内推
-
-连杆力 ${}^i f_i = {}_{i+1}^i R {}^{i+1} f_{i+1} + {}^i F_i$
-
-连杆力矩 ${}^i n_i = {}^i N_i + {}_{i+1}^i R {}^{i+1} n_{i+1} + {}^i P_{C_i} \times {}^i F_i + {}^i O_{i+1} \times {}_{i+1}^i R {}^{i+1} f_{i+1}$
-
-关节力/力矩 
-
-- 转动：$\tau_i = {}^i n_i^T \cdot{}^i \hat{Z}_i$
-- 平动：$\tau_i= {}^i f_i^T \cdot {}^i \hat{Z}_i$
-
-!!! attention "注意旋转关节R和平移关节P的公式区别"
-
-
 ## 拉格朗日动力学方程
 
 ### 计算方法：
@@ -286,6 +355,55 @@ $$
 - $c_{jki}=\frac{1}{2}\left(\frac{\partial m_{ik}}{\partial\phi_{j}}+\frac{\partial m_{ij}}{\partial\phi_{k}}-\frac{\partial m_{kj}}{\partial\phi_{i}}\right)=c_{kji}$
 - $G(\boldsymbol{\Phi})=\binom{g_1(\boldsymbol{\Phi})}{g_N(\boldsymbol{\Phi})}$, 其中$g_i(\boldsymbol{\Phi})=\frac{\partial u}{\partial\phi_i}=-\sum_{j=1}^Nm_j^0g^\mathrm{T} \frac{\partial^0\boldsymbol{P}_{C_j}}{\partial\phi_i}$
 - $B=\mathrm{diag}(\begin{array}{ccc}b_1&\cdots&b_N\end{array})$,$b_i$ 为折算到关节 $i$的粘性摩擦参数(Viscous Friction Coefficient)
+
+### 物理含义
+[干货 | 机械臂的动力学（三）：理解动力学方程上篇 - 知乎](https://zhuanlan.zhihu.com/p/341843185)
+
+[干货 | 机械臂的动力学(四）：理解动力学方程下篇 - 知乎](https://zhuanlan.zhihu.com/p/341843302)
+
+- 质量矩阵：
+  - 对角元素：它正是由每个关节自身加速运动（驱动所有在其之后的连杆加速运动）所需要的扭矩
+  - 非对角：其他关节加速运动（造成其之后的连杆加速运动）对这个关节的影响叠加而成.反映的正是第二个关节运动时第一个关节需要承担的惯性力
+
+!!! example "例子"
+      === "题目1 RP机械臂"
+            ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250417230141.png)
+
+            $$
+            ^0J_{v1} = \begin{bmatrix} -l_1 \sin \theta_1 & 0 \\ l_1 \cos \theta_1 & 0 \\ 0 & 0 \end{bmatrix}; ^0J_{v2} = \begin{bmatrix} -d_2 \sin \theta_1 & \cos \theta_1 \\ d_2 \cos \theta_1 & \sin \theta_1 \\ 0 & 0 \end{bmatrix}
+            $$
+            
+            $$
+            ^{c_1}J_{\omega1} = \begin{bmatrix} 0 & 0 \\ 0 & 0 \\ 1 & 0 \end{bmatrix}; ^{c_2}J_{\omega2} = \begin{bmatrix} 0 & 0 \\ 0 & 0 \\ 1 & 0 \end{bmatrix}
+            $$
+
+            注意这里我们求的不是end effector的雅可比矩阵，而是每一根连杆的质心的运动相对于关节运动的雅可比矩阵（在求解时可以把质心当作end effector来理解）。
+            最后，我们可以得到这个RP机械臂的质量矩阵：
+
+            $$
+            M = \begin{bmatrix} m_1 l_1^2 + I_{zz1} + m_2 d_2^2 + I_{zz2} & 0 \\ 0 & m_2 \end{bmatrix}
+            $$
+
+      === "题目2 PRR机械臂"
+            ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250417230427.png)
+
+            $$
+            M=\begin{bmatrix}m_1+m_2+m_3&\times&\times\\\times&l_{zz2}+m_2l_2^2+l_{zz3}+m_3({a_2}^2+{l_3}^2+2a_2l_3\cos q_3)&\times\\\times&\times&l_{zz3}+m_3l_3^2\end{bmatrix}
+            $$
+
+            $$
+            M=\begin{bmatrix}\times&m_2l_2c_2+m_3(l_3c_2c_3+a_2c_2-l_3s_2s_3)&-m_3(l_3s_2s_3-l_3c_2c_3)\\\times&\times&l_{zz3}+m_3(l_3^2+a_2l_3c_3)\\\times&\times&\times\end{bmatrix}
+            $$
+
+- 科里奥利力与离心力矩阵：
+
+$$
+V(\boldsymbol{q},\dot{\boldsymbol{q}})=C(\boldsymbol{q},\dot{\boldsymbol{q}})\begin{bmatrix}\dot{q}_1^2\\\vdots\\\dot{q}_n^2\end{bmatrix}+\boldsymbol{B}(\boldsymbol{q},\dot{\boldsymbol{q}})\begin{bmatrix}\dot{q}_1\dot{q}_2\\\dot{q}_1\dot{q}_3\\\vdots\\\dot{q}_{n-2}\dot{q}_n\\\dot{q}_{n-1}\dot{q}_n\end{bmatrix}
+$$
+
+
+
+
 
 ### 性质
 

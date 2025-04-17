@@ -16,6 +16,7 @@
 
 
 [机器人学 - 知乎](https://zhuanlan.zhihu.com/c_1334669963970633728)
+[现代机器人学：力学，规划，控制（chapter1）内容简介 - 知乎](https://zhuanlan.zhihu.com/p/369236960)
 
 !!! note "课程信息"
     - 名称：机器人建模与控制
