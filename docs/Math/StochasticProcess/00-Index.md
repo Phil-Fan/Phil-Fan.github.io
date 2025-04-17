@@ -1,10 +1,21 @@
 # 随机过程
 
+- [ ] Chap1 随机过程基本概念
+- [ ] Chap2 马尔可夫链
+- [ ] Chap3 泊松过程
+- [ ] Chap4 布朗运动
+- [ ] Chap5 平稳过程
+
+
 ## 简介
 
-课程成绩由平时成绩（40%）和期末成绩（60%）组成。平时成绩注重过程考核，包括平时到课率，课后作业，以及随堂小测；期末考试采用闭卷考试，考试时间通常为两个小时。
+课程成绩由平时成绩（40%）和期末成绩（60%）组成。平时成绩注重过程考核，包括平时到课率(数字点名)，课后作业，以及随堂小测（周六小测，类似概统）；
+
+期末考试采用闭卷考试，考试时间通常为两个小时。
 
  
+填空：布朗运动、数字特征、平稳过程、泊松运动
+大题：数字特征+泊松过程+马尔科夫链×2+平稳过程
 
 
 ## 重点
@@ -15,8 +26,55 @@
 
 理解平稳过程的定义，理解平稳过程的各态历经性，并能判断平稳过程是否有各态历经性；了解平稳过程的功率谱密度，以及相关函数与谱密度的关系，了解常用的自相关函数与谱密度函数公式。
 
- 
 
+## Acknowledgement
+
+在学习随机过程的过程中，我参考了以下资料：
+
+其中，markdown笔记记录过程中参考了[竝](https://www.cc98.org/topic/4929320)学长，[小胖一族](https://skillful-vest-b8d.notion.site/1-5-68ec83a57e504b79901e66a2b7e4e5ce)学长和[TyrannosaurusLjx](https://github.com/TyrannosaurusLjx/TyrannosaurusLjx.github.io/tree/main/docs/Notebook/Random-Process)学长的，感谢几位学长。
+
+### 回忆卷
+
+- [2023-2024](https://www.cc98.org/topic/5930307)
+
+- [2022-2023](https://www.cc98.org/topic/5643156)
+
+- [2019-2020](https://www.cc98.org/topic/4958697)
+
+- [2018-2019](https://www.cc98.org/topic/4855261) (随机过程与排队论)
+
+- [2017](https://www.cc98.org/topic/4728993) (随机过程与排队论)
+
+- [2016](https://www.cc98.org/topic/4641632) (随机过程与排队论)
+
+### 习题答案
+
+[orz_xiaoa - 应用随机过程（1.5学分）部分作业习题答案 - CC98论坛](https://www.cc98.org/topic/5358767)
+
+
+课后习题全解
+链接：https://pan.baidu.com/s/11s85aX0ZooESH3shA02fHA 
+提取码：7ttc
+
+
+### 课程资料
+1. [宫水三翊 - 随机过程 / 随过 （1.5学分wxy老师班）资料分享](https://www.cc98.org/topic/6121175)
+
+2. [暴龙战士 - 随机过程资源分享](https://www.cc98.org/topic/5927145)
+
+3. [Uiiiii - 复习资料](https://www.cc98.org/topic/5926769)
+
+4. [N丿aivest - 复习笔记＆平时作业答案](https://www.cc98.org/topic/5642973)
+
+5. [聊以 - 学习资料](https://www.cc98.org/topic/5643340)
+
+6. [WinW - 学习笔记](https://www.cc98.org/topic/5720807)
+
+7. [竝 - 笔记](https://www.cc98.org/topic/4929320)
+
+8. [keke25 - 复习整理](https://www.cc98.org/topic/5355801)
+
+9. [8h5d233 - 随机过程传送门（资源整合）](https://www.cc98.org/topic/5639264)
 
 ## 课程安排
 
