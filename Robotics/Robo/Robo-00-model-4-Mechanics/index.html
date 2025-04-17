@@ -10,7 +10,7 @@
 <link href="../Robo-00-model-5-TrajectoryPlanning/" rel="next"/>
 <link href="../../../logo.ico" rel="icon"/>
 <meta content="mkdocs-1.6.0, mkdocs-material-9.5.31" name="generator"/>
-<title>04 | 速度与静力 - PhilFan's Notebook</title>
+<title>04 | 瞬时运动学 - PhilFan's Notebook</title>
 <link href="../../../assets/stylesheets/main.3cba04c6.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1 7.775V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 0 1 0 2.474l-5.026 5.026a1.75 1.75 0 0 1-2.474 0l-6.25-6.25A1.752 1.752 0 0 1 1 7.775Zm1.5 0c0 .066.026.13.073.177l6.25 6.25a.25.25 0 0 0 .354 0l5.025-5.025a.25.25 0 0 0 0-.354l-6.25-6.25a.25.25 0 0 0-.177-.073H2.75a.25.25 0 0 0-.25.25ZM6 5a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"/></svg>');--md-admonition-icon--abstract:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.5 1.75v11.5c0 .138.112.25.25.25h3.17a.75.75 0 0 1 0 1.5H2.75A1.75 1.75 0 0 1 1 13.25V1.75C1 .784 1.784 0 2.75 0h8.5C12.216 0 13 .784 13 1.75v7.736a.75.75 0 0 1-1.5 0V1.75a.25.25 0 0 0-.25-.25h-8.5a.25.25 0 0 0-.25.25Zm13.274 9.537v-.001l-4.557 4.45a.75.75 0 0 1-1.055-.008l-1.943-1.95a.75.75 0 0 1 1.062-1.058l1.419 1.425 4.026-3.932a.75.75 0 1 1 1.048 1.074ZM4.75 4h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM4 7.75A.75.75 0 0 1 4.75 7h2a.75.75 0 0 1 0 1.5h-2A.75.75 0 0 1 4 7.75Z"/></svg>');--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/></svg>');--md-admonition-icon--tip:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.499.75a.75.75 0 0 1 1.5 0v.996C5.9 2.903 6.793 3.65 7.662 4.376l.24.202c-.036-.694.055-1.422.426-2.163C9.1.873 10.794-.045 12.622.26 14.408.558 16 1.94 16 4.25c0 1.278-.954 2.575-2.44 2.734l.146.508.065.22c.203.701.412 1.455.476 2.226.142 1.707-.4 3.03-1.487 3.898C11.714 14.671 10.27 15 8.75 15h-6a.75.75 0 0 1 0-1.5h1.376a4.484 4.484 0 0 1-.563-1.191 3.835 3.835 0 0 1-.05-2.063 4.647 4.647 0 0 1-2.025-.293.75.75 0 0 1 .525-1.406c1.357.507 2.376-.006 2.698-.318l.009-.01a.747.747 0 0 1 1.06 0 .748.748 0 0 1-.012 1.074c-.912.92-.992 1.835-.768 2.586.221.74.745 1.337 1.196 1.621H8.75c1.343 0 2.398-.296 3.074-.836.635-.507 1.036-1.31.928-2.602-.05-.603-.216-1.224-.422-1.93l-.064-.221c-.12-.407-.246-.84-.353-1.29a2.425 2.425 0 0 1-.507-.441 3.075 3.075 0 0 1-.633-1.248.75.75 0 0 1 1.455-.364c.046.185.144.436.31.627.146.168.353.305.712.305.738 0 1.25-.615 1.25-1.25 0-1.47-.95-2.315-2.123-2.51-1.172-.196-2.227.387-2.706 1.345-.46.92-.27 1.774.019 3.062l.042.19a.884.884 0 0 1 .01.05c.348.443.666.949.94 1.553a.75.75 0 1 1-1.365.62c-.553-1.217-1.32-1.94-2.3-2.768L6.7 5.527c-.814-.68-1.75-1.462-2.692-2.619a3.737 3.737 0 0 0-1.023.88c-.406.495-.663 1.036-.722 1.508.116.122.306.21.591.239.388.038.797-.06 1.032-.19a.75.75 0 0 1 .728 1.31c-.515.287-1.23.439-1.906.373-.682-.067-1.473-.38-1.879-1.193L.75 5.677V5.5c0-.984.48-1.94 1.077-2.664.46-.559 1.05-1.055 1.673-1.353V.75Z"/></svg>');--md-admonition-icon--success:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"/></svg>');--md-admonition-icon--question:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.92 6.085h.001a.749.749 0 1 1-1.342-.67c.169-.339.436-.701.849-.977C6.845 4.16 7.369 4 8 4a2.756 2.756 0 0 1 1.637.525c.503.377.863.965.863 1.725 0 .448-.115.83-.329 1.15-.205.307-.47.513-.692.662-.109.072-.22.138-.313.195l-.006.004a6.24 6.24 0 0 0-.26.16.952.952 0 0 0-.276.245.75.75 0 0 1-1.248-.832c.184-.264.42-.489.692-.661.103-.067.207-.132.313-.195l.007-.004c.1-.061.182-.11.258-.161a.969.969 0 0 0 .277-.245C8.96 6.514 9 6.427 9 6.25a.612.612 0 0 0-.262-.525A1.27 1.27 0 0 0 8 5.5c-.369 0-.595.09-.74.187a1.01 1.01 0 0 0-.34.398ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>');--md-admonition-icon--warning:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>');--md-admonition-icon--failure:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.344 2.343h-.001a8 8 0 0 1 11.314 11.314A8.002 8.002 0 0 1 .234 10.089a8 8 0 0 1 2.11-7.746Zm1.06 10.253a6.5 6.5 0 1 0 9.108-9.275 6.5 6.5 0 0 0-9.108 9.275ZM6.03 4.97 8 6.94l1.97-1.97a.749.749 0 0 1 1.275.326.749.749 0 0 1-.215.734L9.06 8l1.97 1.97a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L8 9.06l-1.97 1.97a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734L6.94 8 4.97 6.03a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018Z"/></svg>');--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M9.504.43a1.516 1.516 0 0 1 2.437 1.713L10.415 5.5h2.123c1.57 0 2.346 1.909 1.22 3.004l-7.34 7.142a1.249 1.249 0 0 1-.871.354h-.302a1.25 1.25 0 0 1-1.157-1.723L5.633 10.5H3.462c-1.57 0-2.346-1.909-1.22-3.004L9.503.429Zm1.047 1.074L3.286 8.571A.25.25 0 0 0 3.462 9H6.75a.75.75 0 0 1 .694 1.034l-1.713 4.188 6.982-6.793A.25.25 0 0 0 12.538 7H9.25a.75.75 0 0 1-.683-1.06l2.008-4.418.003-.006a.036.036 0 0 0-.004-.009l-.006-.006-.008-.001c-.003 0-.006.002-.009.004Z"/></svg>');--md-admonition-icon--bug:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M4.72.22a.75.75 0 0 1 1.06 0l1 .999a3.488 3.488 0 0 1 2.441 0l.999-1a.748.748 0 0 1 1.265.332.75.75 0 0 1-.205.729l-.775.776c.616.63.995 1.493.995 2.444v.327c0 .1-.009.197-.025.292.408.14.764.392 1.029.722l1.968-.787a.75.75 0 0 1 .556 1.392L13 7.258V9h2.25a.75.75 0 0 1 0 1.5H13v.5c0 .409-.049.806-.141 1.186l2.17.868a.75.75 0 0 1-.557 1.392l-2.184-.873A4.997 4.997 0 0 1 8 16a4.997 4.997 0 0 1-4.288-2.427l-2.183.873a.75.75 0 0 1-.558-1.392l2.17-.868A5.036 5.036 0 0 1 3 11v-.5H.75a.75.75 0 0 1 0-1.5H3V7.258L.971 6.446a.75.75 0 0 1 .558-1.392l1.967.787c.265-.33.62-.583 1.03-.722a1.677 1.677 0 0 1-.026-.292V4.5c0-.951.38-1.814.995-2.444L4.72 1.28a.75.75 0 0 1 0-1.06Zm.53 6.28a.75.75 0 0 0-.75.75V11a3.5 3.5 0 1 0 7 0V7.25a.75.75 0 0 0-.75-.75ZM6.173 5h3.654A.172.172 0 0 0 10 4.827V4.5a2 2 0 1 0-4 0v.327c0 .096.077.173.173.173Z"/></svg>');--md-admonition-icon--example:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M5 5.782V2.5h-.25a.75.75 0 0 1 0-1.5h6.5a.75.75 0 0 1 0 1.5H11v3.282l3.666 5.76C15.619 13.04 14.543 15 12.767 15H3.233c-1.776 0-2.852-1.96-1.899-3.458Zm-2.4 6.565a.75.75 0 0 0 .633 1.153h9.534a.75.75 0 0 0 .633-1.153L12.225 10.5h-8.45ZM9.5 2.5h-3V6c0 .143-.04.283-.117.403L4.73 9h6.54L9.617 6.403A.746.746 0 0 1 9.5 6Z"/></svg>');--md-admonition-icon--quote:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1.75 2.5h10.5a.75.75 0 0 1 0 1.5H1.75a.75.75 0 0 1 0-1.5Zm4 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5ZM2.5 7.75v6a.75.75 0 0 1-1.5 0v-6a.75.75 0 0 1 1.5 0Z"/></svg>');}</style>
@@ -57,7 +57,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              04 | 速度与静力
+              04 | 瞬时运动学
             
           </span>
 </div>
@@ -135,22 +135,22 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../Class/signal/">
-          
-  
-    
-  
-  Class
-
-        </a>
-</li>
-<li class="md-tabs__item">
 <a class="md-tabs__link" href="../../../Math/Logic.md">
           
   
     
   
   Math
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../Class/signal/">
+          
+  
+    
+  
+  Class
 
         </a>
 </li>
@@ -252,362 +252,12 @@
 <input class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
 <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
 <span class="md-ellipsis">
-    Class
+    Math
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_2">
-<span class="md-nav__icon md-icon"></span>
-            Class
-          </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../Class/signal/">
-<span class="md-ellipsis">
-    信号分析与处理
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../Class/SocialSciences/">
-<span class="md-ellipsis">
-    BNU-社会科学概论
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../Class/%E9%A9%AC%E5%8E%9F/">
-<span class="md-ellipsis">
-    从零开始的马原复习
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../Class/%E6%AF%9B%E6%A6%82/">
-<span class="md-ellipsis">
-    毛概
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../Class/%E4%B9%A0%E6%A6%82/">
-<span class="md-ellipsis">
-    习概
-  </span>
-</a>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2_6" type="checkbox"/>
-<label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
-<span class="md-ellipsis">
-    Oral
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_2_6_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_2_6">
-<span class="md-nav__icon md-icon"></span>
-            Oral
-          </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../Class/English/IELTS/">
-<span class="md-ellipsis">
-    IELTS
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../Class/English/Oral-Practice/">
-<span class="md-ellipsis">
-    Oral Practice
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../Class/English/Oral-Tips/">
-<span class="md-ellipsis">
-    Tips
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../Class/English/TOFEL-speaking-training/">
-<span class="md-ellipsis">
-    托福口语练习
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../Class/English/TOFEL-speaking/">
-<span class="md-ellipsis">
-    托福口语
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../Class/English/VocabularyForSpeaking/">
-<span class="md-ellipsis">
-    Vocabulary
-  </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2_7" type="checkbox"/>
-<label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
-<span class="md-ellipsis">
-    ITP课程
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_2_7_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_2_7">
-<span class="md-nav__icon md-icon"></span>
-            ITP课程
-          </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../Class/ITP/ITP-Team-Communication-and-Leadership/">
-<span class="md-ellipsis">
-    团队领导与沟通
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../Class/ITP/ITP-Management/">
-<span class="md-ellipsis">
-    管理学 ITP
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../Class/ITP/ITP-%E5%88%9B%E4%B8%9A%E8%90%A5%E9%94%80/">
-<span class="md-ellipsis">
-    创业营销
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../Class/ITP/ITP-%E5%95%86%E4%B8%9A%E6%A8%A1%E5%BC%8F/">
-<span class="md-ellipsis">
-    商业模式
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../Class/ITP/ITP-%E5%B8%82%E5%9C%BA%E5%88%86%E6%9E%90%E4%B8%8E%E8%B0%83%E7%A0%94/">
-<span class="md-ellipsis">
-    市场分析与调研
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../Class/ITP/ITP-Law/">
-<span class="md-ellipsis">
-    创业法律实务
-  </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2_8" type="checkbox"/>
-<label class="md-nav__link" for="__nav_2_8" id="__nav_2_8_label" tabindex="0">
-<span class="md-ellipsis">
-    Finance
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_2_8_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_2_8">
-<span class="md-nav__icon md-icon"></span>
-            Finance
-          </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../Class/Fin/invest/">
-<span class="md-ellipsis">
-    投资
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../Class/Fin/invest-stock/">
-<span class="md-ellipsis">
-    交易常识
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../Class/Fin/consulting/">
-<span class="md-ellipsis">
-    Consulting
-  </span>
-</a>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2_8_4" type="checkbox"/>
-<label class="md-nav__link" for="__nav_2_8_4" id="__nav_2_8_4_label" tabindex="0">
-<span class="md-ellipsis">
-    微观经济学
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_2_8_4_label" class="md-nav" data-md-level="3">
-<label class="md-nav__title" for="__nav_2_8_4">
-<span class="md-nav__icon md-icon"></span>
-            微观经济学
-          </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../Class/Fin/micro/intro/">
-<span class="md-ellipsis">
-    微观经济学
-  </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2_9" type="checkbox"/>
-<label class="md-nav__link" for="__nav_2_9" id="__nav_2_9_label" tabindex="0">
-<span class="md-ellipsis">
-    行业研习
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_2_9_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_2_9">
-<span class="md-nav__icon md-icon"></span>
-            行业研习
-          </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../Class/Fin/industry-analyze/">
-<span class="md-ellipsis">
-    行业观察
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../Class/Fin/industry-internet/">
-<span class="md-ellipsis">
-    互联网
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../Class/Fin/industry-car.md">
-<span class="md-ellipsis">
-    None
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../Class/Fin/industry-finance/">
-<span class="md-ellipsis">
-    金融领域概况
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../Class/Fin/industry-game/">
-<span class="md-ellipsis">
-    Industry game
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../Class/Fin/industry-hotel/">
-<span class="md-ellipsis">
-    酒店业
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../Class/Fin/industry-welfare/">
-<span class="md-ellipsis">
-    公益通识
-  </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2_10" type="checkbox"/>
-<label class="md-nav__link" for="__nav_2_10" id="__nav_2_10_label" tabindex="0">
-<span class="md-ellipsis">
-    Books
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_2_10_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_2_10">
-<span class="md-nav__icon md-icon"></span>
-            Books
-          </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../Class/Books/The%20Innovator%60s%20Dilemma/">
-<span class="md-ellipsis">
-    创新者的窘境
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../Class/Books/Marxist%20principles/">
-<span class="md-ellipsis">
-    马原
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../Class/Philosophy/">
-<span class="md-ellipsis">
-    西方哲学编年史
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../Class/Philosophy-by-topic/">
-<span class="md-ellipsis">
-    哲学思想
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../Class/Books/strategy/">
-<span class="md-ellipsis">
-    r/K策略理论
-  </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
-<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
-<span class="md-ellipsis">
-    Math
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_3">
 <span class="md-nav__icon md-icon"></span>
             Math
           </label>
@@ -627,15 +277,15 @@
 </a>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_3_3" type="checkbox"/>
-<label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+<input class="md-nav__toggle md-toggle" id="__nav_2_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
 <span class="md-ellipsis">
     LinearAlgebra
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="false" aria-labelledby="__nav_3_3_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_3_3">
+<nav aria-expanded="false" aria-labelledby="__nav_2_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_3">
 <span class="md-nav__icon md-icon"></span>
             LinearAlgebra
           </label>
@@ -651,15 +301,15 @@
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_3_4" type="checkbox"/>
-<label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+<input class="md-nav__toggle md-toggle" id="__nav_2_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
 <span class="md-ellipsis">
     Statistic
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="false" aria-labelledby="__nav_3_4_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_3_4">
+<nav aria-expanded="false" aria-labelledby="__nav_2_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_4">
 <span class="md-nav__icon md-icon"></span>
             Statistic
           </label>
@@ -773,15 +423,15 @@
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_3_5" type="checkbox"/>
-<label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+<input class="md-nav__toggle md-toggle" id="__nav_2_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
 <span class="md-ellipsis">
     随机过程
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="false" aria-labelledby="__nav_3_5_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_3_5">
+<nav aria-expanded="false" aria-labelledby="__nav_2_5_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_5">
 <span class="md-nav__icon md-icon"></span>
             随机过程
           </label>
@@ -796,7 +446,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../Math/StochasticProcess/01-Concept/">
 <span class="md-ellipsis">
-    随机过程基本概念
+    01 | 基本概念
   </span>
 </a>
 </li>
@@ -817,7 +467,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../Math/StochasticProcess/04-Brown/">
 <span class="md-ellipsis">
-    布朗运动
+    04 | 布朗运动
   </span>
 </a>
 </li>
@@ -832,15 +482,15 @@
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_3_6" type="checkbox"/>
-<label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+<input class="md-nav__toggle md-toggle" id="__nav_2_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
 <span class="md-ellipsis">
     OR
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="false" aria-labelledby="__nav_3_6_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_3_6">
+<nav aria-expanded="false" aria-labelledby="__nav_2_6_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_6">
 <span class="md-nav__icon md-icon"></span>
             OR
           </label>
@@ -898,6 +548,356 @@
 <a class="md-nav__link" href="../../../Math/OR/OR-06-QueuingTheory/">
 <span class="md-ellipsis">
     排队论 | Queuing Theory
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+<span class="md-ellipsis">
+    Class
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+            Class
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Class/signal/">
+<span class="md-ellipsis">
+    信号分析与处理
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Class/SocialSciences/">
+<span class="md-ellipsis">
+    BNU-社会科学概论
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Class/%E9%A9%AC%E5%8E%9F/">
+<span class="md-ellipsis">
+    从零开始的马原复习
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Class/%E6%AF%9B%E6%A6%82/">
+<span class="md-ellipsis">
+    毛概
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Class/%E4%B9%A0%E6%A6%82/">
+<span class="md-ellipsis">
+    习概
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+<span class="md-ellipsis">
+    Oral
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_6_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_6">
+<span class="md-nav__icon md-icon"></span>
+            Oral
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Class/English/IELTS/">
+<span class="md-ellipsis">
+    IELTS
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Class/English/Oral-Practice/">
+<span class="md-ellipsis">
+    Oral Practice
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Class/English/Oral-Tips/">
+<span class="md-ellipsis">
+    Tips
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Class/English/TOFEL-speaking-training/">
+<span class="md-ellipsis">
+    托福口语练习
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Class/English/TOFEL-speaking/">
+<span class="md-ellipsis">
+    托福口语
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Class/English/VocabularyForSpeaking/">
+<span class="md-ellipsis">
+    Vocabulary
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="0">
+<span class="md-ellipsis">
+    ITP课程
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_7_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_7">
+<span class="md-nav__icon md-icon"></span>
+            ITP课程
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Class/ITP/ITP-Team-Communication-and-Leadership/">
+<span class="md-ellipsis">
+    团队领导与沟通
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Class/ITP/ITP-Management/">
+<span class="md-ellipsis">
+    管理学 ITP
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Class/ITP/ITP-%E5%88%9B%E4%B8%9A%E8%90%A5%E9%94%80/">
+<span class="md-ellipsis">
+    创业营销
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Class/ITP/ITP-%E5%95%86%E4%B8%9A%E6%A8%A1%E5%BC%8F/">
+<span class="md-ellipsis">
+    商业模式
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Class/ITP/ITP-%E5%B8%82%E5%9C%BA%E5%88%86%E6%9E%90%E4%B8%8E%E8%B0%83%E7%A0%94/">
+<span class="md-ellipsis">
+    市场分析与调研
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Class/ITP/ITP-Law/">
+<span class="md-ellipsis">
+    创业法律实务
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_8" id="__nav_3_8_label" tabindex="0">
+<span class="md-ellipsis">
+    Finance
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_8_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_8">
+<span class="md-nav__icon md-icon"></span>
+            Finance
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Class/Fin/invest/">
+<span class="md-ellipsis">
+    投资
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Class/Fin/invest-stock/">
+<span class="md-ellipsis">
+    交易常识
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Class/Fin/consulting/">
+<span class="md-ellipsis">
+    Consulting
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_8_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_8_4" id="__nav_3_8_4_label" tabindex="0">
+<span class="md-ellipsis">
+    微观经济学
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_8_4_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_8_4">
+<span class="md-nav__icon md-icon"></span>
+            微观经济学
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Class/Fin/micro/intro/">
+<span class="md-ellipsis">
+    微观经济学
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_9" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_9" id="__nav_3_9_label" tabindex="0">
+<span class="md-ellipsis">
+    行业研习
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_9_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_9">
+<span class="md-nav__icon md-icon"></span>
+            行业研习
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Class/Fin/industry-analyze/">
+<span class="md-ellipsis">
+    行业观察
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Class/Fin/industry-internet/">
+<span class="md-ellipsis">
+    互联网
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Class/Fin/industry-car.md">
+<span class="md-ellipsis">
+    None
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Class/Fin/industry-finance/">
+<span class="md-ellipsis">
+    金融领域概况
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Class/Fin/industry-game/">
+<span class="md-ellipsis">
+    Industry game
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Class/Fin/industry-hotel/">
+<span class="md-ellipsis">
+    酒店业
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Class/Fin/industry-welfare/">
+<span class="md-ellipsis">
+    公益通识
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_10" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_10" id="__nav_3_10_label" tabindex="0">
+<span class="md-ellipsis">
+    Books
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_10_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_10">
+<span class="md-nav__icon md-icon"></span>
+            Books
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Class/Books/The%20Innovator%60s%20Dilemma/">
+<span class="md-ellipsis">
+    创新者的窘境
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Class/Books/Marxist%20principles/">
+<span class="md-ellipsis">
+    马原
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Class/Philosophy/">
+<span class="md-ellipsis">
+    西方哲学编年史
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Class/Philosophy-by-topic/">
+<span class="md-ellipsis">
+    哲学思想
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Class/Books/strategy/">
+<span class="md-ellipsis">
+    r/K策略理论
   </span>
 </a>
 </li>
@@ -1227,13 +1227,13 @@
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
 <label class="md-nav__link md-nav__link--active" for="__toc">
 <span class="md-ellipsis">
-    04 | 速度与静力
+    04 | 瞬时运动学
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
 <a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
-    04 | 速度与静力
+    04 | 瞬时运动学
   </span>
 </a>
 <nav aria-label="目录" class="md-nav md-nav--secondary">
@@ -1245,7 +1245,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_1">
 <span class="md-ellipsis">
-      数学基础
+      前置知识
     </span>
 </a>
 </li>
@@ -1288,68 +1288,15 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_7">
 <span class="md-ellipsis">
-      连杆间速度传递
+      连杆间速度传递（向外迭代法）
     </span>
 </a>
 </li>
 </ul>
 </nav>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#-">
-<span class="md-ellipsis">
-      雅可比 - 速度空间的映射
-    </span>
-</a>
-<nav aria-label="雅可比 - 速度空间的映射" class="md-nav">
-<ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_8">
-<span class="md-ellipsis">
-      几何雅可比
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#frame">
-<span class="md-ellipsis">
-      不同frame变换
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_11">
-<span class="md-ellipsis">
-      求逆
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_12">
-<span class="md-ellipsis">
-      奇异性
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_13">
-<span class="md-ellipsis">
-      几何雅可比和分析雅可比
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_14">
-<span class="md-ellipsis">
-      数值法解方程
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_15">
 <span class="md-ellipsis">
       静力学
     </span>
@@ -1357,9 +1304,62 @@
 <nav aria-label="静力学" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#_9">
+<span class="md-ellipsis">
+      力学基本概念
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_10">
+<span class="md-ellipsis">
+      力的平移原理
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_11">
+<span class="md-ellipsis">
+      操作臂的静力传递（向内迭代法）
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_12">
+<span class="md-ellipsis">
+      雅可比
+    </span>
+</a>
+<nav aria-label="雅可比" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_13">
+<span class="md-ellipsis">
+      直观理解
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_14">
+<span class="md-ellipsis">
+      几何雅可比
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_15">
+<span class="md-ellipsis">
+      几何雅可比和分析雅可比
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#_16">
 <span class="md-ellipsis">
-      操作臂的静力传递
+      坐标变换
     </span>
 </a>
 </li>
@@ -1376,43 +1376,82 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_18">
 <span class="md-ellipsis">
+      奇异性
+    </span>
+</a>
+<nav aria-label="奇异性" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_19">
+<span class="md-ellipsis">
+      奇异性理解
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_20">
+<span class="md-ellipsis">
+      奇异位形求解
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_21">
+<span class="md-ellipsis">
+      可操作度
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_22">
+<span class="md-ellipsis">
+      冗余
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_23">
+<span class="md-ellipsis">
       题型
     </span>
 </a>
 <nav aria-label="题型" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_19">
+<a class="md-nav__link" href="#_24">
 <span class="md-ellipsis">
       基础公式记忆
     </span>
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#-j_v">
+<span class="md-ellipsis">
+      求雅可比矩阵 - 运动学方程微分 \(J_v\)
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#-j_v-j_omega">
+<span class="md-ellipsis">
+      求雅可比矩阵 - 向量积构造法 \(J_v\) \(J_\omega\)
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#-">
+<span class="md-ellipsis">
+      求雅可比矩阵 - 速度传递 - 向外迭代法
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#-_1">
 <span class="md-ellipsis">
-      求雅可比矩阵 - 运动学方程微分
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#-_2">
-<span class="md-ellipsis">
-      求雅可比矩阵 - 向量积构造法
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#-_3">
-<span class="md-ellipsis">
-      求雅可比矩阵 - 速度传递
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#-_4">
-<span class="md-ellipsis">
-      求雅可比矩阵 - 力传递
+      求雅可比矩阵 - 力传递 - 向内迭代法
     </span>
 </a>
 </li>
@@ -3390,7 +3429,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_1">
 <span class="md-ellipsis">
-      数学基础
+      前置知识
     </span>
 </a>
 </li>
@@ -3433,68 +3472,15 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_7">
 <span class="md-ellipsis">
-      连杆间速度传递
+      连杆间速度传递（向外迭代法）
     </span>
 </a>
 </li>
 </ul>
 </nav>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#-">
-<span class="md-ellipsis">
-      雅可比 - 速度空间的映射
-    </span>
-</a>
-<nav aria-label="雅可比 - 速度空间的映射" class="md-nav">
-<ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_8">
-<span class="md-ellipsis">
-      几何雅可比
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#frame">
-<span class="md-ellipsis">
-      不同frame变换
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_11">
-<span class="md-ellipsis">
-      求逆
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_12">
-<span class="md-ellipsis">
-      奇异性
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_13">
-<span class="md-ellipsis">
-      几何雅可比和分析雅可比
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_14">
-<span class="md-ellipsis">
-      数值法解方程
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_15">
 <span class="md-ellipsis">
       静力学
     </span>
@@ -3502,9 +3488,62 @@
 <nav aria-label="静力学" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#_9">
+<span class="md-ellipsis">
+      力学基本概念
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_10">
+<span class="md-ellipsis">
+      力的平移原理
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_11">
+<span class="md-ellipsis">
+      操作臂的静力传递（向内迭代法）
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_12">
+<span class="md-ellipsis">
+      雅可比
+    </span>
+</a>
+<nav aria-label="雅可比" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_13">
+<span class="md-ellipsis">
+      直观理解
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_14">
+<span class="md-ellipsis">
+      几何雅可比
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_15">
+<span class="md-ellipsis">
+      几何雅可比和分析雅可比
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#_16">
 <span class="md-ellipsis">
-      操作臂的静力传递
+      坐标变换
     </span>
 </a>
 </li>
@@ -3521,43 +3560,82 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_18">
 <span class="md-ellipsis">
+      奇异性
+    </span>
+</a>
+<nav aria-label="奇异性" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_19">
+<span class="md-ellipsis">
+      奇异性理解
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_20">
+<span class="md-ellipsis">
+      奇异位形求解
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_21">
+<span class="md-ellipsis">
+      可操作度
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_22">
+<span class="md-ellipsis">
+      冗余
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_23">
+<span class="md-ellipsis">
       题型
     </span>
 </a>
 <nav aria-label="题型" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_19">
+<a class="md-nav__link" href="#_24">
 <span class="md-ellipsis">
       基础公式记忆
     </span>
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#-j_v">
+<span class="md-ellipsis">
+      求雅可比矩阵 - 运动学方程微分 \(J_v\)
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#-j_v-j_omega">
+<span class="md-ellipsis">
+      求雅可比矩阵 - 向量积构造法 \(J_v\) \(J_\omega\)
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#-">
+<span class="md-ellipsis">
+      求雅可比矩阵 - 速度传递 - 向外迭代法
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#-_1">
 <span class="md-ellipsis">
-      求雅可比矩阵 - 运动学方程微分
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#-_2">
-<span class="md-ellipsis">
-      求雅可比矩阵 - 向量积构造法
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#-_3">
-<span class="md-ellipsis">
-      求雅可比矩阵 - 速度传递
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#-_4">
-<span class="md-ellipsis">
-      求雅可比矩阵 - 力传递
+      求雅可比矩阵 - 力传递 - 向内迭代法
     </span>
 </a>
 </li>
@@ -3571,16 +3649,29 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<div><h1 id="04"><span>04 |<span class="heti-spacing"> </span></span>速度与静力<a class="headerlink" href="#04" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h1>
+<div><h1 id="04"><span>04 |<span class="heti-spacing"> </span></span>瞬时运动学<a class="headerlink" href="#04" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>5054<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>20<span class="heti-spacing"> </span></span>分钟</p>
+<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>6057<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>24<span class="heti-spacing"> </span></span>分钟</p>
 </div>
-<p><a href="https://zhuanlan.zhihu.com/p/155829972">机器人学导论—第五章 速度和静力（一）5.1-5.11（好难） <span>-<span class="heti-spacing"> </span></span>知乎</a></p>
-<h2 id="_1">数学基础<a class="headerlink" href="#_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<p>特别鸣谢以下文章</p>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/155829972">机器人学导论—第五章 速度和静力（一）5.1-5.11（好难） <span>-<span class="heti-spacing"> </span></span>知乎</a></li>
+</ul>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/341804875">干货<span><span class="heti-spacing"> </span>|</span> “瞬时运动学”——还是从关节空间到操作空间（雅可比矩阵上篇） <span>-<span class="heti-spacing"> </span></span>知乎</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/341805201">干货<span class="heti-skip"><span class="heti-spacing"> </span>|<span class="heti-spacing"> </span></span>机械臂的雅可比矩阵这么厉害，怎么把它求出来呢<heti-adjacent class="heti-adjacent-half">？</heti-adjacent>（雅可比矩阵中篇） <span>-<span class="heti-spacing"> </span></span>知乎</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/341806737">干货<span class="heti-skip"><span class="heti-spacing"> </span>|<span class="heti-spacing"> </span></span>力的传递关系、奇异、冗余——从雅可比矩阵你还能得到什么<heti-adjacent class="heti-adjacent-half">？</heti-adjacent>（雅可比矩阵下篇） <span>-<span class="heti-spacing"> </span></span>知乎</a></li>
+</ul>
+<h2 id="_1">前置知识<a class="headerlink" href="#_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <ul>
 <li>向量叉乘</li>
 <li>矩阵求微分</li>
 <li>向量求导、矩阵求导</li>
+</ul>
+<div class="arithmatex">\[
+\frac{d\vec{x}}{d\vec{q}}=\frac{d\begin{bmatrix}x_1\\x_2\\x_3\end{bmatrix}}{d\begin{bmatrix}q_1\\q_2\end{bmatrix}}=\begin{bmatrix}\frac{dx_1}{dq_1}&amp;\frac{dx_1}{dq_2}\\\frac{dx_2}{dq_1}&amp;\frac{dx_2}{dq_2}\\\frac{dx_3}{dq_1}&amp;\frac{dx_3}{dq_2}\end{bmatrix}
+\]</div>
+<ul>
 <li>矩阵求逆（逆矩阵、伪逆）</li>
 <li>二次型</li>
 <li>奇异值分解</li>
@@ -3670,7 +3761,7 @@
 {^A\mathbf{\Omega}_C} = {^A\mathbf{\Omega}_B} +   {^A_B}\mathbf{R}{^B_C}\mathbf{\Omega}_C
 \]</div>
 <p>在同一坐标系中，角速度可以相加</p>
-<h3 id="_7">连杆间速度传递<a class="headerlink" href="#_7" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_7">连杆间速度传递（向外迭代法）<a class="headerlink" href="#_7" title="anchor link to this section for reference">¶</a></h3>
 <div class="admonition note">
 <p class="admonition-title">规律</p>
 <ul>
@@ -3702,48 +3793,123 @@
 <div class="arithmatex">\[
 ^{i+1}v_{i+1} = _i^{i+1}R (^iv_i + ^i\omega_i \times ^iP_{i+1}) + \dot{d_{i+1}} \hat{Z}_{i+1}
 \]</div>
-<h2 id="-">雅可比<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>速度空间的映射<a class="headerlink" href="#-" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_8">静力学<a class="headerlink" href="#_8" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h3 id="_9">力学基本概念<a class="headerlink" href="#_9" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p><strong>力的大小：</strong> 衡量力对平动的作用效果</p>
+<p><strong>力矩：</strong> 衡量力对转动的作用效果</p>
+<p><strong>力偶：</strong> 等大反向不共线的力，所有旋转都可以等效看作是力偶的作用。也就是说，力形成力偶，才使得物体发生了旋转。</p>
+<p><strong>力偶矩：</strong> 用来描述物体力偶的作用效果</p>
+<p><strong>物体平衡的条件：</strong> 合力为<span><span class="heti-spacing"> </span>0</span>，合力矩为<span><span class="heti-spacing"> </span>0</span></p>
+<blockquote>
+<p>参考资料<br/>
+<a href="https://www.zhihu.com/question/23371844?sort=created">力矩、力偶矩、弯矩的区别是什么？ - 知乎</a><br/>
+<a href="https://www.zhihu.com/question/398334639/answer/1258696609">力矩的本质是什么？与力偶有什么关系？ - 知乎</a><br/></p>
+</blockquote>
+<h3 id="_10">力的平移原理<a class="headerlink" href="#_10" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<ul>
+<li>引理<span><span class="heti-spacing"> </span>1</span>：作用在刚体上的力沿着其作用线移动后，力对刚体作用效应不变</li>
+<li>引理<span><span class="heti-spacing"> </span>2</span>：在刚体上增加一组平衡力系，不改变原力系对刚体的作用效应</li>
+</ul>
+<p>所以如果想将力平移，那么可以在<span class="heti-skip"><span class="heti-spacing"> </span>B<span class="heti-spacing"> </span></span>点增加一组平衡力系，使得<span class="heti-skip"><span class="heti-spacing"> </span>B<span class="heti-spacing"> </span></span>点的力和<span class="heti-skip"><span class="heti-spacing"> </span>A<span class="heti-spacing"> </span></span>点的力相同，方向相反。这个时候把<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(F\)</span><span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(F_2\)</span><span class="heti-spacing"> </span></span>视为一组力偶。</p>
+<p>可以看作力<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(F\)</span><span class="heti-spacing"> </span></span>平移到<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(F_1\)</span><span class="heti-spacing"> </span></span>之后，刚体受到<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(F_1\)</span><span class="heti-spacing"> </span></span>和力偶矩<span><span class="heti-spacing"> </span><span class="arithmatex">\(M = F \times r_{AB}\)</span></span></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250313095306008.png"/></p>
+<blockquote>
+<p>图源 <a href="https://blog.csdn.net/weixin_43989965/article/details/120471367">力平移定理与平衡<span class="heti-skip"><span class="heti-spacing"> </span>- CSDN<span class="heti-spacing"> </span></span>博客</a></p>
+</blockquote>
+<h3 id="_11">操作臂的静力传递（向内迭代法）<a class="headerlink" href="#_11" title="anchor link to this section for reference">¶</a></h3>
+<blockquote>
+<p>要解决的问题是：如果机械臂末端抓着一个重物，为了保持末端位置不动，各个关节需要输出多大的力矩呢？或者如果机械臂末端要对工件施加一个固定的加工力，各个关节又需要输出多大的力矩呢？</p>
+</blockquote>
+<ul>
+<li>传递方向：从末端向下传递</li>
+<li>方式：先固定，写出各连杆的平衡关系，再加外力，写出各关节轴需要加多少力<blockquote>
+<p>忽略重力</p>
+</blockquote>
+</li>
+</ul>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250313114049005.png"/></p>
+<div class="arithmatex">\[
+\begin{align*}
+^i f_i = ^i f_{i+1}\\
+^i n_i = ^i n_{i+1} + ^{i}P_{i+1} \times ^{i}f_{i+1}
+\end{align*}
+\]</div>
+<p>加上坐标系变换后</p>
+<div class="arithmatex">\[
+\begin{align*}
+^i f_i = ^{i}_{i+1}R ^{i+1} f_{i+1}\\
+^i n_i = ^{i}_{i+1}R^{i+1} n_{i+1} + ^{i}P_{i+1} \times ^{i}f_{i+1}
+\end{align*}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">转动型关节需要考虑施加多少力矩<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>平动型关节需要考虑施加多少力<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>需要对<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>力，力矩<span class="heti-skip"><span class="heti-spacing"> </span>)<span class="heti-spacing"> </span></span>向量进行正交分解</p>
+</div>
+<p><strong>转动型关节<span><span class="heti-spacing"> </span><span class="arithmatex">\(i\)</span></span></strong></p>
+<p><span><span class="arithmatex">\(f_i\)</span><span class="heti-spacing"> </span></span>不是主动力而是约束力，它阻止连杆<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(i\)</span><span class="heti-spacing"> </span></span>作直线运动；<span><span class="arithmatex">\(n_i\)</span><span class="heti-spacing"> </span></span>阻止连杆<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(i\)</span><span class="heti-spacing"> </span></span>作旋转运动。在<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\{i\}\)</span><span class="heti-spacing"> </span></span>中对<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(n_i\)</span><span class="heti-spacing"> </span></span>进行正交分解，可得到<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>个沿<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\hat{z}_i\)</span><span class="heti-spacing"> </span></span>的力矩向量和<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>个垂直于<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\hat{z}_i\)</span><span class="heti-spacing"> </span></span>的力矩向量，垂直于<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\hat{z}_i\)</span><span class="heti-spacing"> </span></span>的力矩向量是约束力矩，沿<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\hat{z}_i\)</span><span class="heti-spacing"> </span></span>的力矩向量是主动力矩，主动力矩需由关节<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(i\)</span><span class="heti-spacing"> </span></span>的旋转驱动器提供，主动力矩可表示为<span><span class="heti-spacing"> </span><span class="arithmatex">\(\tau_i \hat{z}_i\)</span></span>，其中</p>
+<div class="arithmatex">\[
+\tau_i = |n_i| \cos \theta = |n_i| |\hat{z}_i| \cos \theta = n_i^{\mathrm{T}} \hat{z}_i
+\]</div>
+<p><strong>平动型关节<span><span class="heti-spacing"> </span><span class="arithmatex">\(i\)</span></span></strong></p>
+<p><span><span class="arithmatex">\(n_i\)</span><span class="heti-spacing"> </span></span>是约束力矩。在<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\{i\}\)</span><span class="heti-spacing"> </span></span>中对<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(f_i\)</span><span class="heti-spacing"> </span></span>进行正交分解，得到<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>个主动力和<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>个约束力，需由关节<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(i\)</span><span class="heti-spacing"> </span></span>的直线驱动器提供的主动力表示为<span><span class="heti-spacing"> </span><span class="arithmatex">\(\tau_i \hat{z}_i\)</span></span>，其中</p>
+<div class="arithmatex">\[
+\tau_i = f_i^{\mathrm{T}} \hat{z}_i
+\]</div>
+<div class="admonition example">
+<p class="admonition-title">例子</p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250313112419504.png"/>
+<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250313112444810.png"/></p>
+<blockquote>
+<p>课本习题</p>
+</blockquote>
+</div>
+<h2 id="_12">雅可比<a class="headerlink" href="#_12" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<p><strong>雅可比矩阵的作用</strong>：</p>
+<ol>
+<li>
+<p>雅可比将关节空间的速度转化为末端空间的速度：<span class="arithmatex">\(\dot{\mathbf{x}}=J(\mathbf{q})\dot{\mathbf{q}}\)</span></p>
+</li>
+<li>
+<p>雅可比将关节空间的位移转化为末端空间的位移：<span class="arithmatex">\(\delta\mathbf{x}=J(\mathbf{q})\delta\mathbf{q}\)</span></p>
+</li>
+<li>
+<p>雅可比将末端空间的速度转化为关节空间的速度：<span class="arithmatex">\(\dot{\mathbf{q}}=J(\mathbf{q})^{-1}\dot{\mathbf{x}}\)</span></p>
+</li>
+<li>
+<p>雅可比将末端空间的位移转化为关节空间的位移：<span class="arithmatex">\(\delta\mathbf{q}=J(\mathbf{q})^{-1}\delta\mathbf{x}\)</span></p>
+</li>
+<li>
+<p>雅可比将末端空间的力转化为关节空间的力<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>扭矩<span><span class="heti-spacing"> </span>)</span>：<span class="arithmatex">\(\tau=J^T\mathbf{F}\)</span></p>
+</li>
+</ol>
+<h3 id="_13">直观理解<a class="headerlink" href="#_13" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>复杂变换在某个局部点可以看作线性变换</p>
 <iframe allowfullscreen="true" border="0" frameborder="no" framespacing="0" height="auto" scrolling="no" src="//player.bilibili.com/player.html?isOutside=true&amp;aid=79626296&amp;bvid=BV1NJ411r7ja/?share_source=copy_web&amp;vd_source=1ce3320d605852426ce5ccfc9b31eb50&amp;t=233&amp;autoplay=0" width="80%"></iframe>
+<div class="admonition note">
+<p class="admonition-title">雅可比矩阵由来</p>
+<p>关节速度<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\dot{q}\)</span><span class="heti-spacing"> </span></span>末端速度<span><span class="heti-spacing"> </span><span class="arithmatex">\(\dot{x}\)</span></span></p>
+<p>速度描述的是短时间的位置变化，即位置关于时间的导数</p>
 <div class="arithmatex">\[
-\begin{cases}
-\delta y_1 = \frac{\partial f_1}{\partial x_1} \delta x_1 + \frac{\partial f_1}{\partial x_2} \delta x_2 + \cdots + \frac{\partial f_1}{\partial x_6} \delta x_6 \\
-\delta y_2 = \frac{\partial f_2}{\partial x_1} \delta x_1 + \frac{\partial f_2}{\partial x_2} \delta x_2 + \cdots + \frac{\partial f_2}{\partial x_6} \delta x_6 \\
-\vdots \\
-\delta y_6 = \frac{\partial f_6}{\partial x_1} \delta x_1 + \frac{\partial f_6}{\partial x_2} \delta x_2 + \cdots + \frac{\partial f_6}{\partial x_6} \delta x_6
-\end{cases}
+\frac{d\vec{x}}{dt}=\frac{df(\vec{q})}{dt}=\frac{df(\vec{q})}{d\vec{q}}\cdot\frac{d\vec{q}}{dt}
 \]</div>
 <div class="arithmatex">\[
-\delta Y = \frac{\partial F}{\partial X} \delta X = J(X) \delta X
+\dot{x}=\frac{d\vec{x}}{d\vec{q}}\cdot\dot{q} = J(q)\dot{q}
 \]</div>
-<p>关节速度<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\dot{\Phi}\)</span><span class="heti-spacing"> </span></span>末端速度<span><span class="heti-spacing"> </span><span class="arithmatex">\(v\)</span></span></p>
 <ul>
-<li>雅可比矩阵的行数是自由度，列数是关节数量。</li>
+<li>第<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(i\)</span><span class="heti-spacing"> </span></span>行第<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(j\)</span><span class="heti-spacing"> </span></span>列表示的物理意义就是当第<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(j\)</span><span class="heti-spacing"> </span></span>个关节运动时，操作空间的第<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(i\)</span><span class="heti-spacing"> </span></span>个平动<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>转动方向会如何运动</li>
+<li>雅可比矩阵表明<span class="heti-skip"><span class="heti-spacing"> </span>end effector<span class="heti-spacing"> </span></span>的速度与关节速度<span class="heti-skip"><span class="heti-spacing"> </span>joint velocity<span class="heti-spacing"> </span></span>之间是线性关系</li>
 </ul>
-<ul>
-<li>雅可比矩阵是时变的</li>
-<li>雅可比矩阵可以看作<span class="heti-skip"><span class="heti-spacing"> </span>x<span class="heti-spacing"> </span></span>的速度空间向<span class="heti-skip"><span class="heti-spacing"> </span>y<span class="heti-spacing"> </span></span>的速度空间做映射</li>
-</ul>
-<div class="arithmatex">\[
-v = J(\Phi) \dot{\Phi}
-\]</div>
-<h3 id="_8">几何雅可比<a class="headerlink" href="#_8" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<h4 id="_9">向外迭代法<a class="headerlink" href="#_9" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
-<p>知道了这样的变换方法，就可以从连杆<span><span class="heti-spacing"> </span>0</span>，变换到连杆<span><span class="heti-spacing"> </span>N</span>，一个个地计算速度和角速度</p>
-<p>向外迭代法是计算机器人几何雅可比矩阵的方法之一</p>
-<h4 id="_10">向量积构造法<a class="headerlink" href="#_10" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
-<p>计算每一个关节对于连杆<span class="heti-skip"><span class="heti-spacing"> </span>N<span class="heti-spacing"> </span></span>速度的贡献</p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250314234911486.png"/></p>
-<ul>
-<li>若第<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(i\)</span><span class="heti-spacing"> </span></span>个关节为平动型关节，则：<span class="arithmatex">\(v_N^{(i)} = d_i \hat{Z}_i\)</span>,<span class="arithmatex">\(\omega_N^{(i)} = 0\)</span></li>
-<li>若第<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(i\)</span><span class="heti-spacing"> </span></span>个关节为转动型关节，则：<span class="arithmatex">\(v_N^{(i)} = \dot{\theta}_i \hat{Z}_i \times (O_N - O_i)\)</span>,<span class="arithmatex">\(\omega_N^{(i)} = \dot{\theta}_i \hat{Z}_i\)</span></li>
-</ul>
-<blockquote>
-<p>为什么要叉乘：<strong>类似于“力矩”中“矩”的概念</strong></p>
-</blockquote>
-<div class="admonition question">
-<p class="admonition-title">这里问一下</p>
 </div>
+<div class="arithmatex">\[
+J=\begin{bmatrix}(J_v)_ {3\times n}\\(J_\omega)_ {3\times n}\end{bmatrix}
+\]</div>
+<p><span><span class="arithmatex">\(J_v\)</span><span class="heti-spacing"> </span></span>表示的含义是一个机械臂的关节移动多少角度，它的<span class="heti-skip"><span class="heti-spacing"> </span>end effector<span class="heti-spacing"> </span></span>就会相应地移动多少距离（速度）</p>
+<p><span><span class="arithmatex">\(J_\omega\)</span><span class="heti-spacing"> </span></span>表示的含义是一个机械臂的旋转关节绕某个轴转多少角度，它的<span class="heti-skip"><span class="heti-spacing"> </span>end effector<span class="heti-spacing"> </span></span>就会相应地绕这个轴转多少角度</p>
+<ul>
+<li>雅可比矩阵的行数是操作空间的自由度，列数是关节数量（关节自由度<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。</li>
+<li>雅可比矩阵是时变的</li>
+<li>雅可比矩阵可以看作<span class="heti-skip"><span class="heti-spacing"> </span>x<span class="heti-spacing"> </span></span>的速度空间向<span class="heti-skip"><span class="heti-spacing"> </span>y<span class="heti-spacing"> </span></span>的速度空间做映射<span><span class="heti-spacing"> </span><span class="arithmatex">\(\dot{x} = J(q) \dot{q}\)</span></span></li>
+</ul>
+<h3 id="_14">几何雅可比<a class="headerlink" href="#_14" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>以机器人每个关节均为转动型关节为例构造几何雅可比矩阵。</p>
 <p>定义笛卡尔速度向量<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(v_N = \begin{pmatrix} v_N \\ \omega_N \end{pmatrix} \in \mathbb{R}^6\)</span><span class="heti-spacing"> </span></span>和关节空间角速度向量<span><span class="heti-spacing"> </span><span class="arithmatex">\(\dot{\Phi} = \begin{pmatrix} \dot{\theta}_1 \\ \dot{\theta}_2 \\ \vdots \\ \dot{\theta}_N \end{pmatrix} \in \mathbb{R}^N\)</span></span>，则：</p>
 <div class="arithmatex">\[
@@ -3751,97 +3917,7 @@ v_N = \begin{pmatrix} \hat{Z}_1 \times (O_N - O_1) &amp; \hat{Z}_2 \times (O_N -
 = \mathbf{J(\Phi)}\dot{\Phi}
 \]</div>
 <p>此处，<span><span class="arithmatex">\(J(\Phi) \in \mathbb{R}^{6 \times N}\)</span><span class="heti-spacing"> </span></span>即为雅可比矩阵。</p>
-<h3 id="frame">不同<span class="heti-skip"><span class="heti-spacing"> </span>frame<span class="heti-spacing"> </span></span>变换<a class="headerlink" href="#frame" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<div class="arithmatex">\[
-^i\boldsymbol{J}(\boldsymbol{\Phi})=\begin{pmatrix}{}_0^i\boldsymbol{R}&amp;0\\0&amp;{}_0^i\boldsymbol{R}\end{pmatrix}\boldsymbol{J}(\boldsymbol{\Phi})
-\]</div>
-<h3 id="_11">求逆<a class="headerlink" href="#_11" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<p>逆微分求解：已知</p>
-<ul>
-<li>满秩矩阵，直接求解雅可比矩阵的逆</li>
-</ul>
-<ul>
-<li>对于不满秩的矩阵来说，求取伪逆</li>
-</ul>
-<p>对于机械臂来说，操作空间维度相当于<span><span class="heti-spacing"> </span><span class="arithmatex">\(m\)</span></span>，关节数目相当于<span><span class="heti-spacing"> </span><span class="arithmatex">\(n\)</span></span>（自变量数目）</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">左逆</label><label for="__tabbed_1_2">右逆</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p>仅当<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(m \geq n\)</span><span class="heti-spacing"> </span></span>时<span><span class="heti-spacing"> </span>("Tall matrix")</span>，说明这个时候方程的数目大于未知数的个数，方程是过定<span class="heti-skip"><span class="heti-spacing"> </span>(overdetermined)<span class="heti-spacing"> </span></span>的。矩阵<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A\)</span><span class="heti-spacing"> </span></span>可能有<strong>左逆矩阵</strong> </p>
-<div class="arithmatex">\[
-A^\dagger_L = \left(A^HA\right)^{-1}A^H
-\]</div>
-<p>左逆列满秩的时候一定存在</p>
-<p><strong>超定方程最小二乘解</strong></p>
-</div>
-<div class="tabbed-block">
-<p>仅当<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(m \leq n\)</span><span class="heti-spacing"> </span></span>时<span><span class="heti-spacing"> </span>("fat matrix")</span>，方程数目小于未知数的个数，方程式欠定的。矩阵<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A\)</span><span class="heti-spacing"> </span></span>可能有<strong>右逆矩阵</strong> </p>
-<div class="arithmatex">\[
-A^\dagger_R = A^H\left(AA^H\right)^{-1}
-\]</div>
-<p>右逆行满秩的时候一定存在</p>
-<p>欠定方程最小范数解</p>
-</div>
-</div>
-</div>
-<blockquote>
-<p>关于最小二乘和最小范数解的证明可以看<a href="https://zhuanlan.zhihu.com/p/503664717">线性方程组的最小二乘解和最小范数解<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>一以知行</a></p>
-</blockquote>
-<h3 id="_12">奇异性<a class="headerlink" href="#_12" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<p>奇异位形：无法通过关节变量速度实现要求的末端速度</p>
-<p>对于一般机器人，奇异位形为令雅可比矩阵<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(J\)</span><span class="heti-spacing"> </span></span>不满秩的<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\Phi\)</span><span class="heti-spacing"> </span></span>值所构成的位形<heti-adjacent class="heti-adjacent-half">，</heti-adjacent>（<span><span class="arithmatex">\(N\)</span><span class="heti-spacing"> </span></span>是机器人关节数目）时</p>
-<div class="arithmatex">\[
-\text{rank}(J(\Phi) &lt; \min(m, N)
-\]</div>
-<p>不同情况下的奇异点的判断条件为：</p>
-<ol>
-<li><strong>无冗余<span><span class="heti-spacing"> </span>(<span class="arithmatex">\(m = N\)</span>)</span></strong><span>:<span class="heti-spacing"> </span></span>在此<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\Phi\)</span><span class="heti-spacing"> </span></span>时<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(J(\Phi)\)</span><span class="heti-spacing"> </span></span>不可逆，即<span><span class="heti-spacing"> </span><span class="arithmatex">\(\det(J(\Phi)) = 0\)</span></span>。</li>
-<li><strong>冗余<span><span class="heti-spacing"> </span>(<span class="arithmatex">\(m &lt; N\)</span>)</span></strong><span>:<span class="heti-spacing"> </span></span>在此<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\Phi\)</span><span class="heti-spacing"> </span></span>时<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(J(\Phi)\)</span><span class="heti-spacing"> </span></span>不行满秩，即<span><span class="heti-spacing"> </span><span class="arithmatex">\(\text{rank}(J(\Phi)) &lt; m\)</span></span><heti-adjacent class="heti-adjacent-half">。</heti-adjacent>（可能有最小范数解）</li>
-<li><strong>欠驱动<span><span class="heti-spacing"> </span>(<span class="arithmatex">\(m &gt; N\)</span>)</span></strong><span>:<span class="heti-spacing"> </span></span>在此<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\Phi\)</span><span class="heti-spacing"> </span></span>时<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(J(\Phi)\)</span><span class="heti-spacing"> </span></span>不列满秩，即<span><span class="heti-spacing"> </span><span class="arithmatex">\(\text{rank}(J(\Phi)) &lt; N\)</span></span><heti-adjacent class="heti-adjacent-half">。</heti-adjacent>（可能有最小二乘解）</li>
-</ol>
-<ul>
-<li>奇异位形是机器人的构型决定的，是机器人的固有特征</li>
-<li>接近奇异位形的时候，存在机器人末端在工作空间中的微小速度导致关节空间产生过大速度</li>
-</ul>
-<p><strong>边界奇异性</strong><span>:<span class="heti-spacing"> </span></span>工作空间边界的奇异位形。出现在机器人完全展开或者收回使得末端执行器处于或非常接近工作空间边界的情况。</p>
-<p><strong>内点奇异性</strong><span>:<span class="heti-spacing"> </span></span>工作空间内部的奇异位形。出现在远离工作空间的边界，通常是由于两个或两个以上的关节轴线共线引起的。</p>
-<p>可操作度：</p>
-<div class="admonition note">
-<p class="admonition-title">二次型与椭圆</p>
-<p>二次型对应椭球体。 椭球的轴沿着<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A\)</span><span class="heti-spacing"> </span></span>的特征向量，半长轴长度是<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A\)</span><span class="heti-spacing"> </span></span>特征值倒数的开方</p>
-<p><strong>椭圆的标准方程：</strong> <span class="arithmatex">\(\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1\)</span>。其中，椭圆的长轴长度为<span><span class="heti-spacing"> </span><span class="arithmatex">\(2a\)</span></span>，短轴长度为<span><span class="heti-spacing"> </span><span class="arithmatex">\(2b\)</span></span>。</p>
-<p><strong>矩阵形式：</strong></p>
-<div class="arithmatex">\[
-\begin{bmatrix} x \\ y \end{bmatrix}^T \begin{bmatrix} \frac{1}{a^2} &amp; 0 \\ 0 &amp; \frac{1}{b^2} \end{bmatrix} \begin{bmatrix} x \\ y \end{bmatrix} = x^T A x = 1
-\]</div>
-<p><strong>特征值与特征向量：</strong></p>
-<p>矩阵<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A\)</span><span class="heti-spacing"> </span></span>的特征值为：<span class="arithmatex">\(\lambda_1 = \frac{1}{a^2}, \quad \lambda_2 = \frac{1}{b^2}\)</span>，特征值则表示了半长轴和半短轴长度平方的倒数。 </p>
-<p>对应的归一化特征向量为：<span class="arithmatex">\(\mu_1 = \begin{bmatrix} 1 \\ 0 \end{bmatrix}, \quad \mu_2 = \begin{bmatrix} 0 \\ 1 \end{bmatrix}\)</span>，表示了椭圆的长轴和短轴的方向</p>
-</div>
-<p>假设机器人有<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(N\)</span><span class="heti-spacing"> </span></span>个关节，末端速度空间的维数为<span><span class="heti-spacing"> </span><span class="arithmatex">\(m\)</span></span>，要求<span><span class="heti-spacing"> </span><span class="arithmatex">\(N \geq m\)</span></span>，则<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(m \times N\)</span><span class="heti-spacing"> </span></span>维雅可比矩阵<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(J\)</span><span class="heti-spacing"> </span></span>的奇异值分解为：</p>
-<div class="arithmatex">\[
-J = U \Sigma V^T
-\]</div>
-<p>其中，<span><span class="arithmatex">\(\Sigma\)</span><span class="heti-spacing"> </span></span>是<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(m \times N\)</span><span class="heti-spacing"> </span></span>维矩阵，其主对角线外的元素均为零，主对角线上的每个元素为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(J\)</span><span class="heti-spacing"> </span></span>的奇异值<span><span class="heti-spacing"> </span><span class="arithmatex">\(\sigma_i = \sqrt{\lambda_i(JJ^T)} (i = 1, \cdots, m)\)</span></span>，且<span><span class="heti-spacing"> </span><span class="arithmatex">\(\sigma_1 \geq \sigma_2 \geq \cdots \geq \sigma_m \geq 0\)</span></span>；<span><span class="arithmatex">\(U\)</span><span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(V\)</span><span class="heti-spacing"> </span></span>分别为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(m\)</span><span class="heti-spacing"> </span></span>维和<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(N\)</span><span class="heti-spacing"> </span></span>维正交矩阵，且<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(U\)</span><span class="heti-spacing"> </span></span>由矩阵<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(JJ^T\)</span><span class="heti-spacing"> </span></span>的特征向量<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(u_i (i = 1, \cdots, m)\)</span><span class="heti-spacing"> </span></span>张成，<span><span class="arithmatex">\(V\)</span><span class="heti-spacing"> </span></span>由矩阵<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(J^TJ\)</span><span class="heti-spacing"> </span></span>的特征向量<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(v_i (i = 1, \cdots, N)\)</span><span class="heti-spacing"> </span></span>张成。由此得到：</p>
-<div class="arithmatex">\[
-v_e^T (J J^T)^{-1} v_e = (U^T v_e)^T \Sigma^{-2} (U^T v_e)
-\]</div>
-<p>此时，<span><span class="arithmatex">\(\Sigma^{-2} = \text{diag}(\sigma_1^{-2}, \sigma_2^{-2}, \cdots, \sigma_m^{-2})\)</span><span class="heti-spacing"> </span></span>为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(m\)</span><span class="heti-spacing"> </span></span>维对角矩阵。记<span><span class="heti-spacing"> </span><span class="arithmatex">\(\alpha = U^T v_e\)</span></span></p>
-<div class="arithmatex">\[
-v_e^T (J J^T)^{-1} v_e - \alpha^T \Sigma^{-2} \alpha = \sum_{i=1}^m \frac{\alpha_i^2}{\sigma_i^2} \leq 1
-\]</div>
-<p>是一个标准的椭球体方程，表明机器人此位形的可操作椭球体的轴由向量<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\sigma_i u_i\)</span><span class="heti-spacing"> </span></span>给出。</p>
-<p>机器人关节速度取单位速度时，可操作椭球体轴的长度越大，在该轴方向上，所得到的末端速度可以越大，表明在该方向上运动能力越强；反之，轴的长度越小，在该轴方向上，所得到的末端速度被限制得越小，表明在该方向上运动能力越弱。因此，机器人位形的可操作椭球体描述了机器人改变末端位姿的能力。</p>
-<p>定义可操作度，用来衡量机器人位形与奇异位形之间的距离</p>
-<div class="arithmatex">\[
-\kappa(\boldsymbol{\Phi})=\sigma_1\sigma_2\cdots\sigma_m=\sqrt{\det(\boldsymbol{J}(\boldsymbol{\Phi})\boldsymbol{J}^\mathrm{T}(\boldsymbol{\Phi}))}
-\]</div>
-<p>特别的，当雅可比矩阵可逆的时候<span><span class="heti-spacing"> </span><span class="arithmatex">\(\kappa(\boldsymbol{\Phi})=\mid\det(\boldsymbol{J}(\boldsymbol{\Phi}))\mid\)</span></span></p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250314222953648.png"/></p>
-<h3 id="_13">几何雅可比和分析雅可比<a class="headerlink" href="#_13" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<blockquote>
-<p>参考文献：<a href="https://www.zhihu.com/question/67687838">机械臂的几何雅可比和分析雅可比有什么区别？ <span>-<span class="heti-spacing"> </span></span>知乎</a></p>
-</blockquote>
+<h3 id="_15">几何雅可比和分析雅可比<a class="headerlink" href="#_15" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <table>
 <thead>
 <tr>
@@ -3859,11 +3935,11 @@ v_e^T (J J^T)^{-1} v_e - \alpha^T \Sigma^{-2} \alpha = \sum_{i=1}^m \frac{\alpha
 <td>关节速度向量，表示关节变量的时间变化率</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(p_e\)</span></td>
+<td><span class="arithmatex">\(p_e\)</span> or <span class="arithmatex">\(x\)</span></td>
 <td>末端执行器的位置向量</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(\dot{p}_e\)</span></td>
+<td><span class="arithmatex">\(\dot{p}_e\)</span> or <span class="arithmatex">\(\dot{x}\)</span></td>
 <td>末端执行器的位置变化率（平移速度）</td>
 </tr>
 <tr>
@@ -3884,6 +3960,9 @@ v_e^T (J J^T)^{-1} v_e - \alpha^T \Sigma^{-2} \alpha = \sum_{i=1}^m \frac{\alpha
 </tr>
 </tbody>
 </table>
+<blockquote>
+<p>参考文献：<a href="https://www.zhihu.com/question/67687838">机械臂的几何雅可比和分析雅可比有什么区别？ <span>-<span class="heti-spacing"> </span></span>知乎</a></p>
+</blockquote>
 <p><strong>Analytical Jacobians</strong>：
 - 在笛卡尔坐标系下，它得到的“角速度”是选择的表示末端方向的角度的时间导数。
 - 表示的是机器人姿态的变化。这个姿态是自己定义的，它取决于你的坐标系。</p>
@@ -3984,111 +4063,40 @@ s\gamma &amp; c\gamma &amp; 0 \\
 \end{align*}
 \]</div>
 </details>
-<h3 id="_14">数值法解方程<a class="headerlink" href="#_14" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<p>这里主要用到的是<strong>牛顿法</strong></p>
-<p>一句话简述：从一个起始解开始，使用切线逐步逼近交点</p>
-<div class="arithmatex">\[
-x_{n+1} = x_n - J(x_n)^{-1} f(x_n)
-\]</div>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250313094528065.png"/></p>
-<div class="admonition note">
-<p class="admonition-title">为什么这么写？</p>
-<p>写出泰勒展开，忽略二次高阶项<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>相当于做了一条切线，再求这个切线和<span class="heti-skip"><span class="heti-spacing"> </span>x<span class="heti-spacing"> </span></span>轴的交点，得到新一轮的<span><span class="heti-spacing"> </span>x</span></p>
-<div class="arithmatex">\[
-f(x) = f(x_0) + f'(x_0)(x - x_0) = 0
-\]</div>
+<h3 id="_16">坐标变换<a class="headerlink" href="#_16" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p><a href="https://blog.csdn.net/subtitle_/article/details/133185018">极坐标和直角坐标的雅克比矩阵推导<span class="heti-skip"><span class="heti-spacing"> </span>_<span class="heti-spacing"> </span></span>直角坐标到极坐标的雅可比矩阵<span class="heti-skip"><span class="heti-spacing"> </span>-CSDN<span class="heti-spacing"> </span></span>博客</a></p>
+<p>如果雅可比矩阵不是表示在<span class="heti-skip"><span class="heti-spacing"> </span>frame{0}<span class="heti-spacing"> </span></span>下面，需要进行坐标变换，需要左乘一个转换矩阵就可以了。</p>
 <blockquote>
-<p><strong>参考资料</strong>
-<a href="https://oi-wiki.org/math/numerical/newton/">牛顿迭代法 - OI Wiki</a>
-<a href="https://blog.csdn.net/sinat_29244519/article/details/101872198">牛顿法原理与应用 - CSDN博客</a></p>
+<p>回想一下微积分中变量替换，替换变量的时候需要乘以雅可比矩阵行列式</p>
 </blockquote>
-</div>
-<h2 id="_15">静力学<a class="headerlink" href="#_15" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<table>
-<thead>
-<tr>
-<th>符号</th>
-<th>含义</th>
-<th>补充</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p><strong>力的大小：</strong> 衡量力对平动的作用效果</p>
-<p><strong>力矩：</strong> 衡量力对转动的作用效果</p>
-<p><strong>力偶：</strong> 等大反向不共线的力，所有旋转都可以等效看作是力偶的作用。也就是说，力形成力偶，才使得物体发生了旋转。</p>
-<p><strong>力偶矩：</strong> 用来描述物体力偶的作用效果</p>
-<p><strong>物体平衡的条件：</strong> 合力为<span><span class="heti-spacing"> </span>0</span>，合力矩为<span><span class="heti-spacing"> </span>0</span></p>
-<blockquote>
-<p>参考资料<br/>
-<a href="https://www.zhihu.com/question/23371844?sort=created">力矩、力偶矩、弯矩的区别是什么？ - 知乎</a><br/>
-<a href="https://www.zhihu.com/question/398334639/answer/1258696609">力矩的本质是什么？与力偶有什么关系？ - 知乎</a><br/></p>
-</blockquote>
-<p><strong>力的平移原理</strong></p>
-<ul>
-<li>引理<span><span class="heti-spacing"> </span>1</span>：作用在刚体上的力沿着其作用线移动后，力对刚体作用效应不变</li>
-<li>引理<span><span class="heti-spacing"> </span>2</span>：在刚体上增加一组平衡力系，不改变原力系对刚体的作用效应</li>
-</ul>
-<p>所以如果想将力平移，那么可以在<span class="heti-skip"><span class="heti-spacing"> </span>B<span class="heti-spacing"> </span></span>点增加一组平衡力系，使得<span class="heti-skip"><span class="heti-spacing"> </span>B<span class="heti-spacing"> </span></span>点的力和<span class="heti-skip"><span class="heti-spacing"> </span>A<span class="heti-spacing"> </span></span>点的力相同，方向相反。这个时候把<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(F\)</span><span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(F_2\)</span><span class="heti-spacing"> </span></span>视为一组力偶。</p>
-<p>可以看作力<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(F\)</span><span class="heti-spacing"> </span></span>平移到<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(F_1\)</span><span class="heti-spacing"> </span></span>之后，刚体受到<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(F_1\)</span><span class="heti-spacing"> </span></span>和力偶矩<span><span class="heti-spacing"> </span><span class="arithmatex">\(M = F \times r_{AB}\)</span></span></p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250313095306008.png"/></p>
-<blockquote>
-<p>图源 <a href="https://blog.csdn.net/weixin_43989965/article/details/120471367">力平移定理与平衡<span class="heti-skip"><span class="heti-spacing"> </span>- CSDN<span class="heti-spacing"> </span></span>博客</a></p>
-</blockquote>
-<h3 id="_16">操作臂的静力传递<a class="headerlink" href="#_16" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<ul>
-<li>传递方向：从末端向下传递</li>
-<li>方式：先固定，写出各连杆的平衡关系，再加外力，写出各关节轴需要加多少力<blockquote>
-<p>忽略重力</p>
-</blockquote>
-</li>
-</ul>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250313114049005.png"/></p>
-<div class="arithmatex">\[
-\begin{align*}
-^i f_i = ^i f_{i+1}\\
-^i n_i = ^i n_{i+1} + ^{i}P_{i+1} \times ^{i}f_{i+1}
-\end{align*}
-\]</div>
-<p>加上坐标系变换后</p>
-<div class="arithmatex">\[
-\begin{align*}
-^i f_i = ^{i}_{i+1}R ^{i+1} f_{i+1}\\
-^i n_i = ^{i}_{i+1}R^{i+1} n_{i+1} + ^{i}P_{i+1} \times ^{i}f_{i+1}
-\end{align*}
-\]</div>
-<div class="admonition note">
-<p class="admonition-title">转动型关节需要考虑施加多少力矩<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>平动型关节需要考虑施加多少力<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>需要对<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>力，力矩<span class="heti-skip"><span class="heti-spacing"> </span>)<span class="heti-spacing"> </span></span>向量进行正交分解</p>
-</div>
-<p><strong>转动型关节<span><span class="heti-spacing"> </span><span class="arithmatex">\(i\)</span></span></strong></p>
-<p><span><span class="arithmatex">\(f_i\)</span><span class="heti-spacing"> </span></span>不是主动力而是约束力，它阻止连杆<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(i\)</span><span class="heti-spacing"> </span></span>作直线运动；<span><span class="arithmatex">\(n_i\)</span><span class="heti-spacing"> </span></span>阻止连杆<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(i\)</span><span class="heti-spacing"> </span></span>作旋转运动。在<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\{i\}\)</span><span class="heti-spacing"> </span></span>中对<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(n_i\)</span><span class="heti-spacing"> </span></span>进行正交分解，可得到<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>个沿<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\hat{z}_i\)</span><span class="heti-spacing"> </span></span>的力矩向量和<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>个垂直于<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\hat{z}_i\)</span><span class="heti-spacing"> </span></span>的力矩向量，垂直于<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\hat{z}_i\)</span><span class="heti-spacing"> </span></span>的力矩向量是约束力矩，沿<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\hat{z}_i\)</span><span class="heti-spacing"> </span></span>的力矩向量是主动力矩，主动力矩需由关节<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(i\)</span><span class="heti-spacing"> </span></span>的旋转驱动器提供，主动力矩可表示为<span><span class="heti-spacing"> </span><span class="arithmatex">\(\tau_i \hat{z}_i\)</span></span>，其中</p>
-<div class="arithmatex">\[
-\tau_i = |n_i| \cos \theta = |n_i| |\hat{z}_i| \cos \theta = n_i^{\mathrm{T}} \hat{z}_i
-\]</div>
-<p><strong>平动型关节<span><span class="heti-spacing"> </span><span class="arithmatex">\(i\)</span></span></strong></p>
-<p><span><span class="arithmatex">\(n_i\)</span><span class="heti-spacing"> </span></span>是约束力矩。在<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\{i\}\)</span><span class="heti-spacing"> </span></span>中对<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(f_i\)</span><span class="heti-spacing"> </span></span>进行正交分解，得到<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>个主动力和<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>个约束力，需由关节<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(i\)</span><span class="heti-spacing"> </span></span>的直线驱动器提供的主动力表示为<span><span class="heti-spacing"> </span><span class="arithmatex">\(\tau_i \hat{z}_i\)</span></span>，其中</p>
-<div class="arithmatex">\[
-\tau_i = f_i^{\mathrm{T}} \hat{z}_i
-\]</div>
 <div class="admonition example">
-<p class="admonition-title">例子</p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250313112419504.png"/>
-<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250313112444810.png"/></p>
-<blockquote>
-<p>课本习题</p>
-</blockquote>
+<p class="admonition-title">柱坐标</p>
+<p>例如，如果你的<span class="heti-skip"><span class="heti-spacing"> </span>end effector<span class="heti-spacing"> </span></span>位置是由柱坐标表示的，即<span><span class="heti-spacing"> </span><span class="arithmatex">\((\rho, \theta, z)\)</span></span>，而柱坐标转换为笛卡尔坐标是：</p>
+<div class="arithmatex">\[
+x = \rho \cos \theta\\
+y = \rho \sin \theta\\
+z = z
+\]</div>
+<p>那么转换矩阵<span><span class="heti-spacing"> </span><span class="arithmatex">\(T_p\)</span></span>（这里的<span class="heti-skip"><span class="heti-spacing"> </span>p<span class="heti-spacing"> </span></span>表示<span><span class="heti-spacing"> </span>position</span>）就由笛卡尔坐标对柱坐标的向量求导得出：</p>
+<div class="arithmatex">\[
+T_p = \frac{\partial \begin{bmatrix} x \\ y \\ z \end{bmatrix}}{\partial \begin{bmatrix} \rho \\ \theta \\ z \end{bmatrix}} = \begin{bmatrix} \cos \theta &amp; -\rho \sin \theta &amp; 0 \\ \sin \theta &amp; \rho \cos \theta &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{bmatrix}
+\]</div>
+<div class="arithmatex">\[
+\frac{\partial(x_1,x_2,\cdots,x_n)}{\partial(y_1,y_2,\cdots,y_m)}=\begin{bmatrix}\frac{\partial x_1}{\partial y_1}&amp;\frac{\partial x_1}{\partial y_2}&amp;\cdots&amp;\frac{\partial x_1}{\partial y_m}\\\frac{\partial x_2}{\partial y_1}&amp;\frac{\partial x_2}{\partial y_2}&amp;\cdots&amp;\frac{\partial x_2}{\partial y_m}\\\vdots&amp;\vdots&amp;&amp;\vdots\\\frac{\partial x_n}{\partial y_1}&amp;\frac{\partial x_n}{\partial y_2}&amp;\cdots&amp;\frac{\partial x_n}{\partial y_m}\end{bmatrix}
+\]</div>
 </div>
+<p>而新的雅可比矩阵的上半部分就等于基本雅可比矩阵的<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(J_v\)</span><span class="heti-spacing"> </span></span>左乘上这个<span><span class="heti-spacing"> </span><span class="arithmatex">\(T_p\)</span></span>。对于旋转也类似</p>
+<div class="arithmatex">\[
+^i\boldsymbol{J}(\boldsymbol{\Phi})=\begin{pmatrix}{}_0^i\boldsymbol{R}&amp;0\\0&amp;{}_0^i\boldsymbol{R}\end{pmatrix}\boldsymbol{J}(\boldsymbol{\Phi})
+\]</div>
 <h3 id="_17">力域中的雅可比<a class="headerlink" href="#_17" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>笛卡尔力映射到关节上的力矩，不需要求解逆运动学</p>
 <div class="arithmatex">\[
 \tau = J^T F 
 \]</div>
+<ul>
+<li>是操作空间向关节空间的映射（与<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\dot{x} = J \dot{\Phi}\)</span><span class="heti-spacing"> </span></span>是相反的）</li>
+</ul>
 <div class="admonition note">
 <p class="admonition-title">证明方法<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>虚功原理</p>
 <p>以机器人在末端笛卡儿空间所做的功与在关节空间所做的功相等，即</p>
@@ -4115,8 +4123,84 @@ F^T J = \tau^T
 \tau = J^T F 
 \]</div>
 </div>
-<h2 id="_18">题型<a class="headerlink" href="#_18" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<h3 id="_19">基础公式记忆<a class="headerlink" href="#_19" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h2 id="_18">奇异性<a class="headerlink" href="#_18" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h3 id="_19">奇异性理解<a class="headerlink" href="#_19" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<ul>
+<li><strong>运动角度理解</strong>：机械臂处在特定的关节位置组合（奇异位形）的时候，末端执行器会丢掉某个方向的自由度<blockquote>
+<p>完全伸直手臂之后，手无法沿着手臂方向移动</p>
+</blockquote>
+</li>
+</ul>
+<ul>
+<li><strong>雅可比矩阵角度</strong>：关节的运动速度乘以雅可比矩阵即得到<span class="heti-skip"><span class="heti-spacing"> </span>end effector<span class="heti-spacing"> </span></span>的运动速度。而<span class="heti-skip"><span class="heti-spacing"> </span>end effector<span class="heti-spacing"> </span></span>失去某个方向的自由度即意味着在机械臂到达那个<span class="heti-skip"><span class="heti-spacing"> </span>configuration<span class="heti-spacing"> </span></span>的瞬间，不管关节怎么运动，<span>end effector<span class="heti-spacing"> </span></span>在这个方向的速度总为<span><span class="heti-spacing"> </span>0</span>（雅可比矩阵的分量为<span><span class="heti-spacing"> </span>0</span>）</li>
+</ul>
+<ul>
+<li><strong>从线性代数的角度来说</strong>：此时的<span class="heti-skip"><span class="heti-spacing"> </span>J<span class="heti-spacing"> </span></span>矩阵有这样的特性：对所有任意向量<span><span class="heti-spacing"> </span>a</span>，<span>Ja<span class="heti-spacing"> </span></span>相乘得到向量<span><span class="heti-spacing"> </span>b</span>，则所有向量<span class="heti-skip"><span class="heti-spacing"> </span>b<span class="heti-spacing"> </span></span>组成的线性空间维度将比正常情况下少至少一个自由度（<strong>降秩</strong>）</li>
+</ul>
+<h3 id="_20">奇异位形求解<a class="headerlink" href="#_20" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>奇异位形：无法通过关节变量速度实现要求的末端速度</p>
+<p>对于一般机器人，奇异位形为令雅可比矩阵<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(J\)</span><span class="heti-spacing"> </span></span>不满秩的<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\Phi\)</span><span class="heti-spacing"> </span></span>值所构成的位形<heti-adjacent class="heti-adjacent-half">，</heti-adjacent>（<span><span class="arithmatex">\(N\)</span><span class="heti-spacing"> </span></span>是机器人关节数目）时</p>
+<div class="arithmatex">\[
+\text{rank}(J(\Phi) &lt; \min(m, N)
+\]</div>
+<p>不同情况下的奇异点的判断条件为：</p>
+<ol>
+<li><strong>无冗余<span><span class="heti-spacing"> </span>(<span class="arithmatex">\(m = N\)</span>)</span></strong><span>:<span class="heti-spacing"> </span></span>在此<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\Phi\)</span><span class="heti-spacing"> </span></span>时<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(J(\Phi)\)</span><span class="heti-spacing"> </span></span>不可逆，即<span><span class="heti-spacing"> </span><span class="arithmatex">\(\det(J(\Phi)) = 0\)</span></span>。</li>
+<li><strong>冗余<span><span class="heti-spacing"> </span>(<span class="arithmatex">\(m &lt; N\)</span>)</span></strong><span>:<span class="heti-spacing"> </span></span>在此<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\Phi\)</span><span class="heti-spacing"> </span></span>时<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(J(\Phi)\)</span><span class="heti-spacing"> </span></span>不行满秩，即<span><span class="heti-spacing"> </span><span class="arithmatex">\(\text{rank}(J(\Phi)) &lt; m\)</span></span><heti-adjacent class="heti-adjacent-half">。</heti-adjacent>（可能有最小范数解）</li>
+<li><strong>欠驱动<span><span class="heti-spacing"> </span>(<span class="arithmatex">\(m &gt; N\)</span>)</span></strong><span>:<span class="heti-spacing"> </span></span>在此<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\Phi\)</span><span class="heti-spacing"> </span></span>时<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(J(\Phi)\)</span><span class="heti-spacing"> </span></span>不列满秩，即<span><span class="heti-spacing"> </span><span class="arithmatex">\(\text{rank}(J(\Phi)) &lt; N\)</span></span><heti-adjacent class="heti-adjacent-half">。</heti-adjacent>（可能有最小二乘解）</li>
+</ol>
+<ul>
+<li>奇异位形是机器人的构型决定的，是机器人的固有特征</li>
+<li>接近奇异位形的时候，存在机器人末端在工作空间中的微小速度导致关节空间产生过大速度：从线性方程的角度看，当机器人接近<span class="heti-skip"><span class="heti-spacing"> </span>Singularity<span class="heti-spacing"> </span></span>时，雅可比矩阵也越来越“病态”（ill-conditioned<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，很小的<span class="heti-skip"><span class="heti-spacing"> </span>dx<span class="heti-spacing"> </span></span>可能求得很大的<span><span class="heti-spacing"> </span>dq</span>，方程对数值误差也更加敏感；而当机器人处于<span class="heti-skip"><span class="heti-spacing"> </span>Singularity<span class="heti-spacing"> </span></span>时，线性方程可能无解、也可能有无数多个解。</li>
+</ul>
+<p><strong>边界奇异性</strong><span>:<span class="heti-spacing"> </span></span>工作空间边界的奇异位形。出现在机器人完全展开或者收回使得末端执行器处于或非常接近工作空间边界的情况。</p>
+<p><strong>内点奇异性</strong><span>:<span class="heti-spacing"> </span></span>工作空间内部的奇异位形。出现在远离工作空间的边界，通常是由于两个或两个以上的关节轴线共线引起的。</p>
+<h3 id="_21">可操作度<a class="headerlink" href="#_21" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<div class="admonition note">
+<p class="admonition-title">二次型与椭圆</p>
+<p>二次型对应椭球体。 椭球的轴沿着<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A\)</span><span class="heti-spacing"> </span></span>的特征向量，半长轴长度是<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A\)</span><span class="heti-spacing"> </span></span>特征值倒数的开方</p>
+<p><strong>椭圆的标准方程：</strong> <span class="arithmatex">\(\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1\)</span>。其中，椭圆的长轴长度为<span><span class="heti-spacing"> </span><span class="arithmatex">\(2a\)</span></span>，短轴长度为<span><span class="heti-spacing"> </span><span class="arithmatex">\(2b\)</span></span>。</p>
+<p><strong>矩阵形式：</strong></p>
+<div class="arithmatex">\[
+\begin{bmatrix} x \\ y \end{bmatrix}^T \begin{bmatrix} \frac{1}{a^2} &amp; 0 \\ 0 &amp; \frac{1}{b^2} \end{bmatrix} \begin{bmatrix} x \\ y \end{bmatrix} = x^T A x = 1
+\]</div>
+<p><strong>特征值与特征向量：</strong></p>
+<p>矩阵<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A\)</span><span class="heti-spacing"> </span></span>的特征值为：<span class="arithmatex">\(\lambda_1 = \frac{1}{a^2}, \quad \lambda_2 = \frac{1}{b^2}\)</span>，特征值则表示了半长轴和半短轴长度平方的倒数。 </p>
+<p>对应的归一化特征向量为：<span class="arithmatex">\(\mu_1 = \begin{bmatrix} 1 \\ 0 \end{bmatrix}, \quad \mu_2 = \begin{bmatrix} 0 \\ 1 \end{bmatrix}\)</span>，表示了椭圆的长轴和短轴的方向</p>
+</div>
+<p>假设机器人有<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(N\)</span><span class="heti-spacing"> </span></span>个关节，末端速度空间的维数为<span><span class="heti-spacing"> </span><span class="arithmatex">\(m\)</span></span>，要求<span><span class="heti-spacing"> </span><span class="arithmatex">\(N \geq m\)</span></span>，则<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(m \times N\)</span><span class="heti-spacing"> </span></span>维雅可比矩阵<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(J\)</span><span class="heti-spacing"> </span></span>的奇异值分解为：</p>
+<div class="arithmatex">\[
+J = U \Sigma V^T
+\]</div>
+<p>其中，<span><span class="arithmatex">\(\Sigma\)</span><span class="heti-spacing"> </span></span>是<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(m \times N\)</span><span class="heti-spacing"> </span></span>维矩阵，其主对角线外的元素均为零，主对角线上的每个元素为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(J\)</span><span class="heti-spacing"> </span></span>的奇异值<span><span class="heti-spacing"> </span><span class="arithmatex">\(\sigma_i = \sqrt{\lambda_i(JJ^T)} (i = 1, \cdots, m)\)</span></span>，且<span><span class="heti-spacing"> </span><span class="arithmatex">\(\sigma_1 \geq \sigma_2 \geq \cdots \geq \sigma_m \geq 0\)</span></span>；<span><span class="arithmatex">\(U\)</span><span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(V\)</span><span class="heti-spacing"> </span></span>分别为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(m\)</span><span class="heti-spacing"> </span></span>维和<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(N\)</span><span class="heti-spacing"> </span></span>维正交矩阵，且<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(U\)</span><span class="heti-spacing"> </span></span>由矩阵<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(JJ^T\)</span><span class="heti-spacing"> </span></span>的特征向量<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(u_i (i = 1, \cdots, m)\)</span><span class="heti-spacing"> </span></span>张成，<span><span class="arithmatex">\(V\)</span><span class="heti-spacing"> </span></span>由矩阵<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(J^TJ\)</span><span class="heti-spacing"> </span></span>的特征向量<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(v_i (i = 1, \cdots, N)\)</span><span class="heti-spacing"> </span></span>张成。由此得到：</p>
+<div class="arithmatex">\[
+v_e^T (J J^T)^{-1} v_e = (U^T v_e)^T \Sigma^{-2} (U^T v_e)
+\]</div>
+<p>此时，<span><span class="arithmatex">\(\Sigma^{-2} = \text{diag}(\sigma_1^{-2}, \sigma_2^{-2}, \cdots, \sigma_m^{-2})\)</span><span class="heti-spacing"> </span></span>为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(m\)</span><span class="heti-spacing"> </span></span>维对角矩阵。记<span><span class="heti-spacing"> </span><span class="arithmatex">\(\alpha = U^T v_e\)</span></span></p>
+<div class="arithmatex">\[
+v_e^T (J J^T)^{-1} v_e - \alpha^T \Sigma^{-2} \alpha = \sum_{i=1}^m \frac{\alpha_i^2}{\sigma_i^2} \leq 1
+\]</div>
+<p>是一个标准的椭球体方程，表明机器人此位形的可操作椭球体的轴由向量<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\sigma_i u_i\)</span><span class="heti-spacing"> </span></span>给出。</p>
+<p>机器人关节速度取单位速度时，可操作椭球体轴的长度越大，在该轴方向上，所得到的末端速度可以越大，表明在该方向上运动能力越强；反之，轴的长度越小，在该轴方向上，所得到的末端速度被限制得越小，表明在该方向上运动能力越弱。因此，机器人位形的可操作椭球体描述了机器人改变末端位姿的能力。</p>
+<p>定义可操作度，用来衡量机器人位形与奇异位形之间的距离</p>
+<div class="arithmatex">\[
+\kappa(\boldsymbol{\Phi})=\sigma_1\sigma_2\cdots\sigma_m=\sqrt{\det(\boldsymbol{J}(\boldsymbol{\Phi})\boldsymbol{J}^\mathrm{T}(\boldsymbol{\Phi}))}
+\]</div>
+<p>特别的，当雅可比矩阵可逆的时候<span><span class="heti-spacing"> </span><span class="arithmatex">\(\kappa(\boldsymbol{\Phi})=\mid\det(\boldsymbol{J}(\boldsymbol{\Phi}))\mid\)</span></span></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250314222953648.png"/></p>
+<h2 id="_22">冗余<a class="headerlink" href="#_22" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<p>“又矮又胖的矩阵”：关节自由度特别多的时候</p>
+<p>这意味着，可以实现关节空间运动，而末端执行器不动，即</p>
+<div class="arithmatex">\[
+\exists \dot{q} \neq 0, \quad J \dot{q} = 0
+\]</div>
+<blockquote>
+<p>指尖保持不动，只动手肘手腕</p>
+</blockquote>
+<p>假如<span class="heti-skip"><span class="heti-spacing"> </span>J<span class="heti-spacing"> </span></span>是一个方阵，那么<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(J\dot{q}=0\)</span><span class="heti-spacing"> </span></span>有非零解的充分必要条件是<span class="heti-skip"><span class="heti-spacing"> </span>J<span class="heti-spacing"> </span></span>是一个奇异矩阵——也就是说，如果没有冗余自由度，一个机械臂关节运动而<span class="heti-skip"><span class="heti-spacing"> </span>end effector<span class="heti-spacing"> </span></span>不动的情况只有在它处于<span class="heti-skip"><span class="heti-spacing"> </span>singularity<span class="heti-spacing"> </span></span>时才能出现。</p>
+<p>但是，如果<span class="heti-skip"><span class="heti-spacing"> </span>J<span class="heti-spacing"> </span></span>是一个矮胖矩阵，那么<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(J\dot{q}=0\)</span><span class="heti-spacing"> </span></span>必然有无数个非零解，这些解组成的空间即称为<span class="heti-skip"><span class="heti-spacing"> </span>"<span class="heti-spacing"> </span></span>零空间<span><span class="heti-spacing"> </span>"</span>（nullspace<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。</p>
+<h2 id="_23">题型<a class="headerlink" href="#_23" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h3 id="_24">基础公式记忆<a class="headerlink" href="#_24" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p><strong><span>z-y-x<span class="heti-spacing"> </span></span>欧拉角</strong> 公式</p>
 <div class="arithmatex">\[
 \begin{align}
@@ -4175,7 +4259,7 @@ s\alpha c\beta &amp; s\alpha s\beta s\gamma+c\alpha c\gamma &amp; s\alpha s\beta
 </tr>
 </tbody>
 </table>
-<h3 id="-_1">求雅可比矩阵<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>运动学方程微分<a class="headerlink" href="#-_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="-j_v">求雅可比矩阵<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>运动学方程微分<span><span class="heti-spacing"> </span><span class="arithmatex">\(J_v\)</span></span><a class="headerlink" href="#-j_v" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>由正运动学，求解<span><span class="heti-spacing"> </span><span class="arithmatex">\(^0_nT\)</span></span></p>
 <div class="arithmatex">\[
 ^0_nT = \begin{pmatrix} ^0_nR &amp; ^0_nP \\ 0 &amp; 1 \end{pmatrix}
@@ -4185,15 +4269,30 @@ s\alpha c\beta &amp; s\alpha s\beta s\gamma+c\alpha c\gamma &amp; s\alpha s\beta
 P' = \frac{d P}{d t} = J(\theta) \dot{\theta}
 \]</div>
 <p>即可得到雅可比矩阵</p>
-<h3 id="-_2">求雅可比矩阵<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>向量积构造法<a class="headerlink" href="#-_2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<p><span><span class="arithmatex">\(O_i\)</span><span class="heti-spacing"> </span></span>是坐标系<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\({i}\)</span><span class="heti-spacing"> </span></span>的原点位置，<span><span class="arithmatex">\(\hat{Z}_i\)</span><span class="heti-spacing"> </span></span>是转轴单位向量，这里要特别注意，<span><span class="arithmatex">\(\hat{Z}_i\)</span><span class="heti-spacing"> </span></span>需要在世界坐标系下表出</p>
-<ul>
-<li>若第<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(i\)</span><span class="heti-spacing"> </span></span>个关节为平动型关节，则：<span class="arithmatex">\(v_N^{(i)} = d_i \hat{Z}_i \quad \omega_N^{(i)} = 0\)</span></li>
-<li>若第<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(i\)</span><span class="heti-spacing"> </span></span>个关节为转动型关节，则：<span class="arithmatex">\(v_N^{(i)} = \dot{\theta}_i \hat{Z}_i \times (O_N - O_i) \quad \omega_N^{(i)} = \dot{\theta}_i \hat{Z}_i\)</span></li>
-</ul>
-<h3 id="-_3">求雅可比矩阵<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>速度传递<a class="headerlink" href="#-_3" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<p>公式不要记错，这里要注意<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(^{i+1}_i\!R\)</span><span class="heti-spacing"> </span></span>需要使用<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(^{i}_{i+1}\!R^T\)</span><span class="heti-spacing"> </span></span>进行求解</p>
-<p><strong>转动型关节</strong></p>
+<h3 id="-j_v-j_omega">求雅可比矩阵<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>向量积构造法<span><span class="heti-spacing"> </span><span class="arithmatex">\(J_v\)</span> <span class="arithmatex">\(J_\omega\)</span></span><a class="headerlink" href="#-j_v-j_omega" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>计算每一个关节对于连杆<span class="heti-skip"><span class="heti-spacing"> </span>N<span class="heti-spacing"> </span></span>速度的贡献</p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250314234911486.png"/></p>
+<h4 id="_25">平动型关节<a class="headerlink" href="#_25" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<p>若第<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(i\)</span><span class="heti-spacing"> </span></span>个关节为平动型关节，则：</p>
+<div class="arithmatex">\[
+v_N^{(i)} = d_i \hat{Z}_i \quad \omega_N^{(i)} = 0
+\]</div>
+<h4 id="_26">转动型关节<a class="headerlink" href="#_26" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<p>若第<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(i\)</span><span class="heti-spacing"> </span></span>个关节为转动型关节，则：<span class="arithmatex">\(v_N^{(i)} = \dot{\theta}_i \hat{Z}_i \times (O_N - O_i) \quad \omega_N^{(i)} = \dot{\theta}_i \hat{Z}_i\)</span></p>
+<blockquote>
+<p>为什么要叉乘：<strong>类似于“力矩”中“矩”的概念</strong></p>
+</blockquote>
+<div class="admonition note">
+<p class="admonition-title"><span><span class="arithmatex">\(O_i\)</span><span class="heti-spacing"> </span></span>是坐标系<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\({i}\)</span><span class="heti-spacing"> </span></span>的原点位置，<span><span class="arithmatex">\(\hat{Z}_i\)</span><span class="heti-spacing"> </span></span>是<strong>转轴单位向量</strong></p>
+<p>这里要特别注意，<span><span class="arithmatex">\(\hat{Z}_i\)</span><span class="heti-spacing"> </span></span>需要在世界坐标系下表出，且需要是<strong>单位向量</strong></p>
+</div>
+<p>在三维空间里，角速度定义为一个指向旋转轴的向量，其方向由右手定则确定。</p>
+<p>每个旋转关节都是绕自身的<span class="heti-skip"><span class="heti-spacing"> </span>z<span class="heti-spacing"> </span></span>轴旋转的，所以当一个旋转关节转速为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\omega\)</span><span class="heti-spacing"> </span></span>时，它所<span class="heti-skip"><span class="heti-spacing"> </span>contribute<span class="heti-spacing"> </span></span>的<span class="heti-skip"><span class="heti-spacing"> </span>end effector<span class="heti-spacing"> </span></span>的角速度向量以这个旋转关节本身的坐标系为参照系必然为<span><span class="heti-spacing"> </span><span class="arithmatex">\([0, 0, \omega]\)</span></span>。</p>
+<p>但是由于基础雅可比矩阵是以<span class="heti-skip"><span class="heti-spacing"> </span>frame{0}<span class="heti-spacing"> </span></span>为参照系的，所以需要将<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\([0, 0, \omega]\)</span><span class="heti-spacing"> </span></span>转换到<span class="heti-skip"><span class="heti-spacing"> </span>frame{0}<span class="heti-spacing"> </span></span>下<span><span class="heti-spacing"> </span>.</span></p>
+<h3 id="-">求雅可比矩阵<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>速度传递<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>向外迭代法<a class="headerlink" href="#-" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>知道了这样的变换方法，就可以从连杆<span><span class="heti-spacing"> </span>0</span>，变换到连杆<span><span class="heti-spacing"> </span>N</span>，一个个地计算速度和角速度</p>
+<p>向外迭代法是计算机器人几何雅可比矩阵的方法之一</p>
+<h4 id="_27">转动型关节<a class="headerlink" href="#_27" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p>角速度：连杆<span class="heti-skip"><span class="heti-spacing"> </span>i+1<span class="heti-spacing"> </span></span>针对世界坐标系角速度在<span class="heti-skip"><span class="heti-spacing"> </span>{i+1}<span class="heti-spacing"> </span></span>坐标系的表示</p>
 <div class="arithmatex">\[
 ^{i+1}\!\omega_{i+1} = ^{i+1}_i\!R {^i\omega_i} + \dot{\theta}_{i+1} {}^{i+1}\!\hat{Z}_{i+1}\\
@@ -4208,7 +4307,10 @@ P' = \frac{d P}{d t} = J(\theta) \dot{\theta}
 <blockquote>
 <p>连杆的长度隐含在了<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(^iP_{i+1}\)</span><span class="heti-spacing"> </span></span>叉乘项当中</p>
 </blockquote>
-<p><strong>平动型</strong></p>
+<div class="admonition attention">
+<p class="admonition-title">公式不要记错，这里要注意<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(^{i+1}_i\!R\)</span><span class="heti-spacing"> </span></span>需要使用<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\((^{i}_{i+1}\!R)^T\)</span><span class="heti-spacing"> </span></span>进行求解</p>
+</div>
+<h4 id="_28">平动型关节<a class="headerlink" href="#_28" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p>角速度：不变</p>
 <div class="arithmatex">\[
 ^{i+1}\omega_{i+1} = _i^{i+1}R {^i\omega_i}
@@ -4217,7 +4319,7 @@ P' = \frac{d P}{d t} = J(\theta) \dot{\theta}
 <div class="arithmatex">\[
 ^{i+1}v_{i+1} = _i^{i+1}R (^iv_i + ^i\omega_i \times ^iP_{i+1}) + \dot{d_{i+1}} \hat{Z}_{i+1}
 \]</div>
-<h3 id="-_4">求雅可比矩阵<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>力传递<a class="headerlink" href="#-_4" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="-_1">求雅可比矩阵<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>力传递<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>向内迭代法<a class="headerlink" href="#-_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <div class="arithmatex">\[
 \begin{align*}
 ^i f_i = ^{i}_{i+1}R ^{i+1} f_{i+1}\\
@@ -4247,7 +4349,7 @@ P' = \frac{d P}{d t} = J(\theta) \dot{\theta}
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年4月15日 22:02:51</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年4月18日 01:06:57</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">
