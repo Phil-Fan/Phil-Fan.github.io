@@ -717,6 +717,12 @@ $$
 
 **几种方法对比**
 
+!!! note "推荐方法"
+    - 首选运动学方程微分方法，计算$J_v$
+    - 然后列写各个坐标系下$^{0} z$轴向量，计算$J_\omega$；平动关节直接为0
+    - 这两个方法只要DH参数表和${}^0_NT$计算正确即可
+
+
 | 方法               | 计算量                           | 需要求解                     | 注意点                                                                 |
 |--------------------|----------------------------------|-----------------------------|----------------------------------------------------------------------|
 | **运动学方程微分** | 中等                             | 正运动学方程 $^0_nT$         | 确保正确求导，注意矩阵维度一致性                                      |
@@ -867,5 +873,57 @@ $$
 
 
 
+## 例题
+
+### 5-3 
+
+若$R\in\text{SO}(3)$，$a\in\mathbb{R}^3$，$B\in\mathbb{R}^{3\times3}$，证明$R(a^\wedge B)=(Ra)^\wedge(RB)$
+
+证明：证明很多，提供其中一种：
+
+因为$\det(x,a,b)=\langle x,a\times b\rangle$，$\forall x\in\mathbb{R}^3$
+
+令$R\in\text{RO}(3)$，利用性质$R^T=R^{-1}$可以得到
+$$\langle x,R(a\times b)\rangle=\langle R^Tx,a\times b\rangle=\langle R^{-1}x,a\times b\rangle=\det(R^{-1},a,b)$$
+由于$\det(R)=1$，可以得到：
+
+$$
+=\det(R)\det(R^{-1}x,a,b)=\det(x,Ra,Rb)=\langle x,Ra\times Rb\rangle
+$$
+
+最后由于$\langle x,R(a\times b)\rangle=\langle x,Ra\times Rb\rangle$对于所有$x\in\mathbb{R}^3$成立，因此
+
+$$
+R(a\times b)=Ra\times Rb，\text{即}R(a^\wedge b)=(Ra)^\wedge(Rb)
+$$
+
+由$B\in\mathbb{R}^{3\times3}$，令$B=\begin{pmatrix}b_1&b_2&b_3\end{pmatrix}$，则
+
+$$
+\begin{aligned}R(a^\wedge B)&=R\left(a^\wedge\begin{pmatrix}b_1&b_2&b_3\end{pmatrix}\right)=R\left(\begin{pmatrix}a^\wedge b_1&a^\wedge b_2&a^\wedge b_3\end{pmatrix}\right)\\&=\begin{pmatrix}R(a^\wedge b_1)&R(a^\wedge b_2)&R(a^\wedge b_3)\end{pmatrix}=\begin{pmatrix}Ra^\wedge Rb_1&Ra^\wedge Rb_2&Ra^\wedge Rb_3\end{pmatrix}\\&=Ra^\wedge\begin{pmatrix}Rb_1&Rb_2&Rb_3\end{pmatrix}=Ra^\wedge R\begin{pmatrix}b_1&b_2&b_3\end{pmatrix}=Ra^\wedge RB\end{aligned}
+$$
+
+## 5-4
+
+!!! note "注意这个角速率的公式"
+
+角速率的关系为$\omega=B(\Psi)\dot{\Psi}$，求出$B(\Psi)$的具体表达式
+
+$$\begin{aligned}
+&\Psi=\begin{bmatrix}\alpha\\\beta\\\gamma\end{bmatrix},\dot{\Psi}=\begin{bmatrix}\dot{\alpha}\\\dot{\beta}\\\dot{\gamma}\end{bmatrix},R=\begin{bmatrix}c\alpha c\beta&c\alpha s\beta s\gamma-s\alpha c\gamma&c\alpha s\beta c\gamma+s\alpha s\gamma\\s\alpha s\beta&s\alpha s\beta s\gamma+c\alpha c\gamma&s\alpha s\beta c\gamma-c\alpha s\gamma\\-s\beta&c\beta s\gamma&c\beta c\gamma\end{bmatrix},\dot{R}R^T=\begin{bmatrix}0&-Q_Z&Q_Y\\\Omega_Z&0&-Q_X\\-\Omega_Y&\Omega_X&0\end{bmatrix}\\
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+\Omega_{X}&=\dot{r}_{31}r_{21}+\dot{r}_{32}r_{22}+\dot{r}_{33}r_{33}\\&=-s\alpha c\beta c\beta\dot{\beta}+(s\alpha s\beta s\gamma+c\alpha c\gamma)\left(c\beta c\gamma\dot{\gamma}-s\beta s\gamma\dot{\beta}\right)+(s\alpha s\beta c\gamma-c\alpha s\gamma)\left(-s\beta c\gamma\dot{\beta}-c\beta s\gamma\dot{\gamma}\right)=-s\alpha c\beta c\beta\dot{\beta}-s\alpha s\beta s\beta\dot{\beta}+c\alpha c\beta\dot{\gamma}=-s\alpha\dot{\beta}+c\alpha c\beta\dot{\gamma}\\
+\Omega_Y&=\dot{r}_{11}r_{31}+\dot{r}_{12}r_{32}+\dot{r}_{13}r_{33}=c\alpha\dot{\beta}+c\beta s\alpha\dot{\gamma}\\
+\Omega_Z&=\dot{r}_{21}r_{11}+\dot{r}_{22}r_{12}+\dot{r}_{23}r_{13}=\dot{\alpha}-s\beta\dot{\gamma}\\
+\end{aligned}
+$$
+
+$$
+B(\Psi)=\begin{bmatrix}0&-s\alpha&c\alpha c\beta\\0&c\alpha&c\beta s\alpha\\1&0&-s\beta\end{bmatrix}
+$$
 
 

@@ -147,7 +147,9 @@ comments: true
 现代控制理论是经典控制理论的延续。更关注于离散系统和多输入系统。
 
 可以先听一下这个串讲，对整体有一个了解
-[现代控制理论串讲 - DR_CAN](https://www.bilibili.com/video/BV1jW411J729/)
+
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=19161045&bvid=BV1jW411J729&cid=31254269&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"></iframe>
+
 
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/%E7%8E%B0%E4%BB%A3%E6%8E%A7%E5%88%B6%E7%90%86%E8%AE%BA.svg)
 

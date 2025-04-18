@@ -197,9 +197,10 @@ nav:
   - "友链": friends.md
     
 - Math:
+  - Math/signal.md
   - Math/Logic.md
   - Math/ComplexFunction.md
-
+  
   - LinearAlgebra:
     - Math/LinearAlgebra/MatrixTheory.md
 
@@ -240,7 +241,7 @@ nav:
   
 
 - Class:
-  - Class/signal.md
+  
   - Class/SocialSciences.md
   - Class/马原.md
   - Class/毛概.md

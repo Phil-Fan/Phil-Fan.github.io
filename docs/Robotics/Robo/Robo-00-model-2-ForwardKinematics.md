@@ -273,3 +273,167 @@ T_final = compute_DH(DH_params);
 效果
 
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250310162148977.png)
+
+
+## 例题
+
+
+### 3-3
+3-3 下图所示为某 3 自由度机器人(RPR)。
+(1)试在此机器人上用非标准D-H方法建立连杆联体坐标系并写出运动学参量表
+(2)求出该机器人用齐次变换矩阵形式表示的运动学方程
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250418202532.png)
+
+运动学参量表
+
+| $i$ | $\alpha_{i-1}$(rad) | $a_{i-1}$(m) | $d_{i}$(m) | $\theta_{i}$(rad) |
+|-----|---------------------|---------------|-------------|-------------------|
+| 1   | 0                   | 0             | 0           | $\theta_{1}$     |
+| 2   | $\pi/2$             | 0             | $d_{2}$     | $\pi/2$          |
+| 3   | $\pi/2$             | 0             | 0           | $\theta_{3}$     |
+
+
+运动学方程
+
+$$
+\begin{bmatrix}
+\cos\theta_1 & -\sin\theta_1 & 0 & 0\\
+\sin\theta_1 & \cos\theta_1 & 0 & 0\\
+0 & 0 & 1 & 0\\
+0 & 0 & 0 & 1
+\end{bmatrix}
+\begin{bmatrix}
+0 & -1 & 0 & 0\\
+0 & 0 & -1 & -d_2\\
+1 & 0 & 0 & 0\\
+0 & 0 & 0 & 1
+\end{bmatrix}
+\begin{bmatrix}
+\cos\theta_3 & -\sin\theta_3 & 0 & 0\\
+0 & 0 & -1 & 0\\
+\sin\theta_3 & \cos\theta_3 & 0 & 0\\
+0 & 0 & 0 & 1
+\end{bmatrix}\\
+=\begin{bmatrix}
+0 & -\cos\theta_1 & \sin\theta_1 & d_2\sin\theta_1\\
+0 & -\sin\theta_1 & -\cos\theta_1 & -d_2\cos\theta_1\\
+1 & 0 & 0 & 0\\
+0 & 0 & 0 & 1
+\end{bmatrix}
+\begin{bmatrix}
+\cos\theta_3 & -\sin\theta_3 & 0 & 0\\
+0 & 0 & -1 & 0\\
+\sin\theta_3 & \cos\theta_3 & 0 & 0\\
+0 & 0 & 0 & 1
+\end{bmatrix}\\=\begin{bmatrix}
+\sin\theta_1\sin\theta_3 & \sin\theta_1\cos\theta_3 & \cos\theta_1 & d_2\sin\theta_1\\
+-\cos\theta_1\sin\theta_3 & -\cos\theta_1\cos\theta_3 & \sin\theta_1 & -d_2\cos\theta_1\\
+\cos\theta_3 & -\sin\theta_3 & 0 & 0\\
+0 & 0 & 0 & 1
+\end{bmatrix}
+$$
+
+
+
+### 3-4
+3-4 如图 3-19 所示的机器人，由两个转动关节与一个滑动关节组成，其各连杆的运动被约束在一个平面内。请：
+
+(1)试在此机器人上用非标准D-H方法建立连杆联体坐标系并写出运动学参量表；
+
+(2)求出该机器人用齐次变换矩阵形式表示的运动学方程。
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250418202210.png)
+
+运动学参量表
+
+| $i$ | $\alpha_{i-1}$(rad) | $a_{i-1}$(m) | $d_{i}$(m) | $\theta_{i}$(rad) |
+|-----|---------------------|---------------|-------------|-------------------|
+| 1   | 0                   | 0             | 0           | $\theta_{1}$     |
+| 2   | $\pi/2$             | $l_{1}$       | $d_{2}$     | 0                |
+| 3   | $-\pi/2$            | 0             | 0           | $\theta_{3}$     |
+
+
+运动学方程
+
+$$
+\begin{aligned}
+&\begin{bmatrix}\cos\theta_1&-\sin\theta_1&0&0\\\sin\theta_1&\cos\theta_1&0&0\\0&0&1&0\\0&0&0&1\end{bmatrix}\begin{bmatrix}1&0&0&l_1\\0&0&-1&-d_2\\0&1&0&0\\0&0&0&1\end{bmatrix}\begin{bmatrix}\cos\theta_3&-\sin\theta_3&0&0\\0&0&1&0\\-\sin\theta_3&-\cos\theta_3&0&0\\0&0&0&1\end{bmatrix}\\&=\begin{bmatrix}\cos\theta_1&0&\sin\theta_1&l_1\cos\theta_1+d_2\sin\theta_1\\\sin\theta_1&0&-\cos\theta_1&l_1\sin\theta_1-d_2\cos\theta_1\\0&1&0&0\\0&0&0&1\end{bmatrix}\begin{bmatrix}\cos\theta_3&-\sin\theta_3&0&0\\0&0&1&0\\-\sin\theta_3&-\cos\theta_3&0&0\\0&0&0&1\end{bmatrix}\\&=\begin{bmatrix}\cos(\theta_1+\theta_3)&-\sin(\theta_1+\theta_3)&0&l_1\cos\theta_1+d_2\sin\theta_1\\\sin(\theta_1+\theta_3)&\cos(\theta_1+\theta_3)&0&l_1\sin\theta_1-d_2\cos\theta_1\\0&0&1&0\\0&0&0&1\end{bmatrix}
+\end{aligned}
+$$
+
+
+### 3-5
+略
+
+
+### 3-6 
+
+4R 平面机器人如下图所示，其连杆联体坐标系已标在图中。试求：
+
+(1) 每个坐标系变换矩阵 $_i^{i-1}\boldsymbol{T},i=1,2,3,4$ ;
+
+(2) 末端执行器的全局坐标；
+
+(3) 末端执行器的方位$\varphi$。
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250418201721.png)
+
+$$
+{}^{0}T_{1}=\begin{bmatrix}\cos\theta_{1} & -\sin\theta_{1} & 0 & l_{1}\cos\theta_{1} \\\sin\theta_{1} & \cos\theta_{1} & 0 & l_{1}\sin\theta_{1} \\0 & 0 & 1 & 0 \\0 & 0 & 0 & 1\end{bmatrix},\quad{}^{1}T_{2}=\begin{bmatrix}\cos\theta_{2} & -\sin\theta_{2} & 0 & l_{2}\cos\theta_{2} \\\sin\theta_{2} & \cos\theta_{2} & 0 & l_{2}\sin\theta_{2} \\0 & 0 & 1 & 0 \\0 & 0 & 0 & 1\end{bmatrix}
+$$
+
+$$
+{}^{2}T_{3}=\begin{bmatrix}\cos\theta_{3} & -\sin\theta_{3} & 0 & l_{3}\cos\theta_{3} \\\sin\theta_{3} & \cos\theta_{3} & 0 & l_{3}\sin\theta_{3} \\0 & 0 & 1 & 0 \\0 & 0 & 0 & 1\end{bmatrix},\quad{}^{3}T_{4}=\begin{bmatrix}\cos\theta_{4} & -\sin\theta_{4} & 0 & l_{4}\cos\theta_{4} \\\sin\theta_{4} & \cos\theta_{4} & 0 & l_{4}\sin\theta_{4} \\0 & 0 & 1 & 0 \\0 & 0 & 0 & 1\end{bmatrix}
+$$
+
+$$
+\quad x=l_{1}\cos\theta_{1}+l_{2}\cos(\theta_{1}+\theta_{2})+l_{3}\cos(\theta_{1}+\theta_{2}+\theta_{3})+l_{4}\cos(\theta_{1}+\theta_{2}+\theta_{3}+\theta_{4})
+$$
+
+$$
+y=l_{1}\sin\theta_{1}+l_{2}\sin(\theta_{1}+\theta_{2})+l_{3}\sin(\theta_{1}+\theta_{2}+\theta_{3})+l_{4}\sin(\theta_{1}+\theta_{2}+\theta_{3}+\theta_{4})
+$$
+
+$$
+\varphi=\theta_{1}+\theta_{2}+\theta_{3}+\theta_{4}
+$$
+
+
+### 实验课机械臂
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250418205120.png)
+
+||$\alpha$|$a$|$d$|$\theta$|
+|---|---|---|---|---|
+|1|0|0|0.23|$\theta_1$|
+|2|$-\pi/2$|0|-0.054|$\theta_2-\pi/2$|
+|3|0|0.185|0|$\theta_3$|
+|4|0|0.170|0.077|$\theta_4+\pi/2$|
+|5|$\pi/2$|0|0.077|$\theta_5+\pi/2$|
+|6|$\pi/2$|0|0.0855|$\theta_6$|
+
+### 5-7
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250418214649.png)
+
+
+
+|连杆|$\alpha_{i-1}$|$a_{i-1}$|$d_i$|$\theta_i$|
+|---|---|---|---|---|
+|1|0|0|0|$\theta_1$|
+|2|$\frac{\pi}{2}$|$l_1$|0|$\theta_2$|
+|3|0|$l_2$|0|$\theta_3$|
+
+由 DH 参数可以得到变换矩阵
+
+$$
+\begin{aligned}
+&_1^0T=\begin{pmatrix}c\theta_1&-s\theta_1&0&0\\s\theta_1&c\theta_1&0&0\\0&0&1&0\\0&0&0&1\end{pmatrix},{}_2^1T=\begin{pmatrix}c\theta_2&-s\theta_2&0&l_1\\0&0&-1&0\\s\theta_2&c\theta_2&0&0\\0&0&0&1\end{pmatrix},{}_3^2T=\begin{pmatrix}c\theta_3&-s\theta_3&0&l_2\\s\theta_3&c\theta_3&0&0\\0&0&1&0\\0&0&0&1\end{pmatrix}\\&\to_3^0T=_1^0T_2^1T_3^2T=\begin{pmatrix}c_1c_{23}&-c_1s_{23}&s_1&l_2c_1c_2+l_1c_1\\s_1c_{23}&-s_1s_{23}&-c_1&l_2s_1c_2+l_1s_1\\s_{23}&c_{23}&0&l_2s_2\\0&0&0&1\end{pmatrix}\\
+&{}_{4}^{3}T=\begin{pmatrix}{1}&{0}&{0}&{L_{3}}\\{0}&{1}&{0}&{0}\\{0}&{0}&{1}&{0}\\{0}&{0}&{0}&{1}\end{pmatrix}\\
+{}_{4}^{0}T&=\begin{pmatrix}{c_{1}c_{23}}&{-c_{1}s_{23}}&{s_{1}}&{l_{2}c_{1}c_{2}+l_{1}c_{1}+l_{3}c_{1}c_{23}}\\{s_{1}c_{23}}&{-s_{1}s_{23}}&{-c_{1}}&{l_{2}s_{1}c_{2}+l_{1}s_{1}+l_{3}s_{1}c_{23}}\\{s_{23}}&{c_{23}}&{0}&{l_{2}s_{2}+l_{3}s_{23}}\\{0}&{0}&{0}&{1}\end{pmatrix}
+\end{aligned}
+$$
+
+### 5-9
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250418221914.png)

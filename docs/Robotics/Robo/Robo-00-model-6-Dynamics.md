@@ -43,7 +43,52 @@
 
 ### 叉乘运算
 
-**叉乘** $\mathbf{a} \times \mathbf{b}$是向量运算，结果为一个向量，遵循以下规则：  
+两个向量 $\vec{a}$ 和 $\vec{b}$ 的叉乘结果是一个新向量 $\vec{c}$:
+
+$$
+\vec{c} = \vec{a} \times \vec{b}= |a||b|\sin\theta
+$$
+
+方向遵循右手定则，垂直于这两个向量所在的平面。
+
+!!! tip "简单记忆方法"
+
+      **法一：神奇记忆法：**
+
+      把 $\vec{a}$ 和 $\vec{b}$ 写成下面的矩阵形式
+
+      $$
+      \begin{pmatrix}
+      a_x & a_y & a_z & a_x & a_y & a_z \\
+      b_x & b_y & b_z & b_x & b_y & b_z
+      \end{pmatrix}
+      $$
+
+      去掉第一列和最后一列，剩下的3个2x2的矩阵（每次滑动1格子），计算行列式即可
+
+      **法2: 写成 $\mathbf{a} \wedge \mathbf{b}$的形式**
+
+
+      $$
+      \mathbf{a} \times \mathbf{b} = \begin{bmatrix}
+      0 & -a_3 & a_2 \\
+      a_3 & 0 & -a_1 \\
+      -a_2 & a_1 & 0
+      \end{bmatrix} \mathbf{b}
+      $$
+
+      证明：
+
+      $$
+      \begin{align*}
+      \mathbf{a} \times \mathbf{b} &= \begin{pmatrix} x_1 \\ y_1 \\ z_1 \end{pmatrix} \times \begin{pmatrix} x_2 \\ y_2 \\ z_2 \end{pmatrix} \\
+      &= \begin{pmatrix} y_1z_2-z_1y_2 \\ z_1x_2-x_1z_2 \\ x_1y_2-y_1x_2 \end{pmatrix} \\
+      &= \begin{pmatrix} 0 & -z_1 & y_1 \\ z_1 & 0 & -x_1 \\ -y_1 & x_1 & 0 \end{pmatrix} \begin{pmatrix} x_2 \\ y_2 \\ z_2 \end{pmatrix} \\
+      &= \mathbf{a} \wedge \mathbf{b}
+      \end{align*}
+      $$
+
+
 
 1. **基本法则**：  
    - **反交换律**：$\mathbf{a} \times \mathbf{b} = -\mathbf{b} \times \mathbf{a}$
@@ -57,6 +102,7 @@
 3. **混合运算**：  
    - **混合积**：$(\mathbf{a} \times \mathbf{b}) \cdot \mathbf{c}$ 表示平行六面体体积，满足轮换对称性：$(\mathbf{a} \times \mathbf{b}) \cdot \mathbf{c} = (\mathbf{b} \times \mathbf{c}) \cdot \mathbf{a} = (\mathbf{c} \times \mathbf{a}) \cdot \mathbf{b}$
    - **拉格朗日公式**：$\mathbf{a} \times (\mathbf{b} \times \mathbf{c}) = \mathbf{b}(\mathbf{a} \cdot \mathbf{c}) - \mathbf{c}(\mathbf{a} \cdot \mathbf{b})$
+
 
 
 ### 欧拉第一定律 —— 惯性系
@@ -208,6 +254,16 @@ $$
 - **角速度初始值**：  ${}^0 \omega_0 = (0,0,0)^T$
 - **角加速度初始值**：  ${}^0 \dot{\omega}_0 = (0,0,0)^T$
 - **加速度初始值（含重力）**：  ${}^0 v_0 = (0, g, 0)^T$
+
+!!! note "为什么${}^0 v_0 = (0, g, 0)^T$"
+      这里在推导的时候没有考虑重力，是因为相当于考虑连杆坐标系{0}以加速度$G$运动，$G$ 与重力大小相当，方向相反
+
+      这里需要了解一下惯性力的有关知识，惯性力是一个假想的力，其方向与加速度方向相反，大小为$m\cdot a$
+
+      最简单的应用：高中物理，分离法进行受力分析，给物体施加一个惯性力，然后进行受力分析，有加速度的物体就可以看成是受力平衡的物体进行分析了
+
+      $g$不在z轴的原因：因为书上是RRR的机械臂，转轴垂直于纸面，建系的时候重力在y轴方向而不是z轴方向，所以$g$不在z轴上
+
 
 ### 内推
 

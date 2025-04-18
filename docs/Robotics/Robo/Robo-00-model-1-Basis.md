@@ -264,13 +264,13 @@ $$
 \end{array}
 \end{bmatrix}
 \\
-^B_A\!T = 
+^B_A\!T &= 
 \begin{bmatrix} 
 \begin{array}{c|c}
 ^B_A\!R & ^B\!O_A \\ \hline
 0 &  1 
 \end{array}
-\end{bmatrix} &= 
+\end{bmatrix} = 
 \begin{bmatrix} 
 \begin{array}{c|c}
 ^B_A\!R & -^B_A\!R \cdot ^A\!O_B \\ \hline
@@ -527,7 +527,27 @@ $\forall R \in SO(3)$可用$R_{z,y,x}(\alpha, \beta, \gamma)$表示出来
 
 
 
+!!! example "举一反三"
 
+    在论证 Z-Y-X 欧拉角的$\beta$角的范围为$[-\pi/2,\pi/2]$时，我们运用了三角函数等式
+
+    $$
+    R_z(\pm\pi+\alpha)R_y(\pm\pi-\beta)R_x(\pm\pi+\gamma)=R_z(\alpha)R_y(\beta)R_x(\gamma)
+    $$
+
+    其实，也可论证 Z-Y-Z 欧拉角的$\beta$角的范围为$[0,\pi]$，请给出此论证要运用的三角函数等式，并证明你给出的等式。
+
+    解：
+
+    $$
+    R_z(\pm\pi+\alpha)R_y(-\beta)R_z(\pm\pi+\gamma)=R_z(\alpha)R_y(\beta)R_z(\gamma)
+    $$
+
+    $$
+    \begin{aligned}
+    R_{z}(\pm\pi+\alpha)R_{y}(-\beta)R_{z}(\pm\pi+\gamma)&=\begin{bmatrix}\cos(\pm\pi+\alpha)&-\sin(\pm\pi+\alpha)&0\\\sin(\pm\pi+\alpha)&\cos(\pm\pi+\alpha)&0\\0&0&1\end{bmatrix}\begin{bmatrix}\cos(-\beta)&0&\sin(-\beta)\\0&1&0\\-\sin(-\beta)&0&\cos(-\beta)\end{bmatrix}\begin{bmatrix}\cos(\pm\pi+\gamma)&-\sin(\pm\pi+\gamma)&0\\\sin(\pm\pi+\gamma)&\cos(\pm\pi+\gamma)&0\\0&0&1\end{bmatrix}\\&=\begin{bmatrix}-\cos\alpha&\sin\alpha&0\\-\sin\alpha&-\cos\alpha&0\\0&0&1\end{bmatrix}\begin{bmatrix}\cos\beta&0&-\sin\beta\\0&1&0\\-\sin\beta&0&\cos\beta\end{bmatrix}\begin{bmatrix}-\cos\gamma&\sin\gamma&0\\-\sin\gamma&-\cos\gamma&0\\0&0&1\end{bmatrix}\\&=\begin{bmatrix}\cos\alpha&-\sin\alpha&0\\\sin\alpha&\cos\alpha&0\\0&0&1\end{bmatrix}\begin{bmatrix}\cos\beta&0&\sin\beta\\0&1&0\\-\sin\beta&0&\cos\beta\end{bmatrix}\begin{bmatrix}\cos\gamma&-\sin\gamma&0\\\sin\gamma&\cos\gamma&0\\0&0&1\end{bmatrix}\\&=R_{z}(\alpha)R_{y}(\beta)R_{z}(\gamma)
+    \end{aligned}
+    $$
 
 
 
@@ -929,27 +949,10 @@ This browser does not support PDFs
 
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=44855426&bvid=BV1ib411t7YR&cid=80579031&p=13&t=620&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=100% height=600px></iframe>
 
-!!! example "例子"
-    === "例1"
-        ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250224160846651.png)
-
-    === "例2"
-        ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250224215632614.png)
-
-    === "例3"
-        ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250224215659494.png)
-
-    === "例4"
-        ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250224215724829.png)
-
-    === "例5"
-        ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250224215732527.png)
-
-    === "例6"
-        ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250224215712797.png)
 
 
-## 各种表示之间的转换
+
+## 题型总结
 
 [三维旋转：欧拉角、四元数、旋转矩阵、轴角之间的转换 - 知乎](https://zhuanlan.zhihu.com/p/45404840)
 
@@ -959,6 +962,155 @@ This browser does not support PDFs
     - SO(3)：全体旋转矩阵的集合
     - SE(3)：全体齐次变换矩阵的集合
     - $\mathbb{U}$ 为由全体欧拉参数构成的集合
+
+
+
+### 坐标系的变换
+
+平移/旋转： 应用不同方法
+
+要特别注意**上下标的顺序**，不要看反了
+
+- $^A_B\!R$ 表示从A坐标系到B坐标系的旋转矩阵
+- $^A_B\!T$ 表示从A坐标系到B坐标系的齐次变换矩阵
+
+
+**不同欧拉角的考察**（z-y-x欧拉角）
+
+$$
+\begin{align}
+R_{z,y,x}(\alpha,\beta,\gamma) &= \begin{pmatrix}
+\cos\alpha & -\sin\alpha & 0 \\
+\sin\alpha & \cos\alpha & 0 \\
+0 & 0 & 1
+\end{pmatrix}
+\begin{pmatrix}
+\cos\beta & 0 & \sin\beta \\
+0 & 1 & 0 \\
+-\sin\beta & 0 & \cos\beta
+\end{pmatrix}
+\begin{pmatrix}
+1 & 0 & 0 \\
+0 & \cos\gamma & -\sin\gamma \\
+0 & \sin\gamma & \cos\gamma
+\end{pmatrix} \\
+&= \begin{pmatrix}
+\cos\alpha\cos\beta & \cos\alpha\sin\beta\sin\gamma-\sin\alpha\cos\gamma & \cos\alpha\sin\beta\cos\gamma+\sin\alpha\sin\gamma \\
+\sin\alpha\cos\beta & \sin\alpha\sin\beta\sin\gamma+\cos\alpha\cos\gamma & \sin\alpha\sin\beta\cos\gamma-\cos\alpha\sin\gamma \\
+-\sin\beta & \cos\beta\sin\gamma & \cos\beta\cos\gamma
+\end{pmatrix}
+\end{align}
+$$
+
+
+
+**齐次变换矩阵的考察**
+
+$$
+\begin{align}
+^A_B\!T &= 
+\begin{bmatrix} 
+\begin{array}{c|c}
+^A_B\!R & ^A\!O_B \\ \hline
+0 &  1 
+\end{array}
+\end{bmatrix}
+\\
+^B_A\!T &= 
+\begin{bmatrix} 
+\begin{array}{c|c}
+^B_A\!R & ^B\!O_A \\ \hline
+0 &  1 
+\end{array}
+\end{bmatrix} = 
+\begin{bmatrix} 
+\begin{array}{c|c}
+^B_A\!R & -^B_A\!R \cdot ^A\!O_B \\ \hline
+0 & 1  
+\end{array}
+\end{bmatrix}
+\end{align}
+$$
+
+!!! example "例子"
+
+    $$
+    ^{A}_{B}T = \begin{bmatrix} 0.25 & 0.43 & 0.86 & 5.0 \\ 0.87 & -0.50 & 0.00 & -4.0 \\ 0.43 & 0.75 & -0.50 & 3.0 \\ 0 & 0 & 0 & 1 \end{bmatrix}
+    $$
+
+    求：$^{B}O_A$
+
+    解：
+
+    $$
+    ^{B}O_A  = - \begin{bmatrix} 0.25 & 0.43 & 0.86 \\ 0.87 & -0.50 & 0.00 \\ 0.43 & 0.75 & -0.50 \end{bmatrix}^T \begin{bmatrix} 5.0 \\ -4.0 \\ 3.0 \end{bmatrix} = \begin{bmatrix} -0.25 & -0.87 & -0.43 \\ -0.43 & 0.50 & -0.75 \\ -0.86 & 0.00 & 0.50 \end{bmatrix} \begin{bmatrix} 5.0 \\ -4.0 \\ 3.0 \end{bmatrix} = \begin{bmatrix} 0.94 \\ -6.4 \\ -2.8 \end{bmatrix}
+    $$
+
+
+
+### 左乘还是右乘
+
+要搞清楚顺序
+
+=== "例1"
+    参考系 {A} 固定不动，坐标系 {B} 作了以下几次的变动：
+
+    - (1) 姿态不变，原点移动到 {B} 中的点 $^{B}\boldsymbol{P}$；
+    - (2) 绕 {A} 中的单位向量 $^{A}\boldsymbol{K}$ 旋转 $\theta_{1}$ 角度；
+    - (3) 姿态不变，原点移动，从旧原点到新原点的向量为 $^{A}\boldsymbol{Q}$；
+    - (4) 绕 {B} 中的单位向量 $^{B}\boldsymbol{L}$ 旋转 $\theta_{2}$ 角度。
+
+    上述变动前后 {B} 相对于 {A} 的位姿分别为 $^{A}_{B}\boldsymbol{T}$ 和 $\boldsymbol{T}_{1}^{A} \boldsymbol{T} \boldsymbol{T}_{2}$，已知
+
+    $$
+    \boldsymbol{T}_{1}=\left[\begin{array}{cccc}
+    0.866 & -0.5 & 0 & -3 \\
+    0.433 & 0.75 & -0.5 & -3 \\
+    0.25 & 0.433 & 0.866 & 3 \\
+    0 & 0 & 0 & 1
+    \end{array}\right], \boldsymbol{T}_{2}=\left[\begin{array}{cccc}
+    0.911 & -0.244 & 0.333 & 2 \\
+    0.333 & 0.911 & -0.244 & -2 \\
+    -0.244 & 0.333 & 0.911 & 1 \\
+    0 & 0 & 0 & 1
+    \end{array}\right]
+    $$
+
+    试求 $^{B}\boldsymbol{P}$, $^{A}\boldsymbol{K}$, $^{A}\boldsymbol{Q}$, $^{B}\boldsymbol{L}$, $\theta_{1}$, $\theta_{2}$ （旋转角的范围为 [0, π]）。
+
+    解
+
+    $$
+    \begin{aligned}
+    {}^B\boldsymbol{P}&=\begin{bmatrix}2\\-2\\1\end{bmatrix}\quad {}^A\boldsymbol{Q}=\begin{bmatrix}-3\\-3\\3\end{bmatrix}\\
+    \theta_{1}&=\mathrm{Acos}\left(\frac{r_{11}+r_{22}+r_{33}-1}{2}\right)=\mathrm{Acos}\left(\frac{0.866+0.75+0.866-1}{2}\right)=42.18^{\circ}\\
+    ^A\boldsymbol{K}&=\frac{1}{2\sin\theta_{1}}\begin{bmatrix}r_{32}-r_{23}\\r_{13}-r_{31}\\r_{21}-r_{12}\end{bmatrix}=\frac{1}{2\times0.6715}\begin{bmatrix}0.433+0.5\\0-0.25\\0.433+0.5\end{bmatrix}=\begin{bmatrix}0.6947\\-0.1862\\0.6947\end{bmatrix}\\
+    \theta_{2}&=\mathrm{Acos}\left(\frac{r_{11}+r_{22}+r_{33}-1}{2}\right)=\mathrm{Acos}\left(\frac{0.911+0.911+0.911-1}{2}\right)=30^{\circ}\\
+    ^{B}\boldsymbol{L}&=\frac{1}{2\sin\theta_{2}}{\begin{bmatrix}r_{32}-r_{23}\\r_{13}-r_{31}\\r_{21}-r_{12}\end{bmatrix}}=\frac{1}{2\times0.5}\begin{bmatrix}0.333+0.244\\0.333+0.244\\0.333+0.244\end{bmatrix}=\begin{bmatrix}0.577\\0.577\\0.577\end{bmatrix}
+    \end{aligned}
+    $$
+
+=== "例2"
+    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250418160846651.png)
+
+=== "例3"
+    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250224215632614.png)
+
+=== "例4"
+    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250224215659494.png)
+
+=== "例5"
+    
+    在下图中，没有确知工具的位置$_T^W\boldsymbol{T}$。机 器 人 利 用 力 控 制 对 工 具 末 端 进 行 检 测 直 到 把 工 件 插入位于$^s_G\boldsymbol{T}$的孔中 (即目标)。在这个“标定”过程中 (坐标系{G}})和坐标系{T}是重合的), 通过读取关节角度传感器，进行运动学计算得到机器人的位置$_w^B\boldsymbol{T}\text{ 。假定已知}_S^B\boldsymbol{T}\text{ 和}_G^S\boldsymbol{T}$,求计算末知工具坐标系$_T^W\boldsymbol{T}$ 的变换方程。
+
+    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250418201320.png)
+
+    $$
+    \begin{aligned}&\text{解:因}_I^G\boldsymbol{T}=\boldsymbol{I}\\&&_T^B\boldsymbol{T}=_S^B\boldsymbol{T}_G^S\boldsymbol{T}_T^G\boldsymbol{T}=_S^B\boldsymbol{T}_G^S\boldsymbol{T}\\&&_T^W\boldsymbol{T}=_B^W\boldsymbol{T}_T^B\boldsymbol{T}=_W^B\boldsymbol{T}^{-1B}\boldsymbol{T}_G^S\boldsymbol{T}\end{aligned}
+    $$
+
+
+
 
 ### 旋转矩阵与欧拉角
 
