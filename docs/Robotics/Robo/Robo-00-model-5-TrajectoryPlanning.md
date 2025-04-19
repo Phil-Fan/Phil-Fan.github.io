@@ -465,6 +465,8 @@ k_0 = \frac{\sin((1-t)\theta)}{\sin\theta} \quad k_1 = \frac{\sin(t\theta)}{\sin
 $$
 
 
+
+
 ??? note "证明方法：线性表出 &  两个欧拉参数内积等于夹角cos值"
 
     $S^3$中的单位四元数 $\eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3$ 与 $\mathrm{U}$ 中的欧拉参数 $(\eta, \varepsilon_1, \varepsilon_2, \varepsilon_3)^T$ 一一对应。考虑两个用欧拉参数（等价于用单位四元数）表示的不同姿态：
@@ -540,7 +542,35 @@ $$
 
 因此如果两四元数的夹角为钝角，则可通过将其中一个四元数取负，再对得到的两个夹角为锐角的四元数进行球面线性插值。
 
+
+初始两个四元数如果是$\pi$的话，就说明两个四元数对应的是同一个姿态。
+
+如果
+
 #### 代码实现
+
+```python title="slerp_interpolation"
+def slerp(q1, q2, t):
+    """
+    球面线性插值（Slerp）
+    :param q1: 起始四元数
+    :param q2: 终止四元数
+    :param t: 插值因子，范围 [0, 1]
+    :return: 插值后的四元数
+    """
+    dot_product = np.dot(q1, q2)
+    dot_product = np.clip(dot_product, -1.0, 1.0)
+    theta_0 = np.arccos(dot_product)
+    sin_theta_0 = np.sin(theta_0)
+    
+    if sin_theta_0 < 1e-6:
+        return q1
+    
+    theta = theta_0 * t
+    s1 = np.sin(theta) / sin_theta_0
+    s0 = np.cos(theta) - dot_product * s1
+    return s0 * q1 + s1 * q2
+```
 
 需要下载matlab的 robotics toolbox和
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/quaternion_animation.gif)
@@ -650,6 +680,9 @@ end
 
 
 ### Slerp拓展：对角速度有约束
+
+!!! attention "这个题目与变式历年卷考察多次，一定要掌握"
+
 !!! note "当匀速旋转的假设不成立的时候，需要应用多项式规划" 
 
 
@@ -707,28 +740,7 @@ end
     $$
 
 
-```python title="slerp_interpolation"
-def slerp(q1, q2, t):
-    """
-    球面线性插值（Slerp）
-    :param q1: 起始四元数
-    :param q2: 终止四元数
-    :param t: 插值因子，范围 [0, 1]
-    :return: 插值后的四元数
-    """
-    dot_product = np.dot(q1, q2)
-    dot_product = np.clip(dot_product, -1.0, 1.0)
-    theta_0 = np.arccos(dot_product)
-    sin_theta_0 = np.sin(theta_0)
-    
-    if sin_theta_0 < 1e-6:
-        return q1
-    
-    theta = theta_0 * t
-    s1 = np.sin(theta) / sin_theta_0
-    s0 = np.cos(theta) - dot_product * s1
-    return s0 * q1 + s1 * q2
-```
+
 
 
 ## 题型
@@ -745,6 +757,14 @@ def slerp(q1, q2, t):
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250324203708.png)
 
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250324203627.png)
+
+
+
+已知起点角度为138°，中间点到达的点角度为158°，时间为5.5s，点角度为10°，时间为31.5s。需要计算中间点。中间点关于中点对称。采用带有抛物线过渡的线性规划来实现。过渡段（第二个中间点到第三个中间点）的持续时间为16s。
+
+
+
+
 
 ### matlab求解方程
 

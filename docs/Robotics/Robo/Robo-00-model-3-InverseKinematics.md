@@ -301,6 +301,7 @@ $$
 如果 $a + c = 0$，那么 $\theta = 180^\circ$
 
 ### 3轴相交 PIEPER解法
+
 具有6个旋转关节的操作臂存在封闭解的**充分条件**是相邻的三个关节轴线相交于一点
 
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250304120834902.png)

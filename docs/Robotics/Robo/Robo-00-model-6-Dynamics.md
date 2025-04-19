@@ -59,7 +59,7 @@ $$
 
       $$
       \begin{pmatrix}
-      a_x & a_y & a_z & a_x & a_y & a_z \\
+      a_x & a_y & a_z & a_x & a_y & a_z\\
       b_x & b_y & b_z & b_x & b_y & b_z
       \end{pmatrix}
       $$
@@ -70,11 +70,7 @@ $$
 
 
       $$
-      \mathbf{a} \times \mathbf{b} = \begin{bmatrix}
-      0 & -a_3 & a_2 \\
-      a_3 & 0 & -a_1 \\
-      -a_2 & a_1 & 0
-      \end{bmatrix} \mathbf{b}
+      \mathbf{a} \times \mathbf{b} =\begin{bmatrix}0 & -a_3 & a_2 \\ a_3 & 0 & -a_1 \\ -a_2 & a_1 & 0 \end{bmatrix} \mathbf{b}
       $$
 
       证明：
@@ -119,6 +115,9 @@ $$
 > 参考资料：
 > [转动惯量、惯性张量、转动动能的推导 - 知乎](https://zhuanlan.zhihu.com/p/672567095)
 > [机器人动力学建模之理解惯性张量-CSDN博客](https://blog.csdn.net/handsome_for_kill/article/details/104615496)
+
+
+
 
 
 转动惯量是绕着某个轴的，而惯性张量是绕着某个点的。
@@ -463,9 +462,19 @@ $$
 
 ### 性质
 
-$\dot{\boldsymbol{M}}(\boldsymbol{\Phi})-2\boldsymbol{C}(\boldsymbol{\Phi},\dot{\boldsymbol{\Phi}})$ 是反对称的
+- $\dot{\boldsymbol{M}}(\boldsymbol{\Phi})-2\boldsymbol{C}(\boldsymbol{\Phi},\dot{\boldsymbol{\Phi}})$ 是反对称的
+- 惯性矩阵$\boldsymbol{M}(\boldsymbol{\Phi})$ 是正定的，因为机器人的总动能是非负的，所以惯性矩阵是正定的
 
 
 ## 题目
 
 带对公式、耐心计算
+
+### 惯性张量相关
+
+均质圆柱,原点位于质心$Z$重合于转轴,求$I_{xy},I_{zz}$
+
+
+
+
+

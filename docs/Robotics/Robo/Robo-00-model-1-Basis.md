@@ -6,15 +6,17 @@
 - **姿态**：物体上固定坐标系相对于参考坐标系的方位
 
 
-
-
-
 | 表示方法 | 核心思想 | 公式 | 缺点 |
 | --- | --- | --- | --- |
 | **旋转矩阵** | 使用3x3矩阵表示三维旋转 | $\mathbf{R} = \begin{pmatrix} r_{11} & r_{12} & r_{13} \\ r_{21} & r_{22} & r_{23} \\ r_{31} & r_{32} & r_{33} \end{pmatrix}$ | 1. 参数多（9个），冗余<br> 2. 难以直观理解旋转过程<br> 3. 插值复杂 |
 | **欧拉角** | 将旋转分解为绕三个正交轴的旋转 | $(\alpha, \beta, \gamma)$，常用ZYX顺序：$\mathbf{R} = R_z(\alpha) R_y(\beta) R_x(\gamma)$ | 易于理解和可视化<br> 但是<br> 1. 万向锁问题（奇异性）<br> 2. 不同顺序定义不唯一<br> 3. 插值不平滑 |
-| **等效轴角** | 用一个单位轴和一个旋转角表示旋转 | $(\mathbf{k}, \theta)$，其中$\mathbf{k} = (k_x, k_y, k_z)$为单位向量，$\theta$为旋转角。旋转矩阵为：<br>$\mathbf{R} = \mathbf{I} + \sin\theta \mathbf{K} + (1 - \cos\theta) \mathbf{K}^2$，<br>其中$\mathbf{K} = \begin{pmatrix} 0 & -k_z & k_y \\ k_z & 0 & -k_x \\ -k_y & k_x & 0 \end{pmatrix}$ | 1. 无法直接表示0°旋转（需特殊处理）<br>2. 插值时需注意旋转角的周期性 |
-| **四元数** | 使用四维超复数表示旋转 | $q = \eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3$，其中$\eta^2 + \varepsilon_1^2 + \varepsilon_2^2 + \varepsilon_3^2 = 1$。 | 参数最少（4个）避免了奇异性问题<br>1. 较难直观理解<br>2. 计算稍复杂（但比旋转矩阵简单） |
+| **等效轴角** | 用一个单位轴和一个旋转角表示旋转 | $(\mathbf{k}, \theta)$，其中$\mathbf{k} = (k_x, k_y, k_z)$为单位向量，$\theta$为旋转角。旋转矩阵为：<br>$\mathbf{R} = \mathbf{I} + \sin\theta \mathbf{K} + (1 - \cos\theta) \mathbf{K}^2$，<br>其中$\mathbf{K} = \begin{pmatrix} 0 & -k_z & k_y \\ k_z & 0 & -k_x \\ -k_y & k_x & 0 \end{pmatrix}$ | 1. 无法直接表示0°旋转（需特殊处理）<br>2. 插值时需注意旋转角的周期性，等效轴角在描述大范围旋转刚体的姿态时，会出现参数跳变 |
+| **四元数** | 使用四维超复数表示旋转 | $q = \eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3$，其中$\eta^2 + \varepsilon_1^2 + \varepsilon_2^2 + \varepsilon_3^2 = 1$。 | 参数最少（4个）避免了奇异性问题<br>1. 较难直观理解<br>2. 计算稍复杂（但比旋转矩阵简单） 单位四元数与姿态是二对一关系，可以表示多圈旋转刚体|
+
+- 一般说来，欧拉角表示、固定角表示和等效轴角表示等姿态表示方式，适合于静止刚体或小范围旋转运动刚体。
+- 大范围旋转刚体的姿态更适合采用旋转矩阵表示或单位四元数表示。
+- 对于任何运动刚体，若采用旋转矩阵表示，刚体姿态是 SO(3)中的一条连续轨迹；若采用单位四元数表示，刚体姿态是$S^3$中的一条连续轨迹。
+
 
 [TOC]
 
@@ -169,6 +171,8 @@ $$
     SO(3)群有6个约束：两个单位向量（范数为1），两个单位向量正交，叉乘得到第三个单位向量
     
     所以自由度是3
+
+    因为固定角/欧拉角有3个自由度（3个参数），所以又称之为最小表示运动学方程
 
 
 
@@ -780,6 +784,11 @@ $$
 记 $\mathbb{H}$ 为由全体四元数构成的集合。
 
 
+- 四元数乘法不满足交换律
+- $S^3$是全体单位四元数的集合，相当于$\mathbb{H}$中的单位球面
+- 实部为0的四元数是纯虚四元数，集合为$\mathbb{P}$，相当于$\mathbb{H}$中的超平面
+- $\mathbb{P}$是封闭的
+
 === "加法"
     与复数加法一致
 
@@ -854,6 +863,7 @@ $$
 - **关系**：单位四元数与欧拉参数一一对应。
 
 - **单位四元数的乘积仍然是单位四元数**
+- 单位四元数表示采用带一个约束的 4 个实变量描述姿态，对任何姿态不会出现无穷多组解，有效克服了欧拉角、固定角和等效轴角的缺点。
 
 !!! note "证明"
     === "方法1"
@@ -962,6 +972,9 @@ This browser does not support PDFs
     - SO(3)：全体旋转矩阵的集合
     - SE(3)：全体齐次变换矩阵的集合
     - $\mathbb{U}$ 为由全体欧拉参数构成的集合
+    - $\mathbb{H}$ 为由全体四元数构成的集合
+    - $\mathbb{P}$ 为全体纯虚四元数构成的集合
+    - $S^3$ 为全体单位四元数构成的集合
 
 
 
@@ -1100,7 +1113,7 @@ $$
     ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250224215659494.png)
 
 === "例5"
-    
+
     在下图中，没有确知工具的位置$_T^W\boldsymbol{T}$。机 器 人 利 用 力 控 制 对 工 具 末 端 进 行 检 测 直 到 把 工 件 插入位于$^s_G\boldsymbol{T}$的孔中 (即目标)。在这个“标定”过程中 (坐标系{G}})和坐标系{T}是重合的), 通过读取关节角度传感器，进行运动学计算得到机器人的位置$_w^B\boldsymbol{T}\text{ 。假定已知}_S^B\boldsymbol{T}\text{ 和}_G^S\boldsymbol{T}$,求计算末知工具坐标系$_T^W\boldsymbol{T}$ 的变换方程。
 
     ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250418201320.png)
@@ -1185,6 +1198,12 @@ $$
 
 ### 旋转矩阵与四元数
 
+
+- 对任何的单位四元数$\eta+$i$\varepsilon_1+$j$\varepsilon_2+$ $k\varepsilon_3,\boldsymbol{R}_\varepsilon(\eta)$都是旋转矩阵；
+- 对任何的旋转矩阵 $R$,都存在两个互为相反数的单位四元数$\pm ( \eta +$i$\varepsilon _1+$j$\varepsilon _2+$k$\varepsilon _3)$使得$R=\boldsymbol{R}_\varepsilon(\eta)$。
+
+
+
 **四元数 to 旋转矩阵**
 
 可以直接带入公式，对于四元数$p = \eta + \varepsilon_1 i + \varepsilon_2 j + \varepsilon_3 k$,其旋转矩阵为
@@ -1196,6 +1215,8 @@ A_B^B R = R_\varepsilon(\eta) = \begin{bmatrix}
 2(\varepsilon_1 \varepsilon_3 - \eta \varepsilon_2) & 2(\varepsilon_2 \varepsilon_3 + \eta \varepsilon_1) & 2(\eta^2 + \varepsilon_3^2) - 1
 \end{bmatrix}
 $$
+
+> 姿态的单位四元数表示
 
 假设被旋转的变量为$V$,那么
 
