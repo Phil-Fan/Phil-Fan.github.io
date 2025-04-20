@@ -7,7 +7,6 @@
 - 求解方程;公式理解
 - 列写方程之后，检查未知数个数和方程个数是否匹配
 
-[TOC]
 
 |特性|关节空间规划|笛卡尔空间规划|
 |---|---|---|
@@ -131,6 +130,16 @@ legend('多项式轨迹','控制点','Location','SouthEast');
 grid on;
 ```
 
+$\begin{cases}
+a_{10} = \phi_0 \\
+a_{11} = 0 \\
+a_{12} = -\frac{3(\phi_0t_{\textrm{f2}}^2 + \phi_gt_{\textrm{f1}}^2 - \phi_vt_{\textrm{f1}}^2 - \phi_vt_{\textrm{f2}}^2 + 2\phi_0t_{\textrm{f1}}t_{\textrm{f2}} - 2\phi_vt_{\textrm{f1}}t_{\textrm{f2}})}{2t_{\textrm{f1}}^2t_{\textrm{f2}}(t_{\textrm{f1}} + t_{\textrm{f2}})} \\
+a_{13} = \frac{\phi_0t_{\textrm{f2}}^2 + 3\phi_gt_{\textrm{f1}}^2 - 3\phi_vt_{\textrm{f1}}^2 - \phi_vt_{\textrm{f2}}^2 + 4\phi_0t_{\textrm{f1}}t_{\textrm{f2}} - 4\phi_vt_{\textrm{f1}}t_{\textrm{f2}}}{2t_{\textrm{f1}}^3t_{\textrm{f2}}(t_{\textrm{f1}} + t_{\textrm{f2}})} \\
+a_{20} = \phi_v \\
+a_{21} = -\frac{3(\phi_0t_{\textrm{f2}}^2 - \phi_gt_{\textrm{f1}}^2 + \phi_vt_{\textrm{f1}}^2 - \phi_vt_{\textrm{f2}}^2)}{2t_{\textrm{f1}}t_{\textrm{f2}}(t_{\textrm{f1}} + t_{\textrm{f2}})} \\
+a_{22} = \frac{3(\phi_0t_{\textrm{f2}} + \phi_gt_{\textrm{f1}} - \phi_vt_{\textrm{f1}} - \phi_vt_{\textrm{f2}})}{t_{\textrm{f1}}t_{\textrm{f2}}(t_{\textrm{f1}} + t_{\textrm{f2}})} \\
+a_{23} = -\frac{3\phi_0t_{\textrm{f2}}^2 + \phi_gt_{\textrm{f1}}^2 - \phi_vt_{\textrm{f1}}^2 - 3\phi_vt_{\textrm{f2}}^2 + 4\phi_gt_{\textrm{f1}}t_{\textrm{f2}} - 4\phi_vt_{\textrm{f1}}t_{\textrm{f2}}}{2t_{\textrm{f1}}t_{\textrm{f2}}^3(t_{\textrm{f1}} + t_{\textrm{f2}})}
+\end{cases}$
 
 
 ### 五次多项式：规划位置&速度&加速度
@@ -744,6 +753,8 @@ end
 
 
 ## 题型
+
+解方程比较麻烦
 
 ### 多项式参数计算：时间、速度
 

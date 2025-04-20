@@ -1,5 +1,12 @@
 # 06 | 动力学
 
+有哪些力，有哪些运动（2x2 = 4种组合）
+
+- 关节空间的运动
+- 末端执行器空间的运动
+- 关节力/力矩
+- 末端执行器力/力矩
+
 !!! note "有了运动学，为什么还需要动力学？"
       运动学可以让我们很好地完成如Pick and Place这一类任务，但是对于画一个圆这类的轨迹跟踪任务，运动学就无能为力了。（每时每刻需求解逆运动学不现实）；另外，如果涉及到施加力的控制（使用锉刀），单纯运动学也无法实现。
 
@@ -12,17 +19,9 @@
 
 动力学的目标：如果我们需要控制机器人按照一定的轨迹运动（别忘了轨迹是位置对时间的函数），那么**每个关节的驱动器施加多少扭矩**（旋转关节）或**力**（平移关节）
 
-有哪些力，有哪些运动（2x2 = 4种组合）
+而这一章主要讲解**牛顿-欧拉迭代动力学方程**和**拉格朗日动力学方程**。
 
-- 关节空间的运动
-- 末端执行器空间的运动
-（可通过正/逆运动学转化）
-
-- 关节力/力矩
-- 末端执行器力/力矩
-（可通过雅可比矩阵转化）
-
-主要讲解牛顿-欧拉迭代动力学方程和拉格朗日动力学方程。
+其中，牛顿欧拉方法需要掌握一些刚体力学的知识，拉格朗日方法需要掌握一些分析力学的知识。
 
 
 
@@ -51,40 +50,41 @@ $$
 
 方向遵循右手定则，垂直于这两个向量所在的平面。
 
-!!! tip "简单记忆方法"
+#### 计算方法
 
-      **法一：神奇记忆法：**
+**法一：神奇记忆法：**
 
-      把 $\vec{a}$ 和 $\vec{b}$ 写成下面的矩阵形式
+把 $\vec{a}$ 和 $\vec{b}$ 写成下面的矩阵形式
 
-      $$
-      \begin{pmatrix}
-      a_x & a_y & a_z & a_x & a_y & a_z\\
-      b_x & b_y & b_z & b_x & b_y & b_z
-      \end{pmatrix}
-      $$
+$$
+\begin{pmatrix}
+a_x & a_y & a_z & a_x & a_y & a_z\\
+b_x & b_y & b_z & b_x & b_y & b_z
+\end{pmatrix}
+$$
 
-      去掉第一列和最后一列，剩下的3个2x2的矩阵（每次滑动1格子），计算行列式即可
+去掉第一列和最后一列，剩下的3个2x2的矩阵（每次滑动1格子），计算行列式即可
 
-      **法2: 写成 $\mathbf{a} \wedge \mathbf{b}$的形式**
-
-
-      $$
-      \mathbf{a} \times \mathbf{b} =\begin{bmatrix}0 & -a_3 & a_2 \\ a_3 & 0 & -a_1 \\ -a_2 & a_1 & 0 \end{bmatrix} \mathbf{b}
-      $$
-
-      证明：
-
-      $$
-      \begin{align*}
-      \mathbf{a} \times \mathbf{b} &= \begin{pmatrix} x_1 \\ y_1 \\ z_1 \end{pmatrix} \times \begin{pmatrix} x_2 \\ y_2 \\ z_2 \end{pmatrix} \\
-      &= \begin{pmatrix} y_1z_2-z_1y_2 \\ z_1x_2-x_1z_2 \\ x_1y_2-y_1x_2 \end{pmatrix} \\
-      &= \begin{pmatrix} 0 & -z_1 & y_1 \\ z_1 & 0 & -x_1 \\ -y_1 & x_1 & 0 \end{pmatrix} \begin{pmatrix} x_2 \\ y_2 \\ z_2 \end{pmatrix} \\
-      &= \mathbf{a} \wedge \mathbf{b}
-      \end{align*}
-      $$
+**法2: 写成 $\mathbf{a} \wedge \mathbf{b}$的形式**
 
 
+$$
+\mathbf{a} \times \mathbf{b} =\begin{bmatrix}0 & -a_3 & a_2 \\ a_3 & 0 & -a_1 \\ -a_2 & a_1 & 0 \end{bmatrix} \mathbf{b}
+$$
+
+证明：
+
+$$
+\begin{align*}
+\mathbf{a} \times \mathbf{b} &= \begin{pmatrix} x_1 \\ y_1 \\ z_1 \end{pmatrix} \times \begin{pmatrix} x_2 \\ y_2 \\ z_2 \end{pmatrix} \\
+&= \begin{pmatrix} y_1z_2-z_1y_2 \\ z_1x_2-x_1z_2 \\ x_1y_2-y_1x_2 \end{pmatrix} \\
+&= \begin{pmatrix} 0 & -z_1 & y_1 \\ z_1 & 0 & -x_1 \\ -y_1 & x_1 & 0 \end{pmatrix} \begin{pmatrix} x_2 \\ y_2 \\ z_2 \end{pmatrix} \\
+&= \mathbf{a} \wedge \mathbf{b}
+\end{align*}
+$$
+
+
+#### 性质
 
 1. **基本法则**：  
    - **反交换律**：$\mathbf{a} \times \mathbf{b} = -\mathbf{b} \times \mathbf{a}$
@@ -117,25 +117,63 @@ $$
 > [机器人动力学建模之理解惯性张量-CSDN博客](https://blog.csdn.net/handsome_for_kill/article/details/104615496)
 
 
+$$
+^c\mathbf{I} = \begin{pmatrix} \sum m_i(y_i^2 + z_i^2) & -\sum m_i x_i y_i & -\sum m_i x_i z_i \\ -\sum m_i x_i y_i & \sum m_i(x_i^2 + z_i^2) & -\sum m_i y_i z_i \\ -\sum m_i x_i z_i & -\sum m_i y_i z_i & \sum m_i(x_i^2 + y_i^2) \end{pmatrix}= \begin{pmatrix} I_{xx} & -I_{xy} & -I_{xz} \\ -I_{xy} & I_{yy} & -I_{yz} \\ -I_{xz} & -I_{yz} & I_{zz} \end{pmatrix}
+$$
 
 
-
-转动惯量是绕着某个轴的，而惯性张量是绕着某个点的。
-
-绕着x、y、z三个轴转动惯量恰好就是惯性张量的三个对角元素$I_{xx}, I_{yy}, I_{zz}$(称为惯性矩)
-
-非对角元素称为惯性积
-
-#### 与其他物理量的联系
-
-**转动惯量**
-
-引入力矩后，将一个物体看做由无数个质点组成，该物体在绕着某个轴转动时，除了轴处的质点，其余质点以到轴的距离为半径做圆周运动。为了更方便地研究转动，还需要定义出一些描述转动的物理量，如角位移，角速度，角加速度，可以理解为转动的位移，转动的快慢和转动状态变化的快慢，与描述平动的物理量对应。
-
-从牛顿定律出发，可以推导出一个结论，物体转动的加速度——角加速度，与该物体受到的合力矩成正比（听起来很像牛顿第二定律对吧），比例系数是个与物体本身的质量，和物体质量相对于转轴分布情况有关的量。这就是转动惯量。转动惯量与质量对应，描述物体转动时的惯性。受到相同的力矩，转动惯量越大的物体，角加速度越小。
+$$
+\begin{align*}
+I_{xx} &= \int_B (y^2 + z^2) \rho(x, y, z) \mathrm{d}V \\
+I_{yy} &= \int_B (x^2 + z^2) \rho(x, y, z) \mathrm{d}V \\
+I_{zz} &= \int_B (x^2 + y^2) \rho(x, y, z) \mathrm{d}V \\
+I_{xy} &= \int_B xy \rho(x, y, z) \mathrm{d}V \\
+I_{xz} &= \int_B xz \rho(x, y, z) \mathrm{d}V \\
+I_{yz} &= \int_B yz \rho(x, y, z) \mathrm{d}V
+\end{align*}
+$$
 
 
+- 转动惯量是绕着某个轴的，而惯性张量是绕着某个点的。
+- 转动惯量是标量，惯性张量是矩阵。
 
+- 三个对角元素$I_{xx}, I_{yy}, I_{zz}$(称为惯性矩)；$I_{xx}$对应绕x轴转动惯量，$I_{yy}$对应绕y轴转动惯量，$I_{zz}$对应绕z轴转动惯量。
+- 非对角元素称为惯性积
+
+常见的转动惯量
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/Pasted%20Graphic%205.png)
+
+#### 积分trick
+
+!!! note "请务必回顾一下微积分下当中多元积分相关的内容，不然这部分会影响理解"
+
+**多元积分**
+
+- 画出积分区域
+- 确定上下左右限
+- 写出累次积分
+- 逐个计算定积分
+
+**极坐标换元**
+
+
+$$
+\begin{aligned}
+&x=x(u,v),y=y(u,v),\quad J=\frac{\partial(x,v)}{\partial(u,v)}=\begin{vmatrix}\frac{\partial x}{\partial u}&\frac{\partial x}{\partial v}\\
+\frac{\partial y}{\partial u}&\frac{\partial y}{\partial v}\end{vmatrix}\neq0\\&\iint f(x,y)\mathrm{~d}x\mathrm{d}y=\iint_{D}f[x(u,v),y(u,v)]\quad|J|\mathrm{~d}u\mathrm{d}v\\
+&令x=\rho\cos\theta,y=\rho\sin\theta\quad J=\begin{vmatrix}\cos\theta&-\rho\sin\theta\\\sin\theta&\rho\cos\theta\end{vmatrix}=\rho\\
+&\therefore\mathrm{d}x\mathrm{d}y=\rho\mathrm{d}\rho\mathrm{d}\theta
+\end{aligned}
+$$
+
+
+**对称性**
+
+- 对称性：（$y=x$对称）
+- 奇偶性：x轴，y轴等；利用被积函数奇偶性
+
+方法：拆分函数；拆分积分域；画辅助线
 
 #### 平移
 
@@ -169,6 +207,7 @@ $$
 
 
 !!! note "证明"
+
       动能这个标量在不同坐标系下是一致的，可以有下面的式子
 
       $$
@@ -210,15 +249,18 @@ $$
 
 
 !!! note "先进行外推，再进行内推"
-    **先进行外推**，得到每个连杆的加速度、质心加速度： 目的是根据牛顿-欧拉方程，计算出每个连杆的力和力矩
+      **先进行外推**，得到每个连杆的加速度、质心加速度： 目的是根据牛顿-欧拉方程，计算出每个连杆的力和力矩
 
-    $$
-    F_{i}=m_{i}\dot{\boldsymbol{v}}_{i}\\
-    N_{i}=I_{Ci}\dot{\boldsymbol{\omega}}_{i}+\boldsymbol{\omega}_{i}\times I_{Ci}\boldsymbol{\omega}_{i}$$
-    
-    **再进行内推**，得到每个关节的力和力矩。
+      $$
+      \begin{align*}
+      F_{i}&=m_{i}\dot{\boldsymbol{v}}_{i}\\
+      N_{i}&=I_{Ci}\dot{\boldsymbol{\omega}}_{i}+\boldsymbol{\omega}_{i}\times I_{Ci}\boldsymbol{\omega}_{i}
+      \end{align*}
+      $$
 
-    推导机械臂动力学的牛顿欧拉法是一个递归算法
+      **再进行内推**，得到每个关节的力和力矩。
+
+      推导机械臂动力学的牛顿欧拉法是一个递归算法
 
 !!! attention "注意旋转关节R和平移关节P的公式区别"
 
@@ -310,7 +352,7 @@ $$
 力学系统所受理想约束力所做的虚功为0
 
 
-<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=210135201&bvid=BV1za41167an&cid=471387902&p=1&autoplay=0 " scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width= 80% height = 600px></iframe>
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=210135201&bvid=BV1za41167an&cid=471387902&p=1&autoplay=0 " scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width= 100% height = 600px></iframe>
 
 ### 达朗贝尔原理：拉格朗日力学中的第二个基本原理
 
@@ -393,7 +435,23 @@ This browser does not support PDFs.
 
 ## 拉格朗日动力学方程
 
-### 计算方法：
+### 计算思路1:直接计算动能势能
+
+**动能**
+
+- 列写质心的坐标，对关节求偏导得到 $J_v$
+- 使用列写世界坐标系下各z轴的方法得到 $J_\omega$
+
+$$
+k_{i}=\frac{1}{2}m_{i}\boldsymbol{v}_{C_{i}}^{\mathrm{T}}\boldsymbol{v}_{C_{i}}+\frac{1}{2}\boldsymbol{\omega}_{i}^{T0}\boldsymbol{R}^{C_{i}}\boldsymbol{I}_{i}^{0}\boldsymbol{R}^{\mathrm{T}}\boldsymbol{\omega}_{i}
+$$
+
+**势能**
+
+就直接列写连杆的质心和关节的重力势能即可
+
+
+### 计算思路2:矩阵
 
 - **首先计算雅可比矩阵、旋转矩阵、惯性张量**，这一步非常重要且基础，后续的计算都依赖于这一步,~~算错的话可能一两个小时白干~~
 - 计算$\boldsymbol{M}(\boldsymbol{\Phi})$, $\boldsymbol{C}(\boldsymbol{\Phi},\dot{\boldsymbol{\Phi}})$ 和 $\boldsymbol{G}(\boldsymbol{\Phi})$
@@ -412,52 +470,58 @@ $$
 - $B=\mathrm{diag}(\begin{array}{ccc}b_1&\cdots&b_N\end{array})$,$b_i$ 为折算到关节 $i$的粘性摩擦参数(Viscous Friction Coefficient)
 
 ### 物理含义
-[干货 | 机械臂的动力学（三）：理解动力学方程上篇 - 知乎](https://zhuanlan.zhihu.com/p/341843185)
 
-[干货 | 机械臂的动力学(四）：理解动力学方程下篇 - 知乎](https://zhuanlan.zhihu.com/p/341843302)
+
+!!! note "动力学方程的物理含义"
+
+      这两篇当中有比较详细的关于三个矩阵的每个元素的具体含义
+
+      [干货 | 机械臂的动力学（三）：理解动力学方程上篇 - 知乎](https://zhuanlan.zhihu.com/p/341843185)
+
+      [干货 | 机械臂的动力学(四）：理解动力学方程下篇 - 知乎](https://zhuanlan.zhihu.com/p/341843302)
 
 - 质量矩阵：
   - 对角元素：它正是由每个关节自身加速运动（驱动所有在其之后的连杆加速运动）所需要的扭矩
   - 非对角：其他关节加速运动（造成其之后的连杆加速运动）对这个关节的影响叠加而成.反映的正是第二个关节运动时第一个关节需要承担的惯性力
 
 !!! example "例子"
-      === "题目1 RP机械臂"
-            ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250417230141.png)
 
-            $$
-            ^0J_{v1} = \begin{bmatrix} -l_1 \sin \theta_1 & 0 \\ l_1 \cos \theta_1 & 0 \\ 0 & 0 \end{bmatrix}; ^0J_{v2} = \begin{bmatrix} -d_2 \sin \theta_1 & \cos \theta_1 \\ d_2 \cos \theta_1 & \sin \theta_1 \\ 0 & 0 \end{bmatrix}
-            $$
-            
-            $$
-            ^{c_1}J_{\omega1} = \begin{bmatrix} 0 & 0 \\ 0 & 0 \\ 1 & 0 \end{bmatrix}; ^{c_2}J_{\omega2} = \begin{bmatrix} 0 & 0 \\ 0 & 0 \\ 1 & 0 \end{bmatrix}
-            $$
+      题目1 RP机械臂
 
-            注意这里我们求的不是end effector的雅可比矩阵，而是每一根连杆的质心的运动相对于关节运动的雅可比矩阵（在求解时可以把质心当作end effector来理解）。
-            最后，我们可以得到这个RP机械臂的质量矩阵：
+      ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250417230141.png)
 
-            $$
-            M = \begin{bmatrix} m_1 l_1^2 + I_{zz1} + m_2 d_2^2 + I_{zz2} & 0 \\ 0 & m_2 \end{bmatrix}
-            $$
+      $$
+      ^0J_{v1} = \begin{bmatrix} -l_1 \sin \theta_1 & 0 \\ l_1 \cos \theta_1 & 0 \\ 0 & 0 \end{bmatrix}; ^0J_{v2} = \begin{bmatrix} -d_2 \sin \theta_1 & \cos \theta_1 \\ d_2 \cos \theta_1 & \sin \theta_1 \\ 0 & 0 \end{bmatrix}
+      $$
+      
+      $$
+      ^{c_1}J_{\omega1} = \begin{bmatrix} 0 & 0 \\ 0 & 0 \\ 1 & 0 \end{bmatrix}; ^{c_2}J_{\omega2} = \begin{bmatrix} 0 & 0 \\ 0 & 0 \\ 1 & 0 \end{bmatrix}
+      $$
 
-      === "题目2 PRR机械臂"
-            ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250417230427.png)
+      注意这里我们求的不是end effector的雅可比矩阵，而是每一根连杆的质心的运动相对于关节运动的雅可比矩阵（在求解时可以把质心当作end effector来理解）。
+      最后，我们可以得到这个RP机械臂的质量矩阵：
 
-            $$
-            M=\begin{bmatrix}m_1+m_2+m_3&\times&\times\\\times&l_{zz2}+m_2l_2^2+l_{zz3}+m_3({a_2}^2+{l_3}^2+2a_2l_3\cos q_3)&\times\\\times&\times&l_{zz3}+m_3l_3^2\end{bmatrix}
-            $$
+      $$
+      M = \begin{bmatrix} m_1 l_1^2 + I_{zz1} + m_2 d_2^2 + I_{zz2} & 0 \\ 0 & m_2 \end{bmatrix}
+      $$
 
-            $$
-            M=\begin{bmatrix}\times&m_2l_2c_2+m_3(l_3c_2c_3+a_2c_2-l_3s_2s_3)&-m_3(l_3s_2s_3-l_3c_2c_3)\\\times&\times&l_{zz3}+m_3(l_3^2+a_2l_3c_3)\\\times&\times&\times\end{bmatrix}
-            $$
+      题目2 PRR机械臂
+
+      ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250417230427.png)
+
+      $$
+      M=\begin{bmatrix}m_1+m_2+m_3&\times&\times\\\times&l_{zz2}+m_2l_2^2+l_{zz3}+m_3({a_2}^2+{l_3}^2+2a_2l_3\cos q_3)&\times\\\times&\times&l_{zz3}+m_3l_3^2\end{bmatrix}
+      $$
+
+      $$
+      M=\begin{bmatrix}\times&m_2l_2c_2+m_3(l_3c_2c_3+a_2c_2-l_3s_2s_3)&-m_3(l_3s_2s_3-l_3c_2c_3)\\\times&\times&l_{zz3}+m_3(l_3^2+a_2l_3c_3)\\\times&\times&\times\end{bmatrix}
+      $$
 
 - 科里奥利力与离心力矩阵：
 
 $$
 V(\boldsymbol{q},\dot{\boldsymbol{q}})=C(\boldsymbol{q},\dot{\boldsymbol{q}})\begin{bmatrix}\dot{q}_1^2\\\vdots\\\dot{q}_n^2\end{bmatrix}+\boldsymbol{B}(\boldsymbol{q},\dot{\boldsymbol{q}})\begin{bmatrix}\dot{q}_1\dot{q}_2\\\dot{q}_1\dot{q}_3\\\vdots\\\dot{q}_{n-2}\dot{q}_n\\\dot{q}_{n-1}\dot{q}_n\end{bmatrix}
 $$
-
-
-
 
 
 ### 性质
@@ -468,9 +532,17 @@ $$
 
 ## 题目
 
-带对公式、耐心计算
+
+### 动力学方程求解
+
+个人倾向于拉格朗日方法直接列写动能势能
+
+其他方法需要注意**带对公式、耐心计算**
+
 
 ### 惯性张量相关
+
+**学会积分**
 
 均质圆柱,原点位于质心$Z$重合于转轴,求$I_{xy},I_{zz}$
 

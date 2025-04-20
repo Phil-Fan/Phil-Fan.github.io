@@ -28,6 +28,10 @@
 
 !!! attention "Acknowledgement"
 
+    下面是一些找到的相关的文章，感觉都没有特别系统和全面，但是可以作为参考
+
+    - [ ] [Robot_Manipulator_Control_Theory_and_Practice_-_Frank_L.Lewis-small.pdf](https://lewisgroup.uta.edu/FL%20books/Robot_Manipulator_Control_Theory_and_Practice_-_Frank_L.Lewis-%20small.pdf)
+
     - [x] [机器人学-4-3-线性控制 - 知乎](https://zhuanlan.zhihu.com/p/340272432)
 
     - [ ] [机械臂操作控制基础(一) - 知乎](https://zhuanlan.zhihu.com/p/264809240)
@@ -52,7 +56,7 @@
     - [ ] [现代机器人学：力学，规划，控制（chapter11Ⅰ）自动控制原理回顾 - 知乎](https://zhuanlan.zhihu.com/p/377810484)
     - [ ] [现代机器人学：力学，规划，控制（chapter11 Ⅱ）机器人控制之运动控制 - 知乎](https://zhuanlan.zhihu.com/p/378218165)
     - [ ] [【现代机器人学】学习笔记十：机器人控制\_机器人控制算法csdn-CSDN博客](https://blog.csdn.net/zkk9527/article/details/128709448)
-    - [ ] [Robot_Manipulator_Control_Theory_and_Practice_-_Frank_L.Lewis-small.pdf](https://lewisgroup.uta.edu/FL%20books/Robot_Manipulator_Control_Theory_and_Practice_-_Frank_L.Lewis-%20small.pdf)
+    
 
 ## 前置知识
 

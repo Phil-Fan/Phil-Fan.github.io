@@ -290,6 +290,40 @@ nav:
   
   
 - Robotics:
+  - "Control Theory":
+    - Robotics/Control/Control-01-自动控制原理.md
+    - Robotics/Control/Control-02-现代控制理论.md
+    - Robotics/Control/Control-03-nonlinear.md
+    - Robotics/Control/Control-04-optimal.md
+    - Robotics/Control/Control-10-经典控制方法.md
+    - Robotics/Control/Control-11-智能控制方法.md
+    - Robotics/Control/Control-21-供配电.md
+
+  - "机器人":
+    - Robotics/Robo/Robo-00-intro.md
+    - "导论":
+      - Robotics/Robo/Robo-00-Introduction-to-Robotics.md 
+      - Robotics/Robo/Robo-00-Introduction-to-Robotics-exam.md
+    - 建模与控制:
+      - Robotics/Robo/Robo-00-model-0-index.md
+      - 1 空间描述与变换: Robotics/Robo/Robo-00-model-1-Basis.md
+      - 2 正向运动学: Robotics/Robo/Robo-00-model-2-ForwardKinematics.md
+      - 3 逆向运动学: Robotics/Robo/Robo-00-model-3-InverseKinematics.md
+      - 4 瞬时运动学: Robotics/Robo/Robo-00-model-4-Mechanics.md
+      - 5 轨迹规划: Robotics/Robo/Robo-00-model-5-TrajectoryPlanning.md
+      - 6 动力学: Robotics/Robo/Robo-00-model-6-Dynamics.md
+      - 7 运动控制: Robotics/Robo/Robo-00-model-7-Control.md
+      - 8 力控制: Robotics/Robo/Robo-00-model-8-ForceControl.md
+      - 9 实验: Robotics/Robo/Robo-00-model-9-exp.md
+    - Robotics/Robo/Robo-01-sensor&detection.md
+    - Robotics/Robo/Robo-02-0-navigation.md
+    - Robotics/Robo/Robo-02-1-localization.md
+    - Robotics/Robo/Robo-02-2-mapping.md
+    - Robotics/Robo/Robo-02-3-planning.md
+    - Robotics/Robo/Robo-probabilistic_robot.md
+    - Robotics/Robo/Robo-Drone.md      
+  
+  
   - "嵌入式":
     - Robotics/嵌入式/Analog.md
     - Robotics/嵌入式/Digital.md
@@ -306,40 +340,6 @@ nav:
       - Robotics/嵌入式/FPGA.md
     - Robotics/嵌入式/PcCtl.md
     - Robotics/嵌入式/PcCtl-PLC.md
-
-  - "Control Theory":
-    - Robotics/Control/Control-01-自动控制原理.md
-    - Robotics/Control/Control-02-现代控制理论.md
-    - Robotics/Control/Control-03-nonlinear.md
-    - Robotics/Control/Control-04-optimal.md
-    - Robotics/Control/Control-10-经典控制方法.md
-    - Robotics/Control/Control-11-智能控制方法.md
-    - Robotics/Control/Control-21-供配电.md
-
-  - "机器人":
-    - Robotics/Robo/Robo-00-intro.md
-    - "导论":
-      - Robotics/Robo/Robo-00-Introduction-to-Robotics.md 
-      - Robotics/Robo/Robo-00-Introduction-to-Robotics-exam.md
-    - "建模与控制":
-      - Robotics/Robo/Robo-00-model-0-review.md
-      - Robotics/Robo/Robo-00-model-1-Basis.md
-      - Robotics/Robo/Robo-00-model-2-ForwardKinematics.md
-      - Robotics/Robo/Robo-00-model-3-InverseKinematics.md
-      - Robotics/Robo/Robo-00-model-4-Mechanics.md
-      - Robotics/Robo/Robo-00-model-5-TrajectoryPlanning.md
-      - Robotics/Robo/Robo-00-model-6-Dynamics.md
-      - Robotics/Robo/Robo-00-model-7-Control.md
-      - Robotics/Robo/Robo-00-model-8-ForceControl.md
-      - Robotics/Robo/Robo-00-model-9-exp.md
-    - Robotics/Robo/Robo-01-sensor&detection.md
-    - Robotics/Robo/Robo-02-0-navigation.md
-    - Robotics/Robo/Robo-02-1-localization.md
-    - Robotics/Robo/Robo-02-2-mapping.md
-    - Robotics/Robo/Robo-02-3-planning.md
-    - Robotics/Robo/Robo-probabilistic_robot.md
-    - Robotics/Robo/Robo-Drone.md      
-    
 
   - "通信与物联网":
     - Robotics/communication/CC-NFC.md
