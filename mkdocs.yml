@@ -198,13 +198,13 @@ nav:
     
 - Math:
   - Math/signal.md
-  - Math/Logic.md
+  - Math/logic.md
   - Math/ComplexFunction.md
   
-  - LinearAlgebra:
+  - "LA | 线性代数":
     - Math/LinearAlgebra/MatrixTheory.md
 
-  - Statistic:
+  - "概率论":
     - Math/Statistic/00-intro.md
     - Notebook page: Math/Statistic/01-probability.ipynb
     - Notebook page: Math/Statistic/02-Univariate_Random_Variable.ipynb
@@ -221,7 +221,7 @@ nav:
     - Math/Statistic/big_data_security&privacy_protection.md
     - Math/Statistic/variable.md
 
-  - "随机过程":
+  - "SP | 随机过程":
     - Math/StochasticProcess/00-Index.md
     - Math/StochasticProcess/01-Concept.md
     - Math/StochasticProcess/02-Markov.md
@@ -229,7 +229,7 @@ nav:
     - Math/StochasticProcess/04-Brown.md
     - Math/StochasticProcess/05-StationaryProcess.md
     
-  - OR:
+  - "OR | 运筹学":
     - Math/OR/OR-00-index.md
     - Math/OR/OR-01-programming.md
     - Math/OR/OR-02-nonlinear.md
@@ -242,26 +242,18 @@ nav:
 
 - Class:
   
-  - Class/SocialSciences.md
   - Class/马原.md
   - Class/毛概.md
   - Class/习概.md
+  - Class/ITP/ITP-创业营销.md
+  - Class/ITP/ITP-Law.md
   
   - Oral:
     - Class/English/IELTS.md
-    - Class/English/Oral-Practice.md
     - Class/English/Oral-Tips.md
-    - Class/English/TOFEL-speaking-training.md
     - Class/English/TOFEL-speaking.md
     - Class/English/VocabularyForSpeaking.md
 
-  - "ITP课程" :
-      - Class/ITP/ITP-Team-Communication-and-Leadership.md
-      - Class/ITP/ITP-Management.md
-      - Class/ITP/ITP-创业营销.md
-      - Class/ITP/ITP-商业模式.md
-      - Class/ITP/ITP-市场分析与调研.md
-      - Class/ITP/ITP-Law.md
       
   - Finance:
     - Class/Fin/invest.md
@@ -301,9 +293,7 @@ nav:
 
   - "机器人":
     - Robotics/Robo/Robo-00-intro.md
-    - "导论":
-      - Robotics/Robo/Robo-00-Introduction-to-Robotics.md 
-      - Robotics/Robo/Robo-00-Introduction-to-Robotics-exam.md
+    - 导论: Robotics/Robo/Robo-00-Introduction-to-Robotics.md 
     - 建模与控制:
       - Robotics/Robo/Robo-00-model-0-index.md
       - 1 空间描述与变换: Robotics/Robo/Robo-00-model-1-Basis.md
@@ -316,11 +306,10 @@ nav:
       - 8 力控制: Robotics/Robo/Robo-00-model-8-ForceControl.md
       - 9 实验: Robotics/Robo/Robo-00-model-9-exp.md
     - Robotics/Robo/Robo-01-sensor&detection.md
-    - Robotics/Robo/Robo-02-0-navigation.md
-    - Robotics/Robo/Robo-02-1-localization.md
-    - Robotics/Robo/Robo-02-2-mapping.md
-    - Robotics/Robo/Robo-02-3-planning.md
-    - Robotics/Robo/Robo-probabilistic_robot.md
+    # - Robotics/Robo/Robo-02-0-navigation.md
+    # - Robotics/Robo/Robo-02-1-localization.md
+    # - Robotics/Robo/Robo-02-2-mapping.md
+    # - Robotics/Robo/Robo-02-3-planning.md
     - Robotics/Robo/Robo-Drone.md      
   
   
@@ -457,23 +446,23 @@ nav:
       - CS/llm/MCP.md
       
          
-  - "CV | 计算机视觉":
-    - CS/CV/CV-00-1-intro.md
-    - "图像处理":
-        - CS/CV/CV-00-base.md
-        - CS/CV/color.md
-        - CS/CV/CV-00-2-camera.md
-        - CS/CV/CV-00-3-format.md
-    - "基本任务":
-        - CS/CV/CV-01-classification.md
-        - CS/CV/CV-02-Image-location.md
-        - CS/CV/CV-03-face-Recognition.md
-        - CS/CV/CV-03-Object-Recognition.md
-        - CS/CV/CV-04-Segmentation.md
-        - CS/CV/CV-10-3D.md
-        - CS/CV/CV-11-motion_estimation.md
-    - CS/CV/OpenCV.md
-    - CS/CV/HumanPoseEstimation.md  
+  # - "CV | 计算机视觉":
+  #   - CS/CV/CV-00-1-intro.md
+  #   - "图像处理":
+  #       - CS/CV/CV-00-base.md
+  #       - CS/CV/color.md
+  #       - CS/CV/CV-00-2-camera.md
+  #       - CS/CV/CV-00-3-format.md
+  #   - "基本任务":
+  #       - CS/CV/CV-01-classification.md
+  #       - CS/CV/CV-02-Image-location.md
+  #       - CS/CV/CV-03-face-Recognition.md
+  #       - CS/CV/CV-03-Object-Recognition.md
+  #       - CS/CV/CV-04-Segmentation.md
+  #       - CS/CV/CV-10-3D.md
+  #       - CS/CV/CV-11-motion_estimation.md
+  #   - CS/CV/OpenCV.md
+  #   - CS/CV/HumanPoseEstimation.md  
 
   - "CTF相关知识":
     - CS/SEC/CTF-intro.md

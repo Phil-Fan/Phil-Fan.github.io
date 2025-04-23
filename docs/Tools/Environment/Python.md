@@ -278,7 +278,43 @@ ssh -p 15821 root@connect.westb.seetacloud.com
 
 [pycharm 打开远程项目_手把手教你Pycharm远程连接服务器端项目进行本地开发调试！...-CSDN博客](https://blog.csdn.net/weixin_34345947/article/details/114909727)
 
-## 安装库报错
+## 报错与问题解决
+
+### 'GLIBCXX_3.4.30' not found
+
+> 参考文章[「已解决」anaconda环境version \`GLIBCXX\_3.4.30‘ not found](https://blog.csdn.net/CCCDeric/article/details/129292944)
+
+```shell title="查找libstdc++.so.6"
+sudo find / -name libstdc++.so.6
+```
+
+这里可以找到哪些位置有libstdc++.so.6
+
+```shell title="查看libstdc++.so.6中的GLIBCXX_3.4，这里是我的系统中的路径"
+strings /usr/lib/aarch64-linux-gnu/libstdc++.so.6 | grep GLIBCXX_3.4
+```
+
+```shell title="查看conda环境中的libstdc++.so.6中的GLIBCXX_3.4"
+strings /home/user/miniconda3/envs/environment_name/lib/libstdc++.so.6 | grep GLIBCXX_3.4
+```
+可以发现，conda环境中的libstdc++.so.6中的GLIBCXX_3.4是3.4.21，没有3.4.30，而系统中的libstdc++.so.6中的GLIBCXX_3.4是3.4.30，所以需要将conda环境中的libstdc++.so.6替换为系统中的libstdc++.so.6
+
+```shell
+cd /home/user/miniconda3/envs/environment_name/lib
+```
+
+```shell
+rm -rf libstdc++.so
+rm -rf libstdc++.so.6
+```
+
+```shell title="把系统中的libstdc++.so.6.0.30链接到conda环境中的libstdc++.so.6"
+ln -s /usr/lib/aarch64-linux-gnu/libstdc++.so.6.0.30 libstdc++.so
+ln -s /usr/lib/aarch64-linux-gnu/libstdc++.so.6.0.30 libstdc++.so.6
+```
+
+
+### ImportError: No module named parse
 
 !!! bug "ImportError: No module named parse"
     python版本问题，在python 2.x中

@@ -49,6 +49,8 @@
 
 ## 资料整理
 
+感谢各位前辈的资料分享，老师和助教的课件和作业答案
+
 ???+ note "资料下载"
 
     通过网盘分享的文件：机器人建模与控制
@@ -116,15 +118,16 @@
 
 ### 文档
 
-- [课后习题答案 - FLOG司马](https://www.cc98.org/topic/6115926)
+- [机器人建模与控制学习楼 - FLOG司马](https://www.cc98.org/topic/6115926)
 - [应试的心得 - 逐梦xcdh](https://www.cc98.org/topic/6167057)
 - [课程笔记 - 小胖一族](https://skillful-vest-b8d.notion.site/3d905d613c1046beb84c6a85c71818c5)
-
+- [《机器人学Ⅰ》笔记 - FrankG](https://www.cc98.org/topic/6127422)
 
 其他网上的一些资料，我放在了章节的对应位置
 
 ### 复习资料与A4
 - [资料 - 追风Holy](https://www.cc98.org/topic/6167251)
+- [课后习题答案 - 一只千米](https://www.cc98.org/topic/6164188)，正确性存疑？
 - [逐梦xcdh A4](https://www.cc98.org/topic/6167057)
 - [the_Piao A4](https://www.cc98.org/topic/6160390)
 - [追风Holy A4](https://www.cc98.org/topic/6167251/1)
