@@ -1,5 +1,33 @@
 # Markdown
 
+
+## typora-latex
+
+这个方法感觉效果一般，只能写写不重要报告，感觉很多特性还是得自己手动魔改
+
+- [x] 安装typora-latex-theme
+- [x] 安装zju-cover-typora
+- [ ] 修改对应的模板
+- [ ] 本地部署
+
+[zju-cover-typora / zju-cover-typora · GitLab](https://git.zju.edu.cn/zju-cover-typora/zju-cover-typora)
+
+
+[浙江大学实验报告表头（关键词：材科基实验 先进材料实验 材料工艺学实验 报告模板） - CC98论坛](https://www.cc98.org/topic/6167879)
+
+
+
+> 参考教程
+> [安装教程 · Keldos-Li/typora-latex-theme Wiki](https://github.com/Keldos-Li/typora-latex-theme/wiki/%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B)
+先到[Releases · Keldos-Li/typora-latex-theme](https://github.com/Keldos-Li/typora-latex-theme/releases)下载对应到安装包，运行`install.sh`,完成安装
+
+选择latex主题
+
+
+
+
+
+
 ## 代码块
 
 

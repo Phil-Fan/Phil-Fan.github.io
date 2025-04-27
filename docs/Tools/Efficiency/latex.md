@@ -697,6 +697,43 @@ required to use pdflatex/xelatex/lualatex.
 ```
 
 
+### 服务器使用Docker构建 Overleaf
+
+[Docker部署Overleaf包含中文字体与全套texlive镜像\_overleaf docker-CSDN博客](https://blog.csdn.net/Wrm244/article/details/128567900)
+
+```shell title="clone overleaf toolkit"
+git clone https://github.com/overleaf/toolkit.git ./overleaf-toolkit
+```
+
+```shell title="编辑overleaf.rc"
+vi overleaf.rc
+
+# Sharelatex container
+SHARELATEX_DATA_PATH=data/sharelatex
+SERVER_PRO=false
+SHARELATEX_LISTEN_IP=127.0.0.1
+SHARELATEX_PORT=9000 #将该行修改为你所需服务端口，默认为80端口
+```
+
+```shell title="编辑docker-compose.base.yml"
+cd lib
+vi docker-compose.base.yml
+```
+
+
+将源文件的image: "${IMAGE}" 改为 image: wrm244/sharelatex:with-texlive-full 改这一行即可，以下为修改后文件内容
+
+在根目录下启动
+
+```shell title="启动"
+bin/up
+```
+
+
+
+
+
+
 
 ## 问题解决与技巧
 

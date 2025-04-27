@@ -78,6 +78,31 @@ docker --version
 ## 使用
 
 
+```shell title="启动docker"
+sudo systemctl start docker
+```
+
+```shell title="停止docker"
+sudo systemctl stop docker
+```
+
+```shell title="重启docker"
+sudo systemctl restart docker
+```
+
+```shell title="查看docker状态"
+sudo systemctl status docker
+```
+
+```shell title="查看docker日志"
+sudo journalctl -u docker
+```
+
+
+
+
+
+
 
 ### 文档
 

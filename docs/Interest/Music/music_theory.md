@@ -233,15 +233,21 @@ bpm: beat per minute
   - 减三和弦：dim*；diminished
 
 
+
+切分节奏：
+- 有一种推进的感觉
 ### 三和弦
 
 
 ### 和弦转位
 
 
-### 挂留和弦
 
 ### 属和弦
+
+属7和弦
+
+
 
 ### 和弦走向
 万能和弦 1451 6326 6415 6251
@@ -262,6 +268,25 @@ bpm: beat per minute
 ### 调式音阶
 
 如何从海量的和弦中选出好听的组合？
+
+### G大调
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/202504231943961.png)
+
+
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250423200102.png)
+
+G大调和声分解
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250423202112.png)
+
+弹奏D7的时候，手指要向前移动
+## 和声伴奏
+
+圆舞曲伴奏：落提
+
+分解和弦：连奏的形式
 
 
 ## 进阶拓展

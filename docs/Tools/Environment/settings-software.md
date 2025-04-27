@@ -42,6 +42,7 @@
 - 下载：[utorrent](https://file.cc98.org/v2-upload/il0glpvw.zip)
 - 卸载工具[Geek Uninstaller - Download](https://geekuninstaller.com/download),磁盘扫描[WizTree - Download](https://www.diskanalyzer.com/download)
 - 使用时长统计：[ManicTime](https://www.manictime.com/download/windows)
+- 系统插件：三指拖移插件 [Three Finger Drag - Windows官方下载 | 微软应用商店 | Microsoft Store](https://apps.microsoft.com/detail/9msx91wqcm2v?hl=zh-CN&gl=US)
 
 ## 专业软件
 

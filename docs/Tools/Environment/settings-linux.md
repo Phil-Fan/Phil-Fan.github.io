@@ -29,7 +29,7 @@ JU090-6039P-08409-8J0QH-2YR7F
 - 虚拟机无法打开
 
 > 虚拟机使用的是此版本 [VMware](https://so.csdn.net/so/search?q=VMware&spm=1001.2101.3001.7020) Workstation 不支持的硬件版本。
-> 模块“Upgrade”启动失败。
+> 模块"Upgrade"启动失败。
 
 打开`.vmx`文件，修改` virtualHW.version = "19"`一行至` virtualHW.version = "16"` 
 
@@ -189,7 +189,7 @@ pair yourDeviceMAC
 
 
 
-其中pair后面跟上扫描出的键盘的MAC地址，根据提示输入密码，显示配对成功，此时，在桌面的设置界面“我的设备”中可以看到蓝牙中键盘为已配对状态，但此时可能依然无法成功连接。
+其中pair后面跟上扫描出的键盘的MAC地址，根据提示输入密码，显示配对成功，此时，在桌面的设置界面"我的设备"中可以看到蓝牙中键盘为已配对状态，但此时可能依然无法成功连接。
 
 
 ### 查看系统信息
@@ -206,7 +206,7 @@ uname - a
 [x86-64、amd64、arm、aarch64 都是些什么？-CSDN博客](https://blog.csdn.net/qq_24433609/article/details/125991550)
 
 
-```
+```shell
 sudo !4
 ```
 执行历史记录中第4条命令
@@ -382,6 +382,7 @@ update-rc.d ssh enable
 ```shell
 ssh-keygen -t rsa
 ```
+
 然后根据提示一步步的按enter键即可（其中有一个提示是要求设置私钥口`passphrase`，不设置则为空，这里看心情吧，如果不放心私钥的安全可以设置一下）
 
 执行结束以后会在`/home/当前用户` 目录下生成一个 `.ssh` 文件夹,其中包含私钥文件 `id_rsa` 和公钥文件 `id_rsa.pub`。
@@ -781,14 +782,123 @@ w3m之类的命令行浏览器试试
 
 
 ### 路由
+
+```shell title="查看路由表"
+route -n 
+```
+
+可以找到默认网关
+
+```shell title="编辑路由表"
+sudo vi /etc/resolv.conf
+```
+
+添加
+
+```
+nameserver xxx.xxx.xxx.xxx
+```
+
+
+
+
+
 [静态路由](https://blog.csdn.net/u010521062/article/details/114067036)
 
 [Linux 配置静态IP](https://www.cnblogs.com/chy18883701161/p/12396035.html)
 
 
+### 防火墙 - iptables
 
 
-### 端口占用
+#### 启用
+```bash
+sudo systemctl start iptables
+sudo systemctl enable iptables
+```
+
+
+#### 查看防火墙规则
+
+
+```bash
+sudo iptables -L -n
+```
+查看所有防火墙规则，包括入站和出站规则。
+
+
+#### 添加防火墙规则
+
+
+
+
+- **原因**：在系统安装后，默认情况下可能没有添加任何`iptables`规则。
+- **解决方法**：您可以手动添加所需的规则。例如，如果您想：
+
+```bash title="允许所有入站流量"
+sudo iptables -A INPUT -j ACCEPT
+```
+
+
+```bash title="允许所有出站流量"
+sudo iptables -A OUTPUT -j ACCEPT
+```
+
+如果规则列表为空，您可以添加所需的规则。例如：
+
+```bash
+sudo iptables -A INPUT -p tcp --dport 80 -j ACCEPT
+```
+
+#### 保存防火墙规则
+
+
+```bash
+sudo iptables-save > /etc/sysconfig/iptables
+```
+
+
+
+然后保存规则：
+
+```bash
+sudo iptables-save > /etc/sysconfig/iptables
+```
+
+
+
+
+### 防火墙 - firewalld
+
+
+```shell title="停止firewalld"
+sudo systemctl stop firewalld
+```
+
+```shell title="禁用firewalld"
+sudo systemctl mask firewalld
+```
+
+```shell title="查看防火墙状态"
+sudo systemctl status firewalld
+```
+
+  
+```bash title="查看防火墙规则"
+sudo firewall-cmd --list-all
+```
+```bash title="检查端口是否开放"
+sudo firewall-cmd --query-port=<端口号>/tcp
+```
+
+```bash title="检查80端口是否开放"
+sudo firewall-cmd --query-port=80/tcp
+```
+
+
+
+
+### 端口占用 - lsof
 
 ```shell
 sudo lsof -i :<port>
@@ -799,24 +909,19 @@ sudo lsof -i :<port>
 kill -9 <pid>
 ```
 
+### 端口占用 - netstat
+
+```shell
+netstat -ano | find "端口号"
+```
+例如，检查80端口：
+```shell
+netstat -ano | find "80"
+```
+
 ```shell title="查看占用"
 netstat -tulpen | grep <port>
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 ## 压缩
@@ -896,7 +1001,7 @@ apt-get install -y cifs-utils
 
 如果你是没有打开smb服务，那么继续往下看，打开控制面板进入
 
-点击“启用或关闭windows功能”
+点击"启用或关闭windows功能"
 
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241123092300.png)
 
@@ -1017,7 +1122,7 @@ umount /dev/hda2
 
 
 
-## 用户设置
+## 用户和组
 
 ### 新建用户
 
@@ -1042,18 +1147,50 @@ sudo usermod -a -G adm username
 sudo usermod -a -G sudo username
 ```
 
+```shell title="删除用户sudo权限"
+sudo deluser username sudo
+```
+
+### 更改文件所属
+
+```shell title="更改文件所属"
+sudo chown username:groupname filename
+```
+
+```shell title="更改文件所属"
+sudo chown -R username:groupname folder
+```
+
+[Linux chown命令教程：如何改变文件或目录的所有者和组(附案例详解和注意事项)\_chown修改文件所有者-CSDN博客](https://blog.csdn.net/u012964600/article/details/135845447)
+
+
 ## Q & A
 
-!!! bug "sh: 0: getcwd() failed: No such file or directory"
+### sh: 0: getcwd() failed: No such file or directory
     一般来说是因为你 cd 到了某个目录之后 rm 了这个目录，这时去执行某些 service 脚本的时候就会报 get cwd 错误。 只需要 cd 到任何一个实际存在的目录下再执行就好了
 
-!!! question "Could not load the Qt platform plugin “xcb“"
+### Could not load the Qt platform plugin “xcb“
 
-    经过一番深入的探索，最终找到了一个有效的解决方案，即通过以下命令安装所有与libxcb相关的库：
-    ```shell
-    sudo apt install libxcb-*
-    ```
-    这条命令会安装所有以libxcb为前缀的库，确保系统中所有与XCB相关的依赖项都被正确安装。这一步成功解决了Qt无法加载xcb插件的问题，程序也顺利启动并运行。这表明，问题的根源在于某些关键的XCB依赖项缺失，而通过这种“一网打尽”的方式，我们可以确保所有相关的依赖项都得到满足。
+经过一番深入的探索，最终找到了一个有效的解决方案，即通过以下命令安装所有与libxcb相关的库：
+```shell
+sudo apt install libxcb-*
+```
+这条命令会安装所有以libxcb为前缀的库，确保系统中所有与XCB相关的依赖项都被正确安装。这一步成功解决了Qt无法加载xcb插件的问题，程序也顺利启动并运行。这表明，问题的根源在于某些关键的XCB依赖项缺失，而通过这种“一网打尽”的方式，我们可以确保所有相关的依赖项都得到满足。
+
+### sudo: 无法解析主机：xxxxxx
+原因：修改了主机的ubuntu设备名称，后面没有配置好hosts文件，导致linux无法解析到您的主机地址
+
+
+解决方案：就是配置一下hosts文件就可以解决，具体操作如下：
+```shell
+sudo vim /etc/hosts
+```
+把下面的数字后面的xxxx修改成你现在的设备名称保存就可以了。
+
+```
+127.0.1.1       xxxx
+```
+
 
 ## Java
 

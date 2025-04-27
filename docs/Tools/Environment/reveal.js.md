@@ -14,6 +14,11 @@ reveal-md: 用于将markdown文件转换为reveal.js的演示文稿。
 
 ## 安装
 
+[Node.js — Download Node.js®](https://nodejs.org/en/download)
+
+使用这个网站上面的安装的指令
+
+
 ### nodejs
 [windows安装npm教程\_npm 安装-CSDN博客](https://blog.csdn.net/zhouyan8603/article/details/109039732)
 
@@ -54,6 +59,37 @@ npm run build
 
 成功界面，提示打开地址http://localhost:8080
 
+## 卸载
+
+```
+sudo npm uninstall npm- g
+```
+
+```shell
+cd /usr/local/lib/node_modules/
+
+rm -rf npm
+```
+
+```shell
+sudo apt-get remove nodejs
+sudo apt-get remove npm
+sudo apt-get remove node
+```
+
+```shell
+node -v
+npm -v 
+```
+
+
+
+
+
+
+
+
+
 
 ### reveal-md
 reveal.js 是一个开源的 HTML 框架，用于创建交互式演示文稿。
@@ -85,3 +121,20 @@ separator: <!--s-->
 verticalSeparator: <!--v-->
 ---
 ```
+
+### reveal-md 模版
+
+
+[TonyCrane/slide-template: TonyCrane's slide template for reveal-md](https://github.com/TonyCrane/slide-template)
+
+
+```shell title="开启本地实时预览"
+make  # or make live
+```
+
+```shell title="构建静态文件"
+make build
+```
+
+
+- 生成 pdf 版：在 url 后面加上 `?print-pdf` 使用浏览器打印

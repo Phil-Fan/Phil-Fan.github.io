@@ -488,6 +488,7 @@ nav:
 - Tools:
   - Efficiency:
     - Tools/Efficiency/latex.md
+    - Tools/Efficiency/typst.md
     - Tools/Efficiency/sites.md
     - Tools/Efficiency/Makefile.md
     - Tools/Efficiency/markdown.md
