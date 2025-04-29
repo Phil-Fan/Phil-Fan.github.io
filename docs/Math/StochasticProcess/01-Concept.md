@@ -14,7 +14,7 @@
 
 ## 基本定义
 
-<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=975933966&bvid=BV1644y1t7pB&cid=550373188&p=2&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=975933966&bvid=BV1644y1t7pB&cid=550373188&p=2&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=60% height=400px></iframe>
 
 
 
@@ -40,9 +40,15 @@ $X(t)$ ，为 $t$ 的函数。（所有随机变量取到可能出现的值）
 ## 分布函数
 
 随机过程的分布函数
-① 一维分布函数
-$$F(t,x) = P\{X(t) < x\}$$
-② 二维分布函数
+
+- 一维分布函数
+
+$$
+F(t,x) = P\{X(t) < x\}
+$$
+
+- 二维分布函数
+
 $$
 F(s,t; x,y) = P\{X(s) < x, X(t) < y\}$$
 
@@ -55,10 +61,11 @@ F(s,t; x,y) = P\{X(s) < x, X(t) < y\}$$
 
 > [如何直观地理解「协方差矩阵」？ - 知乎](https://zhuanlan.zhihu.com/p/37609917)
 > ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250427223326.png)
-> 协方差：用与均值面积正负来刻画相关性
+> 
+> 协方差：用与均值面积正负来刻画相关性(一三象限是正相关，二四象限是负相关)
 > 把原点看作$(\bar{x},\bar{y})$，那么$\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})$就可以理解为这些矩形的面积了
 > 图片出自[如何通俗地解释协方差｜马同学图解数学\_哔哩哔哩\_bilibili](https://www.bilibili.com/video/BV1gY4y187TL/)
-> <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=640953390&bvid=BV1gY4y187TL&cid=584782501&p=1&t=142&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+> <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=640953390&bvid=BV1gY4y187TL&cid=584782501&p=1&t=142&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=60% height=400px></iframe>
 
 
 ### 单个随机过程
@@ -96,7 +103,13 @@ F(s,t; x,y) = P\{X(s) < x, X(t) < y\}$$
     (3) { $X(t);t∈T$ } 的均值函数为 $E[X(t)]=tE(A)+E(B)=0.2t+0.2$ 
 
     (4) 自相关函数为 
-    $R_X(t_1,t_2)=E[X(t_1)X(t_2)]=E[(At_1+B)(At_2+B)]=t_1t_2E(A^2)+(t_1+t_2)E(AB)+E(B^2)=t_1t_2+0.04(t_1+t_2)+1$
+
+    $$
+    \begin{aligned}
+    R_X(t_1,t_2)&=E[X(t_1)X(t_2)]=E[(At_1+B)(At_2+B)]\\
+    &=t_1t_2E(A^2)+(t_1+t_2)E(AB)+E(B^2)=t_1t_2+0.04(t_1+t_2)+1
+    \end{aligned}
+    $$
 
     （∵ $E(A)=0.2$	$D(A)=0.96$	$E(A^2)=E(B^2)=D(A)+E^2(A)=0.96+0.2^2=1$ ）
 
@@ -138,7 +151,10 @@ F(s,t; x,y) = P\{X(s) < x, X(t) < y\}$$
     $f(v)=\begin{cases}1,v\in(0,1)\\0,\text{其他}\end{cases}$
 
     $$
-    \begin{aligned}&E\big(X(t)\big)=\int_{-\infty}^{+\infty}x(t)f(v)\:\mathrm{d}v=\int_{0}^{1}\underbrace{vt}\:\mathrm{d}v=\underbrace{\frac{t}{2}}_{0}\\&R_{X}(t_{1},t_{2})=E\big(X(t_{1})Y(t_{2})\big)=E(Vt_{1}Vt_{2})=\int_{0}^{1}v^{2}t_{1}t_{2}\:\mathrm{d}v=\frac{t_{1}t_{2}}{3}\end{aligned}
+    \begin{aligned}
+    &E\big(X(t)\big)=\int_{-\infty}^{+\infty}x(t)f(v)\:\mathrm{d}v=\int_{0}^{1}vt\:\mathrm{d}v=\frac{t}{2}\\
+    &R_{X}(t_{1},t_{2})=E\big(X(t_{1})Y(t_{2})\big)=E(Vt_{1}Vt_{2})=\int_{0}^{1}v^{2}t_{1}t_{2}\:\mathrm{d}v=\frac{t_{1}t_{2}}{3}
+    \end{aligned}
     $$
 
 
