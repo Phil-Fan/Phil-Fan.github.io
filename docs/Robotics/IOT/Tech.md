@@ -16,6 +16,170 @@
 | **硬件成本**   | **高（专用芯片）**               | 低（高度集成）                  | 低（简单协议栈）               | 中高（需基带芯片+SIM）         |
 | **典型场景**   | 高精度定位（工厂、汽车钥匙）     | 高速数据传输（视频、AR/VR）     | 低功耗传感网络（智能家居、农业）| 广域物联网（车联网、智慧城市） |
 
+## NFC
+
+### 介绍
+
+NFC，全称为**近场通信**（Near Field Communication），也称为**近距离无线通信**。它于2003年由**飞利浦**和**索尼**联合研发。[三分钟看懂NFC - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/43135025)
+
+NFC是一种**短距离**、**高频**的无线通信技术，允许电子设备之间进行**非接触式点对点**的数据传输。
+
+### RFID
+
+在讨论NFC时，必须提到其前身RFID。
+
+**RFID**（射频识别，Radio Frequency Identification），也称为电子标签，其工作原理是为物品贴上包含RFID射频部分和天线环路的电路。
+
+![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-aa539569eb2e245756c3b381f459b357_1440w.webp)
+
+!!! note "RFID在仓储物流中的挑战"
+    - 多角度多设备解调复杂
+    - 传输距离有限
+
+当携带RFID标签的物品进入特定磁场时，会发出特定频率的信号，阅读器可以获取该物品的信息。
+
+![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-66f09419c29d831c51389f0503588ffc_1440w.webp)
+
+如果说RFID是一个人戴着胸牌方便别人了解他，那么NFC则是两个人都戴着胸牌，并且可以互相更改胸牌上的信息。
+
+![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-909bbfcd833d77986097b14819c3f42f_1440w.webp)
+
+尽管NFC和RFID在物理层面相似，但RFID属于**识别技术**，而NFC属于**通信技术**。
+
+![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-68b289f254b8d6ea9009e018370b7edc_1440w.webp)
+
+NFC兼容索尼的**`FeliCaTM`标准**和**ISO14443 A，B**（即飞利浦的MIFARE标准），简称为**Type A，Type B和Type F**。
+
+![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-9c54e744634ceeae61c447d2800bd297_1440w.webp)
+
+### 三种工作模式
+
+1. **主动模式**：NFC终端作为读卡器，发出射频场识别和读/写其他NFC设备信息。
+
+   ![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-42b01c8d4bf27423450d09c6ebc28a5e_1440w.webp)
+
+2. **被动模式**：NFC终端模拟成卡，仅在其他设备的射频场中被动响应。
+
+   ![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-f0e1d813851749d6547449f7553fcaea_1440w.webp)
+
+3. **双向模式**：双方NFC终端主动发出射频场建立点对点通信。
+
+### 应用
+
+#### 卡模拟
+
+NFC的早期功能之一是让手机作为公交卡和银行卡使用，减少携带卡片的数量，但由于软件问题，早期未能普及。
+
+#### 文件传输
+
+类似于蓝牙，两台手机开启NFC后靠近即可连接，选择传输或接收文件。
+
+
+### 小实践
+
+
+
+#### NFC + 自动化流程&快捷指令 简化流程操作
+
+NFC作为触发器，然后执行打开浙大钉二维码的操作，[快捷指令下载地址](https://www.icloud.com/shortcuts/38a3b78d869447e194c92a13d27eee20)
+
+需要注意的是，浙大钉工作台有响应时间，所以采取先加载工作台界面，然后再打开浙大钉二维码的方式进行。
+
+```url
+# 打开浙大钉工作台
+dingtalk://dingtalkclient/action/switchtab?index=2&reload=true
+# 打开校园卡二维码
+dingtalk://dingtalkclient/page/link?url=https%3A%2F%2Fyqfkgl.zju.edu.cn%2F_web%2F_customizes%2Fykt%2Findex3.jsp
+```
+
+另外，在钉钉的文档里指出，插入的URL需要做`urlencode`
+
+[一文详解 URLEncode - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/557035152)<br>
+
+[UrlEncode编码和UrlDecode解码-在线URL编码解码工具](http://www.urlencode.com.cn/)<br>
+
+![1c489475f810460c6d9466309484fac](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/1c489475f810460c6d9466309484fac.jpg)
+
+使用了URL Scheme 的方法，控制iPhone自动化打开软件
+
+![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/175f446d-e2a5-4f60-92bb-2588cd6406ba.png)
+
+**参考网页**
+
+一般直接搜索“APP + URL scheme”关键词，即可找到该scheme的相关信息。
+
+[AppLink的结构 - 钉钉开放平台 (dingtalk.com)](https://open.dingtalk.com/document/isvapp/applink-structure)<br>
+
+[打开普通页面 - 钉钉开放平台 (dingtalk.com)](https://open.dingtalk.com/document/isvapp/applink-open-normal-page)<br>
+
+[打开iOS新世界的大门 | 有趣的URL Scheme - 少数派 (sspai.com)](https://sspai.com/post/81278#!)<br>
+
+[x-callback-URL 的使用方法 - InfoCG](https://www.infocg.cn/jishufenxiang/155012.html)<br>
+
+[开放能力 / 获取小程序链接 / 获取 URL Scheme (qq.com)](https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/url-scheme.html)
+
+
+#### 把校园卡“变小”
+
+
+
+#### NFC音乐墙
+
+
+
+## 蓝牙技术
+
+### 介绍
+蓝牙（Bluetooth）是一种短距离无线通信技术，工作在2.4GHz频段。
+
+### 发展历史
+- 1994年：爱立信发明蓝牙技术
+- 1998年：成立蓝牙技术联盟（SIG）
+- 2010年：蓝牙4.0（BLE）发布
+- 至今：蓝牙5.0/5.1/5.2等版本
+
+### 蓝牙分类
+- 传统蓝牙（Classic Bluetooth）
+- 低功耗蓝牙（BLE - Bluetooth Low Energy）
+- 高速蓝牙（Bluetooth High Speed）
+
+### 蓝牙协议栈
+
+#### 物理层
+- 频段：2.4GHz ISM频段
+- 调制方式：GFSK
+- 跳频：AFH（自适应跳频）
+
+#### 链路层
+- 连接建立
+- 数据传输
+- 安全机制
+
+#### 应用层
+- GATT（通用属性配置文件）
+- GAP（通用访问配置文件）
+
+### BLE特点
+- 低功耗
+- 低延迟
+- 低成本
+- 短距离
+- 安全性高
+
+### 开发指南
+
+#### 硬件选型
+- 蓝牙芯片
+- 天线设计
+- 电源管理
+
+#### 软件开发
+- 协议栈选择
+- API使用
+- 调试工具
+
+
+
 
 
 ## **UWB（超宽带技术）**
@@ -124,3 +288,21 @@
 NB使用移动基站
 
 lora使用自己搭建的网关
+
+
+## Lora
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250220095837125.png)
+
+
+LoRa（Long Range）是一种低功耗广域网（LPWAN）无线通信技术，由 **Semtech** 公司开发。它使用 **Chirp Spread Spectrum (CSS) 扩频调制**，具有远距离通信、低功耗和强抗干扰能力的特点，适用于 **物联网（IoT）** 应用。
+
+LoRa 适合 **低数据量、远距离、低功耗** 的物联网应用，是 NB-IoT、Zigbee、WiFi 的重要补充。
+
+### 线性啁啾扩频
+
+频率随时间线性上升
+
+如何表示数据？
+
+- 带宽四等分
+- 

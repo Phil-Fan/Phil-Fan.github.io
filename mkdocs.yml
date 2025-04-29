@@ -202,7 +202,13 @@ nav:
   - Math/ComplexFunction.md
   
   - "LA | 线性代数":
-    - Math/LinearAlgebra/MatrixTheory.md
+    - Math/LinearAlgebra/00-index.md
+    - Math/LinearAlgebra/01-basic.md
+    - Math/LinearAlgebra/02-calc.md
+    - Math/LinearAlgebra/03-optimization.md
+    - Math/LinearAlgebra/04-decomposition.md
+    - Math/LinearAlgebra/05-matrix_equation.md
+    - Math/LinearAlgebra/06-analyze.md
 
   - "概率论":
     - Math/Statistic/00-intro.md
@@ -245,8 +251,8 @@ nav:
   - Class/马原.md
   - Class/毛概.md
   - Class/习概.md
-  - Class/ITP/ITP-创业营销.md
-  - Class/ITP/ITP-Law.md
+  - Class/ITP-创业营销.md
+  - Class/ITP-Law.md
   
   - Oral:
     - Class/English/IELTS.md
@@ -276,42 +282,65 @@ nav:
     - Class/Books/Marxist principles.md
     - Class/Philosophy.md
     - Class/Philosophy-by-topic.md
-    - Class/Books/strategy.md
 
 
   
   
 - Robotics:
-  - "Control Theory":
-    - Robotics/Control/Control-01-自动控制原理.md
-    - Robotics/Control/Control-02-现代控制理论.md
-    - Robotics/Control/Control-03-nonlinear.md
-    - Robotics/Control/Control-04-optimal.md
-    - Robotics/Control/Control-10-经典控制方法.md
-    - Robotics/Control/Control-11-智能控制方法.md
-    - Robotics/Control/Control-21-供配电.md
 
-  - "机器人":
-    - Robotics/Robo/Robo-00-intro.md
-    - 导论: Robotics/Robo/Robo-00-Introduction-to-Robotics.md 
-    - 建模与控制:
-      - Robotics/Robo/Robo-00-model-0-index.md
-      - 1 空间描述与变换: Robotics/Robo/Robo-00-model-1-Basis.md
-      - 2 正向运动学: Robotics/Robo/Robo-00-model-2-ForwardKinematics.md
-      - 3 逆向运动学: Robotics/Robo/Robo-00-model-3-InverseKinematics.md
-      - 4 瞬时运动学: Robotics/Robo/Robo-00-model-4-Mechanics.md
-      - 5 轨迹规划: Robotics/Robo/Robo-00-model-5-TrajectoryPlanning.md
-      - 6 动力学: Robotics/Robo/Robo-00-model-6-Dynamics.md
-      - 7 运动控制: Robotics/Robo/Robo-00-model-7-Control.md
-      - 8 力控制: Robotics/Robo/Robo-00-model-8-ForceControl.md
-      - 9 实验: Robotics/Robo/Robo-00-model-9-exp.md
-    - Robotics/Robo/Robo-01-sensor&detection.md
-    # - Robotics/Robo/Robo-02-0-navigation.md
-    # - Robotics/Robo/Robo-02-1-localization.md
-    # - Robotics/Robo/Robo-02-2-mapping.md
-    # - Robotics/Robo/Robo-02-3-planning.md
-    - Robotics/Robo/Robo-Drone.md      
-  
+  - Model:
+    - 简介: Robotics/Model/0-index.md
+    - 1 空间描述与变换: Robotics/Model/1-Basis.md
+    - 2 正向运动学: Robotics/Model/2-ForwardKinematics.md
+    - 3 逆向运动学: Robotics/Model/3-InverseKinematics.md
+    - 4 瞬时运动学: Robotics/Model/4-Mechanics.md
+    - 5 轨迹规划: Robotics/Model/5-TrajectoryPlanning.md
+    - 6 动力学: Robotics/Model/6-Dynamics.md
+    - 7 运动控制: Robotics/Model/7-Control.md
+    - 8 力控制: Robotics/Model/8-ForceControl.md
+    - 9 实验: Robotics/Model/9-exp.md
+
+  - Control Theory:
+    - 自动控制:
+      - Robotics/Control/BASE-00-intro.md
+      - Robotics/Control/BASE-01-model.md
+      - Robotics/Control/BASE-02-metrics.md
+      - Robotics/Control/BASE-03-adjust.md
+
+    - 现代控制 | 线性系统:
+      - Robotics/Control/ADV-linear-00-intro.md
+
+    - 现代控制 | 非线性系统:
+      - Robotics/Control/ADV-nonliear-00-intro.md
+
+    - 最优控制:
+      - Robotics/Control/OPT-00-intro.md
+
+    - 控制方法:
+      - Robotics/Control/Method-00-intro.md
+      - Robotics/Control/Method-01-PID.md
+      - Robotics/Control/Method-02-LQR.md
+      - Robotics/Control/Method-03-MPC.md
+      - Robotics/Control/Method-04-阻抗导纳.md
+      - Robotics/Control/Method-05-智能控制方法.md
+
+    - 应用:
+      - Robotics/Control/ELSE-供配电.md
+
+  - 机器人技术:
+    - 简介: Robotics/Robo/00-intro.md
+    - 1 | 设计: Robotics/Robo/01-Design.md
+    - 2 | 建图: Robotics/Robo/02-Mapping.md
+    - 3 | 定位: Robotics/Robo/03-Localization.md
+    - 4 | 导航: Robotics/Robo/04-Navigation.md
+    - 5 | 规划: Robotics/Robo/05-Planning.md
+    - 6 | 传感与检测: Robotics/Robo/06-Detection.md
+
+    - 无人机:
+      - Robotics/Robo/Drone.md
+      - Robotics/Robo/Drone_experiment.md
+      - Robotics/Robo/Drone_explore.md
+
   
   - "嵌入式":
     - Robotics/嵌入式/Analog.md
@@ -330,13 +359,13 @@ nav:
     - Robotics/嵌入式/PcCtl.md
     - Robotics/嵌入式/PcCtl-PLC.md
 
-  - "通信与物联网":
-    - Robotics/communication/CC-NFC.md
-    - Robotics/communication/CC-bluetooth.md
-    - Robotics/communication/CC-lora.md
-    - Robotics/communication/CC-MQTT.md
-    - Robotics/communication/CC-else.md
-    - Robotics/communication/CC-pin.md
+  - "物联网":
+    - 简介: Robotics/IOT/intro.md
+    - 通信协议:
+      - Robotics/IOT/Protocol.md
+      - Robotics/IOT/Protocol-MQTT.md
+    - 通信技术:
+      - Robotics/IOT/Tech.md
     
   
   - "实践记录":
@@ -344,8 +373,6 @@ nav:
     - Robotics/嵌入式/焊接.md
     - Robotics/嵌入式/Trial.md
     - Robotics/嵌入式/外设.md
-    - Robotics/Robo/Robo-Drone_experiment.md
-    - Robotics/Robo/Robo-Drone-explore.md
 
 
 - "CS":
@@ -398,52 +425,51 @@ nav:
       - CS/AI/03-InformedSearch.md       
       - CS/AI/04-OtherSearch.md
 
-    - "ML | 机器学习": 
-      - CS/AI/ML-01-intro.md
-      - CS/AI/ML-01-metrics.md
-      - CS/AI/ML-02-LinearRegression.md
-      - CS/AI/ML-03-DecisionTree.md
-      - CS/AI/ML-04-SVM.md
-      - CS/AI/ML-05-bayes.md
-      - Notebook page:  CS/AI/ML-06-clustering.ipynb
-      - CS/AI/ML-07-DimensionalityReduction.md
-      - CS/AI/ML-08-EnsembleLearning.md
-      - CS/AI/ML-09-else.md
-      - CS/AI/ML-10-SemiSupervisedLearning.md
-      - CS/AI/ML-11-ConceptLearning.md
-      - CS/AI/ML-CSE.md
-      - CS/AI/ML-15-interpretable_models.md
+    # - "ML | 机器学习": 
+    #   - CS/AI/ML-01-intro.md
+    #   - CS/AI/ML-01-metrics.md
+    #   - CS/AI/ML-02-LinearRegression.md
+    #   - CS/AI/ML-03-DecisionTree.md
+    #   - CS/AI/ML-04-SVM.md
+    #   - CS/AI/ML-05-bayes.md
+    #   - Notebook page:  CS/AI/ML-06-clustering.ipynb
+    #   - CS/AI/ML-07-DimensionalityReduction.md
+    #   - CS/AI/ML-08-EnsembleLearning.md
+    #   - CS/AI/ML-09-else.md
+    #   - CS/AI/ML-10-SemiSupervisedLearning.md
+    #   - CS/AI/ML-11-ConceptLearning.md
+    #   - CS/AI/ML-CSE.md
+    #   - CS/AI/ML-15-interpretable_models.md
 
 
-    - "DL | 深度学习":
-      - CS/AI/DL-00-Lingo.md
-      - Notebook page: CS/AI/DL-00-python_package.ipynb
-      - CS/AI/DL-00-pytorch.md
-      - CS/AI/DL-01-NN.md
-      - CS/AI/DL-06-CNN.md
-      - CS/AI/DL-08-RNN.md
-      - CS/AI/DL-09-modernRNN.md
-      - CS/AI/DL-11-optimation.md        
-      - CS/AI/DL-12-setting.md
-      - CS/AI/DL-application.md
-      - CS/AI/DL-Homework.md
-      - CS/AI/DL-problem.md
+    # - "DL | 深度学习":
+    #   - CS/AI/DL-00-Lingo.md
+    #   - Notebook page: CS/AI/DL-00-python_package.ipynb
+    #   - CS/AI/DL-00-pytorch.md
+    #   - CS/AI/DL-01-NN.md
+    #   - CS/AI/DL-06-CNN.md
+    #   - CS/AI/DL-08-RNN.md
+    #   - CS/AI/DL-09-modernRNN.md
+    #   - CS/AI/DL-11-optimation.md        
+    #   - CS/AI/DL-12-setting.md
+    #   - CS/AI/DL-application.md
+    #   - CS/AI/DL-Homework.md
+    #   - CS/AI/DL-problem.md
 
-    - "RL | 强化学习":
-      - CS/AI/RL-01.md
+    # - "RL | 强化学习":
+    #   - CS/AI/RL-01.md
     
     - "ADV | 前沿":
       - CS/AI/ADV-Diffusion.md
 
-    - "SEC | 人工智能安全":
-      - CS/AI/SEC-01-attack.md
-      - CS/AI/SEC-02-whitebox.md
-      - CS/AI/SEC-03-blackbox.md
-      - CS/AI/SEC-04-GANS.md
+    # - "SEC | 人工智能安全":
+    #   - CS/AI/SEC-01-attack.md
+    #   - CS/AI/SEC-02-whitebox.md
+    #   - CS/AI/SEC-03-blackbox.md
     
-    - "LLM | 大模型相关":
-      - CS/llm/llm.md
-      - CS/llm/MCP.md
+    # - "LLM | 大模型相关":
+    #   - CS/llm/llm.md
+    #   - CS/llm/MCP.md
       
          
   # - "CV | 计算机视觉":
@@ -464,7 +490,7 @@ nav:
   #   - CS/CV/OpenCV.md
   #   - CS/CV/HumanPoseEstimation.md  
 
-  - "CTF相关知识":
+  - CTF:
     - CS/SEC/CTF-intro.md
     - CS/SEC/CTF-web.md
     - CS/SEC/CTF-misc.md
@@ -473,12 +499,13 @@ nav:
     - CS/SEC/CTF-crypto.md
     - CS/SEC/CTF-CPS.md
     
-  - "Web3":
+  - Web3:
     - CS/Web3/blockchain.md
     - CS/Web3/contract.md
     - CS/Web3/solidity.md
     - CS/Web3/lingo.md
-  - "Dev":
+    
+  - Dev:
     - CS/missing_knowledge.md
     - CS/Dev/rules.md
     - CS/Dev/CI-CD.md
