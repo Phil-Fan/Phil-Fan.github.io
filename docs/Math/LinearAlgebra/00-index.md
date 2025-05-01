@@ -12,6 +12,11 @@
         教师：Gilbert Strang<br>
         还没上过<br>
 
+        <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=91245806&bvid=BV1a7411M7wH&cid=155763110&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" height=auto width=100%></iframe>
+
+
+    
+
 ## 大纲
 
 | 课程内容         | 学时  |

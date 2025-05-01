@@ -1,30 +1,7 @@
-# 自动控制原理
+# 大纲
 
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241025103426.png)
 
-???+note "课程信息"
-    === "回忆卷"
-      [自动控制原理（甲）2023-2024 春夏回忆卷 自控](https://www.cc98.org/topic/5926127)<br>
-      [自动控制理论（甲）2023-2024春夏学期回忆卷 自控 自控原理](https://www.cc98.org/topic/5926477)<br>
-      [2023-2024 海洋学院 自动控制原理期末回忆卷（海院 自控）](https://www.cc98.org/topic/5801048)<br>
-      [23-24学年秋冬航院自动控制原理 回忆](https://www.cc98.org/topic/5797599)<br>
-      [23-自控-海洋-期中-回忆卷(自动控制原理&海院）](https://www.cc98.org/topic/5750932)<br>
-      [控院自动控制原理（甲）/自控回忆卷 2022-2023春夏](https://www.cc98.org/topic/5644437/1#1)<br>
-      [2020-2021自动控制原理（甲）回忆卷）（控院+电院）](https://www.cc98.org/topic/5116198/1#1)<br>
-       
-    === "资源"
-      [自动化专业课A4分享——自动控制原理](https://www.cc98.org/topic/5639945)<br>
-      [梁毅浩学长资源整理](https://www.cc98.org/topic/5116220)<br>
-      [Healor学长整理](https://www.cc98.org/topic/5805674)<br>
-      [the_Piao A4分享](https://www.cc98.org/topic/5926182)
-    
-    === "考核方式"
-      随机掉落小测,期末7道大题
-
-
-考后码点字攒攒rp
-
-## 课程简介与体验
 
 课堂体验：★★★☆☆
 
@@ -34,7 +11,7 @@
 
 自控是自动化专业的专业核心课程，也是大二春夏比较重要的一门课。
 
-### 自控讲了什么
+## 自控讲了什么
 !!! note "以下内容均为笔者个人理解，如有错误，先滑跪"
       可以结合思维导图进行框架建立和理解
       纯为了搭一个大致的框架，肯定会有很多表述不太严谨的地方
@@ -62,7 +39,27 @@
 
 PID部分也可以参照[PID - Youtube](https://www.youtube.com/watch?v=UR0hOmjaHp0&list=PLUMWjy5jgHK1NC52DXXrriwihVrYZKqjk&index=28)
 
-### 课程体验
+
+
+## 复习顺序
+留给我的复习时间其实不多了，考完勾实嵌入式之后只有一天多一点点的时间了。但好在之前没有落课，所以我的主要任务就是将忘记的内容回忆起来+建立一个整体的知识框架。
+
+- 搭建知识框架（可能笔者比较倾向于先建立一个整体的框架再逐渐深入）。用到的是《自控课程纲要梳理》和之前自己总结的思维导图
+- 抄写A4：这个部分可以直接使用98前辈总结的A4纸，自己查漏补缺一下；因为笔者之前一直在使用ipad做笔记，所以就自己整理了一版A4，~~这部分也耗了一天中的大部分时间~~。
+- 复习作业题目：没有时间精细复习，就只能看一下
+- 瞄一眼回忆卷都考哪些内容，心里有个底
+
+## 考试感受
+[自动控制理论（甲）2023-2024春夏学期回忆卷 自控 自控原理](https://www.cc98.org/topic/5926477)
+老哥的回忆卷牛的
+
+- 今年没有出波特图，很奇怪；劳斯判据倒是有好几问，可以重点掌握一下。
+- 补偿器不考
+- 题型应该和22-23类似，考前有一些没有掌握，比如根轨迹绘制m>n等；还是复习的时间有点短了，大家如果有空的话还是提前开始吧。
+- 希望老师捞一下
+
+## 学习资源与资料分享
+
 ~~一直不是很清楚为什么用中文讲英文课件，不是很懂为了英特纳施奈尔而英特纳施奈尔、、、~~
 
 比较推荐的学习资源是
@@ -72,26 +69,9 @@ PID部分也可以参照[PID - Youtube](https://www.youtube.com/watch?v=UR0hOmja
 * 其他有意思的讲解，如：<br>[通过开车展示系统闭环极点在s域的左半平面、虚轴上以及右半平面](https://www.bilibili.com/video/BV1R8411P7YF/?spm_id_from=333.337.search-card.all.click)
 * 在[这个帖子](https://www.cc98.org/topic/5835370)当中有8u还推荐了b站卢京潮老师的[【最新，考研专用速成版】自动控制原理 卢京潮 西北工业大学](https://www.bilibili.com/video/BV1vo4y147QZ)，但是我没有听过，不知道具体效果
 
-### 复习顺序
-留给我的复习时间其实不多了，考完勾实嵌入式之后只有一天多一点点的时间了。但好在之前没有落课，所以我的主要任务就是将忘记的内容回忆起来+建立一个整体的知识框架。
 
-- 搭建知识框架（可能笔者比较倾向于先建立一个整体的框架再逐渐深入）。用到的是《自控课程纲要梳理》和之前自己总结的思维导图
-- 抄写A4：这个部分可以直接使用98前辈总结的A4纸，自己查漏补缺一下；因为笔者之前一直在使用ipad做笔记，所以就自己整理了一版A4，~~这部分也耗了一天中的大部分时间~~。
-- 复习作业题目：没有时间精细复习，就只能看一下
-- 瞄一眼回忆卷都考哪些内容，心里有个底
+我把我自己用到的学习资料放在了：链接：https://pan.baidu.com/s/1W6qcDByeKaxhjGYZ1WughA?pwd=CC98 
 
-### 考试感受
-[自动控制理论（甲）2023-2024春夏学期回忆卷 自控 自控原理](https://www.cc98.org/topic/5926477)
-老哥的回忆卷牛的
-
-- 今年没有出波特图，很奇怪；劳斯判据倒是有好几问，可以重点掌握一下。
-- 补偿器不考
-- 题型应该和22-23类似，考前有一些没有掌握，比如根轨迹绘制m>n等；还是复习的时间有点短了，大家如果有空的话还是提前开始吧。
-- 希望老师捞一下
-
-### 资料分享
-链接：https://pan.baidu.com/s/1W6qcDByeKaxhjGYZ1WughA?pwd=CC98 
-提取码：CC98
 
 资料大纲如下，包含了zyh老师的ppt，作业答案（~~请合理借鉴~~）,98上找到的历年题目，98上找到的整理资料（A4，课件整理）和我自己的A4
 
@@ -163,136 +143,22 @@ PID部分也可以参照[PID - Youtube](https://www.youtube.com/watch?v=UR0hOmja
 ```
 
 
-## 控制系统建模
+## Acknowledgement
 
-![连续系统](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/%E8%BF%9E%E7%BB%AD%E7%B3%BB%E7%BB%9F.svg)
-
-### 实例
-
-
-### 非线性系统
-
-## 控制系统性能
-
-![时域分析](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/%E6%97%B6%E5%9F%9F%E5%88%86%E6%9E%90.svg)
-### 微分方程
-
-### 传递函数
-### Laplace变换
-
-### 时域性能指标
-
-二阶系统的特征多项式通常表示为：
-
-$$
-s^2 + 2\zeta\omega_ns + \omega_n^2
-$$
-
-其中：
-- $s$ 是复数频率变量。
-- $\zeta$ 是阻尼比。
-- $\omega_n$ 是无阻尼系统的自然频率
-  
-
-**动态指标性能**
-
-1. **上升时间（Rise Time）**: $T_r = \frac{\pi - \beta}{\omega_n \sqrt{1 - \zeta^2}}$
-2. **峰值时间（Peak Time）**: $T_p = \frac{\pi}{\omega_d} = \frac{\pi}{\omega_n \sqrt{1 - \zeta^2}}$  ，峰值时间的等高线是一条射线，且等峰值线是虚轴相同。
-3. **超调量（Overshoot）**: $\sigma = e^{-\frac{\zeta \pi}{\sqrt{1 - \zeta^2}}}$  ，超调量只由阻尼比 $\zeta$ 决定。
-4. **调节时间（Settling Time）**:  
-  - 5%误差: $T_s \approx \frac{3}{\zeta \omega_n}$  
-  - 2%误差: $T_s \approx \frac{4}{\zeta \omega_n}$
-5. **衰减比（Damping Ratio）**: $n = \frac{\sigma}{B'} = e^{-\frac{2\zeta \pi}{\sqrt{1 - \zeta^2}}}$
-
-![控制系统性能](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F%E6%80%A7%E8%83%BD.svg)
-
-## Error Dynamics
-
-如果期望关节位置为$\theta_d(t)$ ,实际关节位置为$\theta(t)$ ,那么关节误差就为：
-
-$$
-\theta_e(t)=\theta_d(t)-\theta(t)
-$$
-
-上面方程对应的微分方程就称为error dynamics,那么反馈控制器控制的目标也很明显，就是让$\theta_e(t)$尽可能小，趋近于0或等于0.
-
-> 评价标准：稳（稳态误差很小），准（没有超调或者很小），快（调节时间很短）
-
-$$
-a_{p}\theta_{e}^{(p)}+a_{p-1}\theta_{e}^{(p-1)}+\cdots+a_{2}\ddot{\theta}_{e}+a_{1}\dot{\theta}_{e}+a_{0}\theta_{e}=c
-$$
-
-对于齐次线性误差动力学($c=0$)，就有：
-
-$$
-\begin{align*}
-\theta_{e}^{(p)}&=-\frac{1}{a_{p}}(a_{p-1}\theta_{e}^{(p-1)}+\cdots+a_{2}\ddot{\theta}_{e}+a_{1}\dot{\theta}_{e}+a_{0}\theta_{e})\\
-&=-a_{p-1}^{\prime}\theta_{e}^{(p-1)}-\cdots-a_{2}^{\prime}\ddot{\theta}_{e}-a_{1}^{\prime}\dot{\theta}_{e}-a_{0}^{\prime}\theta_{e}
-\end{align*}
-$$
+=== "回忆卷"
+  - [自动控制原理（甲）2023-2024 春夏回忆卷 自控](https://www.cc98.org/topic/5926127)<br>
+  - [自动控制理论（甲）2023-2024春夏学期回忆卷 自控 自控原理](https://www.cc98.org/topic/5926477)<br>
+  - [2023-2024 海洋学院 自动控制原理期末回忆卷（海院 自控）](https://www.cc98.org/topic/5801048)
+  - [23-24学年秋冬航院自动控制原理 回忆](https://www.cc98.org/topic/5797599)
+  - [23-自控-海洋-期中-回忆卷(自动控制原理&海院）](https://www.cc98.org/topic/5750932)<br>
+  - [控院自动控制原理（甲）/自控回忆卷 2022-2023春夏](https://www.cc98.org/topic/5644437/1#1)
+  - [2020-2021自动控制原理（甲）回忆卷）（控院+电院）](https://www.cc98.org/topic/5116198/1#1)
+    
+=== "资源"
+  -[自动化专业课A4分享——自动控制原理](https://www.cc98.org/topic/5639945)<br>
+  -[梁毅浩学长资源整理](https://www.cc98.org/topic/5116220)<br>
+  -[Healor学长整理](https://www.cc98.org/topic/5805674)<br>
+  -[the_Piao A4分享](https://www.cc98.org/topic/5926182)<br>
 
 
 
-
-$x_1 = \theta_e, x_2 = \dot{\theta}_e, x_3 = \ddot{\theta}_e$,转为能控标准型
-
-得到
-
-$$
-\dot{x}_p = -a_0'x_1 - a_1'x_2 - a_2'x_3 \dots - a_{p-1}'x_p
-$$
-
-$$
-\dot{x}(t) = Ax(t)
-$$
-
-$$
-A=\begin{bmatrix}0&1&0&\cdots&0&0\\0&0&1&\cdots&0&0\\\vdots&\vdots&\vdots&\ddots&\vdots&\vdots\\0&0&0&\cdots&1&0\\0&0&0&\cdots&0&1\\-a_0^{\prime}&-a_1^{\prime}&-a_2^{\prime}&\cdots&-a_{p-2}^{\prime}&-a_{p-1}^{\prime}\end{bmatrix}\in\mathbb{R}^{p\times p}
-$$
-
-要想让$x_p$趋近于0，需要$A$的特征值在复平面左半平面，即$Re(\lambda_i) < 0$
-
-
-
-
-
-### first order system
-
-
-
-
-### second order system
-
-$$
-\mathfrak{m}\ddot{\theta}_{e}+b\dot{\theta}_{e}+k\theta_{e}=f
-$$
-
-如果 $m \neq 0$，那么二阶误差动力学就为：
-
-$$
-\ddot{\theta}_e(t) + \frac{b}{m} \dot{\theta}_e(t) + \frac{k}{m} \theta_e(t) = 0
-$$
-
-写成二阶形式：
-
-$$
-\ddot{\theta}_e(t) + 2\zeta \omega_n \dot{\theta}_e(t) + \omega_n^2 \theta_e(t) = 0
-$$
-
-$\omega_n = \sqrt{k/m}$ 就是熟悉的固有频率， $\zeta = b/2\sqrt{km}$ 就是阻尼比,那么特征多项式为：
-
-
-$$
-s^2 + 2\zeta \omega_n s + \omega_n^2 = 0
-$$
-
-两个根为：
-
-$$
-s_1 = -\zeta \omega_n + \omega_n \sqrt{\zeta^2 - 1} \\
-s_2 = -\zeta \omega_n - \omega_n \sqrt{\zeta^2 - 1}
-$$
-
-
-## 控制系统校正与设计
-  f

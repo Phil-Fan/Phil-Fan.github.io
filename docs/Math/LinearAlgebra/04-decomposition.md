@@ -1,7 +1,16 @@
 # 04 | 矩阵分解
 
 
-## LU decomposition
+## LDU decomposition
+- L: lower triangular matrix
+- D: diagonal matrix
+- U: upper triangular matrix
+- 
+
+
+
+
+
 
 ## 相似对角化
 [全网最快速的特征向量暴力求法（纯干货技巧）\_哔哩哔哩\_bilibili](https://www.bilibili.com/video/BV1aT411E75Q/?spm_id_from=333.337.top_right_bar_window_history.content.click)

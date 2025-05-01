@@ -164,14 +164,6 @@ npm install -g gitbook-cli
 npm install -g lodash
 ```
 
-### creative cloud
-
-201： 说明是网络问题
-
-- PS
-- AI
-- Acrobat
-- LR
 
 
 ### picgo
@@ -187,9 +179,6 @@ sudo spctl --master-disable
 xattr -cr /Applications/PicGo.app
 ```
 
-### docker
-
-### typora
 
 ### jetbrains
 ZJU有企业账号，在校网环境下面登陆
@@ -308,6 +297,34 @@ brew install mactex --cask
 ```
 
 等着就完事了
+
+
+## 远程连接
+
+
+### X11 转发
+
+1.安装XQuartz
+```shell
+brew install xquartz
+```
+
+2.在终端下或者bashrc中输入
+```shell
+export DISPLAY=:0
+```
+如果没有这个，图形转发就只能在XQuartz中的xterm中有效。有了这个，就可以在iterm或者其他终端下有效。
+
+安装之后，点击`command + ,`，在`General`中勾选`Allow connections from network clients`
+
+然后可以打开iTerm，输入`ssh -X username@ip`，就可以打开图形界面了
+
+可以使用小软件进行测试
+
+```shell title="xeyes进行测试"
+xeyes
+```
+会出现一双眼睛，可以移动
 
 
 ## Apple Script

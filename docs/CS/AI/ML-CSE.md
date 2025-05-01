@@ -22,17 +22,26 @@
 
 ## 统计学习资料
 
+
+### 资料
 [ZJU\_Stat\_Courses/统计学习 at main · Frankgu3528/ZJU\_Stat\_Courses](https://github.com/Frankgu3528/ZJU_Stat_Courses/tree/main/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0)
+
+
+### 课本
+[An Introduction to Statistical Learning](https://www.statlearning.com/)
+
+[ESL CN](https://esl.hohoweiya.xyz/index.html)
+
+
 
 https://www.bilibili.com/video/BV1QW411o7fk?from=search&seid=17747537286715723310&spm_id_from=333.337.0.0
 
-ISLR
 
 
 ### 统计学习 2023-2024春夏
-
-1. 简述Ridge，Lasso Regression，还有Elatic net
-
+[2023-2024春夏回忆卷 - CC98论坛](https://www.cc98.org/topic/5918627)
+[2019-2020春夏回忆卷 - CC98论坛](https://www.cc98.org/topic/4959501)
+#### 选择
 2. Confusion Matrix
    - 一个平衡样本做二分类问题
    - 给定accuracy以及FN，求TNR
@@ -42,11 +51,30 @@ ISLR
    - irreducible bias来源
    - 如何才能降低irreducible bias
 
+增加正则化项会（增⼤、减⼩）偏差，（增⼤、减⼩）⽅差？
+b. Irreducible Error是由什么引起的？
+c. 以下那种⽅法可以减少Irreducible Error？
+
+
+
+
+#### 简答
+2. 分类：数据集正例负例⼀样多，准确率为80%，把正例错判为负例10%，求把负例判断正确的概率（⼤概是这个数据）
+
+4. 简述Ridge，Lasso Regression，还有Elatic net
+
 4. 决策树，不剪枝，四道判断+论述
    - 如果有X1在DGP中与Y独立，则不会进入决策树
    - 决策树的最大深度是log2（n）+1
    - 如果做bootstrap抽样训练B棵树然后取平均，是随机森林
    - 随机森林只能做预测，不能做分类
+
+
+5. 判断题（树和随机森林），判断并给出理由，树不进行剪枝
+a. 树：有 $X_1, X_2, \ldots, X_p$ $X_1$ 与 $Y$ 独立，$X_1$ 不会出现在树的结构中
+b. 树的最大深度小于 $\log_{(2n)} + 1$ （试卷上是这么打的）
+c. 随机森林是树的求平均
+d. 树可以用于预测和分类，随机森林只能用于预测，不能用于分类
 
 5. 聚类
    - 给样本点和初始的C，手算一个K-means（k=3）任务
@@ -59,7 +87,7 @@ ISLR
    - 简述IV
    - 描述always taker，never taker，defier，compiler是什么
    - 给定A和L，判断是哪一类
-   - 什么是CATE，如何识别
+   - 什么是CAET，如何识别
 
 ### 统计学习19-20 春夏
 
@@ -145,33 +173,6 @@ $\text{out3} = \text{gam}(y \sim s(x))$
 
 2.给出了上面三个模型的summary，根据对这三个模型做一些评估（问的比我这里更具体一些，比如从拟合训练数据角度哪个更好、从AIC角度哪个更好等等）
 
-
-
-### 背诵手册
-人工智能定义：用计算机模拟或实现的智能，研究如何在机器上实现人类智能。用机器来模仿人的智能，又称机器智能。
-
-人类智能具有的 4 项特性为：自主性、反应性、适应性、社会性
-
-人工智能的三大学派：符号学派、连接学派、行为学派
-
-**图灵测试**：让一台计算机和测试者分开，通过键盘等装置实现询问，如果一台计算机能够让30%的人误以为它是人而不是计算机，那么就通过了图灵测试。
-
-知识的特性：相对正确性、不确定性、可表示性
-
-一个智能程序高水平的运行需要有关的事实知识、规则知识、控制知识和元知识。
-
-原子公式由若干谓词符号和项组成
-
-
-1. 人工智能的短期和终极目标"
-    短期目标：制造智能机器<br>
-    终极目标：实现机器智能<br>
-
-PEAS：
-1. Performance（性能）2. Environment（环境）3. Actuators(执行器)4. Sensors(传感器)
-
-概念学习的定义：<br>
-给定一个样例集合以及每个样例是否属于某个概念的标注，怎样推断出该概念的一般定义
 
 
 h(n) 从 节点n代表的状态 到 目标状态 的 路径耗散 的 最小估计值

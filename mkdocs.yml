@@ -17,7 +17,7 @@ theme:
   logo: logo.ico
   favicon: logo.ico
   custom_dir: overrides
-  icon:
+  icon: 
     admonition:
       note: octicons/tag-16
       abstract: octicons/checklist-16
@@ -44,7 +44,6 @@ theme:
     
     # 搜索功能
     - search.highlight  # 高亮显示搜索结果
-    - search.share  # 允许分享搜索结果
     - search.suggest  # 提供搜索建议
     
     # 内容展示功能
@@ -81,8 +80,6 @@ markdown_extensions:
   - admonition  # 支持警告框
   - attr_list  # 允许为Markdown元素添加HTML属性
   - def_list  # 支持定义列表
-  - footnotes  # 支持脚注
-  - md_in_html  # 允许在HTML块中使用Markdown
   - tables  # 支持表格
   - mdx_truly_sane_lists # 嵌套列表（需要pip安装）
 
@@ -90,9 +87,6 @@ markdown_extensions:
   - toc:
       permalink: true  # 为每个标题生成永久链接
       toc_depth: 3  # 目录深度为3级
-      permalink_title: "anchor link to this section for reference"  # 永久链接标题
-  - markdown.extensions.smarty:
-      smart_quotes: false  # 关闭智能引号
 
   # 公式渲染
   - pymdownx.arithmatex:
@@ -124,8 +118,6 @@ markdown_extensions:
       social_url_shortener: true  # 社交链接缩短
   - pymdownx.mark  # 提供文本高亮功能
   - pymdownx.smartsymbols  # 自动将特定文本符号转换为对应的智能符号
-  - pymdownx.tasklist:
-      custom_checkbox: true  # 允许创建自定义风格的任务列表
   - pymdownx.tilde  # 使用波浪线（~）表示删除线
 
   # 文档布局与样式
@@ -245,46 +237,6 @@ nav:
     - Math/OR/OR-05-2-GameTheoryModel.md
     - Math/OR/OR-06-QueuingTheory.md
   
-
-- Class:
-  
-  - Class/马原.md
-  - Class/毛概.md
-  - Class/习概.md
-  - Class/ITP-创业营销.md
-  - Class/ITP-Law.md
-  
-  - Oral:
-    - Class/English/IELTS.md
-    - Class/English/Oral-Tips.md
-    - Class/English/TOFEL-speaking.md
-    - Class/English/VocabularyForSpeaking.md
-
-      
-  - Finance:
-    - Class/Fin/invest.md
-    - Class/Fin/invest-stock.md
-    - Class/Fin/consulting.md
-    - "微观经济学":
-      - Class/Fin/micro/intro.md
-  
-  - "行业研习":
-    - Class/Fin/industry-analyze.md
-    - Class/Fin/industry-internet.md
-    - Class/Fin/industry-car.md
-    - Class/Fin/industry-finance.md
-    - Class/Fin/industry-game.md
-    - Class/Fin/industry-hotel.md
-    - Class/Fin/industry-welfare.md
-
-  - Books:
-    - Class/Books/The Innovator`s Dilemma.md 
-    - Class/Books/Marxist principles.md
-    - Class/Philosophy.md
-    - Class/Philosophy-by-topic.md
-
-
-  
   
 - Robotics:
 
@@ -346,18 +298,18 @@ nav:
     - Robotics/嵌入式/Analog.md
     - Robotics/嵌入式/Digital.md
     - "嵌入式系统":
-      - Robotics/嵌入式/EmbeddedSystem-intro.md
-      - Robotics/嵌入式/EmbeddedSystem-digitalcircuit.md
-      - Robotics/嵌入式/EmbeddedSystem-8051.md
-      - Robotics/嵌入式/EmbeddedSystem-8051-experiment.md
-      - Robotics/嵌入式/EmbeddedSystem-stm32.md
+      - 0 | 简介: Robotics/嵌入式/EmbeddedSystem-intro.md
+      - 1 | 数电: Robotics/嵌入式/EmbeddedSystem-digitalcircuit.md
+      - 2 | C51: Robotics/嵌入式/EmbeddedSystem-8051.md
+      - 3 | C51实验: Robotics/嵌入式/EmbeddedSystem-8051-experiment.md
+      - 4 | STM32: Robotics/嵌入式/EmbeddedSystem-stm32.md
     - "开发板使用":
       - Robotics/嵌入式/Arduino.md
       - Robotics/嵌入式/RaspberryPi.md
       - Robotics/嵌入式/JetsonNano.md
       - Robotics/嵌入式/FPGA.md
-    - Robotics/嵌入式/PcCtl.md
-    - Robotics/嵌入式/PcCtl-PLC.md
+    - 计控: Robotics/嵌入式/PcCtl.md
+    - 计控-PLC: Robotics/嵌入式/PcCtl-PLC.md
 
   - "物联网":
     - 简介: Robotics/IOT/intro.md
@@ -504,12 +456,47 @@ nav:
     - CS/Web3/contract.md
     - CS/Web3/solidity.md
     - CS/Web3/lingo.md
-    
+
   - Dev:
     - CS/missing_knowledge.md
     - CS/Dev/rules.md
     - CS/Dev/CI-CD.md
     - CS/Dev/tampermonkey.md
+
+- Class:
+  - Class/马原.md
+  - Class/毛概.md
+  - Class/习概.md
+  - Class/ITP-创业营销.md
+  - Class/ITP-Law.md
+  
+  - Oral:
+    - Class/English/IELTS.md
+    - Class/English/Oral-Tips.md
+    - Class/English/TOFEL-speaking.md
+    - Class/English/VocabularyForSpeaking.md
+
+  - Finance:
+    - Class/Fin/invest.md
+    - Class/Fin/invest-stock.md
+    - Class/Fin/consulting.md
+    - "微观经济学":
+      - Class/Fin/micro/intro.md
+  
+  - "行业研习":
+    - Class/Fin/industry-analyze.md
+    - Class/Fin/industry-internet.md
+    - Class/Fin/industry-car.md
+    - Class/Fin/industry-finance.md
+    - Class/Fin/industry-game.md
+    - Class/Fin/industry-hotel.md
+    - Class/Fin/industry-welfare.md
+
+  - Books:
+    - Class/Books/The Innovator`s Dilemma.md 
+    - Class/Books/Marxist principles.md
+    - Class/Philosophy.md
+    - Class/Philosophy-by-topic.md
 
 
 - Tools:
@@ -572,11 +559,14 @@ nav:
     - Interest/Travel/C-J-江西.md
     - Interest/Travel/C-J-四川.md
     - Interest/Travel/C-J-安徽.md
-    - Interest/Travel/C-J-HK.md
-    - Interest/Travel/C-J-Japan.md
-    - Interest/Travel/C-J-MY.md
-    - Interest/Travel/C-J-MY-KK.md
-    - Interest/Travel/C-J-MY-KL.md
+    - 香港: 
+      - Interest/Travel/C-J-HK.md
+    - 日本: 
+      - Interest/Travel/C-J-Japan.md
+    - 马来西亚: 
+      - Interest/Travel/C-J-MY.md
+      - Interest/Travel/C-J-MY-KK.md
+      - Interest/Travel/C-J-MY-KL.md
 
   - "🎶音乐":
     - Interest/Music/music_theory.md
@@ -622,7 +612,8 @@ plugins:
         - ja
       separator: '[\s\u200b\-]'
   
-  # https://github.com/TonyCrane/mkdocs-heti-plugin
+  # heti插件
+  # @https://github.com/TonyCrane/mkdocs-heti-plugin
   - heti:
       disable_serve: false
   
@@ -648,6 +639,7 @@ plugins:
         - link.md
       strict: false
   
+  # 支持jupyter notebook
   - mkdocs-jupyter:
       execute: true
       kernel_name: python3
@@ -656,6 +648,7 @@ plugins:
       custom_mathjax_url: "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS_CHTML-full,Safe"
   # todo: 修复数学公式问题
 
+  # 支持视频
   - mkdocs-video:
       is_video: True
       video_muted: True
@@ -663,4 +656,3 @@ plugins:
       css_style:
         width: "50%"
   
-  # - lilypondsw

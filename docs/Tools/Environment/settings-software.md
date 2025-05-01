@@ -2,38 +2,42 @@
 ## 效率软件
 
 - 浏览器：[Edge](https://www.microsoft.com/zh-cn/edge/download)，chorme
-- 日程: [滴答清单(付费)](https://dida365.com/download?language=zh_CN)
+- 日程: ~~[滴答清单(付费)](https://dida365.com/download?language=zh_CN)~~ 苹果自带日历
 - 多媒体：[VLC media player](https://www.videolan.org/vlc/index.zh_CN.html),QQ影音，[PicGo（图床）](https://github.com/Molunerfinn/PicGo/releases)
 - 思维导图: [Xmind(付费)](https://xmind.cn/download/)，xmind zen 绿色版；首选项设置 深色主题 `alt+s`:概要 `ctrl + l`:方程
 
 - 即时通讯：[TIM](https://tim.qq.com/download.html)，[WeChat](https://weixin.qq.com/)，[飞书](https://www.feishu.cn/download/)，[腾讯会议](https://meeting.tencent.com/download/)，[钉钉](https://page.dingtalk.com/wow/z/dingtalk/simple/ddhomedownload#/),[微信文件传输网页版](https://filehelper.weixin.qq.com/)
 - PDF阅读：Adobe Acrobat(adobe处下载)
 - Markdown: [Typora](https://typoraio.cn/)
-- 云同步(付费)：[百度网盘](https://pan.baidu.com/download#win)、[阿里网盘](https://www.alipan.com/)、[坚果云](https://www.jianguoyun.com/s/downloads)
+- 云同步(付费)：[百度网盘](https://pan.baidu.com/download#win)、[阿里网盘](https://www.alipan.com/)
 - 翻译：[欧陆词典](https://www.eudic.net/v4/en/app/download),欧陆词典文件
 - 音乐：[QQ音乐](https://y.qq.com/download/index.html)
 - 远程：[TeamViewer](https://www.teamviewer.com/en/download/) 全平台体验不错
 - 压缩：[Bandzip](https://www.bandisoft.com/bandizip/)
 - 其他：[logi option+](https://www.logitech.com/zh-cn/setup/ergosetup/logi-options.html)
+- 公式识别：[SimpleTex](https://simpletex.cn/)  优化得不错
 
 
 **以下为macos专属**
-
-- 开发工具Alfred: [Alfred - Productivity App for macOS](https://www.alfredapp.com/) 教程[Mac效率神器Alfred系列教程---Alfred概述 - 知乎](https://zhuanlan.zhihu.com/p/33199992)
 - 开发工具iTerm2：[iTerm2 - macOS Terminal Replacement](https://iterm2.com/)<br>教程：[iTerm2安装配置使用指南——保姆级 - 知乎](https://zhuanlan.zhihu.com/p/550022490)
-- 窗口管理：[eczarny/spectacle: Spectacle allows you to organize your windows without using a mouse.](https://github.com/eczarny/spectacle)
 - [sip](https://sipapp.io/)：color picker
-- airserver：投屏
 - ibar: 菜单栏隐藏
-- 网络：clashx Pro
+- [Pixea](https://apps.apple.com/cn/app/pixea/id1507782672?mt=12)
+- 网络：clashx Pro；下载工具 [Downie](https://www.downie.cn/)
 - [cleaner one](https://cleanerone.trendmicro.com/) 清理工具
 - [Scroll Reverser for macOS](https://pilotmoon.com/scrollreverser/): 反向滚动鼠标和触控板
 - [SpaceLauncher](https://spacelauncherapp.com/)：空格为主的热键
-- [Xnip](https://zh.xnipapp.com/)：Mac上方便好用的截图工具
 - [Fliqlo](https://fliqlo.com/)：翻盖时钟屏保，Mac的经典屏保
-- [Kap](https://getkap.co/):gif recorder
 - windows 虚拟机 [Parallels Desktop](https://www.parallels.cn/products/desktop/trial/)，可以找一个tb店解锁
 - [waydabber/BetterDisplay](https://github.com/waydabber/BetterDisplay?tab=readme-ov-file)：没钱上4K显示器的解决方案，Unlock your displays on your Mac! Flexible HiDPI scaling
+
+> [MacKed - 专注于Mac破解资源的分享与下载](https://macked.app/)
+
+!!! note "注意macos没有签名时候需要手动信任"
+    ```shell
+    xattr -cr /Applications/zju-learning-assistant.app
+    ``` 
+
 
 **以下为windows专属：**
 
@@ -77,10 +81,6 @@
 - [PeiPei233/zju-learning-assistant](https://github.com/PeiPei233/zju-learning-assistant): 帮你快速下载所有课件<br>
 - [ZJU-ICAL](https://ical.raynor.top/static)：以订阅连接的形式订阅课表，可以插入日历
 
-!!! note "注意macos没有签名时候需要手动信任"
-    ```shell
-    xattr -cr /Applications/zju-learning-assistant.app
-    ``` 
 
 
 ## edge/chorme 插件

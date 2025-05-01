@@ -5,22 +5,20 @@ comments: true
 # 智能控制技术
 
 !!! note "课程介绍"
+      === "简介"
+         - 一般不依据数学模型 进行处理。<br>
+         - 根据积累的经验和知识进行在线推理，确定控制策略。<br>
+         - 在 **精度和不确定性** 之间 折中 <br>
 
-   === "简介"
-      - 一般不依据数学模型 进行处理。<br>
-      - 根据积累的经验和知识进行在线推理，确定控制策略。<br>
-      - 在 **精度和不确定性** 之间 折中 <br>
-      - 
-   === "知识框架"
-      ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241107134330.png)<br>
-      ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241107135609.png)<br>
+      === "知识框架"
 
-   === "作业"
-      递阶控制、专家控制、模糊控制和神经网络控制各有一个小作业<br>
-      最后期末会有一个大作业，必须包含模糊控制和神经网络控制。<br>
+         ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241107134330.png)<br>
 
-   === "智云录像"
+         ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241107135609.png)<br>
 
+      === "作业"
+         递阶控制、专家控制、模糊控制和神经网络控制各有一个小作业<br>
+         最后期末会有一个大作业，必须包含模糊控制和神经网络控制。<br>
 
 
 !!! note "控制学科三大任务：建模、控制、优化"

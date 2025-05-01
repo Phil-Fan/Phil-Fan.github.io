@@ -2,154 +2,82 @@
 
 !!! note "这一篇主要记录在配置linux时候遇到的一些问题和解决方案"
 
-## VMware
 
-【VMware Workstation 17】
-VMware Workstation v17.x 永久许可证激活密钥：
+## 常见操作
 
+
+### 压缩
+```shell title="递归压缩"
+zip -r examples.zip examples   # examples为目录
 ```
-MC60H-DWHD5-H80U9-6V85M-8280D
-4A4RR-813DK-M81A9-4U35H-06KND
-NZ4RR-FTK5H-H81C1-Q30QH-1V2LA
-JU090-6039P-08409-8J0QH-2YR7F
-4Y09U-AJK97-089Z0-A3054-83KLA
+
+```shell title="解压缩"
+unzip name.zip
 ```
-### VMware 无法复制问题的解决 
 
-### 安装VMware Tools选项显示灰色的正确解决办法  
+```shell title="目录路径来指明压缩包所在的位置"
+unzip name.zip -d 当前目录
+```
 
-1.关闭虚拟机；  
-
-2.在虚拟机设置分别设置CD/DVD、CD/DVD2和软盘为自动检测三个步骤；  
-
-3.再重启虚拟机，灰色字即点亮。 
-
-4.重新安装vmware-tools  
-
-- 虚拟机无法打开
-
-> 虚拟机使用的是此版本 [VMware](https://so.csdn.net/so/search?q=VMware&spm=1001.2101.3001.7020) Workstation 不支持的硬件版本。
-> 模块"Upgrade"启动失败。
-
-打开`.vmx`文件，修改` virtualHW.version = "19"`一行至` virtualHW.version = "16"` 
+```shell title="如果是压缩包是.tar后缀"
+tar xvf name.tar 
+```
 
 
-## 系统配置
+### 复制 scp
+
+[关于scp传输文件踩过的坑(最全!linux与windows相互传输文件,连接失败,免密登录,连接超时) - 知乎](https://zhuanlan.zhihu.com/p/542926236)
 
 
-### 换源
+#### 基本语法
+
+```shell
+scp [可选参数] 源文件 目标文件
+```
 
 
 ```shell
-lsb_release -a
-uname -a
+# 复制文件
+scp local_file remote_username@remote_ip:remote_folder
+scp local_file remote_username@remote_ip:remote_file
+
+# 复制目录
+scp -r local_folder remote_username@remote_ip:remote_folder
 ```
 
+
+- `-r`: 递归复制整个目录
+- `-P port`: 指定远程主机的端口号
+- `-p`: 保留原文件的修改时间和访问权限
+- `-q`: 不显示传输进度条
+- `-C`: 允许压缩
+- `-v`: 详细方式显示输出
+
+#### 示例
 ```shell
-vim /etc/apt/sources.list
-```
+# 复制本地文件到远程服务器
+scp file.txt user@192.168.1.100:/home/user/
 
-!!! tip "注意换源的时候注意备份之前的"
-    ```shell
-    sudo cp /etc/apt/sources.list /etc/apt/sources.list.backup
-    ```
+# 复制远程文件到本地
+scp user@192.168.1.100:/home/user/file.txt ./
 
-20.04版本的源
+# 复制整个目录
+scp -r local_folder user@192.168.1.100:/home/user/
 
-=== "鱼香ros"
-    ```shell
-    wget http://fishros.com/install -O fishros && bash fishros
-    ```
-
-=== "清华源"
-    [ubuntu | 镜像站使用帮助 | 清华大学开源软件镜像站 | Tsinghua Open Source Mirror](https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/)
-
-    ```shell
-    estricted universe multiverse
-    deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-updates main restricted universe multiverse
-    # deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-updates main restricted universe multiverse
-    deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-backports main restricted universe multiverse
-    # deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-backports main restricted universe multiverse
-    deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-security main restricted universe multiverse
-    # deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-security main restricted universe multiverse
-    ```
-
-=== "aliyun源"
-    [ubuntu镜像\_ubuntu下载地址\_ubuntu安装教程-阿里巴巴开源镜像站](https://developer.aliyun.com/mirror/ubuntu)
-
-    ```shell
-    deb http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse
-    deb-src http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse
-    deb http://mirrors.aliyun.com/ubuntu/ focal-security main restricted universe multiverse
-    deb-src http://mirrors.aliyun.com/ubuntu/ focal-security main restricted universe multiverse
-    deb http://mirrors.aliyun.com/ubuntu/ focal-updates main restricted universe multiverse
-    deb-src http://mirrors.aliyun.com/ubuntu/ focal-updates main restricted universe multiverse
-    deb http://mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse
-    deb-src http://mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse
-    deb http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse
-    deb-src http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse
-    ```
-
-=== "ustc源"
-
-    ```
-    deb https://mirrors.ustc.edu.cn/ubuntu/ focal main restricted universe multiverse
-    deb-src https://mirrors.ustc.edu.cn/ubuntu/ focal main restricted universe multiverse
-    deb https://mirrors.ustc.edu.cn/ubuntu/ focal-updates main restricted universe multiverse
-    deb-src https://mirrors.ustc.edu.cn/ubuntu/ focal-updates main restricted universe multiverse
-    deb https://mirrors.ustc.edu.cn/ubuntu/ focal-backports main restricted universe multiverse
-    deb-src https://mirrors.ustc.edu.cn/ubuntu/ focal-backports main restricted universe multiverse
-    deb https://mirrors.ustc.edu.cn/ubuntu/ focal-security main restricted universe multiverse
-    deb-src https://mirrors.ustc.edu.cn/ubuntu/ focal-security main restricted univ# 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释
-    deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal main restricted universe multiverse
-    # deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal main rerse multiverse
-    deb https://mirrors.ustc.edu.cn/ubuntu/ focal-proposed main restricted universe multiverse
-    deb-src https://mirrors.ustc.edu.cn/ubuntu/ focal-proposed main restricted universe multiverse
-    ```
-
-
-=== "zju"
-
-    ```shell
-    deb https://mirrors.zju.edu.cn/ubuntu/ focal main restricted universe multiverse
-    deb https://mirrors.zju.edu.cn/ubuntu/ focal-updates main restricted universe multiverse
-    deb https://mirrors.zju.edu.cn/ubuntu/ focal-backports main restricted universe multiverse
-    deb https://mirrors.zju.edu.cn/ubuntu/ focal-security main restricted universe multiverse
-    ```
-    
-
-```shell
-sudo apt-get update
-sudo apt-get upgrade
+# 使用特定端口
+scp -P 2222 file.txt user@192.168.1.100:/home/user/
 ```
 
 
-!!! failure "404"
-    [Ubuntu 换源后仍然报错：404、没有 Release 文件\_没有release文件所以禁用-CSDN博客](https://blog.csdn.net/ys743276112/article/details/127436835)
-    [sudo apt-get update 命令出现没有Release文件问题解决\_debian apt get update 没有release 文件-CSDN博客](https://blog.csdn.net/A18040554844/article/details/110099737)
+### nano编辑器
+常见操作
 
-    另外的解决方法，拉取https问题
-    ```shell
-    sudo apt install apt-transport-https
-    sudo apt install ca-certificates
-    ```
-### 中文系统
-在系統中添加中文語言，既可以顯示中文，也可以輸入中文。
+|操作|快捷键|
+|---|---|
+|保存|`Ctrl + O`|
+|退出|`Ctrl + X`|
+|删除|`Ctrl + K`|
 
-Fcitx：谷歌拼音、搜狗拼音、搜狗五笔拼音
-IBus：智能拼音，五笔（86版）
-XIM：略(现在用的相对比较少)
-
-```shell
-sudo apt-get update
-sudo apt-get install fcitx-bin
-
-sudo apt-get install fcitx-table 
-sudo apt-get install fcitx-table-all
-```
-
-
-[在Ubuntu20.04中安装中文输入法 - 知乎](https://zhuanlan.zhihu.com/p/529892064)
 
 ### 蓝牙操作
 
@@ -211,6 +139,7 @@ sudo !4
 ```
 执行历史记录中第4条命令
 
+
 ### 更改密码
 
 ```shell
@@ -226,14 +155,12 @@ sudo passwd username
 sudo passwd root
 ```
 
-
-### PS1修改
+### 打开文件夹
 
 ```shell
-vim ~/.bashrc
+open .
 ```
 
-### 打开文件夹
 
 ```shell title="安装"
 sudo apt-get install nautilus
@@ -251,444 +178,7 @@ nautilus .
 
 [如何在 Ubuntu 中截取屏幕截图（5 种简单方法）](https://techblik.com/%E5%A6%82%E4%BD%95%E5%9C%A8-ubuntu-%E4%B8%AD%E6%88%AA%E5%8F%96%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%EF%BC%885-%E7%A7%8D%E7%AE%80%E5%8D%95%E6%96%B9%E6%B3%95%EF%BC%89/)
 
-## 通用软件
-
-
-```shell
-apt-get install git
-apt-get install vim
-```
-
-
-- tldr：简易版man手册
-- fd-find：人性化的find
-- rg(ripgrep)：快速搜索
-- fzf ： 模糊搜索
-
-### 安装软件的一些常见命令
-
-```shell
-sudo dpkg -i xxx.deb
-```
-
-
-```shell
-tar -xzvf xxxx.tar.gz
-```
-
-
-### chorme
-
-```shell title="installment"
-sudo apt install chromium-browser
-```
-
-```shell title="verify"
-chromium-browser --version
-```
-
-### terminator
-
-[terminator](https://blog.csdn.net/learning_tortosie/article/details/102581261)
-
-```shell
-sudo apt-get install terminator
-```
-!!! bug "设置为默认终端"
-
-|开启or关闭快捷键|	作用|
-|---|---|
-|`Ctrl + Shift + O`|	水平分割终端（分成上下两个窗口）|
-|`Ctrl + Shift + E`|	垂直分割终端（分成左右两个窗口）|
-|`Ctrl + Shift + W`|	关闭当前终端|
-|`Ctrl + Shift + X`|	放大（还原）当前终端|
-|`Ctrl + Shift + G`|	清屏|
-|`Ctrl + Shift + Q`|	关闭所有终端（退出程序）|
-|`Ctrl + Shift + T`|	开一个新终端|
-
-
-|快捷键|	作用|
-|---|---|
-|`alt+方向键` or `ctrl+TAB`|切换窗口|
-|`ctrl shift +`|加字号|
-|`F11`|全屏|
-|`super(win) + g`|group,将不同窗口打包，指令可以广播|
-|`Super+Shift+g`|取消分组|
-|`ctrl+shift+f`|搜索命令|
-|`Ctrl+Shift+c`|复制指令|
-|`Ctrl+Shift+v`|粘贴指令|
-|`Ctrl+Shift+X`|    将分割的某一个窗口放大至全屏使用|
-|`Ctrl+Shift+Z`|    从放大至全屏的某一窗口回到多窗格界面|
-
-### vscode
-
-可以使用fishros进行安装
-
-
-[vscode on Kali](https://blog.csdn.net/CM_STC89C52/article/details/127296320)
-
-1. 用内嵌的浏览器搜索vscode，下载vscode的.deb格式的安装包
-2. 在终端中输入 `sudo dpkg -i code_1.72.1-1665423861_amd64.deb` 进行解压包
-3. 在vscode软件上点击鼠标右键，点击 `Edit Application`
-4. 有个Command选项，输入 `/usr/share/code/code --unity-launch %F --no-sandbox` 即可，再点击保存。
-
-### SSH
-
-```shell
-sudo apt install net-tools
-```
-
-```shell
-ifconfig
-```
-
-```shell
-sudo apt-get install openssh-server
-ssh user@remote
-ssh -X ldz@192.168.0.1  # 带图形化界面
-ssh -p 1234 ldz@192.168.0.1 # 指定端口
-```
-
-
-
-```shell
-vim /etc/ssh/sshd_config
-```
-
-- 第33行:将 PermitRootLogin without-password（第33行） 改为 PermitRootLogin yes 并去掉前面的注释符号（#） 
-- 第57行:#PasswordAuthentication yes(第57行)的注释去掉，如果是no就改为yes
-- 保存
-
-```shell
-service ssh restart
-```
-
-
-
-**验证安装**
-```shell
-service ssh status
-```
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240711175232.png)
-
-**开机自启动**
-
-```shell
-update-rc.d ssh enable
-```
-
-**配置免密登陆**
-
-```shell
-ssh-keygen -t rsa
-```
-
-然后根据提示一步步的按enter键即可（其中有一个提示是要求设置私钥口`passphrase`，不设置则为空，这里看心情吧，如果不放心私钥的安全可以设置一下）
-
-执行结束以后会在`/home/当前用户` 目录下生成一个 `.ssh` 文件夹,其中包含私钥文件 `id_rsa` 和公钥文件 `id_rsa.pub`。
-
-ssh-copy-id会将公钥写到远程主机的 `~/.ssh/authorized_key` 文件中
-
-```shell
-ssh-copy-id name@ip
-```
-
-注意，windows的cmd中不能直接执行ssh-copy-id命令，可以使用git bash或者其他linux终端工具
-
-当出现
-> Number of key(s) added: 1
-> Now try logging into the machine, with:   "ssh 'HAHA@127.0.0.1'" and check to make sure that only the key(s) you wanted were added.
-
-说明配置成功！
-
-
-[深入理解\~/.ssh/config和/etc/ssh/ssh\_config配置文件-百度开发者中心](https://developer.baidu.com/article/details/2922032)
-
-!!! failure "错误与解决方法"
-    === "WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!"
-        警告：远程主机标识已更改！
-
-        此报错是由于远程的主机的公钥发生了变化导致的。 ssh服务是通过公钥和私钥来进行连接的，它会把每个曾经访问过计算机或服务器的公钥（public key），记录在~/.ssh/known_hosts 中，当下次访问曾经访问过的计算机或服务器时，ssh就会核对公钥，如果和上次记录的不同，OpenSSH会发出警告。
-
-        ```shell title="解决方法"
-        ssh-keygen -R XX.XX.XX.XX 
-        ```
-    
-    === "连接IPV6地址"
-        ```shell
-        ssh -6 user@ipv6
-        ```
-
-### conda
-[conda换地址](https://blog.csdn.net/chengjinpei/article/details/119835339)
-
-
-清华镜像地址：`https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/`
-
-按照你系统的架构选择合适的下载
-
-```shell
-uname -m
-```
-
-```shell
-wget https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/Miniconda3-py39_24.7.1-0-Linux-aarch64.sh
-```
-
-下载后执行得到的文件
-
-```shell
-bash Miniconda3-py39_24.7.1-0-Linux-aarch64.sh
-```
-
-一路点enter和yes，最后重启终端，得到带有`(base)`的提示符，说明安装成功
-
-如果出现了错误，有可能是因为使用的是‵sh`的原因。
-
-进入
-
-```shell
-vi Miniconda3-py39_24.7.1-0-Linux-aarch64.sh
-```
-
-把第一行从 ‵#!/bin/sh`改成
-```shell
-#!/bin/bash
-```
-
-### node
-使用fishros进行安装
-
-
-```shell
-npm install --global yarn
-```
-
-```shell
-yarn --version
-```
-### 坚果云
-> 参考帖子 [记录Ubuntu22.04安装坚果云](https://blog.csdn.net/weixin_45788868/article/details/140736624) 感谢
-
-```shell
-wget https://www.jianguoyun.com/static/exe/installer/nutstore_linux_src_installer.tar.gz
-```
-
-```shell
-sudo tar zxf nutstore_linux_src_installer.tar.gz
-```
-
-```
-cd nutstore_linux_src_installer
-```
-
-```shell
-sudo ./update-toolchain.sh
-```
-
-!!! question "这里我报错了，少一个库"
-    没搞明白，就全装了
-
-    ```shell
-    sudo aptitude install libnautilus-extension4
-    sudo aptitude install libnautilus-extension1a
-    sudo aptitude install libnautilus-extension-dev
-    ```     
-
-
-
-```shell
-sudo ./configure
-```
-
-```shell
-sudo make
-```
-
-```shell
-sudo make install
-```
-
-```shell title="download other things"
-./runtime_bootstrap
-```
-
-直接按1
-
-
-[坚果云linux命令行 • Worktile社区](https://worktile.com/kb/ask/422312.html)
-
-
-webDAV 的使用
-
-[用命令行在Linux同步坚果云 | Practice](https://tobyqin.cn/posts/2019-05-06/jianguoyun-command-line/)
-
-
-```shell title="登录坚果云账号"
-nutstore login
-```
-
-```shell title="退出坚果云账号"
-nutstore logout
-```
-
-```shell title="查看当前已经同步的文件和文件夹"
-nutstore list sync
-```
-
-```shell title="同步指定的文件或文件夹"
-nutstore sync <文件或文件夹路径>
-```
-
-```shell title="取消同步指定的文件或文件夹"
-nutstore unsync <文件或文件夹路径>
-```
-
-```shell title="查看同步状态"
-nutstore status
-```
-
-```shell title="上传文件或文件夹到坚果云"
-nutstore upload <文件或文件夹路径>
-```
-
-```shell title="下载文件或文件夹"
-nutstore download <文件或文件夹路径>
-```
-
-```shell title="删除坚果云上的文件或文件夹"
-nutstore delete <文件或文件夹路径>
-```
-
-```shell title="创建文件夹"
-nutstore mkdir <文件夹路径>
-```
-
-```shell title="查看文件或文件夹的详细信息"
-nutstore info <文件或文件夹路径>
-```
-
-```shell title="查看账号信息"
-nutstore account
-```
-
-```shell title="查看帮助信息"
-nutstore help
-```
-
-### wechat
-[Weixin for Linux](https://linux.weixin.qq.com/en)
-
-### typora
-> 参考[Ubuntu22.04环境下使用Typora\_typora ubuntu-CSDN博客](https://blog.csdn.net/weixin_73546177/article/details/132033297)
-> [WittonBell/typoraCracker: A patch and keygen tools for typora.](https://github.com/WittonBell/typoraCracker)
-
-```shell title="官网教程"
-wget -qO - https://typora.io/linux/public-key.asc | sudo tee /etc/apt/trusted.gpg.d/typora.asc
-# add Typora's repository
-sudo add-apt-repository 'deb https://typora.io/linux ./'
-sudo apt update
-# install typora
-sudo apt install typora
-```
-
-我下载的二进制文件，没有用这个
-
-### picgo 
-
-[Molunerfinn/PicGo](https://github.com/Molunerfinn/PicGo?tab=readme-ov-file):rocket:A simple & beautiful tool for pictures uploading built by vue-cli-electron-builder
-
-```shell
-cd Picgo
-
-
-```shell
-npm i @vue/cli-service
-```
-
-[ubuntu PicGo安装和腾讯云图床配置，超详细！！！-CSDN博客](https://blog.csdn.net/qq_42584874/article/details/116534328)
-
-### todesk
-[ToDesk远程桌面软件-免费安全流畅的远程连接电脑手机](https://www.todesk.com/linux.html)
-
-
-- arm [download](https://dl.todesk.com/linux/todesk-v4.7.2.0-arm64.deb)
-
-```shell
-sudo apt-get install libappindicator3-1
-
-sudo apt-get install ./todesk-v4.7.2.0-arm64.deb
-```
-
-```shell
-todesk
-```
-
-
-### jupyter
-
-```shell
-pip install jupyter jupyterlab
-sudo reboot
-```
-
-```shell title="生成配置文件"
-jupyter lab --generate-config
-```
-
-
-设置开机启动
-
-```shell
-sudo vim /etc/systemd/system/jupyter-lab.service
-```
-
-
-```
-[Unit]
-Description=Jupyter Lab Server
-After=network.target
-
-[Service]
-Type=simple
-User=usslab
-WorkingDirectory=/home/<name>/
-ExecStart=/<path>/jupyter-lab --port 8888 --no-browser
-
-[Install]
-WantedBy=multi-user.target
-```
-
-
-```shell title="启动服务"
-sudo systemctl enable jupyter.service
-sudo systemctl start jupyter.service
-```
-
-```shell title="检查服务"
-sudo systemctl status jupyter.service
-```
-
-访问 `localhost:8888`即可看到，如果有公网的ip也可以访问到
-### 新立得 
-
-```shell
-sudo apt install -y synaptic
-```
-### nano
-常见操作
-
-|操作|快捷键|
-|---|---|
-|保存|`Ctrl + O`|
-|退出|`Ctrl + X`|
-|删除|`Ctrl + K`|
-
-
-
-
-
-## 网络
+## 系统管理 - 网络
 
 ### VPN
 
@@ -924,79 +414,17 @@ netstat -tulpen | grep <port>
 ```
 
 
-## 压缩
-```shell title="递归压缩"
-zip -r examples.zip examples   # examples为目录
-```
 
-```shell title="解压缩"
-unzip name.zip
-```
-
-```shell title="目录路径来指明压缩包所在的位置"
-unzip name.zip -d 当前目录
-```
-
-```shell title="如果是压缩包是.tar后缀"
-tar xvf name.tar 
-```
-
-
-## 复制 scp
-
-[关于scp传输文件踩过的坑(最全!linux与windows相互传输文件,连接失败,免密登录,连接超时) - 知乎](https://zhuanlan.zhihu.com/p/542926236)
-
-
-### 基本语法
-
-```shell
-scp [可选参数] 源文件 目标文件
-```
-
-
-```shell
-# 复制文件
-scp local_file remote_username@remote_ip:remote_folder
-scp local_file remote_username@remote_ip:remote_file
-
-# 复制目录
-scp -r local_folder remote_username@remote_ip:remote_folder
-```
-
-
-- `-r`: 递归复制整个目录
-- `-P port`: 指定远程主机的端口号
-- `-p`: 保留原文件的修改时间和访问权限
-- `-q`: 不显示传输进度条
-- `-C`: 允许压缩
-- `-v`: 详细方式显示输出
-
-### 示例
-```shell
-# 复制本地文件到远程服务器
-scp file.txt user@192.168.1.100:/home/user/
-
-# 复制远程文件到本地
-scp user@192.168.1.100:/home/user/file.txt ./
-
-# 复制整个目录
-scp -r local_folder user@192.168.1.100:/home/user/
-
-# 使用特定端口
-scp -P 2222 file.txt user@192.168.1.100:/home/user/
-```
-
-
-## 局域网
+### 搭建局域网
 ```shell
 apt-get install -y cifs-utils
 ```
-### windows做服务器
+#### windows做服务器
 [在windows上共享文件夹](https://zhuanlan.zhihu.com/p/402820328)
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241026225133.png)
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241026225143.png)
 
-### windows作客户端
+#### windows作客户端
 
 
 如果你是没有打开smb服务，那么继续往下看，打开控制面板进入
@@ -1019,7 +447,7 @@ apt-get install -y cifs-utils
 - 不是`smb://156.26.51.55 `
 - 而是应该直接`双斜杠+ip地址`，如果有具体的共享的文件夹的话就把路径跟在后面。不需要加smb前缀，也不能用 `//` ，要用 `\\`,然后输入对应的账户和密码就完事了。
 > [window10 使用smb连接远程电脑的文件夹[打开smb服务和连接巨坑]-CSDN博客](https://blog.csdn.net/qq_44079295/article/details/120201515)
-### linux做服务器——samba
+#### linux做服务器——samba
 
 ```shell title="安装"
 sudo apt install samba
@@ -1076,7 +504,7 @@ smbclinet //ip/name -U xxx
 
 
 
-### linux作客户端——挂载文件系统
+#### linux作客户端——挂载文件系统
 
 ```shell title="举例"
 smbclient -L 192.168.1.70 -U lab
@@ -1122,7 +550,7 @@ umount /dev/hda2
 
 
 
-## 用户和组
+## 系统管理 - 用户和组
 
 ### 新建用户
 
@@ -1164,6 +592,673 @@ sudo chown -R username:groupname folder
 [Linux chown命令教程：如何改变文件或目录的所有者和组(附案例详解和注意事项)\_chown修改文件所有者-CSDN博客](https://blog.csdn.net/u012964600/article/details/135845447)
 
 
+
+## 装机 - 系统配置
+### 换源
+
+
+```shell
+lsb_release -a
+uname -a
+```
+
+```shell
+vim /etc/apt/sources.list
+```
+
+!!! tip "注意换源的时候注意备份之前的"
+    ```shell
+    sudo cp /etc/apt/sources.list /etc/apt/sources.list.backup
+    ```
+
+
+=== "鱼香ros"
+    ```shell
+    wget http://fishros.com/install -O fishros && bash fishros
+    ```
+
+=== "清华源"
+    [ubuntu | 镜像站使用帮助 | 清华大学开源软件镜像站 | Tsinghua Open Source Mirror](https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/)
+
+    ```shell
+    estricted universe multiverse
+    deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-updates main restricted universe multiverse
+    # deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-updates main restricted universe multiverse
+    deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-backports main restricted universe multiverse
+    # deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-backports main restricted universe multiverse
+    deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-security main restricted universe multiverse
+    # deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-security main restricted universe multiverse
+    ```
+
+=== "aliyun源"
+    [ubuntu镜像\_ubuntu下载地址\_ubuntu安装教程-阿里巴巴开源镜像站](https://developer.aliyun.com/mirror/ubuntu)
+
+    ```shell
+    deb http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse
+    deb-src http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse
+    deb http://mirrors.aliyun.com/ubuntu/ focal-security main restricted universe multiverse
+    deb-src http://mirrors.aliyun.com/ubuntu/ focal-security main restricted universe multiverse
+    deb http://mirrors.aliyun.com/ubuntu/ focal-updates main restricted universe multiverse
+    deb-src http://mirrors.aliyun.com/ubuntu/ focal-updates main restricted universe multiverse
+    deb http://mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse
+    deb-src http://mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse
+    deb http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse
+    deb-src http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse
+    ```
+
+=== "ustc源"
+
+    ```
+    deb https://mirrors.ustc.edu.cn/ubuntu/ focal main restricted universe multiverse
+    deb-src https://mirrors.ustc.edu.cn/ubuntu/ focal main restricted universe multiverse
+    deb https://mirrors.ustc.edu.cn/ubuntu/ focal-updates main restricted universe multiverse
+    deb-src https://mirrors.ustc.edu.cn/ubuntu/ focal-updates main restricted universe multiverse
+    deb https://mirrors.ustc.edu.cn/ubuntu/ focal-backports main restricted universe multiverse
+    deb-src https://mirrors.ustc.edu.cn/ubuntu/ focal-backports main restricted universe multiverse
+    deb https://mirrors.ustc.edu.cn/ubuntu/ focal-security main restricted universe multiverse
+    deb-src https://mirrors.ustc.edu.cn/ubuntu/ focal-security main restricted univ# 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释
+    deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal main restricted universe multiverse
+    # deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal main rerse multiverse
+    deb https://mirrors.ustc.edu.cn/ubuntu/ focal-proposed main restricted universe multiverse
+    deb-src https://mirrors.ustc.edu.cn/ubuntu/ focal-proposed main restricted universe multiverse
+    ```
+
+
+=== "zju"
+
+    ```shell
+    deb https://mirrors.zju.edu.cn/ubuntu/ focal main restricted universe multiverse
+    deb https://mirrors.zju.edu.cn/ubuntu/ focal-updates main restricted universe multiverse
+    deb https://mirrors.zju.edu.cn/ubuntu/ focal-backports main restricted universe multiverse
+    deb https://mirrors.zju.edu.cn/ubuntu/ focal-security main restricted universe multiverse
+    ```
+    
+
+```shell
+sudo apt-get update
+sudo apt-get upgrade
+```
+
+
+!!! failure "404"
+    [Ubuntu 换源后仍然报错：404、没有 Release 文件\_没有release文件所以禁用-CSDN博客](https://blog.csdn.net/ys743276112/article/details/127436835)
+    [sudo apt-get update 命令出现没有Release文件问题解决\_debian apt get update 没有release 文件-CSDN博客](https://blog.csdn.net/A18040554844/article/details/110099737)
+
+    另外的解决方法，拉取https问题
+    ```shell
+    sudo apt install apt-transport-https
+    sudo apt install ca-certificates
+    ```
+
+
+### 中文系统
+在系統中添加中文語言，既可以顯示中文，也可以輸入中文。
+
+Fcitx：谷歌拼音、搜狗拼音、搜狗五笔拼音
+IBus：智能拼音，五笔（86版）
+XIM：略(现在用的相对比较少)
+
+```shell
+sudo apt-get update
+sudo apt-get install fcitx-bin
+
+sudo apt-get install fcitx-table 
+sudo apt-get install fcitx-table-all
+```
+
+
+[在Ubuntu20.04中安装中文输入法 - 知乎](https://zhuanlan.zhihu.com/p/529892064)
+
+
+
+### PS1修改
+
+```shell
+vim ~/.bashrc
+```
+
+
+
+## 装机 - 开发环境
+- tldr：简易版man手册
+- fd-find：人性化的find
+- rg(ripgrep)：快速搜索
+- fzf ： 模糊搜索
+
+
+### git
+```shell
+apt-get install git
+```
+
+### vim
+```shell
+apt-get install vim
+```
+
+
+
+
+
+
+### 安装软件的一些常见命令
+
+```shell
+sudo dpkg -i xxx.deb
+```
+
+
+```shell
+tar -xzvf xxxx.tar.gz
+```
+
+
+
+### terminator
+
+[terminator](https://blog.csdn.net/learning_tortosie/article/details/102581261)
+
+```shell
+sudo apt-get install terminator
+```
+!!! bug "设置为默认终端"
+
+|开启or关闭快捷键|	作用|
+|---|---|
+|`Ctrl + Shift + O`|	水平分割终端（分成上下两个窗口）|
+|`Ctrl + Shift + E`|	垂直分割终端（分成左右两个窗口）|
+|`Ctrl + Shift + W`|	关闭当前终端|
+|`Ctrl + Shift + X`|	放大（还原）当前终端|
+|`Ctrl + Shift + G`|	清屏|
+|`Ctrl + Shift + Q`|	关闭所有终端（退出程序）|
+|`Ctrl + Shift + T`|	开一个新终端|
+
+
+|快捷键|	作用|
+|---|---|
+|`alt+方向键` or `ctrl+TAB`|切换窗口|
+|`ctrl shift +`|加字号|
+|`F11`|全屏|
+|`super(win) + g`|group,将不同窗口打包，指令可以广播|
+|`Super+Shift+g`|取消分组|
+|`ctrl+shift+f`|搜索命令|
+|`Ctrl+Shift+c`|复制指令|
+|`Ctrl+Shift+v`|粘贴指令|
+|`Ctrl+Shift+X`|    将分割的某一个窗口放大至全屏使用|
+|`Ctrl+Shift+Z`|    从放大至全屏的某一窗口回到多窗格界面|
+
+### SSH
+
+```shell
+sudo apt install net-tools
+```
+
+```shell
+ifconfig
+```
+
+```shell
+sudo apt-get install openssh-server
+ssh user@remote
+ssh -X ldz@192.168.0.1  # 带图形化界面
+ssh -p 1234 ldz@192.168.0.1 # 指定端口
+```
+
+
+
+```shell
+vim /etc/ssh/sshd_config
+```
+
+- 第33行:将 PermitRootLogin without-password（第33行） 改为 PermitRootLogin yes 并去掉前面的注释符号（#） 
+- 第57行:#PasswordAuthentication yes(第57行)的注释去掉，如果是no就改为yes
+- 保存
+
+```shell
+service ssh restart
+```
+
+
+
+**验证安装**
+```shell
+service ssh status
+```
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240711175232.png)
+
+**开机自启动**
+
+```shell
+update-rc.d ssh enable
+```
+
+**配置免密登陆**
+
+```shell
+ssh-keygen -t rsa
+```
+
+然后根据提示一步步的按enter键即可（其中有一个提示是要求设置私钥口`passphrase`，不设置则为空，这里看心情吧，如果不放心私钥的安全可以设置一下）
+
+执行结束以后会在`/home/当前用户` 目录下生成一个 `.ssh` 文件夹,其中包含私钥文件 `id_rsa` 和公钥文件 `id_rsa.pub`。
+
+ssh-copy-id会将公钥写到远程主机的 `~/.ssh/authorized_key` 文件中
+
+```shell
+ssh-copy-id name@ip
+```
+
+注意，windows的cmd中不能直接执行ssh-copy-id命令，可以使用git bash或者其他linux终端工具
+
+当出现
+> Number of key(s) added: 1
+> Now try logging into the machine, with:   "ssh 'HAHA@127.0.0.1'" and check to make sure that only the key(s) you wanted were added.
+
+说明配置成功！
+
+
+[深入理解\~/.ssh/config和/etc/ssh/ssh\_config配置文件-百度开发者中心](https://developer.baidu.com/article/details/2922032)
+
+!!! failure "错误与解决方法"
+    === "WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!"
+        警告：远程主机标识已更改！
+
+        此报错是由于远程的主机的公钥发生了变化导致的。 ssh服务是通过公钥和私钥来进行连接的，它会把每个曾经访问过计算机或服务器的公钥（public key），记录在~/.ssh/known_hosts 中，当下次访问曾经访问过的计算机或服务器时，ssh就会核对公钥，如果和上次记录的不同，OpenSSH会发出警告。
+
+        ```shell title="解决方法"
+        ssh-keygen -R XX.XX.XX.XX 
+        ```
+    
+    === "连接IPV6地址"
+        ```shell
+        ssh -6 user@ipv6
+        ```
+### X11设置 GUI
+
+1.修改配置文件：
+```shell title="修改配置文件"
+sudo vim /etc/ssh/sshd_config
+```
+添加或者取消注释以下两行代码
+```shell
+X11Forwarding yes
+X11DisplayOffset 10
+```
+
+2.安装xauth：
+```shell title="安装xauth"
+sudo apt install xauth
+```
+3.重启ssh服务：
+```shell title="重启ssh服务"
+sudo service ssh restart
+```
+
+
+!!! note "-X和-Y的区别"
+    [xorg - What is the difference between \`ssh -Y\` (trusted X11 forwarding) and \`ssh -X\` (untrusted X11 forwarding)? - Ask Ubuntu](https://askubuntu.com/questions/35512/what-is-the-difference-between-ssh-y-trusted-x11-forwarding-and-ssh-x-untrusted-x11-forwarding)
+    
+    if you use `ssh -X remotemachine` the remote machine is treated as an untrusted client. So your local client sends a command to the remote machine and receives the graphical output. If your command violates some security settings you'll receive an error instead.
+
+    But if you use `ssh -Y remotemachine` the remote machine is treated as a trusted client. This last option can open security problems. Because other graphical (X11) clients could sniff data from the remote machine (make screenshots, do keylogging and other nasty stuff) and it is even possible to alter those data.
+
+
+
+
+
+
+### conda
+[conda换地址](https://blog.csdn.net/chengjinpei/article/details/119835339)
+
+
+清华镜像地址：`https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/`
+
+按照你系统的架构选择合适的下载
+
+```shell
+uname -m
+```
+
+```shell
+wget https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/Miniconda3-py39_24.7.1-0-Linux-aarch64.sh
+```
+
+下载后执行得到的文件
+
+```shell
+bash Miniconda3-py39_24.7.1-0-Linux-aarch64.sh
+```
+
+一路点enter和yes，最后重启终端，得到带有`(base)`的提示符，说明安装成功
+
+如果出现了错误，有可能是因为使用的是‵sh`的原因。
+
+进入
+
+```shell
+vi Miniconda3-py39_24.7.1-0-Linux-aarch64.sh
+```
+
+把第一行从 ‵#!/bin/sh`改成
+```shell
+#!/bin/bash
+```
+
+### node
+使用fishros进行安装
+
+
+```shell
+npm install --global yarn
+```
+
+```shell
+yarn --version
+```
+
+### Java
+
+#### 默认java版本
+
+```shell
+export JAVA_HOME=/usr/jdk1.8.0_181 //jdk解压文件目录地址
+export PATH=$JAVA_HOME/bin:$PATH
+export CLASSPATH=$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+```
+
+
+
+#### `.jar`文件打开方式
+
+1.双击打开
+
+2. 命令行打开x
+
+```shell
+java -jar xxx.jar
+```
+
+```shell title="后台执行"
+java -jar xxx.jar &
+```
+
+```shell title="不挂断执行"
+nohup java -jar test_jar-1.0-SNAPSHOT.jar &   
+```  
+
+nohup 意思是不挂断运行命令，当账户退出或终端关闭时，程序仍然运行。
+
+当用 nohup 命令运行jar包时，缺省情况下该应用的所有输出被重定向到nohup.out的文件中，除非另外指定了输出文件。
+
+
+
+
+
+## 装机 - 通用软件
+
+
+### chorme
+
+```shell title="installment"
+sudo apt install chromium-browser
+```
+
+```shell title="verify"
+chromium-browser --version
+```
+### vscode
+
+可以使用fishros进行安装
+
+
+[vscode on Kali](https://blog.csdn.net/CM_STC89C52/article/details/127296320)
+
+1. 用内嵌的浏览器搜索vscode，下载vscode的.deb格式的安装包
+2. 在终端中输入 `sudo dpkg -i code_1.72.1-1665423861_amd64.deb` 进行解压包
+3. 在vscode软件上点击鼠标右键，点击 `Edit Application`
+4. 有个Command选项，输入 `/usr/share/code/code --unity-launch %F --no-sandbox` 即可，再点击保存。
+
+### wechat
+[Weixin for Linux](https://linux.weixin.qq.com/en)
+
+### typora
+> 参考[Ubuntu22.04环境下使用Typora\_typora ubuntu-CSDN博客](https://blog.csdn.net/weixin_73546177/article/details/132033297)
+> [WittonBell/typoraCracker: A patch and keygen tools for typora.](https://github.com/WittonBell/typoraCracker)
+
+```shell title="官网教程"
+wget -qO - https://typora.io/linux/public-key.asc | sudo tee /etc/apt/trusted.gpg.d/typora.asc
+# add Typora's repository
+sudo add-apt-repository 'deb https://typora.io/linux ./'
+sudo apt update
+# install typora
+sudo apt install typora
+```
+
+我下载的二进制文件，没有用这个
+
+### picgo 
+
+[Molunerfinn/PicGo](https://github.com/Molunerfinn/PicGo?tab=readme-ov-file):rocket:A simple & beautiful tool for pictures uploading built by vue-cli-electron-builder
+
+```shell
+cd Picgo
+```
+
+```shell
+npm i @vue/cli-service
+```
+
+[ubuntu PicGo安装和腾讯云图床配置，超详细！！！-CSDN博客](https://blog.csdn.net/qq_42584874/article/details/116534328)
+
+### todesk
+[ToDesk远程桌面软件-免费安全流畅的远程连接电脑手机](https://www.todesk.com/linux.html)
+
+
+- arm [download](https://dl.todesk.com/linux/todesk-v4.7.2.0-arm64.deb)
+
+```shell
+sudo apt-get install libappindicator3-1
+
+sudo apt-get install ./todesk-v4.7.2.0-arm64.deb
+```
+
+```shell
+todesk
+```
+
+
+### jupyter
+
+```shell
+pip install jupyter jupyterlab
+sudo reboot
+```
+
+```shell title="生成配置文件"
+jupyter lab --generate-config
+```
+
+
+设置开机启动
+
+```shell
+sudo vim /etc/systemd/system/jupyter-lab.service
+```
+
+
+```
+[Unit]
+Description=Jupyter Lab Server
+After=network.target
+
+[Service]
+Type=simple
+User=usslab
+WorkingDirectory=/home/<name>/
+ExecStart=/<path>/jupyter-lab --port 8888 --no-browser
+
+[Install]
+WantedBy=multi-user.target
+```
+
+
+```shell title="启动服务"
+sudo systemctl enable jupyter.service
+sudo systemctl start jupyter.service
+```
+
+```shell title="检查服务"
+sudo systemctl status jupyter.service
+```
+
+访问 `localhost:8888`即可看到，如果有公网的ip也可以访问到
+
+
+
+### 坚果云
+> 参考帖子 [记录Ubuntu22.04安装坚果云](https://blog.csdn.net/weixin_45788868/article/details/140736624) 感谢
+
+```shell
+wget https://www.jianguoyun.com/static/exe/installer/nutstore_linux_src_installer.tar.gz
+```
+
+```shell
+sudo tar zxf nutstore_linux_src_installer.tar.gz
+```
+
+```
+cd nutstore_linux_src_installer
+```
+
+```shell
+sudo ./update-toolchain.sh
+```
+
+!!! question "这里我报错了，少一个库"
+    没搞明白，就全装了
+
+    ```shell
+    sudo aptitude install libnautilus-extension4
+    sudo aptitude install libnautilus-extension1a
+    sudo aptitude install libnautilus-extension-dev
+    ```     
+
+
+
+```shell
+sudo ./configure
+```
+
+```shell
+sudo make
+```
+
+```shell
+sudo make install
+```
+
+```shell title="download other things"
+./runtime_bootstrap
+```
+
+直接按1
+
+
+[坚果云linux命令行 • Worktile社区](https://worktile.com/kb/ask/422312.html)
+
+
+webDAV 的使用
+
+[用命令行在Linux同步坚果云 | Practice](https://tobyqin.cn/posts/2019-05-06/jianguoyun-command-line/)
+
+
+```shell title="登录坚果云账号"
+nutstore login
+```
+
+```shell title="退出坚果云账号"
+nutstore logout
+```
+
+```shell title="查看当前已经同步的文件和文件夹"
+nutstore list sync
+```
+
+```shell title="同步指定的文件或文件夹"
+nutstore sync <文件或文件夹路径>
+```
+
+```shell title="取消同步指定的文件或文件夹"
+nutstore unsync <文件或文件夹路径>
+```
+
+```shell title="查看同步状态"
+nutstore status
+```
+
+```shell title="上传文件或文件夹到坚果云"
+nutstore upload <文件或文件夹路径>
+```
+
+```shell title="下载文件或文件夹"
+nutstore download <文件或文件夹路径>
+```
+
+```shell title="删除坚果云上的文件或文件夹"
+nutstore delete <文件或文件夹路径>
+```
+
+```shell title="创建文件夹"
+nutstore mkdir <文件夹路径>
+```
+
+```shell title="查看文件或文件夹的详细信息"
+nutstore info <文件或文件夹路径>
+```
+
+```shell title="查看账号信息"
+nutstore account
+```
+
+```shell title="查看帮助信息"
+nutstore help
+```
+
+
+
+
+## VMware
+
+
+!!! warning "VMware Workstation v17.x 永久许可证激活密钥："
+
+    不知道能不能用
+    ```
+    MC60H-DWHD5-H80U9-6V85M-8280D
+    4A4RR-813DK-M81A9-4U35H-06KND
+    NZ4RR-FTK5H-H81C1-Q30QH-1V2LA
+    JU090-6039P-08409-8J0QH-2YR7F
+    4Y09U-AJK97-089Z0-A3054-83KLA
+    ```
+
+### 安装VMware Tools选项显示灰色的正确解决办法  
+
+1.关闭虚拟机；  
+
+2.在虚拟机设置分别设置CD/DVD、CD/DVD2和软盘为自动检测三个步骤；  
+
+3.再重启虚拟机，灰色字即点亮。 
+
+4.重新安装vmware-tools  
+
+- 虚拟机无法打开
+
+> 虚拟机使用的是此版本 [VMware](https://so.csdn.net/so/search?q=VMware&spm=1001.2101.3001.7020) Workstation 不支持的硬件版本。
+> 模块"Upgrade"启动失败。
+
+打开`.vmx`文件，修改` virtualHW.version = "19"`一行至` virtualHW.version = "16"` 
+
+
 ## Q & A
 
 ### sh: 0: getcwd() failed: No such file or directory
@@ -1191,41 +1286,3 @@ sudo vim /etc/hosts
 127.0.1.1       xxxx
 ```
 
-
-## Java
-
-### 默认java版本
-
-```shell
-export JAVA_HOME=/usr/jdk1.8.0_181 //jdk解压文件目录地址
-export PATH=$JAVA_HOME/bin:$PATH
-export CLASSPATH=$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
-```
-
-
-
-
-### 
-[HMCL-dev/HMCL: A Minecraft Launcher which is multi-functional, cross-platform and popular](https://github.com/HMCL-dev/HMCL)
-
-### `.jar`文件打开方式
-
-1.双击打开
-
-2. 命令行打开x
-
-```shell
-java -jar xxx.jar
-```
-
-```shell title="后台执行"
-java -jar xxx.jar &
-```
-
-```shell title="不挂断执行"
-nohup java -jar test_jar-1.0-SNAPSHOT.jar &   
-```  
-
-nohup 意思是不挂断运行命令，当账户退出或终端关闭时，程序仍然运行。
-
-当用 nohup 命令运行jar包时，缺省情况下该应用的所有输出被重定向到nohup.out的文件中，除非另外指定了输出文件。

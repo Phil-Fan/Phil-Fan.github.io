@@ -56,11 +56,37 @@ $$
 
 > 参考资料 [线性方程组的最小二乘解和最小范数解 - 一以知行](https://zhuanlan.zhihu.com/p/503664717)
 
-### 最小二乘解
+### cramer法则
 
 
 
-目标是最小化**残差向量** $\mathbf{r} = A \mathbf{x} - \mathbf{b}$的**欧几里得范数**，即
+### 复矩阵方程求解
+
+$$
+(A_r + jA_i)(x_r + jx_i) = b_r + jb_i
+$$
+
+$$
+\begin{bmatrix} A_r & -A_i \\ A_i & A_r \end{bmatrix} \begin{bmatrix} x_r \\ x_i \end{bmatrix} = \begin{bmatrix} b_r \\ b_i \end{bmatrix}
+$$
+
+$$
+\begin{bmatrix} A_r & -A_i & b_r \\ A_i & A_r & b_i \end{bmatrix} \xrightarrow{\text{初等行变换}} \begin{bmatrix} I_n & O_n & x_r \\ O_n & I_n & x_i \end{bmatrix}
+$$
+
+其中，$A_r$ 和 $A_i$ 是矩阵 $A$ 的实部和虚部，$b_r$ 和 $b_i$ 是向量 $b$ 的实部和虚部，$I_n$ 和 $O_n$ 分别是 $n \times n$ 的单位矩阵和零矩阵，$x_r$ 和 $x_i$ 是向量 $x$ 的实部和虚部。
+
+相当于把复数乘法做了简单的拆分，转换成了矩阵的形式
+
+!!! note "已知了样本数据的A，以及最终评价b，那求解x的过程就是模型训练的过程"
+
+
+## 最小二乘解
+
+
+
+目标是最小化**残差向量** $\mathbf{r} = A \mathbf{x} - \ma
+thbf{b}$的**欧几里得范数**，即
 
 $$
 \min_{\mathbf{x}} \| A \mathbf{x} - \mathbf{b} \|_2^2
@@ -78,7 +104,14 @@ $$
 \mathbf{x}_{\text{LS}} = (A^T A)^{-1} A^T \mathbf{b}
 $$
 
-### 最小范数解
+#### 应用 - 稀疏表示和压缩感知
+
+
+
+
+
+
+## 最小范数解
 
 
 
@@ -128,26 +161,6 @@ $$
 
 
 
-
-### 复矩阵方程求解
-
-$$
-(A_r + jA_i)(x_r + jx_i) = b_r + jb_i
-$$
-
-$$
-\begin{bmatrix} A_r & -A_i \\ A_i & A_r \end{bmatrix} \begin{bmatrix} x_r \\ x_i \end{bmatrix} = \begin{bmatrix} b_r \\ b_i \end{bmatrix}
-$$
-
-$$
-\begin{bmatrix} A_r & -A_i & b_r \\ A_i & A_r & b_i \end{bmatrix} \xrightarrow{\text{初等行变换}} \begin{bmatrix} I_n & O_n & x_r \\ O_n & I_n & x_i \end{bmatrix}
-$$
-
-其中，$A_r$ 和 $A_i$ 是矩阵 $A$ 的实部和虚部，$b_r$ 和 $b_i$ 是向量 $b$ 的实部和虚部，$I_n$ 和 $O_n$ 分别是 $n \times n$ 的单位矩阵和零矩阵，$x_r$ 和 $x_i$ 是向量 $x$ 的实部和虚部。
-
-相当于把复数乘法做了简单的拆分，转换成了矩阵的形式
-
-!!! note "已知了样本数据的A，以及最终评价b，那求解x的过程就是模型训练的过程"
 
 
 ## 矩阵方程

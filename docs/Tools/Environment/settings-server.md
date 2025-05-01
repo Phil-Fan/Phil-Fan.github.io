@@ -41,9 +41,7 @@ ssh <alias>
 
 !!! note "免密登录的操作是针对用户的，切换其他用户就不可以了"
     可以结合公私钥文件进行理解
-### 其他连接方法
-- Xshell
-- PuTTY
+
 
 ## 任务运行
 
@@ -108,9 +106,9 @@ ssh <alias>
 
 
 1. 安装 Screen
-   ```bash
-   sudo apt-get install screen
-   ```
+```bash
+sudo apt-get install screen
+```
 
 #### 增
 
