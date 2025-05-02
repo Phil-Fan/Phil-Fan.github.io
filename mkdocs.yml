@@ -80,6 +80,7 @@ markdown_extensions:
   - admonition  # 支持警告框
   - attr_list  # 允许为Markdown元素添加HTML属性
   - def_list  # 支持定义列表
+  - md_in_html  # 支持在HTML中使用Markdown
   - tables  # 支持表格
   - mdx_truly_sane_lists # 嵌套列表（需要pip安装）
 
@@ -87,6 +88,9 @@ markdown_extensions:
   - toc:
       permalink: true  # 为每个标题生成永久链接
       toc_depth: 3  # 目录深度为3级
+      permalink_title: "anchor link to this section for reference"  # 永久链接标题
+  - markdown.extensions.smarty:
+      smart_quotes: false  # 关闭智能引号
 
   # 公式渲染
   - pymdownx.arithmatex:
@@ -118,6 +122,8 @@ markdown_extensions:
       social_url_shortener: true  # 社交链接缩短
   - pymdownx.mark  # 提供文本高亮功能
   - pymdownx.smartsymbols  # 自动将特定文本符号转换为对应的智能符号
+  - pymdownx.tasklist:
+      custom_checkbox: true  # 允许创建自定义风格的任务列表
   - pymdownx.tilde  # 使用波浪线（~）表示删除线
 
   # 文档布局与样式
@@ -275,6 +281,7 @@ nav:
       - Robotics/Control/Method-03-MPC.md
       - Robotics/Control/Method-04-阻抗导纳.md
       - Robotics/Control/Method-05-智能控制方法.md
+      - Robotics/Control/Method-Kalman.md
 
     - 应用:
       - Robotics/Control/ELSE-供配电.md
