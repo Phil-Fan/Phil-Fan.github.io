@@ -891,6 +891,13 @@
   </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Control/Method-Kalman/">
+<span class="md-ellipsis">
+    Kalman Filter
+  </span>
+</a>
+</li>
 </ul>
 </nav>
 </li>
@@ -3167,9 +3174,9 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<div><h1 id="_1">定位<a class="headerlink" href="#_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h1>
-<div markdown="1" style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-:material-circle-edit-outline: 约 2524 个字 :material-clock-time-two-outline: 预计阅读时间 10 分钟
+<div><h1 id="_1">定位<a class="headerlink" href="#_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h1>
+<div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
+<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>2524<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>10<span class="heti-spacing"> </span></span>分钟</p>
 </div>
 <table>
 <thead>
@@ -3200,14 +3207,14 @@
 <li>单一传感器的估计 视觉 激光 </li>
 <li>多传感器融合的估计 卡尔曼滤波等</li>
 </ul>
-<h2 id="slam-simultaneous-localization-and-mapping">SLAM | Simultaneous Localization and Mapping<a class="headerlink" href="#slam-simultaneous-localization-and-mapping" title="Permanent link">¶</a></h2>
+<h2 id="slam-simultaneous-localization-and-mapping">SLAM | Simultaneous Localization and Mapping<a class="headerlink" href="#slam-simultaneous-localization-and-mapping" title="anchor link to this section for reference">¶</a></h2>
 <p>两大任务：定位<span class="heti-skip"><span class="heti-spacing"> </span>&amp;<span class="heti-spacing"> </span></span>建图</p>
 <p>机器人在 <strong>未知环境</strong> 中从一个 <strong>未知位置</strong> 开始移动 在移动过程中根据 <strong>位置估计 和 地图</strong> 进行<strong>自身定位</strong><span>.<span class="heti-spacing"> </span></span>同时在自身定位的基础上<strong>建造增量式地图</strong>实现机器人的自主定位和导航</p>
 <div class="admonition note">
 <p class="admonition-title">多次重复，提高精度，实时更新</p>
 </div>
-<h3 id="_2">建模<a class="headerlink" href="#_2" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<h4 id="slam"><span>SLAM<span class="heti-spacing"> </span></span>问题的建模<a class="headerlink" href="#slam" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h3 id="_2">建模<a class="headerlink" href="#_2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h4 id="slam"><span>SLAM<span class="heti-spacing"> </span></span>问题的建模<a class="headerlink" href="#slam" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p>把<span class="heti-skip"><span class="heti-spacing"> </span>SLAM<span class="heti-spacing"> </span></span>问题建模成了一个 <strong>状态估计</strong>问题：如何通过带<strong>有噪声</strong>的测量数据，估计内部的、隐藏着的<strong>状态变量</strong></p>
 <ul>
 <li>
@@ -3248,12 +3255,12 @@ p(x_{1:T}, m | z_{1:T}, u_{1:T}, x_0)
 </li>
 </ul>
 <p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240925005642.png"/></p>
-<h3 id="_3">地标的提取<a class="headerlink" href="#_3" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_3">地标的提取<a class="headerlink" href="#_3" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>地标指的是环境中可以 较易重复识别的特征 。</p>
 <p>地标在<span class="heti-skip"><span class="heti-spacing"> </span>SLAM<span class="heti-spacing"> </span></span>中主要是用于帮助移动机器人确定它在哪里<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>自定位<span><span class="heti-spacing"> </span>)</span></p>
-<h3 id="_4">数据关联<a class="headerlink" href="#_4" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<h3 id="_5">运动状态的估计<a class="headerlink" href="#_5" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<h4 id="_6">卡尔曼滤波<a class="headerlink" href="#_6" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h3 id="_4">数据关联<a class="headerlink" href="#_4" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_5">运动状态的估计<a class="headerlink" href="#_5" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h4 id="_6">卡尔曼滤波<a class="headerlink" href="#_6" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p><span>KF<span class="heti-spacing"> </span></span>给出了线性系统的<strong>无偏最优估计</strong></p>
 <p>卡尔曼滤波归为两个步骤<heti-adjacent class="heti-adjacent-quarter">：</heti-adjacent>“预测”和“更新”。</p>
 <ol>
@@ -3283,7 +3290,7 @@ p(x_{1:T}, m | z_{1:T}, u_{1:T}, x_0)
  $$</p>
 </li>
 </ol>
-<h4 id="ekf">EKF<a class="headerlink" href="#ekf" title="Permanent link">¶</a></h4>
+<h4 id="ekf">EKF<a class="headerlink" href="#ekf" title="anchor link to this section for reference">¶</a></h4>
 <p>扩展卡尔曼滤波（ Extended Kalman Filter ）
 扩展卡尔曼技术帮助准确估计含有<strong>噪声</strong>信息的机器人位置，通知准确<strong>估计</strong>含有噪声信息的环境地标位置信息。</p>
 <p>预测（贝叶斯估计）<span>+<span class="heti-spacing"> </span></span>更新（反馈测量）</p>
@@ -3337,13 +3344,13 @@ z_k &amp;= H_k x_k + v_k
   P_{k|k} = (I - K_k H_k) P_{k|k-1}
   $$</li>
 </ul>
-<h3 id="_7">运动状态的更新<a class="headerlink" href="#_7" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<h3 id="_8">地标的更新<a class="headerlink" href="#_8" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<h3 id="_9">常见方法<a class="headerlink" href="#_9" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_7">运动状态的更新<a class="headerlink" href="#_7" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_8">地标的更新<a class="headerlink" href="#_8" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_9">常见方法<a class="headerlink" href="#_9" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>激光传感器测距
 GPS测量
 视觉传感器</p>
-<h2 id="_10">里程估计<a class="headerlink" href="#_10" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_10">里程估计<a class="headerlink" href="#_10" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <ul>
 <li>根据传感器感知信息推导机器人位姿（位置和角度）变化  </li>
 <li>用途：<ul>
@@ -3364,8 +3371,8 @@ GPS测量
 </ul>
 </li>
 </ul>
-<h3 id="_11">基于运动感知的里程估计<a class="headerlink" href="#_11" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<h4 id="_12">基于电机码盘的轮式移动机器人里程估计<a class="headerlink" href="#_12" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h3 id="_11">基于运动感知的里程估计<a class="headerlink" href="#_11" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h4 id="_12">基于电机码盘的轮式移动机器人里程估计<a class="headerlink" href="#_12" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p>方式</p>
 <p>根据电机码盘获得轮子转速  </p>
 <div class="arithmatex">\[
@@ -3387,7 +3394,7 @@ GPS测量
 <p>缺点</p>
 <p><strong>累计误差变大</strong>：在航位推算时，里程计<strong>误差被累加</strong>，推算随着时间而增长  </p>
 <p>各种误差太大</p>
-<h4 id="_13">基于惯性单元的里程估计<a class="headerlink" href="#_13" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h4 id="_13">基于惯性单元的里程估计<a class="headerlink" href="#_13" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p>惯性单元<span><span class="heti-spacing"> </span>IMU</span> </p>
 <ul>
 <li>一般含有三轴的加速度计和三轴的陀螺仪</li>
@@ -3405,7 +3412,7 @@ GPS测量
 </ul>
 </li>
 </ul>
-<h3 id="_14">激光里程计<a class="headerlink" href="#_14" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_14">激光里程计<a class="headerlink" href="#_14" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>采用<span class="heti-skip"><span class="heti-spacing"> </span>ICP(Iterative Closest Point)<span class="heti-spacing"> </span></span>算法  </p>
 <ul>
 <li>估计<span><span class="heti-spacing"> </span>P</span>’集合点与<span class="heti-skip"><span class="heti-spacing"> </span>P<span class="heti-spacing"> </span></span>集合点的初始位姿关系  <ul>
@@ -3426,7 +3433,7 @@ GPS测量
 </ul>
 <p>激光里程计的实现可以看做是点云的匹配和激光数据校正<span class="heti-skip"><span class="heti-spacing"> </span>ICP(Iterative Closest Point,<span class="heti-spacing"> </span></span>迭代最近点<span><span class="heti-spacing"> </span>)</span></p>
 <p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240925010132.png"/></p>
-<h4 id="_15">视觉里程计<a class="headerlink" href="#_15" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h4 id="_15">视觉里程计<a class="headerlink" href="#_15" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p>各类相机主要区别：有没有深度信息</p>
 <p>单目：没有深度，必须通过移动相机产生深度<span><span class="heti-spacing"> </span>Moving View Stereo</span></p>
 <p>双目：通过视差计算深度<span><span class="heti-spacing"> </span>Stereo</span></p>
@@ -3434,7 +3441,7 @@ GPS测量
 <p>相机位姿和空间观测特征点的优化方法
 BA(Bundle光束平差法)
 BA的本质是一个优化模型，其目的是最小化重投影误差</p>
-<h2 id="_16">定位问题<a class="headerlink" href="#_16" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_16">定位问题<a class="headerlink" href="#_16" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p>确定机器人在世界（全局）坐标系中的位置<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>位姿  </p>
 <p>分为三种解决方法：</p>
 <ul>
@@ -3442,8 +3449,8 @@ BA的本质是一个优化模型，其目的是最小化重投影误差</p>
 <li><strong>基于里程估计的航位推算</strong> </li>
 <li><strong>基于本体设备感知的定位</strong> </li>
 </ul>
-<h3 id="_17">基于外部设备感知的定位<a class="headerlink" href="#_17" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<h4 id="gps">全球定位系统<span><span class="heti-spacing"> </span>GPS</span><a class="headerlink" href="#gps" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h3 id="_17">基于外部设备感知的定位<a class="headerlink" href="#_17" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h4 id="gps">全球定位系统<span><span class="heti-spacing"> </span>GPS</span><a class="headerlink" href="#gps" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p>由<strong>空间端、 控制端和用户端</strong>三部分组成，也称为<span><span class="heti-spacing"> </span>GNSS</span></p>
 <ul>
 <li>空间端由卫星组成</li>
@@ -3453,7 +3460,7 @@ BA的本质是一个优化模型，其目的是最小化重投影误差</p>
 <p>存在问题</p>
 <p>遮挡问题：室内难以使用</p>
 <p>多路径问题：楼房太高导致最短路径变成反射后的一条路径</p>
-<h3 id="_18">全局视觉观测定位<a class="headerlink" href="#_18" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_18">全局视觉观测定位<a class="headerlink" href="#_18" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>搭建一套外部视觉系统，识别机器人，确定其位置  </p>
 <p>与<span class="heti-skip"><span class="heti-spacing"> </span>GPS<span class="heti-spacing"> </span></span>相同，在内部搭建多个相机实现定位</p>
 <p>应用约束：</p>
@@ -3461,20 +3468,20 @@ BA的本质是一个优化模型，其目的是最小化重投影误差</p>
 <li>摄像头有视野范围约束，当环境较大时需要多个摄像头</li>
 <li>机器人上也需要有一定的标识方便图像识别定位</li>
 </ul>
-<h3 id="_19">基于本体感知的定位<a class="headerlink" href="#_19" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_19">基于本体感知的定位<a class="headerlink" href="#_19" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ul>
 <li>需要预先构建地图，地图坐标系在构建地图时确定</li>
 <li>对于大规模环境，路标需具备可鉴别性，否则需要正确的数据关联</li>
 <li>存储大规模环境的图片需要较大的存储空间</li>
 <li>对于实际环境中存在路标被破坏<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>污染、更换、稀疏等风险</li>
 </ul>
-<h4 id="_20">基于环境人工标识的定位<a class="headerlink" href="#_20" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h4 id="_20">基于环境人工标识的定位<a class="headerlink" href="#_20" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p>在环境中部署特殊标签，降低成本，确保可靠性，如</p>
 <ul>
 <li>地面二维码：适合仓库运输机器人</li>
 <li>高反射物质：适合叉车</li>
 </ul>
-<h4 id="_21">基于环境自然标识的定位<a class="headerlink" href="#_21" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h4 id="_21">基于环境自然标识的定位<a class="headerlink" href="#_21" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p>路标</p>
 <p>已知三个星星的坐标，并通过传感器测得<span class="heti-skip"><span class="heti-spacing"> </span>r<span class="heti-spacing"> </span></span>或者<span><span class="heti-spacing"> </span>θ</span>，进行求解坐标</p>
 <p>基本思想：利用本体传感器获得的信息与地图中存储的各个位置上的信息进行匹配，实现位置识别</p>

@@ -891,6 +891,13 @@
   </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Robotics/Control/Method-Kalman/">
+<span class="md-ellipsis">
+    Kalman Filter
+  </span>
+</a>
+</li>
 </ul>
 </nav>
 </li>
@@ -3495,21 +3502,21 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<div><h1 id="server">Server<a class="headerlink" href="#server" title="Permanent link">¶</a></h1>
-<div markdown="1" style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-:material-circle-edit-outline: 约 2838 个字 :fontawesome-solid-code: 138 行代码 :material-clock-time-two-outline: 预计阅读时间 13 分钟
+<div><h1 id="server">Server<a class="headerlink" href="#server" title="anchor link to this section for reference">¶</a></h1>
+<div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
+<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>2838<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"></path></svg></span> <span>138<span class="heti-spacing"> </span></span>行代码 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>13<span class="heti-spacing"> </span></span>分钟</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">备忘记录一些实验室服务器和云服务器的操作，以<span class="heti-skip"><span class="heti-spacing"> </span>linux<span class="heti-spacing"> </span></span>为主</p>
 </div>
-<h2 id="_1">登录<a class="headerlink" href="#_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_1">登录<a class="headerlink" href="#_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <div class="highlight"><pre><span></span><code>ssh<span class="w"> </span>name@ip
 </code></pre></div>
 <div class="highlight"><span class="filename">带端口登录</span><pre><span></span><code>ssh<span class="w"> </span>-p<span class="w"> </span>&lt;port&gt;<span class="w"> </span>name@ip
 </code></pre></div>
 <div class="highlight"><span class="filename">退出登录</span><pre><span></span><code><span class="nb">exit</span>
 </code></pre></div>
-<h3 id="_2">免密登录<a class="headerlink" href="#_2" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_2">免密登录<a class="headerlink" href="#_2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <div class="highlight"><span class="filename">进入<span class="heti-skip"><span class="heti-spacing"> </span>.ssh<span class="heti-spacing"> </span></span>目录</span><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>.ssh
 </code></pre></div>
 <p></p><div class="highlight"><span class="filename">生成密钥对</span><pre><span></span><code>ssh-keygen<span class="w"> </span>-t<span class="w"> </span>rsa
@@ -3524,8 +3531,8 @@
 <p class="admonition-title">免密登录的操作是针对用户的，切换其他用户就不可以了</p>
 <p>可以结合公私钥文件进行理解</p>
 </div>
-<h2 id="_3">任务运行<a class="headerlink" href="#_3" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<h3 id="nohup">使用 <code>nohup</code> 后台运行任务<a class="headerlink" href="#nohup" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h2 id="_3">任务运行<a class="headerlink" href="#_3" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h3 id="nohup">使用 <code>nohup</code> 后台运行任务<a class="headerlink" href="#nohup" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p><code>nohup</code> 命令用于以忽略挂起信号的方式运行另一个命令。这在后台运行进程时特别有用，即使终端会话关闭，进程仍然会继续运行。</p>
 <ol>
 <li>
@@ -3573,24 +3580,24 @@
 </ul>
 </li>
 </ol>
-<h3 id="screen">使用 <code>Screen</code> 持续运行任务<a class="headerlink" href="#screen" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="screen">使用 <code>Screen</code> 持续运行任务<a class="headerlink" href="#screen" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p><a href="https://blog.csdn.net/weixin_39925939/article/details/121033427">远程神器<span class="heti-skip"><span class="heti-spacing"> </span>screen<span class="heti-spacing"> </span></span>命令的保姆级详解教程<span class="heti-skip"><span class="heti-spacing"> </span>+<span class="heti-spacing"> </span></span>举例<span class="heti-skip"><span class="heti-spacing"> </span>-CSDN<span class="heti-spacing"> </span></span>博客</a></p>
 <ol>
 <li>安装<span><span class="heti-spacing"> </span>Screen</span>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>screen
 </code></pre></div></li>
 </ol>
-<h4 id="_4">增<a class="headerlink" href="#_4" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h4 id="_4">增<a class="headerlink" href="#_4" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p></p><div class="highlight"><pre><span></span><code>screen<span class="w"> </span>-S<span class="w"> </span>&lt;name&gt;
 </code></pre></div>
 - <code>&lt;name&gt;</code> 可以设置为 <code>ssh</code>、<code>ftp</code> 等，用于标识该 Screen 窗口的用途。
-<h4 id="_5">改<a class="headerlink" href="#_5" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h4 id="_5">改<a class="headerlink" href="#_5" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <div class="highlight"><span class="filename">会允许你输入新的名字</span><pre><span></span><code>Ctrl-a<span class="w"> </span>A
 </code></pre></div>
-<h4 id="_6">查<a class="headerlink" href="#_6" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h4 id="_6">查<a class="headerlink" href="#_6" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <div class="highlight"><pre><span></span><code>screen<span class="w"> </span>-ls
 </code></pre></div>
-<h4 id="_7">窗口管理<a class="headerlink" href="#_7" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h4 id="_7">窗口管理<a class="headerlink" href="#_7" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <ul>
 <li><strong>分离窗口</strong>：按 <code>CTRL-a</code> 然后按 <code>d</code>，可以退出<span class="heti-skip"><span class="heti-spacing"> </span>SSH<span class="heti-spacing"> </span></span>登录而不影响<span class="heti-skip"><span class="heti-spacing"> </span>Screen<span class="heti-spacing"> </span></span>程序的执行。</li>
 </ul>
@@ -3622,7 +3629,7 @@
    <div class="highlight"><pre><span></span><code>screen<span class="w"> </span>-r<span class="w"> </span>-d<span class="w"> </span><span class="m">1805</span>
 </code></pre></div></li>
 </ul>
-<h4 id="_8">删<a class="headerlink" href="#_8" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h4 id="_8">删<a class="headerlink" href="#_8" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <ul>
 <li>完全退出<heti-adjacent class="heti-adjacent-half">：</heti-adjacent><code>exit</code>（不会保存<span><span class="heti-spacing"> </span>session</span><heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。</li>
 </ul>
@@ -3650,11 +3657,11 @@
 </p><div class="highlight"><pre><span></span><code>screen<span class="w"> </span>-wipe<span class="w"> </span><span class="c1">#清理那些dead的会话</span>
 </code></pre></div>
 <p><a href="https://blog.csdn.net/weixin_39925939/article/details/121033427">远程神器<span class="heti-skip"><span class="heti-spacing"> </span>screen<span class="heti-spacing"> </span></span>命令的保姆级详解教程<span class="heti-skip"><span class="heti-spacing"> </span>+<span class="heti-spacing"> </span></span>举例<span class="heti-skip"><span class="heti-spacing"> </span>-CSDN<span class="heti-spacing"> </span></span>博客</a></p>
-<h2 id="_9">内网穿透<a class="headerlink" href="#_9" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_9">内网穿透<a class="headerlink" href="#_9" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p>公网：人人都可以访问</p>
 <p>内网：需要特定的网络才可以访问</p>
 <p>内网穿透就是将内网的服务暴露给公网访问</p>
-<h3 id="server_1"><span>Server<span class="heti-spacing"> </span></span>端配置<a class="headerlink" href="#server_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="server_1"><span>Server<span class="heti-spacing"> </span></span>端配置<a class="headerlink" href="#server_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>下载安装包</p>
 <div class="highlight"><span class="filename">解压</span><pre><span></span><code>tar<span class="w"> </span>-zxvf<span class="w"> </span>frp_0.61.2_linux_amd64.tar.gz
 </code></pre></div>
@@ -3686,7 +3693,7 @@ sudo<span class="w"> </span>ufw<span class="w"> </span>allow<span class="w"> </s
 <div class="highlight"><span class="filename">后台运行</span><pre><span></span><code><span class="c1">#服务器端</span>
 nohup<span class="w"> </span>./frps<span class="w"> </span>-c<span class="w"> </span>frps.toml<span class="w"> </span><span class="p">&amp;</span>
 </code></pre></div>
-<h3 id="client"><span>Client<span class="heti-spacing"> </span></span>端配置<a class="headerlink" href="#client" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="client"><span>Client<span class="heti-spacing"> </span></span>端配置<a class="headerlink" href="#client" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>接下来配置客户端侧（frpc = frp client）</p>
 <div class="highlight"><span class="filename">客户端</span><pre><span></span><code><span class="c1">#客户端</span>
 nohup<span class="w"> </span>./frpc<span class="w"> </span>-c<span class="w"> </span>frpc.toml<span class="w"> </span><span class="p">&amp;</span>
@@ -3781,8 +3788,8 @@ auth.token<span class="w"> </span><span class="o">=</span><span class="w"> </spa
 </tr>
 </tbody>
 </table>
-<h2 id="_10">远程连接<a class="headerlink" href="#_10" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<h3 id="pycharm"><span>pycharm<span class="heti-spacing"> </span></span>远程开发<a class="headerlink" href="#pycharm" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h2 id="_10">远程连接<a class="headerlink" href="#_10" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h3 id="pycharm"><span>pycharm<span class="heti-spacing"> </span></span>远程开发<a class="headerlink" href="#pycharm" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p><a href="https://blog.csdn.net/cutefery/article/details/113918510"><span>Pycharm<span class="heti-spacing"> </span></span>远程连接服务器并运行代码（详细<heti-adjacent class="heti-adjacent-half">！</heti-adjacent>）<span>_pycharm<span class="heti-spacing"> </span></span>将代码同步到远程服务器<span class="heti-skip"><span class="heti-spacing"> </span>-CSDN<span class="heti-spacing"> </span></span>博客</a></p>
 <p><strong><span>1.<span class="heti-spacing"> </span></span>设置<span><span class="heti-spacing"> </span>Connection</span></strong></p>
 <p>Tools-&gt;Deployment-&gt;Configuration</p>
@@ -3794,9 +3801,9 @@ auth.token<span class="w"> </span><span class="o">=</span><span class="w"> </spa
 <p><img alt="img" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/eba75696543b972e5fc6289fe9648940.png"/></p>
 <p><strong><span>4.<span class="heti-spacing"> </span></span>设置<span><span class="heti-spacing"> </span>Python Interpreter</span></strong></p>
 <p><img alt="img" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/1e5ffb013eb5acda4148f924aafe9f3b.png"/></p>
-<h3 id="vscode">vscode<a class="headerlink" href="#vscode" title="Permanent link">¶</a></h3>
+<h3 id="vscode">vscode<a class="headerlink" href="#vscode" title="anchor link to this section for reference">¶</a></h3>
 <p>使用<span class="heti-skip"><span class="heti-spacing"> </span>vscode<span class="heti-spacing"> </span></span>连接以后，可以将文件直接拖拽传递</p>
-<h3 id="_11">报错<a class="headerlink" href="#_11" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_11">报错<a class="headerlink" href="#_11" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p><a href="https://zhuanlan.zhihu.com/p/671718415">我只教一次！<span>vscode remote-ssh<span class="heti-spacing"> </span></span>连接失败的基本原理和优雅的解决方案<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>知乎</a></p>
 <p><a href="https://blog.csdn.net/qq_38667212/article/details/140462083">【<span>VScode<span class="heti-spacing"> </span></span>远程连接报错】<span>Failed to parse remote port from server output_vscode failed to parse remote port from server out-CSDN<span class="heti-spacing"> </span></span>博客</a></p>
 <p><a href="https://blog.csdn.net/White_lies/article/details/124093530"><span>VSCode<span class="heti-spacing"> </span></span>连不上远程服务器问题及解决办法集合<span class="heti-skip"><span class="heti-spacing"> </span>_vscode<span class="heti-spacing"> </span></span>无法连接远程服务器<span class="heti-skip"><span class="heti-spacing"> </span>-CSDN<span class="heti-spacing"> </span></span>博客</a></p>
@@ -3815,14 +3822,14 @@ auth.token<span class="w"> </span><span class="o">=</span><span class="w"> </spa
 <li>重新回到<span class="heti-skip"><span class="heti-spacing"> </span>Vscode<span class="heti-spacing"> </span></span>连接</li>
 </ol>
 <p>还可以尝试把<span><span class="heti-spacing"> </span>.sshss</span></p>
-<h3 id="_12">其他工具<a class="headerlink" href="#_12" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_12">其他工具<a class="headerlink" href="#_12" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ul>
 <li>scp(linux to linux)</li>
 <li>wget</li>
 </ul>
-<h2 id="_13">运维工具<a class="headerlink" href="#_13" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<h3 id="_14">宝塔面板<a class="headerlink" href="#_14" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<h3 id="1panel">1Panel<a class="headerlink" href="#1panel" title="Permanent link">¶</a></h3>
+<h2 id="_13">运维工具<a class="headerlink" href="#_13" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h3 id="_14">宝塔面板<a class="headerlink" href="#_14" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="1panel">1Panel<a class="headerlink" href="#1panel" title="anchor link to this section for reference">¶</a></h3>
 <p><a href="https://1panel.cn/docs/installation/online_installation/"><span>1Panel<span class="heti-spacing"> </span></span>文档</a></p>
 <div class="highlight"><span class="filename">安装<span><span class="heti-spacing"> </span>1Panel,ubuntu</span></span><pre><span></span><code>curl<span class="w"> </span>-sSL<span class="w"> </span>https://resource.fit2cloud.com/1panel/package/quick_start.sh<span class="w"> </span>-o<span class="w"> </span>quick_start.sh<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>bash<span class="w"> </span>quick_start.sh
 </code></pre></div>
@@ -3837,8 +3844,8 @@ auth.token<span class="w"> </span><span class="o">=</span><span class="w"> </spa
 </ul>
 <p>然后点保存即可，不需要重启云服务器，保存后自动生效。</p>
 </div>
-<h2 id="_15">显卡相关<a class="headerlink" href="#_15" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<h3 id="_16">环境配置<a class="headerlink" href="#_16" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h2 id="_15">显卡相关<a class="headerlink" href="#_15" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h3 id="_16">环境配置<a class="headerlink" href="#_16" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <div class="highlight"><pre><span></span><code>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>&lt;&gt;_py&lt;version&gt;<span class="w"> </span><span class="nv">python</span><span class="o">=</span>&lt;version&gt;
 
 conda<span class="w"> </span>activate<span class="w"> </span>&lt;name&gt;
@@ -3875,7 +3882,7 @@ Tensor<span class="w"> </span>on<span class="w"> </span>GPU:
 <span class="w">        </span><span class="o">[</span><span class="m">0</span>.7481,<span class="w"> </span><span class="m">0</span>.7573,<span class="w"> </span><span class="m">0</span>.2097<span class="o">]</span>,
 <span class="w">        </span><span class="o">[</span><span class="m">0</span>.2123,<span class="w"> </span><span class="m">0</span>.6865,<span class="w"> </span><span class="m">0</span>.0611<span class="o">]]</span>,<span class="w"> </span><span class="nv">device</span><span class="o">=</span><span class="s1">'cuda:5'</span><span class="o">)</span>
 </code></pre></div>
-<h3 id="gpu">查看<span><span class="heti-spacing"> </span>GPU</span><a class="headerlink" href="#gpu" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="gpu">查看<span><span class="heti-spacing"> </span>GPU</span><a class="headerlink" href="#gpu" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <div class="highlight"><pre><span></span><code>gpustat
 </code></pre></div>
 <div class="highlight"><span class="filename">查看空闲状态</span><pre><span></span><code>nvidia-msi
@@ -3900,22 +3907,22 @@ Tensor<span class="w"> </span>on<span class="w"> </span>GPU:
 </ul>
 </details>
 <p>为什么<code>Volatile GPU-Util</code>列显示第二个卡占用为<span><span class="heti-spacing"> </span>0</span>，明明这个卡的内存已经用了。这个深度学习调用有关，实际上这时<span class="heti-skip"><span class="heti-spacing"> </span>GPU<span class="heti-spacing"> </span></span>正在等待<span class="heti-skip"><span class="heti-spacing"> </span>CPU<span class="heti-spacing"> </span></span>的处理，而<span class="heti-skip"><span class="heti-spacing"> </span>CPU<span class="heti-spacing"> </span></span>的处理结果有时候很慢，所以<span class="heti-skip"><span class="heti-spacing"> </span>GPU<span class="heti-spacing"> </span></span>在等。可以将<code>num_workers=4</code>或<span class="heti-skip"><span class="heti-spacing"> </span>8<span class="heti-spacing"> </span></span>或<span><span class="heti-spacing"> </span>16</span>（再多不推荐可能变慢，因为通信需要成本<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，分配多个子线程，且设置<code>pin_memory=True</code>，直接映射数据到<span class="heti-skip"><span class="heti-spacing"> </span>GPU<span class="heti-spacing"> </span></span>的专用内存，减少数据传输时间，提高<span class="heti-skip"><span class="heti-spacing"> </span>GPU<span class="heti-spacing"> </span></span>利用率。</p>
-<h3 id="_17">查看内存<a class="headerlink" href="#_17" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_17">查看内存<a class="headerlink" href="#_17" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <div class="highlight"><span class="filename">查看内存</span><pre><span></span><code>free<span class="w"> </span>-m<span class="w"> </span>
 </code></pre></div>
 <div class="highlight"><span class="filename"><span>windows<span class="heti-spacing"> </span></span>查看内存占用情况</span><pre><span></span><code>tasklist
 </code></pre></div>
-<h3 id="cpu">查看<span><span class="heti-spacing"> </span>CPU</span><a class="headerlink" href="#cpu" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="cpu">查看<span><span class="heti-spacing"> </span>CPU</span><a class="headerlink" href="#cpu" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p></p><div class="highlight"><span class="filename">查看<span class="heti-skip"><span class="heti-spacing"> </span>CPU<span class="heti-spacing"> </span></span>使用情况</span><pre><span></span><code>top
 </code></pre></div>
 在命令行输入<code>top</code>就可以实现对服务器进程的监控，此时可以看到多个用户的进程，以及PID，如果遇到有进程卡在了里面可以采用kill + PID的方式结束进程。如下图所示：
 <p></p><div class="highlight"><span class="filename">另外的指令</span><pre><span></span><code>htop
 </code></pre></div>
 htop能够更直观的显示活跃进程，单个进程或多个线程的具体内存1和CPU的占用情况，并且会报告当前所有服务器用户的内存使用状况，并且有更多的F-系列的直接命令可供使用。
-<h3 id="_18">查看用户<a class="headerlink" href="#_18" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_18">查看用户<a class="headerlink" href="#_18" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <div class="highlight"><pre><span></span><code>ps<span class="w"> </span>-f<span class="w"> </span>-p<span class="w"> </span>PID号
 </code></pre></div>
-<h3 id="gpu_1">指定<span><span class="heti-spacing"> </span>GPU</span><a class="headerlink" href="#gpu_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="gpu_1">指定<span><span class="heti-spacing"> </span>GPU</span><a class="headerlink" href="#gpu_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p></p><div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">"CUDA_VISIBLE_DEVICES"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"0"</span>
 </code></pre></div>
@@ -3927,7 +3934,7 @@ htop能够更直观的显示活跃进程，单个进程或多个线程的具体�
 <span class="n">config</span><span class="o">.</span><span class="n">gpu_options</span><span class="o">.</span><span class="n">allow_growth</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="n">session</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Session</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">)</span>
 </code></pre></div>
-<h3 id="_19">显卡简介<a class="headerlink" href="#_19" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_19">显卡简介<a class="headerlink" href="#_19" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241121100854.png"/></p>
 <p>显卡由 <strong>显卡核心（GPU） 、电路板（PCB<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>、显存、金手指、供电<span class="heti-skip"><span class="heti-spacing"> </span>&amp;<span class="heti-spacing"> </span></span>显示接口以及散热</strong>等构成。</p>
 <p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241121100941.png"/></p>
@@ -3940,7 +3947,7 @@ htop能够更直观的显示活跃进程，单个进程或多个线程的具体�
 <p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241121101127.png"/></p>
 <p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241121101207.png"/></p>
 <p>开放式风扇是直接吹显卡（鳍片）来提供散热，使用场景比较广泛，有无风道都能用，而且相较而言更静音。涡轮风扇散热则是靠吸入风量横吹核心（鳍片<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，与开放式相比，对整机内部其它硬件影响不大，比较适合有平行风道，而且工作温度不高的显卡。但估计以后公版也会多采用开放式而放弃涡轮。</p>
-<h3 id="_20">显卡分类<a class="headerlink" href="#_20" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_20">显卡分类<a class="headerlink" href="#_20" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>显卡根据不同的位置，有<strong>集显、核显和独显</strong>的区别
 <img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241121101331.png"/></p>
 <ul>
@@ -3955,8 +3962,8 @@ htop能够更直观的显示活跃进程，单个进程或多个线程的具体�
 <blockquote>
 <p><a href="https://zhuanlan.zhihu.com/p/156083352">【显卡科普】小白必看的入门显卡科普，关于显卡的原理、结构、作用<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>知乎</a></p>
 </blockquote>
-<h2 id="_21">进程管理<a class="headerlink" href="#_21" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<h3 id="_22">查看进程<a class="headerlink" href="#_22" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h2 id="_21">进程管理<a class="headerlink" href="#_21" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h3 id="_22">查看进程<a class="headerlink" href="#_22" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ul>
 <li><strong>查看所有进程：</strong>
 <div class="highlight"><pre><span></span><code>ps<span class="w"> </span>-aux
@@ -3969,7 +3976,7 @@ htop能够更直观的显示活跃进程，单个进程或多个线程的具体�
 </code></pre></div>
   列出特定用户的所有进程。</li>
 </ul>
-<h3 id="_23">终止进程<a class="headerlink" href="#_23" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_23">终止进程<a class="headerlink" href="#_23" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ul>
 <li><strong>通过<span class="heti-skip"><span class="heti-spacing"> </span>PID<span class="heti-spacing"> </span></span>终止进程：</strong>
 <div class="highlight"><pre><span></span><code><span class="nb">kill</span><span class="w"> </span>-9<span class="w"> </span>PID
@@ -3978,29 +3985,29 @@ htop能够更直观的显示活跃进程，单个进程或多个线程的具体�
 </ul>
 <p></p><div class="highlight"><span class="filename"><span>windows<span class="heti-spacing"> </span></span>杀死无效进程</span><pre><span></span><code>taskkill<span class="w"> </span>/PID<span class="w"> </span>进程号<span class="w"> </span>-F<span class="w"> </span>-T<span class="w">  </span>
 </code></pre></div>
-但是感觉任务管理器更方便一点... <img alt="😆" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f606.svg" title=":laughing:"/>
+但是感觉任务管理器更方便一点… <img alt="😆" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f606.svg" title=":laughing:"/>
 <ul>
 <li><strong>通过进程名终止进程：</strong>
 <div class="highlight"><pre><span></span><code>pkill<span class="w"> </span>process_name
 </code></pre></div>
   终止所有匹配指定进程名的进程。</li>
 </ul>
-<h2 id="aliyun">Aliyun<a class="headerlink" href="#aliyun" title="Permanent link">¶</a></h2>
-<h3 id="_24">无影云电脑<a class="headerlink" href="#_24" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<h3 id="ecs">ECS<a class="headerlink" href="#ecs" title="Permanent link">¶</a></h3>
-<h4 id="_25">上传文件<a class="headerlink" href="#_25" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h2 id="aliyun">Aliyun<a class="headerlink" href="#aliyun" title="anchor link to this section for reference">¶</a></h2>
+<h3 id="_24">无影云电脑<a class="headerlink" href="#_24" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="ecs">ECS<a class="headerlink" href="#ecs" title="anchor link to this section for reference">¶</a></h3>
+<h4 id="_25">上传文件<a class="headerlink" href="#_25" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p>使用<span><span class="heti-spacing"> </span>workbench</span>，在文件一栏中选择<span class="heti-skip"><span class="heti-spacing"> </span>"<span class="heti-spacing"> </span></span>打开新文件树<span><span class="heti-spacing"> </span>"</span></p>
 <p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241118233039.png"/></p>
-<h3 id="oss">OSS<a class="headerlink" href="#oss" title="Permanent link">¶</a></h3>
+<h3 id="oss">OSS<a class="headerlink" href="#oss" title="anchor link to this section for reference">¶</a></h3>
 <p>图床</p>
-<h3 id="_26">开发票<a class="headerlink" href="#_26" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_26">开发票<a class="headerlink" href="#_26" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>个人用户抬头只能是个人</p>
-<h2 id="autodl">AutoDL<a class="headerlink" href="#autodl" title="Permanent link">¶</a></h2>
+<h2 id="autodl">AutoDL<a class="headerlink" href="#autodl" title="anchor link to this section for reference">¶</a></h2>
 <div class="highlight"><span class="filename">创建虚拟环境</span><pre><span></span><code>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>tf<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.7<span class="w">           </span><span class="c1"># 构建一个虚拟环境，名为：tf</span>
 conda<span class="w"> </span>init<span class="w"> </span>bash<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">source</span><span class="w"> </span>/root/.bashrc<span class="w"> </span><span class="c1"># 更新bashrc中的环境变量</span>
 conda<span class="w"> </span>activate<span class="w"> </span>tf<span class="w">                       </span><span class="c1"># 切换到创建的虚拟环境：tf</span>
 </code></pre></div>
-<h3 id="hugging-face">无法加载<span><span class="heti-spacing"> </span>Hugging Face</span><a class="headerlink" href="#hugging-face" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="hugging-face">无法加载<span><span class="heti-spacing"> </span>Hugging Face</span><a class="headerlink" href="#hugging-face" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">实测成功的方法</label><label for="__tabbed_1_2">另外的方法</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

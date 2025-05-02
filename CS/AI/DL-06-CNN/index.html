@@ -889,6 +889,13 @@
   </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Robotics/Control/Method-Kalman/">
+<span class="md-ellipsis">
+    Kalman Filter
+  </span>
+</a>
+</li>
 </ul>
 </nav>
 </li>
@@ -3076,9 +3083,9 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<div><h1 id="06-cnn"><span>06 | CNN<span class="heti-spacing"> </span></span>卷积神经网络<a class="headerlink" href="#06-cnn" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h1>
-<div markdown="1" style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-:material-circle-edit-outline: 约 682 个字 :material-clock-time-two-outline: 预计阅读时间 3 分钟
+<div><h1 id="06-cnn"><span>06 | CNN<span class="heti-spacing"> </span></span>卷积神经网络<a class="headerlink" href="#06-cnn" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h1>
+<div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
+<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>682<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>3<span class="heti-spacing"> </span></span>分钟</p>
 </div>
 <p>神经网络：逼近任何一种概率模型，似然值最大</p>
 <p><img alt="img" src="https://pic3.zhimg.com/v2-06b66ed455e6f94c1b0530fe5b0c1d4e_r.jpg"/></p>
@@ -3086,47 +3093,47 @@
 <p>NUMPY</p>
 <p><span>axis  = 0<span class="heti-spacing"> </span></span>竖轴</p>
 <p><span>axis  = 1<span class="heti-spacing"> </span></span>横轴</p>
-<h2 id="_1">卷积<a class="headerlink" href="#_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_1">卷积<a class="headerlink" href="#_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p><img alt="动图封面" src="https://pic3.zhimg.com/v2-d7b60413d0a9dbc165c89bb413198176_b.jpg"/></p>
-<h3 id="_2">卷积核<a class="headerlink" href="#_2" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_2">卷积核<a class="headerlink" href="#_2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p><span>feature<span class="heti-spacing"> </span></span>在<span class="heti-skip"><span class="heti-spacing"> </span>CNN<span class="heti-spacing"> </span></span>中也被成为卷积核（filter<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，一般是<span><span class="heti-spacing"> </span>3X3</span>，或者<span class="heti-skip"><span class="heti-spacing"> </span>5X5<span class="heti-spacing"> </span></span>的大小。</p>
 <p><img alt="动图" src="https://pic2.zhimg.com/v2-3037dc47ea90a241c0f2cb4b4d29e66d_b.webp"/></p>
-<h3 id="_3">步长<a class="headerlink" href="#_3" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_3">步长<a class="headerlink" href="#_3" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>stride</p>
 <p>在设计<span class="heti-skip"><span class="heti-spacing"> </span>CNN<span class="heti-spacing"> </span></span>架构时，如果希望感知区域的重叠更少，或者希望<span class="heti-skip"><span class="heti-spacing"> </span>feature map<span class="heti-spacing"> </span></span>的空间维度更小，我们可以决定增加步幅。输出矩阵的尺寸——考虑到填充宽度和步幅——可以使用以下公式计算。</p>
 <p><img alt="img" src="https://pic2.zhimg.com/80/v2-9d3cf1f4e2c8c02306847eb7fb0829d5_1440w.webp"/></p>
-<h3 id="_4">特征图<a class="headerlink" href="#_4" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<h2 id="_5">激活函数<a class="headerlink" href="#_5" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h3 id="_4">特征图<a class="headerlink" href="#_4" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h2 id="_5">激活函数<a class="headerlink" href="#_5" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p>最大熵原理</p>
-<h3 id="sigmoid">sigmoid<a class="headerlink" href="#sigmoid" title="Permanent link">¶</a></h3>
+<h3 id="sigmoid">sigmoid<a class="headerlink" href="#sigmoid" title="anchor link to this section for reference">¶</a></h3>
 <p>转换到<span><span class="heti-spacing"> </span>0-1</span></p>
-<h3 id="relu">ReLU<a class="headerlink" href="#relu" title="Permanent link">¶</a></h3>
+<h3 id="relu">ReLU<a class="headerlink" href="#relu" title="anchor link to this section for reference">¶</a></h3>
 <p>Rectified Linear Unit</p>
 <p>在神经网络中用到最多的非线性激活函数是<span class="heti-skip"><span class="heti-spacing"> </span>Relu<span class="heti-spacing"> </span></span>函数，它的公式定义如下：</p>
 <p>f(x)=max(0,x)</p>
 <p>leaky ReLU: 
 f(x) = axquad x &lt; 0 ; x for x&gt;&gt;0</p>
-<h3 id="tanh">Tanh<a class="headerlink" href="#tanh" title="Permanent link">¶</a></h3>
+<h3 id="tanh">Tanh<a class="headerlink" href="#tanh" title="anchor link to this section for reference">¶</a></h3>
 <div class="arithmatex">\[
  = \frac{2}{1+e^{-2x}}-1
 \]</div>
-<h3 id="linear-function">linear function<a class="headerlink" href="#linear-function" title="Permanent link">¶</a></h3>
-<h2 id="loss-functionobjective-functioncost-function">损失函数<span><span class="heti-spacing"> </span>loss function/objective function/cost function</span><a class="headerlink" href="#loss-functionobjective-functioncost-function" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<h3 id="_6">交叉熵<a class="headerlink" href="#_6" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<h2 id="_7">池化层<a class="headerlink" href="#_7" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h3 id="linear-function">linear function<a class="headerlink" href="#linear-function" title="anchor link to this section for reference">¶</a></h3>
+<h2 id="loss-functionobjective-functioncost-function">损失函数<span><span class="heti-spacing"> </span>loss function/objective function/cost function</span><a class="headerlink" href="#loss-functionobjective-functioncost-function" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h3 id="_6">交叉熵<a class="headerlink" href="#_6" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h2 id="_7">池化层<a class="headerlink" href="#_7" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p><span>Max Pooling<span class="heti-spacing"> </span></span>最大池化、</p>
 <p><span>Average Pooling<span class="heti-spacing"> </span></span>平均池化</p>
-<h2 id="_8">全连接层<a class="headerlink" href="#_8" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_8">全连接层<a class="headerlink" href="#_8" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p>它最大的目的是对特征图进行维度上的改变，来得到每个分类类别对应的概率值。</p>
 <p><strong>局部连接</strong></p>
 <p><strong>*“参数共享” ，*</strong>参数指的就是<span><span class="heti-spacing"> </span>filter</span></p>
-<h3 id="softmax">softmax<a class="headerlink" href="#softmax" title="Permanent link">¶</a></h3>
+<h3 id="softmax">softmax<a class="headerlink" href="#softmax" title="anchor link to this section for reference">¶</a></h3>
 <p>logits: the values z inputted to the softmax layer 
 缺点：数值溢出</p>
 <p><img alt="image-20230330195944316" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20230330195944316.png"/></p>
 <p><img alt="image-20230330204141660" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20230330204141660.png"/></p>
 <p><img alt="image-20230330204232308" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20230330204232308.png"/></p>
-<h2 id="_9">训练<a class="headerlink" href="#_9" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_9">训练<a class="headerlink" href="#_9" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p><span class="arithmatex">\(\theta\)</span> represents all the perameters needed to be trained</p>
 <p>training is seen as one of the most challanging jobs</p>
 <ul>
@@ -3136,11 +3143,11 @@ f(x) = axquad x &lt; 0 ; x for x&gt;&gt;0</p>
 <li>nesterov accelerated momentum</li>
 <li>adam:adapative moment estimation </li>
 </ul>
-<h2 id="-vanishing-gradient-problem-gradient-is-too-large-or-too-small">- vanishing gradient problem: gradient is too large or too small<a class="headerlink" href="#-vanishing-gradient-problem-gradient-is-too-large-or-too-small" title="Permanent link">¶</a></h2>
-<h3 id="backprop"><span>BackProp<span class="heti-spacing"> </span></span>反向传播算法<a class="headerlink" href="#backprop" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h2 id="-vanishing-gradient-problem-gradient-is-too-large-or-too-small">- vanishing gradient problem: gradient is too large or too small<a class="headerlink" href="#-vanishing-gradient-problem-gradient-is-too-large-or-too-small" title="anchor link to this section for reference">¶</a></h2>
+<h3 id="backprop"><span>BackProp<span class="heti-spacing"> </span></span>反向传播算法<a class="headerlink" href="#backprop" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p><strong><span>*<span class="heti-spacing"> </span></span>梯度下降法<span><span class="heti-spacing"> </span>*</span></strong></p>
 <p>定义优化器</p>
-<h4 id="_10">超参数设置<a class="headerlink" href="#_10" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h4 id="_10">超参数设置<a class="headerlink" href="#_10" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p>hyper parameter tuning</p>
 <ul>
 <li>learning rate(initial,decay schedule)</li>
@@ -3158,7 +3165,7 @@ f(x) = axquad x &lt; 0 ; x for x&gt;&gt;0</p>
 <li>ensemble learning</li>
 </ul>
 <p>deep nn perform better than shallow nn</p>
-<h3 id="generalization">generalization<a class="headerlink" href="#generalization" title="Permanent link">¶</a></h3>
+<h3 id="generalization">generalization<a class="headerlink" href="#generalization" title="anchor link to this section for reference">¶</a></h3>
 <ul>
 <li><span>regularization : weight decay<span class="heti-spacing"> </span></span>正则化，让模型更简单</li>
 <li>dropout : introduce randomness during training </li>
@@ -3168,7 +3175,7 @@ f(x) = axquad x &lt; 0 ; x for x&gt;&gt;0</p>
 <li>early stopping :stop when the validation accuracy has not improved after n epochs(n is called patience)</li>
 <li>normize</li>
 </ul>
-<h2 id="residual-cnns">Residual CNNs<a class="headerlink" href="#residual-cnns" title="Permanent link">¶</a></h2>
+<h2 id="residual-cnns">Residual CNNs<a class="headerlink" href="#residual-cnns" title="anchor link to this section for reference">¶</a></h2>
 <p>Introduce “identity” skip connections
 o Layer inputs are propagated and added to the layer output
 o Mitigate the problem of vanishing gradients during training
@@ -3177,7 +3184,7 @@ o Allow training very deep NN (with over 1,000 layers)
 layers
 § Are used as base models of other state-of-the-art NNs
 o Other similar models: ResNeXT, DenseNet</p>
-<h2 id="_11">学习资源<a class="headerlink" href="#_11" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_11">学习资源<a class="headerlink" href="#_11" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p><a href="https://www.bilibili.com/video/BV1oa411c7mS/?spm_id_from=333.788.recommend_more_video.0">什么是卷积神经网络<span><span class="heti-spacing"> </span>CNN</span><heti-adjacent class="heti-adjacent-half">？</heti-adjacent>【知多少】<span>_<span class="heti-spacing"> </span></span>哔哩哔哩<span><span class="heti-spacing"> </span>_bilibili</span></a></p>
 <p><a href="https://zhuanlan.zhihu.com/p/27908027?utm_campaign=shareopn&amp;utm_medium=social&amp;utm_oi=663017087136567296&amp;utm_psn=1624746179111223296&amp;utm_source=wechat_session">卷积神经网络<span class="heti-skip"><span class="heti-spacing"> </span>CNN<span class="heti-spacing"> </span></span>完全指南终极版（一） <span>-<span class="heti-spacing"> </span></span>知乎<span><span class="heti-spacing"> </span>(zhihu.com)</span></a></p>
 <p><a href="https://zhuanlan.zhihu.com/p/28173972">卷积神经网络<span class="heti-skip"><span class="heti-spacing"> </span>CNN<span class="heti-spacing"> </span></span>完全指南终极版（二） <span>-<span class="heti-spacing"> </span></span>知乎<span><span class="heti-spacing"> </span>(zhihu.com)</span></a></p>

@@ -1097,6 +1097,13 @@
   </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Control/Method-Kalman/">
+<span class="md-ellipsis">
+    Kalman Filter
+  </span>
+</a>
+</li>
 </ul>
 </nav>
 </li>
@@ -3315,9 +3322,9 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<div><h1 id="01"><span>01 |<span class="heti-spacing"> </span></span>空间描述与变换<a class="headerlink" href="#01" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h1>
-<div markdown="1" style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-:material-circle-edit-outline: 约 10671 个字 :fontawesome-solid-code: 27 行代码 :material-clock-time-two-outline: 预计阅读时间 42 分钟
+<div><h1 id="01"><span>01 |<span class="heti-spacing"> </span></span>空间描述与变换<a class="headerlink" href="#01" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h1>
+<div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
+<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>10671<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"></path></svg></span> <span>27<span class="heti-spacing"> </span></span>行代码 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>42<span class="heti-spacing"> </span></span>分钟</p>
 </div>
 <p>这一章主要讲的是几种表示位姿的方法</p>
 <p>位置和姿态总是成对出现的，我们将此组合称为坐标系。一个坐标系可以等价的用一个位置向量和一个旋转矩阵来描述。</p>
@@ -3325,7 +3332,7 @@
 <li><strong>位置</strong>：用向量进行表示，左上标来描述具体的坐标系，例如<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(^A\!P\)</span><span class="heti-spacing"> </span></span>表明列向量<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(P\)</span><span class="heti-spacing"> </span></span>在坐标系<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A\)</span><span class="heti-spacing"> </span></span>下定义的。</li>
 <li><strong>姿态</strong>：物体上固定坐标系相对于参考坐标系的方位</li>
 </ul>
-<h2 id="_1">数学基础<a class="headerlink" href="#_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_1">数学基础<a class="headerlink" href="#_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">向量点乘</label><label for="__tabbed_1_2">向量叉乘</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -3360,13 +3367,13 @@ b_x &amp; b_y &amp; b_z &amp; b_x &amp; b_y &amp; b_z
 </div>
 </div>
 <p>我们知道空间中的变换可以表示为旋转和平移的组合，那么如何表示旋转和平移呢？</p>
-<h2 id="-">向量加法<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>平移变换<a class="headerlink" href="#-" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="-">向量加法<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>平移变换<a class="headerlink" href="#-" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250224145149274.png"/></p>
 <div class="arithmatex">\[
 ^A\!P = ^B\!P + ^A\!P_{BORG}
 \]</div>
 <p>点本身没有移动，只是随着观察的参考系不同，其坐标表示也不同</p>
-<h2 id="-_1">旋转矩阵<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>旋转变换<a class="headerlink" href="#-_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="-_1">旋转矩阵<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>旋转变换<a class="headerlink" href="#-_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p><strong>旋转矩阵</strong></p>
 <p>把新坐标系下的单位向量用旧坐标系下的单位向量表示</p>
 <blockquote>
@@ -3474,7 +3481,7 @@ r_{33}
 <blockquote>
 <p>记忆法则：消消乐，前面的矩阵的下标<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A\)</span><span class="heti-spacing"> </span></span>消去了后面矩阵的上标<span><span class="heti-spacing"> </span><span class="arithmatex">\(A\)</span></span></p>
 </blockquote>
-<h2 id="-_2">齐次变换矩阵<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>旋转<span class="heti-skip"><span class="heti-spacing"> </span>+<span class="heti-spacing"> </span></span>平移变换<a class="headerlink" href="#-_2" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="-_2">齐次变换矩阵<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>旋转<span class="heti-skip"><span class="heti-spacing"> </span>+<span class="heti-spacing"> </span></span>平移变换<a class="headerlink" href="#-_2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <details class="info">
 <summary>齐次坐标</summary>
 <blockquote>
@@ -3563,7 +3570,7 @@ SE(3) = \left\{
 <p>由于旋转是绕着轴<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\mathbf{k}\)</span><span class="heti-spacing"> </span></span>进行的，根据旋转的性质，轴<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\mathbf{k}\)</span><span class="heti-spacing"> </span></span>上的向量在旋转后保持不变，即<span><span class="heti-spacing"> </span><span class="arithmatex">\(R\mathbf{k}=\mathbf{k}\)</span></span>。</p>
 <p>所以，<span><span class="arithmatex">\(T_2\)</span><span class="heti-spacing"> </span></span>中的平移部分<span><span class="heti-spacing"> </span><span class="arithmatex">\(Rd\mathbf{k} = d\mathbf{k}\)</span></span>，<span class="arithmatex">\(T_1 = T_2\)</span>，即绕一个轴旋转再沿着这个轴平移等价于先沿着这个轴平移再绕着这个轴旋转。</p>
 </div>
-<h2 id="-_3">欧拉角<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>三个轴次序旋转<a class="headerlink" href="#-_3" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="-_3">欧拉角<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>三个轴次序旋转<a class="headerlink" href="#-_3" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p>通过将三个基本旋转（Roll, Pitch, Yaw）按特定顺序组合来表示任意的旋转。</p>
 <p><strong>正方向</strong>：按照右手螺旋确定</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="" id="__tabbed_2_1" name="__tabbed_2" type="radio"/><input id="__tabbed_2_2" name="__tabbed_2" type="radio"/><input id="__tabbed_2_3" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="__tabbed_2_1">共有<span class="heti-skip"><span class="heti-spacing"> </span>12<span class="heti-spacing"> </span></span>种欧拉角</label><label for="__tabbed_2_2">优点</label><label for="__tabbed_2_3">缺点</label></div>
@@ -3660,7 +3667,7 @@ R_{z,y,x}(\alpha,\beta,\gamma) &amp;= \begin{pmatrix}
 \end{align}
 \]</div>
 <p><span><span class="arithmatex">\(\forall R \in SO(3)\)</span><span class="heti-spacing"> </span></span>可用<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(R_{z,y,x}(\alpha, \beta, \gamma)\)</span><span class="heti-spacing"> </span></span>表示出来</p>
-<h3 id="gimbal-lock">万向节死锁（Gimbal Lock）<a class="headerlink" href="#gimbal-lock" title="Permanent link">¶</a></h3>
+<h3 id="gimbal-lock">万向节死锁（Gimbal Lock）<a class="headerlink" href="#gimbal-lock" title="anchor link to this section for reference">¶</a></h3>
 <p>非对称型欧拉角：</p>
 <ul>
 <li>中间的旋转角在<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\left[ -\frac{\pi}{2}, \frac{\pi}{2}\right]\)</span><span class="heti-spacing"> </span></span>的时候，可以求出唯一对应</li>
@@ -3768,10 +3775,10 @@ R_{z}(\pm\pi+\alpha)R_{y}(-\beta)R_{z}(\pm\pi+\gamma)&amp;=\begin{bmatrix}\cos(\
 \end{aligned}
 \]</div>
 </div>
-<h2 id="-_4">等效轴角<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>绕给定轴旋转一次<a class="headerlink" href="#-_4" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<h3 id="_2">欧拉旋转定理<a class="headerlink" href="#_2" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h2 id="-_4">等效轴角<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>绕给定轴旋转一次<a class="headerlink" href="#-_4" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h3 id="_2">欧拉旋转定理<a class="headerlink" href="#_2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>若刚体从初姿态作任意定点转动后呈终姿态，则必可找到一个过该点的轴<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(K\)</span><span class="heti-spacing"> </span></span>及角度<span><span class="heti-spacing"> </span><span class="arithmatex">\(\theta\)</span></span>，刚体从初姿态绕<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(K\)</span><span class="heti-spacing"> </span></span>作定轴转动<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\theta\)</span><span class="heti-spacing"> </span></span>后呈终姿态</p>
-<h3 id="-_5">罗德里格斯公式<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>求解旋转后向量<a class="headerlink" href="#-_5" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="-_5">罗德里格斯公式<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>求解旋转后向量<a class="headerlink" href="#-_5" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <div class="arithmatex">\[
 r_{OQ}' = r_{OQ} \cos \theta + (r_{OQ} \cdot r_{OK}) r_{OK} (1 - \cos \theta) + (r_{OK} \times r_{OQ}) \sin \theta
 \]</div>
@@ -3802,7 +3809,7 @@ n_z &amp; 0 &amp; -n_x \\
 <blockquote>
 <p>参考文献：<a href="https://blog.csdn.net/renhaofan/article/details/103706544">罗德里格斯公式附图推导，理解<span class="heti-skip"><span class="heti-spacing"> </span>-CSDN<span class="heti-spacing"> </span></span>博客</a></p>
 </blockquote>
-<h4 id="_3">性质<a class="headerlink" href="#_3" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h4 id="_3">性质<a class="headerlink" href="#_3" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <ul>
 <li>旋转<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\theta\)</span><span class="heti-spacing"> </span></span>角度，等价于旋转<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\theta+2k\pi\)</span><span class="heti-spacing"> </span></span>角度</li>
 <li><span class="arithmatex">\((n^\wedge, \theta) = (-n^\wedge, -\theta)\)</span></li>
@@ -3812,7 +3819,7 @@ n_z &amp; 0 &amp; -n_x \\
 -\omega_y &amp; \omega_x &amp; 1
 \end{bmatrix}\)</span></li>
 </ul>
-<h4 id="_4">证明<a class="headerlink" href="#_4" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h4 id="_4">证明<a class="headerlink" href="#_4" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <details class="note">
 <summary>可行性验证——罗德里格斯公式推导</summary>
 <p>以单位向量<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(^A\!K=(k_x,k_y,k_z)^\mathrm{T}\)</span><span class="heti-spacing"> </span></span>表示旋转轴，记旋转角度为<span><span class="heti-spacing"> </span><span class="arithmatex">\(\theta\)</span></span></p>
@@ -3863,7 +3870,7 @@ k_x k_z \upsilon \theta - k_y s \theta &amp; k_y k_z \upsilon \theta + k_x s \th
 \end{align*}
 \]</div>
 </div>
-<h4 id="_5">代码实现<a class="headerlink" href="#_5" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h4 id="_5">代码实现<a class="headerlink" href="#_5" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <div class="highlight"><span class="filename">罗德里格斯公式</span><pre><span></span><code>function R = rotation_vector_to_matrix(k)
     % 这个函数实现了罗德里格斯公式，将旋转向量转换为旋转矩阵
     % 输入k是旋转向量，包含了旋转轴方向和旋转角度(角度在向量的模长中)
@@ -3892,8 +3899,8 @@ k_x k_z \upsilon \theta - k_y s \theta &amp; k_y k_z \upsilon \theta + k_x s \th
     R = eye(3) + sin(theta)*K + (1-cos(theta))*(K*K);
 end
 </code></pre></div>
-<h2 id="_6">四元数<a class="headerlink" href="#_6" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<h3 id="_7">欧拉参数<a class="headerlink" href="#_7" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h2 id="_6">四元数<a class="headerlink" href="#_6" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h3 id="_7">欧拉参数<a class="headerlink" href="#_7" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>在等效轴<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\([k_x \, k_y \, k_z]^T\)</span><span class="heti-spacing"> </span></span>和等效轴角<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\theta \in \mathbb{R}\)</span><span class="heti-spacing"> </span></span>的基础上，定义欧拉参数<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\([\eta \,\ \varepsilon_1 \ \varepsilon_2 \ \varepsilon_3]^T\)</span>,<span class="heti-spacing"> </span></span>一个标量和一个长度不超过<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>的三维向量</p>
 <p>其中</p>
 <div class="arithmatex">\[
@@ -3916,7 +3923,7 @@ k_x k_z \nu \theta - k_y s \theta &amp; k_y k_z \nu \theta + k_x s \theta &amp; 
 \]</div>
 <p>其中，<span class="arithmatex">\(\nu \theta = 1 - c \theta\)</span>，<span class="arithmatex">\(c = \cos \theta\)</span>，<span class="arithmatex">\(s = \sin \theta\)</span>。</p>
 <p>任给一组欧拉参数，必有一个姿态（或旋转）与之对应。</p>
-<h3 id="_8">四元数基础<a class="headerlink" href="#_8" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_8">四元数基础<a class="headerlink" href="#_8" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <div class="admonition info">
 <p class="admonition-title">哈密顿与四元数</p>
 <p>哈密顿在<span class="heti-skip"><span class="heti-spacing"> </span>1843<span class="heti-spacing"> </span></span>年提出四元数，并将其用于描述三维空间中的旋转。</p>
@@ -3964,7 +3971,7 @@ q = \eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3
 </div>
 </div>
 </div>
-<h3 id="grassmann"><span>Grassmann<span class="heti-spacing"> </span></span>积<a class="headerlink" href="#grassmann" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="grassmann"><span>Grassmann<span class="heti-spacing"> </span></span>积<a class="headerlink" href="#grassmann" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>在欧拉参数中定义<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\eta\)</span><span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\varepsilon\)</span><span class="heti-spacing"> </span></span>的<span class="heti-skip"><span class="heti-spacing"> </span>Grassmann<span class="heti-spacing"> </span></span>积如下<span><span class="heti-spacing"> </span>:</span></p>
 <div class="arithmatex">\[
 \begin{bmatrix}
@@ -4000,7 +4007,7 @@ q = \eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3
 <p>如果有<span><span class="heti-spacing"> </span><span class="arithmatex">\(\begin{bmatrix}\eta \\ \varepsilon\end{bmatrix} \in \mathbb{U}\)</span></span>，则<span><span class="heti-spacing"> </span><span class="arithmatex">\(A^TA = I\)</span></span></p>
 <p>如果还有<span><span class="heti-spacing"> </span><span class="arithmatex">\(\begin{bmatrix}\xi \\ \delta\end{bmatrix} \in \mathbb{U}\)</span></span>，则<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\([\xi \quad \delta^T]A^TA\begin{bmatrix}\xi \\ \delta\end{bmatrix} = 1\)</span><span class="heti-spacing"> </span></span>即<span><span class="heti-spacing"> </span><span class="arithmatex">\(\begin{bmatrix}\eta\xi - \varepsilon^T\delta \\ \xi\varepsilon + \eta\delta + \varepsilon \times \delta\end{bmatrix} \in \mathbb{U}\)</span></span></p>
 </div>
-<h3 id="_9">单位四元数<a class="headerlink" href="#_9" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_9">单位四元数<a class="headerlink" href="#_9" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ul>
 <li><strong>定义</strong>：单位四元数是模长等于<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>的四元数。</li>
 <li><strong>关系</strong>：单位四元数与欧拉参数一一对应。</li>
@@ -4055,7 +4062,7 @@ A_B^B R = R_\varepsilon(\eta) = \begin{bmatrix}
 ix_2 + jy_2 + kz_2 = (\eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3)(ix_1 + jy_1 + kz_1)(\eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3)^*
 \]</div>
 </div>
-<h3 id="_10">如何旋转<a class="headerlink" href="#_10" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_10">如何旋转<a class="headerlink" href="#_10" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <div class="arithmatex">\[
 P' = qPq^{-1}
 \]</div>
@@ -4064,12 +4071,12 @@ P' = qPq^{-1}
 <iframe height="600px" src="https://krasjet.github.io/quaternion/quaternion.pdf" style="border: none;" width="100%">
 This browser does not support PDFs
 </iframe>
-<h3 id="_11">可视化<a class="headerlink" href="#_11" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_11">可视化<a class="headerlink" href="#_11" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <iframe allowfullscreen="true" border="0" frameborder="no" framespacing="0" height="600px" scrolling="no" src="//player.bilibili.com/player.html?isOutside=true&amp;aid=33385105&amp;bvid=BV1SW411y7W1&amp;cid=58437850&amp;p=1&amp;autoplay=0" width="100%"></iframe>
 <iframe allowfullscreen="true" border="0" frameborder="no" framespacing="0" height="600px" scrolling="no" src="//player.bilibili.com/player.html?isOutside=true&amp;aid=35804287&amp;bvid=BV1Lt411U7og&amp;cid=62823973&amp;p=1&amp;autoplay=0" width="100%"></iframe>
 <iframe height="auto" src="https://eater.net/quaternions/video/intro" width="100%"></iframe>
 <iframe height="auto" src="https://eater.net/quaternions/video/doublecover" width="100%"></iframe>
-<h2 id="left-or-right">Left or Right —— 右乘连体左乘基<a class="headerlink" href="#left-or-right" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="left-or-right">Left or Right —— 右乘连体左乘基<a class="headerlink" href="#left-or-right" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <ol>
 <li>对于两个变换的叠加：<span><span class="arithmatex">\(M_2M_1\)</span><span class="heti-spacing"> </span></span>表示先进行<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(M_1\)</span><span class="heti-spacing"> </span></span>变换，再进行<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(M_2\)</span><span class="heti-spacing"> </span></span>变换，这里<span><span class="heti-spacing"> </span><span class="arithmatex">\(M_1\)</span></span>、<span><span class="arithmatex">\(M_2\)</span><span class="heti-spacing"> </span></span>都是自然基坐标系下。</li>
 <li>如果<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(M_2\)</span><span class="heti-spacing"> </span></span>变换是在<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(M_1\)</span><span class="heti-spacing"> </span></span>坐标系基础上进行的，那么根据相似矩阵把<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(M_2\)</span><span class="heti-spacing"> </span></span>转换成自然基坐标系下：<span class="arithmatex">\(M_1M_2M_1^{-1}\)</span></li>
@@ -4084,7 +4091,7 @@ This browser does not support PDFs
 <p>可以参考<span class="heti-skip"><span class="heti-spacing"> </span>3b1b<span class="heti-spacing"> </span></span>基坐标变换的视频</p>
 </blockquote>
 <iframe allowfullscreen="true" border="0" frameborder="no" framespacing="0" height="600px" scrolling="no" src="//player.bilibili.com/player.html?isOutside=true&amp;aid=44855426&amp;bvid=BV1ib411t7YR&amp;cid=80579031&amp;p=13&amp;t=620&amp;autoplay=0" width="100%"></iframe>
-<h2 id="_12">题型总结<a class="headerlink" href="#_12" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_12">题型总结<a class="headerlink" href="#_12" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p><a href="https://zhuanlan.zhihu.com/p/45404840">三维旋转：欧拉角、四元数、旋转矩阵、轴角之间的转换<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>知乎</a></p>
 <div class="admonition tip">
 <p class="admonition-title">总结各种变换中的符号与字母</p>
@@ -4099,7 +4106,7 @@ This browser does not support PDFs
 <li><span><span class="arithmatex">\(S^3\)</span><span class="heti-spacing"> </span></span>为全体单位四元数构成的集合</li>
 </ul>
 </div>
-<h3 id="_13">各种表示方法的对比<a class="headerlink" href="#_13" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_13">各种表示方法的对比<a class="headerlink" href="#_13" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ul>
 <li>最小参数表示：欧拉角（<span>3<span class="heti-spacing"> </span></span>个<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>、等效轴角（不一定算是）</li>
 </ul>
@@ -4144,7 +4151,7 @@ This browser does not support PDFs
 <li>大范围旋转刚体的姿态更适合采用旋转矩阵表示或单位四元数表示。</li>
 <li>对于任何运动刚体，若采用旋转矩阵表示，刚体姿态是<span class="heti-skip"><span class="heti-spacing"> </span>SO(3)<span class="heti-spacing"> </span></span>中的一条连续轨迹；若采用单位四元数表示，刚体姿态是<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(S^3\)</span><span class="heti-spacing"> </span></span>中的一条连续轨迹。</li>
 </ul>
-<h3 id="_14">坐标系的变换<a class="headerlink" href="#_14" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_14">坐标系的变换<a class="headerlink" href="#_14" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>平移<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>旋转： 应用不同方法</p>
 <p>要特别注意<strong>上下标的顺序</strong>，不要看反了</p>
 <ul>
@@ -4213,7 +4220,7 @@ R_{z,y,x}(\alpha,\beta,\gamma) &amp;= \begin{pmatrix}
 ^{B}O_A  = - \begin{bmatrix} 0.25 &amp; 0.43 &amp; 0.86 \\ 0.87 &amp; -0.50 &amp; 0.00 \\ 0.43 &amp; 0.75 &amp; -0.50 \end{bmatrix}^T \begin{bmatrix} 5.0 \\ -4.0 \\ 3.0 \end{bmatrix} = \begin{bmatrix} -0.25 &amp; -0.87 &amp; -0.43 \\ -0.43 &amp; 0.50 &amp; -0.75 \\ -0.86 &amp; 0.00 &amp; 0.50 \end{bmatrix} \begin{bmatrix} 5.0 \\ -4.0 \\ 3.0 \end{bmatrix} = \begin{bmatrix} 0.94 \\ -6.4 \\ -2.8 \end{bmatrix}
 \]</div>
 </div>
-<h3 id="_15">左乘还是右乘<a class="headerlink" href="#_15" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_15">左乘还是右乘<a class="headerlink" href="#_15" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>要搞清楚顺序</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="6:5"><input checked="" id="__tabbed_6_1" name="__tabbed_6" type="radio"/><input id="__tabbed_6_2" name="__tabbed_6" type="radio"/><input id="__tabbed_6_3" name="__tabbed_6" type="radio"/><input id="__tabbed_6_4" name="__tabbed_6" type="radio"/><input id="__tabbed_6_5" name="__tabbed_6" type="radio"/><div class="tabbed-labels"><label for="__tabbed_6_1">例<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span></label><label for="__tabbed_6_2">例<span class="heti-skip"><span class="heti-spacing"> </span>2<span class="heti-spacing"> </span></span></label><label for="__tabbed_6_3">例<span class="heti-skip"><span class="heti-spacing"> </span>3<span class="heti-spacing"> </span></span></label><label for="__tabbed_6_4">例<span class="heti-skip"><span class="heti-spacing"> </span>4<span class="heti-spacing"> </span></span></label><label for="__tabbed_6_5">例<span><span class="heti-spacing"> </span>5</span></label></div>
 <div class="tabbed-content">
@@ -4269,7 +4276,7 @@ R_{z,y,x}(\alpha,\beta,\gamma) &amp;= \begin{pmatrix}
 </div>
 </div>
 </div>
-<h3 id="_16">旋转矩阵与欧拉角<a class="headerlink" href="#_16" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_16">旋转矩阵与欧拉角<a class="headerlink" href="#_16" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p><strong>欧拉角<span class="heti-skip"><span class="heti-spacing"> </span>to<span class="heti-spacing"> </span></span>旋转矩阵</strong><span>:<span class="heti-spacing"> </span></span>直接使用矩阵乘法即可</p>
 <p><strong>旋转矩阵<span class="heti-skip"><span class="heti-spacing"> </span>to<span class="heti-spacing"> </span></span>欧拉角</strong>：使用反三角函数推导</p>
 <p>从旋转矩阵提取欧拉角的公式跟欧拉角顺规的选取有关，因为旋转矩阵的元素会略有不同，但是思路都是一样的，就是根据旋转矩阵的解析表达式<span class="heti-skip"><span class="heti-spacing"> </span>+<span class="heti-spacing"> </span></span>反三角函数凑出来</p>
@@ -4325,7 +4332,7 @@ R_{z'y'x'}(\alpha, -\frac{\pi}{2}, \gamma) = \begin{pmatrix}
 <li><span class="arithmatex">\(\alpha + \gamma = \arctan2(-r_{23}, r_{22})\)</span></li>
 </ul>
 </div>
-<h3 id="_17">旋转矩阵与四元数<a class="headerlink" href="#_17" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_17">旋转矩阵与四元数<a class="headerlink" href="#_17" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ul>
 <li>对任何的单位四元数<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\eta+\)</span>i<span class="arithmatex">\(\varepsilon_1+\)</span>j<span class="arithmatex">\(\varepsilon_2+\)</span> <span class="arithmatex">\(k\varepsilon_3,\boldsymbol{R}_\varepsilon(\eta)\)</span><span class="heti-spacing"> </span></span>都是旋转矩阵；</li>
 <li>对任何的旋转矩阵<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(R\)</span>,<span class="heti-spacing"> </span></span>都存在两个互为相反数的单位四元数<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\pm ( \eta +\)</span>i<span class="arithmatex">\(\varepsilon _1+\)</span>j<span class="arithmatex">\(\varepsilon _2+\)</span>k<span class="arithmatex">\(\varepsilon _3)\)</span><span class="heti-spacing"> </span></span>使得<span><span class="heti-spacing"> </span><span class="arithmatex">\(R=\boldsymbol{R}_\varepsilon(\eta)\)</span></span>。</li>
@@ -4446,7 +4453,7 @@ r_{31} &amp; r_{32} &amp; r_{33}
 </div>
 </div>
 </div>
-<h3 id="_18">欧拉角与四元数<a class="headerlink" href="#_18" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_18">欧拉角与四元数<a class="headerlink" href="#_18" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p><strong>欧拉角<span class="heti-skip"><span class="heti-spacing"> </span>to<span class="heti-spacing"> </span></span>四元数</strong></p>
 <ul>
 <li>首先欧拉角可以视为绕着给定轴旋转一个角度</li>
@@ -4454,7 +4461,7 @@ r_{31} &amp; r_{32} &amp; r_{33}
 <li>所以把欧拉角的旋转描述成四元数，再进行相乘即可</li>
 </ul>
 <p><strong>四元数<span class="heti-skip"><span class="heti-spacing"> </span>to<span class="heti-spacing"> </span></span>欧拉角</strong> 比较复杂，建议使用四元数转换为旋转矩阵，再转换为欧拉角</p>
-<h3 id="_19">等效轴角<a class="headerlink" href="#_19" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_19">等效轴角<a class="headerlink" href="#_19" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p><strong>等效轴角<span class="heti-skip"><span class="heti-spacing"> </span>to<span class="heti-spacing"> </span></span>四元数</strong></p>
 <p>等效轴角就是绕着某条单位轴旋转一定角度，这个角度和四元数非常类似，所以这两个转换比较容易</p>
 <p>四元数可以表示为</p>

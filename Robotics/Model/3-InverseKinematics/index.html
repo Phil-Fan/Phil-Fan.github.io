@@ -1091,6 +1091,13 @@
   </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Control/Method-Kalman/">
+<span class="md-ellipsis">
+    Kalman Filter
+  </span>
+</a>
+</li>
 </ul>
 </nav>
 </li>
@@ -3303,21 +3310,21 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<div><h1 id="03-"><span>03 |<span class="heti-spacing"> </span></span>逆运动学<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>已知位姿求解角度<a class="headerlink" href="#03-" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h1>
-<div markdown="1" style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-:material-circle-edit-outline: 约 4275 个字 :fontawesome-solid-code: 1 行代码 :material-clock-time-two-outline: 预计阅读时间 17 分钟
+<div><h1 id="03-"><span>03 |<span class="heti-spacing"> </span></span>逆运动学<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>已知位姿求解角度<a class="headerlink" href="#03-" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h1>
+<div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
+<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>4275<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"></path></svg></span> <span>1<span class="heti-spacing"> </span></span>行代码 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>17<span class="heti-spacing"> </span></span>分钟</p>
 </div>
 <p>为什么需要逆运动学：<strong>想控制的量一般在操作空间，而被控量是关节空间</strong></p>
 <p>本章内容：给定工具坐标系的位置和姿态，解算出个各关节变量；把笛卡尔空间转换到关节空间</p>
 <p><strong>主要内容</strong>：</p>
-<ul>
-<li><span>[ ]<span class="heti-spacing"> </span></span>自由度</li>
-<li><span>[ ]<span class="heti-spacing"> </span></span>工作空间</li>
-<li><span>[x]<span class="heti-spacing"> </span></span>解存在性与选择</li>
-<li><span>[x]<span class="heti-spacing"> </span></span>几何法</li>
-<li><span>[x]<span class="heti-spacing"> </span></span>解析法</li>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 自由度</li>
+<li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 工作空间</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 解存在性与选择</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 几何法</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 解析法</li>
 </ul>
-<h2 id="_1">数学基础：三角变换<a class="headerlink" href="#_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_1">数学基础：三角变换<a class="headerlink" href="#_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:7"><input checked="" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><input id="__tabbed_1_3" name="__tabbed_1" type="radio"/><input id="__tabbed_1_4" name="__tabbed_1" type="radio"/><input id="__tabbed_1_5" name="__tabbed_1" type="radio"/><input id="__tabbed_1_6" name="__tabbed_1" type="radio"/><input id="__tabbed_1_7" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">诱导公式</label><label for="__tabbed_1_2">和角公式</label><label for="__tabbed_1_3">倍角公式</label><label for="__tabbed_1_4">半角公式</label><label for="__tabbed_1_5">和差化积公式</label><label for="__tabbed_1_6">万能公式</label><label for="__tabbed_1_7">辅助角公式</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -3378,7 +3385,7 @@
 <li><span class="arithmatex">\(b^{2}=a^{2}+c^{2}-2ac\cos B\)</span></li>
 <li><span class="arithmatex">\(c^{2}=a^{2}+b^{2}-2ab\cos C\)</span></li>
 </ul>
-<h3 id="arctan2">反正切<span><span class="heti-spacing"> </span>arctan2</span><a class="headerlink" href="#arctan2" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="arctan2">反正切<span><span class="heti-spacing"> </span>arctan2</span><a class="headerlink" href="#arctan2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="" id="__tabbed_2_1" name="__tabbed_2" type="radio"/><input id="__tabbed_2_2" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="__tabbed_2_1"><span>arctan2<span class="heti-spacing"> </span></span></label><label for="__tabbed_2_2"><span>arctan<span class="heti-spacing"> </span></span>的局限性</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -3411,8 +3418,8 @@
 \text{undefined} &amp; \text{if } x = 0 \text{ and } y = 0
 \end{cases}
 \]</div>
-<h2 id="_2">工作空间与自由度<a class="headerlink" href="#_2" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<h3 id="degrees-of-freedom">自由度 ｜ Degrees of Freedom<a class="headerlink" href="#degrees-of-freedom" title="Permanent link">¶</a></h3>
+<h2 id="_2">工作空间与自由度<a class="headerlink" href="#_2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h3 id="degrees-of-freedom">自由度 ｜ Degrees of Freedom<a class="headerlink" href="#degrees-of-freedom" title="anchor link to this section for reference">¶</a></h3>
 <details class="info">
 <summary>自由度<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>刚体本身具有可独立运动方向的数目</summary>
 <blockquote>
@@ -3431,7 +3438,7 @@ l为连杆数（包括基座），n为关节总数，f_i为第i个关节的自�
 <p>想想开门时拧钥匙的动作，这个情况下是人胳膊的末端机构（手）的三维位置没有变（始终在钥匙孔前<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，但是末端机构（手）的三维旋转变了（转动了钥匙<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。人能够实现这个简单的动作，就是因为我们的胳膊有<span class="heti-skip"><span class="heti-spacing"> </span>7<span class="heti-spacing"> </span></span>个自由度。</p>
 </blockquote>
 </details>
-<h3 id="workspace">工作空间 ｜ Workspace<a class="headerlink" href="#workspace" title="Permanent link">¶</a></h3>
+<h3 id="workspace">工作空间 ｜ Workspace<a class="headerlink" href="#workspace" title="anchor link to this section for reference">¶</a></h3>
 <ul>
 <li>工作空间：机械臂末端执行器所能到达的范围。</li>
 <li><strong>灵巧工作空间</strong>：机械臂末端执行器能够从各个方向到达的空间区域。</li>
@@ -3443,14 +3450,14 @@ l为连杆数（包括基座），n为关节总数，f_i为第i个关节的自�
 <div class="admonition question">
 <p class="admonition-title">如何描述工作空间</p>
 </div>
-<h2 id="_3">解存在性与选择<a class="headerlink" href="#_3" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_3">解存在性与选择<a class="headerlink" href="#_3" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p><span><span class="arithmatex">\(^0_6 \!T\)</span><span class="heti-spacing"> </span></span>自由度为<span class="heti-skip"><span class="heti-spacing"> </span>6<span class="heti-spacing"> </span></span>个</p>
 <p>由于是<span class="heti-skip"><span class="heti-spacing"> </span>nonlinear transcendental equations(<span class="heti-spacing"> </span></span>非线性超越方程组<span class="heti-skip"><span class="heti-spacing"> </span>)<span class="heti-spacing"> </span></span>问题，<span>6<span class="heti-spacing"> </span></span>未知数<span class="heti-skip"><span class="heti-spacing"> </span>6<span class="heti-spacing"> </span></span>方程式不代表具有唯一解。</p>
-<h3 id="pieper"><span>PIEPER<span class="heti-spacing"> </span></span>准则<a class="headerlink" href="#pieper" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="pieper"><span>PIEPER<span class="heti-spacing"> </span></span>准则<a class="headerlink" href="#pieper" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>当如下条件之一满足时，一个<span class="heti-skip"><span class="heti-spacing"> </span>6<span class="heti-spacing"> </span></span>自由度运动学结构具有闭合形式的运动学逆解<heti-adjacent class="heti-adjacent-half">：</heti-adjacent>（<strong>充分条件</strong>）</p>
 <p>1、三个连续的转动关节的轴相交于同一点
 2、三个连续的转动关节的轴平行</p>
-<h3 id="_4">多解处理方法 —— 最短行程<a class="headerlink" href="#_4" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_4">多解处理方法 —— 最短行程<a class="headerlink" href="#_4" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>若同一位姿有多个解，系统最终只能选择一个解，比较合理的一种选择是取“最短行程”解</p>
 <p>计算最短行程需要加权，倾向于选择移动小连杆而不是移动大连杆（更省能量）</p>
 <div class="admonition example">
@@ -3461,7 +3468,7 @@ l为连杆数（包括基座），n为关节总数，f_i为第i个关节的自�
 </blockquote>
 <p>这四个姿态位姿都相同，但是对于每种手部都有<span class="heti-skip"><span class="heti-spacing"> </span>2<span class="heti-spacing"> </span></span>种解，一共有<span class="heti-skip"><span class="heti-spacing"> </span>8<span class="heti-spacing"> </span></span>个解。</p>
 </div>
-<h2 id="-">几何法<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>引入几何方法<a class="headerlink" href="#-" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="-">几何法<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>引入几何方法<a class="headerlink" href="#-" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p>由于操作臂是平面的，因此可利用平面几何关系直接求解</p>
 <p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250305082111521.png"/></p>
 <p>注意到三个连杆角度之和即为连杆<span class="heti-skip"><span class="heti-spacing"> </span>3<span class="heti-spacing"> </span></span>的姿态：<span><span class="arithmatex">\(\theta_1 + \theta_2 + \theta_3 = \phi\)</span>,<span class="heti-spacing"> </span></span>由此可求得<span><span class="heti-spacing"> </span><span class="arithmatex">\(\theta_3\)</span></span>。</p>
@@ -3477,16 +3484,16 @@ l为连杆数（包括基座），n为关节总数，f_i为第i个关节的自�
 \]</div>
 <p><strong>特别要注意这个是平行四边形，而不是菱形，所以两种情况用的证明三角形略有不同，但是结论是统一的</strong>。</p>
 <p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250305082434990.png"/></p>
-<h2 id="-_1">解析（代数）法<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>解析表达式表出<a class="headerlink" href="#-_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="-_1">解析（代数）法<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>解析表达式表出<a class="headerlink" href="#-_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <div class="admonition info">
 <p class="admonition-title">工业上很多特定的机械臂也都是解析法求解</p>
 </div>
 <p><a href="https://zhuanlan.zhihu.com/p/450749372">机器人的运动学解——逆向运动学解<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>知乎</a></p>
-<h3 id="_5">基础代数<a class="headerlink" href="#_5" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_5">基础代数<a class="headerlink" href="#_5" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <div class="admonition tip">
 <p class="admonition-title">核心思想：同一变量不同表出列方程</p>
 </div>
-<h4 id="1-3">例<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>基础的平面<span class="heti-skip"><span class="heti-spacing"> </span>3<span class="heti-spacing"> </span></span>自由度机械臂<a class="headerlink" href="#1-3" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h4 id="1-3">例<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>基础的平面<span class="heti-skip"><span class="heti-spacing"> </span>3<span class="heti-spacing"> </span></span>自由度机械臂<a class="headerlink" href="#1-3" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250304120406684.png"/></p>
 <blockquote>
 <p>图片来源课程组<span><span class="heti-spacing"> </span>ppt</span></p>
@@ -3536,7 +3543,7 @@ c_2 = \frac{x^2 + y^2 - l_1^2 - l_2^2}{2l_1 l_2}
 s_2 = \pm \sqrt{1 - c_2^2} \quad, \quad \theta_2 = \arctan 2(s_2, c_2)
 \]</div>
 <p>得到<span class="heti-skip"><span class="heti-spacing"> </span>2<span class="heti-spacing"> </span></span>个可行的<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\theta_2\)</span>(<span class="heti-spacing"> </span></span>肘上形和肘下形<span><span class="heti-spacing"> </span>)</span></p>
-<h3 id="_6">三角函数方程式<a class="headerlink" href="#_6" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_6">三角函数方程式<a class="headerlink" href="#_6" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <div class="admonition note">
 <p class="admonition-title"><span><span class="arithmatex">\(n\)</span><span class="heti-spacing"> </span></span>不大于<span class="heti-skip"><span class="heti-spacing"> </span>4<span class="heti-spacing"> </span></span>时，一元<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(n\)</span><span class="heti-spacing"> </span></span>次方程有封闭形式的解</p>
 <p>有些情况下可将超越方程化为一元<span class="heti-skip"><span class="heti-spacing"> </span>n<span class="heti-spacing"> </span></span>次方程</p>
@@ -3556,7 +3563,7 @@ a(1 - u^2) + 2bu = c(1 + u^2)\\
 u = \frac{b \pm \sqrt{b^2 + a^2 - c^2}}{a + c} \quad , \quad \theta = 2 \arctan \left( \frac{b \pm \sqrt{b^2 + a^2 - c^2}}{a + c} \right)
 \]</div>
 <p>如果<span><span class="heti-spacing"> </span><span class="arithmatex">\(a + c = 0\)</span></span>，那么<span><span class="heti-spacing"> </span><span class="arithmatex">\(\theta = 180^\circ\)</span></span></p>
-<h3 id="3-pieper"><span>3<span class="heti-spacing"> </span></span>轴相交<span class="heti-skip"><span class="heti-spacing"> </span>PIEPER<span class="heti-spacing"> </span></span>解法<a class="headerlink" href="#3-pieper" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="3-pieper"><span>3<span class="heti-spacing"> </span></span>轴相交<span class="heti-skip"><span class="heti-spacing"> </span>PIEPER<span class="heti-spacing"> </span></span>解法<a class="headerlink" href="#3-pieper" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>具有<span class="heti-skip"><span class="heti-spacing"> </span>6<span class="heti-spacing"> </span></span>个旋转关节的操作臂存在封闭解的<strong>充分条件</strong>是相邻的三个关节轴线相交于一点</p>
 <p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250304120834902.png"/></p>
 <p>当最后<span class="heti-skip"><span class="heti-spacing"> </span>3<span class="heti-spacing"> </span></span>根轴相交时，连杆坐标系<span><span class="heti-spacing"> </span>{4}</span>、{5}、<span>{6}<span class="heti-spacing"> </span></span>的原点均位于这个交点上<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>齐次变换矩阵当中的<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\vec{P}\)</span><span class="heti-spacing"> </span></span>是一个值，但是<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\mathbb{R}\)</span><span class="heti-spacing"> </span></span>是不一样的<span><span class="heti-spacing"> </span>)</span>，这点的基坐标为：</p>
@@ -3670,13 +3677,13 @@ z = (k_1 s_2 - k_2 c_2) s \alpha_1 + k_4
 <div class="admonition tip">
 <p class="admonition-title">两种解相当于是手性，右手形和左手形</p>
 </div>
-<h3 id="puma560"><span>PUMA560<span class="heti-spacing"> </span></span>的一种代数方法<a class="headerlink" href="#puma560" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="puma560"><span>PUMA560<span class="heti-spacing"> </span></span>的一种代数方法<a class="headerlink" href="#puma560" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <div class="admonition info">
 <p class="admonition-title"><span>PUMA560<span class="heti-spacing"> </span></span>是一款具有球形腕的机械臂，其关节<span><span class="heti-spacing"> </span>4</span>、5、<span>6<span class="heti-spacing"> </span></span>的旋转轴相交于第五个关节坐标系的原点处</p>
 </div>
 <p>这里要注意，求解<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\theta_4\)</span><span class="heti-spacing"> </span></span>的时候，如果<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\theta_5 = 0\)</span>,<span class="heti-spacing"> </span></span>那么可以看图发现，轴<span class="heti-skip"><span class="heti-spacing"> </span>4<span class="heti-spacing"> </span></span>和轴<span class="heti-skip"><span class="heti-spacing"> </span>6<span class="heti-spacing"> </span></span>是重合的，这个时候不可以唯一确定<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\theta_4\)</span>,<span class="heti-spacing"> </span></span>所有可能的结果都可能是<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\theta_4\)</span><span class="heti-spacing"> </span></span>与<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\theta_6\)</span><span class="heti-spacing"> </span></span>的和或差 </p>
-<h2 id="-_2">数值法<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>有限元或者数值逼近<a class="headerlink" href="#-_2" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<h3 id="optimization-based-solution">优化法<span><span class="heti-spacing"> </span>(Optimization-based Solution)</span><a class="headerlink" href="#optimization-based-solution" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h2 id="-_2">数值法<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>有限元或者数值逼近<a class="headerlink" href="#-_2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h3 id="optimization-based-solution">优化法<span><span class="heti-spacing"> </span>(Optimization-based Solution)</span><a class="headerlink" href="#optimization-based-solution" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>是把问题转化为一个优化问题求数值解。</p>
 <div class="arithmatex">\[
 q = f^{-1}(x)
@@ -3687,7 +3694,7 @@ q = f^{-1}(x)
 \]</div>
 <p>求关节位置<span><span class="heti-spacing"> </span><span class="arithmatex">\(q\)</span></span>，使实际末端位置<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(x\)</span><span class="heti-spacing"> </span></span>与正运动学算出的末端位置<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(f(q)\)</span><span class="heti-spacing"> </span></span>之间的差最小的问题</p>
 <p>使用梯度下降法求解，梯度下降法是求解无约束优化问题最常用的方法之一。</p>
-<h3 id="_7">数值法解方程<a class="headerlink" href="#_7" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_7">数值法解方程<a class="headerlink" href="#_7" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>这里主要用到的是<strong>牛顿法</strong></p>
 <p>一句话简述：从一个起始解开始，使用切线逐步逼近交点</p>
 <div class="arithmatex">\[
@@ -3706,8 +3713,8 @@ f(x) = f(x_0) + f'(x_0)(x - x_0) = 0
 <a href="https://blog.csdn.net/sinat_29244519/article/details/101872198">牛顿法原理与应用 - CSDN博客</a></p>
 </blockquote>
 </div>
-<h2 id="_8">雅可比方法<a class="headerlink" href="#_8" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<h3 id="_9">求逆<a class="headerlink" href="#_9" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h2 id="_8">雅可比方法<a class="headerlink" href="#_8" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h3 id="_9">求逆<a class="headerlink" href="#_9" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <div class="arithmatex">\[
 \dot{x} = J(q) \dot{q}
 \]</div>
@@ -3750,7 +3757,7 @@ A^\dagger_R = A^H\left(AA^H\right)^{-1}
 \]</div>
 <p>这说明矩阵<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(I-J^\dagger J\)</span><span class="heti-spacing"> </span></span>可以把任意关节速度投影到<span class="heti-skip"><span class="heti-spacing"> </span>"<span class="heti-spacing"> </span></span>零空间<span class="heti-skip"><span class="heti-spacing"> </span>"<span class="heti-spacing"> </span></span>内，投影后的关节速度将不改变末端执行器的位置。</p>
 <p>利用这个特性，我们可以在满足了位置跟踪任务之后，再利用零空间实现其它任务<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>比如避开障碍物<span><span class="heti-spacing"> </span>)</span>。</p>
-<h3 id="_10">力域转置<a class="headerlink" href="#_10" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_10">力域转置<a class="headerlink" href="#_10" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>利用</p>
 <div class="arithmatex">\[
 \tau = J^T(q) f
@@ -3762,16 +3769,16 @@ A^\dagger_R = A^H\left(AA^H\right)^{-1}
 <div class="arithmatex">\[
 \dot{q} = J(q)^T \dot{x}
 \]</div>
-<h3 id="_11">阻尼最小二乘法<a class="headerlink" href="#_11" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_11">阻尼最小二乘法<a class="headerlink" href="#_11" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p><a href="https://zhuanlan.zhihu.com/p/341805701">干货<span><span class="heti-spacing"> </span>|</span> “逆运动学”——从操作空间到关节空间（下篇） <span>-<span class="heti-spacing"> </span></span>知乎</a></p>
-<h3 id="_12">迭代求解<a class="headerlink" href="#_12" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_12">迭代求解<a class="headerlink" href="#_12" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>利用雅可比关系和计算出的<span><span class="heti-spacing"> </span><span class="arithmatex">\(\dot{x}\)</span></span>，可以迭代求解出<span><span class="heti-spacing"> </span><span class="arithmatex">\(\dot{q}\)</span></span></p>
 <p>使用控制器控制关节速度<span><span class="heti-spacing"> </span><span class="arithmatex">\(\dot{q}\)</span></span></p>
 <p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250417161904.png"/></p>
 <blockquote>
 <p><a href="https://zhuanlan.zhihu.com/p/341805328">干货<span><span class="heti-spacing"> </span>|</span> “逆运动学”——从操作空间到关节空间（上篇） <span>-<span class="heti-spacing"> </span></span>知乎</a></p>
 </blockquote>
-<h2 id="_13">求解代码<a class="headerlink" href="#_13" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_13">求解代码<a class="headerlink" href="#_13" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p>基于<span class="heti-skip"><span class="heti-spacing"> </span>ZJUI<span class="heti-spacing"> </span></span>的代码</p>
 <div class="highlight"><table class="highlighttable"><tr><th class="filename" colspan="2"><span class="filename">求解代码</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="hll">
 </span></code></pre></div></td></tr></table></div></div>

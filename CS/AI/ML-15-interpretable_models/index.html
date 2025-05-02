@@ -889,6 +889,13 @@
   </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Robotics/Control/Method-Kalman/">
+<span class="md-ellipsis">
+    Kalman Filter
+  </span>
+</a>
+</li>
 </ul>
 </nav>
 </li>
@@ -3037,9 +3044,9 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<div><h1 id="interpretable-ml">Interpretable ML<a class="headerlink" href="#interpretable-ml" title="Permanent link">¶</a></h1>
-<div markdown="1" style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-:material-circle-edit-outline: 约 1400 个字 :material-clock-time-two-outline: 预计阅读时间 5 分钟
+<div><h1 id="interpretable-ml">Interpretable ML<a class="headerlink" href="#interpretable-ml" title="anchor link to this section for reference">¶</a></h1>
+<div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
+<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>1400<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>5<span class="heti-spacing"> </span></span>分钟</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Challenges</p>
@@ -3055,15 +3062,15 @@
 <p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241022084822.png"/></p>
 <p>Currently, the best performing models in terms of accuracy are the least interpretable
 <img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241022085211.png"/></p>
-<h2 id="pixel-level">Pixel level<a class="headerlink" href="#pixel-level" title="Permanent link">¶</a></h2>
+<h2 id="pixel-level">Pixel level<a class="headerlink" href="#pixel-level" title="anchor link to this section for reference">¶</a></h2>
 <p>!!! note "which input pixels are important when a model classifies
 one input example? (Local Explanation)"</p>
-<h3 id="vanilla-backprop">Vanilla BackProp<a class="headerlink" href="#vanilla-backprop" title="Permanent link">¶</a></h3>
+<h3 id="vanilla-backprop">Vanilla BackProp<a class="headerlink" href="#vanilla-backprop" title="anchor link to this section for reference">¶</a></h3>
 <p>The approach uses backpropagation to visualize the gradients with respect to
 each pixel of an image</p>
 <p><a href="https://arxiv.org/abs/1312.6034">[1312.6034] Deep Inside Convolutional Networks: Visualising Image Classification Models and Saliency Maps</a></p>
-<h4 id="guided-backprop">Guided BackProp<a class="headerlink" href="#guided-backprop" title="Permanent link">¶</a></h4>
-<h3 id="occlusion-maps">Occlusion Maps<a class="headerlink" href="#occlusion-maps" title="Permanent link">¶</a></h3>
+<h4 id="guided-backprop">Guided BackProp<a class="headerlink" href="#guided-backprop" title="anchor link to this section for reference">¶</a></h4>
+<h3 id="occlusion-maps">Occlusion Maps<a class="headerlink" href="#occlusion-maps" title="anchor link to this section for reference">¶</a></h3>
 <p>Systematically occlude different portions of the input image with a grey square,
 and monitor the output of the classifier</p>
 <blockquote>
@@ -3071,29 +3078,29 @@ and monitor the output of the classifier</p>
 - Occlusion maps is an older and computationally expensive method</p>
 </blockquote>
 <p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241022090142.png"/></p>
-<h3 id="cam">CAM<a class="headerlink" href="#cam" title="Permanent link">¶</a></h3>
+<h3 id="cam">CAM<a class="headerlink" href="#cam" title="anchor link to this section for reference">¶</a></h3>
 <p>CAM produces a heatmap for the pixels that activate the most model’s prediction
 of a specific class of objects</p>
 <p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241022090402.png"/></p>
-<h4 id="grad-cam">Grad-CAM<a class="headerlink" href="#grad-cam" title="Permanent link">¶</a></h4>
+<h4 id="grad-cam">Grad-CAM<a class="headerlink" href="#grad-cam" title="anchor link to this section for reference">¶</a></h4>
 <p>Grad-CAM is an extension of the CAM approach</p>
 <ul>
 <li>It employs gradient backpropagation to improve the heatmaps</li>
 <li>Compare Grad-CAM to Guided BackProp for the classes ‘Cat’ and “Dog’ in the image</li>
 </ul>
 <p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241022090506.png"/></p>
-<h4 id="guided-grad-cam">Guided Grad-CAM<a class="headerlink" href="#guided-grad-cam" title="Permanent link">¶</a></h4>
-<h3 id="integrated-gradients">Integrated Gradients<a class="headerlink" href="#integrated-gradients" title="Permanent link">¶</a></h3>
+<h4 id="guided-grad-cam">Guided Grad-CAM<a class="headerlink" href="#guided-grad-cam" title="anchor link to this section for reference">¶</a></h4>
+<h3 id="integrated-gradients">Integrated Gradients<a class="headerlink" href="#integrated-gradients" title="anchor link to this section for reference">¶</a></h3>
 <p>Integrated gradients employs the integral of the gradients of a black-box model <span class="arithmatex">\(F\)</span>
 along a straight-line path from a baseline input <span class="arithmatex">\(z\)</span> to an input instance <span class="arithmatex">\(x\)</span></p>
-<h3 id="lrp">LRP<a class="headerlink" href="#lrp" title="Permanent link">¶</a></h3>
+<h3 id="lrp">LRP<a class="headerlink" href="#lrp" title="anchor link to this section for reference">¶</a></h3>
 <p>Layer-wise Relevancy Propagation</p>
 <p>LRP calculates the attribution (i.e., relevance, importance) of each pixel <span class="arithmatex">\(i\)</span> in the
 input image x to the model prediction <span class="arithmatex">\(f(\mathscr{x})\)</span></p>
 <p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241022090913.png"/></p>
 <p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241022091033.png"/></p>
-<h2 id="feature-level">feature level<a class="headerlink" href="#feature-level" title="Permanent link">¶</a></h2>
-<h3 id="lime">LIME<a class="headerlink" href="#lime" title="Permanent link">¶</a></h3>
+<h2 id="feature-level">feature level<a class="headerlink" href="#feature-level" title="anchor link to this section for reference">¶</a></h2>
+<h3 id="lime">LIME<a class="headerlink" href="#lime" title="anchor link to this section for reference">¶</a></h3>
 <p><a href="https://blog.csdn.net/weixin_42347070/article/details/106076360"><span>LIME<span class="heti-spacing"> </span></span>算法：模型的可解释性（代码实现）<span>-CSDN<span class="heti-spacing"> </span></span>博客</a></p>
 <p>全称<span><span class="heti-spacing"> </span>Local Interpretable Model-agnostic Explanations</span>，可以理解为模型的解释器。</p>
 <p><a href="https://arxiv.org/abs/1602.04938">"Why Should I Trust You?": Explaining the Predictions of Any Classifier</a></p>
@@ -3105,7 +3112,7 @@ input image x to the model prediction <span class="arithmatex">\(f(\mathscr{x})\
 </ul>
 <p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241022082620.png"/></p>
 <p>如图所示，红色和蓝色区域表示一个复杂的分类模型（黑盒<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，图中加粗的红色十字表示需要解释的样本，显然，我们很难从全局用一个可解释的模型（例如线性模型）去逼近拟合它。但是，当我们把关注点从全局放到局部时，可以看到在某些局部是可以用线性模型去拟合的。具体来说，我们从加粗的红色十字样本周围采样，所谓采样就是对原始样本的特征做一些扰动，将采样出的样本用分类模型分类并得到结果（红十字和蓝色点<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，同时根据采样样本与加粗红十字的距离赋予权重（权重以标志的大小表示<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。虚线表示通过这些采样样本学到的局部可解释模型，在这个例子中就是一个简单的线性分类器。在此基础上，我们就可以依据这个局部的可解释模型对这个分类结果进行解释了。</p>
-<h3 id="shap">SHAP<a class="headerlink" href="#shap" title="Permanent link">¶</a></h3>
+<h3 id="shap">SHAP<a class="headerlink" href="#shap" title="anchor link to this section for reference">¶</a></h3>
 <p>shapley Values</p>
 <blockquote>
 <p>一群拥有不同技能的参与者为了集体奖励而相互合作。那么，如何在小组中公平分配奖励？</p>
@@ -3118,23 +3125,23 @@ input image x to the model prediction <span class="arithmatex">\(f(\mathscr{x})\
 <p><strong>考察一个对象对剩余对象的子集，有什么边际影响。</strong></p>
 <p>这才是<span class="heti-skip"><span class="heti-spacing"> </span>Shapley<span class="heti-spacing"> </span></span>值背后真正的力量和吸引力。然而，这是有代价的。对于一组参与游戏的<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(n\)</span><span class="heti-spacing"> </span></span>个玩家，你将需要分析<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(2^n\)</span><span class="heti-spacing"> </span></span>个子集才能计算<span class="heti-skip"><span class="heti-spacing"> </span>Shapley<span class="heti-spacing"> </span></span>值。</p>
 <p>有一些方法可以使计算更加实际可行，在引言中我提到了<span class="heti-skip"><span class="heti-spacing"> </span>SHAP<span class="heti-spacing"> </span></span>框架，它的主要优点是，当将<span class="heti-skip"><span class="heti-spacing"> </span>Shapley<span class="heti-spacing"> </span></span>值应用于机器学习时，它能够更有效地计算<span class="heti-skip"><span class="heti-spacing"> </span>Shapley<span class="heti-spacing"> </span></span>值。</p>
-<h2 id="concept-level">Concept level<a class="headerlink" href="#concept-level" title="Permanent link">¶</a></h2>
+<h2 id="concept-level">Concept level<a class="headerlink" href="#concept-level" title="anchor link to this section for reference">¶</a></h2>
 <p>!!! note "which high-level concepts are important when a model
 classifies one class of inputs across the entire dataset? (Global Explanation)"</p>
 <p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241022091218.png"/></p>
-<h3 id="tcav">TCAV<a class="headerlink" href="#tcav" title="Permanent link">¶</a></h3>
+<h3 id="tcav">TCAV<a class="headerlink" href="#tcav" title="anchor link to this section for reference">¶</a></h3>
 <ol>
 <li><span>Represent the concept as a vector (referred to as Concept Activation Vector (CAV)<span class="heti-spacing"> </span></span>决策边界线的正交向量<span><span class="heti-spacing"> </span>)</span></li>
 <li>Quantify the sensitivity of an image to the CAV vector</li>
 <li>Measure the importance of the concept to multiple images of the same class</li>
 </ol>
-<h3 id="ace">ACE<a class="headerlink" href="#ace" title="Permanent link">¶</a></h3>
+<h3 id="ace">ACE<a class="headerlink" href="#ace" title="anchor link to this section for reference">¶</a></h3>
 <p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241022091814.png"/></p>
 <p>ACE advantage over the TCAV approach:
 It does not require a manual selection of a set of positive
 and negative images for a concept</p>
-<h2 id="instance-level">Instance level<a class="headerlink" href="#instance-level" title="Permanent link">¶</a></h2>
-<h3 id="prototype-criticism">prototype &amp; criticism<a class="headerlink" href="#prototype-criticism" title="Permanent link">¶</a></h3>
+<h2 id="instance-level">Instance level<a class="headerlink" href="#instance-level" title="anchor link to this section for reference">¶</a></h2>
+<h3 id="prototype-criticism">prototype &amp; criticism<a class="headerlink" href="#prototype-criticism" title="anchor link to this section for reference">¶</a></h3>
 <p>Prototypes: representative examples of the class</p>
 <p>Criticisms: examples of the class that are not well represented by the prototypes</p>
 <p>Maximum Mean Discrepancy (MMD) to measure the
@@ -3142,14 +3149,14 @@ discrepancy between two distributions, given by</p>
 <div class="arithmatex">\[
 MMD^2 = \frac{1}{m^2} \sum_{i, j} k(z_i, z_j) - \frac{2}{mn} \sum_{i, j} k(z_i, x_j) + \frac{1}{n^2} \sum_{i, j} k(x_i, x_j)
 \]</div>
-<h4 id="prototypes"><strong>Prototypes</strong><a class="headerlink" href="#prototypes" title="Permanent link">¶</a></h4>
+<h4 id="prototypes"><strong>Prototypes</strong><a class="headerlink" href="#prototypes" title="anchor link to this section for reference">¶</a></h4>
 <p>To find prototypes:
 1. Start with an empty set of prototypes.
 2. While the number of prototypes is below the chosen number $ m $:
    - For each instance in the dataset, check how much MMD is reduced when the instance is added to the set of prototypes.
    - Add the data instance that minimizes MMD to the set of prototypes.
 3. Return the set of prototypes.</p>
-<h4 id="criticisms">Criticisms<a class="headerlink" href="#criticisms" title="Permanent link">¶</a></h4>
+<h4 id="criticisms">Criticisms<a class="headerlink" href="#criticisms" title="anchor link to this section for reference">¶</a></h4>
 <p>To find criticisms, the following witness function is used:
 $$
 text{witness}(x) = frac{1}{n} sum_{i} k(x, x_i) - frac{1}{m} sum_{j} k(x, z_j)
@@ -3161,7 +3168,7 @@ $$
 The prototypes represent common way of writing digits, whereas the criticisms
 represent outliers and ambiguously written digits</p>
 </div>
-<h3 id="counterfactuals-explanation">counterfactuals explanation<a class="headerlink" href="#counterfactuals-explanation" title="Permanent link">¶</a></h3>
+<h3 id="counterfactuals-explanation">counterfactuals explanation<a class="headerlink" href="#counterfactuals-explanation" title="anchor link to this section for reference">¶</a></h3>
 <p>change the input feature vectors</p>
 <p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241022093144.png"/></p>
 <p><a href="https://zhuanlan.zhihu.com/p/464194306">因果推断可解释性 之 反事实解释综述（三） <span>-<span class="heti-spacing"> </span></span>知乎</a></p></div>

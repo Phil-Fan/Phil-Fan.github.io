@@ -891,6 +891,13 @@
   </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Control/Method-Kalman/">
+<span class="md-ellipsis">
+    Kalman Filter
+  </span>
+</a>
+</li>
 </ul>
 </nav>
 </li>
@@ -3627,19 +3634,19 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<div><h1 id="plc">PLC<a class="headerlink" href="#plc" title="Permanent link">¶</a></h1>
-<div markdown="1" style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-:material-circle-edit-outline: 约 5939 个字 :fontawesome-solid-code: 114 行代码 :material-clock-time-two-outline: 预计阅读时间 25 分钟
+<div><h1 id="plc">PLC<a class="headerlink" href="#plc" title="anchor link to this section for reference">¶</a></h1>
+<div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
+<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>5939<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"></path></svg></span> <span>114<span class="heti-spacing"> </span></span>行代码 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>25<span class="heti-spacing"> </span></span>分钟</p>
 </div>
-<h2 id="question">question<a class="headerlink" href="#question" title="Permanent link">¶</a></h2>
-<ul>
-<li><span>[ ]<span class="heti-spacing"> </span></span>变送器规格</li>
+<h2 id="question">question<a class="headerlink" href="#question" title="anchor link to this section for reference">¶</a></h2>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 变送器规格</li>
 <li>定时器</li>
 </ul>
-<h2 id="_1">系统组成和硬件构成<a class="headerlink" href="#_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_1">系统组成和硬件构成<a class="headerlink" href="#_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p>简单介绍常识</p>
 <iframe allowfullscreen="true" border="0" frameborder="no" framespacing="0" scrolling="no" src="//player.bilibili.com/player.html?isOutside=true&amp;aid=1550905959&amp;bvid=BV1Py421z7vZ&amp;cid=1448947420&amp;p=1&amp;autoplay=0"></iframe>
-<h3 id="_2">电源<a class="headerlink" href="#_2" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_2">电源<a class="headerlink" href="#_2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>负载电源（PM）</p>
 <ul>
 <li>为各种模块、其他负载提供外接<span class="heti-skip"><span class="heti-spacing"> </span>24V<span class="heti-spacing"> </span></span>电源。</li>
@@ -3666,7 +3673,7 @@ I0.1 true</p>
 <p>外部存储器
 - 无法直接处理</p>
 <p>PLC（可编程逻辑控制器）的主要组件包括以下部分：</p>
-<h3 id="1-cpu">1. <strong>CPU（中央处理单元）</strong><a class="headerlink" href="#1-cpu" title="Permanent link">¶</a></h3>
+<h3 id="1-cpu">1. <strong>CPU（中央处理单元）</strong><a class="headerlink" href="#1-cpu" title="anchor link to this section for reference">¶</a></h3>
 <p>- <strong>功能</strong>：<span>PLC<span class="heti-spacing"> </span></span>的核心组件，负责处理程序逻辑、执行运算、存储数据，并控制其他模块的运行。
    - <strong>组成</strong>：
      - <strong>处理器</strong>：执行用户编写的控制程序（梯形图、<span>STL<span class="heti-spacing"> </span></span>语言等<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。
@@ -3687,14 +3694,14 @@ I0.1 true</p>
 <li>高速计数器通道：单相<span class="heti-skip"><span class="heti-spacing"> </span>8ch<span class="heti-spacing"> </span></span>模块 → 支持<span class="heti-skip"><span class="heti-spacing"> </span>8<span class="heti-spacing"> </span></span>个独立计数器（如统计电机转速）</li>
 </ul>
 </div>
-<h3 id="2-didigital-input">2. <strong>DI（数字输入，Digital Input）</strong><a class="headerlink" href="#2-didigital-input" title="Permanent link">¶</a></h3>
+<h3 id="2-didigital-input">2. <strong>DI（数字输入，Digital Input）</strong><a class="headerlink" href="#2-didigital-input" title="anchor link to this section for reference">¶</a></h3>
 <p>- <strong>功能</strong>：用于接收外部开关量信号（如按钮、限位开关、光电传感器等<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。
    - <strong>特点</strong>：
      - 只接收两种状态的信号：<strong>0（低电平）</strong>或<strong>1（高电平）</strong>。
      - 常见电压等级：<strong>DC 24V、DC 12V、AC 220V</strong> 等。
      - 可能分为<strong>漏型（NPN）</strong>和<strong>源型（PNP）</strong>输入。</p>
 <hr/>
-<h3 id="3-dodigital-output">3. <strong>DO（数字输出，Digital Output）</strong><a class="headerlink" href="#3-dodigital-output" title="Permanent link">¶</a></h3>
+<h3 id="3-dodigital-output">3. <strong>DO（数字输出，Digital Output）</strong><a class="headerlink" href="#3-dodigital-output" title="anchor link to this section for reference">¶</a></h3>
 <p>- <strong>功能</strong>：用于控制外部设备的开关状态（如继电器、电磁阀、信号灯等<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。
    - <strong>类型</strong>：
      - <strong>继电器输出（Relay Output）</strong>：使用继电器控制，适用于高电压、高电流负载。
@@ -3706,7 +3713,7 @@ I0.1 true</p>
      - 只能输出<strong>开（1）</strong>或<strong>关（0）</strong>信号。
      - 典型输出电压：DC 24V、AC 220V 等。</p>
 <hr/>
-<h3 id="4-aianalog-input">4. <strong>AI（模拟输入，Analog Input）</strong><a class="headerlink" href="#4-aianalog-input" title="Permanent link">¶</a></h3>
+<h3 id="4-aianalog-input">4. <strong>AI（模拟输入，Analog Input）</strong><a class="headerlink" href="#4-aianalog-input" title="anchor link to this section for reference">¶</a></h3>
 <p>- <strong>功能</strong>：用于接收外部模拟信号（如压力传感器、温度传感器、流量计等<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。
    - <strong>类型</strong>：
      - 电压输入（<strong>0-10V、±10V</strong><heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。
@@ -3715,7 +3722,7 @@ I0.1 true</p>
      - 需要 A/D（模数转换）转换，将模拟信号转换为数字信号供 CPU 处理。
      - 通常具有<strong>分辨率</strong>（如<span><span class="heti-spacing"> </span>12-bit</span>、16-bit）影响信号精度。</p>
 <hr/>
-<h3 id="5-aoanalog-output">5. <strong>AO（模拟输出，Analog Output）</strong><a class="headerlink" href="#5-aoanalog-output" title="Permanent link">¶</a></h3>
+<h3 id="5-aoanalog-output">5. <strong>AO（模拟输出，Analog Output）</strong><a class="headerlink" href="#5-aoanalog-output" title="anchor link to this section for reference">¶</a></h3>
 <p>- <strong>功能</strong>：用于输出模拟信号控制外部设备（如变频器、伺服驱动器、调光系统等<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。
    - <strong>类型</strong>：
      - 电压输出（<strong>0-10V、±10V</strong><heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。
@@ -3723,7 +3730,7 @@ I0.1 true</p>
    - <strong>特点</strong>：
      - 需要 D/A（数模转换）转换，将数字信号转换为模拟信号输出。
      - 输出信号可以用于调节电机速度、阀门开度等。</p>
-<h3 id="_3">冗余系统与可靠度<a class="headerlink" href="#_3" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_3">冗余系统与可靠度<a class="headerlink" href="#_3" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p><strong>无故障概率</strong>：单元设备在规定的环境温度、湿度、振动和使用方法及维护措施等条件下，在规定的工作期限内，设备无故障地发挥规定功能的概率。</p>
 <ul>
 <li>并联可以提高系统的可靠性（冗余）</li>
@@ -3776,7 +3783,7 @@ I0.1 true</p>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"成功的概率为：</span><span class="si">{</span><span class="n">success_probability</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </code></pre></div>
 </div>
-<h2 id="_4">数据类型<a class="headerlink" href="#_4" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_4">数据类型<a class="headerlink" href="#_4" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p>可支持二进制、十进制、十六进制、<span>BCD<span class="heti-spacing"> </span></span>码、<span>ASCII<span class="heti-spacing"> </span></span>码、时间、日期等格式的数据</p>
 <p>1D = 2W = 4B = 32bit</p>
 <p>1 real = 4 byte = 32 bit</p>
@@ -3878,7 +3885,7 @@ I0.1 true</p>
 </tbody>
 </table>
 <p>位、字节、字、双字的关系</p>
-<h2 id="_5">地址<a class="headerlink" href="#_5" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_5">地址<a class="headerlink" href="#_5" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <table>
 <thead>
 <tr>
@@ -3948,7 +3955,7 @@ I0.1 true</p>
 <li>模拟量<span class="heti-skip"><span class="heti-spacing"> </span>IO<span class="heti-spacing"> </span></span>模块：<strong>每个模拟量地址为<span class="heti-skip"><span class="heti-spacing"> </span>16<span class="heti-spacing"> </span></span>位（<span>2<span class="heti-spacing"> </span></span>字节）</strong>，<span>8<span class="heti-spacing"> </span></span>通道模块的地址占<span class="heti-skip"><span class="heti-spacing"> </span>16<span class="heti-spacing"> </span></span>字节，<span>2<span class="heti-spacing"> </span></span>通道模块地址占<span class="heti-skip"><span class="heti-spacing"> </span>4<span class="heti-spacing"> </span></span>字节</li>
 </ul>
 <p><span>I/O<span class="heti-spacing"> </span></span>地址生成方式：在配置硬件时，系统自动提供缺省地址（推荐使用，通常地址是够用的<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，也可手动设置地址 </p>
-<h3 id="_6">过程映像区<a class="headerlink" href="#_6" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_6">过程映像区<a class="headerlink" href="#_6" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>过程映像区（Process Image）是<span><span class="heti-spacing"> </span>PLC</span>（可编程逻辑控制器）中用于存储输入和输出信号状态的区域。它位于<span class="heti-skip"><span class="heti-spacing"> </span>CPU<span class="heti-spacing"> </span></span>的系统存储区中，用于在程序执行过程中提供一致的输入和输出信号状态</p>
 <p>程映像区的更新机制：过程映像区在每个扫描周期中更新一次。</p>
 <p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250405092605.png"/></p>
@@ -3958,20 +3965,20 @@ I0.1 true</p>
 <li>支持变量名称访问，不容易搞错。建议自己定义变量名称，容易记忆。</li>
 <li>即读即写指令中应加 <code>:P</code>。</li>
 </ul>
-<h3 id="_7">寻址方式<a class="headerlink" href="#_7" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<h4 id="_8">立即寻址 ｜ 直接给出操作数的值<a class="headerlink" href="#_8" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h3 id="_7">寻址方式<a class="headerlink" href="#_7" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h4 id="_8">立即寻址 ｜ 直接给出操作数的值<a class="headerlink" href="#_8" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p>x.y
 - x:  字节数：0-65536
 - y:  位数：0-7 </p>
 <p>直接给出操作数的值</p>
-<h4 id="_9">直接寻址 ｜ 直接给出地址<a class="headerlink" href="#_9" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h4 id="_9">直接寻址 ｜ 直接给出地址<a class="headerlink" href="#_9" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p>给出操作数的地址，直接访问存储器中的数据</p>
 <div class="admonition question">
 <p class="admonition-title">寄存器间接寻址和存储器间接寻址有什么区别？</p>
 </div>
-<h4 id="_10">存储器间接寻址<a class="headerlink" href="#_10" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h4 id="_10">存储器间接寻址<a class="headerlink" href="#_10" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p>指令中给出的地址不是操作数的直接地址，而是指向操作数地址的指针。</p>
-<h4 id="_11">寄存器间接寻址 ｜ 循环操作<a class="headerlink" href="#_11" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h4 id="_11">寄存器间接寻址 ｜ 循环操作<a class="headerlink" href="#_11" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <div class="admonition example">
 <p class="admonition-title">把<code>I0.0</code>开始的<span class="heti-skip"><span class="heti-spacing"> </span>64<span class="heti-spacing"> </span></span>个连续位状态，通过循环方式逐个转存到从<code>DB1.DBX10.0</code>开始的连续<span class="heti-skip"><span class="heti-spacing"> </span>64<span class="heti-spacing"> </span></span>个位中</p>
 <p>多个开关量信号的批量采样，批量存放到数据块中</p>
@@ -4047,12 +4054,12 @@ I0.1 true</p>
   输入是模拟量，把模拟量输入映射到实数INT上面</li>
 </ul>
 </div>
-<h2 id="_12">程序表示<a class="headerlink" href="#_12" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_12">程序表示<a class="headerlink" href="#_12" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p><span>LAD(<span class="heti-spacing"> </span></span>梯形图<span><span class="heti-spacing"> </span>)</span>、<span>STL(<span class="heti-spacing"> </span></span>语句表<span><span class="heti-spacing"> </span>)</span>、<span>FBD(<span class="heti-spacing"> </span></span>功能块图<span><span class="heti-spacing"> </span>)</span>、<span>SCL(<span class="heti-spacing"> </span></span>结构化语言，如类<span class="heti-skip"><span class="heti-spacing"> </span>Pascal<span class="heti-spacing"> </span></span>语言<span><span class="heti-spacing"> </span>)</span>、<span>GRAPH(<span class="heti-spacing"> </span></span>图表化语言<span class="heti-skip"><span class="heti-spacing"> </span>)<span class="heti-spacing"> </span></span>等，<span>LAD<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>FBD<span class="heti-spacing"> </span></span>可以互相转化，其他不可互相转化</p>
 <p>编程语言对应：<br/>
 - <strong>STEP 7</strong>：用于西门子<span class="heti-skip"><span class="heti-spacing"> </span>PLC<span class="heti-spacing"> </span></span>编程的软件，支持结构化编程。<br/>
 - <strong><span>C<span class="heti-spacing"> </span></span>语言</strong>：一种通用的编程语言，也支持结构化编程。  </p>
-<h3 id="1-lad-ladder-diagram">1. LAD（梯形图<span><span class="heti-spacing"> </span>Ladder Diagram</span>）<a class="headerlink" href="#1-lad-ladder-diagram" title="Permanent link">¶</a></h3>
+<h3 id="1-lad-ladder-diagram">1. LAD（梯形图<span><span class="heti-spacing"> </span>Ladder Diagram</span>）<a class="headerlink" href="#1-lad-ladder-diagram" title="anchor link to this section for reference">¶</a></h3>
 <p><strong>特点</strong>：
 - <strong>图形化语言</strong>：使用图形符号表示逻辑关系，类似于继电器控制电路图。
 - <strong>直观易懂</strong>：适合电气工程师和初学者，易于理解和调试。
@@ -4063,7 +4070,7 @@ I0.1 true</p>
 <p>软继电器：梯形图中某些编程元件沿用了继电器这一名称
 能流：即“概念电流”，从左向右流动
 母线：可想象左正右负的直流电源，右母线有时可以不画出</p>
-<h3 id="2-fbd-function-block-diagram"><strong>2. FBD（功能块图<span><span class="heti-spacing"> </span>Function Block Diagram</span>）</strong><a class="headerlink" href="#2-fbd-function-block-diagram" title="Permanent link">¶</a></h3>
+<h3 id="2-fbd-function-block-diagram"><strong>2. FBD（功能块图<span><span class="heti-spacing"> </span>Function Block Diagram</span>）</strong><a class="headerlink" href="#2-fbd-function-block-diagram" title="anchor link to this section for reference">¶</a></h3>
 <p><strong>特点</strong>：
 - <strong>模块化编程</strong>：通过功能块（Function Block）实现模块化编程，提高代码复用性。
 - <strong>图形化语言</strong>：使用图形符号表示功能块和信号流向。
@@ -4071,7 +4078,7 @@ I0.1 true</p>
 <p><strong>应用场景</strong>：
 - 常用于复杂的逻辑控制、过程控制和算法实现。
 - 适合处理模拟量信号和复杂的数学运算。</p>
-<h3 id="3-scl-structured-control-language"><strong>3. SCL（结构化控制语言<span><span class="heti-spacing"> </span>Structured Control Language</span>）</strong><a class="headerlink" href="#3-scl-structured-control-language" title="Permanent link">¶</a></h3>
+<h3 id="3-scl-structured-control-language"><strong>3. SCL（结构化控制语言<span><span class="heti-spacing"> </span>Structured Control Language</span>）</strong><a class="headerlink" href="#3-scl-structured-control-language" title="anchor link to this section for reference">¶</a></h3>
 <p><strong>特点</strong>：
 - <strong>文本化语言</strong>：类似于高级编程语言（如<span><span class="heti-spacing"> </span>C</span>、Pascal<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，使用文本编写代码。
 - <strong>结构化编程</strong>：支持结构化编程概念，如循环、分支、函数等。
@@ -4079,7 +4086,7 @@ I0.1 true</p>
 <p><strong>应用场景</strong>：
 - 常用于复杂的算法实现、数据处理和高级控制逻辑。
 - 适合处理大量的数据和复杂的数学模型。</p>
-<h3 id="4-stl-statement-list"><strong>4. STL（语句表<span><span class="heti-spacing"> </span>Statement List</span>）</strong><a class="headerlink" href="#4-stl-statement-list" title="Permanent link">¶</a></h3>
+<h3 id="4-stl-statement-list"><strong>4. STL（语句表<span><span class="heti-spacing"> </span>Statement List</span>）</strong><a class="headerlink" href="#4-stl-statement-list" title="anchor link to this section for reference">¶</a></h3>
 <div class="highlight"><pre><span></span><code>操作码 操作数(&lt;=1个)
 </code></pre></div>
 <p>过程：读取指令、翻译代码、执行指令</p>
@@ -4127,9 +4134,9 @@ T     %QW416:P                 // 十进制转换结果输出到过程输出缓�
 <ul>
 <li><code>CALL</code> 是调用函数的关键字</li>
 </ul>
-<h2 id="_13">程序指令<a class="headerlink" href="#_13" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_13">程序指令<a class="headerlink" href="#_13" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p>根据图片内容，我将操作码指令分为以下几类，并提供示例使用和讲解：</p>
-<h3 id="_14">累加器数据装入<a class="headerlink" href="#_14" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_14">累加器数据装入<a class="headerlink" href="#_14" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>L means load</p>
 <ul>
 <li><strong>L</strong>：将<span class="heti-skip"><span class="heti-spacing"> </span>A1<span class="heti-spacing"> </span></span>中的数据移入<span><span class="heti-spacing"> </span>A2</span>，并将操作数内容（如<span><span class="heti-spacing"> </span>20</span>）装入<span><span class="heti-spacing"> </span>A1</span>。</li>
@@ -4137,7 +4144,7 @@ T     %QW416:P                 // 十进制转换结果输出到过程输出缓�
 <p></p><div class="highlight"><span class="filename">示例使用</span><pre><span></span><code>L<span class="w"> </span><span class="m">20</span>
 </code></pre></div>
 讲解：执行该指令后，A1的值变为20，同时A1中原数据被移入A2。
-<h3 id="_15">累加器数据传送<a class="headerlink" href="#_15" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_15">累加器数据传送<a class="headerlink" href="#_15" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>T means transfer</p>
 <ul>
 <li><strong>T</strong>：把<span class="heti-skip"><span class="heti-spacing"> </span>A1<span class="heti-spacing"> </span></span>中的内容传送到目标位置（如<span><span class="heti-spacing"> </span>MW6</span><heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，<span>A1<span class="heti-spacing"> </span></span>中原数据不变。</li>
@@ -4145,28 +4152,28 @@ T     %QW416:P                 // 十进制转换结果输出到过程输出缓�
 <p></p><div class="highlight"><span class="filename">示例使用</span><pre><span></span><code>T<span class="w"> </span>MW6
 </code></pre></div>
 讲解：执行该指令后，A1的值被传送到MW6，但A1的值保持不变。
-<h3 id="_16">地址寄存器地址装入<a class="headerlink" href="#_16" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_16">地址寄存器地址装入<a class="headerlink" href="#_16" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ul>
 <li><strong>LAR1(LAR2)</strong>：将操作数装入<span><span class="heti-spacing"> </span>AR1</span>（AR2<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，若指令中没有给出操作数，则将<span class="heti-skip"><span class="heti-spacing"> </span>A1<span class="heti-spacing"> </span></span>内容装入<span><span class="heti-spacing"> </span>AR1</span>（AR2<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。</li>
 </ul>
 <p></p><div class="highlight"><span class="filename">示例使用</span><pre><span></span><code>LAR1<span class="w"> </span><span class="m">20</span>
 </code></pre></div>
 讲解：执行该指令后，AR1的值变为20。如果指令中没有给出操作数，则AR1的值将变为A1的值。
-<h3 id="_17">地址寄存器地址传送<a class="headerlink" href="#_17" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_17">地址寄存器地址传送<a class="headerlink" href="#_17" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ul>
 <li><strong>TAR1(TAR2)</strong>：将<span><span class="heti-spacing"> </span>AR1</span>（AR2）的内容传送给目标位置，若指令中没有给出操作数，则将<span><span class="heti-spacing"> </span>AR1</span>（AR2）的内容传送给<span><span class="heti-spacing"> </span>A1</span>。</li>
 </ul>
 <p></p><div class="highlight"><span class="filename">示例使用</span><pre><span></span><code>TAR1<span class="w"> </span>MW6
 </code></pre></div>
 讲解：执行该指令后，AR1的值被传送到MW6。如果指令中没有给出操作数，则AR1的值将被传送到A1。
-<h3 id="_18">地址寄存器地址交换<a class="headerlink" href="#_18" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_18">地址寄存器地址交换<a class="headerlink" href="#_18" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ul>
 <li><strong>CAR</strong>：交换<span class="heti-skip"><span class="heti-spacing"> </span>AR1<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>AR2<span class="heti-spacing"> </span></span>的内容。</li>
 </ul>
 <p></p><div class="highlight"><span class="filename">示例使用</span><pre><span></span><code>CAR
 </code></pre></div>
 讲解：执行该指令后，AR1和AR2的值将被交换。
-<h3 id="_19">比较指令<a class="headerlink" href="#_19" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_19">比较指令<a class="headerlink" href="#_19" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ul>
 <li><strong>&gt;I</strong>：<span>I<span class="heti-spacing"> </span></span>为整数型比较（累加器中低<span class="heti-skip"><span class="heti-spacing"> </span>16<span class="heti-spacing"> </span></span>位<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。</li>
 <li><strong>&gt;D</strong>：<span>D<span class="heti-spacing"> </span></span>为长整数比较。</li>
@@ -4175,9 +4182,9 @@ T     %QW416:P                 // 十进制转换结果输出到过程输出缓�
 <p></p><div class="highlight"><span class="filename">示例使用</span><pre><span></span><code>&gt;I<span class="w"> </span>A2
 </code></pre></div>
 讲解：执行该指令后，如果A2的值大于A1的值（低16位），则RLO置“1”，否则RLO置“0”。
-<h3 id="_20">数值运算指令<a class="headerlink" href="#_20" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<h3 id="_21">数值运算指令<a class="headerlink" href="#_21" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<h4 id="_22">加法<a class="headerlink" href="#_22" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h3 id="_20">数值运算指令<a class="headerlink" href="#_20" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_21">数值运算指令<a class="headerlink" href="#_21" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h4 id="_22">加法<a class="headerlink" href="#_22" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <ul>
 <li><strong>+I</strong>：将<span class="heti-skip"><span class="heti-spacing"> </span>A2<span class="heti-spacing"> </span></span>与<span class="heti-skip"><span class="heti-spacing"> </span>A1<span class="heti-spacing"> </span></span>相加，结果的<span class="heti-skip"><span class="heti-spacing"> </span>16<span class="heti-spacing"> </span></span>位和放入<span class="heti-skip"><span class="heti-spacing"> </span>A1<span class="heti-spacing"> </span></span>低字。</li>
 <li><strong>+D</strong>：将<span class="heti-skip"><span class="heti-spacing"> </span>A2<span class="heti-spacing"> </span></span>与<span class="heti-skip"><span class="heti-spacing"> </span>A1<span class="heti-spacing"> </span></span>相加，结果的<span class="heti-skip"><span class="heti-spacing"> </span>32<span class="heti-spacing"> </span></span>位和放入<span><span class="heti-spacing"> </span>A1</span>。</li>
@@ -4186,7 +4193,7 @@ T     %QW416:P                 // 十进制转换结果输出到过程输出缓�
 <p></p><div class="highlight"><span class="filename">示例使用</span><pre><span></span><code>+R<span class="w"> </span>A2
 </code></pre></div>
 讲解：执行该指令后，A2与A1相加，结果的浮点数和放入A1。
-<h4 id="_23">减法<a class="headerlink" href="#_23" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h4 id="_23">减法<a class="headerlink" href="#_23" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <ul>
 <li><strong>-I</strong>：将<span class="heti-skip"><span class="heti-spacing"> </span>A2<span class="heti-spacing"> </span></span>与<span class="heti-skip"><span class="heti-spacing"> </span>A1<span class="heti-spacing"> </span></span>相减，结果的<span class="heti-skip"><span class="heti-spacing"> </span>16<span class="heti-spacing"> </span></span>位差放入<span class="heti-skip"><span class="heti-spacing"> </span>A1<span class="heti-spacing"> </span></span>低字。</li>
 <li><strong>-D</strong>：将<span class="heti-skip"><span class="heti-spacing"> </span>A2<span class="heti-spacing"> </span></span>与<span class="heti-skip"><span class="heti-spacing"> </span>A1<span class="heti-spacing"> </span></span>相减，结果的<span class="heti-skip"><span class="heti-spacing"> </span>32<span class="heti-spacing"> </span></span>位差放入<span><span class="heti-spacing"> </span>A1</span>。</li>
@@ -4195,7 +4202,7 @@ T     %QW416:P                 // 十进制转换结果输出到过程输出缓�
 <p></p><div class="highlight"><span class="filename">示例使用</span><pre><span></span><code>-R<span class="w"> </span>A2
 </code></pre></div>
 讲解：执行该指令后，A2从A1中减去，结果的浮点数差放入A1。
-<h4 id="_24">乘法<a class="headerlink" href="#_24" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h4 id="_24">乘法<a class="headerlink" href="#_24" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <ul>
 <li><strong>*I</strong>：将<span class="heti-skip"><span class="heti-spacing"> </span>A2<span class="heti-spacing"> </span></span>与<span class="heti-skip"><span class="heti-spacing"> </span>A1<span class="heti-spacing"> </span></span>相乘，结果的<span class="heti-skip"><span class="heti-spacing"> </span>32<span class="heti-spacing"> </span></span>位积放入<span><span class="heti-spacing"> </span>A1</span>。</li>
 <li><strong>*D</strong>：将<span class="heti-skip"><span class="heti-spacing"> </span>A2<span class="heti-spacing"> </span></span>与<span class="heti-skip"><span class="heti-spacing"> </span>A1<span class="heti-spacing"> </span></span>相乘，结果的<span class="heti-skip"><span class="heti-spacing"> </span>64<span class="heti-spacing"> </span></span>位积放入<span><span class="heti-spacing"> </span>D</span>。</li>
@@ -4204,7 +4211,7 @@ T     %QW416:P                 // 十进制转换结果输出到过程输出缓�
 <p></p><div class="highlight"><span class="filename">示例使用</span><pre><span></span><code>*R<span class="w"> </span>A2
 </code></pre></div>
 讲解：执行该指令后，A2与A1相乘，结果的浮点数积放入A1。
-<h4 id="_25">除法<a class="headerlink" href="#_25" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h4 id="_25">除法<a class="headerlink" href="#_25" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <ul>
 <li><strong>/I</strong>：将<span class="heti-skip"><span class="heti-spacing"> </span>A2<span class="heti-spacing"> </span></span>除以<span><span class="heti-spacing"> </span>A1</span>，结果的<span class="heti-skip"><span class="heti-spacing"> </span>16<span class="heti-spacing"> </span></span>位商放入<span class="heti-skip"><span class="heti-spacing"> </span>A1<span class="heti-spacing"> </span></span>低字，余数放入<span class="heti-skip"><span class="heti-spacing"> </span>A1<span class="heti-spacing"> </span></span>高字。</li>
 <li><strong>/D</strong>：将<span class="heti-skip"><span class="heti-spacing"> </span>A2<span class="heti-spacing"> </span></span>除以<span><span class="heti-spacing"> </span>A1</span>，结果的<span class="heti-skip"><span class="heti-spacing"> </span>32<span class="heti-spacing"> </span></span>位商放入<span><span class="heti-spacing"> </span>A1</span>（<span>D<span class="heti-spacing"> </span></span>相除无余数<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。</li>
@@ -4213,35 +4220,35 @@ T     %QW416:P                 // 十进制转换结果输出到过程输出缓�
 <p></p><div class="highlight"><span class="filename">示例使用</span><pre><span></span><code>/R<span class="w"> </span>A2
 </code></pre></div>
 讲解：执行该指令后，A2除以A1，结果的浮点数商放入A1。
-<h4 id="_26">绝对值<a class="headerlink" href="#_26" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h4 id="_26">绝对值<a class="headerlink" href="#_26" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <ul>
 <li><strong>ABS</strong>：对<span class="heti-skip"><span class="heti-spacing"> </span>A1<span class="heti-spacing"> </span></span>的<span class="heti-skip"><span class="heti-spacing"> </span>32<span class="heti-spacing"> </span></span>位实数取绝对值，结果放入<span><span class="heti-spacing"> </span>A1</span>。</li>
 </ul>
 <p></p><div class="highlight"><span class="filename">示例使用</span><pre><span></span><code>ABS
 </code></pre></div>
 讲解：执行该指令后，A1的值取绝对值，结果放入A1。
-<h3 id="_27">位逻辑运算<a class="headerlink" href="#_27" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<h4 id="_28">与操作<a class="headerlink" href="#_28" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h3 id="_27">位逻辑运算<a class="headerlink" href="#_27" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h4 id="_28">与操作<a class="headerlink" href="#_28" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <ul>
 <li><strong>与</strong>：<code>A</code></li>
 <li><strong>与非</strong>：<code>AN</code></li>
 </ul>
-<h4 id="_29">或操作<a class="headerlink" href="#_29" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h4 id="_29">或操作<a class="headerlink" href="#_29" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <ul>
 <li><strong>或</strong>：<code>O</code></li>
 <li><strong>或非</strong>：<code>ON</code></li>
 </ul>
-<h4 id="_30">赋值操作<a class="headerlink" href="#_30" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h4 id="_30">赋值操作<a class="headerlink" href="#_30" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <ul>
 <li><strong>赋值</strong>：<code>＝</code></li>
 </ul>
-<h4 id="_31">状态操作<a class="headerlink" href="#_31" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h4 id="_31">状态操作<a class="headerlink" href="#_31" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <ul>
 <li><strong>置位</strong>：<code>S</code></li>
 <li><strong>复位</strong>：<code>R</code></li>
 </ul>
-<h3 id="_32">状态位<a class="headerlink" href="#_32" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<h4 id="fc">首次检测位（FC）<a class="headerlink" href="#fc" title="Permanent link">¶</a></h4>
+<h3 id="_32">状态位<a class="headerlink" href="#_32" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h4 id="fc">首次检测位（FC）<a class="headerlink" href="#fc" title="anchor link to this section for reference">¶</a></h4>
 <ul>
 <li><strong>定义</strong>：首次检测位（FC）用于指示新逻辑串的开始。</li>
 <li><strong>作用</strong>：<ul>
@@ -4252,7 +4259,7 @@ T     %QW416:P                 // 十进制转换结果输出到过程输出缓�
 <li><strong>特殊指令</strong>：当执行到 <code>R</code>、<code>S</code>、<code>=</code> 等指令时，<code>FC</code> 会清 <code>0</code>，表示逻辑串结束。</li>
 <li><strong>用途</strong>：通过 <code>FC</code> 来区分不同的逻辑串。</li>
 </ul>
-<h4 id="rloresult-of-logic-operation">逻辑操作结果（RLO，Result of Logic Operation）<a class="headerlink" href="#rloresult-of-logic-operation" title="Permanent link">¶</a></h4>
+<h4 id="rloresult-of-logic-operation">逻辑操作结果（RLO，Result of Logic Operation）<a class="headerlink" href="#rloresult-of-logic-operation" title="anchor link to this section for reference">¶</a></h4>
 <ul>
 <li><strong>定义</strong>：逻辑操作结果（RLO）用于存储位逻辑指令或算术比较指令的结果。</li>
 <li><strong>作用</strong>：<ul>
@@ -4262,8 +4269,8 @@ T     %QW416:P                 // 十进制转换结果输出到过程输出缓�
 </li>
 <li><strong>特点</strong>：所有的逻辑运算结果均存储在此处。</li>
 </ul>
-<h2 id="_33">程序结构<a class="headerlink" href="#_33" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<h3 id="ob">组织块（OB）<a class="headerlink" href="#ob" title="Permanent link">¶</a></h3>
+<h2 id="_33">程序结构<a class="headerlink" href="#_33" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h3 id="ob">组织块（OB）<a class="headerlink" href="#ob" title="anchor link to this section for reference">¶</a></h3>
 <ul>
 <li><strong><span>OB1<span class="heti-spacing"> </span></span>块</strong>：对应于<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言中的<code>main()</code>函数，是程序的入口点。  </li>
 </ul>
@@ -4318,12 +4325,12 @@ T     %QW416:P                 // 十进制转换结果输出到过程输出缓�
 </tr>
 </tbody>
 </table>
-<h3 id="fcfb">函数<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>块（<span>FC<span class="heti-spacing"> </span></span>和<span><span class="heti-spacing"> </span>FB</span>）<a class="headerlink" href="#fcfb" title="Permanent link">¶</a></h3>
+<h3 id="fcfb">函数<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>块（<span>FC<span class="heti-spacing"> </span></span>和<span><span class="heti-spacing"> </span>FB</span>）<a class="headerlink" href="#fcfb" title="anchor link to this section for reference">¶</a></h3>
 <ul>
 <li><strong>FC（Function）</strong>：子程序或函数，通过赋实参来调用。  </li>
 <li><strong>FB（Function Block）</strong>：函数块，通过背景数据块赋值来调用。  </li>
 </ul>
-<h3 id="db">数据块（DB）全局变量<a class="headerlink" href="#db" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="db">数据块（DB）全局变量<a class="headerlink" href="#db" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ul>
 <li>数据块是<span class="heti-skip"><span class="heti-spacing"> </span>PLC<span class="heti-spacing"> </span></span>最主要的数据存储区，需要用户自己定义，<strong>相当于<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言全局变量</strong></li>
 <li>主要存放<span class="heti-skip"><span class="heti-spacing"> </span>IO<span class="heti-spacing"> </span></span>结果、中间运算结果和状态、与其他设备或系统交互的数据等<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>块内数据可定义<span><span class="heti-spacing"> </span>bool</span>、byte、int、real、date、<span>time<span class="heti-spacing"> </span></span>等多种数据类型</li>
@@ -4332,13 +4339,13 @@ T     %QW416:P                 // 十进制转换结果输出到过程输出缓�
     - <strong>共享数据块</strong>：在多个程序块中使用，类似于<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言中的全局变量。
     - <strong>背景数据块</strong>定义：附属于某个<span class="heti-skip"><span class="heti-spacing"> </span>FB<span class="heti-spacing"> </span></span>块、数据结构与<span class="heti-skip"><span class="heti-spacing"> </span>FB<span class="heti-spacing"> </span></span>输入输出数据格式完全相符的数据块，可以理解为<span class="heti-skip"><span class="heti-spacing"> </span>FB<span class="heti-spacing"> </span></span>批量赋值的数据块，也可以当作一般<span class="heti-skip"><span class="heti-spacing"> </span>DB<span class="heti-spacing"> </span></span>块用</li>
 </ul>
-<h3 id="sfbsfc">系统函数（SFB/SFC）<a class="headerlink" href="#sfbsfc" title="Permanent link">¶</a></h3>
+<h3 id="sfbsfc">系统函数（SFB/SFC）<a class="headerlink" href="#sfbsfc" title="anchor link to this section for reference">¶</a></h3>
 <p>类似于库函数</p>
 <ul>
 <li><strong>SFB（System Function Block）</strong>：系统功能块，提供特定的系统功能。  </li>
 <li><strong>SFC（System Function）</strong>：系统功能，提供特定的系统服务。  </li>
 </ul>
-<h3 id="_34">调用关系<a class="headerlink" href="#_34" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_34">调用关系<a class="headerlink" href="#_34" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ul>
 <li><span>OB<span class="heti-spacing"> </span></span>块只能被系统调用（被事件触发<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，不可以被其他程序调用。</li>
 <li><span>OB<span class="heti-spacing"> </span></span>块可以调用<span class="heti-skip"><span class="heti-spacing"> </span>FB<span class="heti-spacing"> </span></span>或<span><span class="heti-spacing"> </span>FC</span>。</li>
@@ -4347,7 +4354,7 @@ T     %QW416:P                 // 十进制转换结果输出到过程输出缓�
 <li>嵌套越深，占用<span class="heti-skip"><span class="heti-spacing"> </span>L<span class="heti-spacing"> </span></span>堆栈越多，需防止“爆栈”现象。
 <img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250405001921.png"/></li>
 </ul>
-<h2 id="_35">定时器<a class="headerlink" href="#_35" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_35">定时器<a class="headerlink" href="#_35" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <div class="admonition note">
 <p class="admonition-title">要求掌握<span class="heti-skip"><span class="heti-spacing"> </span>SS<span class="heti-spacing"> </span></span>和<span><span class="heti-spacing"> </span>TON</span></p>
 </div>
@@ -4399,7 +4406,7 @@ T     %QW416:P                 // 十进制转换结果输出到过程输出缓�
 </tr>
 </tbody>
 </table>
-<h3 id="ss">SS（保持型接通延时定时器）<a class="headerlink" href="#ss" title="Permanent link">¶</a></h3>
+<h3 id="ss">SS（保持型接通延时定时器）<a class="headerlink" href="#ss" title="anchor link to this section for reference">¶</a></h3>
 <p><img alt="LAD图" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250405103721.png"/></p>
 <div class="highlight"><span class="filename">SDL</span><pre><span></span><code>A<span class="w">   </span>%I0.0
 L<span class="w">   </span>S5T#10s
@@ -4465,7 +4472,7 @@ A<span class="w">   </span>%T1
 </tr>
 </tbody>
 </table>
-<h3 id="ton"><span>TON<span class="heti-spacing"> </span></span>定时器<a class="headerlink" href="#ton" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="ton"><span>TON<span class="heti-spacing"> </span></span>定时器<a class="headerlink" href="#ton" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <table>
 <thead>
 <tr>
@@ -4502,8 +4509,8 @@ A<span class="w">   </span>%T1
 </tr>
 </tbody>
 </table>
-<h2 id="_36">系统开发案例<a class="headerlink" href="#_36" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<h3 id="_37">电机的优先启动控制<a class="headerlink" href="#_37" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h2 id="_36">系统开发案例<a class="headerlink" href="#_36" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h3 id="_37">电机的优先启动控制<a class="headerlink" href="#_37" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>工艺要求：有五个电机<span><span class="heti-spacing"> </span>M1</span>～M5，</p>
 <p>每个电机都有启动和停止按钮（无自锁）</p>
 <p>要求按顺序启动，即<span class="heti-skip"><span class="heti-spacing"> </span>M1<span class="heti-spacing"> </span></span>不开，<span>M2<span class="heti-spacing"> </span></span>不能开，<span>M2<span class="heti-spacing"> </span></span>不开，<span>M3<span class="heti-spacing"> </span></span>不能开<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>前级电机停止，则后面的电机也停止</p>
@@ -4514,7 +4521,7 @@ A<span class="w">   </span>%T1
 <p>提醒：先设计出一个电机的启停控制程序
 再设计出五个电机的启停控制程序最后设计出五个电机的关联开关程序</p>
 <p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250405103721.png"/></p>
-<h3 id="_38">通风机的监控<a class="headerlink" href="#_38" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_38">通风机的监控<a class="headerlink" href="#_38" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>工艺要求：有<span class="heti-skip"><span class="heti-spacing"> </span>3<span class="heti-spacing"> </span></span>个通风机，设计一个监控系统，监视风机的运转，要求：
 当有2个或2个以上风机运转的时候，信号灯持续发亮；
 1个风机运转的时候，信号灯以1Hz的频率闪烁；
@@ -4524,13 +4531,13 @@ A<span class="w">   </span>%T1
 信号灯输出（1个 —— %Q4.0</p>
 <p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250406145757.png"/></p>
 <p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250406145821.png"/></p>
-<h3 id="_39">延时开关（注意设计自锁）<a class="headerlink" href="#_39" title="Permanent link">¶</a></h3>
+<h3 id="_39">延时开关（注意设计自锁）<a class="headerlink" href="#_39" title="anchor link to this section for reference">¶</a></h3>
 <p>有一台开关泵和一台开关阀，开关阀安装与泵的出口。请设计一段控制程序，满足：
 （1）当输入信号为ON时，立即打开阀门，过3秒后启动开关泵
 （2）当输入信号为OFF时，立即关闭开关泵，过5秒后关阀</p>
 <p>（输入信号地址<span class="heti-skip"><span class="heti-spacing"> </span>%I0.4<span class="heti-spacing"> </span></span>开关阀输出地址<span class="heti-skip"><span class="heti-spacing"> </span>%Q4.4<span class="heti-spacing"> </span></span>开关泵输出地址<span><span class="heti-spacing"> </span>%Q4.5</span>）
 <img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250406145933.png"/></p>
-<h3 id="_40">原料输送系统（延时开关）<a class="headerlink" href="#_40" title="Permanent link">¶</a></h3>
+<h3 id="_40">原料输送系统（延时开关）<a class="headerlink" href="#_40" title="anchor link to this section for reference">¶</a></h3>
 <p>某原料输送系统的控制点包括：</p>
 <ul>
 <li><strong>启动按钮</strong>：<span>1<span class="heti-spacing"> </span></span>个，常开无自锁。</li>
@@ -4556,8 +4563,8 @@ A<span class="w">   </span>%T1
 - 当储罐A中料满时，关闭阀V，10s后再关闭电机M；
 3）按下停止按钮后，系统进入停机状态：并立即关闭开关阀V，经10s后再关闭输送电机M。</p>
 <p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250406150103.png"/></p>
-<h2 id="_41">实验课<a class="headerlink" href="#_41" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<h3 id="_42">硬件构成<a class="headerlink" href="#_42" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h2 id="_41">实验课<a class="headerlink" href="#_41" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h3 id="_42">硬件构成<a class="headerlink" href="#_42" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>NI、NO、AI、AO</p>
 <p>接线端子：
 - DX：用于信号和器件中间进行隔离

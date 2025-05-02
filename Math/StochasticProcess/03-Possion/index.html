@@ -980,6 +980,13 @@
   </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Robotics/Control/Method-Kalman/">
+<span class="md-ellipsis">
+    Kalman Filter
+  </span>
+</a>
+</li>
 </ul>
 </nav>
 </li>
@@ -3081,14 +3088,14 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<div><h1 id="03"><span>03 |<span class="heti-spacing"> </span></span>泊松过程<a class="headerlink" href="#03" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h1>
-<div markdown="1" style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-:material-circle-edit-outline: 约 549 个字 :material-clock-time-two-outline: 预计阅读时间 2 分钟
+<div><h1 id="03"><span>03 |<span class="heti-spacing"> </span></span>泊松过程<a class="headerlink" href="#03" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h1>
+<div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
+<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>549<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>2<span class="heti-spacing"> </span></span>分钟</p>
 </div>
-<h2 id="_1">独立增量过程<a class="headerlink" href="#_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_1">独立增量过程<a class="headerlink" href="#_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p><span><span class="arithmatex">\(\forall\;n\geq2\)</span><span class="heti-spacing"> </span></span>且<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(n\in Z\)</span><span class="heti-spacing"> </span></span>与<span><span class="heti-spacing"> </span><span class="arithmatex">\(t_0&lt;t_1&lt;\dots&lt;t_n\)</span></span> ，增量<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(X(t_1)-X(t_0),X(t_2)-X(t_1),\dots,X(t_n)-X(t_{n-1})\)</span><span class="heti-spacing"> </span></span>相互独立。</p>
 <p>若<span><span class="heti-spacing"> </span><span class="arithmatex">\(\forall\;0\leq s&lt;t\)</span></span> ，增量<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(X(t)-X(s)\)</span><span class="heti-spacing"> </span></span>的分布只依赖于<span><span class="heti-spacing"> </span><span class="arithmatex">\(t-s\)</span></span> ，则为平稳独立增量过程。</p>
-<h2 id="_2">齐次泊松过程<a class="headerlink" href="#_2" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_2">齐次泊松过程<a class="headerlink" href="#_2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p>定义<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(N(t)\)</span><span class="heti-spacing"> </span></span>表示<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\((0,t\,]\)</span><span class="heti-spacing"> </span></span>内发生的<span class="heti-skip"><span class="heti-spacing"> </span>"<span class="heti-spacing"> </span></span>事件<span class="heti-skip"><span class="heti-spacing"> </span>"<span class="heti-spacing"> </span></span>数。</p>
 <p>若计数过程<span class="heti-skip"><span class="heti-spacing"> </span>{ <span class="arithmatex">\(N(t);t\leq0\)</span> }<span class="heti-spacing"> </span></span>是强度为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\lambda\)</span><span class="heti-spacing"> </span></span>的<strong>齐次泊松过程</strong>，则</p>
 <p><strong>①</strong> <span class="arithmatex">\(N(0)=0\)</span></p>
@@ -3096,20 +3103,20 @@
 <p><strong>③</strong> 对于<span><span class="heti-spacing"> </span><span class="arithmatex">\(\forall\;0\leq s&lt;t\)</span></span> ，有<span><span class="heti-spacing"> </span><span class="arithmatex">\(P(N(t)-N(s)=k)=\frac {[\lambda(t-s)]^k·e^{-\lambda(t-s)}}{k!},\quad k=0,1,2,\dots,\)</span></span></p>
 <p><strong>④</strong> 对于<span><span class="heti-spacing"> </span><span class="arithmatex">\(\forall\;t&gt;s\quad n\leq m\quad P(N_s=m\mid N_t=n)=C_n^m(\frac st)^m·(1-\frac st)^{n-m}\)</span></span></p>
 <p>​                                               <span class="arithmatex">\(P(N_t=n\mid N_s=m)=P(N(t)-N(s)=n-m)\)</span></p>
-<h3 id="_3">均值函数<a class="headerlink" href="#_3" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_3">均值函数<a class="headerlink" href="#_3" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p><span class="arithmatex">\(\mu_N(t)=E[N(t)]=\lambda t\)</span></p>
-<h3 id="_4">方差函数<a class="headerlink" href="#_4" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_4">方差函数<a class="headerlink" href="#_4" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p><span class="arithmatex">\(D_N(t)=D[N(t)]=\lambda t\)</span></p>
-<h3 id="_5">自相关函数<a class="headerlink" href="#_5" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_5">自相关函数<a class="headerlink" href="#_5" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p><span class="arithmatex">\(R_N(t_1,t_2)=E[N(t_1)·N(t_2)]=\lambda min(t_1,t_2)\)</span></p>
-<h3 id="_6">自协方差函数<a class="headerlink" href="#_6" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_6">自协方差函数<a class="headerlink" href="#_6" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p><span class="arithmatex">\(C_N(t_1,t_2)=Cov[N(t_1),N(t_2)]=\lambda min(t_1,t_2)+\lambda^2t_1t_2\)</span></p>
-<h3 id="_7">泊松过程的合成<a class="headerlink" href="#_7" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_7">泊松过程的合成<a class="headerlink" href="#_7" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>若<span class="heti-skip"><span class="heti-spacing"> </span>{ <span class="arithmatex">\(X(t);t\leq0\)</span> }<span class="heti-spacing"> </span></span>与<span class="heti-skip"><span class="heti-spacing"> </span>{ <span class="arithmatex">\(Y(t);t\leq0\)</span> }<span class="heti-spacing"> </span></span>是相互独立的分别具有强度<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\lambda_1\)</span><span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\lambda_2\)</span><span class="heti-spacing"> </span></span>的泊松过程，</p>
 <p>则<span class="heti-skip"><span class="heti-spacing"> </span>{ <span class="arithmatex">\(N(t)=X(t)+Y(t);t\leq0\)</span> }<span class="heti-spacing"> </span></span>是强度为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\lambda_1+\lambda_2\)</span><span class="heti-spacing"> </span></span>的泊松过程。</p>
-<h3 id="_8">泊松过程的分解<a class="headerlink" href="#_8" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_8">泊松过程的分解<a class="headerlink" href="#_8" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>若计数过程<span class="heti-skip"><span class="heti-spacing"> </span>{ <span class="arithmatex">\(N(t);t\leq0\)</span> }<span class="heti-spacing"> </span></span>是强度为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\lambda\)</span><span class="heti-spacing"> </span></span>的<strong>泊松过程</strong>，且对于事件<span><span class="heti-spacing"> </span><span class="arithmatex">\(N\)</span></span> ，其中类型<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(X\)</span><span class="heti-spacing"> </span></span>发生的概率为<span><span class="heti-spacing"> </span><span class="arithmatex">\(p\)</span></span> ，类型<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(Y\)</span><span class="heti-spacing"> </span></span>发生的概率为<span><span class="heti-spacing"> </span><span class="arithmatex">\(1-p\)</span></span> ，则<span class="heti-skip"><span class="heti-spacing"> </span>{ <span class="arithmatex">\(X(t);t\leq0\)</span> }<span class="heti-spacing"> </span></span>与<span class="heti-skip"><span class="heti-spacing"> </span>{ <span class="arithmatex">\(Y(t);t\leq0\)</span> }<span class="heti-spacing"> </span></span>是相互独立的分别具有强度<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\lambda p\)</span><span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\lambda (1-p)\)</span><span class="heti-spacing"> </span></span>的泊松过程。</p>
-<h3 id="_9">与泊松分布相关的若干分布<a class="headerlink" href="#_9" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_9">与泊松分布相关的若干分布<a class="headerlink" href="#_9" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p><strong>①</strong> <span><span class="arithmatex">\(W_n\)</span><span class="heti-spacing"> </span></span>是第<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(n\)</span><span class="heti-spacing"> </span></span>个事件发生的时刻。</p>
 <p>​   <span class="arithmatex">\(F_{W_n}(t)=P(W_n\leq t)=P(N(t)\geq n)=1-\sum_{k=0}^{n-1}\frac{(\lambda t)^k e^{-\lambda t}}{k!}\)</span></p>
 <p>​   <span class="arithmatex">\(f_{W_n(t)}=\frac{\lambda(\lambda t)^{n-1}}{(n-1)!}\)</span></p>
@@ -3117,7 +3124,7 @@
 <p>​   <span class="arithmatex">\(F_{T_i}(t)=P(T_i\leq t)=1-P(T_i&gt;t)=1-P(N(t)&lt;1)=1-P(N(t)=0)=1-e^{-\lambda t}\)</span></p>
 <p><strong>③</strong> 若已知<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\((0,t\,]\)</span><span class="heti-spacing"> </span></span>内恰好有一事件发生，则此事件的发生时刻在<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\((0,t\,]\)</span><span class="heti-spacing"> </span></span>内均匀分布。</p>
 <p>​   <span class="arithmatex">\(P(T_1\leq s\mid N(t)=1)=\frac st\qquad 0&lt;s\leq t\)</span></p>
-<h2 id="_10">非齐次泊松过程<a class="headerlink" href="#_10" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_10">非齐次泊松过程<a class="headerlink" href="#_10" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p><span><span class="arithmatex">\(\lambda\)</span><span class="heti-spacing"> </span></span>不再为常数，而是<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(t\)</span><span class="heti-spacing"> </span></span>的函数。</p>
 <p>若计数过程<span class="heti-skip"><span class="heti-spacing"> </span>{ <span class="arithmatex">\(N(t);t\leq0\)</span> }<span class="heti-spacing"> </span></span>是强度为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\lambda(t)\)</span><span class="heti-spacing"> </span></span>的<strong>非齐次泊松过程</strong>，则</p>
 <p><strong>①</strong> <span class="arithmatex">\(N(0)=0\)</span></p>

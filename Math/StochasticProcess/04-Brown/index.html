@@ -948,6 +948,13 @@
   </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Robotics/Control/Method-Kalman/">
+<span class="md-ellipsis">
+    Kalman Filter
+  </span>
+</a>
+</li>
 </ul>
 </nav>
 </li>
@@ -3017,30 +3024,30 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<div><h1 id="04"><span>04 |<span class="heti-spacing"> </span></span>布朗运动<a class="headerlink" href="#04" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h1>
-<div markdown="1" style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-:material-circle-edit-outline: 约 351 个字 :material-clock-time-two-outline: 预计阅读时间 1 分钟
+<div><h1 id="04"><span>04 |<span class="heti-spacing"> </span></span>布朗运动<a class="headerlink" href="#04" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h1>
+<div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
+<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>351<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>分钟</p>
 </div>
-<h2 id="_1">定义<a class="headerlink" href="#_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_1">定义<a class="headerlink" href="#_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p>直线上一质点每隔<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\Delta t\)</span><span class="heti-spacing"> </span></span>等概率向左或向右移动距离<span><span class="heti-spacing"> </span><span class="arithmatex">\(\Delta x\)</span></span> ，且每次移动相互独立 ，<span><span class="arithmatex">\(X(t)\)</span><span class="heti-spacing"> </span></span>为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(t\)</span><span class="heti-spacing"> </span></span>时刻质点的位置。</p>
 <p><strong>①</strong> <span class="arithmatex">\(X(t)\sim N(0,\sigma^2)\)</span></p>
 <p><strong>②</strong> <span class="arithmatex">\(X(0)=0\)</span></p>
 <p><strong>③</strong> <span class="arithmatex">\(\forall\;0\leq s&lt;t\quad X(t)-X(s)\sim N(0,\sigma^2(t-s))\)</span></p>
 <p>一般考虑<strong>标准布朗运动</strong>，即<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(B(t)\sim N(0,t)\qquad (\sigma^2=1)\)</span><span class="heti-spacing"> </span></span>且<span><span class="heti-spacing"> </span><span class="arithmatex">\(C_B(t_1,t_2)=min(t_1,t_2)\)</span></span></p>
-<h2 id="_2">标准布朗运动的性质<a class="headerlink" href="#_2" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_2">标准布朗运动的性质<a class="headerlink" href="#_2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p><strong><span><span class="arithmatex">\(Markov\)</span><span class="heti-spacing"> </span></span>性：</strong> <span><span class="arithmatex">\(\forall\;t\quad\)</span>   { <span class="arithmatex">\(B(t+s)-B(t);s\geq 0\)</span> }<span class="heti-spacing"> </span></span>是标准布朗运动。</p>
 <p><strong>自相似性：</strong> <span><span class="arithmatex">\(\forall\;a\neq0\quad\)</span>    { <span class="arithmatex">\(\frac1aB(a^2t);t\geq 0\)</span> }<span class="heti-spacing"> </span></span>是标准布朗运动。</p>
 <p><strong><span>0<span class="heti-spacing"> </span></span>与<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\infty\)</span><span class="heti-spacing"> </span></span>对称性：</strong> 令<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\overset{\sim}B(t)=\begin{cases}tB(\frac 1t)\quad t&gt;0\\[2ex]0\qquad\quad t=0\end{cases}\)</span><span class="heti-spacing"> </span></span>则<span class="heti-skip"><span class="heti-spacing"> </span>{ <span class="arithmatex">\(\overset{\sim}B(t);t\geq0\)</span> }<span class="heti-spacing"> </span></span>是标准布朗运动。</p>
-<h2 id="_3">相关分布<a class="headerlink" href="#_3" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_3">相关分布<a class="headerlink" href="#_3" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p><strong>①</strong> <span><span class="arithmatex">\(T_a\)</span><span class="heti-spacing"> </span></span>是首次击中<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(a\)</span><span class="heti-spacing"> </span></span>的时间。</p>
 <p>​   <span class="arithmatex">\(\forall\;a&gt;0\quad F_{T_a}(t)=P(T_a\leq t)=\underline {P(\underset{0\leq s\leq t}{max}\,B(s)\geq a)=2P(B(t)\geq a)}=2[1-\Phi(\frac{\mid a\mid}{\sqrt t})]\)</span></p>
 <p><strong>②</strong> <span class="arithmatex">\(X(t)=\mid \underset{0\leq s\leq t}{min}\,B(s)\mid\)</span></p>
 <p>​   <span class="arithmatex">\(F_{X(t)}(y)=P(X(t)\leq y)\overset{B_1(s)=-B(s)}{====}P(\underset{0\leq s\leq t}{max}\,B_1(s)\leq y)=1-2P(B_1(t)&gt;y)=2\Phi(\frac y{\sqrt t})-1\qquad(t\geq 0)\)</span></p>
 <p><strong>③</strong> <span class="arithmatex">\(P(\underset{0\leq s\leq t}{min}\,B(s)\leq -y)=P(\underset{0\leq s\leq t}{max}\,B(s)\geq y)\)</span>  （对称性）</p>
-<h2 id="_4">布朗桥运动<a class="headerlink" href="#_4" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_4">布朗桥运动<a class="headerlink" href="#_4" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p><span class="arithmatex">\(X(t)=B(t)-tB(1)\quad 0\leq t \leq 1\)</span></p>
 <p><strong>①</strong> <span class="arithmatex">\(X(0)=X(1)=0\)</span> <strong>②</strong> 为正态过程 <strong>③</strong> <span><span class="arithmatex">\(\mu_X(t)=0\)</span><span class="heti-spacing"> </span></span>且<span><span class="heti-spacing"> </span><span class="arithmatex">\(\forall\;0&lt;s&lt;t&lt;1\quad C_X(s,t)=s(1-t)\)</span></span></p>
-<h2 id="_5">例题<a class="headerlink" href="#_5" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_5">例题<a class="headerlink" href="#_5" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p><strong>①</strong> 用<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(N(t)\)</span><span class="heti-spacing"> </span></span>表示在<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\((0,t\,]\)</span><span class="heti-spacing"> </span></span>小时内收到的短信数目。设<span class="heti-skip"><span class="heti-spacing"> </span>{ <span class="arithmatex">\(N(t);t\leq0\)</span> }<span class="heti-spacing"> </span></span>是强度为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\lambda=5\)</span><span class="heti-spacing"> </span></span>条的泊松过程，且每条短信独立地以概率<span class="heti-skip"><span class="heti-spacing"> </span>0.6<span class="heti-spacing"> </span></span>是垃圾短信。</p>
 <p>设垃圾短信的数目为<span><span class="heti-spacing"> </span><span class="arithmatex">\(N_1(t)\)</span></span> ，正常短信的数目为<span><span class="heti-spacing"> </span><span class="arithmatex">\(N_2(t)\)</span></span> 。</p>
 <p><span>{ <span class="arithmatex">\(N_1(t);t\leq0\)</span> }<span class="heti-spacing"> </span></span>是强度为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\lambda p=5\times0.6=3\)</span><span class="heti-spacing"> </span></span>条的泊松过程，<span>{ <span class="arithmatex">\(N_2(t);t\leq0\)</span> }<span class="heti-spacing"> </span></span>是强度为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\lambda (1-p)=5\times0.4=2\)</span><span class="heti-spacing"> </span></span>条的泊松过程。</p>
@@ -3059,7 +3066,7 @@
 <p>（2）<span class="arithmatex">\(Cov(B(3)-2B(1),B(2))=D[B(2)-B(1)]-D[B(1)]=0\)</span></p>
 <p>（3）<span class="arithmatex">\(P(B(5.5)&gt;5\mid B(1.1)=3,B(1.5)=1)=P(B(5.5)-B(1.5)&gt;4)=1-\Phi(2)=0.02\)</span></p>
 <p>（4）<span class="arithmatex">\(P(\underset{0\leq t\leq6.25}{max}\,B(t)&lt;2.5)=1-P(\underset{0\leq t\leq6.25}{max}\,B(t)\geq2.5)=1-2[1-P(B(6.25)&lt;2.5)]=2\Phi(1)-1=0.68\)</span></p>
-<h2 id="_6">解题方式<a class="headerlink" href="#_6" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_6">解题方式<a class="headerlink" href="#_6" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p><strong>①</strong> 泊松过程的合成与分解。</p>
 <p><strong>②</strong> 一定要将不独立的变量转化为独立增量。</p>
 <p><strong>③</strong> 布朗运动的<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(Markov\)</span><span class="heti-spacing"> </span></span>性。</p>

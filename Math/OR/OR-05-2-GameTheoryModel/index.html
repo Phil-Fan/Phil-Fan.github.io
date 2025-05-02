@@ -995,6 +995,13 @@
   </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Robotics/Control/Method-Kalman/">
+<span class="md-ellipsis">
+    Kalman Filter
+  </span>
+</a>
+</li>
 </ul>
 </nav>
 </li>
@@ -3111,9 +3118,9 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<div><h1 id="_1">博弈论模型<a class="headerlink" href="#_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h1>
-<div markdown="1" style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-:material-circle-edit-outline: 约 2235 个字 :material-clock-time-two-outline: 预计阅读时间 9 分钟
+<div><h1 id="_1">博弈论模型<a class="headerlink" href="#_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h1>
+<div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
+<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>2235<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>9<span class="heti-spacing"> </span></span>分钟</p>
 </div>
 <p>《博弈论基础》模型总结</p>
 <table>
@@ -3139,7 +3146,7 @@
 </table>
 <p>对于一个博弈模型来说，下面是收益矩阵的一般形式</p>
 <p><img alt="image-20240317144338295" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240317144338295.png"/> </p>
-<h2 id="_2">囚犯困境模型<a class="headerlink" href="#_2" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_2">囚犯困境模型<a class="headerlink" href="#_2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p>参数大小关系：a&gt;e, b&gt;d, a<g b="" c="">g, f&gt;h</g></p>
 <p>具体参数</p>
 <table>
@@ -3213,7 +3220,7 @@
 </tbody>
 </table>
 <p>对于两个人来说，都表白并在一起是整体的均衡解。但是吗，不论对于男生还是女生来说，在不知道双向暗恋的情况下，告白有一定的风险，若是告白失败，那么朋友显然就没得做了。所以博弈结果就是双方都会选择占优策略的均衡解，即双方都不表白。</p>
-<h2 id="_3">性别战博弈<a class="headerlink" href="#_3" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_3">性别战博弈<a class="headerlink" href="#_3" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p>参数大小关系：a&gt;b, g&lt;h, max(c, d, e, f)≤min(b, g)</p>
 <p>具体就是</p>
 <table>
@@ -3263,7 +3270,7 @@
 <p>如果<span class="heti-skip"><span class="heti-spacing"> </span>A<span class="heti-spacing"> </span></span>先关灯，发挥先动优势，<span>B<span class="heti-spacing"> </span></span>可能退让。</p>
 <p>如果<span class="heti-skip"><span class="heti-spacing"> </span>B<span class="heti-spacing"> </span></span>先打游戏，发挥先动优势，<span>A<span class="heti-spacing"> </span></span>可能宽容。</p>
 <p>如果<span><span class="heti-spacing"> </span>A</span>，<span>B<span class="heti-spacing"> </span></span>约定哪几天一起熬夜，哪几天一起早睡，则在遵守约定的前提下整体均衡结果不会是冲突。</p>
-<h2 id="_4">猎鹿博弈模型<a class="headerlink" href="#_4" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_4">猎鹿博弈模型<a class="headerlink" href="#_4" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p>参数大小关系：a&gt;e&gt;c, a&gt;g, b&gt;h&gt;f, b&gt;h</p>
 <p>具体来讲</p>
 <table>
@@ -3315,12 +3322,12 @@
 <p>感悟：</p>
 <p>猎鹿博弈其实实现的是“1+1&gt;2”的合作效果。</p>
 <p>目前在世界上比比皆是的企业强强联合就很接近于猎鹿博弈的帕累托改善，跨国汽车公司的联合、日本两大银行的联合等等均属此列，这种强强联合造成的结果是资金雄厚、生产技术先进、在世界上占有的竞争地位更优越，发挥的影响更显赫。总之，他们将蛋糕做得更大，双方的效益也就越高。比如宝山钢铁公司与上海钢铁集团强强联合也好，最重要的就是将蛋糕做大。在宝钢与上钢的强强联合中，宝钢有着资金、效益、管理水平、规模等各方面的优势，上钢也有着生产技术与经验的优势。两个公司实施强强联合，充分发挥各方的优势，发掘更多更大的潜力，形成一个更大更有力的拳头，将蛋糕做得比原先两个蛋糕之和还要大。</p>
-<h2 id="_5">智猪博弈<a class="headerlink" href="#_5" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_5">智猪博弈<a class="headerlink" href="#_5" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p>参数大小关系：a&gt;e, c&gt;g, b&gt;d, h&gt;f</p>
-<h3 id="_6">背景介绍<a class="headerlink" href="#_6" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_6">背景介绍<a class="headerlink" href="#_6" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>猪圈里有两头猪，一头大猪，一头小猪。猪圈的一边有个踏板，每踩一下踏板，在远离踏板的猪圈的<strong>另一边</strong>的投食口就会落下少量的食物。</p>
 <p>如果有一只猪去踩踏板，另一只猪就有机会抢先吃到另一边落下的食物。当小猪踩动踏板时，大猪会在小猪跑到食槽之前刚好吃光所有的食物；若是大猪踩动了踏板，则还有机会在小猪吃完落下的食物之前跑到食槽，争吃到另一半残羹。</p>
-<h3 id="_7">均衡分析<a class="headerlink" href="#_7" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_7">均衡分析<a class="headerlink" href="#_7" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>收益矩阵为：</p>
 <table>
 <thead>
@@ -3488,7 +3495,7 @@
 <p>负向激励用来告诉团队成员什么样的行为是不可以做的（例如小猪只会等待的行为<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。对于那些工作偷懒，产出不佳，甚至危害团队合作的小猪，采用批评、处罚等方式，杜绝某类行为的再次发生。</p>
 <p>作为大猪，要在一定程度上接纳小猪搭便车。因为大猪的最优策略其实是让自己更值钱。你做得越多，你的成长越快，越值钱，有朝一日离开这个失衡的环境，你就越有可能找到更好的机会，获取更多的回报。从这个角度讲，充当大猪的那些任劳任怨的工程师，更看重的是做事的机会，通过在公司的平台上做事，最终成就自己。哪怕在一个小猪众多，看起来付出与收获不成比例的环境里也能成就自己。</p>
 <p>作为小猪，应当尽量通过发挥自己某方面的能力与大猪建立良好的合作关系，与大猪形成有效的互补，这样才能一起前进，跟着大猪取得更大的成就！</p>
-<h2 id="_8">懦夫博弈<a class="headerlink" href="#_8" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_8">懦夫博弈<a class="headerlink" href="#_8" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p>参数大小关系：a&lt;e&lt;g&lt;c, b&lt;d&lt;h&lt;f</p>
 <p>具体来讲</p>
 <table>
@@ -3520,7 +3527,7 @@
 <p><span>l A<span class="heti-spacing"> </span></span>对博弈结果的影响</p>
 <p>上面计算得到的期望收益为<span><span class="heti-spacing"> </span>A(1-A/C)</span>，关于<span class="heti-skip"><span class="heti-spacing"> </span>A<span class="heti-spacing"> </span></span>是一个开口朝下的抛物线，最高点在<span class="heti-skip"><span class="heti-spacing"> </span>C/2<span class="heti-spacing"> </span></span>处取到。</p>
 <p>重赏之下，必有莽夫！赢者通吃，导致过度竞争！</p>
-<h3 id="_9">例子<a class="headerlink" href="#_9" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_9">例子<a class="headerlink" href="#_9" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>以冷战期间古巴导弹危机为例</p>
 <p>古巴导弹危机</p>
 <table>
@@ -3547,7 +3554,7 @@
 <p>古巴导弹危机可以说是史上玩得最大的“懦夫博弈”。<span>1962<span class="heti-spacing"> </span></span>年，苏联在古巴境内秘密部署核导弹，由此美苏双方不断升级威慑手段，战争一触即发。但经过<span class="heti-skip"><span class="heti-spacing"> </span>13<span class="heti-spacing"> </span></span>天的针锋相对，双方最终互相妥协，苏联撤走了部署在古巴的导弹，美国也保证不再入侵古巴并撤回其部署在土耳其和意大利的导弹。在这场危机中，双方都不断“在危险的边缘试探”，以此恐吓对方妥协而避免两败俱伤的结果。</p>
 <p>感悟：</p>
 <p>懦夫博弈的逻辑是“不要命的最大”，因为如果两人都拒绝转弯而任由两车相撞，那么最终将会两败俱伤、谁都无法收益。故而谁坚持直行到最后，而逼迫对方做出改变，谁就是游戏中的赢家。</p>
-<h2 id="_10">混合博弈和监督博弈<a class="headerlink" href="#_10" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_10">混合博弈和监督博弈<a class="headerlink" href="#_10" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p>参数大小关系<span><span class="heti-spacing"> </span>: b&lt;0, e&lt;0, f&lt;0</span>，h&gt;0, g&gt;0, f&gt;-a</p>
 <p>具体点，就是</p>
 <table>
@@ -3584,7 +3591,7 @@
 <p>当<span class="heti-skip"><span class="heti-spacing"> </span>F<span class="heti-spacing"> </span></span>越大<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>雇主的检查概率下降<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>雇员的偷懒概率也会下降。乱世用重典的含义即在此。</p>
 <p>当<span class="heti-skip"><span class="heti-spacing"> </span>H<span class="heti-spacing"> </span></span>越大<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>雇主的检查概率增加<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>雇员的偷懒概率不变。越是难以完成的工作<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>越需要雇主加强监督。</p>
 <p>当<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>越大<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>雇主的检查概率不变<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>雇员的偷懒概率增加。越是难以监督的工作<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>雇员就越会偷懒。</p>
-<h3 id="_11">例子<a class="headerlink" href="#_11" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_11">例子<a class="headerlink" href="#_11" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>以上微积分课堂师生点名</p>
 <table>
 <thead>
@@ -3612,7 +3619,7 @@
 <p>老师点名有效的期望为<span><span class="heti-spacing"> </span><span class="arithmatex">\(V-2(CV)^(1/2)+F\)</span></span></p>
 <p>来教室的期望收益为<span><span class="heti-spacing"> </span>W-H</span></p>
 <p>双方总期望收益为<span><span class="heti-spacing"> </span><span class="arithmatex">\(V-H-CV/(W+F)\)</span></span></p>
-<h2 id="_12">最后通牒博弈模型<a class="headerlink" href="#_12" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_12">最后通牒博弈模型<a class="headerlink" href="#_12" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <table>
 <thead>
 <tr>

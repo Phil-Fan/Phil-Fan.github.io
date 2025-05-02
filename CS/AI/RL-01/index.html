@@ -889,6 +889,13 @@
   </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Robotics/Control/Method-Kalman/">
+<span class="md-ellipsis">
+    Kalman Filter
+  </span>
+</a>
+</li>
 </ul>
 </nav>
 </li>
@@ -3075,11 +3082,11 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<div><h1 id="reinforcement-learning">强化学习<span><span class="heti-spacing"> </span>| Reinforcement Learning</span><a class="headerlink" href="#reinforcement-learning" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h1>
-<div markdown="1" style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-:material-circle-edit-outline: 约 716 个字 :material-clock-time-two-outline: 预计阅读时间 3 分钟
+<div><h1 id="reinforcement-learning">强化学习<span><span class="heti-spacing"> </span>| Reinforcement Learning</span><a class="headerlink" href="#reinforcement-learning" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h1>
+<div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
+<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>716<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>3<span class="heti-spacing"> </span></span>分钟</p>
 </div>
-<h2 id="_1">基本概念<a class="headerlink" href="#_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_1">基本概念<a class="headerlink" href="#_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p><a href="https://www.bilibili.com/video/BV1o14y1a7FL">强化学习<span><span class="heti-spacing"> </span>brian</span></a></p>
 <p>find the best sequence of actions to maximize the reward</p>
 <p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241107093547.png"/></p>
@@ -3111,28 +3118,28 @@ E = &lt;X,A,P,R&gt;
 <li><span class="arithmatex">\(\pi(x,a)\)</span>: policy function</li>
 </ul>
 <p>缺点</p>
-<h3 id="_2">手动调整策略<a class="headerlink" href="#_2" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_2">手动调整策略<a class="headerlink" href="#_2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>环境变化时，需要重新调整策略</p>
 <p>explainable AI</p>
 <p>黑盒模型，不清楚哪里出错了</p>
-<h3 id="robustness">robustness<a class="headerlink" href="#robustness" title="Permanent link">¶</a></h3>
+<h3 id="robustness">robustness<a class="headerlink" href="#robustness" title="anchor link to this section for reference">¶</a></h3>
 <p>how to verify: </p>
 <p>with a learned policy, it's hard to predict how the system will behave from one state to another</p>
 <p><span>RL<span class="heti-spacing"> </span></span>的测试次数是更多的</p>
-<h3 id="verification-is-also-difficult">verification is also difficult<a class="headerlink" href="#verification-is-also-difficult" title="Permanent link">¶</a></h3>
-<h3 id="formal-verification">formal verification<a class="headerlink" href="#formal-verification" title="Permanent link">¶</a></h3>
+<h3 id="verification-is-also-difficult">verification is also difficult<a class="headerlink" href="#verification-is-also-difficult" title="anchor link to this section for reference">¶</a></h3>
+<h3 id="formal-verification">formal verification<a class="headerlink" href="#formal-verification" title="anchor link to this section for reference">¶</a></h3>
 <p>稳定裕度这样的指标是不存在的；无法确定鲁棒性和安全性</p>
-<h3 id="_3">方法<a class="headerlink" href="#_3" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_3">方法<a class="headerlink" href="#_3" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ul>
 <li>set up learning  to b e more robust </li>
 <li>increase the safety</li>
 <li>solve a different problem</li>
 </ul>
-<h3 id="exploration-exploitation">Exploration &amp; Exploitation<a class="headerlink" href="#exploration-exploitation" title="Permanent link">¶</a></h3>
+<h3 id="exploration-exploitation">Exploration &amp; Exploitation<a class="headerlink" href="#exploration-exploitation" title="anchor link to this section for reference">¶</a></h3>
 <p>exploration: explore new areas in the environment </p>
 <p>exploitation: collect the most reward you already know</p>
 <p>tricky to balance exploration and exploitation</p>
-<h4 id="epsilon-greedy"><span><span class="arithmatex">\(\epsilon\)</span>-greedy<span class="heti-spacing"> </span></span>策略<a class="headerlink" href="#epsilon-greedy" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h4 id="epsilon-greedy"><span><span class="arithmatex">\(\epsilon\)</span>-greedy<span class="heti-spacing"> </span></span>策略<a class="headerlink" href="#epsilon-greedy" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p>即以<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\epsilon\)</span><span class="heti-spacing"> </span></span>的概率进行探索，以<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(1-\epsilon\)</span><span class="heti-spacing"> </span></span>的概率进行利用；所以概率分布较宽的时候，<span><span class="arithmatex">\(\epsilon\)</span><span class="heti-spacing"> </span></span>应该取大一些</p>
 <p>递推求解即可，仅需记忆次数<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(n-1\)</span><span class="heti-spacing"> </span></span>以及平均奖赏<span><span class="heti-spacing"> </span><span class="arithmatex">\(Q_{n-1}(k)\)</span></span></p>
 <div class="arithmatex">\[
@@ -3142,16 +3149,16 @@ Q(k) &amp;= \frac{1}{n} \sum_{i=1}^{n} v_i \\
 &amp;= Q_{n-1}(k) + \frac{1}{n} (v_n - Q_{n-1}(k))
 \end{aligned}
 \]</div>
-<h4 id="softmax"><span>Softmax<span class="heti-spacing"> </span></span>策略<a class="headerlink" href="#softmax" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h4 id="softmax"><span>Softmax<span class="heti-spacing"> </span></span>策略<a class="headerlink" href="#softmax" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p>基于<span class="heti-skip"><span class="heti-spacing"> </span>Boltzmann<span class="heti-spacing"> </span></span>分布，选择概率与奖赏成正比</p>
 <div class="arithmatex">\[
 P(a) = \frac{e^{Q(a) /\tau}}{\sum_{i=1}^{k} e^{Q(i) / \tau}}
 \]</div>
 <p><span><span class="arithmatex">\(\tau\)</span><span class="heti-spacing"> </span></span>是温度参数，控制探索的强度；当<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\tau \to 0\)</span><span class="heti-spacing"> </span></span>时，<span>Softmax<span class="heti-spacing"> </span></span>退化为仅利用；当<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\tau \to \infty\)</span><span class="heti-spacing"> </span></span>时，<span>Softmax<span class="heti-spacing"> </span></span>退化为仅探索</p>
-<h3 id="k-k-armed-bandit"><span>k<span class="heti-spacing"> </span></span>摇臂赌博机<span><span class="heti-spacing"> </span>| k-armed bandit</span><a class="headerlink" href="#k-k-armed-bandit" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<h3 id="deploy-verify">Deploy &amp; verify<a class="headerlink" href="#deploy-verify" title="Permanent link">¶</a></h3>
+<h3 id="k-k-armed-bandit"><span>k<span class="heti-spacing"> </span></span>摇臂赌博机<span><span class="heti-spacing"> </span>| k-armed bandit</span><a class="headerlink" href="#k-k-armed-bandit" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="deploy-verify">Deploy &amp; verify<a class="headerlink" href="#deploy-verify" title="anchor link to this section for reference">¶</a></h3>
 <p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241107112543.png"/></p>
-<h2 id="bellman-equation">Bellman Equation<a class="headerlink" href="#bellman-equation" title="Permanent link">¶</a></h2>
+<h2 id="bellman-equation">Bellman Equation<a class="headerlink" href="#bellman-equation" title="anchor link to this section for reference">¶</a></h2>
 <p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241107112014.png"/></p>
 <div class="arithmatex">\[
 Q(s, a) = r(s, a) + \gamma \sum_{s' \in S} P(s' | s, a) V(s')
@@ -3160,7 +3167,7 @@ Q(s, a) = r(s, a) + \gamma \sum_{s' \in S} P(s' | s, a) V(s')
 - 连续的动作空间
 - 估计确定性策略，训练更快</p>
 <p><span>critic<span class="heti-spacing"> </span></span>是帮助<span class="heti-skip"><span class="heti-spacing"> </span>actor<span class="heti-spacing"> </span></span>进行训练的，<span>actor<span class="heti-spacing"> </span></span>是决定策略选择的</p>
-<h2 id="policy">Policy<a class="headerlink" href="#policy" title="Permanent link">¶</a></h2>
+<h2 id="policy">Policy<a class="headerlink" href="#policy" title="anchor link to this section for reference">¶</a></h2>
 <div class="admonition note">
 <p class="admonition-title">state → action</p>
 </div>
@@ -3176,10 +3183,10 @@ Q(s, a) = r(s, a) + \gamma \sum_{s' \in S} P(s' | s, a) V(s')
 <li>collect reward</li>
 <li>increase probability of good action</li>
 </ul>
-<h3 id="policy-function">Policy-function<a class="headerlink" href="#policy-function" title="Permanent link">¶</a></h3>
-<h3 id="value-function">Value-function<a class="headerlink" href="#value-function" title="Permanent link">¶</a></h3>
-<h3 id="actor-critic">Actor-Critic<a class="headerlink" href="#actor-critic" title="Permanent link">¶</a></h3>
-<h2 id="_4">有模型学习<a class="headerlink" href="#_4" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h3 id="policy-function">Policy-function<a class="headerlink" href="#policy-function" title="anchor link to this section for reference">¶</a></h3>
+<h3 id="value-function">Value-function<a class="headerlink" href="#value-function" title="anchor link to this section for reference">¶</a></h3>
+<h3 id="actor-critic">Actor-Critic<a class="headerlink" href="#actor-critic" title="anchor link to this section for reference">¶</a></h3>
+<h2 id="_4">有模型学习<a class="headerlink" href="#_4" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p>Reward function: 
 - make a reward function is easy
 - make a good reward function is hard</p>
@@ -3188,16 +3195,16 @@ Q(s, a) = r(s, a) + \gamma \sum_{s' \in S} P(s' | s, a) V(s')
 <div class="admonition bug">
 <p class="admonition-title">策略评估公式推导</p>
 </div>
-<h3 id="bellman-optimal-equation-boe"><span>bellman optimal equation |<span class="heti-spacing"> </span></span>贝尔曼最优方程<span><span class="heti-spacing"> </span>BOE</span><a class="headerlink" href="#bellman-optimal-equation-boe" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="bellman-optimal-equation-boe"><span>bellman optimal equation |<span class="heti-spacing"> </span></span>贝尔曼最优方程<span><span class="heti-spacing"> </span>BOE</span><a class="headerlink" href="#bellman-optimal-equation-boe" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>模型已知的情况下，强化学习任务可以归结为基于动态规划的求优问题</p>
 <div class="admonition note">
 <p class="admonition-title"><span>bellman<span class="heti-spacing"> </span></span>与动态规划</p>
 </div>
-<h2 id="monte-carlo-learning">蒙特卡罗学习<span><span class="heti-spacing"> </span>| Monte Carlo Learning</span><a class="headerlink" href="#monte-carlo-learning" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<h2 id="temporal-difference-learning">时序差分学习<span><span class="heti-spacing"> </span>| Temporal Difference Learning</span><a class="headerlink" href="#temporal-difference-learning" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<h2 id="value-function-approximation">Value Function Approximation<a class="headerlink" href="#value-function-approximation" title="Permanent link">¶</a></h2>
-<h2 id="policy-gradient">Policy Gradient<a class="headerlink" href="#policy-gradient" title="Permanent link">¶</a></h2>
-<h2 id="actor-critic_1">Actor-Critic<a class="headerlink" href="#actor-critic_1" title="Permanent link">¶</a></h2></div>
+<h2 id="monte-carlo-learning">蒙特卡罗学习<span><span class="heti-spacing"> </span>| Monte Carlo Learning</span><a class="headerlink" href="#monte-carlo-learning" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="temporal-difference-learning">时序差分学习<span><span class="heti-spacing"> </span>| Temporal Difference Learning</span><a class="headerlink" href="#temporal-difference-learning" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="value-function-approximation">Value Function Approximation<a class="headerlink" href="#value-function-approximation" title="anchor link to this section for reference">¶</a></h2>
+<h2 id="policy-gradient">Policy Gradient<a class="headerlink" href="#policy-gradient" title="anchor link to this section for reference">¶</a></h2>
+<h2 id="actor-critic_1">Actor-Critic<a class="headerlink" href="#actor-critic_1" title="anchor link to this section for reference">¶</a></h2></div>
 <aside class="md-source-file">
 <span class="md-source-file__fact">
 <span class="md-icon" title="最后更新">

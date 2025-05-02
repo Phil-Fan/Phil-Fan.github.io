@@ -891,6 +891,13 @@
   </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Robotics/Control/Method-Kalman/">
+<span class="md-ellipsis">
+    Kalman Filter
+  </span>
+</a>
+</li>
 </ul>
 </nav>
 </li>
@@ -3131,15 +3138,15 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<div><h1 id="solidity">Solidity<a class="headerlink" href="#solidity" title="Permanent link">¶</a></h1>
-<div markdown="1" style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-:material-circle-edit-outline: 约 978 个字 :fontawesome-solid-code: 113 行代码 :material-clock-time-two-outline: 预计阅读时间 5 分钟
+<div><h1 id="solidity">Solidity<a class="headerlink" href="#solidity" title="anchor link to this section for reference">¶</a></h1>
+<div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
+<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>978<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"></path></svg></span> <span>113<span class="heti-spacing"> </span></span>行代码 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>5<span class="heti-spacing"> </span></span>分钟</p>
 </div>
-<h2 id="_1">编译器<a class="headerlink" href="#_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_1">编译器<a class="headerlink" href="#_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p><a href="https://remix.ethereum.org/">remix</a></p>
-<h3 id="id">方法<span><span class="heti-spacing"> </span>ID</span><a class="headerlink" href="#id" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="id">方法<span><span class="heti-spacing"> </span>ID</span><a class="headerlink" href="#id" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>每个<span class="heti-skip"><span class="heti-spacing"> </span>Solidity<span class="heti-spacing"> </span></span>函数都有一个唯一的标识符，称为函数选择器或方法<span><span class="heti-spacing"> </span>ID</span>。它是函数签名的前<span class="heti-skip"><span class="heti-spacing"> </span>4<span class="heti-spacing"> </span></span>个字节的<span class="heti-skip"><span class="heti-spacing"> </span>Keccak-256<span class="heti-spacing"> </span></span>哈希值。</p>
-<h4 id="id_1">计算方法<span><span class="heti-spacing"> </span>ID</span><a class="headerlink" href="#id_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h4 id="id_1">计算方法<span><span class="heti-spacing"> </span>ID</span><a class="headerlink" href="#id_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p>假设有一个函数签名为<code>setVars(uint256)</code>，计算方法<span class="heti-skip"><span class="heti-spacing"> </span>ID<span class="heti-spacing"> </span></span>的步骤如下：</p>
 <ol>
 <li>获取签名字符串的<span class="heti-skip"><span class="heti-spacing"> </span>Keccak-256<span class="heti-spacing"> </span></span>哈希值。</li>
@@ -3154,9 +3161,9 @@
 <span class="p">}</span>
 </code></pre></div>
 <p>在上面的示例中，<code>setVars(uint256)</code>的函数选择器是<code>bytes4(keccak256("setVars(uint256)"))</code>。</p>
-<h2 id="_2">语法<a class="headerlink" href="#_2" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_2">语法<a class="headerlink" href="#_2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p><span>Solidity<span class="heti-spacing"> </span></span>是一种面向智能合约的编程语言，主要用于在以太坊区块链上开发智能合约。它是一种静态类型语言，语法类似于<span><span class="heti-spacing"> </span>JavaScript</span>，但也有一些自己的特性。</p>
-<h3 id="1"><span>1.<span class="heti-spacing"> </span></span>基本结构<a class="headerlink" href="#1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="1"><span>1.<span class="heti-spacing"> </span></span>基本结构<a class="headerlink" href="#1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>一个简单的智能合约示例如下：</p>
 <div class="highlight"><pre><span></span><code><span class="c1">// 声明编译器版本</span>
 <span class="k">pragma solidity</span><span class="w"> </span><span class="o">^</span><span class="k">0.8.0</span><span class="p">;</span>
@@ -3177,7 +3184,7 @@
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<h3 id="2"><span>2.<span class="heti-spacing"> </span></span>数据类型<a class="headerlink" href="#2" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="2"><span>2.<span class="heti-spacing"> </span></span>数据类型<a class="headerlink" href="#2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p><span>Solidity<span class="heti-spacing"> </span></span>支持多种数据类型，包括：</p>
 <ul>
 <li><code>uint</code>/<code>int</code>：无符号<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>有符号整数，可以指定位数（如<code>uint8</code><heti-adjacent class="heti-adjacent-half">、</heti-adjacent><code>uint256</code><heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。</li>
@@ -3187,12 +3194,12 @@
 <li><code>struct</code>：自定义数据结构。</li>
 <li><code>enum</code>：枚举类型。</li>
 </ul>
-<h3 id="3"><span>3.<span class="heti-spacing"> </span></span>状态变量和局部变量<a class="headerlink" href="#3" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="3"><span>3.<span class="heti-spacing"> </span></span>状态变量和局部变量<a class="headerlink" href="#3" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ul>
 <li>状态变量：存储在区块链上的数据，定义在合约内。</li>
 <li>局部变量：只存在于函数调用期间，定义在函数内。</li>
 </ul>
-<h3 id="4"><span>4.<span class="heti-spacing"> </span></span>函数<a class="headerlink" href="#4" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="4"><span>4.<span class="heti-spacing"> </span></span>函数<a class="headerlink" href="#4" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>函数是合约中的关键部分，定义合约的行为：</p>
 <ul>
 <li><code>public</code>：任何人都可以调用。</li>
@@ -3201,7 +3208,7 @@
 <li><code>external</code>：只能从外部调用。</li>
 </ul>
 <p>当然，以下是关于<span class="heti-skip"><span class="heti-spacing"> </span>Solidity<span class="heti-spacing"> </span></span>文档中<code>delegatecall</code>低级函数、如何使用它来委托操作到链上库，以及它对执行范围的影响的介绍。</p>
-<h4 id="delegatecall">delegatecall<a class="headerlink" href="#delegatecall" title="Permanent link">¶</a></h4>
+<h4 id="delegatecall">delegatecall<a class="headerlink" href="#delegatecall" title="anchor link to this section for reference">¶</a></h4>
 <p><code>delegatecall</code>是<span class="heti-skip"><span class="heti-spacing"> </span>Solidity<span class="heti-spacing"> </span></span>中的一种低级函数，允许一个合约在另一个合约的上下文中执行代码。使用<code>delegatecall</code>时，被调用合约的代码以调用合约的存储、消息和余额来执行。这意味着在<code>delegatecall</code>执行过程中，当前合约的存储、<span>msg.sender<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>msg.value<span class="heti-spacing"> </span></span>不会改变，而是继续引用原来的上下文。</p>
 <p><strong>用法</strong></p>
 <p>假设有两个合约，合约<span class="heti-skip"><span class="heti-spacing"> </span>A<span class="heti-spacing"> </span></span>和合约<span><span class="heti-spacing"> </span>B</span>。合约<span class="heti-skip"><span class="heti-spacing"> </span>A<span class="heti-spacing"> </span></span>希望使用合约<span class="heti-skip"><span class="heti-spacing"> </span>B<span class="heti-spacing"> </span></span>的某些功能。可以使用<code>delegatecall</code>将操作委托给合约<span><span class="heti-spacing"> </span>B</span>：</p>
@@ -3238,7 +3245,7 @@
 <li><strong>msg.sender</strong>：保持为最初调用者，而不是被调用合约。</li>
 <li><strong>msg.value</strong>：保持为最初发送的值，而不是被调用合约。</li>
 </ol>
-<h4 id="fallback"><span>Fallback<span class="heti-spacing"> </span></span>方法<a class="headerlink" href="#fallback" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h4 id="fallback"><span>Fallback<span class="heti-spacing"> </span></span>方法<a class="headerlink" href="#fallback" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p>在<span class="heti-skip"><span class="heti-spacing"> </span>Solidity<span class="heti-spacing"> </span></span>中，<code>fallback</code>方法是一种特殊的函数，当调用一个合约时，如果该合约中没有匹配的函数签名，或者直接发送以太币而不调用任何函数时，<code>fallback</code>函数会被调用。<span>Solidity<span class="heti-spacing"> </span></span>还引入了一个新的<code>receive</code>函数用于接收纯以太币转账。</p>
 <ul>
 <li><code>fallback</code>：用来处理所有不匹配函数调用和无数据的直接转账。</li>
@@ -3257,14 +3264,14 @@
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<h3 id="5"><span>5.<span class="heti-spacing"> </span></span>修饰符<a class="headerlink" href="#5" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="5"><span>5.<span class="heti-spacing"> </span></span>修饰符<a class="headerlink" href="#5" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>修饰符用于改变函数的行为，例如：</p>
 <ul>
 <li><code>view</code>：声明函数不会修改状态。</li>
 <li><code>pure</code>：声明函数不读取也不修改状态。</li>
 <li><code>payable</code>：声明函数可以接收以太币。</li>
 </ul>
-<h3 id="6"><span>6.<span class="heti-spacing"> </span></span>事件<a class="headerlink" href="#6" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="6"><span>6.<span class="heti-spacing"> </span></span>事件<a class="headerlink" href="#6" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>事件用于记录交易日志，前端可以监听这些事件：</p>
 <div class="highlight"><pre><span></span><code><span class="kt">event</span><span class="w"> </span><span class="nv">StoredDataChanged</span><span class="p">(</span><span class="kt">uint256</span><span class="w"> </span><span class="nv">newValue</span><span class="p">);</span>
 
@@ -3273,7 +3280,7 @@
 <span class="w">    </span>emit<span class="w"> </span>StoredDataChanged<span class="p">(</span>x<span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
-<h3 id="7"><span>7.<span class="heti-spacing"> </span></span>继承<a class="headerlink" href="#7" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="7"><span>7.<span class="heti-spacing"> </span></span>继承<a class="headerlink" href="#7" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p><span>Solidity<span class="heti-spacing"> </span></span>支持合约继承：</p>
 <div class="highlight"><pre><span></span><code><span class="k">contract</span><span class="w"> </span><span class="ni">Parent</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kt">function</span><span class="w"> </span><span class="nv">foo</span><span class="p">()</span><span class="w"> </span><span class="kt">public</span><span class="w"> </span>pure<span class="w"> </span><span class="kt">returns</span><span class="w"> </span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="nv">memory</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -3287,7 +3294,7 @@
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<h3 id="8"><span>8.<span class="heti-spacing"> </span></span>库<a class="headerlink" href="#8" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="8"><span>8.<span class="heti-spacing"> </span></span>库<a class="headerlink" href="#8" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>库是一种特殊的合约，不能有状态变量，不能继承或被继承：</p>
 <div class="highlight"><pre><span></span><code><span class="kt">library</span><span class="w"> </span>Math<span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kt">function</span><span class="w"> </span><span class="nv">add</span><span class="p">(</span><span class="kt">uint256</span><span class="w"> </span><span class="nv">a</span><span class="p">,</span><span class="w"> </span><span class="kt">uint256</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span><span class="w"> </span><span class="kt">internal</span><span class="w"> </span>pure<span class="w"> </span><span class="kt">returns</span><span class="w"> </span><span class="p">(</span><span class="kt">uint256</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -3303,7 +3310,7 @@
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<h3 id="9"><span>9.<span class="heti-spacing"> </span></span>接口<a class="headerlink" href="#9" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="9"><span>9.<span class="heti-spacing"> </span></span>接口<a class="headerlink" href="#9" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>接口定义函数而不实现：</p>
 <div class="highlight"><pre><span></span><code>interface<span class="w"> </span>IExample<span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kt">function</span><span class="w"> </span><span class="nv">exampleFunction</span><span class="p">()</span><span class="w"> </span><span class="kt">external</span><span class="p">;</span>
@@ -3315,7 +3322,7 @@
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<h3 id="10"><span>10.<span class="heti-spacing"> </span></span>错误处理<a class="headerlink" href="#10" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="10"><span>10.<span class="heti-spacing"> </span></span>错误处理<a class="headerlink" href="#10" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>使用<code>require</code>、<code>assert</code>和<code>revert</code>进行错误处理：</p>
 <div class="highlight"><pre><span></span><code><span class="kt">function</span><span class="w"> </span><span class="nv">testRequire</span><span class="p">(</span><span class="kt">uint256</span><span class="w"> </span><span class="nv">a</span><span class="p">)</span><span class="w"> </span><span class="kt">public</span><span class="w"> </span>pure<span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kt">require</span><span class="p">(</span>a<span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m m-Decimal">10</span><span class="p">,</span><span class="w"> </span><span class="s2">"Value must be greater than 10"</span><span class="p">);</span>

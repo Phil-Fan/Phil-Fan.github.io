@@ -891,6 +891,13 @@
   </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Control/Method-Kalman/">
+<span class="md-ellipsis">
+    Kalman Filter
+  </span>
+</a>
+</li>
 </ul>
 </nav>
 </li>
@@ -3033,9 +3040,9 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<div><h1 id="drehmflight">dRehmFlight<a class="headerlink" href="#drehmflight" title="Permanent link">¶</a></h1>
-<div markdown="1" style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-:material-circle-edit-outline: 约 416 个字 :fontawesome-solid-code: 1 行代码 :material-clock-time-two-outline: 预计阅读时间 2 分钟
+<div><h1 id="drehmflight">dRehmFlight<a class="headerlink" href="#drehmflight" title="anchor link to this section for reference">¶</a></h1>
+<div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
+<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>416<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"></path></svg></span> <span>1<span class="heti-spacing"> </span></span>行代码 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>2<span class="heti-spacing"> </span></span>分钟</p>
 </div>
 <p><a href="https://github.com/nickrehm/dRehmFlight">nickrehm/dRehmFlight: Teensy/Arduino flight controller and stabilization for small-scale VTOL vehicles</a></p>
 <p><a href="http://www.crazepony.com/book/wiki/remote-controller-2-4.html">航模遥控器<span class="heti-skip"><span class="heti-spacing"> </span>| Crazepony<span class="heti-spacing"> </span></span>开源四轴飞行器</a></p>
@@ -3047,8 +3054,8 @@
 dRehmFlight是由Nicholas Rehm开发的一款专为业余爱好者和非编程者设计的飞行控制器。它提供了直观易懂的代码结构，让你无需深入复杂的类库就能快速理解并进行定制化开发。此外，项目还包含了详细的VTOL飞行稳定概念介绍，无论是新手还是经验丰富的老手都能从中受益。</p>
 <p><span>dRehmFlight<span class="heti-spacing"> </span></span>基于<span class="heti-skip"><span class="heti-spacing"> </span>Arduino<span class="heti-spacing"> </span></span>兼容的<span class="heti-skip"><span class="heti-spacing"> </span>Teensy 4.0<span class="heti-spacing"> </span></span>微控制器和<span class="heti-skip"><span class="heti-spacing"> </span>MPU6050 6<span class="heti-spacing"> </span></span>轴惯性测量单元，这使得它具备了出色的硬件扩展性和灵活性。<span>Beta 1.3<span class="heti-spacing"> </span></span>版本新增了<span class="heti-skip"><span class="heti-spacing"> </span>Spektrum DSM<span class="heti-spacing"> </span></span>卫星接收器支持、一次性<span class="heti-skip"><span class="heti-spacing"> </span>IMU<span class="heti-spacing"> </span></span>校准以及<span class="heti-skip"><span class="heti-spacing"> </span>ESC<span class="heti-spacing"> </span></span>校准功能，进一步提升了用户体验。</p>
 </div>
-<h2 id="hardware">Hardware<a class="headerlink" href="#hardware" title="Permanent link">¶</a></h2>
-<h3 id="_1">焊接<a class="headerlink" href="#_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h2 id="hardware">Hardware<a class="headerlink" href="#hardware" title="anchor link to this section for reference">¶</a></h2>
+<h3 id="_1">焊接<a class="headerlink" href="#_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <div class="admonition tip">
 <p class="admonition-title">需要的材料</p>
 <ul>
@@ -3059,7 +3066,7 @@ dRehmFlight是由Nicholas Rehm开发的一款专为业余爱好者和非编程�
 </li></ul>
 </div>
 <p>焊接这里需要注意不要把</p>
-<h3 id="_2">无线电连接<a class="headerlink" href="#_2" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_2">无线电连接<a class="headerlink" href="#_2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ul>
 <li>板子上自带的灯应该每秒快速闪烁一次</li>
 <li>如果连接正常，应该是下面的情形</li>
@@ -3068,8 +3075,8 @@ dRehmFlight是由Nicholas Rehm开发的一款专为业余爱好者和非编程�
 <ul>
 <li>如果值没有变化，那么</li>
 </ul>
-<h2 id="software">Software<a class="headerlink" href="#software" title="Permanent link">¶</a></h2>
-<h3 id="arduinoteensy">在<span class="heti-skip"><span class="heti-spacing"> </span>Arduino<span class="heti-spacing"> </span></span>中配置<span class="heti-skip"><span class="heti-spacing"> </span>Teensy<span class="heti-spacing"> </span></span>环境<a class="headerlink" href="#arduinoteensy" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h2 id="software">Software<a class="headerlink" href="#software" title="anchor link to this section for reference">¶</a></h2>
+<h3 id="arduinoteensy">在<span class="heti-skip"><span class="heti-spacing"> </span>Arduino<span class="heti-spacing"> </span></span>中配置<span class="heti-skip"><span class="heti-spacing"> </span>Teensy<span class="heti-spacing"> </span></span>环境<a class="headerlink" href="#arduinoteensy" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ul>
 <li>第一步是下载<a href="https://www.pjrc.com/teensy/loader_xp.html"><span><span class="heti-spacing"> </span>Teensy Loader app for Windows XP</span></a></li>
 <li>第二步是下载<a href="https://www.pjrc.com/teensy/td_download.html"><span><span class="heti-spacing"> </span>Teensyduino: Teensy support for Arduino IDE</span></a>。在<span class="heti-skip"><span class="heti-spacing"> </span>Arduino IDE<span class="heti-spacing"> </span></span>中选择“文件”-“首选项”，在“其他开发板管理器地址”上加入
@@ -3081,7 +3088,7 @@ dRehmFlight是由Nicholas Rehm开发的一款专为业余爱好者和非编程�
 <li>在开发板管理器中下载<span><span class="heti-spacing"> </span>teensy</span>
 <img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250303094757685.png"/></li>
 </ul>
-<h3 id="_3">视频连接<a class="headerlink" href="#_3" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_3">视频连接<a class="headerlink" href="#_3" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p><a href="https://www.youtube.com/watch?v=dcu0jODIlWU">World's Fastest FLYING RC Drift Car - YouTube</a></p>
 <p>倒立摆
 <a href="https://www.youtube.com/watch?v=XmYRQi48s-8">Flying Inverted Pendulum - YouTube</a></p>

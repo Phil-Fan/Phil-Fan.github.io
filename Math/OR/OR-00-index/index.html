@@ -1026,6 +1026,13 @@
   </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Robotics/Control/Method-Kalman/">
+<span class="md-ellipsis">
+    Kalman Filter
+  </span>
+</a>
+</li>
 </ul>
 </nav>
 </li>
@@ -3173,9 +3180,9 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<div><h1 id="_1">运筹学复习总结<a class="headerlink" href="#_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h1>
-<div markdown="1" style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-:material-circle-edit-outline: 约 4202 个字 :material-clock-time-two-outline: 预计阅读时间 16 分钟
+<div><h1 id="_1">运筹学复习总结<a class="headerlink" href="#_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h1>
+<div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
+<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>4202<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>16<span class="heti-spacing"> </span></span>分钟</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">笔记来源<span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span>课程<span><span class="heti-spacing"> </span>ppt</span>，可能有转写错误，请注意鉴别</p>
@@ -3220,8 +3227,8 @@
 <p><strong>目标规划问题</strong>    （只要求建模）      </p>
 <p><strong>最短路问题</strong>    （狄克斯特拉算法）      </p>
 <p><strong>最大流问题</strong>    （福特<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>富克逊法） </p>
-<h2 id="_2">线性规划<a class="headerlink" href="#_2" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<h3 id="_3">建模<a class="headerlink" href="#_3" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h2 id="_2">线性规划<a class="headerlink" href="#_2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h3 id="_3">建模<a class="headerlink" href="#_3" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p><strong>线性规划问题的标准形式</strong></p>
 <p><span><span class="arithmatex">\(C_n\)</span><span class="heti-spacing"> </span></span>为价值向量，<span><span class="arithmatex">\(x_n\)</span><span class="heti-spacing"> </span></span>是约束变量，<span><span class="arithmatex">\(A\)</span><span class="heti-spacing"> </span></span>是工艺矩阵，<span>B<span class="heti-spacing"> </span></span>为约束向量</p>
 <p>只能求最大值</p>
@@ -3272,7 +3279,7 @@ s.t. &amp;
 </tr>
 </tbody>
 </table>
-<h3 id="_4"><strong>单纯形法</strong><a class="headerlink" href="#_4" title="Permanent link">¶</a></h3>
+<h3 id="_4"><strong>单纯形法</strong><a class="headerlink" href="#_4" title="anchor link to this section for reference">¶</a></h3>
 <blockquote>
 <p>线性规划最优解类型。单纯形法可求出哪种？ </p>
 </blockquote>
@@ -3282,7 +3289,7 @@ s.t. &amp;
 <p>无界解（少了约束<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>：无最优解</p>
 <p>退化解：有约束没有效果</p>
 <p>无可行解（约束矛盾，鱼与熊掌不可得兼<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>：</p>
-<h3 id="_5">对偶问题<a class="headerlink" href="#_5" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_5">对偶问题<a class="headerlink" href="#_5" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <blockquote>
 <p>对偶问题的对偶怎么解释？举例说明</p>
 </blockquote>
@@ -3308,7 +3315,7 @@ s.t. &amp;
 <p>（1）求最优解不变的<span><span class="heti-spacing"> </span>c1</span>，<span>c2<span class="heti-spacing"> </span></span>比值范围</p>
 <p>（2）给<span class="heti-skip"><span class="heti-spacing"> </span>x1<span class="heti-spacing"> </span></span>增加一个必须是整数的条件，求最优解</p>
 </blockquote>
-<h2 id="_6">整数规划<a class="headerlink" href="#_6" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_6">整数规划<a class="headerlink" href="#_6" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <blockquote>
 <p>整数线性规划的种类 </p>
 </blockquote>
@@ -3332,14 +3339,14 @@ s.t. &amp;
 <p>（1）写出原问题的对偶问题； </p>
 <p>（2）求原问题的最优整数解。 </p>
 </blockquote>
-<h2 id="_7">运输规划<a class="headerlink" href="#_7" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_7">运输规划<a class="headerlink" href="#_7" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <blockquote>
 <p>运输问题建模的两种方法。 </p>
 <p>运输问题，给出问题的最优方案。 </p>
 <p>（1）问其中一个运价变化时，若最优方案不变，求该运价取值范围； </p>
 <p>（2）问其中一个产地停产，最优方案怎么改变。 </p>
 </blockquote>
-<h2 id="_8">目标规划<a class="headerlink" href="#_8" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_8">目标规划<a class="headerlink" href="#_8" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <div class="admonition note">
 <p class="admonition-title">思想：软约束<span class="heti-skip"><span class="heti-spacing"> </span>+<span class="heti-spacing"> </span></span>优先级</p>
 </div>
@@ -3427,7 +3434,7 @@ s.t.&amp;\left\{
 <p>P2：两台发电机工作</p>
 <p>P3：机组发电功率等于<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(Lq\)</span><span class="heti-spacing"> </span></span>时，发电成本最小，建立数学模型</p>
 </blockquote>
-<h2 id="_9">非线性规划<a class="headerlink" href="#_9" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_9">非线性规划<a class="headerlink" href="#_9" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <blockquote>
 <p>等式约束化为无约束问题有哪两种方法，各有什么特点？数值解的时候哪个更好。</p>
 </blockquote>
@@ -3533,7 +3540,7 @@ x_{1}^{*}=0 \\
 x_{2}^{*}=0
 \end{array}\right.
 \]</div>
-<h2 id="_10">动态规划<a class="headerlink" href="#_10" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_10">动态规划<a class="headerlink" href="#_10" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <blockquote>
 <p>动态规划名词解释（状态、决策、阶段<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，举例解释。 </p>
 </blockquote>
@@ -3571,8 +3578,8 @@ V_{1,n}\left({s_{l}}, p_{1, n}^{*}\right) \\
 <p><img alt="image-20240612101320263" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240612101320263.png" style="zoom:50%;"/></p>
 <p><img alt="image-20240612101314690" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240612101314690.png" style="zoom:50%;"/></p>
 <p><img alt="image-20240612101401823" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240612101401823.png" style="zoom:50%;"/></p>
-<h2 id="_11">图论<a class="headerlink" href="#_11" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<h3 id="dijkstra"><a href="https://www.philfan.cn/CS/DataStructure-Graph/"><span>Dijkstra<span class="heti-spacing"> </span></span>算法</a><a class="headerlink" href="#dijkstra" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h2 id="_11">图论<a class="headerlink" href="#_11" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h3 id="dijkstra"><a href="https://www.philfan.cn/CS/DataStructure-Graph/"><span>Dijkstra<span class="heti-spacing"> </span></span>算法</a><a class="headerlink" href="#dijkstra" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <blockquote>
 <p><span>Dijkstra<span class="heti-spacing"> </span></span>算法公式及公式意义简述？能不能用来求最长路？ </p>
 <p>给了一个有向图（1）用<span class="heti-skip"><span class="heti-spacing"> </span>Dijkstra<span class="heti-spacing"> </span></span>法求<strong>最长路径</strong>（2）用动态规划建模</p>
@@ -3610,22 +3617,22 @@ V_{1,n}\left({s_{l}}, p_{1, n}^{*}\right) \\
 <li>经典<code>Dijsktra</code>可在全负权边图中跑最长路、全正权边图中跑最短路；将所有边权全设置成为负数</li>
 </ol>
 <p><img alt="image-20240611214010502" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240611214010502.png" style="zoom:33%;"/></p>
-<h3 id="floyd">Floyd<a class="headerlink" href="#floyd" title="Permanent link">¶</a></h3>
+<h3 id="floyd">Floyd<a class="headerlink" href="#floyd" title="anchor link to this section for reference">¶</a></h3>
 <blockquote>
 <p><span>Floyd<span class="heti-spacing"> </span></span>算法对于网络边权有什么限定条件，为什么？</p>
 </blockquote>
 <p><code>Floyd-Warshall</code>算法不能处理带有负权环路的图，但它能够检测到负权环路的存在。</p>
 <p><img alt="image-20240611220006981" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240611220006981.png" style="zoom: 33%;"/></p>
-<h3 id="_12">费用流<a class="headerlink" href="#_12" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_12">费用流<a class="headerlink" href="#_12" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>最小费用流问题，要求<span class="heti-skip"><span class="heti-spacing"> </span>V1<span class="heti-spacing"> </span></span>到<span class="heti-skip"><span class="heti-spacing"> </span>V2<span class="heti-spacing"> </span></span>的的最小流，<span>V5<span class="heti-spacing"> </span></span>的<span class="heti-skip"><span class="heti-spacing"> </span>V6<span class="heti-spacing"> </span></span>的最小流情况下求最小费用</p>
 <p><img alt="image-20240611220645831" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240611220645831.png" style="zoom: 33%;"/></p>
 <p><img alt="image-20240611220627796" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240611220627796.png" style="zoom: 33%;"/></p>
-<h2 id="_13">博弈论<a class="headerlink" href="#_13" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_13">博弈论<a class="headerlink" href="#_13" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p><span>Nash<span class="heti-spacing"> </span></span>均衡概念，此时是否为合作关系。 </p>
 <p>赢得矩阵<span class="heti-skip"><span class="heti-spacing"> </span>A=[(a11,4),(8,2)],<span class="heti-spacing"> </span></span>求<span class="heti-skip"><span class="heti-spacing"> </span>a11<span class="heti-spacing"> </span></span>的范围，使得局中人可以公布自己策略，为什么；若<span class="heti-skip"><span class="heti-spacing"> </span>a11<span class="heti-spacing"> </span></span>处于不能公布策略范围内，应该怎么办</p>
-<h2 id="_14">排队论（没讲）<a class="headerlink" href="#_14" title="Permanent link">¶</a></h2>
+<h2 id="_14">排队论（没讲）<a class="headerlink" href="#_14" title="anchor link to this section for reference">¶</a></h2>
 <p>M/M/1/∞（1）证明单位时间内平均所有顾客逗留时间等于平均排队长（2）闲期花费<span><span class="heti-spacing"> </span>c1</span>，每个顾客单位逗留时间花费<span><span class="heti-spacing"> </span>c2</span>，求<span class="heti-skip"><span class="heti-spacing"> </span>ρ<span class="heti-spacing"> </span></span>使得总花费最小</p>
-<h2 id="_15">存储论（没讲）<a class="headerlink" href="#_15" title="Permanent link">¶</a></h2>
+<h2 id="_15">存储论（没讲）<a class="headerlink" href="#_15" title="anchor link to this section for reference">¶</a></h2>
 <p>列举四个存储模型</p></div>
 <aside class="md-source-file">
 <span class="md-source-file__fact">

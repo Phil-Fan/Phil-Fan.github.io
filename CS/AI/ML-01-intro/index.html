@@ -889,6 +889,13 @@
   </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Robotics/Control/Method-Kalman/">
+<span class="md-ellipsis">
+    Kalman Filter
+  </span>
+</a>
+</li>
 </ul>
 </nav>
 </li>
@@ -3001,9 +3008,9 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<div><h1 id="01"><span>01 |<span class="heti-spacing"> </span></span>机器学习导论<a class="headerlink" href="#01" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h1>
-<div markdown="1" style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-:material-circle-edit-outline: 约 1605 个字 :material-clock-time-two-outline: 预计阅读时间 6 分钟
+<div><h1 id="01"><span>01 |<span class="heti-spacing"> </span></span>机器学习导论<a class="headerlink" href="#01" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h1>
+<div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
+<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>1605<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>6<span class="heti-spacing"> </span></span>分钟</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">课程信息</p>
@@ -3034,8 +3041,8 @@
 </div>
 </div>
 </div>
-<h2 id="acknowledgement">Acknowledgement<a class="headerlink" href="#acknowledgement" title="Permanent link">¶</a></h2>
-<h2 id="_1">定义<a class="headerlink" href="#_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="acknowledgement">Acknowledgement<a class="headerlink" href="#acknowledgement" title="anchor link to this section for reference">¶</a></h2>
+<h2 id="_1">定义<a class="headerlink" href="#_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <div class="admonition note">
 <p class="admonition-title">什么是机器学习</p>
 <p>以数据作为经验的载体，利用经验数据不断提高性能的计算机系统<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>程序<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>算法</p>
@@ -3139,23 +3146,23 @@ P(|f(x)-y \le \epsilon|) \ge 1-\delta
 </tbody>
 </table>
 <p><strong>inductive bias</strong> <span>|<span class="heti-spacing"> </span></span>归纳偏好<span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span>机器学习算法对于某些假设的倾向性，存在多条曲线符合数据时候，算法的倾向性叫做<span><span class="heti-spacing"> </span>inductive bias</span></p>
-<h3 id="occams-razor">奥卡姆剃刀原理<span><span class="heti-spacing"> </span>| Occam's Razor</span><a class="headerlink" href="#occams-razor" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="occams-razor">奥卡姆剃刀原理<span><span class="heti-spacing"> </span>| Occam's Razor</span><a class="headerlink" href="#occams-razor" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>在所有可能的解释中，最简单的解释最有可能是正确的（大道至简）</p>
 <div class="admonition tip">
 <p class="admonition-title">算法的优越性来自于算法的<span class="heti-skip"><span class="heti-spacing"> </span>assumption<span class="heti-spacing"> </span></span>和数据的匹配程度</p>
 </div>
-<h3 id="nfl-no-free-lunch-theorem">NFL | No Free Lunch Theorem<a class="headerlink" href="#nfl-no-free-lunch-theorem" title="Permanent link">¶</a></h3>
+<h3 id="nfl-no-free-lunch-theorem">NFL | No Free Lunch Theorem<a class="headerlink" href="#nfl-no-free-lunch-theorem" title="anchor link to this section for reference">¶</a></h3>
 <p>一个算法<span class="heti-skip"><span class="heti-spacing"> </span>A<span class="heti-spacing"> </span></span>在某个问题上表现比<span class="heti-skip"><span class="heti-spacing"> </span>B<span class="heti-spacing"> </span></span>好，比存在另一个问题，<span>B<span class="heti-spacing"> </span></span>比<span class="heti-skip"><span class="heti-spacing"> </span>A<span class="heti-spacing"> </span></span>好</p>
 <p>脱离具体问题，脱离数据分布和输出，空泛谈论“什么学习算法更好”毫无意义</p>
 <p><a href="https://blog.csdn.net/qq_43246110/article/details/104617780"><span>NFL<span class="heti-spacing"> </span></span>定理推导<span class="heti-skip"><span class="heti-spacing"> </span>-CSDN<span class="heti-spacing"> </span></span>博客</a></p>
-<h2 id="_2">什么时候使用机器学习<a class="headerlink" href="#_2" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_2">什么时候使用机器学习<a class="headerlink" href="#_2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p><strong>there should be some patterns in the data</strong></p>
 <ul>
 <li>we know the patterns,but don't know how to use</li>
 <li>ML can discover the pattern themselves</li>
 </ul>
 <p>机器学习是大胆假设和小心求证的折衷</p>
-<h2 id="pipeline">pipeline<a class="headerlink" href="#pipeline" title="Permanent link">¶</a></h2>
+<h2 id="pipeline">pipeline<a class="headerlink" href="#pipeline" title="anchor link to this section for reference">¶</a></h2>
 <p>pipeline，中文意为管线，意义等同于流水线。土味一点 你把它 翻译成 <strong>一条龙服务</strong>；专业一点，叫它 <strong>综合解决方案</strong><br/></p>
 <p><img alt="image-20240614191015217" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240614191015217.png"/></p>
 <ul>
@@ -3167,7 +3174,7 @@ P(|f(x)-y \le \epsilon|) \ge 1-\delta
 <li>模型调参</li>
 </ul>
 <p>是一个<strong>迭代</strong>的过程</p>
-<h2 id="_3">学习资源<a class="headerlink" href="#_3" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_3">学习资源<a class="headerlink" href="#_3" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p><a href="https://conanhujinming.github.io/post/ml_in_practice_crash_course/">Machine Learning in Practice Crash Course | Jinming Hu (conanhujinming.github.io)</a></p>
 <p><a href="https://www.bilibili.com/video/BV1Gw4m1i7ys/?spm_id_from=333.788.recommend_more_video.0&amp;vd_source=8b7a5460b512357b2cf80ce1cefc69f5">实用的机器学习 第一课 机器学习导论<span class="heti-skip"><span class="heti-spacing"> </span>2024summer_<span class="heti-spacing"> </span></span>哔哩哔哩<span><span class="heti-spacing"> </span>_bilibili</span></a></p>
 <p><a href="https://classroom.zju.edu.cn/livingpage?course_id=53449&amp;sub_id=915451&amp;tenant_code=112">机器学习<span class="heti-skip"><span class="heti-spacing"> </span>2023-10-19<span class="heti-spacing"> </span></span>第<span class="heti-skip"><span class="heti-spacing"> </span>6-8<span class="heti-spacing"> </span></span>节<span><span class="heti-spacing"> </span>(zju.edu.cn)</span></a></p>
@@ -3180,7 +3187,7 @@ P(|f(x)-y \le \epsilon|) \ge 1-\delta
 <p>我在心灵学<span class="heti-skip"><span class="heti-spacing"> </span>ML<span class="heti-spacing"> </span></span>系列<span><span class="heti-spacing"> </span>doge</span></p>
 <p><a href="https://www.cc98.org/topic/5207160">再次入门<span class="heti-skip"><span class="heti-spacing"> </span>deep learning<span class="heti-spacing"> </span></span>以及一些回忆（更新第二部分） <span>- CC98<span class="heti-spacing"> </span></span>论坛</a></p>
 <p><a href="https://www.cc98.org/topic/5208795">再次入门<span><span class="heti-spacing"> </span>deep learning</span>，这次直接上重点（完结篇） <span>- CC98<span class="heti-spacing"> </span></span>论坛</a></p>
-<h3 id="_4">会议论文<a class="headerlink" href="#_4" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_4">会议论文<a class="headerlink" href="#_4" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ul>
 <li>ICML (International Conference on Machine
 Learning)</li>
@@ -3188,7 +3195,7 @@ Learning)</li>
 <li>KDD (ACM SIGKDD Conference on Knowledge Discovery and Data Mining)</li>
 <li>AAAI (AAAI conference on Artificial Intelligence)</li>
 </ul>
-<h3 id="_5">相关网课<a class="headerlink" href="#_5" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_5">相关网课<a class="headerlink" href="#_5" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>CS188</p>
 <ol>
 <li>
@@ -3205,14 +3212,14 @@ Learning)</li>
 <a href="https://zhuanlan.zhihu.com/p/20265169815">LLM Training Puzzles - 寒假摸鱼 (2) - Garl的文章 - 知乎</a>
 <a href="https://github.com/srush/LLM-Training-Puzzles/tree/main">LLM-Training-Puzzles</a>
 <a href="https://colab.research.google.com/github/srush/LLM-Training-Puzzles/blob/main/puzzles.ipynb">colab地址</a></p>
-<h3 id="_6">学习笔记<a class="headerlink" href="#_6" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_6">学习笔记<a class="headerlink" href="#_6" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p><a href="https://note.tonycrane.cc/cs/ai/basic/">人工智能基础<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>鹤翔万里的笔记本<span><span class="heti-spacing"> </span>(tonycrane.cc)</span></a></p>
 <p><a href="https://zhang-each.github.io/My-CS-Notebook/ML/%E7%BB%9F%E8%AE%A1%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A002%EF%BC%9A%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%AE%9A%E7%90%86/">02：贝叶斯定理<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>小角龙的学习记录<span><span class="heti-spacing"> </span>(zhang-each.github.io)</span></a></p>
 <p><a href="https://blog.wxxcl.tech/course/aid/%E7%9F%A5%E8%AF%86%E8%A1%A8%E8%BE%BE%E4%B8%8E%E6%8E%A8%E7%90%86/%E5%91%BD%E9%A2%98%E9%80%BB%E8%BE%91/">命题逻辑<span><span class="heti-spacing"> </span>- Jerry's Blog (wxxcl.tech)</span></a></p>
 <p><a href="https://github.com/mura1n/Machine-Learning-in-Practice-Crash-Course-Notes">笔记</a></p>
 <p><a class="magiclink magiclink-github magiclink-mention" href="https://github.com/AccumulateMore" title="GitHub User: AccumulateMore">@AccumulateMore</a> </p>
 <p><span>B<span class="heti-spacing"> </span></span>站<span class="heti-skip"><span class="heti-spacing"> </span>https://space.bilibili.com/1567748478/<span class="heti-spacing"> </span></span>论文带读</p>
-<h3 id="_7">注意点<a class="headerlink" href="#_7" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_7">注意点<a class="headerlink" href="#_7" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p><strong>特征工程</strong>，指的不是特征选择（无监督学习的降维<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，而是特征表征（feature represent<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，深度学习里面叫<span><span class="heti-spacing"> </span>embedding</span>（自己看了功能后理解的<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，就是我们应该怎样去表征问题，将问题的信息表示为数据给计算机进行学习。</p></div>
 <aside class="md-source-file">
 <span class="md-source-file__fact">

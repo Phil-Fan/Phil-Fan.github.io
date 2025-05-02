@@ -889,6 +889,13 @@
   </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Robotics/Control/Method-Kalman/">
+<span class="md-ellipsis">
+    Kalman Filter
+  </span>
+</a>
+</li>
 </ul>
 </nav>
 </li>
@@ -3040,9 +3047,9 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<div><h1 id="05-bayes"><span>05 | Bayes<span class="heti-spacing"> </span></span>贝叶斯分类器<a class="headerlink" href="#05-bayes" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h1>
-<div markdown="1" style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-:material-circle-edit-outline: 约 2851 个字 :material-clock-time-two-outline: 预计阅读时间 11 分钟
+<div><h1 id="05-bayes"><span>05 | Bayes<span class="heti-spacing"> </span></span>贝叶斯分类器<a class="headerlink" href="#05-bayes" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h1>
+<div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
+<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>2851<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>11<span class="heti-spacing"> </span></span>分钟</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">本章知识点</p>
@@ -3101,7 +3108,7 @@ P(y_i|x) = \frac{P(x|y_i) P(y_i)}{P(x)}
 <p><strong>最小化错误概率</strong></p>
 <p>最小错误其实和最大后验概率是等价的，因为最小错误就是最大化后验概率<heti-adjacent class="heti-adjacent-half">。</heti-adjacent>（使用二分类来理解）</p>
 <p><a href="https://blog.csdn.net/Harry_Jack/article/details/111242672">例子</a></p>
-<h2 id="bayesian-risk"><span>Bayesian Risk |<span class="heti-spacing"> </span></span>贝叶斯风险<a class="headerlink" href="#bayesian-risk" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="bayesian-risk"><span>Bayesian Risk |<span class="heti-spacing"> </span></span>贝叶斯风险<a class="headerlink" href="#bayesian-risk" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <blockquote>
 <p>并不是所有的错误代价都是相同的</p>
 </blockquote>
@@ -3146,7 +3153,7 @@ E_{21}P(x|y_1)P(y_1) &gt; E_{12}P(x|y_2)P(y_2)\\
 - <span class="arithmatex">\( P(Y = 0 | x) = 0.2 \)</span>（即这封邮件是非垃圾邮件的概率为 0.2）</p>
 <p>根据贝叶斯最优分类器的规则，会将该邮件判断为垃圾邮件（<span class="arithmatex">\( \hat{y} = 1 \)</span><heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，错误率是<span><span class="heti-spacing"> </span>0.2</span>。</p>
 </div>
-<h2 id="_1">回顾<a class="headerlink" href="#_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_1">回顾<a class="headerlink" href="#_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p>贝叶斯的框架
 - 知道先验概率P(yi)，知道似然P(x|yi)，我们就可以得到一个最优的分类器。
 - 现实生活中，很难获取到准确的似然的信息（特征维度太高或者特征并不充分）。
@@ -3163,7 +3170,7 @@ g_i(x) &gt; g_j(x), \forall j \neq i
 <li>似然函数：极大似然估计</li>
 <li>期望风险最小化：贝叶斯风险</li>
 </ul>
-<h2 id="maximum-likehood">极大似然法<span><span class="heti-spacing"> </span>maximum likehood</span><a class="headerlink" href="#maximum-likehood" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="maximum-likehood">极大似然法<span><span class="heti-spacing"> </span>maximum likehood</span><a class="headerlink" href="#maximum-likehood" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <div class="admonition tip">
 <p class="admonition-title">概率和似然</p>
 <p>这两个概念我经常有点糊涂</p>
@@ -3193,7 +3200,7 @@ g_i(x) &gt; g_j(x), \forall j \neq i
 <li><span>two-way split:<span class="heti-spacing"> </span></span>暴力分为两个段，设置一个中间值，小于中间值的设为一类，大于中间值的设为另一类。</li>
 <li>Probability Density estimation: assume attribute follows a normal distribution or some other distribution</li>
 </ul>
-<h2 id="_2">朴素贝叶斯<a class="headerlink" href="#_2" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_2">朴素贝叶斯<a class="headerlink" href="#_2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p>curse of dimensionality: feature space becomes sparse </p>
 <p>假设特征之间是独立的</p>
 <div class="arithmatex">\[
@@ -3225,7 +3232,7 @@ g_i(x) &gt; g_j(x), \forall j \neq i
 然后利用条件概率 <span class="arithmatex">\(P(X|C)\)</span>与先验概率 <span class="arithmatex">\(P(C)\)</span>计算后验概率 <span class="arithmatex">\(P(C_0|X)\)</span>、 <span class="arithmatex">\(P (C_1|X)\)</span>
 最终比较 <span class="arithmatex">\(P(C_0|X)\)</span>、 <span class="arithmatex">\(P (C_1|X)\)</span>大小得到 <span class="arithmatex">\(X\)</span> 属于 <span class="arithmatex">\(C_0\)</span> 类还是 <span class="arithmatex">\(C_1\)</span> 类</p>
 </div>
-<h3 id="_3">处理数据<a class="headerlink" href="#_3" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_3">处理数据<a class="headerlink" href="#_3" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>连续型需要估计参数，比如均值和方差</p>
 <p>需要记住高斯分布的公式</p>
 <div class="arithmatex">\[
@@ -3269,20 +3276,20 @@ P(x|\mu,\sigma^2) = \frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}}
 </li>
 </ol>
 </div>
-<h2 id="_4">半朴素贝叶斯<a class="headerlink" href="#_4" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_4">半朴素贝叶斯<a class="headerlink" href="#_4" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p>常见方法
 - SPODE：super parent one-dependence estimator
 - TAN：tree-augmented naive bayes
 - AODE：averaged one-dependence estimator</p>
-<h2 id="_5">贝叶斯网络<a class="headerlink" href="#_5" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<h3 id="_6">构建<a class="headerlink" href="#_6" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<h3 id="_7">评分函数<a class="headerlink" href="#_7" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h2 id="_5">贝叶斯网络<a class="headerlink" href="#_5" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h3 id="_6">构建<a class="headerlink" href="#_6" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_7">评分函数<a class="headerlink" href="#_7" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>最小描述长度：MDL|minimal description length</p>
 <div class="arithmatex">\[
 s(B|D) = f(\theta)|B| - LL(B|D)
 \]</div>
 <p><span><span class="arithmatex">\(|B|\)</span><span class="heti-spacing"> </span></span>是网络的大小，<span><span class="arithmatex">\(LL(B|D)\)</span><span class="heti-spacing"> </span></span>是网络的似然度，<span><span class="arithmatex">\(f(\theta)\)</span><span class="heti-spacing"> </span></span>是一个参数，用来平衡网络的大小和似然度</p>
-<h3 id="inference"><span>inference<span class="heti-spacing"> </span></span>推断<a class="headerlink" href="#inference" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="inference"><span>inference<span class="heti-spacing"> </span></span>推断<a class="headerlink" href="#inference" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>精确推断：直接根据贝叶斯网的定义的联合分布计算</p>
 <p>近似推断
 - 吉布斯采样
@@ -3290,7 +3297,7 @@ s(B|D) = f(\theta)|B| - LL(B|D)
 - 变分推断
         - 相互独立 ，同种机制生成
         - 盘式jis</p>
-<h2 id="em"><span>EM<span class="heti-spacing"> </span></span>算法<a class="headerlink" href="#em" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="em"><span>EM<span class="heti-spacing"> </span></span>算法<a class="headerlink" href="#em" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p>极大似然估计：</p>
 <div class="arithmatex">\[
 LL(\theta|x,z) - \nP(x,z|\mathcal{\theta})
@@ -3300,13 +3307,13 @@ LL(\theta|x,z) - \nP(x,z|\mathcal{\theta})
 <p>一堆样本的联合似然函数计算：假设样本采样是独立同分布的，也就是它们之间是独立的。然后，似然函数，就是 每个样本的似然连乘。</p>
 <p>为何<span class="heti-skip"><span class="heti-spacing"> </span>log<span class="heti-spacing"> </span></span>似然函数，把连乘变求和，方便后续最大似然估计，求导。</p>
 <p>最大似然估计 就是从一堆 参数值中，找一个最有可能的参数。这就是为何用到对似然函数 去求导<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>高数的事情了<span><span class="heti-spacing"> </span>)</span>，找最值。</p>
-<h3 id="_8">简介与思想<a class="headerlink" href="#_8" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_8">简介与思想<a class="headerlink" href="#_8" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p><span>EM<span class="heti-spacing"> </span></span>算法，全称<span><span class="heti-spacing"> </span>Expectation Maximization Algorithm</span>，译作最大期望化算法或期望最大算法，它是一种迭代算法，用于含有隐变量（hidden variable）的概率参数模型的最大似然估计或极大后验概率估计。</p>
-<h3 id="_9">收敛性分析<a class="headerlink" href="#_9" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_9">收敛性分析<a class="headerlink" href="#_9" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <iframe allowfullscreen="true" border="0" frameborder="no" framespacing="0" height="300" scrolling="no" src="//player.bilibili.com/player.html?isOutside=true&amp;aid=70839977&amp;bvid=BV1aE411o7qd&amp;cid=124421145&amp;p=60&amp;autoplay=0" width="500"></iframe>
-<h3 id="em_1"><span>EM<span class="heti-spacing"> </span></span>推导<a class="headerlink" href="#em_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<h3 id="em_2">广义<span><span class="heti-spacing"> </span>EM</span><a class="headerlink" href="#em_2" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<h3 id="_10">扩展<a class="headerlink" href="#_10" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="em_1"><span>EM<span class="heti-spacing"> </span></span>推导<a class="headerlink" href="#em_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="em_2">广义<span><span class="heti-spacing"> </span>EM</span><a class="headerlink" href="#em_2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_10">扩展<a class="headerlink" href="#_10" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p><a href="https://zhuanlan.zhihu.com/p/133468343">用<span class="heti-skip"><span class="heti-spacing"> </span>EM<span class="heti-spacing"> </span></span>算法求解多项分布混合主题模型<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>知乎</a></p></div>
 <aside class="md-source-file">
 <span class="md-source-file__fact">

@@ -1087,6 +1087,13 @@
   </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Control/Method-Kalman/">
+<span class="md-ellipsis">
+    Kalman Filter
+  </span>
+</a>
+</li>
 </ul>
 </nav>
 </li>
@@ -3295,9 +3302,9 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<div><h1 id="07"><span>07 |<span class="heti-spacing"> </span></span>运动控制<a class="headerlink" href="#07" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h1>
-<div markdown="1" style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-:material-circle-edit-outline: 约 5524 个字 :material-clock-time-two-outline: 预计阅读时间 22 分钟
+<div><h1 id="07"><span>07 |<span class="heti-spacing"> </span></span>运动控制<a class="headerlink" href="#07" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h1>
+<div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
+<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>5524<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>22<span class="heti-spacing"> </span></span>分钟</p>
 </div>
 <ul>
 <li>被控变量：末端执行器位姿</li>
@@ -3316,59 +3323,59 @@
 </ul>
 <div class="admonition todo">
 <p class="admonition-title">todo</p>
-<ul>
-<li><span>[x]<span class="heti-spacing"> </span></span>独立关节控制</li>
-<li><span>[x]<span class="heti-spacing"> </span></span>关节建模方法与记忆</li>
-<li><span>[ ]<span class="heti-spacing"> </span></span>转矩前馈控制</li>
-<li><span>[x]<span class="heti-spacing"> </span></span>重力补偿<span class="heti-skip"><span class="heti-spacing"> </span>PD<span class="heti-spacing"> </span></span>控制</li>
-<li><span>[x]<span class="heti-spacing"> </span></span>逆运动学控制</li>
-<li><span>[x]<span class="heti-spacing"> </span></span>鲁棒控制</li>
-<li><span>[ ]<span class="heti-spacing"> </span></span>自适应控制</li>
-<li><span>[ ]<span class="heti-spacing"> </span></span>各个方法优缺点，应用范围</li>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 独立关节控制</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 关节建模方法与记忆</li>
+<li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 转矩前馈控制</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 重力补偿<span class="heti-skip"><span class="heti-spacing"> </span>PD<span class="heti-spacing"> </span></span>控制</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 逆运动学控制</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 鲁棒控制</li>
+<li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 自适应控制</li>
+<li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 各个方法优缺点，应用范围</li>
 </ul>
 </div>
 <div class="admonition attention">
 <p class="admonition-title">Acknowledgement</p>
 <p>下面是一些找到的相关的文章，感觉都没有特别系统和全面，但是可以作为参考</p>
-<ul>
-<li>[ ] <a href="https://lewisgroup.uta.edu/FL%20books/Robot_Manipulator_Control_Theory_and_Practice_-_Frank_L.Lewis-%20small.pdf">Robot_Manipulator_Control_Theory_and_Practice_-_Frank_L.Lewis-small.pdf</a></li>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> <a href="https://lewisgroup.uta.edu/FL%20books/Robot_Manipulator_Control_Theory_and_Practice_-_Frank_L.Lewis-%20small.pdf">Robot_Manipulator_Control_Theory_and_Practice_-_Frank_L.Lewis-small.pdf</a></li>
 </ul>
-<ul>
-<li><span>[x]<span class="heti-spacing"> </span></span><a href="https://zhuanlan.zhihu.com/p/340272432">机器人学<span class="heti-skip"><span class="heti-spacing"> </span>-4-3-<span class="heti-spacing"> </span></span>线性控制<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>知乎</a></li>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> <a href="https://zhuanlan.zhihu.com/p/340272432">机器人学<span class="heti-skip"><span class="heti-spacing"> </span>-4-3-<span class="heti-spacing"> </span></span>线性控制<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>知乎</a></li>
 </ul>
-<ul>
-<li><span>[ ]<span class="heti-spacing"> </span></span><a href="https://zhuanlan.zhihu.com/p/264809240">机械臂操作控制基础<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>一<span class="heti-skip"><span class="heti-spacing"> </span>) -<span class="heti-spacing"> </span></span>知乎</a></li>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> <a href="https://zhuanlan.zhihu.com/p/264809240">机械臂操作控制基础<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>一<span class="heti-skip"><span class="heti-spacing"> </span>) -<span class="heti-spacing"> </span></span>知乎</a></li>
 </ul>
-<ul>
-<li><span>[ ]<span class="heti-spacing"> </span></span><a href="https://zhuanlan.zhihu.com/p/264811391">机械臂操作控制基础<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>二<span class="heti-skip"><span class="heti-spacing"> </span>) -<span class="heti-spacing"> </span></span>知乎</a></li>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> <a href="https://zhuanlan.zhihu.com/p/264811391">机械臂操作控制基础<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>二<span class="heti-skip"><span class="heti-spacing"> </span>) -<span class="heti-spacing"> </span></span>知乎</a></li>
 </ul>
-<ul>
-<li><span>[ ]<span class="heti-spacing"> </span></span><a href="https://zhuanlan.zhihu.com/p/1892973878374033325">机械臂先进控制方法综述<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>知乎</a></li>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> <a href="https://zhuanlan.zhihu.com/p/1892973878374033325">机械臂先进控制方法综述<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>知乎</a></li>
 </ul>
-<ul>
-<li><span>[ ]<span class="heti-spacing"> </span></span><a href="https://zhuanlan.zhihu.com/p/28035516596">零基础机械臂操作控制<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>一<span class="heti-skip"><span class="heti-spacing"> </span>) -<span class="heti-spacing"> </span></span>知乎</a></li>
-<li><span>[ ]<span class="heti-spacing"> </span></span><a href="https://zhuanlan.zhihu.com/p/28284740164">零基础机械臂操作控制<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>二<span class="heti-skip"><span class="heti-spacing"> </span>) -<span class="heti-spacing"> </span></span>知乎</a></li>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> <a href="https://zhuanlan.zhihu.com/p/28035516596">零基础机械臂操作控制<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>一<span class="heti-skip"><span class="heti-spacing"> </span>) -<span class="heti-spacing"> </span></span>知乎</a></li>
+<li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> <a href="https://zhuanlan.zhihu.com/p/28284740164">零基础机械臂操作控制<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>二<span class="heti-skip"><span class="heti-spacing"> </span>) -<span class="heti-spacing"> </span></span>知乎</a></li>
 </ul>
-<ul>
-<li><span>[ ]<span class="heti-spacing"> </span></span><a href="https://www.zhihu.com/question/52607272">机械臂的动力学模型是如何解耦和线性化的？常用的线性化解耦方法有哪些？ <span>-<span class="heti-spacing"> </span></span>知乎</a></li>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> <a href="https://www.zhihu.com/question/52607272">机械臂的动力学模型是如何解耦和线性化的？常用的线性化解耦方法有哪些？ <span>-<span class="heti-spacing"> </span></span>知乎</a></li>
 </ul>
-<ul>
-<li><span>[ ]<span class="heti-spacing"> </span></span><a href="https://zhuanlan.zhihu.com/p/474813957">现代控制理论和机械臂控制（二） <span>-<span class="heti-spacing"> </span></span>知乎</a></li>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> <a href="https://zhuanlan.zhihu.com/p/474813957">现代控制理论和机械臂控制（二） <span>-<span class="heti-spacing"> </span></span>知乎</a></li>
 </ul>
-<ul>
-<li><span>[ ]<span class="heti-spacing"> </span></span><a href="https://zhuanlan.zhihu.com/p/297464197">机器人<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>课时<span class="heti-skip"><span class="heti-spacing"> </span>2-3-<span class="heti-spacing"> </span></span>控制<span class="heti-skip"><span class="heti-spacing"> </span>-PD<span class="heti-spacing"> </span></span>控制器<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>知乎</a></li>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> <a href="https://zhuanlan.zhihu.com/p/297464197">机器人<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>课时<span class="heti-skip"><span class="heti-spacing"> </span>2-3-<span class="heti-spacing"> </span></span>控制<span class="heti-skip"><span class="heti-spacing"> </span>-PD<span class="heti-spacing"> </span></span>控制器<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>知乎</a></li>
 </ul>
-<ul>
-<li><span>[ ]<span class="heti-spacing"> </span></span><a href="https://zhuanlan.zhihu.com/p/335306452">机器人学<span class="heti-skip"><span class="heti-spacing"> </span>-4-1-<span class="heti-spacing"> </span></span>控制方法<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>知乎</a></li>
-<li><span>[ ]<span class="heti-spacing"> </span></span><a href="https://zhuanlan.zhihu.com/p/297504556">机器人<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>课时<span class="heti-skip"><span class="heti-spacing"> </span>2-<span class="heti-spacing"> </span></span>附件<span class="heti-skip"><span class="heti-spacing"> </span>2 -<span class="heti-spacing"> </span></span>知乎</a></li>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> <a href="https://zhuanlan.zhihu.com/p/335306452">机器人学<span class="heti-skip"><span class="heti-spacing"> </span>-4-1-<span class="heti-spacing"> </span></span>控制方法<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>知乎</a></li>
+<li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> <a href="https://zhuanlan.zhihu.com/p/297504556">机器人<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>课时<span class="heti-skip"><span class="heti-spacing"> </span>2-<span class="heti-spacing"> </span></span>附件<span class="heti-skip"><span class="heti-spacing"> </span>2 -<span class="heti-spacing"> </span></span>知乎</a></li>
 </ul>
-<ul>
-<li><span>[ ]<span class="heti-spacing"> </span></span><a href="https://zhuanlan.zhihu.com/p/377810484">现代机器人学：力学，规划，控制（chapter11Ⅰ）自动控制原理回顾<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>知乎</a></li>
-<li><span>[ ]<span class="heti-spacing"> </span></span><a href="https://zhuanlan.zhihu.com/p/378218165">现代机器人学：力学，规划，控制（chapter11 Ⅱ）机器人控制之运动控制<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>知乎</a></li>
-<li>[ ] <a href="https://blog.csdn.net/zkk9527/article/details/128709448">【现代机器人学】学习笔记十：机器人控制<span class="heti-skip"><span class="heti-spacing"> </span>_<span class="heti-spacing"> </span></span>机器人控制算法<span class="heti-skip"><span class="heti-spacing"> </span>csdn-CSDN<span class="heti-spacing"> </span></span>博客</a></li>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> <a href="https://zhuanlan.zhihu.com/p/377810484">现代机器人学：力学，规划，控制（chapter11Ⅰ）自动控制原理回顾<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>知乎</a></li>
+<li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> <a href="https://zhuanlan.zhihu.com/p/378218165">现代机器人学：力学，规划，控制（chapter11 Ⅱ）机器人控制之运动控制<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>知乎</a></li>
+<li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> <a href="https://blog.csdn.net/zkk9527/article/details/128709448">【现代机器人学】学习笔记十：机器人控制<span class="heti-skip"><span class="heti-spacing"> </span>_<span class="heti-spacing"> </span></span>机器人控制算法<span class="heti-skip"><span class="heti-spacing"> </span>csdn-CSDN<span class="heti-spacing"> </span></span>博客</a></li>
 </ul>
 </div>
-<h2 id="_1">前置知识<a class="headerlink" href="#_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_1">前置知识<a class="headerlink" href="#_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <ol>
 <li>方块图的化简、梅森增益公式、信号流图</li>
 <li>二阶系统的时域响应的参数</li>
@@ -3381,7 +3388,7 @@
 <li><span>Lyapunov<span class="heti-spacing"> </span></span>稳定性定理</li>
 <li>奇异值分解</li>
 </ol>
-<h3 id="_2">旋转编码器——测关节转角转速<a class="headerlink" href="#_2" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_2">旋转编码器——测关节转角转速<a class="headerlink" href="#_2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>原理：<strong>光栅圆盘</strong>——在不透光的圆盘上等宽等间隔的透光狭缝，把转角<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>转速转换成光传感器接收到的脉冲的数量</p>
 <p>方法</p>
 <ul>
@@ -3389,16 +3396,16 @@
 <li><strong>低速</strong>：周期法（<span>T<span class="heti-spacing"> </span></span>法）——计算相邻脉冲间的时间间隔。</li>
 <li><strong>综合</strong>：<span>M/T<span class="heti-spacing"> </span></span>法——结合频率法和周期法，适用于全速段，分辨率高，广泛应用。</li>
 </ul>
-<h3 id="_3">力传感器<a class="headerlink" href="#_3" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<h3 id="_4">力矩传感器<a class="headerlink" href="#_4" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<h2 id="_5">单关节：关节空间，输入是速度<a class="headerlink" href="#_5" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h3 id="_3">力传感器<a class="headerlink" href="#_3" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_4">力矩传感器<a class="headerlink" href="#_4" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h2 id="_5">单关节：关节空间，输入是速度<a class="headerlink" href="#_5" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p>给定一个理想的关节位置轨迹<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\theta_d\)</span>,<span class="heti-spacing"> </span></span>控制关节位置<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\theta\)</span><span class="heti-spacing"> </span></span>跟踪<span><span class="heti-spacing"> </span><span class="arithmatex">\(\theta_d\)</span></span></p>
-<h3 id="feedforward-control">前馈控制<span><span class="heti-spacing"> </span>feedforward control</span><a class="headerlink" href="#feedforward-control" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="feedforward-control">前馈控制<span><span class="heti-spacing"> </span>feedforward control</span><a class="headerlink" href="#feedforward-control" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <div class="arithmatex">\[
 \dot{\theta}(t) = \dot{\theta}_d(t)
 \]</div>
 <p>开环控制</p>
-<h3 id="p">一阶误差<span class="heti-skip"><span class="heti-spacing"> </span>&amp; P<span class="heti-spacing"> </span></span>控制<a class="headerlink" href="#p" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="p">一阶误差<span class="heti-skip"><span class="heti-spacing"> </span>&amp; P<span class="heti-spacing"> </span></span>控制<a class="headerlink" href="#p" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <div class="arithmatex">\[
 \dot{\theta}(t) = K_p(\theta_d(t) - \theta(t)) = K_p\theta_e(t)
 \]</div>
@@ -3431,7 +3438,7 @@
 </div>
 </div>
 </div>
-<h3 id="pi">一阶误差<span class="heti-skip"><span class="heti-spacing"> </span>&amp; PI<span class="heti-spacing"> </span></span>控制<a class="headerlink" href="#pi" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="pi">一阶误差<span class="heti-skip"><span class="heti-spacing"> </span>&amp; PI<span class="heti-spacing"> </span></span>控制<a class="headerlink" href="#pi" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>控制律为：</p>
 <div class="arithmatex">\[
 \dot{\theta}(t) = K_p \theta_e(t) + K_i \int_0^t \theta_e(t) \, dt
@@ -3454,7 +3461,7 @@
 <div class="arithmatex">\[
 s_{1,2}=-\frac{K_p}{2}\pm\sqrt{\frac{K_p^2}{4}-K_i}
 \]</div>
-<h3 id="pi_1"><span>PI<span class="heti-spacing"> </span></span>反馈<span class="heti-skip"><span class="heti-spacing"> </span>+<span class="heti-spacing"> </span></span>前馈<a class="headerlink" href="#pi_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="pi_1"><span>PI<span class="heti-spacing"> </span></span>反馈<span class="heti-skip"><span class="heti-spacing"> </span>+<span class="heti-spacing"> </span></span>前馈<a class="headerlink" href="#pi_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>反馈控制的一个缺点是在关节开始运动之前需要有一个误差，在任何误差累积之前，最好利用我们对所需轨迹的了解来启动运动。我们可以将前馈控制在没有误差的情况下也能控制运动的优点与反馈控制限制误差积累的优点相结合，就有：</p>
 <div class="arithmatex">\[\
 \dot{\theta}(t)=\dot{\theta}_d(t)+K_p\theta_e(t)+K_i\int_0^t\theta_e(t)\:dt
@@ -3463,11 +3470,11 @@ s_{1,2}=-\frac{K_p}{2}\pm\sqrt{\frac{K_p^2}{4}-K_i}
 <blockquote>
 <p>图片来自知乎<span><span class="heti-spacing"> </span>Mr.bo</span></p>
 </blockquote>
-<h2 id="_6">关节建模<a class="headerlink" href="#_6" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_6">关节建模<a class="headerlink" href="#_6" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <div class="admonition note">
 <p class="admonition-title">这里有很多字母，联系英文进行记忆</p>
 </div>
-<h3 id="_7">电机建模<a class="headerlink" href="#_7" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_7">电机建模<a class="headerlink" href="#_7" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <table>
 <thead>
 <tr>
@@ -3531,7 +3538,7 @@ T_{ei} = C_{ti} \cdot I_{mi}
 <div class="arithmatex">\[
 \omega_{mi} = (\frac{k_{ui}}{k_{ei}})U_{ci} - (\frac{R_{mi}}{k_{ei}})I_{mi}
 \]</div>
-<h3 id="_8">关节建模与传递函数<a class="headerlink" href="#_8" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_8">关节建模与传递函数<a class="headerlink" href="#_8" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p><span><span class="arithmatex">\(\theta_{mi}\)</span><span class="heti-spacing"> </span></span>电机转角
 <span class="arithmatex">\(\theta_{i}\)</span> 关节i转角
 <span class="arithmatex">\(T_{ei}\)</span>    电机的输出力矩
@@ -3563,8 +3570,8 @@ J_{ci}s^2\theta_i(s)+B_{ci}s\theta_i(s)=K_{ci}U_{ci}(s)-T_{ci}(s)
 <div class="arithmatex">\[
 \theta_i(s)=\frac{K_{ci}}{s(J_{ci}s+B_{ci})}U_{ci}(s)-\frac{1}{s(J_{ci}s+B_{ci})}T_{ci}(s)
 \]</div>
-<h2 id="_9">多关节：独立关节控制<a class="headerlink" href="#_9" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<h3 id="pd-">阶跃输入<span class="heti-skip"><span class="heti-spacing"> </span>| PD<span class="heti-spacing"> </span></span>控制器<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>有静差<a class="headerlink" href="#pd-" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h2 id="_9">多关节：独立关节控制<a class="headerlink" href="#_9" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h3 id="pd-">阶跃输入<span class="heti-skip"><span class="heti-spacing"> </span>| PD<span class="heti-spacing"> </span></span>控制器<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>有静差<a class="headerlink" href="#pd-" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>反馈信号是：被控对象的输出<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\theta_i\)</span><span class="heti-spacing"> </span></span>和其微分</p>
 <p>控制算法：</p>
 <div class="arithmatex">\[
@@ -3577,7 +3584,7 @@ U_{ci}(s) = k_{P_i}\widetilde{\theta}_i(s) - k_{D_i}\omega_i(s)\\
 <div class="arithmatex">\[
 \theta_{i}(s)=\frac{k_{Pi}K_{ci}}{J_{ci}s^{2}+(B_{ci}+k_{Di}K_{ci})s+k_{Pi}K_{ci}}\theta_{di}(s)-\frac{1}{J_{ci}s^{2}+(B_{ci}+k_{Di}K_{ci})s+k_{Pi}K_{ci}}T_{ci}(s)
 \]</div>
-<h4 id="_10">稳定性分析<a class="headerlink" href="#_10" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h4 id="_10">稳定性分析<a class="headerlink" href="#_10" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <div class="admonition note">
 <p class="admonition-title">这里需要用到二阶动态性能的一些公式以及稳定性分析中的劳斯判据知识</p>
 </div>
@@ -3620,19 +3627,19 @@ s_{1,2}=-\zeta\omega_{0}\pm\omega_{0}\sqrt{\zeta^{2}-1}
 \]</div>
 <p>无扰动的情况下无静差，阶跃信号的时候有扰动的影响，比例控制<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(k_{pi}\)</span><span class="heti-spacing"> </span></span>越大，扰动的影响越小</p>
 <p>这里化简的时候使用梅森增益公式求解比较简单</p>
-<h3 id="pid-">阶跃输入<span class="heti-skip"><span class="heti-spacing"> </span>| PID<span class="heti-spacing"> </span></span>控制器<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>消除静差<a class="headerlink" href="#pid-" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="pid-">阶跃输入<span class="heti-skip"><span class="heti-spacing"> </span>| PID<span class="heti-spacing"> </span></span>控制器<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>消除静差<a class="headerlink" href="#pid-" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>带一个积分环节</p>
 <p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/202504011209180.png"/></p>
 <p>阶跃扰动下，独立关节<span class="heti-skip"><span class="heti-spacing"> </span>PID<span class="heti-spacing"> </span></span>可以做到无静差</p>
-<h3 id="pid">二阶可导输入 ｜ 前馈<span><span class="heti-spacing"> </span>PID</span><a class="headerlink" href="#pid" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="pid">二阶可导输入 ｜ 前馈<span><span class="heti-spacing"> </span>PID</span><a class="headerlink" href="#pid" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>阶跃输入的信号，通常用于点对点的移动，但是对于一般的轨迹规划任务，都是二阶可导的（如五次多项式轨迹）</p>
 <p>前馈的引入不改变稳定性和闭环极点</p>
 <p>消除参考输入影响</p>
 <p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/202504011208914.png"/></p>
-<h2 id="_11">转矩前馈控制<a class="headerlink" href="#_11" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_11">转矩前馈控制<a class="headerlink" href="#_11" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p>对关节干扰进行推算，增加补偿量主动消减干扰的影响</p>
 <p>这里书上的公式有点复杂</p>
-<h2 id="_12">多关节：集中控制<a class="headerlink" href="#_12" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_12">多关节：集中控制<a class="headerlink" href="#_12" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <div class="admonition note">
 <p class="admonition-title">可以看出教材是一步步逐渐递进的，各个方法需要准确获取的参数越来越少，鲁棒性越来越强</p>
 </div>
@@ -3648,7 +3655,7 @@ M(\Phi) \ddot{\Phi} + C(\Phi, \dot{\Phi}) \dot{\Phi} + L \dot{\Phi} + G(\Phi) = 
 \]</div>
 <p>式中，<span><span class="arithmatex">\(L = B + B_e\)</span><span class="heti-spacing"> </span></span>为正定对角矩阵。</p>
 <p><strong>集中控制的任务在于设计计算<span><span class="heti-spacing"> </span><span class="arithmatex">\(\tau_d\)</span></span> （相当于计算各关节电机期望电流）的算法，使得<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\Phi\)</span><span class="heti-spacing"> </span></span>跟踪<span><span class="heti-spacing"> </span><span class="arithmatex">\(\Phi_d\)</span></span>。</strong></p>
-<h3 id="pd">重力补偿<span class="heti-skip"><span class="heti-spacing"> </span>PD<span class="heti-spacing"> </span></span>控制<a class="headerlink" href="#pd" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="pd">重力补偿<span class="heti-skip"><span class="heti-spacing"> </span>PD<span class="heti-spacing"> </span></span>控制<a class="headerlink" href="#pd" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>重力力矩在控制中往往被视为一种非线性扰动，但是重力矩的数学模型可获取，因此，可作为一种已知的非线性扰动。直接补偿掉，在推导控制算法时就不需要考虑重力项了。</p>
 <p>在实验中，重力补偿的明显作用有两点：<span>1.<span class="heti-spacing"> </span></span>在位置控制时，能够增加机器人的动态性能，动态跟踪误差相比无重力补偿时更小。在无积分的位置控制器中，如<span class="heti-skip"><span class="heti-spacing"> </span>PD<span class="heti-spacing"> </span></span>控制器，重力补偿能够减少稳态误差。</p>
 <p><strong>控制律为</strong></p>
@@ -3718,7 +3725,7 @@ x^T A x = x^T (-A^T) x = -x^T A^T x = -(x^T A x)^T = -x^T A x
 \]</div>
 <p>重力补偿<span class="heti-skip"><span class="heti-spacing"> </span>PD<span class="heti-spacing"> </span></span>控制可以使<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\Phi\)</span><span class="heti-spacing"> </span></span>收敛于定常的<span><span class="heti-spacing"> </span><span class="arithmatex">\(\Phi_d\)</span></span>，适用于一种静止位形运动到另一种静止位形</p>
 </div>
-<h3 id="feedback-linearization">feedback linearization<a class="headerlink" href="#feedback-linearization" title="Permanent link">¶</a></h3>
+<h3 id="feedback-linearization">feedback linearization<a class="headerlink" href="#feedback-linearization" title="anchor link to this section for reference">¶</a></h3>
 <blockquote>
 <p>这一块可以看<a href="https://zhuanlan.zhihu.com/p/340272432">机器人学<span class="heti-skip"><span class="heti-spacing"> </span>-4-3-<span class="heti-spacing"> </span></span>线性控制<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>知乎</a>这个博主的笔记，讲的很好</p>
 </blockquote>
@@ -3791,7 +3798,7 @@ m \ddot{x} + b \dot{x} + kx = \alpha f' + \beta
 <p>（2）在自动控制系统中，能够以一定的准确度响应控制信号的系统称为随动系统，亦称伺服系统。</p>
 <p>伺服的主要任务是按控制命令的要求，对功率进行放大、变换与调控等处理，使驱动装置输出的力矩、速度和位置控制得非常灵活方便。</p>
 </div>
-<h3 id="_13">逆运动学控制<a class="headerlink" href="#_13" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_13">逆运动学控制<a class="headerlink" href="#_13" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>什么是逆运动学控制？</p>
 <p>直接根据期望的关节位移，计算出关节位置，然后使用<span class="heti-skip"><span class="heti-spacing"> </span>PD<span class="heti-spacing"> </span></span>控制器，把关节控制在想要的位置上面。</p>
 <p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250418130855.png"/></p>
@@ -3815,7 +3822,7 @@ m \ddot{x} + b \dot{x} + kx = \alpha f' + \beta
 \]</div>
 <p>其中，<span><span class="arithmatex">\(\ddot{\boldsymbol{\Phi}}_{d}+K_{D}\dot{\widetilde{\boldsymbol{\Phi}}}\)</span><span class="heti-spacing"> </span></span>是前馈的部分<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>即框图左上角的部分</p>
 <p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/202504010926579.png"/></p>
-<h3 id="_14">鲁棒控制 ｜ 估计参数<a class="headerlink" href="#_14" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_14">鲁棒控制 ｜ 估计参数<a class="headerlink" href="#_14" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p><span><span class="arithmatex">\(M(\boldsymbol{\Phi})\ddot{\boldsymbol{\Phi}}+C(\boldsymbol{\Phi},\dot{\boldsymbol{\Phi}})\dot{\boldsymbol{\Phi}}+L\dot{\boldsymbol{\Phi}}+G(\boldsymbol{\Phi})=\boldsymbol{\tau}_d\)</span><span class="heti-spacing"> </span></span>的参数值无法准确获取，使用估计值进行控制</p>
 <p>控制律</p>
 <div class="arithmatex">\[
@@ -3842,16 +3849,16 @@ m \ddot{x} + b \dot{x} + kx = \alpha f' + \beta
 </ul>
 <p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250401101152.png"/></p>
 <p>又根据<span class="heti-skip"><span class="heti-spacing"> </span>Lyapunov<span class="heti-spacing"> </span></span>稳定性定理，可以证明，保证在不确定性<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\Delta\)</span><span class="heti-spacing"> </span></span>下<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\boldsymbol{\Phi}\)</span><span class="heti-spacing"> </span></span>对<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\boldsymbol{\Phi}_d\)</span><span class="heti-spacing"> </span></span>的渐近跟踪。</p>
-<h3 id="_15">自适应控制 ｜ 动态估计参数<a class="headerlink" href="#_15" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_15">自适应控制 ｜ 动态估计参数<a class="headerlink" href="#_15" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>在鲁棒控制中，参数的估计是不变的。</p>
 <p>自适应控制的思想就是使用在控制过程中观测到的数据，动态更新估计不确定性参数的值。</p>
-<h4 id="_16">参数的线性化<a class="headerlink" href="#_16" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h4 id="_16">参数的线性化<a class="headerlink" href="#_16" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p>方法：</p>
 <ul>
 <li>能测得的变量，如<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\theta_i\)</span>,<span class="arithmatex">\(\dot{\theta}_i\)</span>,<span class="arithmatex">\(\ddot{\theta}_i\)</span><span class="heti-spacing"> </span></span>放在一个矩阵当中</li>
 <li>其他系统的参数，当作估计的参数，动态更新</li>
 </ul>
-<h4 id="_17">更新<a class="headerlink" href="#_17" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h4 id="_17">更新<a class="headerlink" href="#_17" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <div class="arithmatex">\[
 \Psi = (\Psi_1 \quad \Psi_2 \quad \Psi_3 \quad \Psi_4 \quad \Psi_5 \quad \Psi_6 \quad \Psi_7)^{\mathrm{T}}
 \]</div>

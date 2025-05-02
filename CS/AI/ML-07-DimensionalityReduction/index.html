@@ -889,6 +889,13 @@
   </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Robotics/Control/Method-Kalman/">
+<span class="md-ellipsis">
+    Kalman Filter
+  </span>
+</a>
+</li>
 </ul>
 </nav>
 </li>
@@ -3030,9 +3037,9 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<div><h1 id="07"><span>07 |<span class="heti-spacing"> </span></span>降维<a class="headerlink" href="#07" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h1>
-<div markdown="1" style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-:material-circle-edit-outline: 约 1402 个字 :fontawesome-solid-code: 26 行代码 :material-clock-time-two-outline: 预计阅读时间 6 分钟
+<div><h1 id="07"><span>07 |<span class="heti-spacing"> </span></span>降维<a class="headerlink" href="#07" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h1>
+<div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
+<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>1402<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"></path></svg></span> <span>26<span class="heti-spacing"> </span></span>行代码 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>6<span class="heti-spacing"> </span></span>分钟</p>
 </div>
 <ul>
 <li>dimensionality reduction tries to transform high-demensional data into a low-dimensioanl space while preserving the data structure.</li>
@@ -3053,7 +3060,7 @@ l^p \approx \frac{k}{n}
 因为样本点在 <span class="arithmatex">\( [0, 1]^p \)</span> 中均匀分布，所以可以认为，每个点大致占据 <span class="arithmatex">\( \frac{1}{n} \)</span> 的体积。因此，<span class="arithmatex">\( k \)</span> 个点大约会占据一个体积为 <span class="arithmatex">\( \frac{k}{n} \)</span> 的区域。</p>
 </blockquote>
 </div>
-<h2 id="knn-k"><span>kNN | k<span class="heti-spacing"> </span></span>近邻<a class="headerlink" href="#knn-k" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="knn-k"><span>kNN | k<span class="heti-spacing"> </span></span>近邻<a class="headerlink" href="#knn-k" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p><span>KNN<span class="heti-spacing"> </span></span>是一种经典的监督学习方法，也是<span class="heti-skip"><span class="heti-spacing"> </span>lazy learning<span class="heti-spacing"> </span></span>的代表，不需要任何训练</p>
 <ol>
 <li>选择距离度量</li>
@@ -3063,7 +3070,7 @@ l^p \approx \frac{k}{n}
 - 如果是分类任务，则采用投票 or 加权投票(majority vote)
 <img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250219160042587.png"/></li>
 </ol>
-<h3 id="1nn">1NN<a class="headerlink" href="#1nn" title="Permanent link">¶</a></h3>
+<h3 id="1nn">1NN<a class="headerlink" href="#1nn" title="anchor link to this section for reference">¶</a></h3>
 <p><span>1NN<span class="heti-spacing"> </span></span>是<span class="heti-skip"><span class="heti-spacing"> </span>kNN<span class="heti-spacing"> </span></span>的特殊情况，k=1，这个时候模型复杂度很高</p>
 <div class="admonition note">
 <p class="admonition-title"><span>1NN<span class="heti-spacing"> </span></span>的分割点如何处理</p>
@@ -3071,7 +3078,7 @@ l^p \approx \frac{k}{n}
 <p>考虑极端情况，<span>x<span class="heti-spacing"> </span></span>距离<span class="heti-skip"><span class="heti-spacing"> </span>AB<span class="heti-spacing"> </span></span>点距离相同，认为这两个点对于预测该点同等重要，需要考虑两个点的信息。对于回归任务取平均值，而对于分类任务则投票，平票则随机选择</p>
 <p>但是在<span class="heti-skip"><span class="heti-spacing"> </span>1NN<span class="heti-spacing"> </span></span>下，尤其对连续分布，出现这种等距情况的概率几乎处处为<span class="heti-skip"><span class="heti-spacing"> </span>0.<span class="heti-spacing"> </span></span>此时在该点的预测值确实是不连续的，但是由于这种情况首先是一个<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>概率集，所以我们仍然可以认为<span class="heti-skip"><span class="heti-spacing"> </span>1NN<span class="heti-spacing"> </span></span>回归学习器是几乎处处连续的。</p>
 </div>
-<h3 id="_1">错误率分析<a class="headerlink" href="#_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_1">错误率分析<a class="headerlink" href="#_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>给定测试样本<span><span class="heti-spacing"> </span><span class="arithmatex">\(x\)</span></span>，若其最近邻样本为<span><span class="heti-spacing"> </span><span class="arithmatex">\(z\)</span></span>，则最近邻分类器出错的概率就是<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(x\)</span><span class="heti-spacing"> </span></span>与<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(z\)</span><span class="heti-spacing"> </span></span>类别标记不同的概率，即</p>
 <div class="arithmatex">\[
 P(\text{err}) = 1 - \sum_{c \in \mathcal{Y}} P(c \mid x) P(c \mid z)
@@ -3091,7 +3098,7 @@ P(\text{err}) &amp;= 1 - \sum_{c \in \mathcal{Y}} P(c \mid x) P(c \mid z) \\
 <li>假设是<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\delta\)</span><span class="heti-spacing"> </span></span>范围内必定能找到一个点（<span>1NN<span class="heti-spacing"> </span></span>的假设接近）</li>
 <li>表明如果噪声比较小的话，选择<span class="heti-skip"><span class="heti-spacing"> </span>1NN<span class="heti-spacing"> </span></span>是合理的</li>
 </ul>
-<h3 id="bias-var"><span>bias-var<span class="heti-spacing"> </span></span>分析<a class="headerlink" href="#bias-var" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="bias-var"><span>bias-var<span class="heti-spacing"> </span></span>分析<a class="headerlink" href="#bias-var" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p><span>1NN<span class="heti-spacing"> </span></span>的时候，当点数很大的时候，<span>1NN<span class="heti-spacing"> </span></span>可以无限接近于真实点，模型的<span class="heti-skip"><span class="heti-spacing"> </span>bias<span class="heti-spacing"> </span></span>约等于<span><span class="heti-spacing"> </span>0</span>；模型的<span><span class="heti-spacing"> </span>var</span>（不同数据集合下的表现）约等于<span><span class="heti-spacing"> </span><span class="arithmatex">\(\sigma^2\)</span></span></p>
 <blockquote>
 <p>不同数据集间的差距就是系统的噪声，可以理解为<span class="heti-skip"><span class="heti-spacing"> </span>var<span class="heti-spacing"> </span></span>体现了这一点</p>
@@ -3102,7 +3109,7 @@ P(\text{err}) &amp;= 1 - \sum_{c \in \mathcal{Y}} P(c \mid x) P(c \mid z) \\
 <li><span>k<span class="heti-spacing"> </span></span>较小的时候，模型复杂度高，模型的<span class="heti-skip"><span class="heti-spacing"> </span>bias<span class="heti-spacing"> </span></span>低，但是<span class="heti-skip"><span class="heti-spacing"> </span>var<span class="heti-spacing"> </span></span>比较高</li>
 </ul>
 <p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250219155643184.png"/></p>
-<h3 id="_2">过拟合和模型复杂度<a class="headerlink" href="#_2" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_2">过拟合和模型复杂度<a class="headerlink" href="#_2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>Degrees-of-freedom and model complexity are related concepts,
 and they can be used to prevent over-fitting</p>
 <p>对于<span class="heti-skip"><span class="heti-spacing"> </span>kNN<span class="heti-spacing"> </span></span>来说，其自由度是<span><span class="heti-spacing"> </span><span class="arithmatex">\(\frac{n}{k}\)</span></span>
@@ -3110,7 +3117,7 @@ and they can be used to prevent over-fitting</p>
 - nNN 的自由度是1</p>
 <p><span>k<span class="heti-spacing"> </span></span>趋于无穷大，<span><span class="arithmatex">\(\frac{n}{k}\)</span><span class="heti-spacing"> </span></span>趋于<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>时，<span>KNN<span class="heti-spacing"> </span></span>是相合的</p>
 <p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250220084045779.png"/></p>
-<h3 id="_3">计算<a class="headerlink" href="#_3" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_3">计算<a class="headerlink" href="#_3" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ul>
 <li>Lazy Learning: Need to store the entire training data for future prediction</li>
 <li>Prediction can be slow. Needs to calculate the distance from x0
@@ -3119,7 +3126,7 @@ to all training sample and sort them.</li>
 <li>A distance measure may affect accuracy</li>
 </ul>
 <p>但是如果求解的问题有低维的结构（<span>manifold<span class="heti-spacing"> </span></span>流形<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，那么精度会高一点</p>
-<h2 id="mds-multiple-dimensional-scaling">MDS | Multiple dimensional Scaling<a class="headerlink" href="#mds-multiple-dimensional-scaling" title="Permanent link">¶</a></h2>
+<h2 id="mds-multiple-dimensional-scaling">MDS | Multiple dimensional Scaling<a class="headerlink" href="#mds-multiple-dimensional-scaling" title="anchor link to this section for reference">¶</a></h2>
 <p>第一步——求解距离矩阵<span><span class="heti-spacing"> </span>D</span></p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">get_distance_matrix</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
 	<span class="n">expand_</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,</span> <span class="p">:]</span>
@@ -3154,7 +3161,7 @@ to all training sample and sort them.</li>
 	<span class="k">return</span> <span class="n">Z</span>
 </code></pre></div>
 <a href="https://blog.csdn.net/weixin_38053887/article/details/104700192">多维缩放(MDS)算法的详细推导及Python实现_多维缩放算法证明 知乎-CSDN博客</a>
-<h2 id="pca">PCA<a class="headerlink" href="#pca" title="Permanent link">¶</a></h2>
+<h2 id="pca">PCA<a class="headerlink" href="#pca" title="anchor link to this section for reference">¶</a></h2>
 <p><a href="https://www.bilibili.com/video/BV1aF4m1u789">降维技巧<span class="heti-skip"><span class="heti-spacing"> </span>|<span class="heti-spacing"> </span></span>导论与流形学习：⅕ </a></p>
 <p>第一阶段找了一个新的坐标系来表示数据，这个新的坐标系不是随便找的，是要求能最大限度的看出每个轴上的数据变化大小</p>
 <p>第二阶段在新坐标系下取前<span class="heti-skip"><span class="heti-spacing"> </span>k<span class="heti-spacing"> </span></span>个变化最大的轴上的数据（最大特征值对应的轴<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，从而实现降维。</p>
@@ -3162,7 +3169,7 @@ to all training sample and sort them.</li>
 <p><a href="https://www.zhihu.com/tardis/zm/art/37609917?source_id=1005">如何直观地理解「协方差矩阵<heti-adjacent class="heti-adjacent-half">」</heti-adjacent>？</a></p>
 <p><a href="https://zhuanlan.zhihu.com/p/618906910">【数据降维<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>第<span class="heti-skip"><span class="heti-spacing"> </span>4<span class="heti-spacing"> </span></span>篇】多维尺度变换（MDS）快速理解，及<span class="heti-skip"><span class="heti-spacing"> </span>MATLAB<span class="heti-spacing"> </span></span>实现<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>知乎</a></p>
 <p><a href="https://blog.csdn.net/dugudaibo/article/details/78931825">利用<span class="heti-skip"><span class="heti-spacing"> </span>PCA<span class="heti-spacing"> </span></span>降维的手工计算实例<span class="heti-skip"><span class="heti-spacing"> </span>_<span class="heti-spacing"> </span></span>给定如下数据<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>采用<span class="heti-skip"><span class="heti-spacing"> </span>pca<span class="heti-spacing"> </span></span>计算降维时所用的特征向量<span class="heti-skip"><span class="heti-spacing"> </span>-CSDN<span class="heti-spacing"> </span></span>博客</a></p>
-<h3 id="kernel-pca">kernel PCA<a class="headerlink" href="#kernel-pca" title="Permanent link">¶</a></h3>
+<h3 id="kernel-pca">kernel PCA<a class="headerlink" href="#kernel-pca" title="anchor link to this section for reference">¶</a></h3>
 <p><span>PCA<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>SVD<span class="heti-spacing"> </span></span>的关系：</p>
 <p>SVD：</p>
 <div class="arithmatex">\[
@@ -3170,17 +3177,17 @@ A = US V^T
 \]</div>
 <p><span>U<span class="heti-spacing"> </span></span>是特征向量，<span>S<span class="heti-spacing"> </span></span>是特征值，<span>V<span class="heti-spacing"> </span></span>是特征向量</p>
 <p>协方差矩阵告诉我们变量的方差和联合方向</p>
-<h2 id="_4">流形学习<a class="headerlink" href="#_4" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<h3 id="lle">LLE<a class="headerlink" href="#lle" title="Permanent link">¶</a></h3>
+<h2 id="_4">流形学习<a class="headerlink" href="#_4" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h3 id="lle">LLE<a class="headerlink" href="#lle" title="anchor link to this section for reference">¶</a></h3>
 <p>原始空间到子空间</p>
-<h2 id="_5">度量学习<a class="headerlink" href="#_5" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<h3 id="_6">距离<a class="headerlink" href="#_6" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h2 id="_5">度量学习<a class="headerlink" href="#_5" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h3 id="_6">距离<a class="headerlink" href="#_6" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>欧式距离：在每个方向上同等重要；有缘千里来相会；无缘对面手难牵</p>
 <p>马氏距离：</p>
 <div class="admonition note">
 <p class="admonition-title">不同的距离度量对模型效果影响很大</p>
 </div>
-<h3 id="nca-neighborhood-components-analysis">NCA | Neighborhood Components Analysis<a class="headerlink" href="#nca-neighborhood-components-analysis" title="Permanent link">¶</a></h3></div>
+<h3 id="nca-neighborhood-components-analysis">NCA | Neighborhood Components Analysis<a class="headerlink" href="#nca-neighborhood-components-analysis" title="anchor link to this section for reference">¶</a></h3></div>
 <aside class="md-source-file">
 <span class="md-source-file__fact">
 <span class="md-icon" title="最后更新">

@@ -891,6 +891,13 @@
   </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Control/Method-Kalman/">
+<span class="md-ellipsis">
+    Kalman Filter
+  </span>
+</a>
+</li>
 </ul>
 </nav>
 </li>
@@ -3111,9 +3118,9 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<div><h1 id="_1">空中机器人<a class="headerlink" href="#_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h1>
-<div markdown="1" style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-:material-circle-edit-outline: 约 3473 个字 :material-clock-time-two-outline: 预计阅读时间 14 分钟
+<div><h1 id="_1">空中机器人<a class="headerlink" href="#_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h1>
+<div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
+<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>3473<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>14<span class="heti-spacing"> </span></span>分钟</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">课程简介</p>
@@ -3138,18 +3145,18 @@
 </div>
 </div>
 </div>
-<h2 id="_2">概论<a class="headerlink" href="#_2" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_2">概论<a class="headerlink" href="#_2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p>期望有自制和自主能力，遥控飞机也算的</p>
-<h3 id="lab">Lab<a class="headerlink" href="#lab" title="Permanent link">¶</a></h3>
+<h3 id="lab">Lab<a class="headerlink" href="#lab" title="anchor link to this section for reference">¶</a></h3>
 <p>MIT、ETH、ZJU、HKUST</p>
-<h3 id="_3">分类<a class="headerlink" href="#_3" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_3">分类<a class="headerlink" href="#_3" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <div class="admonition note">
 <p class="admonition-title">关于“飞翔”</p>
 <p>代达罗斯和伊卡洛斯
 <img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241102205126.png"/></p>
 </div>
-<h4 id="_4">固定翼<a class="headerlink" href="#_4" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
-<h4 id="_5">旋翼<a class="headerlink" href="#_5" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h4 id="_4">固定翼<a class="headerlink" href="#_4" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h4 id="_5">旋翼<a class="headerlink" href="#_5" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p>操控简单、可靠性高、模块易替换</p>
 <ul>
 <li>旋翼：对称分布集体前后左右</li>
@@ -3169,9 +3176,9 @@
 <p class="admonition-title">四旋翼有十字和<span class="heti-skip"><span class="heti-spacing"> </span>x<span class="heti-spacing"> </span></span>两种，采用正反桨，对侧一致</p>
 <p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240914104903.png"/></p>
 </div>
-<h4 id="_6">扑翼型<a class="headerlink" href="#_6" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h4 id="_6">扑翼型<a class="headerlink" href="#_6" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240911134640.png"/></p>
-<h4 id="_7">气囊型<a class="headerlink" href="#_7" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h4 id="_7">气囊型<a class="headerlink" href="#_7" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240911134634.png"/></p>
 <div class="admonition note">
 <p class="admonition-title">为什么气囊型戛然而止？</p>
@@ -3181,26 +3188,26 @@
 <li>航速慢，十分容易受自然条件影响</li>
 </ol>
 </div>
-<h3 id="_8">名词解释<a class="headerlink" href="#_8" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<h4 id="_9">速度表示<a class="headerlink" href="#_9" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h3 id="_8">名词解释<a class="headerlink" href="#_8" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h4 id="_9">速度表示<a class="headerlink" href="#_9" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <ul>
 <li>真空速<span><span class="heti-spacing"> </span>TAS</span>：飞机相对于空气的运动速度，是考虑了空气密度影响的速度</li>
 <li>指示空速<span><span class="heti-spacing"> </span>IAS</span>：折算到海平面高度的真空速，忽略了空气密度的变化，又称表速，是空速管测出的速度，也是表征飞机升力的速度</li>
 <li>地速 飞机相对于地面运动速度的水平分量，是真空速与风速水平分量的矢量和</li>
 <li>垂直速度 飞机相对于地面运动速度的垂直分量，即升降速度</li>
 </ul>
-<h4 id="_10">马赫数<a class="headerlink" href="#_10" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h4 id="_10">马赫数<a class="headerlink" href="#_10" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p>马赫是表示速度的量词 。一马赫即一倍音速 音波可以在固体、液体或是气体介质中传播，介质密度愈大，则音速愈快 所以马赫的大小不是固定的</p>
 <p>马赫数小于<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>者为亚音速，马赫数大于<span class="heti-skip"><span class="heti-spacing"> </span>5<span class="heti-spacing"> </span></span>左右为超高音速</p>
 <p>马赫锥
 超音速飞行时，激波后的空气压力和温度急剧下降,导致水汽冷凝，形成雾化现象
 <img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241102205256.png"/></p>
-<h4 id="_11">激波<a class="headerlink" href="#_11" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h4 id="_11">激波<a class="headerlink" href="#_11" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p>飞机飞行→ 对空气产生扰动，扰动以扰动波的形式 以音速传播 积聚</p>
-<h4 id="_12">飞行包线<a class="headerlink" href="#_12" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h4 id="_12">飞行包线<a class="headerlink" href="#_12" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p>以速度作为横坐标，以高度作为纵坐标，把各个高度下的速度上限和下限画出来，这样就构成了一条边界线，称为飞行包线，飞机只能在这个线确定的范围内飞行。
 <img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240911135732.png"/></p>
-<h4 id="_13">气动布局<a class="headerlink" href="#_13" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h4 id="_13">气动布局<a class="headerlink" href="#_13" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p>飞机外部总体形态布局与位置安排称作气动布局</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="" id="__tabbed_2_1" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="__tabbed_2_1">常规布局</label></div>
 <div class="tabbed-content">
@@ -3233,8 +3240,8 @@
 </div>
 </div>
 </div>
-<h2 id="_14">动态模型<a class="headerlink" href="#_14" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<h3 id="_15">坐标系<a class="headerlink" href="#_15" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h2 id="_14">动态模型<a class="headerlink" href="#_14" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h3 id="_15">坐标系<a class="headerlink" href="#_15" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:6"><input checked="" id="__tabbed_4_1" name="__tabbed_4" type="radio"/><input id="__tabbed_4_2" name="__tabbed_4" type="radio"/><input id="__tabbed_4_3" name="__tabbed_4" type="radio"/><input id="__tabbed_4_4" name="__tabbed_4" type="radio"/><input id="__tabbed_4_5" name="__tabbed_4" type="radio"/><input id="__tabbed_4_6" name="__tabbed_4" type="radio"/><div class="tabbed-labels"><label for="__tabbed_4_1">惯性参考系</label><label for="__tabbed_4_2">地面坐标系</label><label for="__tabbed_4_3">地球中心坐标系<span class="heti-skip"><span class="heti-spacing"> </span>ECEF<span class="heti-spacing"> </span></span></label><label for="__tabbed_4_4"><span class="heti-skip"><span class="heti-spacing"> </span>WGS84<span class="heti-spacing"> </span></span>坐标系</label><label for="__tabbed_4_5"><span class="heti-skip"><span class="heti-spacing"> </span>NED<span class="heti-spacing"> </span></span>坐标系</label><label for="__tabbed_4_6">机体坐标系</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -3267,7 +3274,7 @@ Z 轴指向CTP方向。 Y轴与X、Z轴构成右手坐标系。
 <p><span>GPS<span class="heti-spacing"> </span></span>地貌不精确；
 但是传感器误差仍是实机实验的难点之一</p>
 </div>
-<h3 id="_16">坐标变换（详见机器人建模与控制）<a class="headerlink" href="#_16" title="Permanent link">¶</a></h3>
+<h3 id="_16">坐标变换（详见机器人建模与控制）<a class="headerlink" href="#_16" title="anchor link to this section for reference">¶</a></h3>
 <p>常见飞行器可以抽象为 一个刚体 。描述任意时刻的空间运动需要
 六个自由度： 三个质心运动和三个角运动 。</p>
 <div class="admonition note">
@@ -3287,7 +3294,7 @@ Z 轴指向CTP方向。 Y轴与X、Z轴构成右手坐标系。
 牛·米中间的 <span class="arithmatex">\(\cdot\)</span>（有时被省略）表示乘号 <span class="arithmatex">\(\times\)</span>。在离旋转物体轴心1米半径处，施以1牛顿大小的力，作用于这个物体的旋转力即为1牛·米；反过来，在1牛·米的旋转力作用下，离旋转轴心1米半径处，力大小为1牛顿。
 <img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240911151007.png"/></p>
 </div>
-<h2 id="_17">⚙️控制<a class="headerlink" href="#_17" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_17">⚙️控制<a class="headerlink" href="#_17" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:3"><input checked="" id="__tabbed_5_1" name="__tabbed_5" type="radio"/><input id="__tabbed_5_2" name="__tabbed_5" type="radio"/><input id="__tabbed_5_3" name="__tabbed_5" type="radio"/><div class="tabbed-labels"><label for="__tabbed_5_1">遥控飞行（ Remote Control Flying）</label><label for="__tabbed_5_2">程控飞行（ Autopilot Flying）</label><label for="__tabbed_5_3">自主飞行（ Autonomous Flying）</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -3320,7 +3327,7 @@ Z 轴指向CTP方向。 Y轴与X、Z轴构成右手坐标系。
 <div class="admonition tip">
 <p class="admonition-title">奇数旋翼也是可以控制的</p>
 </div>
-<h3 id="_18">平面四旋翼模型<a class="headerlink" href="#_18" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_18">平面四旋翼模型<a class="headerlink" href="#_18" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240925150048.png"/></p>
 <p><span><span class="arithmatex">\(u_1\)</span><span class="heti-spacing"> </span></span>表示推力<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="arithmatex">\(u_2\)</span><span class="heti-spacing"> </span></span>表示力矩。</p>
 <ul>
@@ -3363,7 +3370,7 @@ $$</p>
 <div class="arithmatex">\[
 I\cdot \begin{bmatrix} \ddot{\phi} \\ \ddot{\theta} \\ \ddot{\psi} \end{bmatrix} + \begin{bmatrix} \omega_x \\ \omega_y \\ \omega_z \end{bmatrix} \times I \cdot \begin{bmatrix} \omega_x \\ \omega_y \\ \omega_z \end{bmatrix} = \begin{bmatrix} l(F_2 - F_4) \\ l(F_3 - F_1) \\ M_1 - M_2 + M_3 - M_4 \end{bmatrix}
 \]</div>
-<h3 id="pid"><span>PID<span class="heti-spacing"> </span></span>控制<a class="headerlink" href="#pid" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="pid"><span>PID<span class="heti-spacing"> </span></span>控制<a class="headerlink" href="#pid" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p><strong>位置控制</strong></p>
 <div class="arithmatex">\[
 \ddot{p}_{i,c} = \ddot{p}_i^{des} + K_{d,i}(\dot{p}_i^{des} - \dot{p}_i) + K_{p,i}(p_i^{des} - p_i) \\
@@ -3385,7 +3392,7 @@ I\cdot \begin{bmatrix} \ddot{\phi} \\ \ddot{\theta} \\ \ddot{\psi} \end{bmatrix}
 </ul>
 <p>产生误差原因： 模型<span class="heti-skip"><span class="heti-spacing"> </span>mismatch +<span class="heti-spacing"> </span></span>环境噪声
 前馈：利用模型建模，相当于将初始值从0移动到某个值</p>
-<h3 id="mpc"><span>MPC<span class="heti-spacing"> </span></span>控制<a class="headerlink" href="#mpc" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="mpc"><span>MPC<span class="heti-spacing"> </span></span>控制<a class="headerlink" href="#mpc" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <div class="admonition note">
 <p class="admonition-title">SLAM : Simultaneous Localization and Mapping</p>
 </div>

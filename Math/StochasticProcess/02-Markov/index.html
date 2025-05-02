@@ -1197,6 +1197,13 @@
   </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Robotics/Control/Method-Kalman/">
+<span class="md-ellipsis">
+    Kalman Filter
+  </span>
+</a>
+</li>
 </ul>
 </nav>
 </li>
@@ -3515,9 +3522,9 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<div><h1 id="02">02 ｜ 马尔可夫链<a class="headerlink" href="#02" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h1>
-<div markdown="1" style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-:material-circle-edit-outline: 约 3737 个字 :fontawesome-solid-code: 21 行代码 :material-clock-time-two-outline: 预计阅读时间 15 分钟
+<div><h1 id="02">02 ｜ 马尔可夫链<a class="headerlink" href="#02" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h1>
+<div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
+<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>3737<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"></path></svg></span> <span>21<span class="heti-spacing"> </span></span>行代码 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>15<span class="heti-spacing"> </span></span>分钟</p>
 </div>
 <table>
 <thead>
@@ -3577,7 +3584,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="markov"><span>Markov<span class="heti-spacing"> </span></span>性<a class="headerlink" href="#markov" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="markov"><span>Markov<span class="heti-spacing"> </span></span>性<a class="headerlink" href="#markov" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <ul>
 <li>无记忆性：<span class="arithmatex">\(P(X_{n+1}=j\mid X_0=i_0,\cdots,X_{n-1}=i_{n-1},X_n=i)=P(X_{n+1}=j\mid X_n=i)\)</span></li>
 </ul>
@@ -3593,27 +3600,27 @@ P(AC\mid B)&amp;=\frac{P(ABC)}{P(B)}=\frac{P(C\mid AB)P(AB)}{P(B)}\\
 <ul>
 <li>当前时刻状态决定了下一时刻的随机过程的分布也决定了下一时刻不可能是哪些分布</li>
 </ul>
-<h3 id="markov_1">时齐<span class="heti-skip"><span class="heti-spacing"> </span>Markov<span class="heti-spacing"> </span></span>链<a class="headerlink" href="#markov_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="markov_1">时齐<span class="heti-skip"><span class="heti-spacing"> </span>Markov<span class="heti-spacing"> </span></span>链<a class="headerlink" href="#markov_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p><strong><span>K<span class="heti-spacing"> </span></span>步转移概率只与时间间隔<span class="heti-skip"><span class="heti-spacing"> </span>K<span class="heti-spacing"> </span></span>有关，与当前所处状态无关</strong></p>
 <p>若<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\forall\;i,j\quad P(X_{n+1}=j\mid X_n=i)\)</span><span class="heti-spacing"> </span></span>不依赖于<span><span class="heti-spacing"> </span><span class="arithmatex">\(n\)</span></span> ，则称<span class="heti-skip"><span class="heti-spacing"> </span>{<span class="arithmatex">\(X_n\)</span>}<span class="heti-spacing"> </span></span>是<strong>时齐的<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(Markov\)</span><span class="heti-spacing"> </span></span>链</strong></p>
 <p>时齐的<span class="heti-skip"><span class="heti-spacing"> </span>Markov<span class="heti-spacing"> </span></span>链的有限维分布完全由初始分布和一步转移矩阵决定</p>
-<h2 id="_1">转移矩阵<a class="headerlink" href="#_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_1">转移矩阵<a class="headerlink" href="#_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p><span><span class="arithmatex">\(m\)</span><span class="heti-spacing"> </span></span>时处于状态<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(i\)</span><span class="heti-spacing"> </span></span>的条件下，到<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(n\)</span><span class="heti-spacing"> </span></span>时转移到状态<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(j\)</span><span class="heti-spacing"> </span></span>的概率<span><span class="heti-spacing"> </span><span class="arithmatex">\(P(X_n=j\mid X_m=i)\overset{记为}\Longrightarrow p_{ij}(m,n)\)</span></span> 。</p>
 <p><strong>①</strong> 各元素非负 </p>
 <p><strong>②</strong> 各行元素之和为<span><span class="heti-spacing"> </span>1</span></p>
-<h3 id="_2">一步转移<a class="headerlink" href="#_2" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_2">一步转移<a class="headerlink" href="#_2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ul>
 <li>一步转移概率<span><span class="heti-spacing"> </span>:<span class="arithmatex">\(P(X_{n+1}=j\mid X_n=i)\overset{记为}\Longrightarrow p_{ij}\)</span></span></li>
 <li>一步转移矩阵<span><span class="heti-spacing"> </span>:<span class="arithmatex">\(\mathbf P=[\;p_{ij}\;]_{I\times I}\)</span></span></li>
 </ul>
-<h3 id="k"><span><span class="arithmatex">\(k\)</span><span class="heti-spacing"> </span></span>步转移矩阵<a class="headerlink" href="#k" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="k"><span><span class="arithmatex">\(k\)</span><span class="heti-spacing"> </span></span>步转移矩阵<a class="headerlink" href="#k" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ul>
 <li><span><span class="arithmatex">\(k\)</span><span class="heti-spacing"> </span></span>步转移概率<span><span class="heti-spacing"> </span>:<span class="arithmatex">\(P(X_{n+k}=j\mid X_n=i)\overset{记为}\Longrightarrow p_{ij}^{(k)}\)</span></span></li>
 </ul>
 <ul>
 <li><span><span class="arithmatex">\(k\)</span><span class="heti-spacing"> </span></span>步转移矩阵<span><span class="heti-spacing"> </span>:<span class="arithmatex">\(\mathbf P^k=[\;p^{(k)}_{ij}\;]_{I\times I}\)</span></span> </li>
 </ul>
-<h3 id="c-k"><span>C-K<span class="heti-spacing"> </span></span>方程<a class="headerlink" href="#c-k" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="c-k"><span>C-K<span class="heti-spacing"> </span></span>方程<a class="headerlink" href="#c-k" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250428103145.png"/></p>
 <p><span class="arithmatex">\(\forall\;m,n,l\geq0\quad i,j\in I\qquad p_{ij}(m,m+n+l)=\sum_kp_{ik}(m,m+n)·p_{kj}(m+n,m+n+l)\)</span></p>
 <blockquote>
@@ -3622,7 +3629,7 @@ P(AC\mid B)&amp;=\frac{P(ABC)}{P(B)}=\frac{P(C\mid AB)P(AB)}{P(B)}\\
 <p><strong>①</strong> 由转移图推得任一概率<span><span class="heti-spacing"> </span><span class="arithmatex">\(\forall\;n\geq1\quad P(X_n=j)=\sum_iP(X_0=i)·p_{ij}^{(n)}\)</span></span></p>
 <p><strong>②</strong> <span class="arithmatex">\(\forall\;n_1&lt;n_2&lt;\dots&lt;n_k\quad P(X_{n_1}=i_1,\dots,X_{n_k}=i_k,)=P(X_{n_1}=i_1)·p_{i_1i_2}^{(n_2-n_1)}\dots p_{i_{k-1}i_k}^{(n_k-n_{k-1})}\)</span></p>
 <p>时齐<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(Markov\)</span><span class="heti-spacing"> </span></span>链的有限维分布完全由<strong>初始分布</strong>与<strong>一步转移矩阵</strong>决定。</p>
-<h2 id="_3">常返和暂留<a class="headerlink" href="#_3" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_3">常返和暂留<a class="headerlink" href="#_3" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p><span><span class="arithmatex">\(\tau_i=min(n\geq1;X_n=i)\)</span><span class="heti-spacing"> </span></span>为首次击中状态<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(i\)</span><span class="heti-spacing"> </span></span>的时间（首中时<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。</p>
 <ul>
 <li>第<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(n\)</span><span class="heti-spacing"> </span></span>步击中概率<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(f_{ij}^{(n)}\)</span><span class="heti-spacing"> </span></span>为从状态<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(i\)</span><span class="heti-spacing"> </span></span>出发在<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(n\)</span><span class="heti-spacing"> </span></span>步<strong>首次击中</strong>状态<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(j\)</span><span class="heti-spacing"> </span></span>的概率。</li>
@@ -3632,7 +3639,7 @@ P(AC\mid B)&amp;=\frac{P(ABC)}{P(B)}=\frac{P(C\mid AB)P(AB)}{P(B)}\\
 <blockquote>
 <p>首次击中很关键</p>
 </blockquote>
-<h3 id="_4">常返<a class="headerlink" href="#_4" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_4">常返<a class="headerlink" href="#_4" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <div class="arithmatex">\[
 P(\tau_i&lt;\infty\mid X_o=i)=1
 \]</div>
@@ -3643,7 +3650,7 @@ P(\tau_i&lt;\infty\mid X_o=i)=1
 <ul>
 <li><span><span class="arithmatex">\(i\)</span><span class="heti-spacing"> </span></span>常返<br/><span class="arithmatex">\(\Leftrightarrow\)</span> <span class="arithmatex">\(\sum_{n=0}^{\infty} p_{ii}^{(n)} = \infty\)</span><br/><span class="arithmatex">\(\Leftrightarrow\)</span> <span class="arithmatex">\(f_{ii} = 1\)</span><br/><span><span class="arithmatex">\(\Leftrightarrow\)</span><span class="heti-spacing"> </span></span>从<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(i\)</span><span class="heti-spacing"> </span></span>出发以概率<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>返回状态<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(i\)</span><span class="heti-spacing"> </span></span>无穷多次</li>
 </ul>
-<h3 id="_5">暂留<a class="headerlink" href="#_5" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_5">暂留<a class="headerlink" href="#_5" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>不满足<strong>常返</strong>的。</p>
 <ul>
 <li>有概率回不到初始状态</li>
@@ -3651,7 +3658,7 @@ P(\tau_i&lt;\infty\mid X_o=i)=1
 <li><span class="arithmatex">\(\Leftrightarrow P(N_i&lt;\infty\mid X_0=i)=1\)</span></li>
 <li><span class="arithmatex">\(\Leftrightarrow \sum_{n=0}^{\infty} p_{ii}^{(n)} &lt; \infty\)</span></li>
 </ul>
-<h3 id="_6">平均回转时<a class="headerlink" href="#_6" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_6">平均回转时<a class="headerlink" href="#_6" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p><span class="arithmatex">\(\mu_i=\sum nf_{ii}^{(n)}=\begin{cases}&lt;\infty\qquad正常返\\[2ex]=\infty\qquad零常返\end{cases}\)</span></p>
 <p>走回原地的步数的期望，每一步的概率是<span><span class="heti-spacing"> </span><span class="arithmatex">\(f_{ii}^{(n)}\)</span></span> </p>
 <div class="arithmatex">\[
@@ -3660,57 +3667,57 @@ P(\tau_i&lt;\infty\mid X_o=i)=1
 <ul>
 <li>返回<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(i\)</span><span class="heti-spacing"> </span></span>的时间间隔有长有短，但根据大数定律保证，访问<span class="heti-skip"><span class="heti-spacing"> </span>i<span class="heti-spacing"> </span></span>的频率和时间间隔<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\mu_i\)</span><span class="heti-spacing"> </span></span>是一样的</li>
 </ul>
-<h2 id="_7">状态空间的划分<a class="headerlink" href="#_7" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<h3 id="_8">可达<a class="headerlink" href="#_8" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h2 id="_7">状态空间的划分<a class="headerlink" href="#_7" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h3 id="_8">可达<a class="headerlink" href="#_8" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p><span><span class="arithmatex">\(i\)</span><span class="heti-spacing"> </span></span>能到达<span><span class="heti-spacing"> </span><span class="arithmatex">\(j\)</span></span> 。<span class="arithmatex">\(i\curvearrowright j\)</span> 。</p>
-<h3 id="_9">互达<a class="headerlink" href="#_9" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_9">互达<a class="headerlink" href="#_9" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p><span><span class="arithmatex">\(i\)</span><span class="heti-spacing"> </span></span>能到达<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(j\)</span><span class="heti-spacing"> </span></span>且<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(j\)</span><span class="heti-spacing"> </span></span>能到达<span><span class="heti-spacing"> </span><span class="arithmatex">\(i\)</span></span> 。<span class="arithmatex">\(i\leftrightarrow j\)</span> 。有<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(d(i)=d(j)\)</span><span class="heti-spacing"> </span></span>且各状态有<strong>相同的周期性与常返性</strong>。</p>
 <blockquote>
 <p>满足自反性、对称性、传递性，是等价关系</p>
 </blockquote>
 <p><span><span class="arithmatex">\(\forall\;i\;j\)</span><span class="heti-spacing"> </span></span>互达<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\Leftrightarrow\)</span> <span class="arithmatex">\(Markov\)</span><span class="heti-spacing"> </span></span>链<strong>不可约</strong></p>
-<h3 id="_10">互达等价类<a class="headerlink" href="#_10" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_10">互达等价类<a class="headerlink" href="#_10" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>所有处于同一互达状态的集合。状态空间可分为不交的<strong>互达等价类</strong>的并集。</p>
-<h3 id="_11">闭集<a class="headerlink" href="#_11" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_11">闭集<a class="headerlink" href="#_11" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>一旦进入此互达等价类中的状态便不再进入非该互达等价类的其他状态。</p>
-<h3 id="_12">周期<a class="headerlink" href="#_12" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_12">周期<a class="headerlink" href="#_12" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p><span><span class="arithmatex">\(d(i)\)</span><span class="heti-spacing"> </span></span>为集合<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\{n;n\geq1;p_{ii}^{(n)}&gt;0\}\)</span><span class="heti-spacing"> </span></span>可能取值的最大公约数。</p>
 <ul>
 <li><span><span class="arithmatex">\(i\)</span><span class="heti-spacing"> </span></span>非周期<span><span class="heti-spacing"> </span><span class="arithmatex">\(\Leftrightarrow\)</span> <span class="arithmatex">\(d(i)=1\)</span></span> 。</li>
 <li><span>{ <span class="arithmatex">\(X_n\)</span> }<span class="heti-spacing"> </span></span>遍历<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\Leftrightarrow\)</span> { <span class="arithmatex">\(X_n\)</span> }<span class="heti-spacing"> </span></span>不可约非周期正常返。</li>
 </ul>
-<h2 id="_13">平稳分布<a class="headerlink" href="#_13" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_13">平稳分布<a class="headerlink" href="#_13" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p><span><span class="arithmatex">\(\mathbf{\pi}=(\pi_1,\pi_2,\pi_3,\dots,\pi_n)\)</span><span class="heti-spacing"> </span></span>代表稳态时各个状态的含量。满足 </p>
 <p><strong>①</strong> <span class="arithmatex">\(\mathbf{\pi}=\mathbf{\pi}\mathbf{P}\)</span> （<span><span class="arithmatex">\(\mathbf{P}\)</span><span class="heti-spacing"> </span></span>为一步转移矩阵）</p>
 <p><strong>②</strong> <span class="arithmatex">\(\sum\pi_i=1\)</span></p>
 <div class="admonition note">
 <p class="admonition-title">根据这两个式子列方程求解平稳分布</p>
 </div>
-<h3 id="markov_2">不可约<strong>Markov</strong>链的性质<a class="headerlink" href="#markov_2" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="markov_2">不可约<strong>Markov</strong>链的性质<a class="headerlink" href="#markov_2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p><strong>①</strong> 若<span class="heti-skip"><span class="heti-spacing"> </span>{ <span class="arithmatex">\(X_n\)</span> }<span class="heti-spacing"> </span></span>正常返，则<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\pi\)</span><span class="heti-spacing"> </span></span>存在且唯一，<span class="arithmatex">\(\pi_i=\frac 1{\mu_i}\)</span> 。</p>
 <p><strong>②</strong> 若<span class="heti-skip"><span class="heti-spacing"> </span>{ <span class="arithmatex">\(X_n\)</span> }<span class="heti-spacing"> </span></span>遍历，则<span><span class="heti-spacing"> </span><span class="arithmatex">\(\forall\;i,j\quad \underset{{n\rightarrow\infty}}\lim P_{ij}^{(n)}=\pi_j\rightarrow \underset{{n\rightarrow\infty}}\lim P(X_n=j)=\pi_j\)</span></span> 。</p>
 <blockquote>
 <p>无论你从哪个状态开始，经过足够长时间后，系统会达到一个与<strong>初始状态无关的稳定的状态分布</strong></p>
 </blockquote>
 <p><strong>③</strong> 若状态空间有限，则<span class="heti-skip"><span class="heti-spacing"> </span>{ <span class="arithmatex">\(X_n\)</span> }<span class="heti-spacing"> </span></span>正常返。</p>
-<h3 id="markov_3">可约<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(Markov\)</span><span class="heti-spacing"> </span></span>链的性质<a class="headerlink" href="#markov_3" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="markov_3">可约<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(Markov\)</span><span class="heti-spacing"> </span></span>链的性质<a class="headerlink" href="#markov_3" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p><strong>①</strong> <span><span class="arithmatex">\(i\)</span><span class="heti-spacing"> </span></span>的互达等价类不闭<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\rightarrow\)</span> <span class="arithmatex">\(i\)</span><span class="heti-spacing"> </span></span>暂留， <span><span class="arithmatex">\(i\)</span><span class="heti-spacing"> </span></span>常返<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\rightarrow\)</span> <span class="arithmatex">\(i\)</span><span class="heti-spacing"> </span></span>的互达等价类关闭。</p>
 <p><strong>②</strong> <span><span class="arithmatex">\(i\)</span><span class="heti-spacing"> </span></span>的互达等价类是有限闭集<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\rightarrow\)</span> <span class="arithmatex">\(i\)</span><span class="heti-spacing"> </span></span>正常返。</p>
 <p><strong>③</strong> 若<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(j\)</span><span class="heti-spacing"> </span></span>暂留或零常返，则<span><span class="heti-spacing"> </span><span class="arithmatex">\(\forall\;i\quad\underset{{n\rightarrow\infty}}\lim p_{ij}^{(n)}=0\)</span></span></p>
-<h3 id="markov_4">有限<strong>Markov</strong>链的状态分解<a class="headerlink" href="#markov_4" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="markov_4">有限<strong>Markov</strong>链的状态分解<a class="headerlink" href="#markov_4" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>可将状态空间分解为所有不交的互达等价类<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(C_i\)</span><span class="heti-spacing"> </span></span>与余下状态<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(T\)</span><span class="heti-spacing"> </span></span>的并集，则<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(C_i\)</span><span class="heti-spacing"> </span></span>中各状态正常返，<span><span class="arithmatex">\(T\)</span><span class="heti-spacing"> </span></span>中各状态暂留。则将<span class="heti-skip"><span class="heti-spacing"> </span>{ <span class="arithmatex">\(X_n\)</span> }<span class="heti-spacing"> </span></span>限制在<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(C_i\)</span><span class="heti-spacing"> </span></span>上得到一个不可约正常返的<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(Markov\)</span><span class="heti-spacing"> </span></span>链，其满足<span><span class="heti-spacing"> </span><span class="arithmatex">\(\pi_i=\frac 1{\mu_i}\)</span></span> 。</p>
-<h2 id="_14">吸收概率与平均吸收时间<a class="headerlink" href="#_14" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_14">吸收概率与平均吸收时间<a class="headerlink" href="#_14" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p><strong>先走一步法</strong></p>
 <p>设状态<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(a\)</span><span class="heti-spacing"> </span></span>为吸收态，<span><span class="arithmatex">\(P_i\)</span><span class="heti-spacing"> </span></span>为状态<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(i\)</span><span class="heti-spacing"> </span></span>进入状态<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(a\)</span><span class="heti-spacing"> </span></span>的概率<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>时间，则<span><span class="heti-spacing"> </span><span class="arithmatex">\(P_b=\sum p_{bc_i}·P_{c_i}\)</span></span> （求平均步数需<span><span class="heti-spacing"> </span>+1</span>）</p>
 <p>其中<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(p_{bc_i}\)</span><span class="heti-spacing"> </span></span>为一步转移概率。</p>
-<h2 id="_15">解题方式<a class="headerlink" href="#_15" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_15">解题方式<a class="headerlink" href="#_15" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p><strong>①</strong> 画出状态转移图，写出一步转移矩阵。<strong>观察</strong>状态转移图：</p>
 <p><strong>②</strong> 只要某几个状态两两互达，则为一互达等价类。若任一状态<strong>常返</strong>，则闭；反之不闭。</p>
 <p><strong>③</strong> 对周期的判断则看返回步数的所有可能取值，若出现质数，则<strong>非周期</strong>；反之，周期为其最大公约数。</p>
 <p><strong>④</strong> 若某一状态一旦出去就回不来了，则<strong>暂留</strong>；若还能回来，则<strong>正常返</strong>。</p>
 <p><strong>⑤</strong> 求<strong>平均回转时</strong>可先进行状态分解，在<strong>互达等价类</strong>内部求平稳分布<span><span class="heti-spacing"> </span><span class="arithmatex">\(\pi\)</span></span> ，<strong>平均回转时</strong>即倒数。</p>
 <p><strong>⑥</strong> 求<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(n\)</span><span class="heti-spacing"> </span></span>步转移概率<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>稳态概率，方法同 ⑤ 。若某一状态<strong>暂留</strong>，则<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(n\)</span><span class="heti-spacing"> </span></span>步后到该状态的概率<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>稳态概率为<span><span class="heti-spacing"> </span>0</span> ；反之为对应的<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\pi\)</span><span class="heti-spacing"> </span></span>值。</p>
-<h2 id="_16">模型整理<a class="headerlink" href="#_16" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_16">模型整理<a class="headerlink" href="#_16" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><input id="__tabbed_1_3" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">两个吸收壁的游动</label><label for="__tabbed_1_2">两个反射壁的随机游动</label><label for="__tabbed_1_3">两个弹性壁的随机游动</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -3751,9 +3758,9 @@ q &amp; 0 &amp; p &amp; 0 &amp; 0 \\
 </div>
 </div>
 </div>
-<h3 id="_17">爬梯子模型<a class="headerlink" href="#_17" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<h3 id="_18">输光模型<a class="headerlink" href="#_18" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<h3 id="d"><span>d<span class="heti-spacing"> </span></span>维对称随机游动<a class="headerlink" href="#d" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_17">爬梯子模型<a class="headerlink" href="#_17" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_18">输光模型<a class="headerlink" href="#_18" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="d"><span>d<span class="heti-spacing"> </span></span>维对称随机游动<a class="headerlink" href="#d" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>已有：当<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(d=1\)</span><span class="heti-spacing"> </span></span>时，<span class="arithmatex">\(p_{oo}^{(2n)} \sim \frac{1}{\sqrt{\pi n}}\)</span>；当<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(d=2\)</span><span class="heti-spacing"> </span></span>时，<span><span class="arithmatex">\(p_{oo}^{(2n)} \sim \frac{1}{\pi n}\)</span>.<span class="heti-spacing"> </span></span>事实上当<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(d \geqslant 3\)</span><span class="heti-spacing"> </span></span>时，<span class="arithmatex">\(p_{oo}^{(2n)} = O(n^{-d/2})\)</span>（证略<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。由此可得<span><span class="heti-spacing"> </span><span class="arithmatex">\(\sum_{n} p_{oo}^{(n)} &lt; \infty\)</span></span>，因此状态<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(o\)</span><span class="heti-spacing"> </span></span>暂留。</p>
 <p>这个例子说明<strong>一维和二维对称随机游动都是零常返</strong>的，<strong>三维和三维以上对称随机游动都是暂留</strong>的。醉汉一定能回家，但喝醉的小鸟却不一定。这是因为醉汉在二维世界游走，而醉鸟飞翔于三维空间。给的空间越大，越容易逃离。</p>
 <p>尽管没有给出当<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(d \geqslant 3\)</span><span class="heti-spacing"> </span></span>时的证明，但我们可以试着直观理解如下：</p>
@@ -3761,7 +3768,7 @@ q &amp; 0 &amp; p &amp; 0 &amp; 0 \\
 <div class="arithmatex">\[
 p_{oo}^{(2n)} = O\left(\left(\frac{1}{\sqrt{\pi n/d}}\right)^d\right) = O(n^{-d/2})
 \]</div>
-<h3 id="_19">网页排名<a class="headerlink" href="#_19" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_19">网页排名<a class="headerlink" href="#_19" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>网页排名是基于“<strong>从许多优质网页链接过来的网页，必定还是优质网页</strong>”的思想来判断网页的重要性。提高网页排名的主要因素有<span class="heti-skip"><span class="heti-spacing"> </span>3<span class="heti-spacing"> </span></span>个：</p>
 <ol>
 <li>反向链接数，即链接到这个网页的数目。反向链接数越多，这个网页越重要。</li>
@@ -3778,12 +3785,12 @@ p_{oo}^{(2n)} = O\left(\left(\frac{1}{\sqrt{\pi n/d}}\right)^d\right) = O(n^{-d/
 p_{ij}=\begin{cases}\dfrac{1}{d_i},&amp;j\text{ 是 }i\text{ 的邻}\\\\0,&amp;\text{其他}.\end{cases}
 \]</div>
 <p><span><span class="arithmatex">\(\pi_k=\sum_i\pi_ip_{ik}.\)</span><span class="heti-spacing"> </span></span>这样就得到了一个有趣的事实：<span><span class="arithmatex">\((\pi_i,i\in I)\)</span><span class="heti-spacing"> </span></span>恰好就是刚才定义的有向图<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(V\)</span><span class="heti-spacing"> </span></span>上随机游动的平稳分布<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>特别地，当这个随机游动遍历时<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\operatorname* { lim} _{n\to \infty }P( X_{n}\)</span> = <span class="arithmatex">\(i)\)</span> = <span class="arithmatex">\(\pi _{i}\)</span>,<span class="heti-spacing"> </span></span>即访问网页<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(i\)</span><span class="heti-spacing"> </span></span>的极限概率为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\pi_i\)</span>,<span class="heti-spacing"> </span></span>因此<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\pi_{i}\)</span><span class="heti-spacing"> </span></span>越大，访问网页<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(i\)</span><span class="heti-spacing"> </span></span>越频繁，从而网页<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(i\)</span><span class="heti-spacing"> </span></span>越重要</p>
-<h2 id="_20">例题<a class="headerlink" href="#_20" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_20">例题<a class="headerlink" href="#_20" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p>①绝对分布<span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span>初始分布和<span class="heti-skip"><span class="heti-spacing"> </span>n<span class="heti-spacing"> </span></span>步转移概率的乘积</p>
 <p>②对于状态空间有限的齐次马氏链<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>如果其某一步转移概率矩阵的每一个元素都大于零<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>则该链是遍历的</p>
 <p>③定理<span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span>遍历的齐次马氏链的极限分布是平稳分布</p>
 <p>④定理<span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span>如果齐次马氏链的初始分布为平稳分布<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>则初始分布也为绝对分布</p>
-<h3 id="_21">求初始分布、绝对分布、极限分布、平稳分布<a class="headerlink" href="#_21" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_21">求初始分布、绝对分布、极限分布、平稳分布<a class="headerlink" href="#_21" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <div class="admonition example">
 <p class="admonition-title">设<span class="heti-skip"><span class="heti-spacing"> </span>{ <span class="arithmatex">\(X_n\;;\;n\geq0\)</span> }<span class="heti-spacing"> </span></span>是时齐的<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(Markov\)</span><span class="heti-spacing"> </span></span>链，状态空间<span><span class="heti-spacing"> </span><span class="arithmatex">\(I\)</span> = {1,2,3,4,5,6}</span>，一步转移概率为：<span class="arithmatex">\(p_{11}=p_{54}=p_{62}=0.4\)</span> ，<span class="arithmatex">\(p_{12}=p_{56}=p_{65}=0.6\)</span> ，<span class="arithmatex">\(p_{21}=p_{34}=p_{43}=1\)</span> 。</p>
 <div class="highlight"><pre><span></span><code>graph TD;
@@ -3804,7 +3811,7 @@ p_{ij}=\begin{cases}\dfrac{1}{d_i},&amp;j\text{ 是 }i\text{ 的邻}\\\\0,&amp;\
 <p>（5）<span class="arithmatex">\(\underset{{n\rightarrow\infty}}\lim p_{12}^{(n)}=\pi_2=\frac38\)</span>，<span class="arithmatex">\(\underset{{n\rightarrow\infty}}\lim p_{55}^{(n)}=0\)</span></p>
 <p>（6）<span class="arithmatex">\(\underset{{n\rightarrow\infty}}\lim P(X_n=3)=\pi_3=\frac12\)</span>，    <span class="arithmatex">\(\underset{{n\rightarrow\infty}}\lim P(X_n=6)=0\)</span></p>
 </div>
-<h3 id="or">通过题目背景求解平稳分布<span class="heti-skip"><span class="heti-spacing"> </span>or<span class="heti-spacing"> </span></span>转移概率<a class="headerlink" href="#or" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="or">通过题目背景求解平稳分布<span class="heti-skip"><span class="heti-spacing"> </span>or<span class="heti-spacing"> </span></span>转移概率<a class="headerlink" href="#or" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <div class="admonition example">
 <p class="admonition-title">若顾客的购买情况不受到过去购买历史的影响。现在市场上供应了<span class="heti-skip"><span class="heti-spacing"> </span>A, B, C<span class="heti-spacing"> </span></span>厂家生产的三种不同的味精，以<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(X(n)=1, X(n)=2, X(n)=3\)</span><span class="heti-spacing"> </span></span>分别表示顾客第<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(n\)</span><span class="heti-spacing"> </span></span>次购买<span class="heti-skip"><span class="heti-spacing"> </span>A, B, C<span class="heti-spacing"> </span></span>厂的味精。</p>
 <p>若已知顾客第一次购买三个厂味精的概率分布为：<span class="arithmatex">\((0.2, 0.4, 0.4)\)</span>，又知道一步转移矩阵为：</p>
@@ -3863,8 +3870,8 @@ P^4 = \begin{pmatrix} \frac{173}{432} &amp; \frac{259}{432} \\ \frac{259}{648} &
 \end{aligned}
 \]</div>
 </div>
-<h2 id="_22">习题<a class="headerlink" href="#_22" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<h3 id="310">3.10<a class="headerlink" href="#310" title="Permanent link">¶</a></h3>
+<h2 id="_22">习题<a class="headerlink" href="#_22" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h3 id="310">3.10<a class="headerlink" href="#310" title="anchor link to this section for reference">¶</a></h3>
 <p>设<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\{X_{n}\}\)</span><span class="heti-spacing"> </span></span>是一时齐马尔可夫链<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>状态空间为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\{0, 1, 2, 3\}\)</span>,<span class="heti-spacing"> </span></span>一步转移矩阵为</p>
 <div class="arithmatex">\[
 P = \begin{pmatrix}
@@ -3926,11 +3933,11 @@ P^3 = P^2 \cdot P = \begin{pmatrix}
 
     3 --&gt; 3: 1.0
 </code></pre></div>
-<h3 id="316">3.16<a class="headerlink" href="#316" title="Permanent link">¶</a></h3>
-<h3 id="317">3.17<a class="headerlink" href="#317" title="Permanent link">¶</a></h3>
-<h3 id="320">3.20<a class="headerlink" href="#320" title="Permanent link">¶</a></h3>
-<h3 id="321">3.21<a class="headerlink" href="#321" title="Permanent link">¶</a></h3>
-<h3 id="323">3.23<a class="headerlink" href="#323" title="Permanent link">¶</a></h3></div>
+<h3 id="316">3.16<a class="headerlink" href="#316" title="anchor link to this section for reference">¶</a></h3>
+<h3 id="317">3.17<a class="headerlink" href="#317" title="anchor link to this section for reference">¶</a></h3>
+<h3 id="320">3.20<a class="headerlink" href="#320" title="anchor link to this section for reference">¶</a></h3>
+<h3 id="321">3.21<a class="headerlink" href="#321" title="anchor link to this section for reference">¶</a></h3>
+<h3 id="323">3.23<a class="headerlink" href="#323" title="anchor link to this section for reference">¶</a></h3></div>
 <aside class="md-source-file">
 <span class="md-source-file__fact">
 <span class="md-icon" title="最后更新">

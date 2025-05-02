@@ -891,6 +891,13 @@
   </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Control/Method-Kalman/">
+<span class="md-ellipsis">
+    Kalman Filter
+  </span>
+</a>
+</li>
 </ul>
 </nav>
 </li>
@@ -3273,9 +3280,9 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<div><h1 id="_1">规划<a class="headerlink" href="#_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h1>
-<div markdown="1" style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-:material-circle-edit-outline: 约 1397 个字 :material-clock-time-two-outline: 预计阅读时间 5 分钟
+<div><h1 id="_1">规划<a class="headerlink" href="#_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h1>
+<div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
+<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>1397<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>5<span class="heti-spacing"> </span></span>分钟</p>
 </div>
 <p>轨迹规划：考虑速度
 运动规划：
@@ -3298,21 +3305,21 @@
 <li>连续空间</li>
 <li>生成可执行轨迹</li>
 </ul>
-<h2 id="_2">基于搜索的路径规划<a class="headerlink" href="#_2" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<h3 id="graph-search">graph search<a class="headerlink" href="#graph-search" title="Permanent link">¶</a></h3>
-<h3 id="dijkstras">Dijkstra’s<a class="headerlink" href="#dijkstras" title="Permanent link">¶</a></h3>
+<h2 id="_2">基于搜索的路径规划<a class="headerlink" href="#_2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h3 id="graph-search">graph search<a class="headerlink" href="#graph-search" title="anchor link to this section for reference">¶</a></h3>
+<h3 id="dijkstras">Dijkstra’s<a class="headerlink" href="#dijkstras" title="anchor link to this section for reference">¶</a></h3>
 <p>加了权重的广度优先算法</p>
 <div class="admonition note">
 <p class="admonition-title">将完备搜索具有一些方向性</p>
 </div>
-<h3 id="a">A*<a class="headerlink" href="#a" title="Permanent link">¶</a></h3>
+<h3 id="a">A*<a class="headerlink" href="#a" title="anchor link to this section for reference">¶</a></h3>
 <p>在<span class="heti-skip"><span class="heti-spacing"> </span>Dijkstra's<span class="heti-spacing"> </span></span>算法的基础上，加了对于距离目标点的预测方向，因而有了更强的目的性
 <a href="https://blog.csdn.net/QLeelq/article/details/113862917">【算法】路径规划中的Dijkstra(狄克斯特拉)与A星算法_dijkstra和a星算法的差异-CSDN博客</a></p>
-<h3 id="jps">JPS<a class="headerlink" href="#jps" title="Permanent link">¶</a></h3>
+<h3 id="jps">JPS<a class="headerlink" href="#jps" title="anchor link to this section for reference">¶</a></h3>
 <p>在图上搜素</p>
 <p>三者都是最优解</p>
-<h2 id="_3">基于采样的路径搜索<a class="headerlink" href="#_3" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<h3 id="prm">PRM<a class="headerlink" href="#prm" title="Permanent link">¶</a></h3>
+<h2 id="_3">基于采样的路径搜索<a class="headerlink" href="#_3" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h3 id="prm">PRM<a class="headerlink" href="#prm" title="anchor link to this section for reference">¶</a></h3>
 <p><span>Probabilistic Road Map<span class="heti-spacing"> </span></span>基于概率采样的路径</p>
 <p><strong>构建阶段</strong>
 - 均匀生成采样点，删除碰撞点
@@ -3323,7 +3330,7 @@
 <p>缺点：对于给定的起点和终点，非最短路径，效率低</p>
 <p><img alt="image-20240427143014709" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240427143014709.png"/></p>
 <p><a href="https://zhuanlan.zhihu.com/p/133224593">基于采样的运动规划算法<span class="heti-skip"><span class="heti-spacing"> </span>-RRT(Rapidly-exploring Random Trees) -<span class="heti-spacing"> </span></span>知乎<span><span class="heti-spacing"> </span>(zhihu.com)</span></a></p>
-<h3 id="rrt-rapidly-exploring-random-tree">RRT | rapidly-exploring random tree<a class="headerlink" href="#rrt-rapidly-exploring-random-tree" title="Permanent link">¶</a></h3>
+<h3 id="rrt-rapidly-exploring-random-tree">RRT | rapidly-exploring random tree<a class="headerlink" href="#rrt-rapidly-exploring-random-tree" title="anchor link to this section for reference">¶</a></h3>
 <ul>
 <li>在整个地图上随机采样</li>
 <li>采样点选择最近点</li>
@@ -3331,7 +3338,7 @@
 <li>终止判断：是否在最近点的范围内；路径回溯得到最终路径</li>
 </ul>
 <p>不需要对地图进行预处理，栅格地图或是</p>
-<h4 id="_4">技巧<a class="headerlink" href="#_4" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h4 id="_4">技巧<a class="headerlink" href="#_4" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p>采样的方法非常重要</p>
 <div class="admonition note">
 <p class="admonition-title">有一点贪心但不太贪心</p>
@@ -3340,11 +3347,11 @@
 <li>kd-tree</li>
 <li>双向<span><span class="heti-spacing"> </span>RRT</span></li>
 </ul>
-<h4 id="_5">分析<a class="headerlink" href="#_5" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h4 id="_5">分析<a class="headerlink" href="#_5" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p>过小缝问题：没有栅格地图，很难采样到合适的点；采样到合适点后连接也不一定合适</p>
 <p>优点：容易添加对目标点的引导，效率增加</p>
 <p>缺点：无法删除已生成树，但不一定是最短</p>
-<h3 id="rrt">RRT*<a class="headerlink" href="#rrt" title="Permanent link">¶</a></h3>
+<h3 id="rrt">RRT*<a class="headerlink" href="#rrt" title="anchor link to this section for reference">¶</a></h3>
 <p>采样变多对于结果的优化并不多
 RRT没有遗忘机制，对已知路径没有更新，对错误连接没有修正</p>
 <ul>
@@ -3357,7 +3364,7 @@ RRT没有遗忘机制，对已知路径没有更新，对错误连接没有修�
 <p class="admonition-title">核心：半径<span class="heti-skip"><span class="heti-spacing"> </span>R<span class="heti-spacing"> </span></span>的选择</p>
 </div>
 <p><img alt="image-20240427143031710" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240427143031710.png"/></p>
-<h4 id="informed-rrt">informed RRT*<a class="headerlink" href="#informed-rrt" title="Permanent link">¶</a></h4>
+<h4 id="informed-rrt">informed RRT*<a class="headerlink" href="#informed-rrt" title="anchor link to this section for reference">¶</a></h4>
 <p>产生采样的启发式规则<span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span>采用一个椭圆采样方式来代替全局均匀采样
 <img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241023183144.png"/></p>
 <p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241023183158.png"/></p>
@@ -3365,9 +3372,9 @@ RRT没有遗忘机制，对已知路径没有更新，对错误连接没有修�
 <p>在之后的迭代中，没找到一次更短的路径，就用这条更短路径的长度作为新的<span><span class="heti-spacing"> </span><span class="arithmatex">\(c_{best}\)</span></span>，更新采样椭圆。</p>
 <p>然后<strong>在椭圆采样区域中进行采样</strong>。</p>
 <p><a href="https://zhuanlan.zhihu.com/p/372315811">路径规划<span class="heti-skip"><span class="heti-spacing"> </span>|<span class="heti-spacing"> </span></span>随机采样算法：<span>Informed-RRT* -<span class="heti-spacing"> </span></span>知乎</a></p>
-<h3 id="optimal-sampling-based-methods">Optimal Sampling-based Methods<a class="headerlink" href="#optimal-sampling-based-methods" title="Permanent link">¶</a></h3>
-<h3 id="advanced-sampling-based-methods">Advanced Sampling-based Methods<a class="headerlink" href="#advanced-sampling-based-methods" title="Permanent link">¶</a></h3>
-<h2 id="kinodynamic"><span>Kinodynamic<span class="heti-spacing"> </span></span>满足动力学<a class="headerlink" href="#kinodynamic" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h3 id="optimal-sampling-based-methods">Optimal Sampling-based Methods<a class="headerlink" href="#optimal-sampling-based-methods" title="anchor link to this section for reference">¶</a></h3>
+<h3 id="advanced-sampling-based-methods">Advanced Sampling-based Methods<a class="headerlink" href="#advanced-sampling-based-methods" title="anchor link to this section for reference">¶</a></h3>
+<h2 id="kinodynamic"><span>Kinodynamic<span class="heti-spacing"> </span></span>满足动力学<a class="headerlink" href="#kinodynamic" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p>运动动力学</p>
 <ul>
 <li><strong>控制空间采样</strong>：选择一个输入<span><span class="heti-spacing"> </span><span class="arithmatex">\(u\)</span></span>，固定一个持续时间<span><span class="heti-spacing"> </span><span class="arithmatex">\(T\)</span></span>，前向模拟系统（数值积分<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>；一般都是幂<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>矩阵
@@ -3375,14 +3382,14 @@ RRT没有遗忘机制，对已知路径没有更新，对错误连接没有修�
 <li><strong>状态空间采样</strong>：算则一个<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(s_f\)</span><span class="heti-spacing"> </span></span>找到两个状态<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(s_0\)</span><span class="heti-spacing"> </span></span>与<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(s_f\)</span><span class="heti-spacing"> </span></span>之间的连接
 <img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241023183859.png"/></li>
 </ul>
-<h3 id="_6">小车模型<a class="headerlink" href="#_6" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_6">小车模型<a class="headerlink" href="#_6" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ul>
 <li>simple car model</li>
 <li>Dubins car model</li>
 <li>Reeds-Shepp car model</li>
 </ul>
-<h3 id="state-state-boundary-value">State-state Boundary  Value<a class="headerlink" href="#state-state-boundary-value" title="Permanent link">¶</a></h3>
-<h3 id="state-lattice-search">State Lattice Search<a class="headerlink" href="#state-lattice-search" title="Permanent link">¶</a></h3>
+<h3 id="state-state-boundary-value">State-state Boundary  Value<a class="headerlink" href="#state-state-boundary-value" title="anchor link to this section for reference">¶</a></h3>
+<h3 id="state-lattice-search">State Lattice Search<a class="headerlink" href="#state-lattice-search" title="anchor link to this section for reference">¶</a></h3>
 <p><span>lattice:<span class="heti-spacing"> </span></span>广义的栅格</p>
 <p>构成状态和状态之间的搜索图</p>
 <p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241102204243.png"/></p>
@@ -3391,7 +3398,7 @@ RRT没有遗忘机制，对已知路径没有更新，对错误连接没有修�
 a_y = [-a_m,0,a_m]
 排列：3x3=9种</p>
 <p>构建图的方法：可以剪枝，根据模型的性质有很强的对称性；控制图的层数</p>
-<h3 id="_7">后向采样问题的求解器<a class="headerlink" href="#_7" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_7">后向采样问题的求解器<a class="headerlink" href="#_7" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p><span>BVP | Boundary Value Problem<span class="heti-spacing"> </span></span>边值问题</p>
 <ol>
 <li>构建哈密顿函数</li>
@@ -3401,20 +3408,20 @@ a_y = [-a_m,0,a_m]
 <li>确定最优量</li>
 </ol>
 <p><img alt="" src="https://i-blog.csdnimg.cn/blog_migrate/b08c1999103b530af6670e6e43d34ffe.png"/></p>
-<h3 id="_8">优化<a class="headerlink" href="#_8" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_8">优化<a class="headerlink" href="#_8" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ul>
 <li>工程上一般采用轨迹库：trajectory library，只维护一层图</li>
 <li>启发式函数；不考虑动力学；不考虑障碍物</li>
 </ul>
 <p><a href="https://blog.csdn.net/weixin_44673253/article/details/125114116"><span>Boundary Value Problem (BVP)<span class="heti-spacing"> </span></span>两点边界最优控制问题<span class="heti-skip"><span class="heti-spacing"> </span>-CSDN<span class="heti-spacing"> </span></span>博客</a></p>
-<h3 id="kinodynamic-rrt">Kinodynamic RRT*<a class="headerlink" href="#kinodynamic-rrt" title="Permanent link">¶</a></h3>
+<h3 id="kinodynamic-rrt">Kinodynamic RRT*<a class="headerlink" href="#kinodynamic-rrt" title="anchor link to this section for reference">¶</a></h3>
 <ol>
 <li>Follow RRT* algorithm</li>
 <li>Sample a random state</li>
 <li>solve two state boundary optimal control problem</li>
 </ol>
 <p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241102204411.png"/></p>
-<h3 id="hybrid-a">Hybrid A*<a class="headerlink" href="#hybrid-a" title="Permanent link">¶</a></h3>
+<h3 id="hybrid-a">Hybrid A*<a class="headerlink" href="#hybrid-a" title="anchor link to this section for reference">¶</a></h3>
 <p>运用<span class="heti-skip"><span class="heti-spacing"> </span>A*<span class="heti-spacing"> </span></span>对<span class="heti-skip"><span class="heti-spacing"> </span>lattice graph<span class="heti-spacing"> </span></span>进行剪枝</p>
 <p>传统的<span class="heti-skip"><span class="heti-spacing"> </span>A *<span class="heti-spacing"> </span></span>算法是在栅格地图中进行搜索，可行路径中的点，都是栅格地图的中心点，如下面的第一幅图所示，<span>lattice planner<span class="heti-spacing"> </span></span>算法是先构建一个用于搜索的<span class="heti-skip"><span class="heti-spacing"> </span>lattice<span class="heti-spacing"> </span></span>图，如下面的第二幅图所示，<span>Hybrid A*<span class="heti-spacing"> </span></span>算法结合了<span class="heti-skip"><span class="heti-spacing"> </span>A *<span class="heti-spacing"> </span></span>算法和<span class="heti-skip"><span class="heti-spacing"> </span>lattice planner<span class="heti-spacing"> </span></span>算法的思想，将栅格地图的路径搜索与<span class="heti-skip"><span class="heti-spacing"> </span>lattice<span class="heti-spacing"> </span></span>图结合起来，在搜索过程中选取不同的控制量预演一段轨迹，且保持在每个栅格中仅保留一个可行的状态，如下面的第三幅图所示
 <img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241023190050.png"/></p>
@@ -3431,16 +3438,16 @@ a_y = [-a_m,0,a_m]
 </ol>
 <p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241023183547.png"/>
 <a href="https://blog.csdn.net/qq_44339029/article/details/132466521">动力学约束下的运动规划算法——Hybrid A*算法（附程序实现及详细解释）_pythonrobotics hybrida*-CSDN博客</a></p>
-<h2 id="_9">轨迹优化<a class="headerlink" href="#_9" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<h3 id="minimum-snap"><span>Minimum Snap<span class="heti-spacing"> </span></span>轨迹优化<a class="headerlink" href="#minimum-snap" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<h4 id="differential-flatness">Differential Flatness<a class="headerlink" href="#differential-flatness" title="Permanent link">¶</a></h4>
-<h4 id="minimum-snap-optimization">Minimum Snap Optimization<a class="headerlink" href="#minimum-snap-optimization" title="Permanent link">¶</a></h4>
-<h4 id="closed-form-solution-to-minimum-snap">Closed-form Solution to Minimum Snap<a class="headerlink" href="#closed-form-solution-to-minimum-snap" title="Permanent link">¶</a></h4>
-<h4 id="time-allocation">Time Allocation<a class="headerlink" href="#time-allocation" title="Permanent link">¶</a></h4>
-<h4 id="implementation-in-practice">Implementation in Practice<a class="headerlink" href="#implementation-in-practice" title="Permanent link">¶</a></h4>
-<h3 id="_10">硬约束与软约束轨迹优化<a class="headerlink" href="#_10" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<h4 id="soft-constrained-trajectory-optimization">Soft Constrained Trajectory Optimization<a class="headerlink" href="#soft-constrained-trajectory-optimization" title="Permanent link">¶</a></h4>
-<h4 id="hard-constrained-trajectory-optimization">Hard Constrained Trajectory Optimization<a class="headerlink" href="#hard-constrained-trajectory-optimization" title="Permanent link">¶</a></h4></div>
+<h2 id="_9">轨迹优化<a class="headerlink" href="#_9" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h3 id="minimum-snap"><span>Minimum Snap<span class="heti-spacing"> </span></span>轨迹优化<a class="headerlink" href="#minimum-snap" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h4 id="differential-flatness">Differential Flatness<a class="headerlink" href="#differential-flatness" title="anchor link to this section for reference">¶</a></h4>
+<h4 id="minimum-snap-optimization">Minimum Snap Optimization<a class="headerlink" href="#minimum-snap-optimization" title="anchor link to this section for reference">¶</a></h4>
+<h4 id="closed-form-solution-to-minimum-snap">Closed-form Solution to Minimum Snap<a class="headerlink" href="#closed-form-solution-to-minimum-snap" title="anchor link to this section for reference">¶</a></h4>
+<h4 id="time-allocation">Time Allocation<a class="headerlink" href="#time-allocation" title="anchor link to this section for reference">¶</a></h4>
+<h4 id="implementation-in-practice">Implementation in Practice<a class="headerlink" href="#implementation-in-practice" title="anchor link to this section for reference">¶</a></h4>
+<h3 id="_10">硬约束与软约束轨迹优化<a class="headerlink" href="#_10" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h4 id="soft-constrained-trajectory-optimization">Soft Constrained Trajectory Optimization<a class="headerlink" href="#soft-constrained-trajectory-optimization" title="anchor link to this section for reference">¶</a></h4>
+<h4 id="hard-constrained-trajectory-optimization">Hard Constrained Trajectory Optimization<a class="headerlink" href="#hard-constrained-trajectory-optimization" title="anchor link to this section for reference">¶</a></h4></div>
 <aside class="md-source-file">
 <span class="md-source-file__fact">
 <span class="md-icon" title="最后更新">
