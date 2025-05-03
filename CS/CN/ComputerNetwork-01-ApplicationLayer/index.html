@@ -5,7 +5,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="PhilFan的笔记本" name="description"/>
 <meta content="PhilFan" name="author"/>
-<link href="https://www.philfan.cn/CS/CN/ComputerNetwork-01-ApplicationLayer/" rel="canonical"/>
+<link href="https://www.philfan.cn/CS/CN/ComputerNetwork-01-ApplicationLayer/" rel="canonical">
 <link href="../ComputerNetwork-00-intro/" rel="prev"/>
 <link href="../ComputerNetwork-02-TransportLayer/" rel="next"/>
 <link href="../../../logo.ico" rel="icon"/>
@@ -14,16 +14,16 @@
 <link href="../../../assets/stylesheets/main.3cba04c6.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1 7.775V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 0 1 0 2.474l-5.026 5.026a1.75 1.75 0 0 1-2.474 0l-6.25-6.25A1.752 1.752 0 0 1 1 7.775Zm1.5 0c0 .066.026.13.073.177l6.25 6.25a.25.25 0 0 0 .354 0l5.025-5.025a.25.25 0 0 0 0-.354l-6.25-6.25a.25.25 0 0 0-.177-.073H2.75a.25.25 0 0 0-.25.25ZM6 5a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"/></svg>');--md-admonition-icon--abstract:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.5 1.75v11.5c0 .138.112.25.25.25h3.17a.75.75 0 0 1 0 1.5H2.75A1.75 1.75 0 0 1 1 13.25V1.75C1 .784 1.784 0 2.75 0h8.5C12.216 0 13 .784 13 1.75v7.736a.75.75 0 0 1-1.5 0V1.75a.25.25 0 0 0-.25-.25h-8.5a.25.25 0 0 0-.25.25Zm13.274 9.537v-.001l-4.557 4.45a.75.75 0 0 1-1.055-.008l-1.943-1.95a.75.75 0 0 1 1.062-1.058l1.419 1.425 4.026-3.932a.75.75 0 1 1 1.048 1.074ZM4.75 4h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM4 7.75A.75.75 0 0 1 4.75 7h2a.75.75 0 0 1 0 1.5h-2A.75.75 0 0 1 4 7.75Z"/></svg>');--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/></svg>');--md-admonition-icon--tip:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.499.75a.75.75 0 0 1 1.5 0v.996C5.9 2.903 6.793 3.65 7.662 4.376l.24.202c-.036-.694.055-1.422.426-2.163C9.1.873 10.794-.045 12.622.26 14.408.558 16 1.94 16 4.25c0 1.278-.954 2.575-2.44 2.734l.146.508.065.22c.203.701.412 1.455.476 2.226.142 1.707-.4 3.03-1.487 3.898C11.714 14.671 10.27 15 8.75 15h-6a.75.75 0 0 1 0-1.5h1.376a4.484 4.484 0 0 1-.563-1.191 3.835 3.835 0 0 1-.05-2.063 4.647 4.647 0 0 1-2.025-.293.75.75 0 0 1 .525-1.406c1.357.507 2.376-.006 2.698-.318l.009-.01a.747.747 0 0 1 1.06 0 .748.748 0 0 1-.012 1.074c-.912.92-.992 1.835-.768 2.586.221.74.745 1.337 1.196 1.621H8.75c1.343 0 2.398-.296 3.074-.836.635-.507 1.036-1.31.928-2.602-.05-.603-.216-1.224-.422-1.93l-.064-.221c-.12-.407-.246-.84-.353-1.29a2.425 2.425 0 0 1-.507-.441 3.075 3.075 0 0 1-.633-1.248.75.75 0 0 1 1.455-.364c.046.185.144.436.31.627.146.168.353.305.712.305.738 0 1.25-.615 1.25-1.25 0-1.47-.95-2.315-2.123-2.51-1.172-.196-2.227.387-2.706 1.345-.46.92-.27 1.774.019 3.062l.042.19a.884.884 0 0 1 .01.05c.348.443.666.949.94 1.553a.75.75 0 1 1-1.365.62c-.553-1.217-1.32-1.94-2.3-2.768L6.7 5.527c-.814-.68-1.75-1.462-2.692-2.619a3.737 3.737 0 0 0-1.023.88c-.406.495-.663 1.036-.722 1.508.116.122.306.21.591.239.388.038.797-.06 1.032-.19a.75.75 0 0 1 .728 1.31c-.515.287-1.23.439-1.906.373-.682-.067-1.473-.38-1.879-1.193L.75 5.677V5.5c0-.984.48-1.94 1.077-2.664.46-.559 1.05-1.055 1.673-1.353V.75Z"/></svg>');--md-admonition-icon--success:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"/></svg>');--md-admonition-icon--question:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.92 6.085h.001a.749.749 0 1 1-1.342-.67c.169-.339.436-.701.849-.977C6.845 4.16 7.369 4 8 4a2.756 2.756 0 0 1 1.637.525c.503.377.863.965.863 1.725 0 .448-.115.83-.329 1.15-.205.307-.47.513-.692.662-.109.072-.22.138-.313.195l-.006.004a6.24 6.24 0 0 0-.26.16.952.952 0 0 0-.276.245.75.75 0 0 1-1.248-.832c.184-.264.42-.489.692-.661.103-.067.207-.132.313-.195l.007-.004c.1-.061.182-.11.258-.161a.969.969 0 0 0 .277-.245C8.96 6.514 9 6.427 9 6.25a.612.612 0 0 0-.262-.525A1.27 1.27 0 0 0 8 5.5c-.369 0-.595.09-.74.187a1.01 1.01 0 0 0-.34.398ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>');--md-admonition-icon--warning:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>');--md-admonition-icon--failure:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.344 2.343h-.001a8 8 0 0 1 11.314 11.314A8.002 8.002 0 0 1 .234 10.089a8 8 0 0 1 2.11-7.746Zm1.06 10.253a6.5 6.5 0 1 0 9.108-9.275 6.5 6.5 0 0 0-9.108 9.275ZM6.03 4.97 8 6.94l1.97-1.97a.749.749 0 0 1 1.275.326.749.749 0 0 1-.215.734L9.06 8l1.97 1.97a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L8 9.06l-1.97 1.97a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734L6.94 8 4.97 6.03a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018Z"/></svg>');--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M9.504.43a1.516 1.516 0 0 1 2.437 1.713L10.415 5.5h2.123c1.57 0 2.346 1.909 1.22 3.004l-7.34 7.142a1.249 1.249 0 0 1-.871.354h-.302a1.25 1.25 0 0 1-1.157-1.723L5.633 10.5H3.462c-1.57 0-2.346-1.909-1.22-3.004L9.503.429Zm1.047 1.074L3.286 8.571A.25.25 0 0 0 3.462 9H6.75a.75.75 0 0 1 .694 1.034l-1.713 4.188 6.982-6.793A.25.25 0 0 0 12.538 7H9.25a.75.75 0 0 1-.683-1.06l2.008-4.418.003-.006a.036.036 0 0 0-.004-.009l-.006-.006-.008-.001c-.003 0-.006.002-.009.004Z"/></svg>');--md-admonition-icon--bug:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M4.72.22a.75.75 0 0 1 1.06 0l1 .999a3.488 3.488 0 0 1 2.441 0l.999-1a.748.748 0 0 1 1.265.332.75.75 0 0 1-.205.729l-.775.776c.616.63.995 1.493.995 2.444v.327c0 .1-.009.197-.025.292.408.14.764.392 1.029.722l1.968-.787a.75.75 0 0 1 .556 1.392L13 7.258V9h2.25a.75.75 0 0 1 0 1.5H13v.5c0 .409-.049.806-.141 1.186l2.17.868a.75.75 0 0 1-.557 1.392l-2.184-.873A4.997 4.997 0 0 1 8 16a4.997 4.997 0 0 1-4.288-2.427l-2.183.873a.75.75 0 0 1-.558-1.392l2.17-.868A5.036 5.036 0 0 1 3 11v-.5H.75a.75.75 0 0 1 0-1.5H3V7.258L.971 6.446a.75.75 0 0 1 .558-1.392l1.967.787c.265-.33.62-.583 1.03-.722a1.677 1.677 0 0 1-.026-.292V4.5c0-.951.38-1.814.995-2.444L4.72 1.28a.75.75 0 0 1 0-1.06Zm.53 6.28a.75.75 0 0 0-.75.75V11a3.5 3.5 0 1 0 7 0V7.25a.75.75 0 0 0-.75-.75ZM6.173 5h3.654A.172.172 0 0 0 10 4.827V4.5a2 2 0 1 0-4 0v.327c0 .096.077.173.173.173Z"/></svg>');--md-admonition-icon--example:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M5 5.782V2.5h-.25a.75.75 0 0 1 0-1.5h6.5a.75.75 0 0 1 0 1.5H11v3.282l3.666 5.76C15.619 13.04 14.543 15 12.767 15H3.233c-1.776 0-2.852-1.96-1.899-3.458Zm-2.4 6.565a.75.75 0 0 0 .633 1.153h9.534a.75.75 0 0 0 .633-1.153L12.225 10.5h-8.45ZM9.5 2.5h-3V6c0 .143-.04.283-.117.403L4.73 9h6.54L9.617 6.403A.746.746 0 0 1 9.5 6Z"/></svg>');--md-admonition-icon--quote:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1.75 2.5h10.5a.75.75 0 0 1 0 1.5H1.75a.75.75 0 0 1 0-1.5Zm4 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5ZM2.5 7.75v6a.75.75 0 0 1-1.5 0v-6a.75.75 0 0 1 1.5 0Z"/></svg>');}</style>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+
+<link href="../../../assets/external/fonts.googleapis.com/css.de70e1f7.css" rel="stylesheet">
 <style>:root{--md-text-font:"Noto Serif SC";--md-code-font:"JetBrains Mono"}</style>
 <link href="../../../css/heti.css" rel="stylesheet"/>
-<link href="../../../style/css/custom.css" rel="stylesheet"/>
-<link href="../../../style/css/counter.css" rel="stylesheet"/>
-<link href="../../../style/css/toc.css" rel="stylesheet"/>
-<link href="../../../style/css/flink.css" rel="stylesheet"/>
-<link href="https://cdn.tonycrane.cc/jbmono/jetbrainsmono.css" rel="stylesheet"/>
-<link href="https://cdn.tonycrane.cc/lxgw/lxgwscreen.css" rel="stylesheet"/>
+<link href="../../../assets/css/custom.css" rel="stylesheet"/>
+<link href="../../../assets/css/counter.css" rel="stylesheet"/>
+<link href="../../../assets/css/toc.css" rel="stylesheet"/>
+<link href="../../../assets/css/flink.css" rel="stylesheet"/>
+<link href="../../../assets/external/cdn.tonycrane.cc/jbmono/jetbrainsmono.css" rel="stylesheet">
+<link href="../../../assets/external/cdn.tonycrane.cc/lxgw/lxgwscreen.css" rel="stylesheet">
 <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2QNP7S5RJ8"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2QNP7S5RJ8",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2QNP7S5RJ8",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
@@ -3040,6 +3040,34 @@
 </ul>
 </nav>
 </li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_7_10" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../blog/">
+<span class="md-ellipsis">
+    Blog
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_7_10" id="__nav_7_10_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_7_10_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_7_10">
+<span class="md-nav__icon md-icon"></span>
+            Blog
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../..">
+<span class="md-ellipsis">
+    归档
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
 </ul>
 </nav>
 </li>
@@ -3195,7 +3223,7 @@
 <blockquote>
 <p>Perhaps what appeals the most to users is that the Web operates on demand. Users receive what they want, when they want it.</p>
 </blockquote>
-<p><img alt="应用层" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/%E5%BA%94%E7%94%A8%E5%B1%82.svg"/></p>
+<p><img alt="应用层" src="../../../assets/external/philfan-pic.oss-cn-beijing.aliyuncs.com/img/应用层.svg"></p>
 <table>
 <thead>
 <tr>
@@ -3305,7 +3333,7 @@
 <p><span>URL<span class="heti-spacing"> </span></span><code>Uniform Resource Locator</code>统一资源定位符</p>
 <p><span>HTTP stands for<span class="heti-spacing"> </span></span><code>HyperText Transfer Protocol</code>超文本传输协议</p>
 <p>协议名 用户 口令 主机名 路径名 端口</p>
-<p><img alt="预览大图" src="https://data.educoder.net/api/attachments/509266"/></p>
+<p><img alt="预览大图" src="../../../assets/external/data.educoder.net/api/attachments/509266.png"></p>
 <p><span>web<span class="heti-spacing"> </span></span>页有对象组成，通过<span class="heti-skip"><span class="heti-spacing"> </span>URL<span class="heti-spacing"> </span></span>对每个对象进行引用</p>
 <p><span>HTTP<span class="heti-spacing"> </span></span>超文本传输协议</p>
 <p><span>web<span class="heti-spacing"> </span></span>的应用层协议；<span>TCP<span class="heti-spacing"> </span></span>之上；<span>CS<span class="heti-spacing"> </span></span>模式</p>
@@ -3315,7 +3343,7 @@
 <p>请求、相应</p>
 <p>参考文章：<a href="https://zhuanlan.zhihu.com/p/346408612"><span>HTTP<span class="heti-spacing"> </span></span>请求报文和响应报文格式</a></p>
 <p>请求行、请求头、空白行<span><span class="heti-spacing"> </span>(</span><code>\r\n</code><span><span class="heti-spacing"> </span>)</span>、请求体</p>
-<p><img alt="预览大图" src="https://data.educoder.net/api/attachments/579830"/></p>
+<p><img alt="预览大图" src="../../../assets/external/data.educoder.net/api/attachments/579830.png"></p>
 <h5 id="_10">请求报文<a class="headerlink" href="#_10" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h5>
 <p>one-to-one,one response for one request</p>
 <ul>
@@ -3332,7 +3360,7 @@
 <li>请求方法</li>
 </ul>
 <p><code>GET</code>和<code>POST</code>是最常见的<span class="heti-skip"><span class="heti-spacing"> </span>HTTP<span class="heti-spacing"> </span></span>方法，除此以外还包括<code>DELETE</code>、<code>HEAD</code>、<code>OPTIONS</code>、<code>PUT</code>、<code>TRACE</code></p>
-<p><img alt="预览大图" src="https://data.educoder.net/api/attachments/510692" style="zoom:50%;"/></p>
+<p><img alt="预览大图" src="../../../assets/external/data.educoder.net/api/attachments/510692.png" style="zoom:50%;"></p>
 <blockquote>
 <p><span>get<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>post<span class="heti-spacing"> </span></span>的区别</p>
 <ol>
@@ -3364,7 +3392,7 @@
 </details>
 <p>- <strong>Date</strong>：header line indicates the time and date when the HTTP
      response was created and sent by the server. <strong>Note that this is not the time when the object was created or last modified; it is the time when the server retrieves the object from its file system, inserts the object into the response message, and sends the response message.</strong></p>
-<p><img alt="img" src="https://pic3.zhimg.com/80/v2-98df69e7e8fccd46bfe03cc473784766_1440w.webp" style="zoom: 50%;"/></p>
+<p><img alt="img" src="../../../assets/external/pic3.zhimg.com/80/v2-98df69e7e8fccd46bfe03cc473784766_1440w.webp" style="zoom: 50%;"></p>
 <h5 id="_11">响应报文<a class="headerlink" href="#_11" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h5>
 <p>一个状态行，若干个消息头，以及实体内容</p>
 <ul>
@@ -3436,7 +3464,7 @@
 - <code>Server</code>：设置服务器名称； <br/>
 - <code>Date</code>：当前 GMT 时间，这个就是你请求的东西被服务器创建的时间。<br/></p>
 </details>
-<p><img alt="img" src="https://pic2.zhimg.com/80/v2-2f86d3626184a4fc8b8fed6008419055_1440w.webp"/></p>
+<p><img alt="img" src="../../../assets/external/pic2.zhimg.com/80/v2-2f86d3626184a4fc8b8fed6008419055_1440w.webp"></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p><span>TCP<span class="heti-spacing"> </span></span>不维护报文长度，需要<span class="heti-skip"><span class="heti-spacing"> </span>HTTP<span class="heti-spacing"> </span></span>自己去断句</p>
@@ -3449,7 +3477,7 @@
 <p>作用：自动登录、进行统计</p>
 <p>威胁：</p>
 <p>第三方<code>cookie</code>：泄露隐私；广告营销；</p>
-<p><img alt="image-20240318152447148" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240318152447148.png" style="zoom:50%;"/></p>
+<p><img alt="image-20240318152447148" src="../../../assets/external/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240318152447148.png" style="zoom:50%;"></p>
 <p>大多数门户网站使用</p>
 <p><span>1)<span class="heti-spacing"> </span></span>在<span class="heti-skip"><span class="heti-spacing"> </span>HTTP<span class="heti-spacing"> </span></span>响应报文中有一个<span class="heti-skip"><span class="heti-spacing"> </span>cookie<span class="heti-spacing"> </span></span>的首部行<br/>
 2) 在HTTP请求报文含有一个cookie的首部行<br/>
@@ -3481,10 +3509,10 @@
 <p>对用户：快 减小响应时间</p>
 <p>服务器：减小<span class="heti-skip"><span class="heti-spacing"> </span>web<span class="heti-spacing"> </span></span>服务器载荷</p>
 <p>网络：网络压力更小，减小传输成本</p>
-<p><img alt="预览大图" src="https://data.educoder.net/api/attachments/543498" style="zoom:50%;"/><img alt="预览大图" src="https://data.educoder.net/api/attachments/543499" style="zoom:50%;"/></p>
-<p><img alt="image-20240318152538396" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240318152538396.png" style="zoom:50%;"/></p>
+<p><img alt="预览大图" src="../../../assets/external/data.educoder.net/api/attachments/543498.png" style="zoom:50%;"><img alt="预览大图" src="../../../assets/external/data.educoder.net/api/attachments/543499.png" style="zoom:50%;"></p>
+<p><img alt="image-20240318152538396" src="../../../assets/external/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240318152538396.png" style="zoom:50%;"></p>
 <p>end2end delay with cache</p>
-<p><img alt="image-20240129160059732" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240129160059732.png"/></p>
+<p><img alt="image-20240129160059732" src="../../../assets/external/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240129160059732.png"></p>
 <p>解决办法</p>
 <ul>
 <li>更快的接入链路：花钱多</li>
@@ -3510,8 +3538,8 @@ I &amp;= \frac{aL}{R}
 </ul>
 </li>
 </ul>
-<p><img alt="image-20240129160659497" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240129160659497.png"/></p>
-<p><img alt="image-20240129160713797" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240129160713797.png"/></p>
+<p><img alt="image-20240129160659497" src="../../../assets/external/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240129160659497.png"></p>
+<p><img alt="image-20240129160713797" src="../../../assets/external/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240129160713797.png"></p>
 <p>互联网上大家看的内容都是相似的，缓存的存在可以缓解流量压力</p>
 <h5 id="conditional-get"><code>conditional GET</code><a class="headerlink" href="#conditional-get" title="anchor link to this section for reference">¶</a></h5>
 <ul>
@@ -3546,7 +3574,7 @@ I &amp;= \frac{aL}{R}
 </ul>
 <p>连接方式</p>
 <p>对网页进行请求外，需要对每一个嵌入对象进行请求；可以采用串行或者并行的方式；</p>
-<p><img alt="预览大图" src="https://data.educoder.net/api/attachments/579896" style="zoom:50%;"/></p>
+<p><img alt="预览大图" src="../../../assets/external/data.educoder.net/api/attachments/579896.png" style="zoom:50%;"></p>
 <p>实际上并行不一定更快的。客户端的网络带宽不足时，大部分的时间可能都是用来传送数据的。在这种情况下，一个连接到速度较快服务器上的<span class="heti-skip"><span class="heti-spacing"> </span>HTTP<span class="heti-spacing"> </span></span>事务就会很容易地耗尽所有可用的<span class="heti-skip"><span class="heti-spacing"> </span>Modem<span class="heti-spacing"> </span></span>带宽。如果并行加载，每个对象可能会去竞争有限的带宽，每个对象都会以较慢的速度按比例加载，这样带来的性能提升就很小，甚至没有提升。</p>
 <p>另外，打开大量连接会消耗很多内存资源，从而引发自身的性能问题。复杂的<span class="heti-skip"><span class="heti-spacing"> </span>WEB<span class="heti-spacing"> </span></span>页面可能会有数十或数百个内嵌对象。客户端可能可以打开数百个连接，但服务器通常要同时处理很多其他用户的请求，所以很少有<span class="heti-skip"><span class="heti-spacing"> </span>WEB<span class="heti-spacing"> </span></span>服务器希望出现这样的情况。这会造成服务器性能的严重下降，对高负荷的代理来说也同样如此。</p>
 <h4 id="_13">持久连接<a class="headerlink" href="#_13" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
@@ -3562,11 +3590,11 @@ I &amp;= \frac{aL}{R}
 <p>Multiple Web pages residing <strong>on the same server</strong> <span>can be sent from the server to the same client over a single persistent TCP connection.<span class="heti-spacing"> </span></span>只要是在一个<span class="heti-skip"><span class="heti-spacing"> </span>web server<span class="heti-spacing"> </span></span>就可以持久连接</p>
 <p>重用已对目标服务器打开的空闲持久连接，就可以避开缓慢的链接建立阶段。而且已经打开的链接还可以避免慢启动的拥塞适应阶段，以便更快速地进行数据传输。</p>
 <p>除非特别指明，否则<span class="heti-skip"><span class="heti-spacing"> </span>HTTP/1.1<span class="heti-spacing"> </span></span>假定所有连接都是持久的。要在事务处理结束之后将连接关闭，<span>HTTP/1.1<span class="heti-spacing"> </span></span>应用程序必须向报文中显示地添加一个 <code>Connection：close</code> 首部。</p>
-<p><img alt="image-20240129150803208" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240129150803208.png"/></p>
+<p><img alt="image-20240129150803208" src="../../../assets/external/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240129150803208.png"></p>
 <p>持久连接有两种类型：比较老的<span class="heti-skip"><span class="heti-spacing"> </span>HTTP/1.0+"keep-alive"<span class="heti-spacing"> </span></span>连接，</p>
 <p>以及现代的<span><span class="heti-spacing"> </span>HTTP/1.1</span>“persistent” 连接。</p>
 <h4 id="_14">时间分析<a class="headerlink" href="#_14" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
-<p><img alt="预览大图" src="https://data.educoder.net/api/attachments/579897"/></p>
+<p><img alt="预览大图" src="../../../assets/external/data.educoder.net/api/attachments/579897.png"></p>
 <p>RTT <code>round trip time</code></p>
 <blockquote>
 <p>RTT is the time it takes for a small packet to travel from client to server and then back to the client.</p>
@@ -3575,7 +3603,7 @@ I &amp;= \frac{aL}{R}
 <p>一个<span class="heti-skip"><span class="heti-spacing"> </span>RTT<span class="heti-spacing"> </span></span>发起<span class="heti-skip"><span class="heti-spacing"> </span>TCP<span class="heti-spacing"> </span></span>连接</p>
 <p>一个<span class="heti-skip"><span class="heti-spacing"> </span>2RTT<span class="heti-spacing"> </span></span>发起<span class="heti-skip"><span class="heti-spacing"> </span>and<span class="heti-spacing"> </span></span>接受<span class="heti-skip"><span class="heti-spacing"> </span>HTTP<span class="heti-spacing"> </span></span>请求</p>
 <p>文件传输时间：<span>2RTT+<span class="heti-spacing"> </span></span>传输文件</p>
-<p><img alt="image-20240318164420937" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240318164420937.png" style="zoom:50%;"/></p>
+<p><img alt="image-20240318164420937" src="../../../assets/external/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240318164420937.png" style="zoom:50%;"></p>
 <p><strong>Pipeline</strong></p>
 <p>流水线方式，一个请求还没有接受回复就发出下一个请求</p>
 <p>所以使用时间是<span class="heti-skip"><span class="heti-spacing"> </span>= 1<span class="heti-spacing"> </span></span>个<span class="heti-skip"><span class="heti-spacing"> </span>RTT<span class="heti-spacing"> </span></span>建立连接<span class="heti-skip"><span class="heti-spacing"> </span>+<span class="heti-spacing"> </span></span>发送<span class="heti-skip"><span class="heti-spacing"> </span>n<span class="heti-spacing"> </span></span>个包的时间</p>
@@ -3606,7 +3634,7 @@ HTTP/3 将是自 2015 年 HTTP/2 获得批准以来对超文本传输协议的�
 <p><span>HTTP/3<span class="heti-spacing"> </span></span>的一个重要区别是它在一种新的传输协议<span class="heti-skip"><span class="heti-spacing"> </span>QUIC<span class="heti-spacing"> </span></span>上运行。<span>QUIC<span class="heti-spacing"> </span></span>专为移动密集型互联网使用而设计，在这种环境中，人们携带的智能手机会在一天中不断地从一个网络切换到另一个网络。开发第一个互联网协议时情况并非如此：当时设备的便携性较差，且不经常切换网络。</p>
 <p><strong><span>QUIC<span class="heti-spacing"> </span></span>协议的设计目标是在高延迟和不稳定的网络环境下提高网络应用程序的性能和可靠性。</strong></p>
 <p>QUIC（Quick UDP Internet Connections）是一种由<span class="heti-skip"><span class="heti-spacing"> </span>Google<span class="heti-spacing"> </span></span>开发的基于<span class="heti-skip"><span class="heti-spacing"> </span>UDP<span class="heti-spacing"> </span></span>的传输层协议，旨在提高网络通信的速度和效率。它通过实现低延迟的连接建立、多路复用的数据传输、网络路径迁移以及安全措施，确保了数据传输的保密性、完整性和可用性。
-<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240705193308.png"/></p>
+<img alt="" src="../../../assets/external/philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240705193308.png"></p>
 <ul>
 <li>开发一种方法来解决当智能手机从<span class="heti-skip"><span class="heti-spacing"> </span>WiFi<span class="heti-spacing"> </span></span>切换到蜂窝数据时（例如离开家或办公室时）性能缓慢的问题</li>
 <li><strong>减少丢包的影响</strong>——当一个信息包没有到达目的地时，它不会再阻塞所有的信息流（称为“队头阻塞”的问题）</li>
@@ -3622,7 +3650,7 @@ HTTP/3 将是自 2015 年 HTTP/2 获得批准以来对超文本传输协议的�
 <p><a href="https://wenku.csdn.net/column/4jy5mn0ays"><span>IDM<span class="heti-spacing"> </span></span>原理</a>
   如果网站不支持断点续传就没法加速了</p>
 <h3 id="ftp">FTP<a class="headerlink" href="#ftp" title="anchor link to this section for reference">¶</a></h3>
-<p><img alt="image-20240129163627900" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240129163627900.png"/></p>
+<p><img alt="image-20240129163627900" src="../../../assets/external/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240129163627900.png"></p>
 <p>有状态、双通道</p>
 <ul>
 <li>向远程主机上传输文件或从远程主机接收文件</li>
@@ -3636,20 +3664,20 @@ HTTP/3 将是自 2015 年 HTTP/2 获得批准以来对超文本传输协议的�
 <ul>
 <li>
 <p>控制命令的发出和数据的传输在不同的<span class="heti-skip"><span class="heti-spacing"> </span>TCP<span class="heti-spacing"> </span></span>下进行。</p>
-<p><img alt="image-20240129165011533" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240129165011533.png" style="zoom:50%;"/></p>
+<p><img alt="image-20240129165011533" src="../../../assets/external/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240129165011533.png" style="zoom:50%;"></p>
 </li>
 </ul>
 <h3 id="email">Email<a class="headerlink" href="#email" title="anchor link to this section for reference">¶</a></h3>
 <blockquote>
 <p><span>SMTP<span class="heti-spacing"> </span></span>管‘发’， <span>POP3/IMAP<span class="heti-spacing"> </span></span>管‘收’。</p>
-<p><span>POP3<span class="heti-spacing"> </span></span>是比较老的<a href='https://www.zhihu.com/search?q=protocol&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra={"sourceType"%3A"answer"%2C"sourceId"%3A29039357}'><span><span class="heti-spacing"> </span>protocol</span></a>，主要为了解决本地机器和远程邮件服务器链接的问题，每次邮件会<span class="heti-skip"><span class="heti-spacing"> </span>download<span class="heti-spacing"> </span></span>到本地机器，然后从<a href='https://www.zhihu.com/search?q=%E8%BF%9C%E7%A8%8B%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra={"sourceType"%3A"answer"%2C"sourceId"%3A29039357}'>远程邮件服务器</a>上删掉（当然特殊<span class="heti-skip"><span class="heti-spacing"> </span>config<span class="heti-spacing"> </span></span>除外<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，然后进行本地编辑。这样的问题是如果从多个终端链接服务器，只有第一个下载的能看到，现在<a href='https://www.zhihu.com/search?q=pop4&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra={"sourceType"%3A"answer"%2C"sourceId"%3A29039357}'><span class="heti-skip"><span class="heti-spacing"> </span>pop4<span class="heti-spacing"> </span></span></a>正在讨论中</p>
+<p><span>POP3<span class="heti-spacing"> </span></span>是比较老的<a href="https://www.zhihu.com/search?q=protocol&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra={&quot;sourceType&quot;%3A&quot;answer&quot;%2C&quot;sourceId&quot;%3A29039357}"><span><span class="heti-spacing"> </span>protocol</span></a>，主要为了解决本地机器和远程邮件服务器链接的问题，每次邮件会<span class="heti-skip"><span class="heti-spacing"> </span>download<span class="heti-spacing"> </span></span>到本地机器，然后从<a href="https://www.zhihu.com/search?q=%E8%BF%9C%E7%A8%8B%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra={&quot;sourceType&quot;%3A&quot;answer&quot;%2C&quot;sourceId&quot;%3A29039357}">远程邮件服务器</a>上删掉（当然特殊<span class="heti-skip"><span class="heti-spacing"> </span>config<span class="heti-spacing"> </span></span>除外<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，然后进行本地编辑。这样的问题是如果从多个终端链接服务器，只有第一个下载的能看到，现在<a href="https://www.zhihu.com/search?q=pop4&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra={&quot;sourceType&quot;%3A&quot;answer&quot;%2C&quot;sourceId&quot;%3A29039357}"><span class="heti-skip"><span class="heti-spacing"> </span>pop4<span class="heti-spacing"> </span></span></a>正在讨论中</p>
 <p><span>IMAP<span class="heti-spacing"> </span></span>是比较新的（好吧，好像也是<span class="heti-skip"><span class="heti-spacing"> </span>80<span class="heti-spacing"> </span></span>年代的产物）protocol，可以将邮件分文件夹整理，然后这些信息也存在远程的邮件服务器上，读取邮件后，服务器上不删除。原理上<span class="heti-skip"><span class="heti-spacing"> </span>IMAP<span class="heti-spacing"> </span></span>应该是相当于<span class="heti-skip"><span class="heti-spacing"> </span>online<span class="heti-spacing"> </span></span>编辑，但现在的<span class="heti-skip"><span class="heti-spacing"> </span>mail client<span class="heti-spacing"> </span></span>基本都有在本地存<span class="heti-skip"><span class="heti-spacing"> </span>copy<span class="heti-spacing"> </span></span>的功能</p>
 </blockquote>
 <h4 id="smtp"><strong>SMTP</strong> <span>|<span class="heti-spacing"> </span></span>发送邮件协议<a class="headerlink" href="#smtp" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p>用户代理 ——<span>&gt;<span class="heti-spacing"> </span></span>消息队列 ——<span>&gt;<span class="heti-spacing"> </span></span>放到指定用户<span class="heti-skip"><span class="heti-spacing"> </span>mailbox<span class="heti-spacing"> </span></span>目录</p>
 <p>使用<span><span class="heti-spacing"> </span>TCPport:25</span></p>
 <p>传输三阶段：握手、传报文（<span>ASCII<span class="heti-spacing"> </span></span>码<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>、关闭</p>
-<p><img alt="image-20240318153214952" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240318153214952.png"/></p>
+<p><img alt="image-20240318153214952" src="../../../assets/external/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240318153214952.png"></p>
 <p>特点</p>
 <ul>
 <li>使用持久连接</li>
@@ -3747,7 +3775,7 @@ www: 表示该公司的 WEB 服务器对应的主机</p>
 <blockquote>
 <p><span>IP<span class="heti-spacing"> </span></span>不是给人用的，是给其他应用提供的</p>
 </blockquote>
-<p><img alt="预览大图" src="https://data.educoder.net/api/attachments/579702"/></p>
+<p><img alt="预览大图" src="../../../assets/external/data.educoder.net/api/attachments/579702.png"></p>
 <ol>
 <li>根域名服务器<code>(Root DNS servers)</code>：最高层次的域名服务器，本地域名服务器解析不了的域名就会向其求助；、</li>
 <li>顶级域名服务器<code>(TLD Top-level domain servers)</code>：负责管理在该顶级域名服务器下注册的二级域名<heti-adjacent class="heti-adjacent-half">；</heti-adjacent>（如<code>com</code>、<code>org</code>、<code>net</code>、<code>edu</code>；<code>uk</code>，<code>fr</code>，<code>ca</code><heti-adjacent class="heti-adjacent-half">，</heti-adjacent><code>jp</code>）</li>
@@ -3763,18 +3791,18 @@ www: 表示该公司的 WEB 服务器对应的主机</p>
 <ul>
 <li>当与本地名字服务器不能解析名字时，查询根服务器<span class="heti-skip"><span class="heti-spacing"> </span>- TLD -<span class="heti-spacing"> </span></span>权威服务器</li>
 </ul>
-<p><img alt="预览大图" src="https://data.educoder.net/api/attachments/579916" style="zoom:50%;"/></p>
+<p><img alt="预览大图" src="../../../assets/external/data.educoder.net/api/attachments/579916.png" style="zoom:50%;"></p>
 <p>The query from the requesting host to the local DNS server is recursive, and the remaining queries are iterative.</p>
 <h5 id="recursive">递归查询<code>recursive</code><a class="headerlink" href="#recursive" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h5>
 <p>根服务器负担太重</p>
-<p><img alt="image-20240318153941376" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240318153941376.png" style="zoom:50%;"/></p>
+<p><img alt="image-20240318153941376" src="../../../assets/external/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240318153941376.png" style="zoom:50%;"></p>
 <h5 id="iterative">迭代查询<code>iterative</code><a class="headerlink" href="#iterative" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h5>
 <p>根（及各级域名）服务器返回的不是查询结果，而是下一个<span class="heti-skip"><span class="heti-spacing"> </span>NS<span class="heti-spacing"> </span></span>的地址</p>
 <p>最后由权威名字服务器给出解析结果</p>
 <blockquote>
 <p>“我不知道这个名字，但可以向这个服务器请求”</p>
 </blockquote>
-<p><img alt="image-20240318153924403" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240318153924403.png" style="zoom:50%;"/></p>
+<p><img alt="image-20240318153924403" src="../../../assets/external/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240318153924403.png" style="zoom:50%;"></p>
 <h4 id="dns"><span>DNS<span class="heti-spacing"> </span></span>记录与报文<a class="headerlink" href="#dns" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <h5 id="resource-records">资源记录<code>resource records</code><a class="headerlink" href="#resource-records" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h5>
 <p>四元组<span><span class="heti-spacing"> </span>: (domain_name,value,type,TTL)</span><br/></p>
@@ -3785,9 +3813,9 @@ www: 表示该公司的 WEB 服务器对应的主机</p>
 <li><code>Ttl: time to live</code> <span>:<span class="heti-spacing"> </span></span>生存时间<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>权威，缓冲记录<span class="heti-skip"><span class="heti-spacing"> </span>)<span class="heti-spacing"> </span></span>默认<span class="heti-skip"><span class="heti-spacing"> </span>2<span class="heti-spacing"> </span></span>天<br/></li>
 </ul>
 <p>缓存为了性能，删除缓存为了和源端保持一致性<br/></p>
-<p><img alt="image-20240129232745663" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240129232745663.png" style="zoom:80%;"/></p>
+<p><img alt="image-20240129232745663" src="../../../assets/external/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240129232745663.png" style="zoom:80%;"></p>
 <h5 id="_18">报文<a class="headerlink" href="#_18" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h5>
-<p><img alt="预览大图" src="https://data.educoder.net/api/attachments/554296" style="zoom: 67%;"/></p>
+<p><img alt="预览大图" src="../../../assets/external/data.educoder.net/api/attachments/554296.png" style="zoom: 67%;"></p>
 <p>报文首部</p>
 <ul>
 <li>标识符（ID<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>：<span>16<span class="heti-spacing"> </span></span>位（订单编号）</li>
@@ -3829,7 +3857,7 @@ nslookup<span class="w"> </span>-type<span class="o">=</span><span class="nb">ty
 <li>NS：名字服务器记录；</li>
 <li>PTR：反向记录。</li>
 </ul>
-<p><img alt="img" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/c371a6c6e767ead83d9a55d9cb809f13.png" style="zoom:50%;"/></p>
+<p><img alt="img" src="../../../assets/external/philfan-pic.oss-cn-beijing.aliyuncs.com/img/c371a6c6e767ead83d9a55d9cb809f13.png" style="zoom:50%;"></p>
 <h3 id="p2p">P2P<a class="headerlink" href="#p2p" title="anchor link to this section for reference">¶</a></h3>
 <blockquote>
 <p>迅雷</p>
@@ -3837,14 +3865,14 @@ nslookup<span class="w"> </span>-type<span class="o">=</span><span class="nb">ty
 <p>每一个节点又可以充当服务器，又可以充当用户，请求节点增加的同时，提供服务的节点也在增加</p>
 <p><strong>缺点</strong>：管理困难的多</p>
 <h4 id="_20">时间<a class="headerlink" href="#_20" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
-<p><img alt="image-20240130004433432" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240130004433432.png"/></p>
+<p><img alt="image-20240130004433432" src="../../../assets/external/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240130004433432.png"></p>
 <p>线性增加</p>
-<p><img alt="image-20240130004451304" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240130004451304.png"/></p>
-<p><img alt="image-20240318154406618" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240318154406618.png" style="zoom:50%;"/></p>
+<p><img alt="image-20240130004451304" src="../../../assets/external/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240130004451304.png"></p>
+<p><img alt="image-20240318154406618" src="../../../assets/external/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240318154406618.png" style="zoom:50%;"></p>
 <h4 id="bittorrent">BitTorrent<a class="headerlink" href="#bittorrent" title="anchor link to this section for reference">¶</a></h4>
 <p><code>bitmap</code><span>,<span class="heti-spacing"> </span></span>定期泛洪交换</p>
 <p><code>tracking server</code> 进行<span class="heti-skip"><span class="heti-spacing"> </span>peer<span class="heti-spacing"> </span></span>列表的维护</p>
-<p><img alt="image-20240130101612770" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240130101612770.png"/></p>
+<p><img alt="image-20240130101612770" src="../../../assets/external/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240130101612770.png"></p>
 <p><strong>问谁要</strong></p>
 <p>位图中全是<span><span class="heti-spacing"> </span>0</span>，随机请求其他节点的块；</p>
 <p><span>4<span class="heti-spacing"> </span></span>个<span class="heti-skip"><span class="heti-spacing"> </span>bit<span class="heti-spacing"> </span></span>后开始稀缺优先（rarest first<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>；</p>
@@ -3953,7 +3981,7 @@ nslookup<span class="w"> </span>-type<span class="o">=</span><span class="nb">ty
 </ul>
 <p>点网页，<span>CDN<span class="heti-spacing"> </span></span>重定向，由缓存节点提供服务</p>
 <p>通过<span class="heti-skip"><span class="heti-spacing"> </span>DNS<span class="heti-spacing"> </span></span>实现选择最优的节点</p>
-<p><img alt="image-20240130123254230" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240130123254230.png"/></p>
+<p><img alt="image-20240130123254230" src="../../../assets/external/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240130123254230.png"></p>
 <h3 id="tlstransport-layer-security"><code>TLS:Transport Layer Security</code><a class="headerlink" href="#tlstransport-layer-security" title="anchor link to this section for reference">¶</a></h3>
 <p>传输层安全协议<code>Transport Layer Security</code>，旧称安全套接层<code>SSL:Secure Sockets Layer</code></p>
 <p>安全套接层</p>
@@ -3993,7 +4021,7 @@ nslookup<span class="w"> </span>-type<span class="o">=</span><span class="nb">ty
 <p>不经常寄件，需要提供自己的地址和对方的地址</p>
 </blockquote>
 <h3 id="tcp-socket">TCP socket<a class="headerlink" href="#tcp-socket" title="anchor link to this section for reference">¶</a></h3>
-<p><img alt="SOCKET_API" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/socket_api.png"/></p>
+<p><img alt="SOCKET_API" src="../../../assets/external/philfan-pic.oss-cn-beijing.aliyuncs.com/img/socket_api.png"></p>
 <p>服务器先运行 </p>
 <p>→ 建立<span class="heti-skip"><span class="heti-spacing"> </span>socket,<span class="heti-spacing"> </span></span>返回整数 <code>welcome socket</code></p>
 <p>→和本地端口捆绑</p>
@@ -4019,7 +4047,7 @@ nslookup<span class="w"> </span>-type<span class="o">=</span><span class="nb">ty
 <p>建立<span><span class="heti-spacing"> </span>socket</span></p>
 <p>bind socket</p>
 <p>读取<span><span class="heti-spacing"> </span>socket</span></p>
-<p><img alt="image-20240130143354086" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240130143354086.png"/></p></div>
+<p><img alt="image-20240130143354086" src="../../../assets/external/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240130143354086.png"></p></div>
 <aside class="md-source-file">
 <span class="md-source-file__fact">
 <span class="md-icon" title="最后更新">
@@ -4069,7 +4097,7 @@ nslookup<span class="w"> </span>-type<span class="o">=</span><span class="nb">ty
 </form>
 <h2 id="__comments">评论</h2>
 <!-- Insert generated snippet here -->
-<script async="" crossorigin="anonymous" data-category="General" data-category-id="DIC_kwDOLJH-684Ccv_n" data-emit-metadata="0" data-input-position="top" data-lang="zh-CN" data-loading="lazy" data-mapping="pathname" data-reactions-enabled="1" data-repo="Phil-Fan/Phil-Fan.github.io" data-repo-id="R_kgDOLJH-6w" data-strict="0" data-theme="dark" src="https://giscus.app/client.js">
+<script async="" crossorigin="anonymous" data-category="General" data-category-id="DIC_kwDOLJH-684Ccv_n" data-emit-metadata="0" data-input-position="top" data-lang="zh-CN" data-loading="lazy" data-mapping="pathname" data-reactions-enabled="1" data-repo="Phil-Fan/Phil-Fan.github.io" data-repo-id="R_kgDOLJH-6w" data-strict="0" data-theme="dark" src="../../../assets/external/giscus.app/client.js">
 </script>
 <!-- Synchronize giscus theme with palette -->
 <script>
@@ -4166,9 +4194,9 @@ nslookup<span class="w"> </span>-type<span class="o">=</span><span class="nb">ty
 </div>
 <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tracking", "navigation.tabs", "navigation.path", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.instant", "search.highlight", "search.suggest", "toc.follow", "content.code.annotate", "content.code.copy", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
 <script src="../../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
-<script src="../../../style/js/toc.js"></script>
-<script src="../../../style/js/mathjax.js"></script>
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="../../../assets/javascripts/mathjax.js"></script>
+<script src="../../../assets/javascripts/toc.js"></script>
+<script src="../../../assets/javascripts/MathJax-3.2.2/es5/tex-mml-chtml.js"></script>
+<script src="../../../assets/external/polyfill.alicdn.com/polyfill.min.7596a0b8.js"></script>
 </body>
 </html>

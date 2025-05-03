@@ -5,7 +5,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="PhilFan的笔记本" name="description"/>
 <meta content="PhilFan" name="author"/>
-<link href="https://www.philfan.cn/Robotics/Model/8-ForceControl/" rel="canonical"/>
+<link href="https://www.philfan.cn/Robotics/Model/8-ForceControl/" rel="canonical">
 <link href="../7-Control/" rel="prev"/>
 <link href="../9-exp/" rel="next"/>
 <link href="../../../logo.ico" rel="icon"/>
@@ -14,16 +14,16 @@
 <link href="../../../assets/stylesheets/main.3cba04c6.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1 7.775V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 0 1 0 2.474l-5.026 5.026a1.75 1.75 0 0 1-2.474 0l-6.25-6.25A1.752 1.752 0 0 1 1 7.775Zm1.5 0c0 .066.026.13.073.177l6.25 6.25a.25.25 0 0 0 .354 0l5.025-5.025a.25.25 0 0 0 0-.354l-6.25-6.25a.25.25 0 0 0-.177-.073H2.75a.25.25 0 0 0-.25.25ZM6 5a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"/></svg>');--md-admonition-icon--abstract:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.5 1.75v11.5c0 .138.112.25.25.25h3.17a.75.75 0 0 1 0 1.5H2.75A1.75 1.75 0 0 1 1 13.25V1.75C1 .784 1.784 0 2.75 0h8.5C12.216 0 13 .784 13 1.75v7.736a.75.75 0 0 1-1.5 0V1.75a.25.25 0 0 0-.25-.25h-8.5a.25.25 0 0 0-.25.25Zm13.274 9.537v-.001l-4.557 4.45a.75.75 0 0 1-1.055-.008l-1.943-1.95a.75.75 0 0 1 1.062-1.058l1.419 1.425 4.026-3.932a.75.75 0 1 1 1.048 1.074ZM4.75 4h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM4 7.75A.75.75 0 0 1 4.75 7h2a.75.75 0 0 1 0 1.5h-2A.75.75 0 0 1 4 7.75Z"/></svg>');--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/></svg>');--md-admonition-icon--tip:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.499.75a.75.75 0 0 1 1.5 0v.996C5.9 2.903 6.793 3.65 7.662 4.376l.24.202c-.036-.694.055-1.422.426-2.163C9.1.873 10.794-.045 12.622.26 14.408.558 16 1.94 16 4.25c0 1.278-.954 2.575-2.44 2.734l.146.508.065.22c.203.701.412 1.455.476 2.226.142 1.707-.4 3.03-1.487 3.898C11.714 14.671 10.27 15 8.75 15h-6a.75.75 0 0 1 0-1.5h1.376a4.484 4.484 0 0 1-.563-1.191 3.835 3.835 0 0 1-.05-2.063 4.647 4.647 0 0 1-2.025-.293.75.75 0 0 1 .525-1.406c1.357.507 2.376-.006 2.698-.318l.009-.01a.747.747 0 0 1 1.06 0 .748.748 0 0 1-.012 1.074c-.912.92-.992 1.835-.768 2.586.221.74.745 1.337 1.196 1.621H8.75c1.343 0 2.398-.296 3.074-.836.635-.507 1.036-1.31.928-2.602-.05-.603-.216-1.224-.422-1.93l-.064-.221c-.12-.407-.246-.84-.353-1.29a2.425 2.425 0 0 1-.507-.441 3.075 3.075 0 0 1-.633-1.248.75.75 0 0 1 1.455-.364c.046.185.144.436.31.627.146.168.353.305.712.305.738 0 1.25-.615 1.25-1.25 0-1.47-.95-2.315-2.123-2.51-1.172-.196-2.227.387-2.706 1.345-.46.92-.27 1.774.019 3.062l.042.19a.884.884 0 0 1 .01.05c.348.443.666.949.94 1.553a.75.75 0 1 1-1.365.62c-.553-1.217-1.32-1.94-2.3-2.768L6.7 5.527c-.814-.68-1.75-1.462-2.692-2.619a3.737 3.737 0 0 0-1.023.88c-.406.495-.663 1.036-.722 1.508.116.122.306.21.591.239.388.038.797-.06 1.032-.19a.75.75 0 0 1 .728 1.31c-.515.287-1.23.439-1.906.373-.682-.067-1.473-.38-1.879-1.193L.75 5.677V5.5c0-.984.48-1.94 1.077-2.664.46-.559 1.05-1.055 1.673-1.353V.75Z"/></svg>');--md-admonition-icon--success:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"/></svg>');--md-admonition-icon--question:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.92 6.085h.001a.749.749 0 1 1-1.342-.67c.169-.339.436-.701.849-.977C6.845 4.16 7.369 4 8 4a2.756 2.756 0 0 1 1.637.525c.503.377.863.965.863 1.725 0 .448-.115.83-.329 1.15-.205.307-.47.513-.692.662-.109.072-.22.138-.313.195l-.006.004a6.24 6.24 0 0 0-.26.16.952.952 0 0 0-.276.245.75.75 0 0 1-1.248-.832c.184-.264.42-.489.692-.661.103-.067.207-.132.313-.195l.007-.004c.1-.061.182-.11.258-.161a.969.969 0 0 0 .277-.245C8.96 6.514 9 6.427 9 6.25a.612.612 0 0 0-.262-.525A1.27 1.27 0 0 0 8 5.5c-.369 0-.595.09-.74.187a1.01 1.01 0 0 0-.34.398ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>');--md-admonition-icon--warning:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>');--md-admonition-icon--failure:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.344 2.343h-.001a8 8 0 0 1 11.314 11.314A8.002 8.002 0 0 1 .234 10.089a8 8 0 0 1 2.11-7.746Zm1.06 10.253a6.5 6.5 0 1 0 9.108-9.275 6.5 6.5 0 0 0-9.108 9.275ZM6.03 4.97 8 6.94l1.97-1.97a.749.749 0 0 1 1.275.326.749.749 0 0 1-.215.734L9.06 8l1.97 1.97a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L8 9.06l-1.97 1.97a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734L6.94 8 4.97 6.03a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018Z"/></svg>');--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M9.504.43a1.516 1.516 0 0 1 2.437 1.713L10.415 5.5h2.123c1.57 0 2.346 1.909 1.22 3.004l-7.34 7.142a1.249 1.249 0 0 1-.871.354h-.302a1.25 1.25 0 0 1-1.157-1.723L5.633 10.5H3.462c-1.57 0-2.346-1.909-1.22-3.004L9.503.429Zm1.047 1.074L3.286 8.571A.25.25 0 0 0 3.462 9H6.75a.75.75 0 0 1 .694 1.034l-1.713 4.188 6.982-6.793A.25.25 0 0 0 12.538 7H9.25a.75.75 0 0 1-.683-1.06l2.008-4.418.003-.006a.036.036 0 0 0-.004-.009l-.006-.006-.008-.001c-.003 0-.006.002-.009.004Z"/></svg>');--md-admonition-icon--bug:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M4.72.22a.75.75 0 0 1 1.06 0l1 .999a3.488 3.488 0 0 1 2.441 0l.999-1a.748.748 0 0 1 1.265.332.75.75 0 0 1-.205.729l-.775.776c.616.63.995 1.493.995 2.444v.327c0 .1-.009.197-.025.292.408.14.764.392 1.029.722l1.968-.787a.75.75 0 0 1 .556 1.392L13 7.258V9h2.25a.75.75 0 0 1 0 1.5H13v.5c0 .409-.049.806-.141 1.186l2.17.868a.75.75 0 0 1-.557 1.392l-2.184-.873A4.997 4.997 0 0 1 8 16a4.997 4.997 0 0 1-4.288-2.427l-2.183.873a.75.75 0 0 1-.558-1.392l2.17-.868A5.036 5.036 0 0 1 3 11v-.5H.75a.75.75 0 0 1 0-1.5H3V7.258L.971 6.446a.75.75 0 0 1 .558-1.392l1.967.787c.265-.33.62-.583 1.03-.722a1.677 1.677 0 0 1-.026-.292V4.5c0-.951.38-1.814.995-2.444L4.72 1.28a.75.75 0 0 1 0-1.06Zm.53 6.28a.75.75 0 0 0-.75.75V11a3.5 3.5 0 1 0 7 0V7.25a.75.75 0 0 0-.75-.75ZM6.173 5h3.654A.172.172 0 0 0 10 4.827V4.5a2 2 0 1 0-4 0v.327c0 .096.077.173.173.173Z"/></svg>');--md-admonition-icon--example:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M5 5.782V2.5h-.25a.75.75 0 0 1 0-1.5h6.5a.75.75 0 0 1 0 1.5H11v3.282l3.666 5.76C15.619 13.04 14.543 15 12.767 15H3.233c-1.776 0-2.852-1.96-1.899-3.458Zm-2.4 6.565a.75.75 0 0 0 .633 1.153h9.534a.75.75 0 0 0 .633-1.153L12.225 10.5h-8.45ZM9.5 2.5h-3V6c0 .143-.04.283-.117.403L4.73 9h6.54L9.617 6.403A.746.746 0 0 1 9.5 6Z"/></svg>');--md-admonition-icon--quote:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1.75 2.5h10.5a.75.75 0 0 1 0 1.5H1.75a.75.75 0 0 1 0-1.5Zm4 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5ZM2.5 7.75v6a.75.75 0 0 1-1.5 0v-6a.75.75 0 0 1 1.5 0Z"/></svg>');}</style>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+
+<link href="../../../assets/external/fonts.googleapis.com/css.de70e1f7.css" rel="stylesheet">
 <style>:root{--md-text-font:"Noto Serif SC";--md-code-font:"JetBrains Mono"}</style>
 <link href="../../../css/heti.css" rel="stylesheet"/>
-<link href="../../../style/css/custom.css" rel="stylesheet"/>
-<link href="../../../style/css/counter.css" rel="stylesheet"/>
-<link href="../../../style/css/toc.css" rel="stylesheet"/>
-<link href="../../../style/css/flink.css" rel="stylesheet"/>
-<link href="https://cdn.tonycrane.cc/jbmono/jetbrainsmono.css" rel="stylesheet"/>
-<link href="https://cdn.tonycrane.cc/lxgw/lxgwscreen.css" rel="stylesheet"/>
+<link href="../../../assets/css/custom.css" rel="stylesheet"/>
+<link href="../../../assets/css/counter.css" rel="stylesheet"/>
+<link href="../../../assets/css/toc.css" rel="stylesheet"/>
+<link href="../../../assets/css/flink.css" rel="stylesheet"/>
+<link href="../../../assets/external/cdn.tonycrane.cc/jbmono/jetbrainsmono.css" rel="stylesheet">
+<link href="../../../assets/external/cdn.tonycrane.cc/lxgw/lxgwscreen.css" rel="stylesheet">
 <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2QNP7S5RJ8"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2QNP7S5RJ8",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2QNP7S5RJ8",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
@@ -3069,6 +3069,34 @@
 </ul>
 </nav>
 </li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_7_10" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../blog/">
+<span class="md-ellipsis">
+    Blog
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_7_10" id="__nav_7_10_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_7_10_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_7_10">
+<span class="md-nav__icon md-icon"></span>
+            Blog
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../..">
+<span class="md-ellipsis">
+    归档
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
 </ul>
 </nav>
 </li>
@@ -3285,7 +3313,7 @@
 <blockquote>
 <p>引用自 <a href="https://www.zhihu.com/question/23984667">如何形象生动地解释虚功原理、虚位移原理、力之间的关系？ <span>-<span class="heti-spacing"> </span></span>知乎</a></p>
 </blockquote>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250418125747.png"/></p>
+<p><img alt="" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250418125747.png"></p>
 <p>在斜面上，小球受到支持力<span class="heti-skip"><span class="heti-spacing"> </span>N<span class="heti-spacing"> </span></span>和重力<span><span class="heti-spacing"> </span>G</span>，可能位移可以沿斜面向上或者向下走，这就是虚位移，这两个力在虚位移上做的总虚功不为零，所以是不平衡状态。如果小球向上走，总虚功为负功，如果向下走，总虚功为正功，你可以理解为，功是一种能量转换形式，小球会沿着重力势能降低的方向运动，而总虚功就描述了重力势能的变化趋势。</p>
 <p>在碗底水平处，小球受到的支持力<span class="heti-skip"><span class="heti-spacing"> </span>N<span class="heti-spacing"> </span></span>和重力<span class="heti-skip"><span class="heti-spacing"> </span>G<span class="heti-spacing"> </span></span>都是竖直方向，而虚位移是水平方向，无论向左走还是向右走，总虚功都是<span><span class="heti-spacing"> </span>0</span>，所以是平衡状态。你可以理解为，这时候无论小球向左还是向右，它的重力势能变化都是<span><span class="heti-spacing"> </span>0</span>，所以它不会动。</p>
 <p>从这个角度去看小球的运动，就可以发现它的可能运动方向可能有很多，小球在不同位置的势能是不一样大的，实际总是向着势能更低的方向运动，也就是沿着势能面的最大梯度方向运动。而当小球在某个位置的势能达到了极小值，此处势能面的梯度为零，就会处于平衡状态。这就是常说的<strong>最小势能原理</strong></p>
@@ -3350,7 +3378,7 @@
 <p>但是实际过程中，传感器会有噪声的影响，所以需要对力和位置进行滤波，把反馈误差投影到位置控制和力控制的子空间当中</p>
 <div class="admonition example">
 <p class="admonition-title">轴孔装配任务中的投影矩阵</p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250418161427.png"/></p>
+<p><img alt="" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250418161427.png"></p>
 <table>
 <thead>
 <tr>
@@ -3378,7 +3406,7 @@
 \]</div>
 </div>
 <p>若约束坐标系的各轴与位置和力控制回路中的方向不对齐，投射矩阵就不是对角阵。</p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250403093747.png"/></p>
+<p><img alt="" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250403093747.png"></p>
 <p>位置误差<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\hat{e}_p\)</span><span class="heti-spacing"> </span></span>和力误差<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\hat{e}_f\)</span><span class="heti-spacing"> </span></span>需要从关节空间转回到笛卡尔空间当中，使用雅可比矩阵<span><span class="heti-spacing"> </span><span class="arithmatex">\(J\)</span></span></p>
 <ul>
 <li>关节空间的位置误差反馈可表示为<span><span class="heti-spacing"> </span><span class="arithmatex">\(e_q=J^{-1}\hat{e}_p\)</span></span></li>
@@ -3424,7 +3452,7 @@ F=m\ddot{x}_d+(m-M_d)\ddot{\widetilde{x}}-(B_d\dot{\widetilde{x}}+K_d\widetilde{
 <div class="arithmatex">\[
 F=m\ddot{x}_d-\frac{m}{M_d}(B_d\dot{\widetilde{x}}+K_d\widetilde{x})+\left(\frac{m}{M_d}-1\right)F_{ext}
 \]</div>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250418165730.png"/></p>
+<p><img alt="" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250418165730.png"></p>
 <h3 id="_12">笛卡尔空间阻抗控制<a class="headerlink" href="#_12" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>动力学模型</p>
 <div class="arithmatex">\[
@@ -3451,7 +3479,7 @@ M(\boldsymbol{\Phi})\ddot{\boldsymbol{\Phi}}+V(\boldsymbol{\Phi},\dot{\boldsymbo
 </li>
 <li>惯性参数<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(M_d\)</span><span class="heti-spacing"> </span></span>一般不需要进行调节</li>
 </ul>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250418170635.png"/></p>
+<p><img alt="" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250418170635.png"></p>
 <h2 id="_13">导纳控制<a class="headerlink" href="#_13" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p>控制器接受环境力的输入，改变期望位置</p>
 <p>如果环境力太大了，就减小期望位置；如果环境力太小了，就增大期望位置</p>
@@ -3466,7 +3494,7 @@ M(\boldsymbol{\Phi})\ddot{\boldsymbol{\Phi}}+V(\boldsymbol{\Phi},\dot{\boldsymbo
 </div>
 <h3 id="_14">导纳控制器<a class="headerlink" href="#_14" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>导纳控制的期望位置不是固定的</p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250418172201.png"/></p>
+<p><img alt="" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250418172201.png"></p>
 <p>由于质量块还是要由控制力驱动，环路包括一个外环的导纳控制器和一个内环的位置控制器。在导纳控制器中，环境力<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(F_\mathrm{ext}\)</span><span class="heti-spacing"> </span></span>通过二阶导纳模型生成一个附加的运动信号，将预期的运动轨迹<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(x_d\)</span><span class="heti-spacing"> </span></span>变为新的运动轨迹<span><span class="heti-spacing"> </span><span class="arithmatex">\(x_m\)</span></span>
 $$
 M_d(ddot{x}<em ext="ext">m-ddot{x}_d)+B_ddot{widetilde{x}}+K_dwidetilde{x}=F</em>
@@ -3518,7 +3546,7 @@ e_{ss}=\frac{k}{k+k_{e}}[f_{r}+k_{e}(x_{e}-x_{d})]
 <h3 id="_18">自然约束<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>人工约束<a class="headerlink" href="#_18" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <div class="admonition note">
 <p class="admonition-title">案例<span class="heti-skip"><span class="heti-spacing"> </span>1:<span class="heti-spacing"> </span></span>轴承装配</p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250418161427.png"/></p>
+<p><img alt="" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250418161427.png"></p>
 <table>
 <thead>
 <tr>
@@ -3544,7 +3572,7 @@ e_{ss}=\frac{k}{k+k_{e}}[f_{r}+k_{e}(x_{e}-x_{d})]
 <div class="admonition note">
 <p class="admonition-title">案例<span class="heti-skip"><span class="heti-spacing"> </span>2:<span class="heti-spacing"> </span></span>旋转曲柄</p>
 <p>规定约束坐标系固连在曲柄上并随曲柄运动，<span>x<span class="heti-spacing"> </span></span>方向总是指向曲柄的轴心。
-<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250418161752.png"/></p>
+<img alt="" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250418161752.png"></p>
 <p>解 手柄具有两个自由度，分别为绕<span class="heti-skip"><span class="heti-spacing"> </span>z<span class="heti-spacing"> </span></span>轴的转动和绕曲柄轴的转动。约束条件可以整理为下表：</p>
 <table>
 <thead>
@@ -3572,7 +3600,7 @@ e_{ss}=\frac{k}{k+k_{e}}[f_{r}+k_{e}(x_{e}-x_{d})]
 <div class="admonition note">
 <p class="admonition-title">案例<span class="heti-skip"><span class="heti-spacing"> </span>2:<span class="heti-spacing"> </span></span>拧螺丝</p>
 <p>拧螺丝任务中物理环境是螺丝表面，轴承装配任务中物理环境是装配孔</p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250419191034.png"/></p>
+<p><img alt="" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250419191034.png"></p>
 <table>
 <thead>
 <tr>
@@ -3599,7 +3627,7 @@ e_{ss}=\frac{k}{k+k_{e}}[f_{r}+k_{e}(x_{e}-x_{d})]
 <div class="admonition note">
 <p class="admonition-title">案例<span class="heti-skip"><span class="heti-spacing"> </span>4:<span class="heti-spacing"> </span></span>开门</p>
 <p>铰链问题、开门、开盒子</p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250418163710.png"/></p>
+<p><img alt="" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250418163710.png"></p>
 <p><span>y<span class="heti-spacing"> </span></span>方向上给速度，<span>x<span class="heti-spacing"> </span></span>方向力恒为<span><span class="heti-spacing"> </span>0</span></p>
 <table>
 <thead>
@@ -3745,9 +3773,9 @@ e_{ss}=\frac{k}{k+k_{e}}[f_{r}+k_{e}(x_{e}-x_{d})]
 </div>
 <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tracking", "navigation.tabs", "navigation.path", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.instant", "search.highlight", "search.suggest", "toc.follow", "content.code.annotate", "content.code.copy", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
 <script src="../../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
-<script src="../../../style/js/toc.js"></script>
-<script src="../../../style/js/mathjax.js"></script>
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="../../../assets/javascripts/mathjax.js"></script>
+<script src="../../../assets/javascripts/toc.js"></script>
+<script src="../../../assets/javascripts/MathJax-3.2.2/es5/tex-mml-chtml.js"></script>
+<script src="../../../assets/external/polyfill.alicdn.com/polyfill.min.7596a0b8.js"></script>
 </body>
 </html>

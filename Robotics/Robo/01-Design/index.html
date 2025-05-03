@@ -5,7 +5,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="PhilFan的笔记本" name="description"/>
 <meta content="PhilFan" name="author"/>
-<link href="https://www.philfan.cn/Robotics/Robo/01-Design/" rel="canonical"/>
+<link href="https://www.philfan.cn/Robotics/Robo/01-Design/" rel="canonical">
 <link href="../00-intro/" rel="prev"/>
 <link href="../02-Mapping/" rel="next"/>
 <link href="../../../logo.ico" rel="icon"/>
@@ -14,16 +14,16 @@
 <link href="../../../assets/stylesheets/main.3cba04c6.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1 7.775V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 0 1 0 2.474l-5.026 5.026a1.75 1.75 0 0 1-2.474 0l-6.25-6.25A1.752 1.752 0 0 1 1 7.775Zm1.5 0c0 .066.026.13.073.177l6.25 6.25a.25.25 0 0 0 .354 0l5.025-5.025a.25.25 0 0 0 0-.354l-6.25-6.25a.25.25 0 0 0-.177-.073H2.75a.25.25 0 0 0-.25.25ZM6 5a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"/></svg>');--md-admonition-icon--abstract:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.5 1.75v11.5c0 .138.112.25.25.25h3.17a.75.75 0 0 1 0 1.5H2.75A1.75 1.75 0 0 1 1 13.25V1.75C1 .784 1.784 0 2.75 0h8.5C12.216 0 13 .784 13 1.75v7.736a.75.75 0 0 1-1.5 0V1.75a.25.25 0 0 0-.25-.25h-8.5a.25.25 0 0 0-.25.25Zm13.274 9.537v-.001l-4.557 4.45a.75.75 0 0 1-1.055-.008l-1.943-1.95a.75.75 0 0 1 1.062-1.058l1.419 1.425 4.026-3.932a.75.75 0 1 1 1.048 1.074ZM4.75 4h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM4 7.75A.75.75 0 0 1 4.75 7h2a.75.75 0 0 1 0 1.5h-2A.75.75 0 0 1 4 7.75Z"/></svg>');--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/></svg>');--md-admonition-icon--tip:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.499.75a.75.75 0 0 1 1.5 0v.996C5.9 2.903 6.793 3.65 7.662 4.376l.24.202c-.036-.694.055-1.422.426-2.163C9.1.873 10.794-.045 12.622.26 14.408.558 16 1.94 16 4.25c0 1.278-.954 2.575-2.44 2.734l.146.508.065.22c.203.701.412 1.455.476 2.226.142 1.707-.4 3.03-1.487 3.898C11.714 14.671 10.27 15 8.75 15h-6a.75.75 0 0 1 0-1.5h1.376a4.484 4.484 0 0 1-.563-1.191 3.835 3.835 0 0 1-.05-2.063 4.647 4.647 0 0 1-2.025-.293.75.75 0 0 1 .525-1.406c1.357.507 2.376-.006 2.698-.318l.009-.01a.747.747 0 0 1 1.06 0 .748.748 0 0 1-.012 1.074c-.912.92-.992 1.835-.768 2.586.221.74.745 1.337 1.196 1.621H8.75c1.343 0 2.398-.296 3.074-.836.635-.507 1.036-1.31.928-2.602-.05-.603-.216-1.224-.422-1.93l-.064-.221c-.12-.407-.246-.84-.353-1.29a2.425 2.425 0 0 1-.507-.441 3.075 3.075 0 0 1-.633-1.248.75.75 0 0 1 1.455-.364c.046.185.144.436.31.627.146.168.353.305.712.305.738 0 1.25-.615 1.25-1.25 0-1.47-.95-2.315-2.123-2.51-1.172-.196-2.227.387-2.706 1.345-.46.92-.27 1.774.019 3.062l.042.19a.884.884 0 0 1 .01.05c.348.443.666.949.94 1.553a.75.75 0 1 1-1.365.62c-.553-1.217-1.32-1.94-2.3-2.768L6.7 5.527c-.814-.68-1.75-1.462-2.692-2.619a3.737 3.737 0 0 0-1.023.88c-.406.495-.663 1.036-.722 1.508.116.122.306.21.591.239.388.038.797-.06 1.032-.19a.75.75 0 0 1 .728 1.31c-.515.287-1.23.439-1.906.373-.682-.067-1.473-.38-1.879-1.193L.75 5.677V5.5c0-.984.48-1.94 1.077-2.664.46-.559 1.05-1.055 1.673-1.353V.75Z"/></svg>');--md-admonition-icon--success:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"/></svg>');--md-admonition-icon--question:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.92 6.085h.001a.749.749 0 1 1-1.342-.67c.169-.339.436-.701.849-.977C6.845 4.16 7.369 4 8 4a2.756 2.756 0 0 1 1.637.525c.503.377.863.965.863 1.725 0 .448-.115.83-.329 1.15-.205.307-.47.513-.692.662-.109.072-.22.138-.313.195l-.006.004a6.24 6.24 0 0 0-.26.16.952.952 0 0 0-.276.245.75.75 0 0 1-1.248-.832c.184-.264.42-.489.692-.661.103-.067.207-.132.313-.195l.007-.004c.1-.061.182-.11.258-.161a.969.969 0 0 0 .277-.245C8.96 6.514 9 6.427 9 6.25a.612.612 0 0 0-.262-.525A1.27 1.27 0 0 0 8 5.5c-.369 0-.595.09-.74.187a1.01 1.01 0 0 0-.34.398ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>');--md-admonition-icon--warning:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>');--md-admonition-icon--failure:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.344 2.343h-.001a8 8 0 0 1 11.314 11.314A8.002 8.002 0 0 1 .234 10.089a8 8 0 0 1 2.11-7.746Zm1.06 10.253a6.5 6.5 0 1 0 9.108-9.275 6.5 6.5 0 0 0-9.108 9.275ZM6.03 4.97 8 6.94l1.97-1.97a.749.749 0 0 1 1.275.326.749.749 0 0 1-.215.734L9.06 8l1.97 1.97a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L8 9.06l-1.97 1.97a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734L6.94 8 4.97 6.03a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018Z"/></svg>');--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M9.504.43a1.516 1.516 0 0 1 2.437 1.713L10.415 5.5h2.123c1.57 0 2.346 1.909 1.22 3.004l-7.34 7.142a1.249 1.249 0 0 1-.871.354h-.302a1.25 1.25 0 0 1-1.157-1.723L5.633 10.5H3.462c-1.57 0-2.346-1.909-1.22-3.004L9.503.429Zm1.047 1.074L3.286 8.571A.25.25 0 0 0 3.462 9H6.75a.75.75 0 0 1 .694 1.034l-1.713 4.188 6.982-6.793A.25.25 0 0 0 12.538 7H9.25a.75.75 0 0 1-.683-1.06l2.008-4.418.003-.006a.036.036 0 0 0-.004-.009l-.006-.006-.008-.001c-.003 0-.006.002-.009.004Z"/></svg>');--md-admonition-icon--bug:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M4.72.22a.75.75 0 0 1 1.06 0l1 .999a3.488 3.488 0 0 1 2.441 0l.999-1a.748.748 0 0 1 1.265.332.75.75 0 0 1-.205.729l-.775.776c.616.63.995 1.493.995 2.444v.327c0 .1-.009.197-.025.292.408.14.764.392 1.029.722l1.968-.787a.75.75 0 0 1 .556 1.392L13 7.258V9h2.25a.75.75 0 0 1 0 1.5H13v.5c0 .409-.049.806-.141 1.186l2.17.868a.75.75 0 0 1-.557 1.392l-2.184-.873A4.997 4.997 0 0 1 8 16a4.997 4.997 0 0 1-4.288-2.427l-2.183.873a.75.75 0 0 1-.558-1.392l2.17-.868A5.036 5.036 0 0 1 3 11v-.5H.75a.75.75 0 0 1 0-1.5H3V7.258L.971 6.446a.75.75 0 0 1 .558-1.392l1.967.787c.265-.33.62-.583 1.03-.722a1.677 1.677 0 0 1-.026-.292V4.5c0-.951.38-1.814.995-2.444L4.72 1.28a.75.75 0 0 1 0-1.06Zm.53 6.28a.75.75 0 0 0-.75.75V11a3.5 3.5 0 1 0 7 0V7.25a.75.75 0 0 0-.75-.75ZM6.173 5h3.654A.172.172 0 0 0 10 4.827V4.5a2 2 0 1 0-4 0v.327c0 .096.077.173.173.173Z"/></svg>');--md-admonition-icon--example:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M5 5.782V2.5h-.25a.75.75 0 0 1 0-1.5h6.5a.75.75 0 0 1 0 1.5H11v3.282l3.666 5.76C15.619 13.04 14.543 15 12.767 15H3.233c-1.776 0-2.852-1.96-1.899-3.458Zm-2.4 6.565a.75.75 0 0 0 .633 1.153h9.534a.75.75 0 0 0 .633-1.153L12.225 10.5h-8.45ZM9.5 2.5h-3V6c0 .143-.04.283-.117.403L4.73 9h6.54L9.617 6.403A.746.746 0 0 1 9.5 6Z"/></svg>');--md-admonition-icon--quote:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1.75 2.5h10.5a.75.75 0 0 1 0 1.5H1.75a.75.75 0 0 1 0-1.5Zm4 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5ZM2.5 7.75v6a.75.75 0 0 1-1.5 0v-6a.75.75 0 0 1 1.5 0Z"/></svg>');}</style>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+
+<link href="../../../assets/external/fonts.googleapis.com/css.de70e1f7.css" rel="stylesheet">
 <style>:root{--md-text-font:"Noto Serif SC";--md-code-font:"JetBrains Mono"}</style>
 <link href="../../../css/heti.css" rel="stylesheet"/>
-<link href="../../../style/css/custom.css" rel="stylesheet"/>
-<link href="../../../style/css/counter.css" rel="stylesheet"/>
-<link href="../../../style/css/toc.css" rel="stylesheet"/>
-<link href="../../../style/css/flink.css" rel="stylesheet"/>
-<link href="https://cdn.tonycrane.cc/jbmono/jetbrainsmono.css" rel="stylesheet"/>
-<link href="https://cdn.tonycrane.cc/lxgw/lxgwscreen.css" rel="stylesheet"/>
+<link href="../../../assets/css/custom.css" rel="stylesheet"/>
+<link href="../../../assets/css/counter.css" rel="stylesheet"/>
+<link href="../../../assets/css/toc.css" rel="stylesheet"/>
+<link href="../../../assets/css/flink.css" rel="stylesheet"/>
+<link href="../../../assets/external/cdn.tonycrane.cc/jbmono/jetbrainsmono.css" rel="stylesheet">
+<link href="../../../assets/external/cdn.tonycrane.cc/lxgw/lxgwscreen.css" rel="stylesheet">
 <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2QNP7S5RJ8"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2QNP7S5RJ8",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2QNP7S5RJ8",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
@@ -3033,6 +3033,34 @@
 </ul>
 </nav>
 </li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_7_10" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../blog/">
+<span class="md-ellipsis">
+    Blog
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_7_10" id="__nav_7_10_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_7_10_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_7_10">
+<span class="md-nav__icon md-icon"></span>
+            Blog
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../..">
+<span class="md-ellipsis">
+    归档
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
 </ul>
 </nav>
 </li>
@@ -3207,44 +3235,44 @@
 <p><span class="arithmatex">\(P = \frac{v}{i} \times Ti\)</span>​</p>
 <p>注意：<strong>力矩<span class="heti-skip"><span class="heti-spacing"> </span>X<span class="heti-spacing"> </span></span>转速<span class="heti-skip"><span class="heti-spacing"> </span>=<span class="heti-spacing"> </span></span>功率</strong></p>
 <h4 id="_3"><a href="https://www.bilibili.com/video/BV1ig411S7gX/?spm_id_from=333.337.search-card.all.click&amp;vd_source=c22bb8d123dbc6430c3057dc8d2701b4">有刷电机与无刷电机</a><a class="headerlink" href="#_3" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
-<p><img alt="image-20240416164453791" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416164453791.png"/></p>
-<p><img alt="image-20240416164945042" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416164945042.png"/></p>
+<p><img alt="image-20240416164453791" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416164453791.png"></p>
+<p><img alt="image-20240416164945042" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416164945042.png"></p>
 <p>定子不动，改变转子的磁极，就可以完成换向。</p>
 <p>中间部分由惯性。</p>
-<p><img alt="image-20240416165039391" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416165039391.png"/></p>
+<p><img alt="image-20240416165039391" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416165039391.png"></p>
 <p>使用三、五线圈的奇数线圈，就不存在“平衡位置”了。</p>
 <p>使用<span class="heti-skip"><span class="heti-spacing"> </span>2N1S<span class="heti-spacing"> </span></span>顺，<span>2S1N<span class="heti-spacing"> </span></span>逆</p>
-<p><img alt="image-20240416165250656" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416165250656.png"/></p>
+<p><img alt="image-20240416165250656" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416165250656.png"></p>
 <p>限制：电刷；电刷与换向片接触产生动力损耗。</p>
-<p><img alt="image-20240416165453808" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416165453808.png"/></p>
+<p><img alt="image-20240416165453808" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416165453808.png"></p>
 <p>永磁铁作为转子，电磁铁作为定子。</p>
 <p>如何判断何时改变电流输入：一般在电机的不同位置上装三个霍尔传感器，就可测出转子的位置，使用霍尔原件感应转子的状态和位置。</p>
-<p><img alt="image-20240416104119842" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416104119842.png"/></p>
+<p><img alt="image-20240416104119842" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416104119842.png"></p>
 <div class="admonition note">
 <p class="admonition-title">转动顺序、导通方式</p>
 <p><strong>AB，AC，BC，BA，CA，CB</strong><br/>
 后三个是前三个反序</p>
 </div>
-<p><img alt="image-20240416104143466" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416104143466.png"/></p>
-<p><img alt="img" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-dd52b5ed852d7e746c35aad78f4e3851_r.jpg"/></p>
+<p><img alt="image-20240416104143466" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416104143466.png"></p>
+<p><img alt="img" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-dd52b5ed852d7e746c35aad78f4e3851_r.jpg"></p>
 <p>换向的过程</p>
-<p><img alt="image-20240416164651385" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416164651385.png"/></p>
+<p><img alt="image-20240416164651385" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416164651385.png"></p>
 <p>三相<span class="heti-skip"><span class="heti-spacing"> </span>9<span class="heti-spacing"> </span></span>绕组<span class="heti-skip"><span class="heti-spacing"> </span>6<span class="heti-spacing"> </span></span>极（<span>3<span class="heti-spacing"> </span></span>对极）</p>
 <p>转子的<span class="heti-skip"><span class="heti-spacing"> </span>NS<span class="heti-spacing"> </span></span>极与绕组电流产生的<span class="heti-skip"><span class="heti-spacing"> </span>NS<span class="heti-spacing"> </span></span>极有对其的运动趋势，这个惯性使得其能够旋转</p>
 <p>注意：每一相是<strong>串联</strong>的</p>
-<p><img alt="image-20240416164727698" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416164727698.png"/></p>
+<p><img alt="image-20240416164727698" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416164727698.png"></p>
 <p>采用<strong><span>9<span class="heti-spacing"> </span></span>绕组<span class="heti-skip"><span class="heti-spacing"> </span>6<span class="heti-spacing"> </span></span>极</strong>，而不是<strong><span>6<span class="heti-spacing"> </span></span>绕组<span class="heti-skip"><span class="heti-spacing"> </span>6<span class="heti-spacing"> </span></span>极</strong>原因：为了防止定子的齿与转子的磁钢相吸而对齐，产生类似步进电机的效果，此情况下转矩会产生很大波动</p>
 <p>总体来说且转数提升容易基本只受限于轴承。</p>
 <p>缺点是启动功率输出和荷重输出（工作突然加重工作<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>爬坡能力）类比有刷电机少将近百分之<span><span class="heti-spacing"> </span>20</span>，控制器贵稳定性成熟度（工业性价比）不如有刷</p>
 <h4 id="_4">调速<a class="headerlink" href="#_4" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p>滤波</p>
-<p><a href="https://www.bilibili.com/video/BV1ZG4y1v7LS/?spm_id_from=333.1007.top_right_bar_window_history.content.click"><span>H<span class="heti-spacing"> </span></span>桥的基本原理<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>刹车<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>正反转<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>调速</a> <img alt="image-20230907140632003" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20230907140632003.png"/></p>
+<p><a href="https://www.bilibili.com/video/BV1ZG4y1v7LS/?spm_id_from=333.1007.top_right_bar_window_history.content.click"><span>H<span class="heti-spacing"> </span></span>桥的基本原理<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>刹车<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>正反转<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>调速</a> <img alt="image-20230907140632003" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20230907140632003.png"></p>
 <h4 id="_5">电机控制<a class="headerlink" href="#_5" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <blockquote>
 <p>一个电机由静止到额定转速是怎么实现的</p>
 </blockquote>
 <p>等效电路</p>
-<p><img alt="image-20240416171746564" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416171746564.png"/></p>
+<p><img alt="image-20240416171746564" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416171746564.png"></p>
 <p>电枢电动势<span><span class="heti-spacing"> </span>Ea</span>，电磁转矩<span><span class="heti-spacing"> </span>T</span>，电磁功率<span><span class="heti-spacing"> </span>P</span></p>
 <p><span>Ke<span class="heti-spacing"> </span></span>速度常数，<span>Km<span class="heti-spacing"> </span></span>力矩常数</p>
 <p><span>I<span class="heti-spacing"> </span></span>电枢电流，<span>w<span class="heti-spacing"> </span></span>角速度
@@ -3271,10 +3299,10 @@ begin{align}
 end{align}
 $$
 <span class="arithmatex">\(J\)</span>表示电机的转动惯量，<span class="arithmatex">\(\omega(t)\)</span>表示电机的角速度，<span class="arithmatex">\(B\)</span>表示电机的阻尼系数，<span class="arithmatex">\(T_d(t)\)</span>表示电机所受的负载转矩。</p>
-<p><img alt="image-20240416174456906" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416174456906.png"/></p>
+<p><img alt="image-20240416174456906" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416174456906.png"></p>
 <p>电机烧掉：<strong>电机铜线外绝缘体破坏，电线与电线之间短路</strong></p>
 <p>检查方法：测量电机绕组的电阻值是否正常进行判断</p>
-<p><img alt="image-20240416173535098" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416173535098.png"/></p>
+<p><img alt="image-20240416173535098" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416173535098.png"></p>
 <p>白色区域需要注意</p>
 <blockquote>
 <p>如何控制小车右转</p>
@@ -3283,26 +3311,26 @@ $$
 </blockquote>
 <h5 id="h"><strong>有刷电机（<span>H<span class="heti-spacing"> </span></span>桥驱动）</strong><a class="headerlink" href="#h" title="anchor link to this section for reference">¶</a></h5>
 <p>最常用的驱动方式</p>
-<p><img alt="img" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/61EC0040D67F475F87D07883A700D778_735.jpeg"/></p>
-<p><img alt="img" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/99F657663FFE42398711F883963F8542_566.jpeg"/></p>
+<p><img alt="img" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/61EC0040D67F475F87D07883A700D778_735.jpeg"></p>
+<p><img alt="img" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/99F657663FFE42398711F883963F8542_566.jpeg"></p>
 <p>上图为电机的正反转</p>
-<p><img alt="image-20240414193034701" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240414193034701.png"/></p>
+<p><img alt="image-20240414193034701" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240414193034701.png"></p>
 <p>为了避免电机的反电动势的危害，仍然需要在三极管两端接二极管，因为电机线圈在电路开闭瞬间产生的反向电动势会高过电源，对晶体管和电路会造成影响，甚至是烧毁元件。</p>
 <p>一般用<strong><span>L298<span class="heti-spacing"> </span></span>芯片</strong>来控制电机转动，可以驱动两个直流电机</p>
 <h5 id="_6">光电隔离电路<a class="headerlink" href="#_6" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h5>
-<p><img alt="image-20240414193622133" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240414193622133.png"/></p>
+<p><img alt="image-20240414193622133" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240414193622133.png"></p>
 <p>可以实现抗干扰</p>
 <h5 id="_7">基本控制方式<a class="headerlink" href="#_7" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h5>
 <h6 id="_8">开环伺服系统<a class="headerlink" href="#_8" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h6>
 <p>精度较低， 但稳定性最好。</p>
-<p><img alt="image-20240414193757089" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240414193757089.png"/></p>
+<p><img alt="image-20240414193757089" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240414193757089.png"></p>
 <h6 id="_9">闭环伺服系统<a class="headerlink" href="#_9" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h6>
 <p>精度较高，但系统的结构较复杂、成本高，还有系统稳定性的问题</p>
-<p><img alt="image-20240414193902662" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240414193902662.png"/></p>
+<p><img alt="image-20240414193902662" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240414193902662.png"></p>
 <h6 id="_10">半闭环伺服系统<a class="headerlink" href="#_10" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h6>
 <p>反馈电机信息，控制电机</p>
 <p>精度比闭环要差一些，稳定性比闭环好，但比开环要差一些</p>
-<p><img alt="image-20240414193936717" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240414193936717.png"/></p>
+<p><img alt="image-20240414193936717" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240414193936717.png"></p>
 <h4 id="_11">转动惯量匹配<a class="headerlink" href="#_11" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p>负载的转动惯量折合到主动轴上时候，从动轴上的转动惯量和阻尼系数都要除以传动比的平方，负载转矩处于传动比</p>
 <div class="arithmatex">\[
@@ -3313,9 +3341,9 @@ $$
 J_M &lt; (2-3)J_L \\
 电机的转动惯量 J_M、负载的等效转动惯量J_L
 \]</div>
-<p><img alt="image-20240416174549458" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416174549458.png"/></p>
-<p><img alt="image-20240416104333256" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416104333256.png"/></p>
-<p><img alt="image-20240416232800538" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416232800538.png"/></p>
+<p><img alt="image-20240416174549458" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416174549458.png"></p>
+<p><img alt="image-20240416104333256" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416104333256.png"></p>
+<p><img alt="image-20240416232800538" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416232800538.png"></p>
 <p>设一直接高电平时，转速最大是<span><span class="heti-spacing"> </span><span class="arithmatex">\(V_{max}\)</span></span>，占空比为<span><span class="heti-spacing"> </span><span class="arithmatex">\(D= \frac{t_1}{T}\)</span></span></p>
 <p>电机平均速度为
 $$
@@ -3330,13 +3358,13 @@ $$</p>
 <p>用<span class="heti-skip"><span class="heti-spacing"> </span>PWM<span class="heti-spacing"> </span></span>波控制</p>
 </blockquote>
 <p>控制线：电源线、地线、控制线</p>
-<p><img alt="image-20230907143850328" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20230907143850328.png"/></p>
+<p><img alt="image-20230907143850328" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20230907143850328.png"></p>
 <p>电机<span class="heti-skip"><span class="heti-spacing"> </span>+<span class="heti-spacing"> </span></span>减速器</p>
 <p><strong>标准舵机有三条控制线，分别为</strong>电源线、地线和控制线。控制线连接到控制芯片上</p>
-<p><img alt="image-20240422172314384" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240422172314384.png"/></p>
+<p><img alt="image-20240422172314384" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240422172314384.png"></p>
 <p>直流电机<span class="heti-skip"><span class="heti-spacing"> </span>PWM<span class="heti-spacing"> </span></span>匹配</p>
 <p>占空比</p>
-<p><img alt="image-20230907135711661" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20230907135711661.png"/> <img alt="image-20230907140616101" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20230907140616101.png"/><img alt="image-20230907140621883" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20230907140621883.png"/></p>
+<p><img alt="image-20230907135711661" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20230907135711661.png"> <img alt="image-20230907140616101" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20230907140616101.png"><img alt="image-20230907140621883" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20230907140621883.png"></p>
 <h3 id="_13">气动<a class="headerlink" href="#_13" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ul>
 <li>气压驱动以空气压缩为动力源，也是机器人驱动的一种重要形式。</li>
@@ -3346,7 +3374,7 @@ $$</p>
 </ul>
 <h4 id="_14">分类<a class="headerlink" href="#_14" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p>包括气压发生装置、辅助元件、控制元件和执行元件</p>
-<p><img alt="image-20240416104446817" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416104446817.png"/></p>
+<p><img alt="image-20240416104446817" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416104446817.png"></p>
 <ul>
 <li>气压元件：气源装置，其功能是将原动机<strong>输入的机械能转换成流体的压力能</strong>，为系统<strong>提供动力</strong></li>
 <li>执行元件：<strong>气缸、气马达</strong>，功能是将流体的压力能转换成机械能，输出力和速度或转矩和转速<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，以带动负载进行直线运动或旋转运动</li>
@@ -3366,10 +3394,10 @@ $$</p>
 <p><a href="https://www.bilibili.com/video/BV1fz421r7yX/?spm_id_from=333.337.search-card.all.click&amp;vd_source=8b7a5460b512357b2cf80ce1cefc69f5">二位五通双电控电磁阀的工作原理</a></p>
 <p>几位：看有几种回路可以切换（有几个小格子）</p>
 <p>几通：看<strong>每一个回路</strong>（小格子）里面有几个连接处</p>
-<p><img alt="image-20240414195847393" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240414195847393.png"/></p>
-<p><img alt="image-20240422161542854" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240422161542854.png"/></p>
-<p><img alt="image-20240422161556062" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240422161556062.png"/></p>
-<p><img alt="image-20240422161610644" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240422161610644.png"/></p>
+<p><img alt="image-20240414195847393" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240414195847393.png"></p>
+<p><img alt="image-20240422161542854" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240422161542854.png"></p>
+<p><img alt="image-20240422161556062" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240422161556062.png"></p>
+<p><img alt="image-20240422161610644" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240422161610644.png"></p>
 <p>对于<span class="heti-skip"><span class="heti-spacing"> </span>a<span class="heti-spacing"> </span></span>图</p>
 <p>在第二位时，<span>P2P3<span class="heti-spacing"> </span></span>相通，<span>P3<span class="heti-spacing"> </span></span>出气，右边气缸由于弹簧被压缩，向下运动</p>
 <p>在第一位时，<span>P3<span class="heti-spacing"> </span></span>堵住，<span>P2P1<span class="heti-spacing"> </span></span>相通，进气导致向上运动</p>
@@ -3380,9 +3408,9 @@ $$</p>
 <p>注：<strong>有几位就有几种状态<span><span class="heti-spacing"> </span>!</span></strong></p>
 <p>对于每一种状态，将接线平移到对应的格子上，观察进气口气体的流向，从而判断如何进行换向</p>
 <h5 id="_18">双作用气缸换向回路<a class="headerlink" href="#_18" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h5>
-<p><img alt="image-20240414200332022" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240414200332022.png"/></p>
+<p><img alt="image-20240414200332022" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240414200332022.png"></p>
 <p>例：</p>
-<p><img alt="image-20240414201155714" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240414201155714.png"/></p>
+<p><img alt="image-20240414201155714" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240414201155714.png"></p>
 <p>不拍按钮时：左移</p>
 <p>拍按钮时：右下角的被改变，因此右移</p>
 <h3 id="_19">液压<a class="headerlink" href="#_19" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
@@ -3395,7 +3423,7 @@ $$</p>
 </ul>
 </li>
 </ul>
-<p><img alt="image-20240422162943114" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240422162943114.png"/></p>
+<p><img alt="image-20240422162943114" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240422162943114.png"></p>
 <h2 id="_20">传动装置<a class="headerlink" href="#_20" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <h3 id="_21">参数<a class="headerlink" href="#_21" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <h4 id="_22">传动机构的性能要求<a class="headerlink" href="#_22" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
@@ -3429,7 +3457,7 @@ i = \frac{输入速度}{输出速度} = \frac{输入力矩}{输出力矩}
 <h3 id="_27">齿轮传动<a class="headerlink" href="#_27" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>齿轮传动是指由齿轮副传递运动和动力的装置，它是现代各种设备中应用最广泛的一种机械传动方式。</p>
 <p><strong>优点</strong>：传动比较准确，效率高，结构紧凑，工作可靠，寿命长。</p>
-<p><img alt="image-20230907144343497" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20230907144343497.png"/></p>
+<p><img alt="image-20230907144343497" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20230907144343497.png"></p>
 <h4 id="_28">基本参数的计算公式<a class="headerlink" href="#_28" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <div class="arithmatex">\[
 p_i = s_i + e_i a_i = e_i\\
@@ -3443,14 +3471,14 @@ p_i = s_i + e_i a_i = e_i\\
 <p><a href="https://max.book118.com/html/2020/0123/8140121006002074.shtm">https://max.book118.com/html/2020/0123/8140121006002074.shtm</a></p>
 <h4 id="_29">定轴传动<a class="headerlink" href="#_29" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p>定轴轮系：所有转动轴可以是平行的或者交错的；每个轴上可以有多个齿轮。</p>
-<p><img alt="image-20240416104731762" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416104731762.png"/></p>
+<p><img alt="image-20240416104731762" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416104731762.png"></p>
 <h4 id="_30">周转轮系<a class="headerlink" href="#_30" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p>周转轮系：<strong>至少有一个齿轮的轴线不固定</strong> ，而是绕另一个齿轮的轴线转动的轮系。</p>
-<p><img alt="image-20240416104742305" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416104742305.png"/></p>
-<p><img alt="image-20240416104846198" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416104846198.png"/></p>
-<p><img alt="image-20240416215257877" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416215257877.png"/></p>
+<p><img alt="image-20240416104742305" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416104742305.png"></p>
+<p><img alt="image-20240416104846198" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416104846198.png"></p>
+<p><img alt="image-20240416215257877" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416215257877.png"></p>
 <h4 id="_31">减速比计算（重点）<a class="headerlink" href="#_31" title="anchor link to this section for reference">¶</a></h4>
-<p><img alt="image-20240416215432743" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416215432743.png"/></p>
+<p><img alt="image-20240416215432743" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416215432743.png"></p>
 <div class="arithmatex">\[
 i_{首末} = \frac{\omega_{首}}{\omega_{末}} = \frac{Z_末}{Z_首} \quad 包含正负 \\
 本题答案 \\
@@ -3463,10 +3491,10 @@ i_{4'5} = \frac{\omega_4'}{\omega_5} = -\frac{Z_5}{Z_4'} \\
 综上：i_{15} = \frac{\omega_1}{\omega_5} = -\frac{Z_3}{Z_1}\frac{Z_4}{Z_3'}\frac{Z_5}{Z_4'} \\
 \]</div>
 <h4 id="_32">方向关系<a class="headerlink" href="#_32" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
-<p><img alt="image-20240422185707338" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240422185707338.png"/></p>
-<p><img alt="image-20240422192109099" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240422192109099.png"/></p>
+<p><img alt="image-20240422185707338" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240422185707338.png"></p>
+<p><img alt="image-20240422192109099" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240422192109099.png"></p>
 <h3 id="_33">连杆传动<a class="headerlink" href="#_33" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<p><img alt="image-20240416104926218" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416104926218.png"/></p>
+<p><img alt="image-20240416104926218" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416104926218.png"></p>
 <p><span>AB<span class="heti-spacing"> </span></span>当做输入，<span>CD<span class="heti-spacing"> </span></span>当做输出，则<span class="heti-skip"><span class="heti-spacing"> </span>BC<span class="heti-spacing"> </span></span>就是一个连杆</p>
 <h4 id="_34">优缺点（重点）<a class="headerlink" href="#_34" title="anchor link to this section for reference">¶</a></h4>
 <p>优点：</p>
@@ -3485,30 +3513,30 @@ i_{4'5} = \frac{\omega_4'}{\omega_5} = -\frac{Z_5}{Z_4'} \\
 <p>分类方法：看哪一根杆最短</p>
 <p><strong>基本形式一：曲柄摇杆机构</strong></p>
 <p>斜边最短的时候，是曲柄摇杆机构</p>
-<p><img alt="动图" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-2b39fc71abcddb619afb965cb02acedc_b.webp"/></p>
+<p><img alt="动图" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-2b39fc71abcddb619afb965cb02acedc_b.webp"></p>
 <p><strong>基本形式二：双曲柄机构</strong></p>
 <p>最短杆为机架时候</p>
-<p><img alt="动图" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-03d65aeed7c393ce21f4de19533c46f0_b.webp"/></p>
+<p><img alt="动图" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-03d65aeed7c393ce21f4de19533c46f0_b.webp"></p>
 <p><strong>基本形式三：双摇杆机构</strong></p>
 <p>最短杆为连杆</p>
-<p><img alt="img" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-2c969a21e62d70333d3c939c9586c189_b.webp"/></p>
+<p><img alt="img" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-2c969a21e62d70333d3c939c9586c189_b.webp"></p>
 <p>证明方法：三角形两边之和大于第三边</p>
-<p><img alt="image-20240416105135035" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416105135035.png"/></p>
+<p><img alt="image-20240416105135035" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416105135035.png"></p>
 <p>曲柄滑块</p>
-<p><img alt="动图" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-961dc510e2e17588e10de4e6fc78b2d8_b.webp"/></p>
+<p><img alt="动图" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-961dc510e2e17588e10de4e6fc78b2d8_b.webp"></p>
 <p>对心曲柄滑块机构</p>
-<p><img alt="动图" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-f4160d9cf92145412fd189df02a4dbd7_b.webp"/></p>
-<p><img alt="image-20240416105229282" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416105229282.png"/></p>
+<p><img alt="动图" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-f4160d9cf92145412fd189df02a4dbd7_b.webp"></p>
+<p><img alt="image-20240416105229282" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416105229282.png"></p>
 <p>曲柄摇杆机构的条件</p>
 <ul>
 <li>曲柄摇杆机构：两个连架杆中有一个为曲柄，另一个为摇杆：最短杆为连架杆<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>时</li>
 <li>双曲柄机构：两个连架杆均为曲柄：最短杆为机架<span class="heti-skip"><span class="heti-spacing"> </span>4<span class="heti-spacing"> </span></span>时</li>
 <li>双摇杆机构：两个连架杆均为摇杆：最短杆为连杆<span class="heti-skip"><span class="heti-spacing"> </span>2<span class="heti-spacing"> </span></span>时</li>
 </ul>
-<p><img alt="image-20240416220706207" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416220706207.png"/></p>
+<p><img alt="image-20240416220706207" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240416220706207.png"></p>
 <h4 id="_36">矢量方程法<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>不重要<span><span class="heti-spacing"> </span>)</span><a class="headerlink" href="#_36" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <h5 id="_37">步骤<a class="headerlink" href="#_37" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h5>
-<p><img alt="image-20240417032040907" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240417032040907.png"/></p>
+<p><img alt="image-20240417032040907" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240417032040907.png"></p>
 <ul>
 <li>总的来说就是列写矢量方程</li>
 <li>再按照实部和虚部相等列写两个方程求解</li>
@@ -3516,18 +3544,18 @@ i_{4'5} = \frac{\omega_4'}{\omega_5} = -\frac{Z_5}{Z_4'} \\
 </ul>
 <h5 id="_38">曲柄滑块机构<a class="headerlink" href="#_38" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h5>
 <p>位移分析</p>
-<p><img alt="image-20240417032129498" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240417032129498.png"/></p>
+<p><img alt="image-20240417032129498" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240417032129498.png"></p>
 <p>速度分析（位移求导）</p>
-<p><img alt="image-20240417032205341" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240417032205341.png"/></p>
+<p><img alt="image-20240417032205341" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240417032205341.png"></p>
 <p>加速度分析</p>
-<p><img alt="image-20240417032228970" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240417032228970.png"/></p>
+<p><img alt="image-20240417032228970" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240417032228970.png"></p>
 <h5 id="_39">曲柄摇杆机构<a class="headerlink" href="#_39" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h5>
 <p>位置分析</p>
-<p><img alt="image-20240417032407332" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240417032407332.png"/></p>
-<p><img alt="image-20240417032513797" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240417032513797.png"/></p>
-<p><img alt="image-20240417032540629" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240417032540629.png"/></p>
+<p><img alt="image-20240417032407332" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240417032407332.png"></p>
+<p><img alt="image-20240417032513797" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240417032513797.png"></p>
+<p><img alt="image-20240417032540629" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240417032540629.png"></p>
 <p>速度分析</p>
-<p><img alt="image-20240417032607292" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240417032607292.png"/></p>
+<p><img alt="image-20240417032607292" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240417032607292.png"></p>
 <h3 id="_40">滑轮组<a class="headerlink" href="#_40" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ul>
 <li>固定轮只能用于改变力的方向，而运动轮可以降低输入力量的大小</li>
@@ -3548,22 +3576,22 @@ i_{4'5} = \frac{\omega_4'}{\omega_5} = -\frac{Z_5}{Z_4'} \\
 <li>传动平稳，噪声小。</li>
 <li>具有自锁性。</li>
 </ul>
-<p><img alt="动图" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/d081b02f504c3556ffff9d5a7d91d409_b.webp"/></p>
-<p><img alt="img" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/a942d11ag00qeurw800kpd000b4007wp.gif"/></p>
+<p><img alt="动图" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/d081b02f504c3556ffff9d5a7d91d409_b.webp"></p>
+<p><img alt="img" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/a942d11ag00qeurw800kpd000b4007wp.gif"></p>
 <h3 id="_44">凸轮机构<a class="headerlink" href="#_44" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<p><img alt="img" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/q3fgrs7uda.gif"/></p>
+<p><img alt="img" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/q3fgrs7uda.gif"></p>
 <h2 id="_45">支撑与导向<a class="headerlink" href="#_45" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <h3 id="_46">轴承<a class="headerlink" href="#_46" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>作用：用来支撑轴，使轴系有确定的位置</p>
-<p><img alt="image-20240422195340577" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240422195340577.png"/></p>
-<p><img alt="image-20240422195359029" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240422195359029.png"/></p>
-<p><img alt="image-20240422195541021" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240422195541021.png"/></p>
-<p><img alt="img" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/skzr7cxa9j.gif"/></p>
-<p><img alt="image-20240422201036218" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240422201036218.png"/></p>
-<p><img alt="image-20240422201142655" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240422201142655.png"/></p>
-<p><img alt="image-20240422201356861" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240422201356861.png"/></p>
+<p><img alt="image-20240422195340577" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240422195340577.png"></p>
+<p><img alt="image-20240422195359029" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240422195359029.png"></p>
+<p><img alt="image-20240422195541021" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240422195541021.png"></p>
+<p><img alt="img" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/skzr7cxa9j.gif"></p>
+<p><img alt="image-20240422201036218" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240422201036218.png"></p>
+<p><img alt="image-20240422201142655" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240422201142655.png"></p>
+<p><img alt="image-20240422201356861" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240422201356861.png"></p>
 <h3 id="_47">联接<a class="headerlink" href="#_47" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<p><img alt="image-20240422201534848" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240422201534848.png"/></p></div>
+<p><img alt="image-20240422201534848" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240422201534848.png"></p></div>
 <aside class="md-source-file">
 <span class="md-source-file__fact">
 <span class="md-icon" title="最后更新">
@@ -3677,9 +3705,9 @@ i_{4'5} = \frac{\omega_4'}{\omega_5} = -\frac{Z_5}{Z_4'} \\
 </div>
 <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tracking", "navigation.tabs", "navigation.path", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.instant", "search.highlight", "search.suggest", "toc.follow", "content.code.annotate", "content.code.copy", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
 <script src="../../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
-<script src="../../../style/js/toc.js"></script>
-<script src="../../../style/js/mathjax.js"></script>
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="../../../assets/javascripts/mathjax.js"></script>
+<script src="../../../assets/javascripts/toc.js"></script>
+<script src="../../../assets/javascripts/MathJax-3.2.2/es5/tex-mml-chtml.js"></script>
+<script src="../../../assets/external/polyfill.alicdn.com/polyfill.min.7596a0b8.js"></script>
 </body>
 </html>

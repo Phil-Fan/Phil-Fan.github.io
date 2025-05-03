@@ -5,7 +5,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="PhilFan的笔记本" name="description"/>
 <meta content="PhilFan" name="author"/>
-<link href="https://www.philfan.cn/Robotics/Control/ADV-linear-00-intro/" rel="canonical"/>
+<link href="https://www.philfan.cn/Robotics/Control/ADV-linear-00-intro/" rel="canonical">
 <link href="../BASE-03-adjust/" rel="prev"/>
 <link href="../ADV-nonliear-00-intro/" rel="next"/>
 <link href="../../../logo.ico" rel="icon"/>
@@ -14,16 +14,16 @@
 <link href="../../../assets/stylesheets/main.3cba04c6.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1 7.775V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 0 1 0 2.474l-5.026 5.026a1.75 1.75 0 0 1-2.474 0l-6.25-6.25A1.752 1.752 0 0 1 1 7.775Zm1.5 0c0 .066.026.13.073.177l6.25 6.25a.25.25 0 0 0 .354 0l5.025-5.025a.25.25 0 0 0 0-.354l-6.25-6.25a.25.25 0 0 0-.177-.073H2.75a.25.25 0 0 0-.25.25ZM6 5a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"/></svg>');--md-admonition-icon--abstract:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.5 1.75v11.5c0 .138.112.25.25.25h3.17a.75.75 0 0 1 0 1.5H2.75A1.75 1.75 0 0 1 1 13.25V1.75C1 .784 1.784 0 2.75 0h8.5C12.216 0 13 .784 13 1.75v7.736a.75.75 0 0 1-1.5 0V1.75a.25.25 0 0 0-.25-.25h-8.5a.25.25 0 0 0-.25.25Zm13.274 9.537v-.001l-4.557 4.45a.75.75 0 0 1-1.055-.008l-1.943-1.95a.75.75 0 0 1 1.062-1.058l1.419 1.425 4.026-3.932a.75.75 0 1 1 1.048 1.074ZM4.75 4h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM4 7.75A.75.75 0 0 1 4.75 7h2a.75.75 0 0 1 0 1.5h-2A.75.75 0 0 1 4 7.75Z"/></svg>');--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/></svg>');--md-admonition-icon--tip:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.499.75a.75.75 0 0 1 1.5 0v.996C5.9 2.903 6.793 3.65 7.662 4.376l.24.202c-.036-.694.055-1.422.426-2.163C9.1.873 10.794-.045 12.622.26 14.408.558 16 1.94 16 4.25c0 1.278-.954 2.575-2.44 2.734l.146.508.065.22c.203.701.412 1.455.476 2.226.142 1.707-.4 3.03-1.487 3.898C11.714 14.671 10.27 15 8.75 15h-6a.75.75 0 0 1 0-1.5h1.376a4.484 4.484 0 0 1-.563-1.191 3.835 3.835 0 0 1-.05-2.063 4.647 4.647 0 0 1-2.025-.293.75.75 0 0 1 .525-1.406c1.357.507 2.376-.006 2.698-.318l.009-.01a.747.747 0 0 1 1.06 0 .748.748 0 0 1-.012 1.074c-.912.92-.992 1.835-.768 2.586.221.74.745 1.337 1.196 1.621H8.75c1.343 0 2.398-.296 3.074-.836.635-.507 1.036-1.31.928-2.602-.05-.603-.216-1.224-.422-1.93l-.064-.221c-.12-.407-.246-.84-.353-1.29a2.425 2.425 0 0 1-.507-.441 3.075 3.075 0 0 1-.633-1.248.75.75 0 0 1 1.455-.364c.046.185.144.436.31.627.146.168.353.305.712.305.738 0 1.25-.615 1.25-1.25 0-1.47-.95-2.315-2.123-2.51-1.172-.196-2.227.387-2.706 1.345-.46.92-.27 1.774.019 3.062l.042.19a.884.884 0 0 1 .01.05c.348.443.666.949.94 1.553a.75.75 0 1 1-1.365.62c-.553-1.217-1.32-1.94-2.3-2.768L6.7 5.527c-.814-.68-1.75-1.462-2.692-2.619a3.737 3.737 0 0 0-1.023.88c-.406.495-.663 1.036-.722 1.508.116.122.306.21.591.239.388.038.797-.06 1.032-.19a.75.75 0 0 1 .728 1.31c-.515.287-1.23.439-1.906.373-.682-.067-1.473-.38-1.879-1.193L.75 5.677V5.5c0-.984.48-1.94 1.077-2.664.46-.559 1.05-1.055 1.673-1.353V.75Z"/></svg>');--md-admonition-icon--success:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"/></svg>');--md-admonition-icon--question:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.92 6.085h.001a.749.749 0 1 1-1.342-.67c.169-.339.436-.701.849-.977C6.845 4.16 7.369 4 8 4a2.756 2.756 0 0 1 1.637.525c.503.377.863.965.863 1.725 0 .448-.115.83-.329 1.15-.205.307-.47.513-.692.662-.109.072-.22.138-.313.195l-.006.004a6.24 6.24 0 0 0-.26.16.952.952 0 0 0-.276.245.75.75 0 0 1-1.248-.832c.184-.264.42-.489.692-.661.103-.067.207-.132.313-.195l.007-.004c.1-.061.182-.11.258-.161a.969.969 0 0 0 .277-.245C8.96 6.514 9 6.427 9 6.25a.612.612 0 0 0-.262-.525A1.27 1.27 0 0 0 8 5.5c-.369 0-.595.09-.74.187a1.01 1.01 0 0 0-.34.398ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>');--md-admonition-icon--warning:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>');--md-admonition-icon--failure:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.344 2.343h-.001a8 8 0 0 1 11.314 11.314A8.002 8.002 0 0 1 .234 10.089a8 8 0 0 1 2.11-7.746Zm1.06 10.253a6.5 6.5 0 1 0 9.108-9.275 6.5 6.5 0 0 0-9.108 9.275ZM6.03 4.97 8 6.94l1.97-1.97a.749.749 0 0 1 1.275.326.749.749 0 0 1-.215.734L9.06 8l1.97 1.97a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L8 9.06l-1.97 1.97a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734L6.94 8 4.97 6.03a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018Z"/></svg>');--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M9.504.43a1.516 1.516 0 0 1 2.437 1.713L10.415 5.5h2.123c1.57 0 2.346 1.909 1.22 3.004l-7.34 7.142a1.249 1.249 0 0 1-.871.354h-.302a1.25 1.25 0 0 1-1.157-1.723L5.633 10.5H3.462c-1.57 0-2.346-1.909-1.22-3.004L9.503.429Zm1.047 1.074L3.286 8.571A.25.25 0 0 0 3.462 9H6.75a.75.75 0 0 1 .694 1.034l-1.713 4.188 6.982-6.793A.25.25 0 0 0 12.538 7H9.25a.75.75 0 0 1-.683-1.06l2.008-4.418.003-.006a.036.036 0 0 0-.004-.009l-.006-.006-.008-.001c-.003 0-.006.002-.009.004Z"/></svg>');--md-admonition-icon--bug:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M4.72.22a.75.75 0 0 1 1.06 0l1 .999a3.488 3.488 0 0 1 2.441 0l.999-1a.748.748 0 0 1 1.265.332.75.75 0 0 1-.205.729l-.775.776c.616.63.995 1.493.995 2.444v.327c0 .1-.009.197-.025.292.408.14.764.392 1.029.722l1.968-.787a.75.75 0 0 1 .556 1.392L13 7.258V9h2.25a.75.75 0 0 1 0 1.5H13v.5c0 .409-.049.806-.141 1.186l2.17.868a.75.75 0 0 1-.557 1.392l-2.184-.873A4.997 4.997 0 0 1 8 16a4.997 4.997 0 0 1-4.288-2.427l-2.183.873a.75.75 0 0 1-.558-1.392l2.17-.868A5.036 5.036 0 0 1 3 11v-.5H.75a.75.75 0 0 1 0-1.5H3V7.258L.971 6.446a.75.75 0 0 1 .558-1.392l1.967.787c.265-.33.62-.583 1.03-.722a1.677 1.677 0 0 1-.026-.292V4.5c0-.951.38-1.814.995-2.444L4.72 1.28a.75.75 0 0 1 0-1.06Zm.53 6.28a.75.75 0 0 0-.75.75V11a3.5 3.5 0 1 0 7 0V7.25a.75.75 0 0 0-.75-.75ZM6.173 5h3.654A.172.172 0 0 0 10 4.827V4.5a2 2 0 1 0-4 0v.327c0 .096.077.173.173.173Z"/></svg>');--md-admonition-icon--example:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M5 5.782V2.5h-.25a.75.75 0 0 1 0-1.5h6.5a.75.75 0 0 1 0 1.5H11v3.282l3.666 5.76C15.619 13.04 14.543 15 12.767 15H3.233c-1.776 0-2.852-1.96-1.899-3.458Zm-2.4 6.565a.75.75 0 0 0 .633 1.153h9.534a.75.75 0 0 0 .633-1.153L12.225 10.5h-8.45ZM9.5 2.5h-3V6c0 .143-.04.283-.117.403L4.73 9h6.54L9.617 6.403A.746.746 0 0 1 9.5 6Z"/></svg>');--md-admonition-icon--quote:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1.75 2.5h10.5a.75.75 0 0 1 0 1.5H1.75a.75.75 0 0 1 0-1.5Zm4 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5ZM2.5 7.75v6a.75.75 0 0 1-1.5 0v-6a.75.75 0 0 1 1.5 0Z"/></svg>');}</style>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+
+<link href="../../../assets/external/fonts.googleapis.com/css.de70e1f7.css" rel="stylesheet">
 <style>:root{--md-text-font:"Noto Serif SC";--md-code-font:"JetBrains Mono"}</style>
 <link href="../../../css/heti.css" rel="stylesheet"/>
-<link href="../../../style/css/custom.css" rel="stylesheet"/>
-<link href="../../../style/css/counter.css" rel="stylesheet"/>
-<link href="../../../style/css/toc.css" rel="stylesheet"/>
-<link href="../../../style/css/flink.css" rel="stylesheet"/>
-<link href="https://cdn.tonycrane.cc/jbmono/jetbrainsmono.css" rel="stylesheet"/>
-<link href="https://cdn.tonycrane.cc/lxgw/lxgwscreen.css" rel="stylesheet"/>
+<link href="../../../assets/css/custom.css" rel="stylesheet"/>
+<link href="../../../assets/css/counter.css" rel="stylesheet"/>
+<link href="../../../assets/css/toc.css" rel="stylesheet"/>
+<link href="../../../assets/css/flink.css" rel="stylesheet"/>
+<link href="../../../assets/external/cdn.tonycrane.cc/jbmono/jetbrainsmono.css" rel="stylesheet">
+<link href="../../../assets/external/cdn.tonycrane.cc/lxgw/lxgwscreen.css" rel="stylesheet">
 <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2QNP7S5RJ8"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2QNP7S5RJ8",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2QNP7S5RJ8",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
@@ -3082,6 +3082,34 @@
 </ul>
 </nav>
 </li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_7_10" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../blog/">
+<span class="md-ellipsis">
+    Blog
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_7_10" id="__nav_7_10_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_7_10_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_7_10">
+<span class="md-nav__icon md-icon"></span>
+            Blog
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../..">
+<span class="md-ellipsis">
+    归档
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
 </ul>
 </nav>
 </li>
@@ -3279,7 +3307,7 @@
 <blockquote>
 <p>以此笔记致敬<span><span class="heti-spacing"> </span>DR_CAN</span>，感谢他的无私奉献</p>
 </blockquote>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241025103426.png"/></p>
+<p><img alt="" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241025103426.png"></p>
 <div class="admonition note">
 <p class="admonition-title">资源汇总</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><input id="__tabbed_1_3" name="__tabbed_1" type="radio"/><input id="__tabbed_1_4" name="__tabbed_1" type="radio"/><input id="__tabbed_1_5" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">学习路径</label><label for="__tabbed_1_2">资料合集</label><label for="__tabbed_1_3">历年卷</label><label for="__tabbed_1_4"><span class="heti-skip"><span class="heti-spacing"> </span>A4<span class="heti-spacing"> </span></span></label><label for="__tabbed_1_5">其他资料</label></div>
@@ -3398,7 +3426,7 @@
 </ul>
 </div>
 <div class="tabbed-block">
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240922170358.png"/>
+<p><img alt="" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240922170358.png">
 <a href="https://github.com/awslasasd/Modern-control-principles/tree/main">awslasasd</a>的仓库中也比较详细
 - <a href="https://www.zhihu.com/column/c_1131936304564453376">现代控制理论重点概念梳理 - 知乎</a><br/>
 - <a href="https://blog.csdn.net/qq_31274209/article/details/105156993">现代控制理论-重点知识汇总_现代控制理论知识点总结-CSDN博客</a><br/>
@@ -3408,10 +3436,10 @@
 </div>
 </div>
 <h2 id="_2">课程感想<a class="headerlink" href="#_2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<p>现代控制理论算是大三秋冬还算学到东西的一门主修课了，个人大部分内容都是自学的，因为上课容易走神，而且每次早八都有点困困的<img alt="😴" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f634.svg" title=":sleeping:"/><heti-adjacent class="heti-adjacent-half">。</heti-adjacent>（在室友的推荐下看了<a href="https://www.bilibili.com/video/BV1yx411u7iX/">现代控制理论系列课程</a>，<span>DR_CAN<span class="heti-spacing"> </span></span>博士的课程讲的很好，深入浅出地串讲了现控的大部分内容，算是中文控制理论<span class="heti-skip"><span class="heti-spacing"> </span>yyds<span class="heti-spacing"> </span></span>了。没有覆盖的部分，可以通过搜索其他视频或者根据题目进行拟合<heti-adjacent class="heti-adjacent-half">。</heti-adjacent>）</p>
-<p>现控上课时间只有半个学期，也就意味着课程节奏是很快的。最后一章甚至都是在考试前一天才讲完<img alt="😩" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f629.svg" title=":weary:"/>，这就意味着提前学习是必须的。</p>
+<p>现代控制理论算是大三秋冬还算学到东西的一门主修课了，个人大部分内容都是自学的，因为上课容易走神，而且每次早八都有点困困的<img alt="😴" class="twemoji" src="../../../https:/cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f634.svg" title=":sleeping:"><heti-adjacent class="heti-adjacent-half">。</heti-adjacent>（在室友的推荐下看了<a href="https://www.bilibili.com/video/BV1yx411u7iX/">现代控制理论系列课程</a>，<span>DR_CAN<span class="heti-spacing"> </span></span>博士的课程讲的很好，深入浅出地串讲了现控的大部分内容，算是中文控制理论<span class="heti-skip"><span class="heti-spacing"> </span>yyds<span class="heti-spacing"> </span></span>了。没有覆盖的部分，可以通过搜索其他视频或者根据题目进行拟合<heti-adjacent class="heti-adjacent-half">。</heti-adjacent>）</p>
+<p>现控上课时间只有半个学期，也就意味着课程节奏是很快的。最后一章甚至都是在考试前一天才讲完<img alt="😩" class="twemoji" src="../../../https:/cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f629.svg" title=":weary:">，这就意味着提前学习是必须的。</p>
 <p>从<strong>考试</strong>来看，笔者和朋友们都感觉题目计算量很大（尤其是涉及到矩阵的计算、<span>z<span class="heti-spacing"> </span></span>变换的化简等题目<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，虽然现控的题目套路比较固定，但是计算量确实不小，一定要提前掌握计算器求解矩阵的方法，也需要在平时的作业中注意化简的速度，要提前练习<heti-adjacent class="heti-adjacent-half">。</heti-adjacent>（之后如果使用相关方法，肯定也是计算机求解啊，出这么大计算量是为了难而难吗<span><span class="heti-spacing"> </span>hhhh</span>）</p>
-<p>本门课程的<strong>实验</strong>可以用依托答辩来形容，实验分为三次线下实验箱实验与两次线上<span class="heti-skip"><span class="heti-spacing"> </span>matlab<span class="heti-spacing"> </span></span>实验。线下可以说与现代控制这学期所学的内容关联不大，甚至把它放在模电实验中我觉得也没有什么违和感<img alt="😅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f605.svg" title=":sweat_smile:"/>。大家一般都有学长姐往年的数据，所以很多人做一节课多就走了，但是笔者每次做实验，实验实验箱都会发生各种各样的神奇问题，所以实验还是花了一些时间的。但是最后实验成绩其实都是按照实验报告给的，所以<span class="heti-skip"><span class="heti-spacing"> </span>ROI<span class="heti-spacing"> </span></span>很低，<del>甚至直接去签完到回去写实验报告都不一定比别人低</del><img alt="😇" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f607.svg" title=":innocent:"/>。希望之后实验课可以进行一些优化和调整。</p>
+<p>本门课程的<strong>实验</strong>可以用依托答辩来形容，实验分为三次线下实验箱实验与两次线上<span class="heti-skip"><span class="heti-spacing"> </span>matlab<span class="heti-spacing"> </span></span>实验。线下可以说与现代控制这学期所学的内容关联不大，甚至把它放在模电实验中我觉得也没有什么违和感<img alt="😅" class="twemoji" src="../../../https:/cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f605.svg" title=":sweat_smile:">。大家一般都有学长姐往年的数据，所以很多人做一节课多就走了，但是笔者每次做实验，实验实验箱都会发生各种各样的神奇问题，所以实验还是花了一些时间的。但是最后实验成绩其实都是按照实验报告给的，所以<span class="heti-skip"><span class="heti-spacing"> </span>ROI<span class="heti-spacing"> </span></span>很低，<del>甚至直接去签完到回去写实验报告都不一定比别人低</del><img alt="😇" class="twemoji" src="../../../https:/cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f607.svg" title=":innocent:">。希望之后实验课可以进行一些优化和调整。</p>
 <h2 id="_3">总论<a class="headerlink" href="#_3" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <div class="admonition note">
 <p class="admonition-title">以下内容均为笔者个人理解，如有错误，先滑跪</p>
@@ -3420,7 +3448,7 @@
 <p>现代控制理论是经典控制理论的延续。更关注于离散系统和多输入系统。</p>
 <p>可以先听一下这个串讲，对整体有一个了解</p>
 <iframe allowfullscreen="true" border="0" frameborder="no" framespacing="0" height="500px" scrolling="no" src="//player.bilibili.com/player.html?isOutside=true&amp;aid=19161045&amp;bvid=BV1jW411J729&amp;cid=31254269&amp;p=1&amp;autoplay=0" width="100%"></iframe>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/%E7%8E%B0%E4%BB%A3%E6%8E%A7%E5%88%B6%E7%90%86%E8%AE%BA.svg"/></p>
+<p><img alt="" src="../../../assets/external/philfan-pic.oss-cn-beijing.aliyuncs.com/img/现代控制理论.svg"></p>
 <p>首先要理解<strong>状态空间模型</strong>，求传递函数</p>
 <div class="arithmatex">\[
 \begin{aligned}
@@ -3515,7 +3543,7 @@ y &amp;= Cx + Du
 - 读取这个体重后开始参考制定计划，计划还没有制定出来，就需要进行下一次测量了</p>
 <div class="admonition example">
 <p class="admonition-title">离散系统例子</p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241003142612.png"/>
+<p><img alt="" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241003142612.png">
 控制体重的例子</p>
 <p>如果测体重测得太频繁，那么根本来不及计划</p>
 </div>
@@ -3578,20 +3606,20 @@ G_h(s)\cdot G_p(s) = \frac{1-e^{-Ts}}{s} G_p(s) = (1-z^{-1})(\frac{G_p(s)}{s})
 <span class="nb">step</span><span class="p">(</span><span class="n">Back</span><span class="p">,</span><span class="n">zeroholder</span><span class="p">,</span><span class="s">'--'</span><span class="p">,</span><span class="n">Forward</span><span class="p">,</span><span class="s">'-'</span><span class="p">,</span><span class="n">Tustin</span><span class="p">,</span><span class="s">'r--'</span><span class="p">,</span><span class="n">P_Z</span><span class="p">,</span><span class="s">'y-'</span><span class="p">,</span><span class="n">D</span><span class="p">,</span><span class="s">'g-'</span><span class="p">);</span>
 <span class="nb">legend</span><span class="p">;</span>
 </code></pre></div>
-<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241009143613.png"/>
+<img alt="" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241009143613.png">
 <details class="note">
 <summary><span>z<span class="heti-spacing"> </span></span>域根轨迹设计</summary>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241009150404.png"/>
-<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241009150424.png"/>
-<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241009150442.png"/>
-<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241009150510.png"/></p>
+<p><img alt="" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241009150404.png">
+<img alt="" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241009150424.png">
+<img alt="" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241009150442.png">
+<img alt="" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241009150510.png"></p>
 </details>
 <h3 id="_9">数字化设计<a class="headerlink" href="#_9" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <div class="admonition note">
 <p class="admonition-title"><span>z<span class="heti-spacing"> </span></span>域解析设计的方法主要有最少拍系统设计、无波纹最少拍系统设计、最小均方差系统设计等</p>
 <p>如下图的系统，我们只能设计<span class="heti-skip"><span class="heti-spacing"> </span>D(z)<span class="heti-spacing"> </span></span>部分，而<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(H(s)\)</span><span class="heti-spacing"> </span></span>与<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(G_c(s)\)</span><span class="heti-spacing"> </span></span>是给定的。</p>
 </div>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241009150948.png"/></p>
+<p><img alt="" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241009150948.png"></p>
 <p><span>z<span class="heti-spacing"> </span></span>域解析设计的方法关键是根据性能指标的需要选择合适的闭环脉冲传递函数<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\Phi(z)\)</span><span class="heti-spacing"> </span></span>或闭环误差脉冲传递函数<span><span class="heti-spacing"> </span><span class="arithmatex">\(\Phi_e(z)\)</span></span>。</p>
 <div class="arithmatex">\[
 \begin{aligned}
@@ -3651,17 +3679,17 @@ R(z) = \frac{A(z)}{(1 - z^{-1})^m} (m=1,2,\cdots)
 <div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="" id="__tabbed_2_1" name="__tabbed_2" type="radio"/><input id="__tabbed_2_2" name="__tabbed_2" type="radio"/><input id="__tabbed_2_3" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="__tabbed_2_1">例<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span></label><label for="__tabbed_2_2">例<span class="heti-skip"><span class="heti-spacing"> </span>2<span class="heti-spacing"> </span></span></label><label for="__tabbed_2_3">例<span><span class="heti-spacing"> </span>3</span></label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241105111320.png"/>
-<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241105111333.png"/></p>
+<p><img alt="" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241105111320.png">
+<img alt="" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241105111333.png"></p>
 </div>
 <div class="tabbed-block">
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241105111523.png"/>
-<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241105111540.png"/>
-<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241105111554.png"/></p>
+<p><img alt="" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241105111523.png">
+<img alt="" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241105111540.png">
+<img alt="" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241105111554.png"></p>
 </div>
 <div class="tabbed-block">
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241105111638.png"/>
-<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241105111649.png"/></p>
+<p><img alt="" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241105111638.png">
+<img alt="" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241105111649.png"></p>
 </div>
 </div>
 </div>
@@ -3726,7 +3754,7 @@ G(T) = e^{AT},H(T) = \int^T_0 e^{A\tau}Bd\tau
 <li>矩阵<span class="heti-skip"><span class="heti-spacing"> </span>A<span class="heti-spacing"> </span></span>对角化</li>
 <li>Cayley-hamilton</li>
 </ul>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241105112949.png"/></p>
+<p><img alt="" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241105112949.png"></p>
 </div>
 <details class="tip">
 <summary>推导</summary>
@@ -3749,7 +3777,7 @@ e^{-At}\vec{x(t)} |_{t_0}^t  = \int_{0}^{t}e^{-A\tau}B\vec{u(\tau)}d\tau
 <p>对于<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\((A,b,c,d)\)</span>,<span class="arithmatex">\(G(s) = c(sI-A)^{-1}b+d\)</span><span class="heti-spacing"> </span></span>的极点是能控能观子系统的极点，<span>G(s)<span class="heti-spacing"> </span></span>稳定称为外稳定</p>
 <p><span><span class="arithmatex">\((A,b,c,d)\)</span><span class="heti-spacing"> </span></span>所有极点位于<span class="heti-skip"><span class="heti-spacing"> </span>S<span class="heti-spacing"> </span></span>左半开平面称为内稳定</p>
 <h3 id="phase-portrait">phase portrait<a class="headerlink" href="#phase-portrait" title="anchor link to this section for reference">¶</a></h3>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241023191419.png"/></p>
+<p><img alt="" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241023191419.png"></p>
 <div class="arithmatex">\[
 A = \begin{bmatrix}a &amp;b\\
 c&amp;d\end{bmatrix}
@@ -3831,7 +3859,7 @@ c&amp;d\end{bmatrix}
 <p><strong>asymptotically stable</strong>（在于随着时间趋于零）</p>
 <p><span class="arithmatex">\(\exists \delta(t_0)&gt;0: ||x(t_0)||&lt;\delta(t_0) \Rightarrow \lim_{t\rightarrow\infty}||x(t)|| = 0\)</span></p>
 <p>最后会回到原点（棕色线条）</p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240926012538.png"/></p>
+<p><img alt="" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240926012538.png"></p>
 <p><strong>大范围渐进稳定：</strong></p>
 <p>必要条件：只有一个平衡状态；出发点<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(x_0\)</span><span class="heti-spacing"> </span></span>没有限制；对于线性系统，平衡状态渐近稳定则必然大范围渐进稳定</p>
 <h3 id="lyapunov_1"><span>Lyapunov<span class="heti-spacing"> </span></span>第一方法——间接法<a class="headerlink" href="#lyapunov_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
@@ -3885,7 +3913,7 @@ A^TP + PA = -Q
 <li>带入<span class="heti-skip"><span class="heti-spacing"> </span>lyaponov<span class="heti-spacing"> </span></span>方程，求解<span><span class="heti-spacing"> </span><span class="arithmatex">\(P\)</span></span></li>
 <li>判断<span class="heti-skip"><span class="heti-spacing"> </span>P<span class="heti-spacing"> </span></span>的符号性质</li>
 </ol>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241025101127.png"/></p>
+<p><img alt="" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241025101127.png"></p>
 <h4 id="_14">克拉索夫斯基稳定性判据<a class="headerlink" href="#_14" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <h2 id="_15">系统设计<a class="headerlink" href="#_15" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <h3 id="_16">能控性<a class="headerlink" href="#_16" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
@@ -3921,7 +3949,7 @@ b_c = T_c^{-1} b = \begin{bmatrix} 0 \\ 0 \\ \vdots \\ 1 \end{bmatrix}
 <p>能控矩阵<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(Rank(Co) = p &lt; n\)</span>,<span class="heti-spacing"> </span></span>在<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(Co\)</span><span class="heti-spacing"> </span></span>中找出<span class="heti-skip"><span class="heti-spacing"> </span>p<span class="heti-spacing"> </span></span>个线性无关的列向量，再配<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(n-p\)</span><span class="heti-spacing"> </span></span>个线性无关的列向量，构成变换矩阵<span><span class="heti-spacing"> </span><span class="arithmatex">\(T_c\)</span></span></p>
 <blockquote>
 <p>不能控子空间也会对能控子空间产生影响
-<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/%E6%9C%AA%E5%91%BD%E5%90%8D%E7%BB%98%E5%9B%BE.drawio.svg"/></p>
+<img alt="" src="../../../assets/external/philfan-pic.oss-cn-beijing.aliyuncs.com/img/未命名绘图.drawio.svg"></p>
 </blockquote>
 <h3 id="_20">状态反馈<a class="headerlink" href="#_20" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <div class="admonition note">
@@ -3963,7 +3991,7 @@ A_{cl} = \mathbf{A+Bk}
 </ul>
 <details class="example">
 <summary>例子</summary>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241003150854.png"/></p>
+<p><img alt="" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241003150854.png"></p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:4"><input checked="" id="__tabbed_3_1" name="__tabbed_3" type="radio"/><input id="__tabbed_3_2" name="__tabbed_3" type="radio"/><input id="__tabbed_3_3" name="__tabbed_3" type="radio"/><input id="__tabbed_3_4" name="__tabbed_3" type="radio"/><div class="tabbed-labels"><label for="__tabbed_3_1">建立状态空间模型</label><label for="__tabbed_3_2">开环系统</label><label for="__tabbed_3_3">能控性矩阵<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(Co\)</span><span class="heti-spacing"> </span></span></label><label for="__tabbed_3_4">设计线性控制器</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -4054,7 +4082,7 @@ J = \int_0^{\infty} (x^TQx + u^TRu)dt
 <details class="note">
 <summary>卡尔曼与能观性</summary>
 <p>Kálmán published several seminal papers during the sixties, which rigorously established what is now known as the state-space representation of dynamical systems. He introduced the formal definition of a system, the notions of controllability and observability
-<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241003163103.png"/></p>
+<img alt="" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241003163103.png"></p>
 <p>卡尔曼滤波器就是随机系统的状态观测器</p>
 </details>
 <h4 id="_24">能观性判断<a class="headerlink" href="#_24" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
@@ -4089,8 +4117,8 @@ T_o^{-1} &amp;= L Q_o = \begin{bmatrix} \alpha_1 &amp; \alpha_2 &amp; \cdots &am
 <div class="arithmatex">\[
 \dot{\hat{x}}=(A - LC)\hat{x} + (B - LD)u + Ly
 \]</div>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/3399df009b8bea13f457a685ae69d88.png"/>
-<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241023200752.png"/></p>
+<p><img alt="" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/3399df009b8bea13f457a685ae69d88.png">
+<img alt="" src="../../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241023200752.png"></p>
 <details class="tip">
 <summary>推导过程</summary>
 <div class="arithmatex">\[
@@ -4177,7 +4205,7 @@ T_o^{-1} &amp;= L Q_o = \begin{bmatrix} \alpha_1 &amp; \alpha_2 &amp; \cdots &am
 </form>
 <h2 id="__comments">评论</h2>
 <!-- Insert generated snippet here -->
-<script async="" crossorigin="anonymous" data-category="General" data-category-id="DIC_kwDOLJH-684Ccv_n" data-emit-metadata="0" data-input-position="top" data-lang="zh-CN" data-loading="lazy" data-mapping="pathname" data-reactions-enabled="1" data-repo="Phil-Fan/Phil-Fan.github.io" data-repo-id="R_kgDOLJH-6w" data-strict="0" data-theme="dark" src="https://giscus.app/client.js">
+<script async="" crossorigin="anonymous" data-category="General" data-category-id="DIC_kwDOLJH-684Ccv_n" data-emit-metadata="0" data-input-position="top" data-lang="zh-CN" data-loading="lazy" data-mapping="pathname" data-reactions-enabled="1" data-repo="Phil-Fan/Phil-Fan.github.io" data-repo-id="R_kgDOLJH-6w" data-strict="0" data-theme="dark" src="../../../assets/external/giscus.app/client.js">
 </script>
 <!-- Synchronize giscus theme with palette -->
 <script>
@@ -4274,9 +4302,9 @@ T_o^{-1} &amp;= L Q_o = \begin{bmatrix} \alpha_1 &amp; \alpha_2 &amp; \cdots &am
 </div>
 <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tracking", "navigation.tabs", "navigation.path", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.instant", "search.highlight", "search.suggest", "toc.follow", "content.code.annotate", "content.code.copy", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
 <script src="../../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
-<script src="../../../style/js/toc.js"></script>
-<script src="../../../style/js/mathjax.js"></script>
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="../../../assets/javascripts/mathjax.js"></script>
+<script src="../../../assets/javascripts/toc.js"></script>
+<script src="../../../assets/javascripts/MathJax-3.2.2/es5/tex-mml-chtml.js"></script>
+<script src="../../../assets/external/polyfill.alicdn.com/polyfill.min.7596a0b8.js"></script>
 </body>
 </html>
