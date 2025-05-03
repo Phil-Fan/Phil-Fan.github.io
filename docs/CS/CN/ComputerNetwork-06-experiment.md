@@ -86,7 +86,7 @@ comments: true
 
 1. 打开订阅转换网页  
 2. 在远程配置（**不是后端地址**）输入`https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/config/ZJU.ini`，并点击下拉栏中的地址  
-    ![](https://file.cc98.org/v2-upload/2023-12-06/odb0wqux.webp)  
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250503215349.png)
 3. 如果用 [acl4ssr](https://acl4ssr-sub.github.io/) 的话，有个后端地址选项，并不是所有后端口可用，自己试试看  
 4. 剩下的用法就和正常订阅转换没啥区别了
 

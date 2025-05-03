@@ -165,30 +165,21 @@ extra:
             感谢指出，有任何问题可以直接评论~
 
 extra_css:
-  # - style/css/extra.css
-  # source: MinJoker.github.io/docs/stylesheets
-  - style/css/custom.css
-  - style/css/counter.css
-  - style/css/toc.css
-  - style/css/flink.css
-  # - https://unpkg.com/katex@0/dist/katex.min.css
+  - assets/css/custom.css
+  - assets/css/counter.css
+  - assets/css/toc.css
+  - assets/css/flink.css
   # source: https://tonycrane.cc/
   - https://cdn.tonycrane.cc/jbmono/jetbrainsmono.css
   - https://cdn.tonycrane.cc/lxgw/lxgwscreen.css
-  # - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css
 
 extra_javascript:
-  - style/js/toc.js
-  # - style/js/katex.js
-  - style/js/mathjax.js
-  # - https://unpkg.com/katex@0/dist/katex.min.js
-  # - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js
-   # 支持数学公式，ref : https://squidfunk.github.io/mkdocs-material/reference/mathjax
-  # - https://polyfill.io/v3/polyfill.min.js?features=es6 # 访问不到了
-  
+  - assets/javascripts/mathjax.js
+  - assets/javascripts/toc.js
+  - assets/javascripts/MathJax-3.2.2/es5/tex-mml-chtml.js
   - https://polyfill.alicdn.com/polyfill.min.js?features=es6
-  # - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
-  - style/js/tex-mml-chtml.js
+  
+  
 
 
 # navigation: 注意左右下划线的写法
@@ -649,18 +640,20 @@ plugins:
       enable_creation_date: true
       exclude:
         - index.md
-        - link.md
       strict: false
   
   # 支持jupyter notebook
+  - privacy
   - mkdocs-jupyter:
       execute: true
       kernel_name: python3
       theme: dark
       include_source: True
-      custom_mathjax_url: "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS_CHTML-full,Safe"
+      custom_mathjax_url: "/assets/javascripts/MathJax-3.2.2/es5/tex-mml-chtml.js"
+      # custom_mathjax_url: "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS_CHTML-full,Safe"
+      # [Local MathJax with mkdocs-jupyter · squidfunk/mkdocs-material · Discussion #7134](https://github.com/squidfunk/mkdocs-material/discussions/7134)
   # todo: 修复数学公式问题
-
+  
   # 支持视频
   - mkdocs-video:
       is_video: True

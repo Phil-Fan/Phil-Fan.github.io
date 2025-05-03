@@ -173,11 +173,18 @@ $$
 
 - 满足线性关系
 - 相关矩阵、协方差矩阵
+
+
+
+$$
+\mathbf{R}=\begin{bmatrix}r_{11}&r_{21}^*&r_{31}^*&r_{41}^*\\r_{21}&r_{22}&r_{32}^*&r_{31}^*\\r_{31}&r_{32}&r_{22}&r_{21}^*\\r_{41}&r_{31}&r_{21}&r_{11}\end{bmatrix}
+$$
+
+
+
 ### 置换矩阵 | permutation matrix
+
 每一行以及每一列只有一个元素为1，其他元素为0
-
-
-
 
 性质
 - 右乘是对列重新排列
@@ -192,23 +199,37 @@ $$
 ### 广义置换矩阵
 
 $$
-G = \begin{bmatrix} 0 & 0 & 0 & 0 & \alpha \\ 0 & 0& \beta  & 0 & 0 \\ 0 & \gamma & 0 & 0 & 0 \\ 0 & 0 & 0 & \lambda & 0 \\ \rho & 0 & 0 & 0 & 0 \end{bmatrix} = \begin{bmatrix} 0 & 0 & 0 & 0 & 1 \\ 0 & 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 & 0 \\ 0 & 0 & 0 & 1 & 0 \\ 1 & 0 & 0 & 0 & 0 \end{bmatrix} 
+\begin{align*}
+G = \begin{bmatrix} 0 & 0 & 0 & 0 & \alpha \\ 0 & 0& \beta  & 0 & 0 \\ 0 & \gamma & 0 & 0 & 0 \\ 0 & 0 & 0 & \lambda & 0 \\ \rho & 0 & 0 & 0 & 0 \end{bmatrix} &= \begin{bmatrix} 0 & 0 & 0 & 0 & 1 \\ 0 & 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 & 0 \\ 0 & 0 & 0 & 1 & 0 \\ 1 & 0 & 0 & 0 & 0 \end{bmatrix} 
 \begin{bmatrix} 
 \rho & & & & 0\\
  &\gamma & & & \\
  & &\beta & & \\
 & & & \lambda& \\
 0& & & & \alpha\\
-\end{bmatrix}
+\end{bmatrix}\\
+&= P\cdot\Lambda
+\end{align*}
 $$
 
 一个正方矩阵称为广义置换矩阵，简称 g 矩阵，若其每行和每列有一个并且仅有一个非零元素
 
 G 可写为一个置换矩阵和一个非奇异对角阵的乘积,$G = P\Lambda$
 
-可用于观测数据模型和对信号进行恢复,可用于描述：
-- 累加导致信号顺序不确定
-- 信号幅度不确定
+观测数据模型
+
+$$
+\mathbf{x}(t)=\mathbf{As}(t)=\sum_{i=1}^{\infty}\mathbf{a}_is_i(t)
+$$
+
+对信号进行恢复$\mathbf{s}( t) = \mathbf{A}^\dagger \mathbf{x}( t)$ $\mathbf{A}^\dagger = ( \mathbf{A}^\mathrm{T} \mathbf{A}) ^{- 1}\mathbf{A}^\mathrm{T}$广义逆矩阵
+
+两种不确定性：
+
+1) 累加导致信号顺序不确定
+2) 信号幅度不确定 $x( t) = \sum _{i= 1}^n\frac {\mathbf{a}_i}{\alpha _i}\alpha _is_i( t)$
+
+这两种不确定性可以通过广义置换矩阵进行描述
 
 ### 酉矩阵 | Unitary matrix
 
@@ -236,7 +257,17 @@ G 可写为一个置换矩阵和一个非奇异对角阵的乘积,$G = P\Lambda$
 
 ### 三角矩阵
 
+1. **下三角矩阵**：若 $a_{ij} = 0$ $(i < j)$。
 
+2. **严格下三角矩阵**：若 $a_{ij} = 0$ $(i \leqslant j)$。
+
+3. **单位下三角矩阵**：若 $a_{ij} = 0$ $(i < j)$ 且 $a_{ii} = 1$ $(\forall i)$。
+
+4. **上三角矩阵**：若 $a_{ij} = 0$ $(i > j)$。
+
+5. **严格上三角矩阵**：若 $a_{ij} = 0$ $(i \geqslant j)$。
+
+6. **单位上三角矩阵**：若 $a_{ij} = 0$ $(i > j)$ 且 $a_{ii} = 1$ $(\forall i)$。
 
 ### 反对称矩阵 | Skew-Symmetric Matrix
 
@@ -307,7 +338,7 @@ $$
 
 
 
-
+### Fourier 矩阵
 DFT:有限长离散序列，时域离散，频域离散
 
 === "DFT正变换"
@@ -331,11 +362,12 @@ DFT:有限长离散序列，时域离散，频域离散
 **傅里叶矩阵是一个酉矩阵**
 
 
-### Hadamard 矩阵
+### Hadamard 矩阵 - 1-1矩阵
 
 $H_n \in \mathbb{R}^{n \times n}$ 所有元素取+1或者-1，且满足 $H_n H_n^T = H_n^T H_n = nI_n$。
 
-性质
+**性质**
+
 - 只有当 $n = 2^k$ 或者 $n$ 是4的整数倍时，Hadamard矩阵才存在。
 - 容易验证 $\frac{1}{\sqrt{n}} H_n$ 为标准正交矩阵。
 - $n \times n$ Hadamard矩阵 $H_n$ 的行列式 $\det(H_n) = n^{n/2}$。
@@ -354,7 +386,7 @@ $$
 \tilde{H}_2 = \frac{1}{\sqrt{2}} \begin{bmatrix} 1 & 1 \\ 1 & -1 \end{bmatrix}
 $$
 
-### Toeplitz 矩阵
+### Toeplitz 矩阵 - 主对角线元素相同
 
 任何一条对角线的元素取相同值：
 
@@ -384,7 +416,7 @@ $$
     H = \begin{bmatrix} h_0 & 0 & 0 & \cdots & 0 \\ h_1 & h_0 & 0 & \cdots & 0 \\ h_2 & h_1 & h_0 & \cdots & 0 \\ \vdots & \vdots & \vdots & \ddots & \vdots \\ h_{K-1} & h_{K-2} & h_{K-3} & \cdots & h_0 \end{bmatrix} 
     $$
 
-### Hankel矩阵
+### Hankel矩阵 - 斜对角线元素相同
 
 
 正方矩阵 $A \in \mathbb{C}^{(n+1) \times (n+1)}$ 称为 Hankel 矩阵，若：

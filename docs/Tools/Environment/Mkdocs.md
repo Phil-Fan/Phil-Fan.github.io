@@ -1,5 +1,7 @@
 # Mkdocs
 [material文档](https://squidfunk.github.io/mkdocs-material/)
+
+[Mkdocs Material使用记录 - shafish.cn](https://shafish.cn/blog/mkdocs/#%E5%9B%9B%E9%83%A8%E7%BD%B2)
 ## Markdown
 
 
@@ -124,6 +126,63 @@ plugins:
 | 默认开始时间(默认0)             | `t`           | 直接填写数值, 单位秒 |
 | 是否显示高清(默认否)            | `highQuality` | 1: 开启, 0: 关闭 (貌似是无用的, 各位可以试试) |
 
+
+## Mathjax 
+
+
+[mkdocs-material/docs/plugins/privacy.md 在 master ·squidfunk/mkdocs-材料](https://github.com/squidfunk/mkdocs-material/blob/master/docs/plugins/privacy.md)
+
+jupyter 遇到了单行公式无法显示的问题
+[Local MathJax with mkdocs-jupyter · squidfunk/mkdocs-material · Discussion #7134](https://github.com/squidfunk/mkdocs-material/discussions/7134)
+
+
+Steps to reproduce
+
+Download MathJax:
+```
+wget https://github.com/mathjax/MathJax/archive/refs/tags/3.2.2.zip
+unzip 3.2.2.zip "MathJax-3.2.2/es5/*" -d docs/assets/javascripts/
+```
+Create mathjax.js:
+```
+window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+    //   displayMath: [ ['$$', '$$'], ['\[', '\]'] ],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+    //   ignoreHtmlClass: ".*|",
+    //   processHtmlClass: "arithmatex"
+    }
+  };
+  document$.subscribe(() => { 
+    MathJax.startup.output.clearCache()
+    MathJax.typesetClear()
+    MathJax.texReset()
+    MathJax.typesetPromise()
+  })
+```
+
+Adapt nbconvert:, removing implicit load of Mathjax (see here)
+
+```shell title="remove mathjax"
+sed -i 's#https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS_CHTML-full,Safe##g' venv/lib/python3.12/site-packages/nbconvert/exporters/html.py
+```
+
+这一步如果在虚拟环境下面，自己找到对应的路径进行修改
+
+Adjust mkdocs.yml:
+```yml title="mkdocs.yml" 
+plugins:
+    - privacy
+    - mkdocs-jupyter
+
+extra_javascript:
+  - assets/javascripts/mathjax.js
+  - assets/javascripts/MathJax-3.2.2/es5/tex-mml-chtml.js
+```
 
 ## 配置
 

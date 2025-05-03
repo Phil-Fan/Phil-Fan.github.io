@@ -85,8 +85,7 @@ $$
 
 
 
-目标是最小化**残差向量** $\mathbf{r} = A \mathbf{x} - \ma
-thbf{b}$的**欧几里得范数**，即
+目标是最小化**残差向量** $\mathbf{r} = A \mathbf{x} - \mathbf{b}$的**欧几里得范数**，即
 
 $$
 \min_{\mathbf{x}} \| A \mathbf{x} - \mathbf{b} \|_2^2
@@ -115,19 +114,21 @@ $$
 
 
 
-也就是离原点最近的解
+最小范数解是离原点最近的解
 
-
-
-**Minimize** $\| x \|$
-
-**Subject to**: $A x = b$
+$$
+\begin{align*}
+&\text{Minimize:} \quad \| x \| \\
+&\text{Subject to:} \quad A x = b
+\end{align*}
+$$
 
 直接给出结论，此时问题的最小范数解是：
+
 $$
 x^* = A^T (A A^T)^{-1} b
 $$
-（注意与上面最小二乘式的区别），下面给出证明。
+
 
 **证明**：令上述问题的解为 $x^* = A^T (A A^T)^{-1} b$，注意
 
@@ -140,6 +141,7 @@ $$
 $$
 
 由于
+
 $$
 \begin{align}
 x^{*T} (x - x^*) &= [A^T (A A^T)^{-1} b]^T [x - A^T (A A^T)^{-1} b]\\
@@ -150,6 +152,7 @@ x^{*T} (x - x^*) &= [A^T (A A^T)^{-1} b]^T [x - A^T (A A^T)^{-1} b]\\
 $$
 
 故有
+
 $$
 \| x \|^2 = \| x - x^* \|^2 + \| x^* \|^2
 $$

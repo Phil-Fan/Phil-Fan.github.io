@@ -100,12 +100,7 @@ B站上一个讲的很好的教程
 
 ### 选择题
 
-下列TTL电路中能表示$Y = \overline{A+B}$的是
 
-![](https://file.cc98.org/v2-upload/2023-06-23/aonwrg10.jpg)
-![](https://file.cc98.org/v2-upload/2023-06-23/l5y5jwdq.jpg)
-![](https://file.cc98.org/v2-upload/2023-06-23/opslx2kc.jpg)
-![](https://file.cc98.org/v2-upload/2023-06-23/crtffyur.jpg)
 
 **51**
 

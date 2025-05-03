@@ -54,12 +54,37 @@ $A^\text{H} = (A^*)^\text{T} = (A^\text{T})^*$
 
 #### 矩阵求逆引理
 
+
+background： 在许多实际问题中，经常会遇到这样的问题：已知一个矩阵$A$的逆矩阵$A^{-1}$ ,当矩阵$A$产生了一个非常小的变化得到$A+\Delta$时，通过已知的$A^{-1}$，如何简单的求出$(A+\Delta)^{-1}$?
+
 $$
 (A + xy^H)^{-1} = A^{-1} - \frac{A^{-1}xy^HA^{-1}}{1 + y^HA^{-1}x}
 $$
 
 
 已经完成了矩阵的求逆，在A的基础上加上一个秩为1矩阵，求解逆矩阵的变化
+
+
+!!! warning "证明 todox"
+    $$
+    \begin{aligned}
+    A^{-1} + X              & = (A + BCD)^{-1} \\
+    (A + BCD)(A^{-1} + X)   & = I(I\text{为单位阵}) \\
+    I + AX + BCDA^{-1} + BCDX & = I \\
+    AX + BCDA^{-1} + BCDX   & = 0\text{(0为 0矩阵)} \\
+    (A + BCD)X + BCDA^{-1}  & = 0 \\
+    X                      & = -(A + BCD)^{-1}BCDA^{-1} \\
+    X                      & = -[B(B^{-1}A + CD)]^{-1}BCDA^{-1} \\
+    X                      & = -(B^{-1}A + CD)^{-1}CDA^{-1} \\
+    X                      & = -[C(C^{-1}B^{-1}A + D)]^{-1}CDA^{-1} \\
+    X                      & = -(C^{-1}B^{-1}A + D)^{-1}DA^{-1} \\
+    X                      & = -[(C^{-1}B^{-1} + DA^{-1})A]^{-1}DA^{-1} \\
+    X                      & = -A^{-1}(C^{-1}B^{-1} + DA^{-1})^{-1}DA^{-1} \\
+    X                      & = -A^{-1}[(C^{-1} + DA^{-1}B)B^{-1}]^{-1}DA^{-1} \\
+    X                      & = -A^{-1}B(C^{-1} + DA^{-1}B)^{-1}DA^{-1}
+    \end{aligned}
+    $$
+
 
 ??? note "应用：自相关矩阵求逆$\hat{R}^{-1}(n)$"
 
@@ -97,6 +122,16 @@ $$
 
 对于方程 $\mathbf{Ax} = \mathbf{b}$,其中$\mathbf{A}_{m\times n}$， $m$代表方程的个数，$n$代表未知数的个数
 
+**computational demanding**
+
+令 $A$ 是任意 $m \times n$ 矩阵，称矩阵 $A^\dagger$ 是 $A$ 的广义逆矩阵，若 $A^\dagger$ 满足以下四个条件（常称 Moore-Penrose 条件）：
+
+1. $AA^\dagger A = A;$
+2. $A^\dagger AA^\dagger = A^\dagger;$
+3. $AA^\dagger$ 为 Hermitian 矩阵，即 $AA^\dagger = (AA^\dagger)^\mathrm{H};$
+4. $A^\dagger A$ 为 Hermitian 矩阵，即 $A^\dagger A = (A^\dagger A)^\mathrm{H}.$
+
+
 === "左逆"
 
     仅当 $m \geq n$ 时("Tall matrix")，说明这个时候方程的数目大于未知数的个数，方程是过定(overdetermined)的。矩阵 $A$ 可能有**左逆矩阵** 
@@ -125,7 +160,7 @@ $$
     
     欠定方程最小范数解
 
-**computational demanding**
+
 
 
 
@@ -233,9 +268,13 @@ $$
 
 满足以下方程的$\lambda$称为特征值
 
+第一定义
+
 $$
 \mathbf{A} \mathbf{v} = \lambda \mathbf{v}
 $$
+
+第二定义
 
 $$
 det(\mathbf{A} - \lambda \mathbf{I}) = 0
@@ -355,11 +394,11 @@ $$
 
 
 $$
-\begin{aligned}&\boldsymbol{A}(\boldsymbol{BC})=(\boldsymbol{AB})\boldsymbol{C}\\&(\boldsymbol{A}+\boldsymbol{B})\boldsymbol{C}=\boldsymbol{AC}+\boldsymbol{BC}\\&A(B+C)=AB+AC\\&\alpha(\boldsymbol{A}+\boldsymbol{B})=\alpha\boldsymbol{A}+\alpha\boldsymbol{B}\end{aligned}
+\begin{aligned}&\mathbf{A}(\mathbf{BC})=(\mathbf{AB})\mathbf{C}\\&(\mathbf{A}+\mathbf{B})\mathbf{C}=\mathbf{AC}+\mathbf{BC}\\&A(B+C)=AB+AC\\&\alpha(\mathbf{A}+\mathbf{B})=\alpha\mathbf{A}+\alpha\mathbf{B}\end{aligned}
 $$
 
 
-### 直和
+### 直和 - 对角块拼接
 
 $m \times m$ 矩阵 $A$ 与 $n \times n$ 矩阵 $B$ 的直和（direct sum）记作 $A \oplus B$，它是一个 $(m + n) \times (m + n)$ 矩阵，定义为：
 
@@ -375,14 +414,13 @@ $$
 
 **block diagonal matrix**
 
-### Hadamard product
-逐元素相乘
+### Hadamard product - 逐元素相乘
 
 $$
 (A_{m\times n} B_{m\times n})_{ij} = a_{ij} b_{ij}
 $$
 
-### Kronecker product
+### Kronecker product - 元素乘矩阵
 
 每个元素都乘一个矩阵
 
@@ -504,5 +542,5 @@ $$
 
 
 $$
-\int\boldsymbol{A}\mathrm{d}t=\begin{bmatrix}\int a_{11}\mathrm{d}t&\int a_{12}\mathrm{d}t&\cdots&\int a_{1n}\mathrm{d}t\\\int a_{21}\mathrm{d}t&\int a_{22}\mathrm{d}t&\cdots&\int a_{2n}\mathrm{d}t\\\vdots&\vdots&\ddots&\vdots\\\int a_{m1}\mathrm{d}t&\int a_{m2}\mathrm{d}t&\cdots&\int a_{mn}\mathrm{d}t\end{bmatrix}
+\int\mathbf{A}\mathrm{d}t=\begin{bmatrix}\int a_{11}\mathrm{d}t&\int a_{12}\mathrm{d}t&\cdots&\int a_{1n}\mathrm{d}t\\\int a_{21}\mathrm{d}t&\int a_{22}\mathrm{d}t&\cdots&\int a_{2n}\mathrm{d}t\\\vdots&\vdots&\ddots&\vdots\\\int a_{m1}\mathrm{d}t&\int a_{m2}\mathrm{d}t&\cdots&\int a_{mn}\mathrm{d}t\end{bmatrix}
 $$

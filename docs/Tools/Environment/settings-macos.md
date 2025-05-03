@@ -212,7 +212,7 @@ pluginkit -e "use" -i "com.bandisoft.mac.bandizip.findersyncextension"
 
 ### icloud 软件 + icloud书签实现edge和safari的同步
 
-rt，在windows上下载[icloud](icloud.en.uptodown.com/windows/download)软件，安装后登录icloud账号，再在edge上下载[icloud书签](https://microsoftedge.microsoft.com/addons/detail/icloud-%E4%B9%A6%E7%AD%BE/lbfbbhdljlmhnpbcdcajkdanonpgbhlh)插件，安装后登录icloud账号，即可实现edge和safari的同步
+rt，在windows上下载[icloud](https://icloud.en.uptodown.com/windows/download)软件，安装后登录icloud账号，再在edge上下载[icloud书签](https://microsoftedge.microsoft.com/addons/detail/icloud-%E4%B9%A6%E7%AD%BE/lbfbbhdljlmhnpbcdcajkdanonpgbhlh)插件，安装后登录icloud账号，即可实现edge和safari的同步
 
 ### Aifred：better 聚焦
 
