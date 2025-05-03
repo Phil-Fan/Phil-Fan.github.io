@@ -184,8 +184,11 @@ extra_javascript:
   # - https://unpkg.com/katex@0/dist/katex.min.js
   # - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js
    # 支持数学公式，ref : https://squidfunk.github.io/mkdocs-material/reference/mathjax
-  - https://polyfill.io/v3/polyfill.min.js?features=es6
-  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  # - https://polyfill.io/v3/polyfill.min.js?features=es6 # 访问不到了
+  
+  - https://polyfill.alicdn.com/polyfill.min.js?features=es6
+  # - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  - style/js/tex-mml-chtml.js
 
 
 # navigation: 注意左右下划线的写法
@@ -604,6 +607,9 @@ nav:
     - Interest/CommonKnowledge/accident.md
     - Interest/CommonKnowledge/house.md
     - Interest/CommonKnowledge/rent.md
+  
+  - Blog:
+    - blog/index.md
 
     
 
@@ -662,4 +668,6 @@ plugins:
       video_controls: True
       css_style:
         width: "50%"
+
+  - blog
   
