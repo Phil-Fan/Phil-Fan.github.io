@@ -15,7 +15,11 @@
         <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=91245806&bvid=BV1a7411M7wH&cid=155763110&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" height=auto width=100%></iframe>
 
 
-    
+学矩阵论的目的：
+
+- 用矩阵的语言去建模遇到的数学问题
+- 教学的宗旨应该是教会学生老师是如何思考的 —— 程磊
+- 
 
 ## 大纲
 

@@ -124,6 +124,34 @@ comments: true
 
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=114186487078644&bvid=BV1giQ9YzEna&cid=28941878702&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=600px height=450px></iframe>
 
+
+### 红烧鲳鱼
+
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=594243666&bvid=BV1Xq4y1t73T&cid=513174128&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=600px height=450px></iframe>
+
+打花刀
+放食盐
+放葱姜料酒 腌制10min
+花椒、八角、葱姜蒜、干辣椒
+料酒、生抽、陈醋、白糖、老抽、蚝油适量、清水适量
+
+撒一些面粉，煎鱼的时候不会焦
+
+煎鱼
+
+煎好以后放入小料
+
+下入料汁，大火焖10s
+加入一些清水
+
+汤汁煮开之后，浇汤汁在鱼身上
+
+焖煮8-9min
+
+鱼捞出，剩余的汤汁勾入水淀粉，熬至粘稠
+撒入葱花点缀
+
+
 ## 炒菜 - 荤
 
 
@@ -166,6 +194,16 @@ comments: true
 2. 捞出过凉，去除头尾，切斜片，
 3. 鸡蛋打散，加一勺水，少量盐，锅内油热入锅快炒，蛋液凝结盛出装盘备用:
 4. 倒油烧热，倒入切好的秋葵，炒一分钟加入盛出的鸡蛋一起炒几下，加入适童盐、半勺香油。搞定装盘
+
+### 银鱼炒蛋
+
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=887569404&bvid=BV1YK4y1K778&cid=322635077&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=600px height=450px></iframe>
+
+银鱼清洗
+
+1. 银鱼加入盐、葱花、生粉、蛋清搅拌
+2. 锅中下小姜片、先炒银鱼，呈出
+3. 再倒油，放鸡蛋，放银鱼
 
 
 ### 双椒炒肉
@@ -211,9 +249,29 @@ comments: true
 
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=1156673175&bvid=BV1KZ421L7Pn&cid=1658966877&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=600px height=450px></iframe>
 
+### 咖喱鸡
 
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=57178543&bvid=BV1tx41197VK&cid=99846843&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=600px height=450px></iframe>
+
+- 放油，先炒洋葱，
+- 剩下的油炒鸡肉
+- 炒好后放一点水、洋葱、土豆萝卜丁
+- 放咖喱，加水；加盐
+- 炖煮30min
+- 加椰浆or牛奶or黄油；
+- 加辣椒油
 
 ## 炒菜 - 素
+### 麻婆豆腐
+
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=1955750628&bvid=BV17y411z7uD&cid=1595445405&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=600px height=450px></iframe>
+
+豆腐切小块、葱切马蹄；豆豉切碎、
+凉油放底料；放辣椒面；放清水；放白糖；放盐；
+放豆腐；
+铲背轻推，加一些淀粉水
+盖一点葱花
+
 ### 清炒西兰花
 - 食材：西兰花
 - 调料：蒜、盐、食用油
@@ -348,6 +406,14 @@ comments: true
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250310134304315.png)
 
 
+## 炸
+### 炸薯条
+
+
+### 炸虾仁
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=205052103&bvid=BV1sh411U7ms&cid=322438525&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=600px height=450px></iframe>
+1个鸡蛋 3勺淀粉；2g五香粉；2g孜然粉；3g食盐；
+油温六成，炸至变色捞出；复炸30s
 ## 炖
 ### 砂锅乱炖
 1. 煎鸡蛋。

@@ -113,8 +113,8 @@ markdown_extensions:
   # 扩展Markdown语法
   - pymdownx.caret  # 支持插入符号（^）表示上标
   - pymdownx.emoji:
-      emoji_index: !!python/name:material.extensions.emoji.twemoji  # 使用Twemoji索引
-      emoji_generator: !!python/name:material.extensions.emoji.to_svg  # 使用SVG生成Emoji
+      emoji_index: !!python/name:pymdownx.emoji.twemoji
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
   - pymdownx.magiclink:
       repo_url_shorthand: true  # 使用简写形式的仓库链接
       repo_url_shortener: true  # 缩短仓库链接

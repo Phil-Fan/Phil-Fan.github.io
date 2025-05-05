@@ -5,7 +5,12 @@
 - L: lower triangular matrix
 - D: diagonal matrix
 - U: upper triangular matrix
-- 
+
+
+```matlab
+A = [1 2 3; 4 5 6; 7 8 9];
+[L, D, U] = ldu(A);
+```
 
 
 
@@ -111,4 +116,14 @@ $$
 奇异值分解
 
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=652439242&bvid=BV1YY4y1U7UX&cid=1024031413&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"></iframe>
+
+## 张量CP分解
+
+张量分解是矩阵分解的推广，矩阵是2阶张量，向量是1阶张量，标量是0阶张量
+
+
+
+
+
+
 

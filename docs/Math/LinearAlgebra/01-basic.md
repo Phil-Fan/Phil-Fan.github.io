@@ -187,8 +187,8 @@ $$
 每一行以及每一列只有一个元素为1，其他元素为0
 
 性质
-- 右乘是对列重新排列
-- 左乘是对行进行重新排列
+- **右乘是对列重新排列**
+- **左乘是对行进行重新排列**
 
 
 1. $(P_{m \times n})^T = P_{n \times m}$
@@ -216,26 +216,81 @@ $$
 
 G 可写为一个置换矩阵和一个非奇异对角阵的乘积,$G = P\Lambda$
 
-观测数据模型
 
-$$
-\mathbf{x}(t)=\mathbf{As}(t)=\sum_{i=1}^{\infty}\mathbf{a}_is_i(t)
-$$
+!!! note "作用：观测数据模型"
 
-对信号进行恢复$\mathbf{s}( t) = \mathbf{A}^\dagger \mathbf{x}( t)$ $\mathbf{A}^\dagger = ( \mathbf{A}^\mathrm{T} \mathbf{A}) ^{- 1}\mathbf{A}^\mathrm{T}$广义逆矩阵
+    $$
+    \mathbf{x}(t)=\mathbf{As}(t)=\sum_{i=1}^{\infty}\mathbf{a}_is_i(t)
+    $$
 
-两种不确定性：
 
-1) 累加导致信号顺序不确定
-2) 信号幅度不确定 $x( t) = \sum _{i= 1}^n\frac {\mathbf{a}_i}{\alpha _i}\alpha _is_i( t)$
+    > 例子：手机的麦克风阵列，来判定说话的有几个人、什么方向、说的什么内容;
+    > 阵面接受，阵面接收的信号是多个信号的叠加，这些信号的幅度、相位、频率、方向等参数都不确定，
+    > 用$\alpha$建模方向，用$s(t)$建模source发出的信号波形
 
-这两种不确定性可以通过广义置换矩阵进行描述
+    则已知阵列接收的信号$x(t)$，需要恢复出$s(t)$，就是一个求广义逆矩阵的问题
+    
+    $\hat{\mathbf{s}}( t) = \mathbf{A}^\dagger \mathbf{x}( t)$，$\mathbf{A}^\dagger = ( \mathbf{A}^\mathrm{T} \mathbf{A}) ^{- 1}\mathbf{A}^\mathrm{T}$广义逆矩阵
+
+    得到的$\hat{\mathbf{s}}(t)$有两种不确定性：
+
+    1) permutation ambiguity 累加导致信号顺序不确定
+    2) scale ambiguity 信号幅度不确定 $x( t) = \sum _{i= 1}^n\frac {\mathbf{a}_i}{\alpha _i}\alpha _is_i( t)$
+
+    这两种不确定性可以通过广义置换矩阵进行描述
+
+    所以，真实信号$s(t)$可以写成：
+
+    $$
+    \mathbf{s}(t) = \hat{\mathbf{s}}(t) \mathbf{P} \Lambda
+    $$
+
+    如果再进一步，我们把$x(t)$拆分成1-T时刻，写成矩阵的形式
+
+
+    $$
+    X_{m \times T}  = A_{m \times n} S_{n\times T}
+    $$
+
+    
+    下一步的问题是，我们是否可以唯一的分解出$A$和$S$？
+
+    显然是不可以的中间乘一个可逆矩阵，就可以变换成其他的形式
+
+    $$
+    \begin{align*}
+    X_{m \times T}  &= A_{m \times n} S_{n\times T} \\
+    &= (A_{m \times n} I )(I^{-1}S_{n\times T})\\
+     &= C D
+    \end{align*}
+    $$
+
+    所以如果矩阵形式给定，才可以保证唯一性
+
+    张量的CP分解：有Vandermonde结构，有可识别性
+
+
+    
+
+
+
+
+
+
+
 
 ### 酉矩阵 | Unitary matrix
 
-- 方阵
+定义在复数域，方阵
+
 - $U U^{H} = U^{H} U = I$
+
+酉变换
+
 - 向量内积、向量范数、向量夹角在酉变换下不变
+    - 内积：$\langle Ux, Uy\rangle = (Ux)^H (Uy) = x^H U^H U y = x^H y = \langle x, y\rangle$
+    - 长度：$||Ux||^2 = \langle Ux, Ux\rangle = \langle x, x\rangle = ||x||^2$
+    - 夹角：$\cos\theta = \frac{\langle Ux, Uy\rangle}{||Ux|| ||Uy||} = \frac{\langle x, y\rangle}{||x|| ||y||} = \cos\theta$
 - 正交矩阵在实数域而酉矩阵在复数域
 
 
@@ -253,17 +308,25 @@ $$
     | 内积的正交不变性 $(Qx, Qy) = (x, y)$ | 内积的酉不变性 $(Ux, Uy) = (x, y)$ |
 
 
-### 正交矩阵
+### 正交矩阵 ｜ Orthogonal matrix
+
+
+定义在实数域，方阵
+
+- $Q^T = Q^{-1}$
+- $Q^T Q = Q Q^T = I$
+- $Q^T = Q^{-1}$
+
 
 ### 三角矩阵
 
-1. **下三角矩阵**：若 $a_{ij} = 0$ $(i < j)$。
+1. **下三角矩阵$L$**：若 $a_{ij} = 0$ $(i < j)$。
 
 2. **严格下三角矩阵**：若 $a_{ij} = 0$ $(i \leqslant j)$。
 
 3. **单位下三角矩阵**：若 $a_{ij} = 0$ $(i < j)$ 且 $a_{ii} = 1$ $(\forall i)$。
 
-4. **上三角矩阵**：若 $a_{ij} = 0$ $(i > j)$。
+4. **上三角矩阵$U$**：若 $a_{ij} = 0$ $(i > j)$。
 
 5. **严格上三角矩阵**：若 $a_{ij} = 0$ $(i \geqslant j)$。
 
@@ -309,20 +372,15 @@ $$
 - 在控制理论中，反对称矩阵用于描述系统的稳定性和对称性。
 
 
-### 相似矩阵
-
-若存在非奇异矩阵S, 使得$B = S^{-1}AS$，则称为$B$ 相似与$A$
-
-- 相似矩阵的特征值相同，特征向量存在线性变换关系
-- $det(B)=det(A)$
-- $tr(B)=tr(A)$
-
-### 合同矩阵
 
 
-### Vandermonde 矩阵
+
+### Vandermonde 矩阵 - 等比数列
 
 Vandermonde 矩阵的每行或每列的元素组成一个等比数列。
+
+是一个强结构性矩阵，只需要一行元素就可以决定整个矩阵
+
 
 $$
 A = \begin{bmatrix} 1 & 1 & \cdots & 1 \\ x_1 & x_2 & \cdots & x_n \\ x_1^2 & x_2^2 & \cdots & x_n^2 \\ \vdots & \vdots & \ddots & \vdots \\ x_1^{n-1} & x_2^{n-1} & \cdots & x_n^{n-1} \end{bmatrix} 
@@ -336,35 +394,104 @@ $$
 
 若第二行元素各不相同，则矩阵非奇异。
 
+```matlab title="Matlab: Vandermonde 矩阵"
+A = vander([1, 2, 3])
+```
+
+!!! note "应用"
+    DFT中就有Vandermonde矩阵
 
 
 ### Fourier 矩阵
+
 DFT:有限长离散序列，时域离散，频域离散
 
-=== "DFT正变换"
-    $X_k = \sum_{n=0}^{N-1} x_n e^{-j \frac{2\pi kn}{N}} = \sum_{n=0}^{N-1} x_n \omega^{nk}$，其中 $k = 0, 1, \ldots, N-1$
-    $\hat{x} = F x$
+#### DFT正变换
 
-    $F = \begin{bmatrix} 1 & 1 & \cdots & 1 \\ 1 & \omega & \cdots & \omega^{N-1} \\ \vdots & \vdots & \ddots & \vdots \\ 1 & \omega^{N-1} & \cdots & \omega^{(N-1)(N-1)} \end{bmatrix}$，其中 $\omega = e^{-j \frac{2\pi}{N}}$，称为Fourier矩阵
-    
-    - $F^H F = F F^H = N I$
-    - $F^{-1} = \frac{1}{N} F^H = \frac{1}{N} F^*$
+$X_k = \sum_{n=0}^{N-1} x_n e^{-j \frac{2\pi kn}{N}} = \sum_{n=0}^{N-1} x_n \omega^{nk}$，其中 $k = 0, 1, \ldots, N-1$
+$\hat{x} = F x$
 
-=== "DFT逆变换"
-    $x = F^{-1} \hat{x} = \frac{1}{N} F^* \hat{x}$
+$F = \begin{bmatrix} 1 & 1 & \cdots & 1 \\ 1 & \omega & \cdots & \omega^{N-1} \\ \vdots & \vdots & \ddots & \vdots \\ 1 & \omega^{N-1} & \cdots & \omega^{(N-1)(N-1)} \end{bmatrix}$，其中 $\omega = e^{-j \frac{2\pi}{N}}$，称为Fourier矩阵
 
-    $$
-    \begin{bmatrix} x_0 \\ x_1 \\ \vdots \\ x_{N-1} \end{bmatrix} = \frac{1}{N} \begin{bmatrix} 1 & 1 & \cdots & 1 \\ 1 & \omega^* & \cdots & (\omega^{N-1})^* \\ \vdots & \vdots & \ddots & \vdots \\ 1 & (\omega^{N-1})^* & \cdots & (\omega^{(N-1)(N-1)})^* \end{bmatrix} \begin{bmatrix} X_0 \\ X_1 \\ \vdots \\ X_{N-1} \end{bmatrix}
-    $$
-    
-    $x_n = \frac{1}{N} \sum_{k=0}^{N-1} X_k e^{j \frac{2\pi kn}{N}}$，其中 $n = 0, 1, \ldots, N-1$
+
+
+#### DFT逆变换
+
+$x = F^{-1} \hat{x} = \frac{1}{N} F^* \hat{x}$
+
+$$
+\begin{bmatrix} x_0 \\ x_1 \\ \vdots \\ x_{N-1} \end{bmatrix} = \frac{1}{N} \begin{bmatrix} 1 & 1 & \cdots & 1 \\ 1 & \omega^* & \cdots & (\omega^{N-1})^* \\ \vdots & \vdots & \ddots & \vdots \\ 1 & (\omega^{N-1})^* & \cdots & (\omega^{(N-1)(N-1)})^* \end{bmatrix} \begin{bmatrix} X_0 \\ X_1 \\ \vdots \\ X_{N-1} \end{bmatrix}
+$$
+
+$x_n = \frac{1}{N} \sum_{k=0}^{N-1} X_k e^{j \frac{2\pi kn}{N}}$，其中 $n = 0, 1, \ldots, N-1$
 
 **傅里叶矩阵是一个酉矩阵**
+
+
+- $F^H F = F F^H = N I$
+- $F^{-1} = \frac{1}{N} F^H = \frac{1}{N} F^*$
+
+!!! note "证明：傅里叶矩阵是一个酉矩阵"
+
+    写出傅里叶矩阵，和其共轭转置
+
+    $$
+    \begin{align*}
+    F &= \begin{bmatrix} 1 & 1 & \dots & 1 \\ 1 & \omega & \dots & \omega^{N-1} \\ \vdots & \vdots & \ddots & \vdots \\ 1 & \omega^{N-1} & \dots & \omega^{(N-1)^2} \end{bmatrix}_{N \times N}\quad where \quad \omega = e^{-j \frac{2\pi}{N}}\\
+    &=  \begin{bmatrix} f_1 & f_2 & \dots & f_N \end{bmatrix}
+    \end{align*}
+    $$
+
+    进行向量化，使用一些notation化简表达式
+
+    $$
+    \begin{align*}
+    F^{H} F &= \begin{bmatrix} f_1^{H} \\ f_2^{H} \\ \vdots \\ f_N^{H} \end{bmatrix} \begin{bmatrix} f_1 & f_2 & \dots & f_N \end{bmatrix}\\
+    &= \begin{bmatrix} f_1^{H} f_1 & f_1^{H} f_2 & \dots & f_1^{H} f_N \\ f_2^{H} f_1 & f_2^{H} f_2 & \dots & f_2^{H} f_N \\ \vdots & \vdots & \ddots & \vdots \\ f_N^{H} f_1 & f_N^{H} f_2 & \dots & f_N^{H} f_N \end{bmatrix}_{N \times N}
+    \end{align*}
+    $$
+
+
+    此时我们只需要研究$f_n^H \cdot f_m$,即可得出$F^{H} F = NI$
+
+    $$
+    \begin{aligned}
+    f_n^H \cdot f_m &= \begin{bmatrix}1\\w^{n-1}\\\vdots\\w^{(n-1)(N-1)}\end{bmatrix}^{H}\begin{bmatrix}1\\w^{m-1}\\\vdots\\w^{(m-1)(N-1)}\end{bmatrix}\\
+    &= \begin{bmatrix}1&w^{-(n-1)}&\cdots&w^{-(n-1)(N-1)}\end{bmatrix}\begin{bmatrix}1\\w^{m-1}\\\vdots\\w^{(m-1)(N-1)}\end{bmatrix}\\ 
+    &= \sum_{k=0}^{N-1}w^{-(n-1)k}w^{(m-1)k}\\
+    &= \sum_{k=0}^{N-1}w^{(m-n)k} = \begin{cases} N, & m = n \\ 0, & m \neq n \end{cases}
+    \end{aligned}
+    $$
+
+
+
+    - $n = m$时，$f_n^H \cdot f_m = N$, 相当于对1求和
+    - $n \neq m$时，$f_n^H \cdot f_m = 0$
+      
+    $$
+    \begin{aligned}
+    f_n^H \cdot f_m &= \sum_{k=0}^{N-1}w^{(m-n)k} \\
+    &= \sum_{k=0}^{N-1} \omega_0^{k}\quad (\omega_0 = e^{j \frac{2\pi}{N}})\\
+    &= \frac{1-\omega_0^{N}}{1-\omega_0} = 0(\because \omega_0^N = 1)
+    \end{aligned}
+    $$
+
+
+
+
+
+
+
 
 
 ### Hadamard 矩阵 - 1-1矩阵
 
 $H_n \in \mathbb{R}^{n \times n}$ 所有元素取+1或者-1，且满足 $H_n H_n^T = H_n^T H_n = nI_n$。
+
+
+> 可以由小的2x2的矩阵扩充得到大的矩阵
+
+作用：在模拟域，Hadamard矩阵可以用于构造正交的基函数，用于信号处理、图像处理、通信等领域。
 
 **性质**
 
@@ -388,6 +515,8 @@ $$
 
 ### Toeplitz 矩阵 - 主对角线元素相同
 
+也是一个强结构性的矩阵，只需要一列&一行就可以唯一确定整个矩阵
+
 任何一条对角线的元素取相同值：
 
 $$
@@ -402,18 +531,20 @@ $$
 A = \begin{bmatrix} a_0 & a_1^* & a_2^* & \cdots & a_n^* \\ a_1 & a_0 & a_1^* & \cdots & a_{n-1}^* \\ a_2 & a_1 & a_0 & \cdots & a_{n-2}^* \\ \vdots & \vdots & \vdots & \ddots & \vdots \\ a_n & a_{n-1} & a_{n-2} & \cdots & a_0 \end{bmatrix} 
 $$
 
-??? note "卷积操作是Toplitz矩阵"
+!!! note "卷积操作是Toplitz矩阵"
     卷积操作 $y = x \ast h$ 可以表示为：
 
     $$
     y[n] = \sum_{k=0}^{K-1} h[k] \cdot x[n-k] 
     $$
 
+    把sum的表达式写成矩阵的形式，就是Toplitz矩阵
+
 
     $y = H \cdot x$
     
     $$ 
-    H = \begin{bmatrix} h_0 & 0 & 0 & \cdots & 0 \\ h_1 & h_0 & 0 & \cdots & 0 \\ h_2 & h_1 & h_0 & \cdots & 0 \\ \vdots & \vdots & \vdots & \ddots & \vdots \\ h_{K-1} & h_{K-2} & h_{K-3} & \cdots & h_0 \end{bmatrix} 
+    H = \begin{bmatrix} h_0 & 0 & 0 & \cdots & 0 \\ h_1 & h_0 & 0 & \cdots & 0 \\ h_2 & h_1 & h_0 & \cdots & 0 \\ \vdots & \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & h_2 & h_1& h_0 \end{bmatrix} 
     $$
 
 ### Hankel矩阵 - 斜对角线元素相同

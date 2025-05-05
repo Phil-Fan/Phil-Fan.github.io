@@ -139,12 +139,12 @@ jupyter 遇到了单行公式无法显示的问题
 Steps to reproduce
 
 Download MathJax:
-```
+```shell
 wget https://github.com/mathjax/MathJax/archive/refs/tags/3.2.2.zip
 unzip 3.2.2.zip "MathJax-3.2.2/es5/*" -d docs/assets/javascripts/
 ```
 Create mathjax.js:
-```
+```js title="mathjax.js"
 window.MathJax = {
     tex: {
       inlineMath: [['$', '$'], ['\\(', '\\)']],
@@ -172,6 +172,10 @@ sed -i 's#https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=
 ```
 
 这一步如果在虚拟环境下面，自己找到对应的路径进行修改
+```yml title="static.yml"
+- name: Modify nbconvert HTML exporter
+        run: sed -i 's#https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS_CHTML-full,Safe##g' $(python -c "import nbconvert; print(nbconvert.__file__.replace('__init__.py', 'exporters/html.py'))")
+```
 
 Adjust mkdocs.yml:
 ```yml title="mkdocs.yml" 

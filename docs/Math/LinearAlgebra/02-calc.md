@@ -61,8 +61,13 @@ $$
 (A + xy^H)^{-1} = A^{-1} - \frac{A^{-1}xy^HA^{-1}}{1 + y^HA^{-1}x}
 $$
 
+作用：已经完成了矩阵的求逆，在A的基础上加上一个秩为1矩阵，求解逆矩阵的变化
 
-已经完成了矩阵的求逆，在A的基础上加上一个秩为1矩阵，求解逆矩阵的变化
+应用：
+
+- 自相关矩阵和协方差矩阵估计的更新
+- 最小二乘法
+
 
 
 !!! warning "证明 todox"
@@ -86,14 +91,17 @@ $$
     $$
 
 
-??? note "应用：自相关矩阵求逆$\hat{R}^{-1}(n)$"
+!!! note "应用：自相关矩阵求逆$\hat{R}^{-1}(n)$"
 
-    $\lambda$用来表征遗忘因子;$\lambda$越小，越倾向于线性现在的数据
+    $\lambda$用来表征遗忘因子;$\lambda$越小，越倾向于相信现在的数据
     
     $$
     (\lambda R + xx^H)^{-1} = \lambda^{-1}R^{-1} - \frac{(\lambda^{-1}R^{-1}x)(\lambda^{-1}R^{-1}x)^H}{1 + \lambda^{-1}x^HR^{-1}x}
     $$
 
+    如果每次全量计算，时间复杂度很高，computational demanding
+
+    改写成递推形式
 
     $$
     \begin{align*}
@@ -115,21 +123,15 @@ $$
 
 
 
-#### Moore-Penrose Inverse | 伪逆矩阵
-
-!!! note "构造方法：想要构造成已经学过的方阵的求逆问题"
-	都是构造一个方阵
+#### 左右逆矩阵
 
 对于方程 $\mathbf{Ax} = \mathbf{b}$,其中$\mathbf{A}_{m\times n}$， $m$代表方程的个数，$n$代表未知数的个数
 
-**computational demanding**
 
-令 $A$ 是任意 $m \times n$ 矩阵，称矩阵 $A^\dagger$ 是 $A$ 的广义逆矩阵，若 $A^\dagger$ 满足以下四个条件（常称 Moore-Penrose 条件）：
+!!! note "构造方法：想要构造成已经学过的方阵的求逆问题"
+    我们已经知道如何求解方阵的逆矩阵，所以如果想求解非方阵的逆矩阵，需要构造一个方阵
 
-1. $AA^\dagger A = A;$
-2. $A^\dagger AA^\dagger = A^\dagger;$
-3. $AA^\dagger$ 为 Hermitian 矩阵，即 $AA^\dagger = (AA^\dagger)^\mathrm{H};$
-4. $A^\dagger A$ 为 Hermitian 矩阵，即 $A^\dagger A = (A^\dagger A)^\mathrm{H}.$
+    所以，通过构造方阵的办法，我们很容易就可以求解非方阵的逆矩阵
 
 
 === "左逆"
@@ -140,7 +142,9 @@ $$
     A^\dagger_L = \left(A^HA\right)^{-1}A^H
     $$
     
-    左逆列满秩的时候一定存在
+    左逆列满秩的时候一定存在，即$rank(A) = n$
+
+    证明：当$rank(A) = n$时，$A^H A$ is invertible
     
     **超定方程最小二乘解**
 
@@ -161,7 +165,14 @@ $$
     欠定方程最小范数解
 
 
+#### Moore-Penrose Inverse | 伪逆矩阵
 
+令 $A$ 是任意 $m \times n$ 矩阵，称矩阵 $A^\dagger$ 是 $A$ 的广义逆矩阵，若 $A^\dagger$ 满足以下四个条件（常称 Moore-Penrose 条件）：
+
+1. $AA^\dagger A = A;$
+2. $A^\dagger AA^\dagger = A^\dagger;$
+3. $AA^\dagger$ 为 Hermitian 矩阵，即 $AA^\dagger = (AA^\dagger)^\mathrm{H};$
+4. $A^\dagger A$ 为 Hermitian 矩阵，即 $A^\dagger A = (A^\dagger A)^\mathrm{H}.$
 
 
 ### norm
@@ -382,6 +393,8 @@ $$
 
 ## 矩阵之间
 
+!!! attention "关注矩阵运算是如何改变矩阵的维度的"
+
 ### 矩阵乘法
 矩阵乘法的行视角： 每一行都代表不同样本的特征；
 左乘行向量相当于对行进行操作
@@ -400,6 +413,8 @@ $$
 
 ### 直和 - 对角块拼接
 
+矩阵的维度是变大的
+
 $m \times m$ 矩阵 $A$ 与 $n \times n$ 矩阵 $B$ 的直和（direct sum）记作 $A \oplus B$，它是一个 $(m + n) \times (m + n)$ 矩阵，定义为：
 
 $$
@@ -414,6 +429,9 @@ $$
 
 **block diagonal matrix**
 
+- 不满足交换律
+- 满足结合律
+
 ### Hadamard product - 逐元素相乘
 
 $$
@@ -421,6 +439,8 @@ $$
 $$
 
 ### Kronecker product - 元素乘矩阵
+
+- 应用：雷达、信号处理
 
 每个元素都乘一个矩阵
 
@@ -461,6 +481,8 @@ $$
 
 ### 向量化和矩阵化
 
+motivation: 如何把一张图或者一个视频变成一个向量，送到神经网络中
+
 按列堆栈：
 
 $$
@@ -485,12 +507,77 @@ $$
 
 
 
+!!! example "向量化和矩阵化"
+
+    Consider a matrix $A$:
+
+    $$
+    A = \begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix}
+    $$
+
+    The vectorization of $A$ by stacking its columns is:
+
+    $$
+    \text{vec}(A) = \begin{bmatrix} 1 \\ 3 \\ 2 \\ 4 \end{bmatrix}
+    $$
+
+
+    The vectorization of $A$ by stacking its rows is:
+
+    $$
+    \text{rvec}(A) = \begin{bmatrix} 1 & 2 & 3 & 4 \end{bmatrix}
+    $$
+
+In numpy, this can be achieved using:
+
+
+```python   
+import numpy as np
+A = np.array([[1, 2], [3, 4]])
+print(A.flatten(order='F')) # 按列堆栈 1,3,2,4
+print(A.flatten(order='C')) # 按行堆栈 1,2,3,4
+```
+
+```python title="按列堆栈和按行堆栈演示"
+import numpy as np
+A = np.array([[1, 2], [3, 4]])
+print(A)
+
+print(A.reshape(-1, order='F'))# 按列堆栈 1,3,2,4
+print(A.reshape(1, -1))# 按行堆栈 1,2,3,4
+```
+
+
+
+
+
+
+
+
+
+
 
 
 ## 微分
+### 变元与函数
+
+$\boldsymbol{x}=[x_1,\cdots,x_m]^{\mathrm{T}}\in\mathbb{R}^m$ 为实向量变元；
+
+$\boldsymbol{X}=[\boldsymbol{x}_1,\cdots,\boldsymbol{x}_n]\in\mathbb{R}^{m\times n}$ 为实矩阵变元；
+
+
+根据输入输出的类型不同，我们可以把函数分为以下几种：
+
+
+
+
+| 输入\输出 | 输入为向量 $\boldsymbol{x}\in\mathbb{R}^m$ | 输入为矩阵 $\boldsymbol{X}\in\mathbb{R}^{m\times n}$ |
+|---|---|---|
+| 标量输出 | $f(\boldsymbol{x})\in\mathbb{R}$，记作 $f:\mathbb{R}^m\to\mathbb{R}$ <br> 例：向量的范数 | $f(\boldsymbol{X})\in\mathbb{R}$，记作 $f:\mathbb{R}^{m\times n}\to\mathbb{R}$ <br> 例：矩阵的迹 |
+| 向量输出 | $f(\boldsymbol{x})\in\mathbb{R}^p$，记作 $f:\mathbb{R}^m\to\mathbb{R}^p$ <br> 例：卷积、傅立叶变换 | $f(\boldsymbol{X})\in\mathbb{R}^p$，记作 $f:\mathbb{R}^{m\times n}\to\mathbb{R}^p$ |
+| 矩阵输出 | $\boldsymbol{F}(\boldsymbol{x})\in\mathbb{R}^{p\times q}$，记作 $\boldsymbol{F}:\mathbb{R}^m\to\mathbb{R}^{p\times q}$ <br> 例：vandermonde矩阵、confusion matrix | $\boldsymbol{F}(\boldsymbol{X})\in\mathbb{R}^{p\times q}$，记作 $\boldsymbol{F}:\mathbb{R}^{m\times n}\to\mathbb{R}^{p\times q}$ <br> 例：输入是猫狗图，输出是猫狗分类结果 |
 
 微分与积分：element-wise
-
 $$
 \frac{\mathrm{d} \mathbf{A}}{\mathrm{d} t} = \mathbf{\dot{A}} = \begin{bmatrix} \frac{\mathrm{d} a_{11}}{\mathrm{d} t} & \frac{\mathrm{d} a_{12}}{\mathrm{d} t} & \cdots & \frac{\mathrm{d} a_{1n}}{\mathrm{d} t} \\ \frac{\mathrm{d} a_{21}}{\mathrm{d} t} & \frac{\mathrm{d} a_{22}}{\mathrm{d} t} & \cdots & \frac{\mathrm{d} a_{2n}}{\mathrm{d} t} \\ \vdots & \vdots & \ddots & \vdots \\ \frac{\mathrm{d} a_{m1}}{\mathrm{d} t} & \frac{\mathrm{d} a_{m2}}{\mathrm{d} t} & \cdots & \frac{\mathrm{d} a_{mn}}{\mathrm{d} t} \end{bmatrix}
 $$
@@ -505,20 +592,107 @@ $$
 \frac{\mathrm{d}}{\mathrm{d} t} (\mathbf{A} \mathbf{B}) = \frac{\mathrm{d} \mathbf{A}}{\mathrm{d} t} \mathbf{B} + \mathbf{A} \frac{\mathrm{d} \mathbf{B}}{\mathrm{d} t}
 $$
 
-### 行偏导
+### 标量函数&向量变元 - 行偏导
 
-### 列偏导（梯度
+行偏导算子
+
+$$
+\begin{align*}
+\mathrm{D}_{x}&\overset{\mathrm{def}}{\operatorname*{=}}\frac{\partial}{\partial {x^{\mathrm{T}}}_{1\times m}}=\left[\frac{\partial}{\partial x_{1}},\cdots,\frac{\partial}{\partial x_{m}}\right]_{1\times m}\\
+\mathrm{D}_{\boldsymbol{x}}f(\boldsymbol{x})&=\frac{\partial f(\boldsymbol{x})}{\partial\boldsymbol{x}^{\mathrm{T}}}=\left[\frac{\partial f(\boldsymbol{x})}{\partial x_{1}},\cdots,\frac{\partial f(\boldsymbol{x})}{\partial x_{m}}\right]
+\end{align*}
+$$
+
+
+
+!!! example "行偏导"
+
+    $$
+    \begin{aligned}
+    f(x)&=x^{T}x\\
+    D_{x}f(x)&=\frac{\partial f(x)}{\partial x^{T}}=[\frac{\partial f(x)}{\partial x_{1}}\cdots\frac{\partial f(x)}{\partial x_{m}}]\\
+    &=[\frac{\partial x^{T}x}{\partial x_{1}}\cdots\frac{\partial x^{T}x}{\partial x_{m}}]\\
+    &=[2x_{1}\cdots2x_{m}]=2x^{T}\end{aligned}
+    $$
+
+### 标量函数&矩阵变元 - 行偏导
+如果变元是矩阵，也可以写出行偏导
+
+$$
+\begin{aligned}
+&\mathrm{D}_{\mathrm{vec}\boldsymbol{X}}f(\boldsymbol{X})=\frac{\partial f(\boldsymbol{X})}{\partial\mathrm{vec}^{\mathrm{T}}(\boldsymbol{X})}=\left[\frac{\partial f(\boldsymbol{X})}{\partial x_{11}},\cdots,\frac{\partial f(\boldsymbol{X})}{\partial x_{m1}},\cdots,\frac{\partial f(\boldsymbol{X})}{\partial x_{1n}},\cdots,\frac{\partial f(\boldsymbol{X})}{\partial x_{mn}}\right]_{1\times mn}\\
+&\mathrm{D}_{\mathrm{vec}\boldsymbol{X}}f(\boldsymbol{X})=\mathrm{rvec}(\mathrm{D}_{\boldsymbol{X}}f(\boldsymbol{X}))=\left(\mathrm{vec}(\mathrm{D}_{\boldsymbol{X}}^{\mathbf{T}}f(\boldsymbol{X}))\right)^{\mathbf{T}}
+\end{aligned}
+$$
+
+所以求行偏导的结果相当于把雅可比矩阵给行向量化了
+
+
+### 标量函数&矩阵变元 - Jacobian Matrix
+
+$f(X)$ 关于矩阵变元 $X$ 的 Jacobian 矩阵
+
+$X \in \mathbb{R}^{m \times n}$
+
+$$
+D_X f(X) = \frac{\partial f(X)}{\partial X^T} = \begin{bmatrix} \frac{\partial f(X)}{\partial x_{11}} & \ldots & \frac{\partial f(X)}{\partial x_{m1}} \\ \vdots & \ddots & \vdots \\ \frac{\partial f(X)}{\partial x_{1n}} & \ldots & \frac{\partial f(X)}{\partial x_{mn}} \end{bmatrix} \in \mathbb{R}^{n \times m}
+$$
 
 
 
 
+### 矩阵函数&矩阵变元 - Jacobian Matrix
 
+
+$$
+\mathrm{D}_{\boldsymbol{X}}\boldsymbol{F}(\boldsymbol{X})\overset{\mathrm{def}}{\operatorname*{=}}\frac{\partial\mathrm{vec}(\boldsymbol{F}(\boldsymbol{X}))}{\partial(\mathrm{vec}\boldsymbol{X})^{\mathrm{T}}}\in\mathbb{R}^{pq\times mn}
+$$
+
+思路：
+
+- 把矩阵函数列向量化$vec(\mathbf{F}(\mathbf{X})) =vec\begin{bmatrix}\mathbf{F}_{1} & \mathbf{F}_{2} & \cdots & \mathbf{F}_{q} \end{bmatrix}$
+- 列向量化之后，相当于把矩阵函数的每一个元素展开成了一个列向量，然后相当于标量对于矩阵求行偏导
+
+
+$$
+\begin{aligned}
+&\mathrm{D}_{\boldsymbol{X}}\boldsymbol{F}(\boldsymbol{X})=\begin{bmatrix}\frac{\partial f_{11}}{\partial(vecX)^{\mathrm{T}}}\\\vdots\\\frac{\partial f_{p1}}{\partial(vecX)^{\mathrm{T}}}\\\vdots\\\frac{\partial f_{1q}}{\partial(vecX)^{\mathrm{T}}}\\\vdots\\\frac{\partial f_{pq}}{\partial(vecX)^{\mathrm{T}}}\end{bmatrix}
+=\begin{bmatrix}\frac{\partial f_{11}}{\partial x_{11}}&\cdots&\frac{\partial f_{11}}{\partial x_{m1}}&\cdots&\frac{\partial f_{11}}{\partial x_{1n}}&\cdots&\frac{\partial f_{11}}{\partial x_{mn}}\\\vdots&\vdots&\vdots&\vdots&\vdots&\vdots\\\vdots&\vdots&\vdots&\vdots&\vdots&\vdots\\\frac{\partial f_{p1}}{\partial x_{11}}&\cdots&\frac{\partial f_{p1}}{\partial x_{m1}}&\cdots&\frac{\partial f_{p1}}{\partial x_{1n}}&\cdots&\frac{\partial f_{p1}}{\partial x_{mn}}\\\vdots&\vdots&\vdots&\vdots&\vdots&\vdots\\\vdots&\vdots&\vdots&\vdots&\vdots&\vdots\\\frac{\partial f_{1q}}{\partial x_{11}}&\cdots&\frac{\partial f_{1q}}{\partial x_{m1}}&\cdots&\frac{\partial f_{1q}}{\partial x_{1n}}&\cdots&\frac{\partial f_{1q}}{\partial x_{mn}}\\\vdots&\vdots&\vdots&\vdots&\vdots&\vdots\\\vdots&\vdots&\vdots&\vdots&\vdots&\vdots\\\frac{\partial f_{pq}}{\partial x_{11}}&\cdots&\frac{\partial f_{pq}}{\partial x_{m1}}&\cdots&\frac{\partial f_{pq}}{\partial x_{1n}}&\cdots&\frac{\partial f_{pq}}{\partial x_{mn}}\end{bmatrix}
+\end{aligned}
+$$
+
+
+### 列向量
+
+$m\times1$列向量偏导算子即梯度算子记作$\nabla_{\boldsymbol{x}}$,定义为
+
+$$\nabla_{x}\stackrel{\mathrm{def}}{=}\frac{\partial}{\partial x_{m\times1}}=\left[\frac{\partial}{\partial x_{1}},\cdots,\frac{\partial}{\partial x_{m}}\right]^{\mathrm{T}}$$
+
+
+$$
+\nabla_{\boldsymbol{x}}f(\boldsymbol{x})\stackrel{\mathrm{def}}{=}\left[\frac{\partial f(\boldsymbol{x})}{\partial x_{1}},\cdots,\frac{\partial f(\boldsymbol{x})}{\partial x_{m}}\right]^{\mathrm{T}}=\frac{\partial f(\boldsymbol{x})}{\partial\boldsymbol{x}}
+$$
+
+!!! example "求导"
+    $$
+    f(x) = x^{T}x = \sum_{i=1}^{n}x_{i}^{2}
+    $$
+
+    $$
+    \nabla_{x}f(x) = \begin{bmatrix} \frac{\partial \sum_{i=1}^{n}x_{i}^{2}}{\partial x_{1}} \\ \vdots \\ \frac{\partial \sum_{i=1}^{n}x_{i}^{2}}{\partial x_{n}} \end{bmatrix} = \begin{bmatrix} 2x_{1} \\ \vdots \\ 2x_{n} \end{bmatrix} = 2x
+    $$
+
+
+
+### 记忆公式
 
 
 特例：$y \in R^{m\times 1}$, $\mathbf{A} \in R^{m\times m}$
 
 - $\frac{\partial{\mathbf{A}\mathbf{X}}}{\partial{\mathbf{X}}} = \mathbf{A}^T$
 - $\frac{\partial{\mathbf{X}^T\mathbf{A}\mathbf{X}}}{\partial{\mathbf{X}}} = \mathbf{A}^T\mathbf{X} + \mathbf{AX}$
+
+### 计算法则
 
 
 
