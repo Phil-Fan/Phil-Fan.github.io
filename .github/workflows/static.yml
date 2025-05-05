@@ -9,42 +9,23 @@ permissions:
   contents: write
 
 jobs:
-  checkout:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out the repository
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0  # Fetch all history for mkdocs-git-revision-date-localized-plugin compatibility
-
-  setup-python:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Set up Python environment
-        uses: actions/setup-python@v4
-        with:
-          python-version: 3.12.4  # Specify the Python version to use
-
-  install-dependencies:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Install required Python packages
-        run: pip install -r requirements.txt  # Install dependencies listed in requirements.txt
-
-  create-cname:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Create CNAME file for custom domain
-        run: echo "www.philfan.cn" > docs/CNAME  # Ensure the CNAME file points to the correct domain
-
-  modify-nbconvert:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Modify nbconvert HTML exporter to remove MathJax CDN link
-        run: sed -i 's#https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS_CHTML-full,Safe##g' $(python -c "import nbconvert; print(nbconvert.__file__.replace('__init__.py', 'exporters/html.py'))")
-
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy the site to GitHub Pages
-        run: mkdocs gh-deploy --force  # Force deployment to GitHub Pages
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0    # for mkdocs-git-revision-date-localized-plugin
+    
+      - uses: actions/setup-python@v4
+        with:
+          python-version: 3.12.4
+    
+      - run: pip install -r requirements.txt
+    
+      - name: Create CNAME file
+        run: echo "www.philfan.cn" > docs/CNAME   # Adjust the path if your configuration is different
+    
+      - name: Modify nbconvert HTML exporter
+        run: sed -i 's#https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS_CHTML-full,Safe##g' $(python -c "import nbconvert; print(nbconvert.__file__.replace('__init__.py', 'exporters/html.py'))")
+          
+      - run: mkdocs gh-deploy --force
