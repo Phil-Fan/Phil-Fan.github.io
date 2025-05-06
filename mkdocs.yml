@@ -460,7 +460,6 @@ nav:
     - CS/Web3/blockchain.md
     - CS/Web3/contract.md
     - CS/Web3/solidity.md
-    - CS/Web3/lingo.md
 
   - Dev:
     - CS/missing_knowledge.md
@@ -603,8 +602,7 @@ nav:
     - Interest/CommonKnowledge/house.md
     - Interest/CommonKnowledge/rent.md
   
-  - Blog:
-    - blog/index.md
+  # - Blog:
 
     
 
@@ -627,9 +625,9 @@ plugins:
       disable_serve: false
   
   # https://github.com/TonyCrane/mkdocs-statistics-plugin
-  - statistics:
-      words_per_minute: 256
-      codelines_per_minute: 80
+  # - statistics:
+  #     words_per_minute: 256
+  #     codelines_per_minute: 80
   
   # 这个插件用于压缩HTML输出，减少页面的加载时间和带宽消耗。
   # 重构环境的时候，这个插件貌似有一点点问题
@@ -648,7 +646,7 @@ plugins:
       strict: false
   
   # 支持jupyter notebook
-  - privacy
+  # - privacy
   - mkdocs-jupyter:
       execute: true
       kernel_name: python3
@@ -667,5 +665,5 @@ plugins:
       css_style:
         width: "50%"
 
-  - blog
+  # - blog
   
