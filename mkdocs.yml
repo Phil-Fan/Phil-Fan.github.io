@@ -11,6 +11,8 @@ repo_url: 'https://github.com/Phil-Fan/Phil-Fan.github.io'
 # copyright
 copyright: Copyright <span style="font-family:Arial;">&copy;</span> 2025-2026 <a href="https://github.com/Phil-Fan" target="_blank">PhilFan</a>
 
+use_directory_urls: false
+
 # configuration
 theme:
   name: material
@@ -113,8 +115,10 @@ markdown_extensions:
   # 扩展Markdown语法
   - pymdownx.caret  # 支持插入符号（^）表示上标
   - pymdownx.emoji:
-      emoji_index: !!python/name:pymdownx.emoji.twemoji
-      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+      # emoji_index: !!python/name:pymdownx.emoji.twemoji
+      # emoji_generator: !!python/name:pymdownx.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji  # 使用Twemoji索引
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg  # 使用SVG生成Emoji
   - pymdownx.magiclink:
       repo_url_shorthand: true  # 使用简写形式的仓库链接
       repo_url_shortener: true  # 缩短仓库链接
@@ -197,7 +201,7 @@ nav:
     - Math/LinearAlgebra/00-index.md
     - Math/LinearAlgebra/01-basic.md
     - Math/LinearAlgebra/02-calc.md
-    - Math/LinearAlgebra/03-optimization.md
+    - Math/LinearAlgebra/03-relationship.md
     - Math/LinearAlgebra/04-decomposition.md
     - Math/LinearAlgebra/05-matrix_equation.md
     - Math/LinearAlgebra/06-analyze.md
@@ -608,6 +612,7 @@ nav:
 
 
 plugins:
+  # - comments
   # meta
   - search:
       lang:

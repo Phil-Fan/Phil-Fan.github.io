@@ -53,15 +53,13 @@ comments: true
     整理面试技巧<br>
     学一下cv的基础知识[智能工厂精品课](https://github.com/haodong2000/Vision2022/tree/2023)
 
-
-## 目前网页bug
-
-- [x] jupyter notebook下 数学公式渲染错误
-- [ ] jupyter notebook下不同的block标题会从0开始记录
-- [x] 公式在不翻墙的情况下加载太慢
-- [ ] 插入pdf的时候，在vscode当中会跳下载页面
-- [ ] 表情emoji出错
-- [ ] 图床配置出错
+!!! inline tip "目前网页bug"
+    - [x] jupyter notebook下 数学公式渲染错误
+    - [ ] jupyter notebook下不同的block标题会从0开始记录
+    - [x] 公式在不翻墙的情况下加载太慢
+    - [ ] 插入pdf的时候，在vscode当中会跳下载页面
+    - [ ] 表情emoji出错
+    - [ ] 图床配置出错
 
 enhancement
 

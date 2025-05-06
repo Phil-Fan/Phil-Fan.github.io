@@ -215,6 +215,12 @@ export https_proxy=http://your_proxy_server:your_proxy_port
 ```
 
 
+!!! question "could not connect to the clash core"
+    检查一下网络是否能够正常连接，有可能是防火墙的规则的问题
+
+    ```bash title="允许所有入站流量"
+    sudo iptables -A INPUT -j ACCEPT
+    ```
 
 
 

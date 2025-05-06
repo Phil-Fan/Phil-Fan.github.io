@@ -20,18 +20,29 @@
 
 **以下为macos专属**
 - 开发工具iTerm2：[iTerm2 - macOS Terminal Replacement](https://iterm2.com/)<br>教程：[iTerm2安装配置使用指南——保姆级 - 知乎](https://zhuanlan.zhihu.com/p/550022490)
-- [sip](https://sipapp.io/)：color picker
+- [Raycast - Your shortcut to everything](https://www.raycast.com/) 替代聚焦
+  - command +k 显示
+  - [能少一个是一个：我用 Raycast 替代了这些应用 - 少数派](https://sspai.com/post/72540)
+  - [Raycast 小技巧之 Quicklink 二三事 - 少数派](https://sspai.com/post/72951)
+  - [URL Schemes | Drafts User Guide](https://docs.getdrafts.com/docs/automation/urlschemes#append)
+  - 可以用于替代[Rectangle Mac](https://rectangleapp.com/)：窗口管理，[SpaceLauncher](https://spacelauncherapp.com/)：空格为主的热键,[sip](https://sipapp.io/)：color picker,[Drafts | Where Text Starts](https://getdrafts.com/),[AppCleaner](https://freemacsoft.net/appcleaner/)
 - ibar: 菜单栏隐藏
 - [Pixea](https://apps.apple.com/cn/app/pixea/id1507782672?mt=12)
 - 网络：clashx Pro；下载工具 [Downie](https://www.downie.cn/)
-- [cleaner one](https://cleanerone.trendmicro.com/) 清理工具
 - [Scroll Reverser for macOS](https://pilotmoon.com/scrollreverser/): 反向滚动鼠标和触控板
-- [SpaceLauncher](https://spacelauncherapp.com/)：空格为主的热键
-- [Fliqlo](https://fliqlo.com/)：翻盖时钟屏保，Mac的经典屏保
+
 - windows 虚拟机 [Parallels Desktop](https://www.parallels.cn/products/desktop/trial/)，可以找一个tb店解锁
 - [waydabber/BetterDisplay](https://github.com/waydabber/BetterDisplay?tab=readme-ov-file)：没钱上4K显示器的解决方案，Unlock your displays on your Mac! Flexible HiDPI scaling
 
-> [MacKed - 专注于Mac破解资源的分享与下载](https://macked.app/)
+
+!!! note "资源站"
+    1. [xclient](https://xclient.info/)
+    2. [macked](https://macked.app/)
+    3. [digit77](https://www.digit77.com/)
+    4. [xmac](https://xmac.app/)
+    5. [macwk](https://macwk.cn/)
+   
+- [Fliqlo](https://fliqlo.com/)：翻盖时钟屏保，Mac的经典屏保
 
 !!! note "注意macos没有签名时候需要手动信任"
     ```shell
