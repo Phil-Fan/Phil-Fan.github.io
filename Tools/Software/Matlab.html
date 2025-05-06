@@ -5,7 +5,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="PhilFan的笔记本" name="description"/>
 <meta content="PhilFan" name="author"/>
-<link href="https://www.philfan.cn/Tools/Software/Matlab.html" rel="canonical">
+<link href="https://www.philfan.cn/Tools/Software/Matlab.html" rel="canonical"/>
 <link href="GDB.html" rel="prev"/>
 <link href="Solidworks.html" rel="next"/>
 <link href="../../logo.ico" rel="icon"/>
@@ -14,16 +14,16 @@
 <link href="../../assets/stylesheets/main.3cba04c6.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1 7.775V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 0 1 0 2.474l-5.026 5.026a1.75 1.75 0 0 1-2.474 0l-6.25-6.25A1.752 1.752 0 0 1 1 7.775Zm1.5 0c0 .066.026.13.073.177l6.25 6.25a.25.25 0 0 0 .354 0l5.025-5.025a.25.25 0 0 0 0-.354l-6.25-6.25a.25.25 0 0 0-.177-.073H2.75a.25.25 0 0 0-.25.25ZM6 5a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"/></svg>');--md-admonition-icon--abstract:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.5 1.75v11.5c0 .138.112.25.25.25h3.17a.75.75 0 0 1 0 1.5H2.75A1.75 1.75 0 0 1 1 13.25V1.75C1 .784 1.784 0 2.75 0h8.5C12.216 0 13 .784 13 1.75v7.736a.75.75 0 0 1-1.5 0V1.75a.25.25 0 0 0-.25-.25h-8.5a.25.25 0 0 0-.25.25Zm13.274 9.537v-.001l-4.557 4.45a.75.75 0 0 1-1.055-.008l-1.943-1.95a.75.75 0 0 1 1.062-1.058l1.419 1.425 4.026-3.932a.75.75 0 1 1 1.048 1.074ZM4.75 4h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM4 7.75A.75.75 0 0 1 4.75 7h2a.75.75 0 0 1 0 1.5h-2A.75.75 0 0 1 4 7.75Z"/></svg>');--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/></svg>');--md-admonition-icon--tip:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.499.75a.75.75 0 0 1 1.5 0v.996C5.9 2.903 6.793 3.65 7.662 4.376l.24.202c-.036-.694.055-1.422.426-2.163C9.1.873 10.794-.045 12.622.26 14.408.558 16 1.94 16 4.25c0 1.278-.954 2.575-2.44 2.734l.146.508.065.22c.203.701.412 1.455.476 2.226.142 1.707-.4 3.03-1.487 3.898C11.714 14.671 10.27 15 8.75 15h-6a.75.75 0 0 1 0-1.5h1.376a4.484 4.484 0 0 1-.563-1.191 3.835 3.835 0 0 1-.05-2.063 4.647 4.647 0 0 1-2.025-.293.75.75 0 0 1 .525-1.406c1.357.507 2.376-.006 2.698-.318l.009-.01a.747.747 0 0 1 1.06 0 .748.748 0 0 1-.012 1.074c-.912.92-.992 1.835-.768 2.586.221.74.745 1.337 1.196 1.621H8.75c1.343 0 2.398-.296 3.074-.836.635-.507 1.036-1.31.928-2.602-.05-.603-.216-1.224-.422-1.93l-.064-.221c-.12-.407-.246-.84-.353-1.29a2.425 2.425 0 0 1-.507-.441 3.075 3.075 0 0 1-.633-1.248.75.75 0 0 1 1.455-.364c.046.185.144.436.31.627.146.168.353.305.712.305.738 0 1.25-.615 1.25-1.25 0-1.47-.95-2.315-2.123-2.51-1.172-.196-2.227.387-2.706 1.345-.46.92-.27 1.774.019 3.062l.042.19a.884.884 0 0 1 .01.05c.348.443.666.949.94 1.553a.75.75 0 1 1-1.365.62c-.553-1.217-1.32-1.94-2.3-2.768L6.7 5.527c-.814-.68-1.75-1.462-2.692-2.619a3.737 3.737 0 0 0-1.023.88c-.406.495-.663 1.036-.722 1.508.116.122.306.21.591.239.388.038.797-.06 1.032-.19a.75.75 0 0 1 .728 1.31c-.515.287-1.23.439-1.906.373-.682-.067-1.473-.38-1.879-1.193L.75 5.677V5.5c0-.984.48-1.94 1.077-2.664.46-.559 1.05-1.055 1.673-1.353V.75Z"/></svg>');--md-admonition-icon--success:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"/></svg>');--md-admonition-icon--question:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.92 6.085h.001a.749.749 0 1 1-1.342-.67c.169-.339.436-.701.849-.977C6.845 4.16 7.369 4 8 4a2.756 2.756 0 0 1 1.637.525c.503.377.863.965.863 1.725 0 .448-.115.83-.329 1.15-.205.307-.47.513-.692.662-.109.072-.22.138-.313.195l-.006.004a6.24 6.24 0 0 0-.26.16.952.952 0 0 0-.276.245.75.75 0 0 1-1.248-.832c.184-.264.42-.489.692-.661.103-.067.207-.132.313-.195l.007-.004c.1-.061.182-.11.258-.161a.969.969 0 0 0 .277-.245C8.96 6.514 9 6.427 9 6.25a.612.612 0 0 0-.262-.525A1.27 1.27 0 0 0 8 5.5c-.369 0-.595.09-.74.187a1.01 1.01 0 0 0-.34.398ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>');--md-admonition-icon--warning:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>');--md-admonition-icon--failure:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.344 2.343h-.001a8 8 0 0 1 11.314 11.314A8.002 8.002 0 0 1 .234 10.089a8 8 0 0 1 2.11-7.746Zm1.06 10.253a6.5 6.5 0 1 0 9.108-9.275 6.5 6.5 0 0 0-9.108 9.275ZM6.03 4.97 8 6.94l1.97-1.97a.749.749 0 0 1 1.275.326.749.749 0 0 1-.215.734L9.06 8l1.97 1.97a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L8 9.06l-1.97 1.97a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734L6.94 8 4.97 6.03a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018Z"/></svg>');--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M9.504.43a1.516 1.516 0 0 1 2.437 1.713L10.415 5.5h2.123c1.57 0 2.346 1.909 1.22 3.004l-7.34 7.142a1.249 1.249 0 0 1-.871.354h-.302a1.25 1.25 0 0 1-1.157-1.723L5.633 10.5H3.462c-1.57 0-2.346-1.909-1.22-3.004L9.503.429Zm1.047 1.074L3.286 8.571A.25.25 0 0 0 3.462 9H6.75a.75.75 0 0 1 .694 1.034l-1.713 4.188 6.982-6.793A.25.25 0 0 0 12.538 7H9.25a.75.75 0 0 1-.683-1.06l2.008-4.418.003-.006a.036.036 0 0 0-.004-.009l-.006-.006-.008-.001c-.003 0-.006.002-.009.004Z"/></svg>');--md-admonition-icon--bug:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M4.72.22a.75.75 0 0 1 1.06 0l1 .999a3.488 3.488 0 0 1 2.441 0l.999-1a.748.748 0 0 1 1.265.332.75.75 0 0 1-.205.729l-.775.776c.616.63.995 1.493.995 2.444v.327c0 .1-.009.197-.025.292.408.14.764.392 1.029.722l1.968-.787a.75.75 0 0 1 .556 1.392L13 7.258V9h2.25a.75.75 0 0 1 0 1.5H13v.5c0 .409-.049.806-.141 1.186l2.17.868a.75.75 0 0 1-.557 1.392l-2.184-.873A4.997 4.997 0 0 1 8 16a4.997 4.997 0 0 1-4.288-2.427l-2.183.873a.75.75 0 0 1-.558-1.392l2.17-.868A5.036 5.036 0 0 1 3 11v-.5H.75a.75.75 0 0 1 0-1.5H3V7.258L.971 6.446a.75.75 0 0 1 .558-1.392l1.967.787c.265-.33.62-.583 1.03-.722a1.677 1.677 0 0 1-.026-.292V4.5c0-.951.38-1.814.995-2.444L4.72 1.28a.75.75 0 0 1 0-1.06Zm.53 6.28a.75.75 0 0 0-.75.75V11a3.5 3.5 0 1 0 7 0V7.25a.75.75 0 0 0-.75-.75ZM6.173 5h3.654A.172.172 0 0 0 10 4.827V4.5a2 2 0 1 0-4 0v.327c0 .096.077.173.173.173Z"/></svg>');--md-admonition-icon--example:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M5 5.782V2.5h-.25a.75.75 0 0 1 0-1.5h6.5a.75.75 0 0 1 0 1.5H11v3.282l3.666 5.76C15.619 13.04 14.543 15 12.767 15H3.233c-1.776 0-2.852-1.96-1.899-3.458Zm-2.4 6.565a.75.75 0 0 0 .633 1.153h9.534a.75.75 0 0 0 .633-1.153L12.225 10.5h-8.45ZM9.5 2.5h-3V6c0 .143-.04.283-.117.403L4.73 9h6.54L9.617 6.403A.746.746 0 0 1 9.5 6Z"/></svg>');--md-admonition-icon--quote:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1.75 2.5h10.5a.75.75 0 0 1 0 1.5H1.75a.75.75 0 0 1 0-1.5Zm4 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5ZM2.5 7.75v6a.75.75 0 0 1-1.5 0v-6a.75.75 0 0 1 1.5 0Z"/></svg>');}</style>
-
-<link href="../../assets/external/fonts.googleapis.com/css.de70e1f7.css" rel="stylesheet">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Noto Serif SC";--md-code-font:"JetBrains Mono"}</style>
 <link href="../../css/heti.css" rel="stylesheet"/>
 <link href="../../style/css/custom.css" rel="stylesheet"/>
 <link href="../../style/css/counter.css" rel="stylesheet"/>
 <link href="../../style/css/toc.css" rel="stylesheet"/>
 <link href="../../style/css/flink.css" rel="stylesheet"/>
-<link href="../../assets/external/cdn.tonycrane.cc/jbmono/jetbrainsmono.css" rel="stylesheet">
-<link href="../../assets/external/cdn.tonycrane.cc/lxgw/lxgwscreen.css" rel="stylesheet">
+<link href="https://cdn.tonycrane.cc/jbmono/jetbrainsmono.css" rel="stylesheet"/>
+<link href="https://cdn.tonycrane.cc/lxgw/lxgwscreen.css" rel="stylesheet"/>
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2QNP7S5RJ8"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2QNP7S5RJ8",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2QNP7S5RJ8",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
@@ -1807,13 +1807,6 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../CS/Web3/lingo.html">
-<span class="md-ellipsis">
-    Lingo
-  </span>
-</a>
-</li>
 </ul>
 </nav>
 </li>
@@ -3256,34 +3249,6 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_7_10" type="checkbox"/>
-<div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../blog/index.html">
-<span class="md-ellipsis">
-    Blog
-  </span>
-</a>
-<label class="md-nav__link" for="__nav_7_10" id="__nav_7_10_label" tabindex="0">
-<span class="md-nav__icon md-icon"></span>
-</label>
-</div>
-<nav aria-expanded="false" aria-labelledby="__nav_7_10_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_7_10">
-<span class="md-nav__icon md-icon"></span>
-            Blog
-          </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../..">
-<span class="md-ellipsis">
-    归档
-  </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
 </ul>
 </nav>
 </li>
@@ -3649,14 +3614,11 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <div><h1 id="matlab"><span>MATLAB<span class="heti-spacing"> </span></span>使用记录<a class="headerlink" href="#matlab" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h1>
-<div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>4732<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"></path></svg></span> <span>316<span class="heti-spacing"> </span></span>行代码 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 17H7V3h14m0-2H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2M3 5H1v16a2 2 0 0 0 2 2h16v-2H3m12.96-10.71-2.75 3.54-1.96-2.36L8.5 15h11l-3.54-4.71Z"></path></svg></span> <span>24<span class="heti-spacing"> </span></span>张图片 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>22<span class="heti-spacing"> </span></span>分钟</p>
-</div>
 <p><span>MATLAB<span class="heti-spacing"> </span></span>是“matrix laboratory”的缩写形式。<span>MATLAB®<span class="heti-spacing"> </span></span>主要用于处理整个的矩阵和数组，而其他编程语言大多逐个处理数值。矩阵是指通常用来进行线性代数运算的二维数组。</p>
 <h2 id="_1">软件配置<a class="headerlink" href="#_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <h3 id="matlab-in-vscode">Matlab in VSCode<a class="headerlink" href="#matlab-in-vscode" title="anchor link to this section for reference">¶</a></h3>
-<p><img alt="" src="../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241128002347.png"></p>
-<p><img alt="" src="../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241128002415.png"></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241128002347.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241128002415.png"/></p>
 <p>下载插件</p>
 <p>在<span class="heti-skip"><span class="heti-spacing"> </span>python<span class="heti-spacing"> </span></span>环境中，最好<span><span class="heti-spacing"> </span>3.9</span></p>
 <div class="highlight"><span class="filename">检查<span class="heti-skip"><span class="heti-spacing"> </span>32or64<span class="heti-spacing"> </span></span>位系统</span><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
@@ -3673,7 +3635,7 @@
 <span class="n">eng</span> <span class="o">=</span> <span class="n">matlab</span><span class="o">.</span><span class="n">engine</span><span class="o">.</span><span class="n">start_matlab</span><span class="p">()</span>
 <span class="n">eng</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">4.0</span><span class="p">)</span>
 </code></pre></div>
-<p><img alt="" src="../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241128002703.png"></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241128002703.png"/></p>
 <p>注意这里如果使用<span class="heti-skip"><span class="heti-spacing"> </span>conda<span class="heti-spacing"> </span></span>环境，需要配置对应的<span class="heti-skip"><span class="heti-spacing"> </span>conda<span class="heti-spacing"> </span></span>中的<span class="heti-skip"><span class="heti-spacing"> </span>python<span class="heti-spacing"> </span></span>路径</p>
 <p>配好了以后右上角就会有执行代码的按钮了</p>
 <h4 id="bug">小<span><span class="heti-spacing"> </span>bug</span><a class="headerlink" href="#bug" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
@@ -3713,7 +3675,7 @@ ans = 0.0000 + 1.0000i
 <p>使用 <code>whos</code> 可以查看工作区的内容。</p>
 <div class="highlight"><pre><span></span><code><span class="nb">whos</span>
 </code></pre></div>
-<p><img alt="The pane has a row for each variable. The columns are Name, Value, Min, and Max. Value includes size and class." src="../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/workspace.png"></p>
+<p><img alt="The pane has a row for each variable. The columns are Name, Value, Min, and Max. Value includes size and class." src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/workspace.png"/></p>
 <p>退出<span class="heti-skip"><span class="heti-spacing"> </span>MATLAB<span class="heti-spacing"> </span></span>后，工作区变量不会保留。使用 <code>save</code> 命令保存数据以供将来使用，</p>
 <div class="highlight"><pre><span></span><code><span class="nb">save</span><span class="w"> </span><span class="n">myfile</span><span class="p">.</span><span class="n">mat</span>
 </code></pre></div>
@@ -3935,7 +3897,7 @@ A=U<em>S</em>V’
 <div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">搭建二阶系统</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p><img alt="" src="../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241020131407.png">
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241020131407.png"/>
 <a href="https://www.bilibili.com/read/cv9223784/">MATLAB——Simulink二阶系统 - 哔哩哔哩</a></p>
 </div>
 </div>
@@ -3950,14 +3912,14 @@ A=U<em>S</em>V’
 <p>那么什么时候需要加积分环节限制输出呢？当系统在抗扰动时，需要一个大的<span class="heti-skip"><span class="heti-spacing"> </span>Ki<span class="heti-spacing"> </span></span>参数来快速消除稳态误差，而在开始从<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>到稳态这个过程又会因为<span class="heti-skip"><span class="heti-spacing"> </span>ki<span class="heti-spacing"> </span></span>太大而引起过大超调时，这个时候就需要加积分过饱和限制。</p>
 <h4 id="_27">使用外部参数<a class="headerlink" href="#_27" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <h4 id="pid_1"><span>PID<span class="heti-spacing"> </span></span>自动调参<a class="headerlink" href="#pid_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
-<p><img alt="" src="../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/1e3dc92702c9fc392ef362c0fdc71902.png"></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/1e3dc92702c9fc392ef362c0fdc71902.png"/></p>
 <p>点击自动调节</p>
 <p>调节最上方的响应时间和瞬态特性，可以得到不同的曲线
 按照自己项目的要求对应的调整</p>
 <p>调整之后，点击“更新模块”，就会换成新的<span class="heti-skip"><span class="heti-spacing"> </span>PID<span class="heti-spacing"> </span></span>参数</p>
-<p><img alt="" src="../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/d0585d38bad5b9001b1bc60a7a47f9ea.png"></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/d0585d38bad5b9001b1bc60a7a47f9ea.png"/></p>
 <p>点击“显示参数”，可以查看<span class="heti-skip"><span class="heti-spacing"> </span>PID<span class="heti-spacing"> </span></span>参数
-<img alt="" src="../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/5034c43a5f595c39fbb76b848217b623.png"></p>
+<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/5034c43a5f595c39fbb76b848217b623.png"/></p>
 <h3 id="s-function">S function<a class="headerlink" href="#s-function" title="anchor link to this section for reference">¶</a></h3>
 <div class="admonition note">
 <p class="admonition-title"><span>S function<span class="heti-spacing"> </span></span>就是自定义的模型，用于补充<span class="heti-skip"><span class="heti-spacing"> </span>simulink<span class="heti-spacing"> </span></span>中没有的功能</p>
@@ -3967,7 +3929,7 @@ A=U<em>S</em>V’
 <p><a href="https://blog.csdn.net/didi_ya/article/details/118190541"><span>S-function<span class="heti-spacing"> </span></span>入门及案例详解（3）——<span>S-function<span class="heti-spacing"> </span></span>进阶案例<span class="heti-skip"><span class="heti-spacing"> </span>_s<span class="heti-spacing"> </span></span>函数 英文学习指导<span class="heti-skip"><span class="heti-spacing"> </span>-CSDN<span class="heti-spacing"> </span></span>博客</a></p>
 <p><a href="https://blog.csdn.net/didi_ya/article/details/118195184"><span>S-function<span class="heti-spacing"> </span></span>入门及案例详解（4）——<span>S-function<span class="heti-spacing"> </span></span>进阶案例之连续<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>离散状态空间表达式的<span class="heti-skip"><span class="heti-spacing"> </span>S-function<span class="heti-spacing"> </span></span>实现<span class="heti-skip"><span class="heti-spacing"> </span>_s-function<span class="heti-spacing"> </span></span>实例<span class="heti-skip"><span class="heti-spacing"> </span>-CSDN<span class="heti-spacing"> </span></span>博客</a></p>
 <p><span>S-function<span class="heti-spacing"> </span></span>模块，位于<span class="heti-skip"><span class="heti-spacing"> </span>Simulink/User-Defined Functions<span class="heti-spacing"> </span></span>模块库中，是使<span class="heti-skip"><span class="heti-spacing"> </span>S-function<span class="heti-spacing"> </span></span>图形化的模板工具，用于为<span class="heti-skip"><span class="heti-spacing"> </span>S-function<span class="heti-spacing"> </span></span>创建一个定值的对话框和图标。
-<img alt="" src="../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241117101401.png"></p>
+<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241117101401.png"/></p>
 <ul>
 <li><code>S-function name</code>：填入<span class="heti-skip"><span class="heti-spacing"> </span>S-function<span class="heti-spacing"> </span></span>的函数名称，这样就建立了<span class="heti-skip"><span class="heti-spacing"> </span>S-function<span class="heti-spacing"> </span></span>模块与<span class="heti-skip"><span class="heti-spacing"> </span>M<span class="heti-spacing"> </span></span>文件形式的<span class="heti-skip"><span class="heti-spacing"> </span>S-function<span class="heti-spacing"> </span></span>之间的对应关系；</li>
 </ul>
@@ -4006,12 +3968,12 @@ A=U<em>S</em>V’
 <h4 id="_28">函数分析<a class="headerlink" href="#_28" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p><span>S-function<span class="heti-spacing"> </span></span>包括主函数和<span class="heti-skip"><span class="heti-spacing"> </span>6<span class="heti-spacing"> </span></span>个功能子函数，包括<span><span class="heti-spacing"> </span>mdlInitializeSizes</span>（初始化<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>、mdlDerivatives（连续状态微分<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>、mdlUpdate（离散状态更新<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>、mdlOutputs（模块输出<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>、mdlGetTimeOfNextVarHit（计算下次采样时刻）和<span><span class="heti-spacing"> </span>mdlTerminate</span>（仿真结束<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。</p>
 <p>在<span class="heti-skip"><span class="heti-spacing"> </span>S-function<span class="heti-spacing"> </span></span>仿真过程中，利用<span class="heti-skip"><span class="heti-spacing"> </span>switch-case<span class="heti-spacing"> </span></span>语句，根据不同阶段对应的<span class="heti-skip"><span class="heti-spacing"> </span>flag<span class="heti-spacing"> </span></span>值（仿真流程标志向量）来调用<span class="heti-skip"><span class="heti-spacing"> </span>S-function<span class="heti-spacing"> </span></span>的不同子函数，以完成对<span class="heti-skip"><span class="heti-spacing"> </span>S-function<span class="heti-spacing"> </span></span>模块仿真流程的控制。</p>
-<p><img alt="" src="../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241117102637.png"></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241117102637.png"/></p>
 <h4 id="mask">Mask<a class="headerlink" href="#mask" title="anchor link to this section for reference">¶</a></h4>
 <p>如果我们不想每次修改<span class="heti-skip"><span class="heti-spacing"> </span>S-function<span class="heti-spacing"> </span></span>的参数都要打开<span class="heti-skip"><span class="heti-spacing"> </span>S-function<span class="heti-spacing"> </span></span>的编辑窗口，我们可以使用<span class="heti-skip"><span class="heti-spacing"> </span>Mask<span class="heti-spacing"> </span></span>功能。</p>
 <p><strong>第一步是增加<span><span class="heti-spacing"> </span>Mask</span></strong>
-<img alt="" src="../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241203115042.png"></p>
-<p><img alt="" src="../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241203115132.png"></p>
+<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241203115042.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241203115132.png"/></p>
 <p>点击添加封装</p>
 <p>提示框可以随便写，但是名称需要和代码中的变量名称对齐。</p>
 <p><strong>第二步是在<span class="heti-skip"><span class="heti-spacing"> </span>S-function<span class="heti-spacing"> </span></span>初始化当中加入<span class="heti-skip"><span class="heti-spacing"> </span>Mask<span class="heti-spacing"> </span></span>参数</strong></p>
@@ -4159,7 +4121,7 @@ Tustin法不适合系统具有z=1</p>
 <div class="highlight"><pre><span></span><code>SYS = APPEND(SYS1,SYS2, ...)
 </code></pre></div>
 <h4 id="_32">串联<a class="headerlink" href="#_32" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
-<p><img alt="" src="../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240929115631.png"></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240929115631.png"/></p>
 <p></p><div class="highlight"><pre><span></span><code>sys=series(sys1,sys2)
 </code></pre></div>
 返回两个系统sys1和sys2的串联系统。
@@ -4169,7 +4131,7 @@ Tustin法不适合系统具有z=1</p>
 </code></pre></div>
 outputs1和inputs2用于指定sys1的部分输出与sys2的部分输入进行连接。
 <h4 id="_33">并联<a class="headerlink" href="#_33" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
-<p><img alt="" src="../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240929115722.png"></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240929115722.png"/></p>
 <p></p><div class="highlight"><pre><span></span><code>sys=parallel(sys1,sys2)
 </code></pre></div>
 返回两个系统并联连接系统，两个子系统必须连续时间系统或者具有相同采样周期的离散时间系统。
@@ -4302,17 +4264,17 @@ K为用户定义的增益。
 <p><code>sgrid(‘new’, z, wn)</code>——可制定阻尼系数<span class="heti-skip"><span class="heti-spacing"> </span>z<span class="heti-spacing"> </span></span>和自然频率<span><span class="heti-spacing"> </span><span class="arithmatex">\(\omega_n\)</span></span>，并且在绘制栅格线之前清除图形窗口。</p>
 <h4 id="sisotool">SISOTOOL<a class="headerlink" href="#sisotool" title="anchor link to this section for reference">¶</a></h4>
 <p>除了使用<code>rlocus</code>函数外，你还可以使用<span class="heti-skip"><span class="heti-spacing"> </span>MATLAB<span class="heti-spacing"> </span></span>的<span><span class="heti-spacing"> </span>SISOTOOL</span>（单输入单输出工具）进行根轨迹设计。<span>SISOTOOL<span class="heti-spacing"> </span></span>提供了一个交互式的界面，使你可以方便地绘制和分析根轨迹，以及设计控制器。要使用<span><span class="heti-spacing"> </span>SISOTOOL</span>，只需在<span class="heti-skip"><span class="heti-spacing"> </span>MATLAB<span class="heti-spacing"> </span></span>命令窗口中输入<code>sisotool</code>即可。</p>
-<p><img alt="image-20240424103521521" src="../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240424103521521.png"></p>
+<p><img alt="image-20240424103521521" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240424103521521.png"/></p>
 <h4 id="_40">分析根轨迹<a class="headerlink" href="#_40" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <ul>
 <li>添加零点、极点、积分器</li>
 <li>去除零点、极点、积分器</li>
 <li>移动零极点</li>
 <li>添加<code>requirement</code><br/>
-<img alt="" src="../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241009145358.png">
-<img alt="image-20240424103552781" src="../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240424103552781.png" style="zoom:50%;"></li>
+<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241009145358.png"/>
+<img alt="image-20240424103552781" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240424103552781.png" style="zoom:50%;"/></li>
 <li>查看阶跃图像特征点
-<img alt="" src="../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241009145809.png"></li>
+<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241009145809.png"/></li>
 </ul>
 <h3 id="_41">现代控制<a class="headerlink" href="#_41" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <h4 id="_42">能控性<a class="headerlink" href="#_42" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
@@ -4328,11 +4290,11 @@ K为用户定义的增益。
 <li>安装<span><span class="heti-spacing"> </span>MPC Designer</span></li>
 <li>放一个<span class="heti-skip"><span class="heti-spacing"> </span>simulink<span class="heti-spacing"> </span></span>模型</li>
 </ol>
-<p><img alt="" src="../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241230093059.png"></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241230093059.png"/></p>
 <ol>
 <li>打开设计界面，点击<span><span class="heti-spacing"> </span>MPC Structure</span>，设置输入输出通道，打开<span><span class="heti-spacing"> </span>I/O Attributes</span>，设置输入输出名称</li>
 </ol>
-<p><img alt="" src="../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241230093026.png"></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241230093026.png"/></p>
 <ol>
 <li>点击<span><span class="heti-spacing"> </span>Update and Simulate</span></li>
 </ol>
@@ -4352,7 +4314,7 @@ K为用户定义的增益。
 <p><span>validation test<span class="heti-spacing"> </span></span>表示的是泛化性能，如果连续<span class="heti-skip"><span class="heti-spacing"> </span>6<span class="heti-spacing"> </span></span>个<span class="heti-skip"><span class="heti-spacing"> </span>epoch<span class="heti-spacing"> </span></span>都上不去，就停止训练</p>
 </div>
 <p>图像查看：一般看回归的图（第四个<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，如果都上了<span class="heti-skip"><span class="heti-spacing"> </span>0.9<span class="heti-spacing"> </span></span>差不多就可以了</p>
-<p><img alt="" src="../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241223002536.png"></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241223002536.png"/></p>
 <iframe allowfullscreen="true" border="0" frameborder="no" framespacing="0" height="500px" scrolling="no" src="//player.bilibili.com/player.html?isOutside=true&amp;aid=387739304&amp;bvid=BV1Zd4y1Q7MX&amp;cid=821664775&amp;p=1&amp;autoplay=0" width="100%"></iframe>
 <h3 id="_47">模型保存<a class="headerlink" href="#_47" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <div class="highlight"><span class="filename">保存模型</span><pre><span></span><code><span class="nb">save</span><span class="p">(</span><span class="s">'filename.mat'</span><span class="p">)</span><span class="w">  </span><span class="c">% 保存所有变量</span>
@@ -4436,7 +4398,7 @@ K为用户定义的增益。
 </code></pre></div>
 <h3 id="python">使用<span class="heti-skip"><span class="heti-spacing"> </span>python<span class="heti-spacing"> </span></span>训练的模型进行训练<a class="headerlink" href="#python" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>首先下载<span><span class="heti-spacing"> </span>Deep Learning Toolbox Converter for ONNX Model Format</span>
-<img alt="" src="../../https:/philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241223223234.png"></p>
+<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241223223234.png"/></p>
 <p><a href="https://ww2.mathworks.cn/help/deeplearning/ref/onnxmodelpredict.html">ONNX Model Predict</a></p>
 <ol>
 <li>使用<span class="heti-skip"><span class="heti-spacing"> </span>pytorch<span class="heti-spacing"> </span></span>训练之后，导出<span class="heti-skip"><span class="heti-spacing"> </span>onnx<span class="heti-spacing"> </span></span>模型</li>
