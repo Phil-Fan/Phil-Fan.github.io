@@ -7,7 +7,7 @@
 <meta content="PhilFan" name="author"/>
 <link href="https://www.philfan.cn/Math/LinearAlgebra/02-calc/" rel="canonical">
 <link href="../01-basic/" rel="prev"/>
-<link href="../03-optimization/" rel="next"/>
+<link href="../04-decomposition/" rel="next"/>
 <link href="../../../logo.ico" rel="icon"/>
 <meta content="mkdocs-1.6.0, mkdocs-material-9.5.31" name="generator"/>
 <title>02 | 矩阵运算 - PhilFan's Notebook</title>
@@ -18,10 +18,10 @@
 <link href="../../../assets/external/fonts.googleapis.com/css.de70e1f7.css" rel="stylesheet">
 <style>:root{--md-text-font:"Noto Serif SC";--md-code-font:"JetBrains Mono"}</style>
 <link href="../../../css/heti.css" rel="stylesheet"/>
-<link href="../../../assets/css/custom.css" rel="stylesheet"/>
-<link href="../../../assets/css/counter.css" rel="stylesheet"/>
-<link href="../../../assets/css/toc.css" rel="stylesheet"/>
-<link href="../../../assets/css/flink.css" rel="stylesheet"/>
+<link href="../../../style/css/custom.css" rel="stylesheet"/>
+<link href="../../../style/css/counter.css" rel="stylesheet"/>
+<link href="../../../style/css/toc.css" rel="stylesheet"/>
+<link href="../../../style/css/flink.css" rel="stylesheet"/>
 <link href="../../../assets/external/cdn.tonycrane.cc/jbmono/jetbrainsmono.css" rel="stylesheet">
 <link href="../../../assets/external/cdn.tonycrane.cc/lxgw/lxgwscreen.css" rel="stylesheet">
 <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
@@ -423,7 +423,7 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_6">
+<a class="md-nav__link" href="#_7">
 <span class="md-ellipsis">
       矩阵之间
     </span>
@@ -431,7 +431,7 @@
 <nav aria-label="矩阵之间" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_7">
+<a class="md-nav__link" href="#_8">
 <span class="md-ellipsis">
       矩阵乘法
     </span>
@@ -459,7 +459,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_8">
+<a class="md-nav__link" href="#_9">
 <span class="md-ellipsis">
       向量化和矩阵化
     </span>
@@ -469,7 +469,7 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_9">
+<a class="md-nav__link" href="#_10">
 <span class="md-ellipsis">
       微分
     </span>
@@ -477,16 +477,58 @@
 <nav aria-label="微分" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_10">
+<a class="md-nav__link" href="#_11">
 <span class="md-ellipsis">
-      行偏导
+      变元与函数
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_11">
+<a class="md-nav__link" href="#-_1">
 <span class="md-ellipsis">
-      列偏导（梯度
+      标量函数&amp;向量变元 - 行偏导
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#-_2">
+<span class="md-ellipsis">
+      标量函数&amp;矩阵变元 - 行偏导
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#-jacobian-matrix">
+<span class="md-ellipsis">
+      标量函数&amp;矩阵变元 - Jacobian Matrix
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#-jacobian-matrix_1">
+<span class="md-ellipsis">
+      矩阵函数&amp;矩阵变元 - Jacobian Matrix
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_12">
+<span class="md-ellipsis">
+      列向量
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_13">
+<span class="md-ellipsis">
+      记忆公式
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_14">
+<span class="md-ellipsis">
+      计算法则
     </span>
 </a>
 </li>
@@ -536,7 +578,7 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_12">
+<a class="md-nav__link" href="#_15">
 <span class="md-ellipsis">
       积分
     </span>
@@ -546,9 +588,9 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../03-optimization/">
+<a class="md-nav__link" href="../03-optimization.md">
 <span class="md-ellipsis">
-    03 | 最优化
+    None
   </span>
 </a>
 </li>
@@ -3272,7 +3314,7 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_6">
+<a class="md-nav__link" href="#_7">
 <span class="md-ellipsis">
       矩阵之间
     </span>
@@ -3280,7 +3322,7 @@
 <nav aria-label="矩阵之间" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_7">
+<a class="md-nav__link" href="#_8">
 <span class="md-ellipsis">
       矩阵乘法
     </span>
@@ -3308,7 +3350,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_8">
+<a class="md-nav__link" href="#_9">
 <span class="md-ellipsis">
       向量化和矩阵化
     </span>
@@ -3318,7 +3360,7 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_9">
+<a class="md-nav__link" href="#_10">
 <span class="md-ellipsis">
       微分
     </span>
@@ -3326,16 +3368,58 @@
 <nav aria-label="微分" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_10">
+<a class="md-nav__link" href="#_11">
 <span class="md-ellipsis">
-      行偏导
+      变元与函数
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_11">
+<a class="md-nav__link" href="#-_1">
 <span class="md-ellipsis">
-      列偏导（梯度
+      标量函数&amp;向量变元 - 行偏导
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#-_2">
+<span class="md-ellipsis">
+      标量函数&amp;矩阵变元 - 行偏导
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#-jacobian-matrix">
+<span class="md-ellipsis">
+      标量函数&amp;矩阵变元 - Jacobian Matrix
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#-jacobian-matrix_1">
+<span class="md-ellipsis">
+      矩阵函数&amp;矩阵变元 - Jacobian Matrix
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_12">
+<span class="md-ellipsis">
+      列向量
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_13">
+<span class="md-ellipsis">
+      记忆公式
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_14">
+<span class="md-ellipsis">
+      计算法则
     </span>
 </a>
 </li>
@@ -3385,7 +3469,7 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_12">
+<a class="md-nav__link" href="#_15">
 <span class="md-ellipsis">
       积分
     </span>
@@ -3400,7 +3484,7 @@
 <article class="md-content__inner md-typeset">
 <div><h1 id="02"><span>02 |<span class="heti-spacing"> </span></span>矩阵运算<a class="headerlink" href="#02" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>2991<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>12<span class="heti-spacing"> </span></span>分钟</p>
+<p><span>:material-circle-edit-outline:<span class="heti-spacing"> </span></span>约<span class="heti-skip"><span class="heti-spacing"> </span>4380<span class="heti-spacing"> </span></span>个字<span class="heti-skip"><span class="heti-spacing"> </span>:fontawesome-solid-code: 10<span class="heti-spacing"> </span></span>行代码<span class="heti-skip"><span class="heti-spacing"> </span>:material-clock-time-two-outline:<span class="heti-spacing"> </span></span>预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>17<span class="heti-spacing"> </span></span>分钟</p>
 </div>
 <h2 id="_1">单个矩阵<a class="headerlink" href="#_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <div class="admonition note">
@@ -3467,7 +3551,12 @@
 <div class="arithmatex">\[
 (A + xy^H)^{-1} = A^{-1} - \frac{A^{-1}xy^HA^{-1}}{1 + y^HA^{-1}x}
 \]</div>
-<p>已经完成了矩阵的求逆，在<span class="heti-skip"><span class="heti-spacing"> </span>A<span class="heti-spacing"> </span></span>的基础上加上一个秩为<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>矩阵，求解逆矩阵的变化</p>
+<p>作用：已经完成了矩阵的求逆，在<span class="heti-skip"><span class="heti-spacing"> </span>A<span class="heti-spacing"> </span></span>的基础上加上一个秩为<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>矩阵，求解逆矩阵的变化</p>
+<p>应用：</p>
+<ul>
+<li>自相关矩阵和协方差矩阵估计的更新</li>
+<li>最小二乘法</li>
+</ul>
 <div class="admonition warning">
 <p class="admonition-title">证明<span><span class="heti-spacing"> </span>todox</span></p>
 <div class="arithmatex">\[
@@ -3489,12 +3578,14 @@ X                      &amp; = -A^{-1}B(C^{-1} + DA^{-1}B)^{-1}DA^{-1}
 \end{aligned}
 \]</div>
 </div>
-<details class="note">
-<summary>应用：自相关矩阵求逆<span><span class="heti-spacing"> </span><span class="arithmatex">\(\hat{R}^{-1}(n)\)</span></span></summary>
-<p><span><span class="arithmatex">\(\lambda\)</span><span class="heti-spacing"> </span></span>用来表征遗忘因子<span class="heti-skip"><span class="heti-spacing"> </span>;<span class="arithmatex">\(\lambda\)</span><span class="heti-spacing"> </span></span>越小，越倾向于线性现在的数据</p>
+<div class="admonition note">
+<p class="admonition-title">应用：自相关矩阵求逆<span><span class="heti-spacing"> </span><span class="arithmatex">\(\hat{R}^{-1}(n)\)</span></span></p>
+<p><span><span class="arithmatex">\(\lambda\)</span><span class="heti-spacing"> </span></span>用来表征遗忘因子<span class="heti-skip"><span class="heti-spacing"> </span>;<span class="arithmatex">\(\lambda\)</span><span class="heti-spacing"> </span></span>越小，越倾向于相信现在的数据</p>
 <div class="arithmatex">\[
 (\lambda R + xx^H)^{-1} = \lambda^{-1}R^{-1} - \frac{(\lambda^{-1}R^{-1}x)(\lambda^{-1}R^{-1}x)^H}{1 + \lambda^{-1}x^HR^{-1}x}
 \]</div>
+<p>如果每次全量计算，时间复杂度很高，computational demanding</p>
+<p>改写成递推形式</p>
 <div class="arithmatex">\[
 \begin{align*}
 \hat{R}(n) &amp;= \sum_{j=0}^{n} \lambda^{n-j} x(j)x^H(j)\\
@@ -3510,21 +3601,14 @@ X                      &amp; = -A^{-1}B(C^{-1} + DA^{-1}B)^{-1}DA^{-1}
 g(n) &amp;= \bar{g}(n)/\bar{\alpha}(n)
 \end{align*}
 \]</div>
-</details>
-<h4 id="moore-penrose-inverse"><span>Moore-Penrose Inverse |<span class="heti-spacing"> </span></span>伪逆矩阵<a class="headerlink" href="#moore-penrose-inverse" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+</div>
+<h4 id="_3">左右逆矩阵<a class="headerlink" href="#_3" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<p>对于方程<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\mathbf{Ax} = \mathbf{b}\)</span>,<span class="heti-spacing"> </span></span>其中<span><span class="heti-spacing"> </span><span class="arithmatex">\(\mathbf{A}_{m\times n}\)</span></span>， <span><span class="arithmatex">\(m\)</span><span class="heti-spacing"> </span></span>代表方程的个数，<span><span class="arithmatex">\(n\)</span><span class="heti-spacing"> </span></span>代表未知数的个数</p>
 <div class="admonition note">
 <p class="admonition-title">构造方法：想要构造成已经学过的方阵的求逆问题</p>
-<p>都是构造一个方阵</p>
+<p>我们已经知道如何求解方阵的逆矩阵，所以如果想求解非方阵的逆矩阵，需要构造一个方阵</p>
+<p>所以，通过构造方阵的办法，我们很容易就可以求解非方阵的逆矩阵</p>
 </div>
-<p>对于方程<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\mathbf{Ax} = \mathbf{b}\)</span>,<span class="heti-spacing"> </span></span>其中<span><span class="heti-spacing"> </span><span class="arithmatex">\(\mathbf{A}_{m\times n}\)</span></span>， <span><span class="arithmatex">\(m\)</span><span class="heti-spacing"> </span></span>代表方程的个数，<span><span class="arithmatex">\(n\)</span><span class="heti-spacing"> </span></span>代表未知数的个数</p>
-<p><strong>computational demanding</strong></p>
-<p>令<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A\)</span><span class="heti-spacing"> </span></span>是任意<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(m \times n\)</span><span class="heti-spacing"> </span></span>矩阵，称矩阵<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A^\dagger\)</span><span class="heti-spacing"> </span></span>是<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A\)</span><span class="heti-spacing"> </span></span>的广义逆矩阵，若<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A^\dagger\)</span><span class="heti-spacing"> </span></span>满足以下四个条件（常称<span class="heti-skip"><span class="heti-spacing"> </span>Moore-Penrose<span class="heti-spacing"> </span></span>条件<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>：</p>
-<ol>
-<li><span class="arithmatex">\(AA^\dagger A = A;\)</span></li>
-<li><span class="arithmatex">\(A^\dagger AA^\dagger = A^\dagger;\)</span></li>
-<li><span><span class="arithmatex">\(AA^\dagger\)</span><span class="heti-spacing"> </span></span>为<span class="heti-skip"><span class="heti-spacing"> </span>Hermitian<span class="heti-spacing"> </span></span>矩阵，即<span><span class="heti-spacing"> </span><span class="arithmatex">\(AA^\dagger = (AA^\dagger)^\mathrm{H};\)</span></span></li>
-<li><span><span class="arithmatex">\(A^\dagger A\)</span><span class="heti-spacing"> </span></span>为<span class="heti-skip"><span class="heti-spacing"> </span>Hermitian<span class="heti-spacing"> </span></span>矩阵，即<span><span class="heti-spacing"> </span><span class="arithmatex">\(A^\dagger A = (A^\dagger A)^\mathrm{H}.\)</span></span></li>
-</ol>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">左逆</label><label for="__tabbed_1_2">右逆</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -3532,7 +3616,8 @@ g(n) &amp;= \bar{g}(n)/\bar{\alpha}(n)
 <div class="arithmatex">\[
 A^\dagger_L = \left(A^HA\right)^{-1}A^H
 \]</div>
-<p>左逆列满秩的时候一定存在</p>
+<p>左逆列满秩的时候一定存在，即<span><span class="heti-spacing"> </span><span class="arithmatex">\(rank(A) = n\)</span></span></p>
+<p>证明：当<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(rank(A) = n\)</span><span class="heti-spacing"> </span></span>时，<span class="arithmatex">\(A^H A\)</span> is invertible</p>
 <p><strong>超定方程最小二乘解</strong></p>
 </div>
 <div class="tabbed-block">
@@ -3545,6 +3630,14 @@ A^\dagger_R = A^H\left(AA^H\right)^{-1}
 </div>
 </div>
 </div>
+<h4 id="moore-penrose-inverse"><span>Moore-Penrose Inverse |<span class="heti-spacing"> </span></span>伪逆矩阵<a class="headerlink" href="#moore-penrose-inverse" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<p>令<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A\)</span><span class="heti-spacing"> </span></span>是任意<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(m \times n\)</span><span class="heti-spacing"> </span></span>矩阵，称矩阵<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A^\dagger\)</span><span class="heti-spacing"> </span></span>是<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A\)</span><span class="heti-spacing"> </span></span>的广义逆矩阵，若<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A^\dagger\)</span><span class="heti-spacing"> </span></span>满足以下四个条件（常称<span class="heti-skip"><span class="heti-spacing"> </span>Moore-Penrose<span class="heti-spacing"> </span></span>条件<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>：</p>
+<ol>
+<li><span class="arithmatex">\(AA^\dagger A = A;\)</span></li>
+<li><span class="arithmatex">\(A^\dagger AA^\dagger = A^\dagger;\)</span></li>
+<li><span><span class="arithmatex">\(AA^\dagger\)</span><span class="heti-spacing"> </span></span>为<span class="heti-skip"><span class="heti-spacing"> </span>Hermitian<span class="heti-spacing"> </span></span>矩阵，即<span><span class="heti-spacing"> </span><span class="arithmatex">\(AA^\dagger = (AA^\dagger)^\mathrm{H};\)</span></span></li>
+<li><span><span class="arithmatex">\(A^\dagger A\)</span><span class="heti-spacing"> </span></span>为<span class="heti-skip"><span class="heti-spacing"> </span>Hermitian<span class="heti-spacing"> </span></span>矩阵，即<span><span class="heti-spacing"> </span><span class="arithmatex">\(A^\dagger A = (A^\dagger A)^\mathrm{H}.\)</span></span></li>
+</ol>
 <h3 id="norm">norm<a class="headerlink" href="#norm" title="anchor link to this section for reference">¶</a></h3>
 <h4 id="induced-norm">诱导范数（Induced Norm）<a class="headerlink" href="#induced-norm" title="anchor link to this section for reference">¶</a></h4>
 <ul>
@@ -3576,7 +3669,7 @@ A^\dagger_R = A^H\left(AA^H\right)^{-1}
 </div>
 </div>
 </div>
-<h4 id="_3">“元素形式” 范数<a class="headerlink" href="#_3" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h4 id="_4">“元素形式” 范数<a class="headerlink" href="#_4" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <div class="arithmatex">\[
 \|A\|_p \stackrel{\text{def}}{=}\left(\sum_{i=1}^m\sum_{j=1}^n|a_{ij}|^p\right)^{1/p}
 \]</div>
@@ -3668,7 +3761,7 @@ tr(A) = \sum_{i=1}^n \lambda_i
 <div class="arithmatex">\[
 det(AB) = det(A) \cdot det(B)
 \]</div>
-<h4 id="_4">求值<a class="headerlink" href="#_4" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h4 id="_5">求值<a class="headerlink" href="#_5" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <details class="note">
 <summary><span class="arithmatex">\(det = \Pi_i^n \lambda_i\)</span></summary>
 <p>矩阵的行列式等于其特征值的乘积<br/></p>
@@ -3685,7 +3778,7 @@ det(A) = det(V) \cdot det(\Lambda) \cdot det(V^{\mathbf{H}}) = det(\Lambda)
 <li><span class="arithmatex">\(\exists \lambda_i = 0\)</span>，行列式为<span><span class="heti-spacing"> </span>0</span>，矩阵奇异</li>
 <li><span class="arithmatex">\(\forall \lambda_i \neq 0\)</span>，行列式不为<span><span class="heti-spacing"> </span>0</span>，矩阵非奇异</li>
 </ul>
-<h4 id="_5">常用方法<a class="headerlink" href="#_5" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h4 id="_6">常用方法<a class="headerlink" href="#_6" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <h3 id="rank">rank<a class="headerlink" href="#rank" title="anchor link to this section for reference">¶</a></h3>
 <p>独立的方程的个数<span><span class="heti-spacing"> </span>;</span>
 矩阵中线性无关的行或者列的数目</p>
@@ -3707,8 +3800,11 @@ T_2(x) = \begin{bmatrix} x_1 - x_2 \\ x_2 + x_3 \end{bmatrix}, \quad \text{其�
 <div class="arithmatex">\[
 \begin{bmatrix} w_1 \\ w_2 \end{bmatrix} = \begin{bmatrix} 0 &amp; 0 \\ 0 &amp; 1 \end{bmatrix} \begin{bmatrix} x \\ y \end{bmatrix}
 \]</div>
-<h2 id="_6">矩阵之间<a class="headerlink" href="#_6" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<h3 id="_7">矩阵乘法<a class="headerlink" href="#_7" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h2 id="_7">矩阵之间<a class="headerlink" href="#_7" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<div class="admonition attention">
+<p class="admonition-title">关注矩阵运算是如何改变矩阵的维度的</p>
+</div>
+<h3 id="_8">矩阵乘法<a class="headerlink" href="#_8" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>矩阵乘法的行视角： 每一行都代表不同样本的特征；
 左乘行向量相当于对行进行操作</p>
 <p>矩阵乘法的列视角：每一列都作为最后结果中的一个成分（采集语音）
@@ -3720,6 +3816,7 @@ T_2(x) = \begin{bmatrix} x_1 - x_2 \\ x_2 + x_3 \end{bmatrix}, \quad \text{其�
 \begin{aligned}&amp;\mathbf{A}(\mathbf{BC})=(\mathbf{AB})\mathbf{C}\\&amp;(\mathbf{A}+\mathbf{B})\mathbf{C}=\mathbf{AC}+\mathbf{BC}\\&amp;A(B+C)=AB+AC\\&amp;\alpha(\mathbf{A}+\mathbf{B})=\alpha\mathbf{A}+\alpha\mathbf{B}\end{aligned}
 \]</div>
 <h3 id="-">直和<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>对角块拼接<a class="headerlink" href="#-" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>矩阵的维度是变大的</p>
 <p><span><span class="arithmatex">\(m \times m\)</span><span class="heti-spacing"> </span></span>矩阵<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A\)</span><span class="heti-spacing"> </span></span>与<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(n \times n\)</span><span class="heti-spacing"> </span></span>矩阵<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(B\)</span><span class="heti-spacing"> </span></span>的直和（direct sum）记作<span><span class="heti-spacing"> </span><span class="arithmatex">\(A \oplus B\)</span></span>，它是一个<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\((m + n) \times (m + n)\)</span><span class="heti-spacing"> </span></span>矩阵，定义为：</p>
 <div class="arithmatex">\[
 A \oplus B = 
@@ -3730,11 +3827,18 @@ O_{n \times m} &amp; B
 \]</div>
 <p>其中，<span><span class="arithmatex">\(O_{m \times n}\)</span><span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(O_{n \times m}\)</span><span class="heti-spacing"> </span></span>分别表示<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(m \times n\)</span><span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(n \times m\)</span><span class="heti-spacing"> </span></span>的零矩阵。</p>
 <p><strong>block diagonal matrix</strong></p>
+<ul>
+<li>不满足交换律</li>
+<li>满足结合律</li>
+</ul>
 <h3 id="hadamard-product-"><span>Hadamard product -<span class="heti-spacing"> </span></span>逐元素相乘<a class="headerlink" href="#hadamard-product-" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <div class="arithmatex">\[
 (A_{m\times n} B_{m\times n})_{ij} = a_{ij} b_{ij}
 \]</div>
 <h3 id="kronecker-product-"><span>Kronecker product -<span class="heti-spacing"> </span></span>元素乘矩阵<a class="headerlink" href="#kronecker-product-" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<ul>
+<li>应用：雷达、信号处理</li>
+</ul>
 <p>每个元素都乘一个矩阵</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="" id="__tabbed_3_1" name="__tabbed_3" type="radio"/><input id="__tabbed_3_2" name="__tabbed_3" type="radio"/><div class="tabbed-labels"><label for="__tabbed_3_1">右<span class="heti-skip"><span class="heti-spacing"> </span>Kronecker<span class="heti-spacing"> </span></span>积</label><label for="__tabbed_3_2">左<span class="heti-skip"><span class="heti-spacing"> </span>Kronecker<span class="heti-spacing"> </span></span>积</label></div>
 <div class="tabbed-content">
@@ -3765,7 +3869,8 @@ A \otimes B = \begin{bmatrix} 1 \cdot B &amp; 2 \cdot B \\ 3 \cdot B &amp; 4 \cd
 A \otimes B = \begin{bmatrix} \begin{bmatrix} 5 &amp; 6 \\ 7 &amp; 8 \end{bmatrix} &amp; \begin{bmatrix} 10 &amp; 12 \\ 14 &amp; 16 \end{bmatrix} \\ \begin{bmatrix} 15 &amp; 18 \\ 21 &amp; 24 \end{bmatrix} &amp; \begin{bmatrix} 20 &amp; 24 \\ 28 &amp; 32 \end{bmatrix} \end{bmatrix}
 \]</div>
 </details>
-<h3 id="_8">向量化和矩阵化<a class="headerlink" href="#_8" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_9">向量化和矩阵化<a class="headerlink" href="#_9" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p><span>motivation:<span class="heti-spacing"> </span></span>如何把一张图或者一个视频变成一个向量，送到神经网络中</p>
 <p>按列堆栈：</p>
 <div class="arithmatex">\[
 A = \begin{bmatrix}
@@ -3783,11 +3888,69 @@ A = \begin{bmatrix}
 —— &amp; a_n &amp; —— \\
 \end{bmatrix}\quad \text{rvec}(A) = \begin{bmatrix} -a_{1}-,- a_{2}-, \ldots, -a_{n}- \end{bmatrix}
 \]</div>
-<h2 id="_9">微分<a class="headerlink" href="#_9" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<p>微分与积分：element-wise</p>
+<div class="admonition example">
+<p class="admonition-title">向量化和矩阵化</p>
+<p>Consider a matrix <span class="arithmatex">\(A\)</span>:</p>
 <div class="arithmatex">\[
-\frac{\mathrm{d} \mathbf{A}}{\mathrm{d} t} = \mathbf{\dot{A}} = \begin{bmatrix} \frac{\mathrm{d} a_{11}}{\mathrm{d} t} &amp; \frac{\mathrm{d} a_{12}}{\mathrm{d} t} &amp; \cdots &amp; \frac{\mathrm{d} a_{1n}}{\mathrm{d} t} \\ \frac{\mathrm{d} a_{21}}{\mathrm{d} t} &amp; \frac{\mathrm{d} a_{22}}{\mathrm{d} t} &amp; \cdots &amp; \frac{\mathrm{d} a_{2n}}{\mathrm{d} t} \\ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ \frac{\mathrm{d} a_{m1}}{\mathrm{d} t} &amp; \frac{\mathrm{d} a_{m2}}{\mathrm{d} t} &amp; \cdots &amp; \frac{\mathrm{d} a_{mn}}{\mathrm{d} t} \end{bmatrix}
+A = \begin{bmatrix} 1 &amp; 2 \\ 3 &amp; 4 \end{bmatrix}
 \]</div>
+<p>The vectorization of <span class="arithmatex">\(A\)</span> by stacking its columns is:</p>
+<div class="arithmatex">\[
+\text{vec}(A) = \begin{bmatrix} 1 \\ 3 \\ 2 \\ 4 \end{bmatrix}
+\]</div>
+<p>The vectorization of <span class="arithmatex">\(A\)</span> by stacking its rows is:</p>
+<div class="arithmatex">\[
+\text{rvec}(A) = \begin{bmatrix} 1 &amp; 2 &amp; 3 &amp; 4 \end{bmatrix}
+\]</div>
+</div>
+<p>In numpy, this can be achieved using:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">flatten</span><span class="p">(</span><span class="n">order</span><span class="o">=</span><span class="s1">'F'</span><span class="p">))</span> <span class="c1"># 按列堆栈 1,3,2,4</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">flatten</span><span class="p">(</span><span class="n">order</span><span class="o">=</span><span class="s1">'C'</span><span class="p">))</span> <span class="c1"># 按行堆栈 1,2,3,4</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">按列堆栈和按行堆栈演示</span><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s1">'F'</span><span class="p">))</span><span class="c1"># 按列堆栈 1,3,2,4</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span><span class="c1"># 按行堆栈 1,2,3,4</span>
+</code></pre></div>
+<h2 id="_10">微分<a class="headerlink" href="#_10" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h3 id="_11">变元与函数<a class="headerlink" href="#_11" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p><span><span class="arithmatex">\(\boldsymbol{x}=[x_1,\cdots,x_m]^{\mathrm{T}}\in\mathbb{R}^m\)</span><span class="heti-spacing"> </span></span>为实向量变元；</p>
+<p><span><span class="arithmatex">\(\boldsymbol{X}=[\boldsymbol{x}_1,\cdots,\boldsymbol{x}_n]\in\mathbb{R}^{m\times n}\)</span><span class="heti-spacing"> </span></span>为实矩阵变元；</p>
+<p>根据输入输出的类型不同，我们可以把函数分为以下几种：</p>
+<table>
+<thead>
+<tr>
+<th>输入输出</th>
+<th>输入为向量<span><span class="heti-spacing"> </span><span class="arithmatex">\(\boldsymbol{x}\in\mathbb{R}^m\)</span></span></th>
+<th>输入为矩阵<span><span class="heti-spacing"> </span><span class="arithmatex">\(\boldsymbol{X}\in\mathbb{R}^{m\times n}\)</span></span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>标量输出</td>
+<td><span class="arithmatex">\(f(\boldsymbol{x})\in\mathbb{R}\)</span>，记作<span><span class="heti-spacing"> </span><span class="arithmatex">\(f:\mathbb{R}^m\to\mathbb{R}\)</span></span> <br/> 例：向量的范数</td>
+<td><span class="arithmatex">\(f(\boldsymbol{X})\in\mathbb{R}\)</span>，记作<span><span class="heti-spacing"> </span><span class="arithmatex">\(f:\mathbb{R}^{m\times n}\to\mathbb{R}\)</span></span> <br/> 例：矩阵的迹</td>
+</tr>
+<tr>
+<td>向量输出</td>
+<td><span class="arithmatex">\(f(\boldsymbol{x})\in\mathbb{R}^p\)</span>，记作<span><span class="heti-spacing"> </span><span class="arithmatex">\(f:\mathbb{R}^m\to\mathbb{R}^p\)</span></span> <br/> 例：卷积、傅立叶变换</td>
+<td><span class="arithmatex">\(f(\boldsymbol{X})\in\mathbb{R}^p\)</span>，记作<span><span class="heti-spacing"> </span><span class="arithmatex">\(f:\mathbb{R}^{m\times n}\to\mathbb{R}^p\)</span></span></td>
+</tr>
+<tr>
+<td>矩阵输出</td>
+<td><span class="arithmatex">\(\boldsymbol{F}(\boldsymbol{x})\in\mathbb{R}^{p\times q}\)</span>，记作<span><span class="heti-spacing"> </span><span class="arithmatex">\(\boldsymbol{F}:\mathbb{R}^m\to\mathbb{R}^{p\times q}\)</span></span> <br/> 例：<span>vandermonde<span class="heti-spacing"> </span></span>矩阵、confusion matrix</td>
+<td><span class="arithmatex">\(\boldsymbol{F}(\boldsymbol{X})\in\mathbb{R}^{p\times q}\)</span>，记作<span><span class="heti-spacing"> </span><span class="arithmatex">\(\boldsymbol{F}:\mathbb{R}^{m\times n}\to\mathbb{R}^{p\times q}\)</span></span> <br/> 例：输入是猫狗图，输出是猫狗分类结果</td>
+</tr>
+</tbody>
+</table>
+<p>微分与积分：element-wise
+$$
+frac{mathrm{d} mathbf{A}}{mathrm{d} t} = mathbf{dot{A}} = begin{bmatrix} frac{mathrm{d} a_{11}}{mathrm{d} t} &amp; frac{mathrm{d} a_{12}}{mathrm{d} t} &amp; cdots &amp; frac{mathrm{d} a_{1n}}{mathrm{d} t} \ frac{mathrm{d} a_{21}}{mathrm{d} t} &amp; frac{mathrm{d} a_{22}}{mathrm{d} t} &amp; cdots &amp; frac{mathrm{d} a_{2n}}{mathrm{d} t} \ vdots &amp; vdots &amp; ddots &amp; vdots \ frac{mathrm{d} a_{m1}}{mathrm{d} t} &amp; frac{mathrm{d} a_{m2}}{mathrm{d} t} &amp; cdots &amp; frac{mathrm{d} a_{mn}}{mathrm{d} t} end{bmatrix}
+$$</p>
 <div class="arithmatex">\[
 \int \mathbf{A} \mathrm{d} t = \begin{bmatrix} \int a_{11} \mathrm{d} t &amp; \int a_{12} \mathrm{d} t &amp; \cdots &amp; \int a_{1n} \mathrm{d} t \\ \int a_{21} \mathrm{d} t &amp; \int a_{22} \mathrm{d} t &amp; \cdots &amp; \int a_{2n} \mathrm{d} t \\ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ \int a_{m1} \mathrm{d} t &amp; \int a_{m2} \mathrm{d} t &amp; \cdots &amp; \int a_{mn} \mathrm{d} t \end{bmatrix}
 \]</div>
@@ -3795,20 +3958,83 @@ A = \begin{bmatrix}
 <div class="arithmatex">\[
 \frac{\mathrm{d}}{\mathrm{d} t} (\mathbf{A} \mathbf{B}) = \frac{\mathrm{d} \mathbf{A}}{\mathrm{d} t} \mathbf{B} + \mathbf{A} \frac{\mathrm{d} \mathbf{B}}{\mathrm{d} t}
 \]</div>
-<h3 id="_10">行偏导<a class="headerlink" href="#_10" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<h3 id="_11">列偏导（梯度<a class="headerlink" href="#_11" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="-_1">标量函数<span class="heti-skip"><span class="heti-spacing"> </span>&amp;<span class="heti-spacing"> </span></span>向量变元<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>行偏导<a class="headerlink" href="#-_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>行偏导算子</p>
+<div class="arithmatex">\[
+\begin{align*}
+\mathrm{D}_{x}&amp;\overset{\mathrm{def}}{\operatorname*{=}}\frac{\partial}{\partial {x^{\mathrm{T}}}_{1\times m}}=\left[\frac{\partial}{\partial x_{1}},\cdots,\frac{\partial}{\partial x_{m}}\right]_{1\times m}\\
+\mathrm{D}_{\boldsymbol{x}}f(\boldsymbol{x})&amp;=\frac{\partial f(\boldsymbol{x})}{\partial\boldsymbol{x}^{\mathrm{T}}}=\left[\frac{\partial f(\boldsymbol{x})}{\partial x_{1}},\cdots,\frac{\partial f(\boldsymbol{x})}{\partial x_{m}}\right]
+\end{align*}
+\]</div>
+<div class="admonition example">
+<p class="admonition-title">行偏导</p>
+<div class="arithmatex">\[
+\begin{aligned}
+f(x)&amp;=x^{T}x\\
+D_{x}f(x)&amp;=\frac{\partial f(x)}{\partial x^{T}}=[\frac{\partial f(x)}{\partial x_{1}}\cdots\frac{\partial f(x)}{\partial x_{m}}]\\
+&amp;=[\frac{\partial x^{T}x}{\partial x_{1}}\cdots\frac{\partial x^{T}x}{\partial x_{m}}]\\
+&amp;=[2x_{1}\cdots2x_{m}]=2x^{T}\end{aligned}
+\]</div>
+</div>
+<h3 id="-_2">标量函数<span class="heti-skip"><span class="heti-spacing"> </span>&amp;<span class="heti-spacing"> </span></span>矩阵变元<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>行偏导<a class="headerlink" href="#-_2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>如果变元是矩阵，也可以写出行偏导</p>
+<div class="arithmatex">\[
+\begin{aligned}
+&amp;\mathrm{D}_{\mathrm{vec}\boldsymbol{X}}f(\boldsymbol{X})=\frac{\partial f(\boldsymbol{X})}{\partial\mathrm{vec}^{\mathrm{T}}(\boldsymbol{X})}=\left[\frac{\partial f(\boldsymbol{X})}{\partial x_{11}},\cdots,\frac{\partial f(\boldsymbol{X})}{\partial x_{m1}},\cdots,\frac{\partial f(\boldsymbol{X})}{\partial x_{1n}},\cdots,\frac{\partial f(\boldsymbol{X})}{\partial x_{mn}}\right]_{1\times mn}\\
+&amp;\mathrm{D}_{\mathrm{vec}\boldsymbol{X}}f(\boldsymbol{X})=\mathrm{rvec}(\mathrm{D}_{\boldsymbol{X}}f(\boldsymbol{X}))=\left(\mathrm{vec}(\mathrm{D}_{\boldsymbol{X}}^{\mathbf{T}}f(\boldsymbol{X}))\right)^{\mathbf{T}}
+\end{aligned}
+\]</div>
+<p>所以求行偏导的结果相当于把雅可比矩阵给行向量化了</p>
+<h3 id="-jacobian-matrix">标量函数<span class="heti-skip"><span class="heti-spacing"> </span>&amp;<span class="heti-spacing"> </span></span>矩阵变元<span><span class="heti-spacing"> </span>- Jacobian Matrix</span><a class="headerlink" href="#-jacobian-matrix" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p><span><span class="arithmatex">\(f(X)\)</span><span class="heti-spacing"> </span></span>关于矩阵变元<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(X\)</span><span class="heti-spacing"> </span></span>的<span class="heti-skip"><span class="heti-spacing"> </span>Jacobian<span class="heti-spacing"> </span></span>矩阵</p>
+<p><span class="arithmatex">\(X \in \mathbb{R}^{m \times n}\)</span></p>
+<div class="arithmatex">\[
+D_X f(X) = \frac{\partial f(X)}{\partial X^T} = \begin{bmatrix} \frac{\partial f(X)}{\partial x_{11}} &amp; \ldots &amp; \frac{\partial f(X)}{\partial x_{m1}} \\ \vdots &amp; \ddots &amp; \vdots \\ \frac{\partial f(X)}{\partial x_{1n}} &amp; \ldots &amp; \frac{\partial f(X)}{\partial x_{mn}} \end{bmatrix} \in \mathbb{R}^{n \times m}
+\]</div>
+<h3 id="-jacobian-matrix_1">矩阵函数<span class="heti-skip"><span class="heti-spacing"> </span>&amp;<span class="heti-spacing"> </span></span>矩阵变元<span><span class="heti-spacing"> </span>- Jacobian Matrix</span><a class="headerlink" href="#-jacobian-matrix_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<div class="arithmatex">\[
+\mathrm{D}_{\boldsymbol{X}}\boldsymbol{F}(\boldsymbol{X})\overset{\mathrm{def}}{\operatorname*{=}}\frac{\partial\mathrm{vec}(\boldsymbol{F}(\boldsymbol{X}))}{\partial(\mathrm{vec}\boldsymbol{X})^{\mathrm{T}}}\in\mathbb{R}^{pq\times mn}
+\]</div>
+<p>思路：</p>
+<ul>
+<li>把矩阵函数列向量化<span><span class="heti-spacing"> </span><span class="arithmatex">\(vec(\mathbf{F}(\mathbf{X})) =vec\begin{bmatrix}\mathbf{F}_{1} &amp; \mathbf{F}_{2} &amp; \cdots &amp; \mathbf{F}_{q} \end{bmatrix}\)</span></span></li>
+<li>列向量化之后，相当于把矩阵函数的每一个元素展开成了一个列向量，然后相当于标量对于矩阵求行偏导</li>
+</ul>
+<div class="arithmatex">\[
+\begin{aligned}
+&amp;\mathrm{D}_{\boldsymbol{X}}\boldsymbol{F}(\boldsymbol{X})=\begin{bmatrix}\frac{\partial f_{11}}{\partial(vecX)^{\mathrm{T}}}\\\vdots\\\frac{\partial f_{p1}}{\partial(vecX)^{\mathrm{T}}}\\\vdots\\\frac{\partial f_{1q}}{\partial(vecX)^{\mathrm{T}}}\\\vdots\\\frac{\partial f_{pq}}{\partial(vecX)^{\mathrm{T}}}\end{bmatrix}
+=\begin{bmatrix}\frac{\partial f_{11}}{\partial x_{11}}&amp;\cdots&amp;\frac{\partial f_{11}}{\partial x_{m1}}&amp;\cdots&amp;\frac{\partial f_{11}}{\partial x_{1n}}&amp;\cdots&amp;\frac{\partial f_{11}}{\partial x_{mn}}\\\vdots&amp;\vdots&amp;\vdots&amp;\vdots&amp;\vdots&amp;\vdots\\\vdots&amp;\vdots&amp;\vdots&amp;\vdots&amp;\vdots&amp;\vdots\\\frac{\partial f_{p1}}{\partial x_{11}}&amp;\cdots&amp;\frac{\partial f_{p1}}{\partial x_{m1}}&amp;\cdots&amp;\frac{\partial f_{p1}}{\partial x_{1n}}&amp;\cdots&amp;\frac{\partial f_{p1}}{\partial x_{mn}}\\\vdots&amp;\vdots&amp;\vdots&amp;\vdots&amp;\vdots&amp;\vdots\\\vdots&amp;\vdots&amp;\vdots&amp;\vdots&amp;\vdots&amp;\vdots\\\frac{\partial f_{1q}}{\partial x_{11}}&amp;\cdots&amp;\frac{\partial f_{1q}}{\partial x_{m1}}&amp;\cdots&amp;\frac{\partial f_{1q}}{\partial x_{1n}}&amp;\cdots&amp;\frac{\partial f_{1q}}{\partial x_{mn}}\\\vdots&amp;\vdots&amp;\vdots&amp;\vdots&amp;\vdots&amp;\vdots\\\vdots&amp;\vdots&amp;\vdots&amp;\vdots&amp;\vdots&amp;\vdots\\\frac{\partial f_{pq}}{\partial x_{11}}&amp;\cdots&amp;\frac{\partial f_{pq}}{\partial x_{m1}}&amp;\cdots&amp;\frac{\partial f_{pq}}{\partial x_{1n}}&amp;\cdots&amp;\frac{\partial f_{pq}}{\partial x_{mn}}\end{bmatrix}
+\end{aligned}
+\]</div>
+<h3 id="_12">列向量<a class="headerlink" href="#_12" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p><span><span class="arithmatex">\(m\times1\)</span><span class="heti-spacing"> </span></span>列向量偏导算子即梯度算子记作<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\nabla_{\boldsymbol{x}}\)</span>,<span class="heti-spacing"> </span></span>定义为</p>
+<div class="arithmatex">\[\nabla_{x}\stackrel{\mathrm{def}}{=}\frac{\partial}{\partial x_{m\times1}}=\left[\frac{\partial}{\partial x_{1}},\cdots,\frac{\partial}{\partial x_{m}}\right]^{\mathrm{T}}\]</div>
+<div class="arithmatex">\[
+\nabla_{\boldsymbol{x}}f(\boldsymbol{x})\stackrel{\mathrm{def}}{=}\left[\frac{\partial f(\boldsymbol{x})}{\partial x_{1}},\cdots,\frac{\partial f(\boldsymbol{x})}{\partial x_{m}}\right]^{\mathrm{T}}=\frac{\partial f(\boldsymbol{x})}{\partial\boldsymbol{x}}
+\]</div>
+<div class="admonition example">
+<p class="admonition-title">求导</p>
+<div class="arithmatex">\[
+f(x) = x^{T}x = \sum_{i=1}^{n}x_{i}^{2}
+\]</div>
+<div class="arithmatex">\[
+\nabla_{x}f(x) = \begin{bmatrix} \frac{\partial \sum_{i=1}^{n}x_{i}^{2}}{\partial x_{1}} \\ \vdots \\ \frac{\partial \sum_{i=1}^{n}x_{i}^{2}}{\partial x_{n}} \end{bmatrix} = \begin{bmatrix} 2x_{1} \\ \vdots \\ 2x_{n} \end{bmatrix} = 2x
+\]</div>
+</div>
+<h3 id="_13">记忆公式<a class="headerlink" href="#_13" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>特例：<span class="arithmatex">\(y \in R^{m\times 1}\)</span>, <span class="arithmatex">\(\mathbf{A} \in R^{m\times m}\)</span></p>
 <ul>
 <li><span class="arithmatex">\(\frac{\partial{\mathbf{A}\mathbf{X}}}{\partial{\mathbf{X}}} = \mathbf{A}^T\)</span></li>
 <li><span class="arithmatex">\(\frac{\partial{\mathbf{X}^T\mathbf{A}\mathbf{X}}}{\partial{\mathbf{X}}} = \mathbf{A}^T\mathbf{X} + \mathbf{AX}\)</span></li>
 </ul>
+<h3 id="_14">计算法则<a class="headerlink" href="#_14" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <h3 id="higher-order-derivatives">Higher Order Derivatives<a class="headerlink" href="#higher-order-derivatives" title="anchor link to this section for reference">¶</a></h3>
 <h3 id="taylor-series">Taylor Series<a class="headerlink" href="#taylor-series" title="anchor link to this section for reference">¶</a></h3>
 <h3 id="partial-derivatives">Partial Derivatives<a class="headerlink" href="#partial-derivatives" title="anchor link to this section for reference">¶</a></h3>
 <h3 id="gradient">Gradient<a class="headerlink" href="#gradient" title="anchor link to this section for reference">¶</a></h3>
 <h3 id="hessian-matrix">Hessian Matrix<a class="headerlink" href="#hessian-matrix" title="anchor link to this section for reference">¶</a></h3>
 <h3 id="jacobian-matrixtodo">Jacobian Matrix（todo）<a class="headerlink" href="#jacobian-matrixtodo" title="anchor link to this section for reference">¶</a></h3>
-<h2 id="_12">积分<a class="headerlink" href="#_12" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_15">积分<a class="headerlink" href="#_15" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <div class="arithmatex">\[
 \int\mathbf{A}\mathrm{d}t=\begin{bmatrix}\int a_{11}\mathrm{d}t&amp;\int a_{12}\mathrm{d}t&amp;\cdots&amp;\int a_{1n}\mathrm{d}t\\\int a_{21}\mathrm{d}t&amp;\int a_{22}\mathrm{d}t&amp;\cdots&amp;\int a_{2n}\mathrm{d}t\\\vdots&amp;\vdots&amp;\ddots&amp;\vdots\\\int a_{m1}\mathrm{d}t&amp;\int a_{m2}\mathrm{d}t&amp;\cdots&amp;\int a_{mn}\mathrm{d}t\end{bmatrix}
 \]</div></div>
@@ -3817,7 +4043,7 @@ A = \begin{bmatrix}
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年5月4日 00:44:49</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年5月5日 10:46:31</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">
@@ -3884,13 +4110,13 @@ A = \begin{bmatrix}
               </div>
 </div>
 </a>
-<a aria-label="下一页: 03 | 最优化" class="md-footer__link md-footer__link--next" href="../03-optimization/">
+<a aria-label="下一页: 04 | 矩阵分解" class="md-footer__link md-footer__link--next" href="../04-decomposition/">
 <div class="md-footer__title">
 <span class="md-footer__direction">
                 下一页
               </span>
 <div class="md-ellipsis">
-                03 | 最优化
+                04 | 矩阵分解
               </div>
 </div>
 <div class="md-footer__button md-icon">
@@ -3925,9 +4151,8 @@ A = \begin{bmatrix}
 </div>
 <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tracking", "navigation.tabs", "navigation.path", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.instant", "search.highlight", "search.suggest", "toc.follow", "content.code.annotate", "content.code.copy", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
 <script src="../../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
-<script src="../../../assets/javascripts/mathjax.js"></script>
-<script src="../../../assets/javascripts/toc.js"></script>
-<script src="../../../assets/javascripts/MathJax-3.2.2/es5/tex-mml-chtml.js"></script>
-<script src="../../../assets/external/polyfill.alicdn.com/polyfill.min.7596a0b8.js"></script>
+<script src="../../../style/javascripts/mathjax.js"></script>
+<script src="../../../style/javascripts/toc.js"></script>
+<script src="../../../style/javascripts/MathJax-3.2.2/es5/tex-mml-chtml.js"></script>
 </body>
 </html>
