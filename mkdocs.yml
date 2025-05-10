@@ -338,7 +338,7 @@ nav:
     - CS/Language/C.md
     - CS/Language/C++.md
     - CS/Language/Python.md
-    - CS/Language/crawler.md
+    - Notebook page: CS/Language/Python_Package.ipynb
     - "Python速查":
       - "Seaborn": https://seaborn.pydata.org/api.html
       - "Pandas": https://pandas.pydata.org/docs/reference/index.html
@@ -377,52 +377,58 @@ nav:
     
   - "AI | 人工智能": 
     - "搜索 | Search": 
-      - CS/AI/01-AI_history&intro.md
-      - CS/AI/02-UninformedSearch.md     
-      - CS/AI/03-InformedSearch.md       
-      - CS/AI/04-OtherSearch.md
+      - CS/AI/Search/01-AI_history&intro.md
+      - CS/AI/Search/02-UninformedSearch.md     
+      - CS/AI/Search/03-InformedSearch.md       
+      - CS/AI/Search/04-OtherSearch.md
 
-    # - "ML | 机器学习": 
-    #   - CS/AI/ML-01-intro.md
-    #   - CS/AI/ML-01-metrics.md
-    #   - CS/AI/ML-02-LinearRegression.md
-    #   - CS/AI/ML-03-DecisionTree.md
-    #   - CS/AI/ML-04-SVM.md
-    #   - CS/AI/ML-05-bayes.md
-    #   - Notebook page:  CS/AI/ML-06-clustering.ipynb
-    #   - CS/AI/ML-07-DimensionalityReduction.md
-    #   - CS/AI/ML-08-EnsembleLearning.md
-    #   - CS/AI/ML-09-else.md
-    #   - CS/AI/ML-10-SemiSupervisedLearning.md
-    #   - CS/AI/ML-11-ConceptLearning.md
-    #   - CS/AI/ML-CSE.md
-    #   - CS/AI/ML-15-interpretable_models.md
+    - "ML | 机器学习": 
+      - CS/AI/ML/00-intro.md
+      - CS/AI/ML/00-Review.md
+      - CS/AI/ML/01-Metrics.md
+      - CS/AI/ML/02-LinearRegression.md
+      - CS/AI/ML/03-DecisionTree.md
+      - CS/AI/ML/04-SVM.md
+      - CS/AI/ML/05-Bayes.md
+      - CS/AI/ML/06-Clustering.md
+      - CS/AI/ML/07-DimensionalityReduction.md
+      - CS/AI/ML/08-EnsembleLearning.md
+      - CS/AI/ML/09-SparseRepresentation.md
+      - CS/AI/ML/10-SemiSupervisedLearning.md
+      - CS/AI/ML/11-ConceptLearning.md
+      - CS/AI/ML/15-interpretable_models.md
+
+    - "DL | 深度学习":
+      - CS/AI/DL/00-Lingo.md
+      - CS/AI/DL/01-MLP.md
+      - CS/AI/DL/02-CNN.md
+      - CS/AI/DL/03-Modern_CNN.md
+      - CS/AI/DL/04-RNN.md
+      - CS/AI/DL/05-Modern_RNN.md
+
+    - "ADV | 生成式模型":
+      - CS/AI/ADV/00-intro.md
+      - CS/AI/ADV/01-Attention.md
+      - CS/AI/ADV/02-Transformer.md
+      - CS/AI/ADV/03-GAN.md
+      - CS/AI/ADV/04-VAE.md
+      - CS/AI/ADV/05-Flow-Based.md
+      - CS/AI/ADV/06-Diffusion.md
+
+    - "RL | 强化学习":
+      - CS/AI/RL/RL-01.md
 
 
-    # - "DL | 深度学习":
-    #   - CS/AI/DL-00-Lingo.md
-    #   - Notebook page: CS/AI/DL-00-python_package.ipynb
-    #   - CS/AI/DL-00-pytorch.md
-    #   - CS/AI/DL-01-NN.md
-    #   - CS/AI/DL-06-CNN.md
-    #   - CS/AI/DL-08-RNN.md
-    #   - CS/AI/DL-09-modernRNN.md
-    #   - CS/AI/DL-11-optimation.md        
-    #   - CS/AI/DL-12-setting.md
-    #   - CS/AI/DL-application.md
-    #   - CS/AI/DL-Homework.md
-    #   - CS/AI/DL-problem.md
+    # - "对抗攻击":
+    #   - CS/AI/ADV/SEC-01-attack.md
+    #   - CS/AI/ADV/SEC-02-whitebox.md
+    #   - CS/AI/ADV/SEC-03-blackbox.md
 
-    # - "RL | 强化学习":
-    #   - CS/AI/RL-01.md
-    
-    - "ADV | 前沿":
-      - CS/AI/ADV-Diffusion.md
-
-    # - "SEC | 人工智能安全":
-    #   - CS/AI/SEC-01-attack.md
-    #   - CS/AI/SEC-02-whitebox.md
-    #   - CS/AI/SEC-03-blackbox.md
+    # - "实验相关":
+    #   - CS/AI/Exp/Parameters.md
+    #   - CS/AI/Exp/Problem.md
+    #   - CS/AI/Exp/Regularization.md
+    #   - CS/AI/Exp/Trick.md
     
     # - "LLM | 大模型相关":
     #   - CS/llm/llm.md
@@ -456,16 +462,16 @@ nav:
     - CS/SEC/CTF-crypto.md
     - CS/SEC/CTF-CPS.md
     
-  - Web3:
-    - CS/Web3/blockchain.md
-    - CS/Web3/contract.md
-    - CS/Web3/solidity.md
+  # - Web3:
+  #   - CS/Web3/blockchain.md
+  #   - CS/Web3/contract.md
+  #   - CS/Web3/solidity.md
 
-  - Dev:
-    - CS/missing_knowledge.md
-    - CS/Dev/rules.md
-    - CS/Dev/CI-CD.md
-    - CS/Dev/tampermonkey.md
+  # - Dev:
+  #   - CS/missing_knowledge.md
+  #   - CS/Dev/rules.md
+  #   - CS/Dev/CI-CD.md
+  #   - CS/Dev/tampermonkey.md
 
 - Class:
   - Class/马原.md
@@ -573,12 +579,12 @@ nav:
       - Interest/Travel/C-J-MY-KL.md
 
   - "🎶音乐":
-    - Interest/Music/music_theory.md
-    - Interest/Music/piano.md
-    - Interest/Music/piano_learning.md
-    - Interest/Music/piano_songs.md
-    - Interest/Music/music_classification.md
+    - Interest/Music/00-Music_Theory.md
+    - Interest/Music/01-Piano_Class.md
+    - Interest/Music/02-Piano_SelfSelect.md
+    - Interest/Music/03-Pinao_Classic.md
     - Interest/Music/music_band.md
+    - Interest/Music/music_classification.md
 
   - "🎨审美":
     - Interest/Aesthetic/flower.md
@@ -601,16 +607,12 @@ nav:
     - Interest/CommonKnowledge/accident.md
     - Interest/CommonKnowledge/house.md
     - Interest/CommonKnowledge/rent.md
-  
-  # - Blog:
-
-    
 
 
 
 
 plugins:
-  # - comments
+
   # meta
   - search:
       lang:
@@ -625,9 +627,9 @@ plugins:
       disable_serve: false
   
   # https://github.com/TonyCrane/mkdocs-statistics-plugin
-  # - statistics:
-  #     words_per_minute: 256
-  #     codelines_per_minute: 80
+  - statistics:
+      words_per_minute: 256
+      codelines_per_minute: 80
   
   # 这个插件用于压缩HTML输出，减少页面的加载时间和带宽消耗。
   # 重构环境的时候，这个插件貌似有一点点问题
@@ -646,16 +648,12 @@ plugins:
       strict: false
   
   # 支持jupyter notebook
-  # - privacy
   - mkdocs-jupyter:
       execute: true
       kernel_name: python3
       theme: dark
       include_source: True
       custom_mathjax_url: "/style/javascripts/MathJax-3.2.2/es5/tex-mml-chtml.js"
-      # custom_mathjax_url: "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS_CHTML-full,Safe"
-      # [Local MathJax with mkdocs-jupyter · squidfunk/mkdocs-material · Discussion #7134](https://github.com/squidfunk/mkdocs-material/discussions/7134)
-  # todo: 修复数学公式问题
   
   # 支持视频
   - mkdocs-video:
@@ -665,5 +663,4 @@ plugins:
       css_style:
         width: "50%"
 
-  # - blog
   

@@ -96,24 +96,6 @@ validation loss stops improving
 
 § Warmup is gradually increasing the learning rate initially, and afterward let it cool down until the end of the training
 
-## regularization
-
-
-正则化约束参数的大小
-
-如何验证正则化的大小
-
-
-### dropout
-Randomly drop units (along with their connections) during training
-§ Each unit is retained with a fixed dropout rate p, independent of other units
-§ The hyper-parameter p needs to be chosen (tuned)
-o Often, between 20% and 50% of the units are dropped
-
-### Early-stopping
-
-
-Batch normalization layers
 
 
 ## 多层感知机

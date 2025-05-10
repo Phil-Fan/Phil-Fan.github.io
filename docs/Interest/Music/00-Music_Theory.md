@@ -176,6 +176,8 @@ C中间切一下 2/2
 - 保持音 Tenuto
 - 重音 Marcato 改变音头的速度，快速一点，饱满有爆发力
   
+
+ligato
   
 - 延音线：如果两个音相同，用线连起来，第二个音不重复演奏
 - 连音线：如果两个音不同，用线连起来
@@ -239,6 +241,7 @@ bpm: beat per minute
   - 小三和弦：m*；min
   - 减三和弦：dim*；diminished
 
+![](https://pic2.zhimg.com/v2-99f273ad449c669d116ae20d56fe3293_1440w.jpg)
 
 切分节奏：
 - 有一种推进的感觉
@@ -260,11 +263,45 @@ bpm: beat per minute
 | G    | 大三和弦  | 小七度 | 属七和弦   | 属七和弦    |
 | B    | 减三和弦  | 小七度 | 减小七和弦 | 半减七和弦  |
 
+复属和弦：
+- 在属七和弦的基础上，再升高一个八度
+- 比如C7/G，在C7的基础上，再升高一个八度
+
+多用于转调
 
 ### 和声小调
 
 小调的五级和弦会强行升高半音，变成属七和弦，这个时候叫做和声小调
 
+### 和弦的配置
+旋律配上和弦
+
+配和声没有正确与否，只有品味的区别
+
+- 这个小节在弹什么音
+- 下一个小节弹什么音
+- 应该多久换一个和弦：和弦换太快的话，音乐听起来很忙碌
+
+
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=29000392&bvid=BV1Vs411u7We&cid=50300678&p=1&t=80&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+
+C和弦
+
+G7和弦：so si re fa
+
+F和弦：
+
+!!! note "例子——视奏并配和弦"
+    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250402200942.png)
+
+
+### 和弦的分解
+
+
+
+### 和弦转位
+
+可以把
 
 ### 和弦功能
 
@@ -284,6 +321,13 @@ bpm: beat per minute
 - 递归流：4536251
 - 卡农进行：15364125
 
+
+1451比较常见
+
+
+## 技巧
+
+托卡塔：
 
 
 ## 音阶
@@ -320,6 +364,7 @@ bpm: beat per minute
 
 避免来回使用不同的升降号的麻烦
 
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250507204930.png)
 
 
 ### G大调
@@ -335,6 +380,23 @@ G大调和声分解
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250423202112.png)
 
 弹奏D7的时候，手指要向前移动
+
+### F大调
+音阶
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250507204910.png)
+
+456 b7 123
+
+
+贝多芬喜欢用F大调，给人一种田园的感觉
+
+
+!!! note "为什么听起来比较欢快"
+    F大调的基础音是4，在C大调中是桥一样的存在，相当于你天天出去“度假”
+
+为F大调配置和弦
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250507204506.png)
 ## 和声伴奏
 
 圆舞曲伴奏：落提

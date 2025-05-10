@@ -1,5 +1,9 @@
 # HPE领域综述
 
+
+[人体姿态估计：深度学习方法 [2024 指南]](https://www.v7labs.com/blog/human-pose-estimation-guide)
+
+
 [【万字长文！人体姿态估计(HPE)入门教程】 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/596043913)
 
 [人体姿态估计的过去，现在，未来 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/85506259)
@@ -61,7 +65,58 @@ GCNs are generally expected to better exploit the relationship among key points 
 3. **缺点**：在关节点分配和人体实例的区分上可能面临更大的挑战，尤其是在人体密集或严重遮挡的场景中，可能导致精度略低于自上而下方法。
 4. **适用场景**：适用于人群密集的场景，或需要实时处理的应用中。
 
-### 主流数据集和技巧
+
+
+
+## metrics
+
+正确部位百分比 (PCP, Percentage of Correct Parts)
+PCP用于衡量肢体的正确检测。如果预测的两个关节位置与真实肢体关节位置之间的距离小于肢体长度的一半，则认为该肢体被正确检测。然而，这种方法有时会对较短的肢体（如前臂）造成不公平的惩罚。
+
+检测关节百分比 (PDJ, Percentage of Detected Joints)
+为了解决PCP提出的问题，研究者提出了一个新的评估指标。PDJ测量预测关节与真实关节在躯干直径特定比例范围内的距离。
+
+$PDJ = \frac{\text{检测到的关节数量}}{\text{总关节数量}}$
+
+PDJ有助于提高定位精度，因为所有关节的检测标准都基于相同的距离阈值，这缓解了PCP的缺点。
+
+正确关键点百分比 (PCK, Percentage of Correct Key-points)
+PCK是一个准确率指标，用于衡量预测关键点和真实关节是否在特定距离阈值内。PCK通常根据目标物体的尺度（由边界框确定）来设置。
+
+$PCK = \frac{\text{正确检测的关键点数量}}{\text{总关键点数量}}$
+
+阈值可以是：
+
+PCKh@0.5：阈值为头部骨骼连接长度的50%
+- $dist(pred, gt) < 0.5 \times head\_bone\_length$
+
+PCK@0.2：预测关节与真实关节之间的距离 < 躯干直径的0.2倍
+- $dist(pred, gt) < 0.2 \times torso\_diameter$
+
+有时也采用150毫米作为阈值。
+
+由于较短的肢体通常对应较小的躯干和头部骨骼连接，这种方法缓解了短肢体的问题。
+
+PCK可用于2D和3D姿态估计（PCK3D）
+
+基于对象关键点相似度(OKS)的mAP
+OKS在COCO关键点挑战中常用作评估指标。其定义为：
+
+$OKS = \frac{\sum_i \exp(-\frac{d_i^2}{2s^2k_i^2})\delta(v_i>0)}{\sum_i \delta(v_i>0)}$
+
+其中：
+
+$d_i$ 是真实值与预测关键点之间的欧氏距离
+
+$s$ 是目标分割区域面积的平方根
+
+$k_i$ 是控制衰减的每个关键点常数
+
+$v_i$ 是可见性标志，可以是0（未标注）、1（已标注但不可见）或2（可见且已标注）
+
+由于OKS用于计算距离（0-1），它表明预测关键点与真实关键点的接近程度。
+
+## 主流数据集和技巧
 
 ![image-20240318203018496](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240318203018496.png)
 

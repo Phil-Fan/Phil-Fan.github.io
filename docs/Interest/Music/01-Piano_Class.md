@@ -25,6 +25,12 @@ comments: true
     - **成绩组成：** 出勤10%+两次平时作业10%（交了就有分）+小组展示10%（不超过20min）+期中测试20% + 期末测试10%看谱+40%演奏 
     - 风格：更侧重原理和乐理；上课会先有小组展示，节奏型的练习，后面会讲一些乐理
 
+
+
+- [ ]
+- [ ] Lec 12 F大调
+
+ 
 ### 课堂流程
 零基础的内容应该是按照巴斯蒂安成人钢琴教程（第一册），乐理会简单涉及一点，但是不会很深入。
 
@@ -208,6 +214,16 @@ marcato：强
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=512848884&bvid=BV153411w72N&cid=757079532&p=1&t=64&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
 
 ### Hansel and Gretel
+
+
+### A Classic Tale - F大调
+
+
+比较好听的旋律，需要练习一下左右手不同的节奏
+
+- 需要注意一下最后一个离调的G7和弦，需要强调一下，然后右手搭配的7是还原7
+
+
 
 
 ## 练习曲目（陈列老师）

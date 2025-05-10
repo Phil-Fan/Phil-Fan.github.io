@@ -82,27 +82,7 @@ comments: true
 > 中国的音阶叫做 宫商角徵羽
 
 
-## 和声
 
-旋律配上和弦
-
-配和声没有正确与否，只有品味的区别
-
-- 这个小节在弹什么音
-- 下一个小节弹什么音
-- 应该多久换一个和弦：和弦换太快的话，音乐听起来很忙碌
-
-
-<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=29000392&bvid=BV1Vs411u7We&cid=50300678&p=1&t=80&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
-
-C和弦
-
-G7和弦：so si re fa
-
-F和弦：
-
-!!! note "例子——视奏并配和弦"
-    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250402200942.png)
 
 
 
