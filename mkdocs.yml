@@ -200,11 +200,21 @@ nav:
   - "LA | 线性代数":
     - Math/LinearAlgebra/00-index.md
     - Math/LinearAlgebra/01-basic.md
-    - Math/LinearAlgebra/02-calc.md
+    - Math/LinearAlgebra/02-1-calc.md
+    - Math/LinearAlgebra/02-2-derivative.md
     - Math/LinearAlgebra/03-relationship.md
     - Math/LinearAlgebra/04-decomposition.md
     - Math/LinearAlgebra/05-matrix_equation.md
     - Math/LinearAlgebra/06-analyze.md
+
+  - "Opt | 凸优化":
+    - Math/Opt/Opt-0-intro.md
+    - Math/Opt/Opt-1-model.md
+    - Math/Opt/Opt-2-无约束-解析法.md
+    - Math/Opt/Opt-3-无约束-数值法.md
+    - Math/Opt/Opt-4-有约束-解析法.md
+    - Math/Opt/Opt-5-有约束-数值法.md
+    - Math/Opt/Opt-6-else.md
 
   - "概率论":
     - Math/Statistic/00-intro.md
@@ -234,7 +244,6 @@ nav:
   - "OR | 运筹学":
     - Math/OR/OR-00-index.md
     - Math/OR/OR-01-programming.md
-    - Math/OR/OR-02-nonlinear.md
     - Math/OR/OR-03-graph.md
     - Math/OR/OR-04-DP.md
     - Math/OR/OR-05-1-GameTheory.md

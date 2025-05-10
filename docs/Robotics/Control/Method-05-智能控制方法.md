@@ -707,11 +707,10 @@ This browser does not support PDFs
 
 ## 其他
 
+详见优化部分
+
 ### 遗传算法
 
-[遗传算法、遗传算法库函数ga和gamultiobj、遗传算法工具箱GOT实例介绍-CSDN博客](https://blog.csdn.net/weixin_50892810/article/details/127346322)
-
-[基于遗传算法的simulink/PID参数整定(s函数）\_基于遗传算法的pid控制参数优化simulink-CSDN博客](https://blog.csdn.net/weixin_56691527/article/details/127620212)
 
 ### 粒子群算法
 

@@ -23,12 +23,16 @@
     \|x\|_1 \stackrel{\text{def}}{=} \sum_{i=1}^{m} |x_i| = |x_1| + \cdots + |x_m|
     $$
 
+    对应Laplace分布
+
 === "$L_2$ 范数"
     Euclidean norm，Frobenius norm
 
     $$
     \|x\|_2 = \sqrt{(x_1)^2 + \cdots + (x_m)^2}
     $$
+
+    对应Gaussian分布
 
 === "$L_\infty$ 范数"
     无穷范数
@@ -546,6 +550,12 @@ $$
     $$ 
     H = \begin{bmatrix} h_0 & 0 & 0 & \cdots & 0 \\ h_1 & h_0 & 0 & \cdots & 0 \\ h_2 & h_1 & h_0 & \cdots & 0 \\ \vdots & \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & h_2 & h_1& h_0 \end{bmatrix} 
     $$
+
+    **多项式乘法也可以看作是一个卷积的过程，表示成竖式的形式，其实就是卷积**
+
+
+    
+    
 
 ### Hankel矩阵 - 斜对角线元素相同
 

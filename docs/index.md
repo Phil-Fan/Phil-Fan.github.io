@@ -61,8 +61,9 @@ comments: true
     - [ ] 表情emoji出错
     - [ ] 图床配置出错
 
-enhancement
+## enhancement
 
+- [ ] 把图片迁移到本地，并想办法便于管理
 - [ ] 做一个帅气的封面
 - [ ] 做一个简洁的icon
 - [ ] 换一个好看的UI
