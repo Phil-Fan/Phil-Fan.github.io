@@ -861,7 +861,12 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.philfan.cn/Math/LinearAlgebra/02-calc.html</loc>
+         <loc>https://www.philfan.cn/Math/LinearAlgebra/02-1-calc.html</loc>
+         <lastmod>2025-05-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/Math/LinearAlgebra/02-2-derivative.html</loc>
          <lastmod>2025-05-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -896,16 +901,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.philfan.cn/Math/OR/OR-02-2-opt.html</loc>
-         <lastmod>2025-05-10</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://www.philfan.cn/Math/OR/OR-02-nonlinear.html</loc>
-         <lastmod>2025-05-10</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://www.philfan.cn/Math/OR/OR-03-graph.html</loc>
          <lastmod>2025-05-10</lastmod>
          <changefreq>daily</changefreq>
@@ -927,6 +922,41 @@
     </url>
     <url>
          <loc>https://www.philfan.cn/Math/OR/OR-06-QueuingTheory.html</loc>
+         <lastmod>2025-05-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/Math/Opt/Opt-0-intro.html</loc>
+         <lastmod>2025-05-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/Math/Opt/Opt-1-model.html</loc>
+         <lastmod>2025-05-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/Math/Opt/Opt-2-%E6%97%A0%E7%BA%A6%E6%9D%9F-%E8%A7%A3%E6%9E%90%E6%B3%95.html</loc>
+         <lastmod>2025-05-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/Math/Opt/Opt-3-%E6%97%A0%E7%BA%A6%E6%9D%9F-%E6%95%B0%E5%80%BC%E6%B3%95.html</loc>
+         <lastmod>2025-05-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/Math/Opt/Opt-4-%E6%9C%89%E7%BA%A6%E6%9D%9F-%E8%A7%A3%E6%9E%90%E6%B3%95.html</loc>
+         <lastmod>2025-05-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/Math/Opt/Opt-5-%E6%9C%89%E7%BA%A6%E6%9D%9F-%E6%95%B0%E5%80%BC%E6%B3%95.html</loc>
+         <lastmod>2025-05-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/Math/Opt/Opt-6-else.html</loc>
          <lastmod>2025-05-10</lastmod>
          <changefreq>daily</changefreq>
     </url>

@@ -5,12 +5,12 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="PhilFan的笔记本" name="description"/>
 <meta content="PhilFan" name="author"/>
-<link href="https://www.philfan.cn/Math/OR/OR-02-nonlinear.html" rel="canonical"/>
-<link href="OR-01-programming.html" rel="prev"/>
-<link href="OR-03-graph.html" rel="next"/>
+<link href="https://www.philfan.cn/Math/LinearAlgebra/02-1-calc.html" rel="canonical"/>
+<link href="01-basic.html" rel="prev"/>
+<link href="02-2-derivative.html" rel="next"/>
 <link href="../../logo.ico" rel="icon"/>
 <meta content="mkdocs-1.6.0, mkdocs-material-9.5.31" name="generator"/>
-<title>规划论 | 非线性规划 凸优化 - PhilFan's Notebook</title>
+<title>02 | 矩阵运算 - PhilFan's Notebook</title>
 <link href="../../assets/stylesheets/main.3cba04c6.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1 7.775V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 0 1 0 2.474l-5.026 5.026a1.75 1.75 0 0 1-2.474 0l-6.25-6.25A1.752 1.752 0 0 1 1 7.775Zm1.5 0c0 .066.026.13.073.177l6.25 6.25a.25.25 0 0 0 .354 0l5.025-5.025a.25.25 0 0 0 0-.354l-6.25-6.25a.25.25 0 0 0-.177-.073H2.75a.25.25 0 0 0-.25.25ZM6 5a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"/></svg>');--md-admonition-icon--abstract:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.5 1.75v11.5c0 .138.112.25.25.25h3.17a.75.75 0 0 1 0 1.5H2.75A1.75 1.75 0 0 1 1 13.25V1.75C1 .784 1.784 0 2.75 0h8.5C12.216 0 13 .784 13 1.75v7.736a.75.75 0 0 1-1.5 0V1.75a.25.25 0 0 0-.25-.25h-8.5a.25.25 0 0 0-.25.25Zm13.274 9.537v-.001l-4.557 4.45a.75.75 0 0 1-1.055-.008l-1.943-1.95a.75.75 0 0 1 1.062-1.058l1.419 1.425 4.026-3.932a.75.75 0 1 1 1.048 1.074ZM4.75 4h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM4 7.75A.75.75 0 0 1 4.75 7h2a.75.75 0 0 1 0 1.5h-2A.75.75 0 0 1 4 7.75Z"/></svg>');--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/></svg>');--md-admonition-icon--tip:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.499.75a.75.75 0 0 1 1.5 0v.996C5.9 2.903 6.793 3.65 7.662 4.376l.24.202c-.036-.694.055-1.422.426-2.163C9.1.873 10.794-.045 12.622.26 14.408.558 16 1.94 16 4.25c0 1.278-.954 2.575-2.44 2.734l.146.508.065.22c.203.701.412 1.455.476 2.226.142 1.707-.4 3.03-1.487 3.898C11.714 14.671 10.27 15 8.75 15h-6a.75.75 0 0 1 0-1.5h1.376a4.484 4.484 0 0 1-.563-1.191 3.835 3.835 0 0 1-.05-2.063 4.647 4.647 0 0 1-2.025-.293.75.75 0 0 1 .525-1.406c1.357.507 2.376-.006 2.698-.318l.009-.01a.747.747 0 0 1 1.06 0 .748.748 0 0 1-.012 1.074c-.912.92-.992 1.835-.768 2.586.221.74.745 1.337 1.196 1.621H8.75c1.343 0 2.398-.296 3.074-.836.635-.507 1.036-1.31.928-2.602-.05-.603-.216-1.224-.422-1.93l-.064-.221c-.12-.407-.246-.84-.353-1.29a2.425 2.425 0 0 1-.507-.441 3.075 3.075 0 0 1-.633-1.248.75.75 0 0 1 1.455-.364c.046.185.144.436.31.627.146.168.353.305.712.305.738 0 1.25-.615 1.25-1.25 0-1.47-.95-2.315-2.123-2.51-1.172-.196-2.227.387-2.706 1.345-.46.92-.27 1.774.019 3.062l.042.19a.884.884 0 0 1 .01.05c.348.443.666.949.94 1.553a.75.75 0 1 1-1.365.62c-.553-1.217-1.32-1.94-2.3-2.768L6.7 5.527c-.814-.68-1.75-1.462-2.692-2.619a3.737 3.737 0 0 0-1.023.88c-.406.495-.663 1.036-.722 1.508.116.122.306.21.591.239.388.038.797-.06 1.032-.19a.75.75 0 0 1 .728 1.31c-.515.287-1.23.439-1.906.373-.682-.067-1.473-.38-1.879-1.193L.75 5.677V5.5c0-.984.48-1.94 1.077-2.664.46-.559 1.05-1.055 1.673-1.353V.75Z"/></svg>');--md-admonition-icon--success:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"/></svg>');--md-admonition-icon--question:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.92 6.085h.001a.749.749 0 1 1-1.342-.67c.169-.339.436-.701.849-.977C6.845 4.16 7.369 4 8 4a2.756 2.756 0 0 1 1.637.525c.503.377.863.965.863 1.725 0 .448-.115.83-.329 1.15-.205.307-.47.513-.692.662-.109.072-.22.138-.313.195l-.006.004a6.24 6.24 0 0 0-.26.16.952.952 0 0 0-.276.245.75.75 0 0 1-1.248-.832c.184-.264.42-.489.692-.661.103-.067.207-.132.313-.195l.007-.004c.1-.061.182-.11.258-.161a.969.969 0 0 0 .277-.245C8.96 6.514 9 6.427 9 6.25a.612.612 0 0 0-.262-.525A1.27 1.27 0 0 0 8 5.5c-.369 0-.595.09-.74.187a1.01 1.01 0 0 0-.34.398ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>');--md-admonition-icon--warning:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>');--md-admonition-icon--failure:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.344 2.343h-.001a8 8 0 0 1 11.314 11.314A8.002 8.002 0 0 1 .234 10.089a8 8 0 0 1 2.11-7.746Zm1.06 10.253a6.5 6.5 0 1 0 9.108-9.275 6.5 6.5 0 0 0-9.108 9.275ZM6.03 4.97 8 6.94l1.97-1.97a.749.749 0 0 1 1.275.326.749.749 0 0 1-.215.734L9.06 8l1.97 1.97a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L8 9.06l-1.97 1.97a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734L6.94 8 4.97 6.03a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018Z"/></svg>');--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M9.504.43a1.516 1.516 0 0 1 2.437 1.713L10.415 5.5h2.123c1.57 0 2.346 1.909 1.22 3.004l-7.34 7.142a1.249 1.249 0 0 1-.871.354h-.302a1.25 1.25 0 0 1-1.157-1.723L5.633 10.5H3.462c-1.57 0-2.346-1.909-1.22-3.004L9.503.429Zm1.047 1.074L3.286 8.571A.25.25 0 0 0 3.462 9H6.75a.75.75 0 0 1 .694 1.034l-1.713 4.188 6.982-6.793A.25.25 0 0 0 12.538 7H9.25a.75.75 0 0 1-.683-1.06l2.008-4.418.003-.006a.036.036 0 0 0-.004-.009l-.006-.006-.008-.001c-.003 0-.006.002-.009.004Z"/></svg>');--md-admonition-icon--bug:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M4.72.22a.75.75 0 0 1 1.06 0l1 .999a3.488 3.488 0 0 1 2.441 0l.999-1a.748.748 0 0 1 1.265.332.75.75 0 0 1-.205.729l-.775.776c.616.63.995 1.493.995 2.444v.327c0 .1-.009.197-.025.292.408.14.764.392 1.029.722l1.968-.787a.75.75 0 0 1 .556 1.392L13 7.258V9h2.25a.75.75 0 0 1 0 1.5H13v.5c0 .409-.049.806-.141 1.186l2.17.868a.75.75 0 0 1-.557 1.392l-2.184-.873A4.997 4.997 0 0 1 8 16a4.997 4.997 0 0 1-4.288-2.427l-2.183.873a.75.75 0 0 1-.558-1.392l2.17-.868A5.036 5.036 0 0 1 3 11v-.5H.75a.75.75 0 0 1 0-1.5H3V7.258L.971 6.446a.75.75 0 0 1 .558-1.392l1.967.787c.265-.33.62-.583 1.03-.722a1.677 1.677 0 0 1-.026-.292V4.5c0-.951.38-1.814.995-2.444L4.72 1.28a.75.75 0 0 1 0-1.06Zm.53 6.28a.75.75 0 0 0-.75.75V11a3.5 3.5 0 1 0 7 0V7.25a.75.75 0 0 0-.75-.75ZM6.173 5h3.654A.172.172 0 0 0 10 4.827V4.5a2 2 0 1 0-4 0v.327c0 .096.077.173.173.173Z"/></svg>');--md-admonition-icon--example:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M5 5.782V2.5h-.25a.75.75 0 0 1 0-1.5h6.5a.75.75 0 0 1 0 1.5H11v3.282l3.666 5.76C15.619 13.04 14.543 15 12.767 15H3.233c-1.776 0-2.852-1.96-1.899-3.458Zm-2.4 6.565a.75.75 0 0 0 .633 1.153h9.534a.75.75 0 0 0 .633-1.153L12.225 10.5h-8.45ZM9.5 2.5h-3V6c0 .143-.04.283-.117.403L4.73 9h6.54L9.617 6.403A.746.746 0 0 1 9.5 6Z"/></svg>');--md-admonition-icon--quote:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1.75 2.5h10.5a.75.75 0 0 1 0 1.5H1.75a.75.75 0 0 1 0-1.5Zm4 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5ZM2.5 7.75v6a.75.75 0 0 1-1.5 0v-6a.75.75 0 0 1 1.5 0Z"/></svg>');}</style>
@@ -33,7 +33,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#_1">
+<a class="md-skip" href="#02">
           跳转至
         </a>
 </div>
@@ -57,7 +57,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              规划论 | 非线性规划 凸优化
+              02 | 矩阵运算
             
           </span>
 </div>
@@ -280,64 +280,227 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2_4" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_2_4" type="checkbox"/>
 <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
 <span class="md-ellipsis">
     LA | 线性代数
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="false" aria-labelledby="__nav_2_4_label" class="md-nav" data-md-level="2">
+<nav aria-expanded="true" aria-labelledby="__nav_2_4_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_2_4">
 <span class="md-nav__icon md-icon"></span>
             LA | 线性代数
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../LinearAlgebra/00-index.html">
+<a class="md-nav__link" href="00-index.html">
 <span class="md-ellipsis">
     导论与介绍
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../LinearAlgebra/01-basic.html">
+<a class="md-nav__link" href="01-basic.html">
 <span class="md-ellipsis">
     01 | 基础
   </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../LinearAlgebra/02-calc.html">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    02 | 矩阵运算
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="02-1-calc.html">
 <span class="md-ellipsis">
     02 | 矩阵运算
   </span>
 </a>
+<nav aria-label="目录" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_1">
+<span class="md-ellipsis">
+      单个矩阵
+    </span>
+</a>
+<nav aria-label="单个矩阵" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#conjugate">
+<span class="md-ellipsis">
+      Conjugate
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../LinearAlgebra/03-relationship.html">
+<a class="md-nav__link" href="#transpose">
+<span class="md-ellipsis">
+      Transpose
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#inverse">
+<span class="md-ellipsis">
+      Inverse
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#norm">
+<span class="md-ellipsis">
+      norm
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#quadratic-form">
+<span class="md-ellipsis">
+      quadratic form | 二次型
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#eigenvalues">
+<span class="md-ellipsis">
+      Eigenvalues | 特征值
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#trace">
+<span class="md-ellipsis">
+      Trace | 迹
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#eigenvectors">
+<span class="md-ellipsis">
+      Eigenvectors | 特征向量
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#determinant">
+<span class="md-ellipsis">
+      Determinant | 行列式
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#rank">
+<span class="md-ellipsis">
+      rank
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#tensorstodo">
+<span class="md-ellipsis">
+      Tensors（todo）
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#matrix-norms">
+<span class="md-ellipsis">
+      Matrix Norms
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_7">
+<span class="md-ellipsis">
+      矩阵之间
+    </span>
+</a>
+<nav aria-label="矩阵之间" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_8">
+<span class="md-ellipsis">
+      矩阵乘法
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#-">
+<span class="md-ellipsis">
+      直和 - 对角块拼接
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#hadamard-product-">
+<span class="md-ellipsis">
+      Hadamard product - 逐元素相乘
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#kronecker-product-">
+<span class="md-ellipsis">
+      Kronecker product - 元素乘矩阵
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_9">
+<span class="md-ellipsis">
+      向量化和矩阵化
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="02-2-derivative.html">
+<span class="md-ellipsis">
+    微分与积分
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="03-relationship.html">
 <span class="md-ellipsis">
     03 | 矩阵性质
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../LinearAlgebra/04-decomposition.html">
+<a class="md-nav__link" href="04-decomposition.html">
 <span class="md-ellipsis">
     04 | 矩阵分解
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../LinearAlgebra/05-matrix_equation.html">
+<a class="md-nav__link" href="05-matrix_equation.html">
 <span class="md-ellipsis">
     05 | 矩阵方程
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../LinearAlgebra/06-analyze.html">
+<a class="md-nav__link" href="06-analyze.html">
 <span class="md-ellipsis">
     06 | 特征分析
   </span>
@@ -350,12 +513,78 @@
 <input class="md-nav__toggle md-toggle" id="__nav_2_5" type="checkbox"/>
 <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
 <span class="md-ellipsis">
-    概率论
+    Opt | 凸优化
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-expanded="false" aria-labelledby="__nav_2_5_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_2_5">
+<span class="md-nav__icon md-icon"></span>
+            Opt | 凸优化
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Opt/Opt-0-intro.html">
+<span class="md-ellipsis">
+    凸优化
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Opt/Opt-1-model.html">
+<span class="md-ellipsis">
+    01 | 定义与数学建模
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Opt/Opt-2-%E6%97%A0%E7%BA%A6%E6%9D%9F-%E8%A7%A3%E6%9E%90%E6%B3%95.html">
+<span class="md-ellipsis">
+    02 | 无约束 解析解法
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Opt/Opt-3-%E6%97%A0%E7%BA%A6%E6%9D%9F-%E6%95%B0%E5%80%BC%E6%B3%95.html">
+<span class="md-ellipsis">
+    03 | 无约束 数值解法
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Opt/Opt-4-%E6%9C%89%E7%BA%A6%E6%9D%9F-%E8%A7%A3%E6%9E%90%E6%B3%95.html">
+<span class="md-ellipsis">
+    04 | 有约束 解析解法
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Opt/Opt-5-%E6%9C%89%E7%BA%A6%E6%9D%9F-%E6%95%B0%E5%80%BC%E6%B3%95.html">
+<span class="md-ellipsis">
+    05 | 有约束 数值解法
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Opt/Opt-6-else.html">
+<span class="md-ellipsis">
+    06 | 其他
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+<span class="md-ellipsis">
+    概率论
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_6_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_6">
 <span class="md-nav__icon md-icon"></span>
             概率论
           </label>
@@ -469,15 +698,15 @@
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2_6" type="checkbox"/>
-<label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+<input class="md-nav__toggle md-toggle" id="__nav_2_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
 <span class="md-ellipsis">
     SP | 随机过程
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="false" aria-labelledby="__nav_2_6_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_2_6">
+<nav aria-expanded="false" aria-labelledby="__nav_2_7_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_7">
 <span class="md-nav__icon md-icon"></span>
             SP | 随机过程
           </label>
@@ -527,267 +756,64 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_2_7" type="checkbox"/>
-<label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_8" id="__nav_2_8_label" tabindex="0">
 <span class="md-ellipsis">
     OR | 运筹学
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="true" aria-labelledby="__nav_2_7_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_2_7">
+<nav aria-expanded="false" aria-labelledby="__nav_2_8_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_8">
 <span class="md-nav__icon md-icon"></span>
             OR | 运筹学
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="OR-00-index.html">
+<a class="md-nav__link" href="../OR/OR-00-index.html">
 <span class="md-ellipsis">
     运筹学复习总结
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="OR-01-programming.html">
+<a class="md-nav__link" href="../OR/OR-01-programming.html">
 <span class="md-ellipsis">
     规划论 | Mathematical Programming
   </span>
 </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-<span class="md-ellipsis">
-    规划论 | 非线性规划 凸优化
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="OR-02-nonlinear.html">
-<span class="md-ellipsis">
-    规划论 | 非线性规划 凸优化
-  </span>
-</a>
-<nav aria-label="目录" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_2">
-<span class="md-ellipsis">
-      概念
-    </span>
-</a>
-<nav aria-label="概念" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_3">
-<span class="md-ellipsis">
-      凸集
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_4">
-<span class="md-ellipsis">
-      凸函数
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_7">
-<span class="md-ellipsis">
-      凸优化
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_8">
-<span class="md-ellipsis">
-      方法
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_9">
-<span class="md-ellipsis">
-      数学模型
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_10">
-<span class="md-ellipsis">
-      解析解法
-    </span>
-</a>
-<nav aria-label="解析解法" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_11">
-<span class="md-ellipsis">
-      无约束：
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_15">
-<span class="md-ellipsis">
-      有约束
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_19">
-<span class="md-ellipsis">
-      在机器学习中的应用
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_20">
-<span class="md-ellipsis">
-      数值解法（无约束）
-    </span>
-</a>
-<nav aria-label="数值解法（无约束）" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_21">
-<span class="md-ellipsis">
-      迭代方向
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_26">
-<span class="md-ellipsis">
-      步长选择
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_27">
-<span class="md-ellipsis">
-      迭代终止准则
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_28">
-<span class="md-ellipsis">
-      数值解法（有约束）
-    </span>
-</a>
-<nav aria-label="数值解法（有约束）" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#zoutendijk">
-<span class="md-ellipsis">
-      可行方向 —— Zoutendijk可行方向法
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_29">
-<span class="md-ellipsis">
-      制约函数
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_32">
-<span class="md-ellipsis">
-      混合法
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_33">
-<span class="md-ellipsis">
-      智能计算
-    </span>
-</a>
-<nav aria-label="智能计算" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#bp-back-propagation">
-<span class="md-ellipsis">
-      BP | back propagation
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_34">
-<span class="md-ellipsis">
-      蚁群算法
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_35">
-<span class="md-ellipsis">
-      模拟退火
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_36">
-<span class="md-ellipsis">
-      遗传算法
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="OR-03-graph.html">
+<a class="md-nav__link" href="../OR/OR-03-graph.html">
 <span class="md-ellipsis">
     图论 | Graph Theory
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="OR-04-DP.html">
+<a class="md-nav__link" href="../OR/OR-04-DP.html">
 <span class="md-ellipsis">
     动态规划 | DP
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="OR-05-1-GameTheory.html">
+<a class="md-nav__link" href="../OR/OR-05-1-GameTheory.html">
 <span class="md-ellipsis">
     博弈论 | GameTheory
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="OR-05-2-GameTheoryModel.html">
+<a class="md-nav__link" href="../OR/OR-05-2-GameTheoryModel.html">
 <span class="md-ellipsis">
     博弈论模型
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="OR-06-QueuingTheory.html">
+<a class="md-nav__link" href="../OR/OR-06-QueuingTheory.html">
 <span class="md-ellipsis">
     排队论 | Queuing Theory
   </span>
@@ -3265,180 +3291,140 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_2">
+<a class="md-nav__link" href="#_1">
 <span class="md-ellipsis">
-      概念
+      单个矩阵
     </span>
 </a>
-<nav aria-label="概念" class="md-nav">
+<nav aria-label="单个矩阵" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_3">
+<a class="md-nav__link" href="#conjugate">
 <span class="md-ellipsis">
-      凸集
+      Conjugate
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_4">
+<a class="md-nav__link" href="#transpose">
 <span class="md-ellipsis">
-      凸函数
+      Transpose
     </span>
 </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#inverse">
+<span class="md-ellipsis">
+      Inverse
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#norm">
+<span class="md-ellipsis">
+      norm
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#quadratic-form">
+<span class="md-ellipsis">
+      quadratic form | 二次型
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#eigenvalues">
+<span class="md-ellipsis">
+      Eigenvalues | 特征值
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#trace">
+<span class="md-ellipsis">
+      Trace | 迹
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#eigenvectors">
+<span class="md-ellipsis">
+      Eigenvectors | 特征向量
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#determinant">
+<span class="md-ellipsis">
+      Determinant | 行列式
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#rank">
+<span class="md-ellipsis">
+      rank
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#tensorstodo">
+<span class="md-ellipsis">
+      Tensors（todo）
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#matrix-norms">
+<span class="md-ellipsis">
+      Matrix Norms
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_7">
 <span class="md-ellipsis">
-      凸优化
+      矩阵之间
+    </span>
+</a>
+<nav aria-label="矩阵之间" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_8">
+<span class="md-ellipsis">
+      矩阵乘法
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_8">
+<a class="md-nav__link" href="#-">
 <span class="md-ellipsis">
-      方法
+      直和 - 对角块拼接
     </span>
 </a>
 </li>
-</ul>
-</nav>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#hadamard-product-">
+<span class="md-ellipsis">
+      Hadamard product - 逐元素相乘
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#kronecker-product-">
+<span class="md-ellipsis">
+      Kronecker product - 元素乘矩阵
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_9">
 <span class="md-ellipsis">
-      数学模型
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_10">
-<span class="md-ellipsis">
-      解析解法
-    </span>
-</a>
-<nav aria-label="解析解法" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_11">
-<span class="md-ellipsis">
-      无约束：
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_15">
-<span class="md-ellipsis">
-      有约束
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_19">
-<span class="md-ellipsis">
-      在机器学习中的应用
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_20">
-<span class="md-ellipsis">
-      数值解法（无约束）
-    </span>
-</a>
-<nav aria-label="数值解法（无约束）" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_21">
-<span class="md-ellipsis">
-      迭代方向
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_26">
-<span class="md-ellipsis">
-      步长选择
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_27">
-<span class="md-ellipsis">
-      迭代终止准则
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_28">
-<span class="md-ellipsis">
-      数值解法（有约束）
-    </span>
-</a>
-<nav aria-label="数值解法（有约束）" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#zoutendijk">
-<span class="md-ellipsis">
-      可行方向 —— Zoutendijk可行方向法
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_29">
-<span class="md-ellipsis">
-      制约函数
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_32">
-<span class="md-ellipsis">
-      混合法
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_33">
-<span class="md-ellipsis">
-      智能计算
-    </span>
-</a>
-<nav aria-label="智能计算" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#bp-back-propagation">
-<span class="md-ellipsis">
-      BP | back propagation
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_34">
-<span class="md-ellipsis">
-      蚁群算法
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_35">
-<span class="md-ellipsis">
-      模拟退火
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_36">
-<span class="md-ellipsis">
-      遗传算法
+      向量化和矩阵化
     </span>
 </a>
 </li>
@@ -3452,252 +3438,228 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<div><h1 id="_1">规划论<span class="heti-skip"><span class="heti-spacing"> </span>|<span class="heti-spacing"> </span></span>非线性规划 凸优化<a class="headerlink" href="#_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h1>
+<div><h1 id="02"><span>02 |<span class="heti-spacing"> </span></span>矩阵运算<a class="headerlink" href="#02" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>4819<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 17H7V3h14m0-2H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2M3 5H1v16a2 2 0 0 0 2 2h16v-2H3m12.96-10.71-2.75 3.54-1.96-2.36L8.5 15h11l-3.54-4.71Z"></path></svg></span> <span>23<span class="heti-spacing"> </span></span>张图片 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>19<span class="heti-spacing"> </span></span>分钟</p>
+<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>2904<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"></path></svg></span> <span>10<span class="heti-spacing"> </span></span>行代码 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 17H7V3h14m0-2H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2M3 5H1v16a2 2 0 0 0 2 2h16v-2H3m12.96-10.71-2.75 3.54-1.96-2.36L8.5 15h11l-3.54-4.71Z"></path></svg></span> <span>1<span class="heti-spacing"> </span></span>张图片 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>11<span class="heti-spacing"> </span></span>分钟</p>
 </div>
+<h2 id="_1">单个矩阵<a class="headerlink" href="#_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <div class="admonition note">
-<p class="admonition-title">随想</p>
-<p>这部分的几节课数学推导比较多，但是基本思想不是特别难。<br/>
-使用到的主要是多元函数求导、偏导、极值、二次型等内容<br/>
-老师讲的非常快，很多内容都是其他课程才能讲到的，奢求一个短学期的课讲清楚确实有点难了.自己的时间精力也不是特别充足，所以这部分有很多没有搞明白<br/></p>
+<p class="admonition-title">要关注矩阵运算对于矩阵维度的影响</p>
 </div>
-<p><strong>无约束</strong>优化问题 <strong>：</strong>直接求导、最速下降法、共轭梯度法、牛顿法等；</p>
-<p><strong>等式约束</strong>优化问题：拉格朗日<span class="heti-skip"><span class="heti-spacing"> </span>(Lagrange)<span class="heti-spacing"> </span></span>乘数法；</p>
-<p><strong>不等式约束</strong>优化问题 <strong>：</strong><span>KKT<span class="heti-spacing"> </span></span>条件。</p>
-<h2 id="_2">概念<a class="headerlink" href="#_2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<h3 id="_3">凸集<a class="headerlink" href="#_3" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<p>半平面的交点一定是凸集，</p>
+<table>
+<thead>
+<tr>
+<th>性质<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>指标</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>二次型</td>
+<td>矩阵的正定性与负定性</td>
+</tr>
+<tr>
+<td>行列式</td>
+<td>矩阵的奇异性</td>
+</tr>
+<tr>
+<td>特征值</td>
+<td>矩阵的奇异性、正定性和对角元素的结构</td>
+</tr>
+<tr>
+<td>迹</td>
+<td>矩阵对角元素之和、特征值之和</td>
+</tr>
+<tr>
+<td>秩</td>
+<td>行（或列）之间的线性无关性、矩阵方程的适定性</td>
+</tr>
+</tbody>
+</table>
+<h3 id="conjugate">Conjugate<a class="headerlink" href="#conjugate" title="anchor link to this section for reference">¶</a></h3>
 <ul>
-<li>凸规划的可行域为凸集</li>
+<li>共轭性质：<span class="arithmatex">\((A+B)^{*} = A^{*} + B^{*}\)</span></li>
 </ul>
+<h3 id="transpose">Transpose<a class="headerlink" href="#transpose" title="anchor link to this section for reference">¶</a></h3>
+<ul>
+<li>转置性质：<span class="arithmatex">\((A+B)^{\mathrm{T}} = A^{\mathrm{T}} + B^{\mathrm{T}}\)</span>，<span class="arithmatex">\((AB)^{\mathrm{T}} = B^{\mathrm{T}}A^{\mathrm{T}}\)</span></li>
+</ul>
+<h4 id="hermitian-hermitian-hermitian"><span>Hermitian<span class="heti-spacing"> </span></span>转置（共轭转置<span class="heti-skip"><span class="heti-spacing"> </span>/ Hermitian<span class="heti-spacing"> </span></span>伴随<span class="heti-skip"><span class="heti-spacing"> </span>/ Hermitian<span class="heti-spacing"> </span></span>共轭）<a class="headerlink" href="#hermitian-hermitian-hermitian" title="anchor link to this section for reference">¶</a></h4>
+<p><span class="arithmatex">\(A^\text{H} = \begin{bmatrix} a_{11}^* &amp; a_{21}^* &amp; \cdots &amp; a_{m1}^* \\ a_{12}^* &amp; a_{22}^* &amp; \cdots &amp; a_{m2}^* \\ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ a_{1n}^* &amp; a_{2n}^* &amp; \cdots &amp; a_{mn}^* \end{bmatrix}\)</span></p>
+<p><span class="arithmatex">\(A^\text{H} = (A^*)^\text{T} = (A^\text{T})^*\)</span></p>
+<ul>
+<li><span>Hermitian<span class="heti-spacing"> </span></span>转置性质：<span class="arithmatex">\((A+B)^{\mathrm{H}} = A^{\mathrm{H}} + B^{\mathrm{H}}\)</span>，<span class="arithmatex">\((AB)^{\mathrm{H}} = B^{\mathrm{H}}A^{\mathrm{H}}\)</span></li>
+</ul>
+<ul>
+<li><span>Hermitian<span class="heti-spacing"> </span></span>矩阵性质：对于任意矩阵<span><span class="heti-spacing"> </span><span class="arithmatex">\(A\)</span></span>，矩阵<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(B = A^{\mathrm{H}}A\)</span><span class="heti-spacing"> </span></span>都是<span class="heti-skip"><span class="heti-spacing"> </span>Hermitian<span class="heti-spacing"> </span></span>矩阵。</li>
+</ul>
+<h3 id="inverse">Inverse<a class="headerlink" href="#inverse" title="anchor link to this section for reference">¶</a></h3>
+<p>若<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A\)</span><span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(B\)</span><span class="heti-spacing"> </span></span>均可逆，则<span><span class="heti-spacing"> </span><span class="arithmatex">\((AB)^{-1} = B^{-1}A^{-1}\)</span></span></p>
+<p>性质（对于可逆的正方矩阵<span class="heti-skip"><span class="heti-spacing"> </span>A<span class="heti-spacing"> </span></span>和<span><span class="heti-spacing"> </span>B</span><heti-adjacent class="heti-adjacent-half">）</heti-adjacent>：</p>
+<ul>
+<li><span class="arithmatex">\((AB)^{-1} = B^{-1}A^{-1}\)</span></li>
+<li><span class="arithmatex">\((A^{*})^{-1} = (A^{-1})^{*}\)</span></li>
+<li><span class="arithmatex">\((A^{\mathrm{T}})^{-1} = (A^{-1})^{\mathrm{T}}\)</span></li>
+<li><span class="arithmatex">\((A^{\mathrm{H}})^{-1} = (A^{-1})^{\mathrm{H}}\)</span></li>
+</ul>
+<h4 id="_2">矩阵求逆引理<a class="headerlink" href="#_2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<p>background： 在许多实际问题中，经常会遇到这样的问题：已知一个矩阵<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A\)</span><span class="heti-spacing"> </span></span>的逆矩阵<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A^{-1}\)</span> ,<span class="heti-spacing"> </span></span>当矩阵<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A\)</span><span class="heti-spacing"> </span></span>产生了一个非常小的变化得到<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A+\Delta\)</span><span class="heti-spacing"> </span></span>时，通过已知的<span><span class="heti-spacing"> </span><span class="arithmatex">\(A^{-1}\)</span></span>，如何简单的求出<span><span class="heti-spacing"> </span><span class="arithmatex">\((A+\Delta)^{-1}\)</span>?</span></p>
 <div class="arithmatex">\[
-h_{i}(x)=0 \quad g_{j}(x) \leq 0 \quad 凸集的交集为凸集
+(A + xy^H)^{-1} = A^{-1} - \frac{A^{-1}xy^HA^{-1}}{1 + y^HA^{-1}x}
 \]</div>
+<p>作用：已经完成了矩阵的求逆，在<span class="heti-skip"><span class="heti-spacing"> </span>A<span class="heti-spacing"> </span></span>的基础上加上一个秩为<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>矩阵，求解逆矩阵的变化</p>
+<p>应用：</p>
 <ul>
-<li>如果最优解存在，最优解集合也为凸集</li>
+<li>自相关矩阵和协方差矩阵估计的更新</li>
+<li>最小二乘法</li>
 </ul>
-<div class="arithmatex">\[
-\begin{align}
-f\left[\lambda x_{1}^{*}+(1-\lambda) x_{2}\right] \leq f\left(x_{1}^{*}\right)+(1-\lambda)\\ f\left(x_{2}\right)=f\left(x_{1}^{*}\right)=f\left(x_{2}^{*}\right) ,0&lt;\lambda&lt;1 \\
-f\left[\lambda x_{1}^{*}+(1-\lambda) x_{2}^{*}\right]=f\left(x_{1}^{*}\right)=f\left(x_{2}^{*}\right) 
-\end{align}
-\]</div>
-<p>最优解的连线段均为最优解</p>
-<ul>
-<li>推论：线性规划问题的最优解集为所有最优顶点构成的多边形<heti-adjacent class="heti-adjacent-half">。</heti-adjacent>（归纳法证）</li>
-</ul>
-<div class="arithmatex">\[
-\begin{align}
-  x^{*}=\sum_{i=1}^{r} \alpha_{i} x^{*}_{i} \\ \sum_{i=1}^{r} \alpha_{i}=1 \\0 \le \alpha_{i} \le 1 \quad i=1, \cdots ,r
-\end{align}
-\]</div>
-<p><img alt="image-20240521163820391" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240521163820391.png" style="zoom:50%;"/></p>
-<h3 id="_4">凸函数<a class="headerlink" href="#_4" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<p>设函数<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(f(x)\)</span><span class="heti-spacing"> </span></span>在向量空间<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\mathbb{R}^n\)</span><span class="heti-spacing"> </span></span>的某个凸子集<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(C\)</span><span class="heti-spacing"> </span></span>上有定义，如果对于任意<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(x_1, x_2 \in C\)</span><span class="heti-spacing"> </span></span>和任意<span><span class="heti-spacing"> </span><span class="arithmatex">\(\lambda \in [0, 1]\)</span></span>，都有：<span class="arithmatex">\(f(\lambda x_1 + (1-\lambda) x_2) \le \lambda f(x_1) + (1-\lambda) f(x_2)\)</span></p>
-<p>那么函数<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(f(x)\)</span><span class="heti-spacing"> </span></span>就被称为定义在<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(C\)</span><span class="heti-spacing"> </span></span>上的凸函数。</p>
-<p>这个定义意味着，对于定义域内的任意两点，函数曲线上的这两点之间的部分都在这两点的连线下方。换句话说，凸函数的局部最小值就是全局最小值。</p>
-<p><img alt="image-20240521164034690" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240521164034690.png" style="zoom:50%;"/></p>
-<h4 id="_5">判定<a class="headerlink" href="#_5" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
-<p><strong>一阶条件：</strong></p>
-<p>对于任意的<span><span class="heti-spacing"> </span><span class="arithmatex">\(x_1, x_2 \in \mathbb{R}^n\)</span></span>，都有</p>
-<div class="arithmatex">\[
-f(x_2) \geq f(x_1) + \nabla f(x_1)^T (x_2 - x_1)
-\]</div>
-<p>几何意义：任何一点的切线在凸函数曲线的下方。</p>
-<p><strong>二阶条件：</strong></p>
-<p>对于任意的<span><span class="heti-spacing"> </span><span class="arithmatex">\(x \in \mathbb{R}^n\)</span></span>，都有</p>
-<div class="arithmatex">\[
-\nabla^2 f(x) \geq 0
-\]</div>
-<p>几何意义：函数曲线向上弯曲。</p>
-<h4 id="_6">性质<a class="headerlink" href="#_6" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
-<ul>
-<li>凸函数的非负线性组合仍为凸函数。</li>
-</ul>
-<ul>
-<li>若<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(f(x)\)</span><span class="heti-spacing"> </span></span>是定义在凸集<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\mathbb{R}^n\)</span><span class="heti-spacing"> </span></span>上的凸函数，则其<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\beta\)</span><span class="heti-spacing"> </span></span>水平集<span><span class="heti-spacing"> </span><span class="arithmatex">\(S_\beta\)</span></span>​ 为凸集。<blockquote>
-<p>半平面是凸集</p>
-</blockquote>
-</li>
-</ul>
-<ul>
-<li>对于凸函数<span><span class="heti-spacing"> </span><span class="arithmatex">\(f(x)\)</span></span>，若存在<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(x^* \in \mathbb{R}^n\)</span><span class="heti-spacing"> </span></span>满足</li>
-</ul>
-<div class="arithmatex">\[
-\nabla f(x^*)^T (x - x^*) \geq 0 \quad \forall x \in \mathbb{R}^n
-\]</div>
-<p>则<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(x^*\)</span><span class="heti-spacing"> </span></span>为<span><span class="heti-spacing"> </span><span class="arithmatex">\(f(x)\)</span></span>​ 的全局最小点。</p>
-<blockquote>
-<p>站在山谷底看，哪里都是向上走</p>
-</blockquote>
-<ul>
-<li>对于凸目标函数，<span><span class="arithmatex">\(\nabla f(x^*) = 0\)</span><span class="heti-spacing"> </span></span>是<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(x^*\)</span><span class="heti-spacing"> </span></span>为极小值的充要条件。</li>
-</ul>
-<ul>
-<li>对于凸目标函数，局部极小点也是全局最小点。</li>
-</ul>
-<h3 id="_7">凸优化<a class="headerlink" href="#_7" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<p>函数是凸函数，可行域是凸集；凹函数求最大值其实是一样的，加一个负号就可以了</p>
-<ul>
-<li>任何局部极值解也是全局最优解（目标函数为凸函数）</li>
-</ul>
-<p>局部极小点和全局最小点连线的目标函数值相同</p>
-<ul>
-<li>若目标函数为严格凸函数<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>则如果全局最优解存在<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>必为唯一全局最优解<heti-adjacent class="heti-adjacent-half">。</heti-adjacent>（反证法）</li>
-</ul>
-<div class="arithmatex">\[
-f\left[\lambda x_{1}^{*}+(1-\lambda) x_{2}^{*}\right]&lt;\lambda f\left(x_{1}^{*}\right)+(1-\lambda) f\left(x_{2}^{*}\right)=f\left(x_{1}^{*}\right)=f\left(x_{2}^{*}\right)
-\]</div>
-<p>最优解的唯一性为数值解法提供了方便。</p>
-<ul>
-<li>凸规划下的<span class="heti-skip"><span class="heti-spacing"> </span>KKT<span class="heti-spacing"> </span></span>条件为最优解的充要条件</li>
-</ul>
-<ul>
-<li>线性规划<span><span class="heti-spacing"> </span>(LP): linprog</span></li>
-<li>混合整数线性规划<span><span class="heti-spacing"> </span>(MILP): intlinprog</span></li>
-<li>二次规划<span><span class="heti-spacing"> </span>(QP): quadprog</span></li>
-<li>二阶锥规划<span><span class="heti-spacing"> </span>(SOCP): coneprog</span></li>
-<li>半定规划<span class="heti-skip"><span class="heti-spacing"> </span>(SDP): Yalmip<span class="heti-spacing"> </span></span>中调用<span class="heti-skip"><span class="heti-spacing"> </span>SDP<span class="heti-spacing"> </span></span>求解器</li>
-</ul>
-<ul>
-<li>无约束极值问题<span><span class="heti-spacing"> </span>: fminunc</span></li>
-<li>有约束极值问题<span><span class="heti-spacing"> </span>: fmincon</span></li>
-</ul>
-<div class="arithmatex">\[
-\text { LPS } \subseteq \text { QPS } \subseteq \text { QCQPS } \subseteq \text { SOCPs } \subseteq \text { SDPs } \subseteq \text { 锥规划 } \mid \text { CPs }
-\]</div>
-<p>线性矩阵不等式<span><span class="heti-spacing"> </span>LMI</span></p>
-<h3 id="_8">方法<a class="headerlink" href="#_8" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<ul>
-<li>松弛到更大的区域</li>
-<li>分支定解法，拆解成多个凸集进行分布求解</li>
-</ul>
-<h2 id="_9">数学模型<a class="headerlink" href="#_9" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<div class="arithmatex">\[
-\min \quad f(x)
-\]</div>
-<div class="arithmatex">\[
-\text{s.t.} \quad h_i(x) = 0 \quad i = 1, 2, ..., m
-\]</div>
-<div class="arithmatex">\[
-\quad g_j(x) \ge 0 \quad j = 1, 2, ..., l
-\]</div>
-<div class="arithmatex">\[
-x \in R^n
-\]</div>
-<p>将等式约束变为不等式约束，可以得到</p>
-<div class="arithmatex">\[
-\begin{align}
-\min \quad f(x)\\
-\text{s.t.} \quad h_i(x) \ge 0 \quad i = 1, 2, ..., m\\
-\quad -h_i(x) \ge 0 \quad i = 1, 2, ..., m\\
-\quad g_j(x) \ge 0 \quad j = 1, 2, ..., l\\
-x \in R^n
-\end{align}
-\]</div>
-<p>以求最小值为标准问题</p>
-<p><img alt="image-20240521100601777" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240521100601777.png"/></p>
-<p><strong>原问题</strong></p>
+<div class="admonition warning">
+<p class="admonition-title">证明<span><span class="heti-spacing"> </span>todox</span></p>
 <div class="arithmatex">\[
 \begin{aligned}
-\min_x \  f_0(x), x \in \mathbb{R}^n \\
-\text{s.t.} \quad f_i(x) \le 0, \text{其中} i=1,2,3...m \\
- h_i(x) = 0, \text{其中} i=1,2,3...q
+A^{-1} + X              &amp; = (A + BCD)^{-1} \\
+(A + BCD)(A^{-1} + X)   &amp; = I(I\text{为单位阵}) \\
+I + AX + BCDA^{-1} + BCDX &amp; = I \\
+AX + BCDA^{-1} + BCDX   &amp; = 0\text{(0为 0矩阵)} \\
+(A + BCD)X + BCDA^{-1}  &amp; = 0 \\
+X                      &amp; = -(A + BCD)^{-1}BCDA^{-1} \\
+X                      &amp; = -[B(B^{-1}A + CD)]^{-1}BCDA^{-1} \\
+X                      &amp; = -(B^{-1}A + CD)^{-1}CDA^{-1} \\
+X                      &amp; = -[C(C^{-1}B^{-1}A + D)]^{-1}CDA^{-1} \\
+X                      &amp; = -(C^{-1}B^{-1}A + D)^{-1}DA^{-1} \\
+X                      &amp; = -[(C^{-1}B^{-1} + DA^{-1})A]^{-1}DA^{-1} \\
+X                      &amp; = -A^{-1}(C^{-1}B^{-1} + DA^{-1})^{-1}DA^{-1} \\
+X                      &amp; = -A^{-1}[(C^{-1} + DA^{-1}B)B^{-1}]^{-1}DA^{-1} \\
+X                      &amp; = -A^{-1}B(C^{-1} + DA^{-1}B)^{-1}DA^{-1}
 \end{aligned}
 \]</div>
-<p><strong>等价问题</strong></p>
-<div class="arithmatex">\[
-\begin{align}
-  \min_x \ \max_{\lambda, \nu} \  L(x, \lambda, \nu)
-  = f_0(x) + \sum_{i=1}^m \lambda_i f_i(x) + \sum_{i=1}^q \nu_i h_i(x) \\
-  \text{s.t.} \quad  \lambda_i \ge 0 \\
-\end{align}
-\]</div>
-<p>等价性的证明</p>
-<div class="arithmatex">\[
-x  在可行域内
-\left\{
-  \begin{array}{lr}
- \lambda_i f_i(x) = 0 \quad  或  \lambda_i = 0 \quad n 或 f_i(x) = 0 \\
-\nu_i h_i(x) = 0 \quad 或 \nu_i = 0 \quad 或 h_i(x) = 0
-\end{array}
-\right.
-\]</div>
-<ul>
-<li>当<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(x\)</span><span class="heti-spacing"> </span></span>在可行域内时，<span class="arithmatex">\(\max_{\lambda, \nu} L(x, \lambda, \nu) = f_0(x) + 0 + 0 = f_0(x)\)</span></li>
-<li>当<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(x\)</span><span class="heti-spacing"> </span></span>不在可行域内时，<span class="arithmatex">\(\max_{\lambda, \nu} L(x, \lambda, \nu) = f_0(x) + \infty + \infty = \infty\)</span></li>
-</ul>
-<p>因此，<span class="arithmatex">\(\min \limits_x \max \limits_{\lambda, \nu} L(x, \lambda, \nu) = \min \limits_x f_0(x)\)</span></p>
-<p><strong>对偶问题</strong></p>
-<div class="arithmatex">\[
-\begin{align}
-\max \limits_{\lambda,v} \ \min \limits_x \ L(x,\mathbf{\lambda},\mathbf{v})=\\  
-s.t.= \left\{
-    \begin{array}{lr}
-        \nabla_x \ L(x,\mathbf{\lambda},\mathbf{v}) = 0\\
-        \lambda \ge 0
-    \end{array}
-   \right. 
-\end{align}
-\]</div>
-<p><img alt="image-20240521165037244" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240521165037244.png"/></p>
-<div class="admonition note">
-<p class="admonition-title">无论原问题是什么问题，对偶问题都是凸问题</p>
 </div>
-<h2 id="_10">解析解法<a class="headerlink" href="#_10" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<h3 id="_11">无约束：<a class="headerlink" href="#_11" title="anchor link to this section for reference">¶</a></h3>
-<p>严格局部极小点：</p>
-<ul>
-<li>必要条件：</li>
-<li>充分条件：<span><span class="arithmatex">\(\nabla f(X^*)=0\)</span><span class="heti-spacing"> </span></span>且<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\mathbf{H(f)}\)</span><span class="heti-spacing"> </span></span>正定</li>
-</ul>
-<h4 id="_12"><strong>驻点</strong>：<a class="headerlink" href="#_12" title="anchor link to this section for reference">¶</a></h4>
-<p><span class="arithmatex">\(\nabla f\left(x^{*}\right)=\left[\frac{\partial f(x)}{\partial x}\right]_{x=x^{*}}^{T}=0\)</span></p>
 <div class="admonition note">
-<p class="admonition-title">方向导数是一个数，梯度是一个向量</p>
+<p class="admonition-title">应用：自相关矩阵求逆<span><span class="heti-spacing"> </span><span class="arithmatex">\(\hat{R}^{-1}(n)\)</span></span></p>
+<p><span><span class="arithmatex">\(\lambda\)</span><span class="heti-spacing"> </span></span>用来表征遗忘因子<span class="heti-skip"><span class="heti-spacing"> </span>;<span class="arithmatex">\(\lambda\)</span><span class="heti-spacing"> </span></span>越小，越倾向于相信现在的数据</p>
+<div class="arithmatex">\[
+(\lambda R + xx^H)^{-1} = \lambda^{-1}R^{-1} - \frac{(\lambda^{-1}R^{-1}x)(\lambda^{-1}R^{-1}x)^H}{1 + \lambda^{-1}x^HR^{-1}x}
+\]</div>
+<p>如果每次全量计算，时间复杂度很高，computational demanding</p>
+<p>改写成递推形式</p>
+<div class="arithmatex">\[
+\begin{align*}
+\hat{R}(n) &amp;= \sum_{j=0}^{n} \lambda^{n-j} x(j)x^H(j)\\
+\hat{R}(n) &amp;= \lambda \hat{R}(n-1) + x(n)x^H(n)\\
+\hat{R}^{-1}(n) &amp;= \lambda^{-1}\hat{R}^{-1}(n-1) - g(n)g^H(n)
+\end{align*}
+\]</div>
+<p>更新公式</p>
+<div class="arithmatex">\[
+\begin{align*}
+\bar{g}(n) &amp;= \lambda^{-1}\hat{R}^{-1}(n-1)x(n)\\
+\bar{\alpha}(n) &amp;= 1 + g^H(n)x(n)\\
+g(n) &amp;= \bar{g}(n)/\bar{\alpha}(n)
+\end{align*}
+\]</div>
 </div>
-<h4 id="_13"><strong>方向导数</strong><a class="headerlink" href="#_13" title="anchor link to this section for reference">¶</a></h4>
-<p>方向导数是函数在某一特定方向上的变化率。它表示函数在定义域内某一点沿着给定方向的变化趋势。具体来说，对于一个具有定义域的函数<span><span class="heti-spacing"> </span><span class="arithmatex">\(f(x, y)\)</span></span>，在点<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\((x_0, y_0)\)</span><span class="heti-spacing"> </span></span>处沿着方向向量 </p>
+<h4 id="_3">左右逆矩阵<a class="headerlink" href="#_3" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<p>对于方程<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\mathbf{Ax} = \mathbf{b}\)</span>,<span class="heti-spacing"> </span></span>其中<span><span class="heti-spacing"> </span><span class="arithmatex">\(\mathbf{A}_{m\times n}\)</span></span>， <span><span class="arithmatex">\(m\)</span><span class="heti-spacing"> </span></span>代表方程的个数，<span><span class="arithmatex">\(n\)</span><span class="heti-spacing"> </span></span>代表未知数的个数</p>
+<div class="admonition note">
+<p class="admonition-title">构造方法：想要构造成已经学过的方阵的求逆问题</p>
+<p>我们已经知道如何求解方阵的逆矩阵，所以如果想求解非方阵的逆矩阵，需要构造一个方阵</p>
+<p>所以，通过构造方阵的办法，我们很容易就可以求解非方阵的逆矩阵</p>
+</div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">左逆</label><label for="__tabbed_1_2">右逆</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>仅当<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(m \geq n\)</span><span class="heti-spacing"> </span></span>时<span><span class="heti-spacing"> </span>("Tall matrix")</span>，说明这个时候方程的数目大于未知数的个数，方程是过定<span class="heti-skip"><span class="heti-spacing"> </span>(overdetermined)<span class="heti-spacing"> </span></span>的。矩阵<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A\)</span><span class="heti-spacing"> </span></span>可能有<strong>左逆矩阵</strong> </p>
 <div class="arithmatex">\[
-D_{\vec{u}}f(x_0, y_0) = \lim_{h \to 0} \frac{f(x_0 + hu_1, y_0 + hu_2) - f(x_0, y_0)}{h}
+A^\dagger_L = \left(A^HA\right)^{-1}A^H
 \]</div>
-<p>其中，<span><span class="arithmatex">\(h\)</span><span class="heti-spacing"> </span></span>是一个很小的正数，<span><span class="arithmatex">\(u_1\)</span><span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(u_2\)</span><span class="heti-spacing"> </span></span>是方向向量<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\vec{u}\)</span><span class="heti-spacing"> </span></span>的分量。</p>
-<h4 id="_14"><strong>梯度</strong>：<a class="headerlink" href="#_14" title="anchor link to this section for reference">¶</a></h4>
-<p>具有连续偏导→可微→<strong>有切平面</strong>→切线都在切平面上→有一个斜率最大的</p>
+<p>左逆列满秩的时候一定存在，即<span><span class="heti-spacing"> </span><span class="arithmatex">\(rank(A) = n\)</span></span></p>
+<p>证明：当<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(rank(A) = n\)</span><span class="heti-spacing"> </span></span>时，<span class="arithmatex">\(A^H A\)</span> is invertible</p>
+<p><strong>超定方程最小二乘解</strong></p>
+</div>
+<div class="tabbed-block">
+<p>仅当<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(m \leq n\)</span><span class="heti-spacing"> </span></span>时<span><span class="heti-spacing"> </span>("fat matrix")</span>，方程数目小于未知数的个数，方程式欠定的。矩阵<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A\)</span><span class="heti-spacing"> </span></span>可能有<strong>右逆矩阵</strong> </p>
 <div class="arithmatex">\[
-\nabla f(x)=\left[\begin{array}{c}
-\frac{\partial f(x)}{\partial x_{1}} \\
-\frac{\partial f(x)}{\partial x_{2}} \\
-\vdots \\
-\frac{\partial f(x)}{\partial x_{n}}
-\end{array}\right]
+A^\dagger_R = A^H\left(AA^H\right)^{-1}
 \]</div>
-<p>梯度的几何性质</p>
+<p>右逆行满秩的时候一定存在</p>
+<p>欠定方程最小范数解</p>
+</div>
+</div>
+</div>
+<h4 id="moore-penrose-inverse"><span>Moore-Penrose Inverse |<span class="heti-spacing"> </span></span>伪逆矩阵<a class="headerlink" href="#moore-penrose-inverse" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<p>令<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A\)</span><span class="heti-spacing"> </span></span>是任意<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(m \times n\)</span><span class="heti-spacing"> </span></span>矩阵，称矩阵<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A^\dagger\)</span><span class="heti-spacing"> </span></span>是<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A\)</span><span class="heti-spacing"> </span></span>的广义逆矩阵，若<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A^\dagger\)</span><span class="heti-spacing"> </span></span>满足以下四个条件（常称<span class="heti-skip"><span class="heti-spacing"> </span>Moore-Penrose<span class="heti-spacing"> </span></span>条件<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>：</p>
+<ol>
+<li><span class="arithmatex">\(AA^\dagger A = A;\)</span></li>
+<li><span class="arithmatex">\(A^\dagger AA^\dagger = A^\dagger;\)</span></li>
+<li><span><span class="arithmatex">\(AA^\dagger\)</span><span class="heti-spacing"> </span></span>为<span class="heti-skip"><span class="heti-spacing"> </span>Hermitian<span class="heti-spacing"> </span></span>矩阵，即<span><span class="heti-spacing"> </span><span class="arithmatex">\(AA^\dagger = (AA^\dagger)^\mathrm{H};\)</span></span></li>
+<li><span><span class="arithmatex">\(A^\dagger A\)</span><span class="heti-spacing"> </span></span>为<span class="heti-skip"><span class="heti-spacing"> </span>Hermitian<span class="heti-spacing"> </span></span>矩阵，即<span><span class="heti-spacing"> </span><span class="arithmatex">\(A^\dagger A = (A^\dagger A)^\mathrm{H}.\)</span></span></li>
+</ol>
+<h3 id="norm">norm<a class="headerlink" href="#norm" title="anchor link to this section for reference">¶</a></h3>
+<h4 id="induced-norm">诱导范数（Induced Norm）<a class="headerlink" href="#induced-norm" title="anchor link to this section for reference">¶</a></h4>
 <ul>
-<li><span><span class="arithmatex">\(\nabla f(x)\)</span><span class="heti-spacing"> </span></span>为目标函数<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(f(x)\)</span><span class="heti-spacing"> </span></span>等值面在<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(x\)</span><span class="heti-spacing"> </span></span>的法向量。</li>
-<li><span><span class="arithmatex">\(\nabla f(x)\)</span><span class="heti-spacing"> </span></span>是目标函数值<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(f(x)\)</span><span class="heti-spacing"> </span></span>在<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(x\)</span><span class="heti-spacing"> </span></span>点增长最快的方向。</li>
+<li>诱导范数定义为：<span class="arithmatex">\(\|A\| = \max \{\|Ax\| : x \in K^n, \|x\| = 1 \}\)</span></li>
+<li>或者等价地定义为：<span class="arithmatex">\(\|A\| = \max \left\{ \frac{\|Ax\|}{\|x\|} : x \in K^n, x \neq 0 \right\}\)</span></li>
 </ul>
-<h4 id="jacobian-matrix"><strong>雅可比矩阵（Jacobian matrix）</strong><a class="headerlink" href="#jacobian-matrix" title="anchor link to this section for reference">¶</a></h4>
-<p>它的重要性在于它体现了一个可微方程与给出点的最优线性逼近，因此，雅可比矩阵类似于多元函数的导数</p>
-<div class="arithmatex">\[
-J(\mathbf{f}) = \begin{bmatrix}
-\frac{\partial f_1}{\partial x_1} &amp; \frac{\partial f_1}{\partial x_2} &amp; \cdots &amp; \frac{\partial f_1}{\partial x_n} \\
-\frac{\partial f_2}{\partial x_1} &amp; \frac{\partial f_2}{\partial x_2} &amp; \cdots &amp; \frac{\partial f_2}{\partial x_n} \\
-\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
-\frac{\partial f_m}{\partial x_1} &amp; \frac{\partial f_m}{\partial x_2} &amp; \cdots &amp; \frac{\partial f_m}{\partial x_n}
-\end{bmatrix}
+<p><strong>常用的诱导范数<span class="heti-skip"><span class="heti-spacing"> </span>- p<span class="heti-spacing"> </span></span>范数（p-Norm）</strong>：
+   - p 范数定义为：<span class="arithmatex">\(\|A\|_p = \max_{x \neq 0} \frac{\|Ax\|_p}{\|x\|_p}\)</span></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="" id="__tabbed_2_1" name="__tabbed_2" type="radio"/><input id="__tabbed_2_2" name="__tabbed_2" type="radio"/><input id="__tabbed_2_3" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="__tabbed_2_1">当<span><span class="heti-spacing"> </span><span class="arithmatex">\(p = 1\)</span></span></label><label for="__tabbed_2_2"><span><span class="heti-spacing"> </span><span class="arithmatex">\(p = 2\)</span></span></label><label for="__tabbed_2_3"><span><span class="heti-spacing"> </span><span class="arithmatex">\(p = \infty\)</span></span></label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>得到绝对列和范数
+列的绝对值和的最大值</p>
+<div class="arithmatex">\[ 
+\|A\|_1 = \max_{1 \leq j \leq n} \sum_{i=1}^m |a_{ij}| 
 \]</div>
-<h4 id="hessian-matrix"><strong>黑塞矩阵<span class="heti-skip"><span class="heti-spacing"> </span>Hessian Matrix<span class="heti-spacing"> </span></span>二阶导数矩阵</strong><a class="headerlink" href="#hessian-matrix" title="anchor link to this section for reference">¶</a></h4>
+</div>
+<div class="tabbed-block">
+<p>得到矩阵的最大奇异值（Spectral Norm）</p>
 <div class="arithmatex">\[
-\mathbf{H(f)} = \nabla^{2} f(x)=\left[\begin{array}{cccc}
-\frac{\partial^{2} f(x)}{\partial x_{1}^{2}} &amp; \frac{\partial^{2} f(x)}{\partial x_{1} \partial x_{2}} &amp; \ldots &amp; \frac{\partial^{2} f(x)}{\partial x_{1} \partial x_{n}} \\
-\frac{\partial^{2} f(x)}{\partial x_{2} \partial x_{1}} &amp; \frac{\partial^{2} f(x)}{\partial x_{2}^{2}} &amp; \ldots &amp; \frac{\partial^{2} f(x)}{\partial x_{2} \partial x_{n}} \\
-\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
-\frac{\partial^{2} f(x)}{\partial x_{n} \partial x_{1}} &amp; \frac{\partial^{2} f(x)}{\partial x_{n} \partial x_{2}} &amp; \ldots &amp; \frac{\partial^{2} f(x)}{\partial x_{n}^{2}}
-\end{array}\right]
+\|A\|_2 = \|A\|_{\text{spec}} 
 \]</div>
-<p>二次型理论</p>
+</div>
+<div class="tabbed-block">
+<p>得到绝对行和范数（Absolute Row Sum Norm）</p>
+<div class="arithmatex">\[ 
+\|A\|_{\infty} = \max_{1 \leq i \leq m} \sum_{j=1}^n |a_{ij}| 
+\]</div>
+</div>
+</div>
+</div>
+<h4 id="_4">“元素形式” 范数<a class="headerlink" href="#_4" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<div class="arithmatex">\[
+\|A\|_p \stackrel{\text{def}}{=}\left(\sum_{i=1}^m\sum_{j=1}^n|a_{ij}|^p\right)^{1/p}
+\]</div>
+<ol>
+<li>
+<p><span><span class="arithmatex">\(L_1\)</span><span class="heti-spacing"> </span></span>范数<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>和范数<span><span class="heti-spacing"> </span>) <span class="arithmatex">\((p=1)\)</span></span>，绝对值的和</p>
+<p>$$
+ |A|<em i="1">1 stackrel{text{def}}{=} sum</em>|
+ $$}^m sum_{j=1}^n |a_{ij</p>
+</li>
+<li>
+<p><span>Frobenius<span class="heti-spacing"> </span></span>范数<span><span class="heti-spacing"> </span><span class="arithmatex">\((p=2)\)</span></span>，平方和的平方根</p>
+<p>$$
+ |A|<em i="1">F stackrel{text{def}}{=} left( sum</em>
+ $$}^m sum_{j=1}^n |a_{ij}|^2 right)^{½</p>
+</li>
+<li>
+<p>最大范数<span class="heti-skip"><span class="heti-spacing"> </span>(max norm)<span class="heti-spacing"> </span></span>即<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(p=\infty\)</span><span class="heti-spacing"> </span></span>的<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(p\)</span><span class="heti-spacing"> </span></span>范数<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>定义为</p>
+<p>$$
+ |A|<em i="1,cdots,m;" j="1,cdots,n">{infty} = max</em>|}
+ $$} {|a_{ij</p>
+</li>
+</ol>
+<h3 id="quadratic-form"><span>quadratic form |<span class="heti-spacing"> </span></span>二次型<a class="headerlink" href="#quadratic-form" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>对于任意一个二次型函数<span><span class="heti-spacing"> </span><span class="arithmatex">\(f(x_1, \ldots, x_n) = \sum_{i=1}^n \sum_{j=1}^n \alpha_{ij} x_i x_j\)</span></span>，存在许多矩阵<span><span class="heti-spacing"> </span><span class="arithmatex">\(A\)</span></span>，它们的二次型<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(x^T A x = f(x_1, \ldots, x_n)\)</span><span class="heti-spacing"> </span></span>相同。</p>
+<blockquote>
+<p>二次型一般用两个<span class="heti-skip"><span class="heti-spacing"> </span>sum<span class="heti-spacing"> </span></span>来表示</p>
+</blockquote>
+<p><strong>唯一性条件</strong></p>
+<ul>
+<li>只有实对称矩阵或复共轭对称矩阵满足唯一性，即<span><span class="heti-spacing"> </span><span class="arithmatex">\(x^T A x = f(x_1, \ldots, x_n)\)</span></span>。</li>
+<li>二次型函数一定是实值函数。</li>
+</ul>
+<p><strong>二次型理论</strong>：二次型刻画矩阵的正定性</p>
 <ul>
 <li><span><span class="arithmatex">\(\mathbf{H(f)}\)</span><span class="heti-spacing"> </span></span>负定，有极大值： 奇数阶主子式为负数，偶数阶为正数</li>
 <li><span><span class="arithmatex">\(\mathbf{H(f)}\)</span><span class="heti-spacing"> </span></span>正定，有极小值：顺序主子式都为正数</li>
@@ -3705,715 +3667,223 @@ J(\mathbf{f}) = \begin{bmatrix}
 <li><span><span class="arithmatex">\(\mathbf{H(f)}\)</span><span class="heti-spacing"> </span></span>不可逆，无法判断：特征值有<span><span class="heti-spacing"> </span>0</span></li>
 </ul>
 <p><img alt="b05544056c037bc56f9070e45533f02" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/b05544056c037bc56f9070e45533f02.jpg" style="zoom: 33%;"/></p>
-<p>对于一个二元函数<span><span class="heti-spacing"> </span><span class="arithmatex">\(f(x, y)\)</span></span>，它的黑塞矩阵是一个<span class="heti-skip"><span class="heti-spacing"> </span>2x2<span class="heti-spacing"> </span></span>的矩阵，由函数的二阶偏导数组成。黑塞矩阵的一般形式为：</p>
+<div class="admonition note">
+<p class="admonition-title">正定的理解</p>
+<p>假设<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\mathbf{A}x = m\)</span>,<span class="heti-spacing"> </span></span>则<span><span class="heti-spacing"> </span><span class="arithmatex">\(\langle x,m \rangle = x^{\mathbf{H}} m = x^{\mathbf{H}} \mathbf{A} x\)</span></span></p>
+<p>所以正定意味着<span class="heti-skip"><span class="heti-spacing"> </span>x,m<span class="heti-spacing"> </span></span>夹角小于<span class="heti-skip"><span class="heti-spacing"> </span>90<span class="heti-spacing"> </span></span>度</p>
+<p>任意输入，输出偏离都不会太大，都是一个锐角</p>
+<p>正定的话，所有特征值都大于零</p>
 <div class="arithmatex">\[
-H = \begin{bmatrix}
-\frac{\partial^2 f}{\partial x^2} &amp; \frac{\partial^2 f}{\partial x \partial y} \\
-\frac{\partial^2 f}{\partial y \partial x} &amp; \frac{\partial^2 f}{\partial y^2}
+\begin{align*}
+&amp;x_i^T A x_i &gt; 0 \\
+&amp;\Rightarrow x_i^T \lambda_i x_i &gt; 0 \\
+&amp;\Rightarrow \lambda_i \|x_i\|^2 &gt; 0 \\
+&amp;\Rightarrow \lambda_i &gt; 0
+\end{align*}
+\]</div>
+</div>
+<h3 id="eigenvalues"><span>Eigenvalues |<span class="heti-spacing"> </span></span>特征值<a class="headerlink" href="#eigenvalues" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>满足以下方程的<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\lambda\)</span><span class="heti-spacing"> </span></span>称为特征值</p>
+<p>第一定义</p>
+<div class="arithmatex">\[
+\mathbf{A} \mathbf{v} = \lambda \mathbf{v}
+\]</div>
+<p>第二定义</p>
+<div class="arithmatex">\[
+det(\mathbf{A} - \lambda \mathbf{I}) = 0
+\]</div>
+<p><strong>特征值和正定性</strong></p>
+<ul>
+<li>特征值为正，矩阵正定</li>
+<li>特征值非负，矩阵半正定</li>
+<li>特征值为负，矩阵负定</li>
+<li>特征值非正，矩阵半负定</li>
+<li>特征值有正有负，矩阵不定</li>
+</ul>
+<p><strong>性质</strong></p>
+<div class="arithmatex">\[
+det(A) \leq \prod_{i=1}^n \lambda_i
+\]</div>
+<div class="arithmatex">\[
+tr(A) \leq \sum_{i=1}^n \lambda_i
+\]</div>
+<h3 id="trace"><span>Trace |<span class="heti-spacing"> </span></span>迹<a class="headerlink" href="#trace" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>所有特征值之和</p>
+<div class="arithmatex">\[
+tr(A) = \sum_{i=1}^n \lambda_i
+\]</div>
+<h3 id="eigenvectors"><span>Eigenvectors |<span class="heti-spacing"> </span></span>特征向量<a class="headerlink" href="#eigenvectors" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="determinant"><span>Determinant |<span class="heti-spacing"> </span></span>行列式<a class="headerlink" href="#determinant" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<div class="arithmatex">\[
+det(AB) = det(A) \cdot det(B)
+\]</div>
+<h4 id="_5">求值<a class="headerlink" href="#_5" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<details class="note">
+<summary><span class="arithmatex">\(det = \Pi_i^n \lambda_i\)</span></summary>
+<p>矩阵的行列式等于其特征值的乘积<br/></p>
+<p>对于一个<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(n \times n\)</span><span class="heti-spacing"> </span></span>的方阵<span><span class="heti-spacing"> </span><span class="arithmatex">\(A\)</span></span>，如果它有<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(n\)</span><span class="heti-spacing"> </span></span>个线性无关的特征向量<span><span class="heti-spacing"> </span><span class="arithmatex">\(v_1, v_2, \ldots, v_n\)</span></span>，那么<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A\)</span><span class="heti-spacing"> </span></span>可以表示为：</p>
+<div class="arithmatex">\[ 
+A = V \Lambda V^{\mathbf{H}}\\
+det(A) = det(V) \cdot det(\Lambda) \cdot det(V^{\mathbf{H}}) = det(\Lambda) 
+\]</div>
+<p>而特征向量矩阵<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(V\)</span><span class="heti-spacing"> </span></span>是正交矩阵<span><span class="heti-spacing"> </span><span class="arithmatex">\(V\cdot V^{\mathbf{H}} = I\)</span></span>；所以<span><span class="heti-spacing"> </span><span class="arithmatex">\(det(V) = 1\)</span></span></p>
+<p>又因为<span><span class="heti-spacing"> </span><span class="arithmatex">\(det(\Lambda) = \lambda_1 \lambda_2 \cdots \lambda_n\)</span></span>，所以<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A\)</span><span class="heti-spacing"> </span></span>的行列式等于它的特征值的乘积。</p>
+</details>
+<p><strong>行列式与奇异性</strong></p>
+<ul>
+<li><span class="arithmatex">\(\exists \lambda_i = 0\)</span>，行列式为<span><span class="heti-spacing"> </span>0</span>，矩阵奇异</li>
+<li><span class="arithmatex">\(\forall \lambda_i \neq 0\)</span>，行列式不为<span><span class="heti-spacing"> </span>0</span>，矩阵非奇异</li>
+</ul>
+<h4 id="_6">常用方法<a class="headerlink" href="#_6" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h3 id="rank">rank<a class="headerlink" href="#rank" title="anchor link to this section for reference">¶</a></h3>
+<p>独立的方程的个数<span><span class="heti-spacing"> </span>;</span>
+矩阵中线性无关的行或者列的数目</p>
+<ul>
+<li><span class="arithmatex">\(rank(A) = rank(A^T)\)</span></li>
+<li><span class="arithmatex">\(rank(A) = rank(A^H)\)</span></li>
+<li><span class="arithmatex">\(rank(A) = rank(AA^H)\)</span></li>
+</ul>
+<h3 id="tensorstodo">Tensors（todo）<a class="headerlink" href="#tensorstodo" title="anchor link to this section for reference">¶</a></h3>
+<h3 id="matrix-norms">Matrix Norms<a class="headerlink" href="#matrix-norms" title="anchor link to this section for reference">¶</a></h3>
+<p>三维到二维的变换<span><span class="heti-spacing"> </span><span class="arithmatex">\(T : \mathbb{R}^3 \mapsto \mathbb{R}^2\)</span></span></p>
+<div class="arithmatex">\[
+T_1(x) = \begin{bmatrix} x_1 + x_2 \\ x_1 - x_2 \end{bmatrix}, \quad \text{其中}, \quad x = \begin{bmatrix} x_1 \\ x_2 \\ x_3 \end{bmatrix}
+\]</div>
+<div class="arithmatex">\[
+T_2(x) = \begin{bmatrix} x_1 - x_2 \\ x_2 + x_3 \end{bmatrix}, \quad \text{其中}, \quad x = \begin{bmatrix} x_1 \\ x_2 \\ x_3 \end{bmatrix}
+\]</div>
+<p>正交投影算子<span><span class="heti-spacing"> </span><span class="arithmatex">\(w = T(x)\)</span></span></p>
+<div class="arithmatex">\[
+\begin{bmatrix} w_1 \\ w_2 \end{bmatrix} = \begin{bmatrix} 0 &amp; 0 \\ 0 &amp; 1 \end{bmatrix} \begin{bmatrix} x \\ y \end{bmatrix}
+\]</div>
+<h2 id="_7">矩阵之间<a class="headerlink" href="#_7" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<div class="admonition attention">
+<p class="admonition-title">关注矩阵运算是如何改变矩阵的维度的</p>
+</div>
+<h3 id="_8">矩阵乘法<a class="headerlink" href="#_8" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>矩阵乘法的行视角： 每一行都代表不同样本的特征；
+左乘行向量相当于对行进行操作</p>
+<p>矩阵乘法的列视角：每一列都作为最后结果中的一个成分（采集语音）
+右乘列向量相当于对列进行操作</p>
+<div class="admonition note">
+<p class="admonition-title">鸡尾酒会问题<span><span class="heti-spacing"> </span>Blind Signal Seperation</span></p>
+</div>
+<div class="arithmatex">\[
+\begin{aligned}&amp;\mathbf{A}(\mathbf{BC})=(\mathbf{AB})\mathbf{C}\\&amp;(\mathbf{A}+\mathbf{B})\mathbf{C}=\mathbf{AC}+\mathbf{BC}\\&amp;A(B+C)=AB+AC\\&amp;\alpha(\mathbf{A}+\mathbf{B})=\alpha\mathbf{A}+\alpha\mathbf{B}\end{aligned}
+\]</div>
+<h3 id="-">直和<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>对角块拼接<a class="headerlink" href="#-" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>矩阵的维度是变大的</p>
+<p><span><span class="arithmatex">\(m \times m\)</span><span class="heti-spacing"> </span></span>矩阵<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A\)</span><span class="heti-spacing"> </span></span>与<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(n \times n\)</span><span class="heti-spacing"> </span></span>矩阵<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(B\)</span><span class="heti-spacing"> </span></span>的直和（direct sum）记作<span><span class="heti-spacing"> </span><span class="arithmatex">\(A \oplus B\)</span></span>，它是一个<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\((m + n) \times (m + n)\)</span><span class="heti-spacing"> </span></span>矩阵，定义为：</p>
+<div class="arithmatex">\[
+A \oplus B = 
+\begin{bmatrix}
+A &amp; O_{m \times n} \\
+O_{n \times m} &amp; B
 \end{bmatrix}
 \]</div>
-<p>由于二阶偏导数具有对称性，即<span><span class="heti-spacing"> </span><span class="arithmatex">\(\frac{\partial^2 f}{\partial x \partial y} = \frac{\partial^2 f}{\partial y \partial x}\)</span></span>，所以黑塞矩阵是一个对称矩阵。因此，我们可以将黑塞矩阵简化为：</p>
-<div class="arithmatex">\[
-H = \begin{bmatrix}
-\frac{\partial^2 f}{\partial x^2} &amp; \frac{\partial^2 f}{\partial x \partial y} \\
-\frac{\partial^2 f}{\partial x \partial y} &amp; \frac{\partial^2 f}{\partial y^2}
-\end{bmatrix}
-\]</div>
-<p>无约束极小值问题的最优性条件</p>
-<p>一阶必要条件<heti-adjacent class="heti-adjacent-half">：</heti-adjacent>（局部极小值<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>局部极大值<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>：<span class="arithmatex">\(\nabla f(x^*)=0\)</span></p>
-<p>二阶必要条件<heti-adjacent class="heti-adjacent-half">：</heti-adjacent>（局部极小值）<span class="arithmatex">\(\nabla f(x^*)=0 \text{且} \nabla^2 f(x^*)\geq 0\)</span></p>
-<p>二阶充分条件<heti-adjacent class="heti-adjacent-half">：</heti-adjacent>（严格局部极小值）<span class="arithmatex">\(\nabla f(x^*)=0 \text{且} \nabla^2 f(x^*)&gt;0\)</span></p>
-<h3 id="_15">有约束<a class="headerlink" href="#_15" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<div class="arithmatex">\[
-\begin{array}{ll} 
-\min &amp; f(x) \\ 
-\text{s.t.} &amp; h_i(x) = 0, \quad i = 1, 2, ..., m \\ 
-&amp; x \in \mathbb{R}^n 
-\end{array}
-\]</div>
-<h4 id="_16">拉格朗日函数<a class="headerlink" href="#_16" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
-<div class="arithmatex">\[
-L(x, \lambda) = f(x) + \lambda^T h(x) = f(x) + \sum_{i=1}^m \lambda_i h_i(x)
-\]</div>
-<p>其中，<span class="arithmatex">\(\lambda = [\lambda_1, \lambda_2, ..., \lambda_m]^T\)</span>。</p>
-<p>对<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(L(x, \lambda)\)</span><span class="heti-spacing"> </span></span>求偏导数，令偏导数为<span><span class="heti-spacing"> </span>0</span>：</p>
-<div class="arithmatex">\[
-\frac{\partial L(x, \lambda)}{\partial x} \Big|_{x^*} = 0 \quad \Rightarrow \quad \nabla f(x^*) + \sum_{i=1}^m \lambda_i \nabla h_i(x^*) = 0
-\]</div>
-<div class="arithmatex">\[
-\frac{\partial L(x, \lambda)}{\partial \lambda} \Big|_{x^*} = 0 \quad \Rightarrow \quad h_i(x^*) = 0, \quad i = 1, 2, ..., m
-\]</div>
-<p><img alt="image-20240521160859915" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240521160859915.png" style="zoom:50%;"/></p>
-<blockquote>
-<p>只有在相切的时候，可行域的切线和梯度才能在同一方向，相加才可能为<span><span class="heti-spacing"> </span>0</span></p>
-</blockquote>
-<p>不等式约束</p>
-<div class="arithmatex">\[
-\begin{array}{ll} 
-\min &amp; f(x) \\ 
-\text{s.t.} &amp; g_i(x) \geq 0, \quad i = 1, 2, ..., m \\ 
-&amp; x \in \mathbb{R}^n 
-\end{array}
-\]</div>
-<h4 id="_17"><strong>可行方向判别条件（充分条件）</strong><a class="headerlink" href="#_17" title="anchor link to this section for reference">¶</a></h4>
-<p>对于点<span><span class="heti-spacing"> </span><span class="arithmatex">\(x^{(0)}\)</span></span>，若满足以下条件，则<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(p\)</span><span class="heti-spacing"> </span></span>是<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(x^{(0)}\)</span><span class="heti-spacing"> </span></span>的可行方向：</p>
-<div class="arithmatex">\[
-\nabla g_j(x^{(0)})^T p \geq 0, \quad \forall j \in J(x^{(0)})
-\]</div>
-<p>其中，<span><span class="arithmatex">\(J(x^{(0)}) = \{j \mid g_j(x^{(0)}) = 0, j = 1, 2, ..., l\}\)</span><span class="heti-spacing"> </span></span>为起作用约束集合。</p>
-<p>证明：根据<span class="heti-skip"><span class="heti-spacing"> </span>Taylor<span class="heti-spacing"> </span></span>公式，有</p>
-<div class="arithmatex">\[
-g_j(x^{(0)} + \lambda p) = g_j(x^{(0)}) + \lambda \nabla g_j(x^{(0)})^T p + O(\lambda)
-\]</div>
-<p>当<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\lambda\)</span><span class="heti-spacing"> </span></span>足够小时，如果<span><span class="heti-spacing"> </span><span class="arithmatex">\(j \in J(x^{(0)})\)</span></span>，假设<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(g_j(x)\)</span><span class="heti-spacing"> </span></span>连续，有</p>
-<div class="arithmatex">\[
-g_j(x^{(0)} + \lambda p) \geq 0
-\]</div>
-<p>如果<span><span class="heti-spacing"> </span><span class="arithmatex">\(j \in J(x^{(0)})\)</span></span>，当<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\nabla g_j(x^{(0)})^T p &gt; 0\)</span><span class="heti-spacing"> </span></span>时，也有</p>
-<div class="arithmatex">\[
-g_j(x^{(0)} + \lambda p) \geq 0
-\]</div>
-<p>几何含义：与所有起作用约束梯度的夹角小于<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(90^\circ\)</span><span class="heti-spacing"> </span></span>的方向。</p>
-<p><strong>局部极小值存在的直观条件</strong></p>
-<p>在点<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(x^*\)</span><span class="heti-spacing"> </span></span>处，不存在同时满足下面两类不等式的方向：</p>
-<div class="arithmatex">\[
-\nabla f(x^*)^T p &lt; 0
-\]</div>
-<div class="arithmatex">\[
-\nabla g_j(x^*)^T p &gt; 0, \quad j \in J(x^*)
-\]</div>
-<p>其中，<span><span class="arithmatex">\(J(x^*)\)</span><span class="heti-spacing"> </span></span>为起作用约束集合。</p>
-<p>几何含义：不存在与<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\nabla f(x^*)\)</span><span class="heti-spacing"> </span></span>和所有的<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\nabla g_{j \in J(x^*)}\)</span><span class="heti-spacing"> </span></span>均成锐角的方向。</p>
-<p><img alt="有行下降方向" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240521153533251.png" style="zoom:50%;"/></p>
-<p><img alt="无可行下降方向" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240521153609542.png" style="zoom:50%;"/></p>
-<h4 id="gordan"><strong><span>Gordan<span class="heti-spacing"> </span></span>引理</strong><a class="headerlink" href="#gordan" title="anchor link to this section for reference">¶</a></h4>
-<p>设<span><span class="heti-spacing"> </span><span class="arithmatex">\(B \in R^{m\times n}\)</span></span>，则下列两个系统有且仅有一个有解：<br/>
-(I) <span class="arithmatex">\(Bx &lt; 0\)</span><br/>
-(II) <span class="arithmatex">\(B^T y = 0, y \ge 0, y \ne 0\)</span><br/></p>
-<blockquote>
-<p>参考网址：<a href="https://zhuanlan.zhihu.com/p/677937880">运筹说 第<span class="heti-skip"><span class="heti-spacing"> </span>99<span class="heti-spacing"> </span></span>期<span class="heti-skip"><span class="heti-spacing"> </span>|<span class="heti-spacing"> </span></span>非线性规划—最优性条件 </a><br/><a href="https://www.zhihu.com/question/374628766">凸集分离定理中的<span class="heti-skip"><span class="heti-spacing"> </span>Gordan<span class="heti-spacing"> </span></span>定理有什么几何意义，或者怎么用数形结合方法解释？</a><br/><a href="https://www.bilibili.com/video/BV1HP4y1Y79e/?spm_id_from=333.337.search-card.all.click&amp;vd_source=8b7a5460b512357b2cf80ce1cefc69f5">“拉格朗日对偶问题”如何直观理解<heti-adjacent class="heti-adjacent-quarter">？</heti-adjacent>“<span>KKT<span class="heti-spacing"> </span></span>条件” “<span>Slater<span class="heti-spacing"> </span></span>条件” “凸优化”打包理解<span class="heti-skip"><span class="heti-spacing"> </span>_<span class="heti-spacing"> </span></span>哔哩哔哩<span><span class="heti-spacing"> </span>_bilibili</span></a></p>
-</blockquote>
-<p>翻译一下：<br/>
-<span class="arithmatex">\(B^T\)</span>是<span class="arithmatex">\(R^n\)</span>中一组基，由<span class="arithmatex">\(m\)</span>个<span class="arithmatex">\(n\)</span>维列向量组成，只存在两种情况：<br/></p>
-<ol>
-<li>存在一个方向，与<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(B^T\)</span><span class="heti-spacing"> </span></span>中所有向量都呈钝角<br/></li>
-<li><span><span class="arithmatex">\(B^T\)</span><span class="heti-spacing"> </span></span>这组基的非负、非零线性组合可以得到原点<br/>
-    换句话说，<strong>如果一组基的非负组合是一个凸锥，则等价为这组基的正组合表示不了原点，除非系数都是<span><span class="heti-spacing"> </span>0</span>。即<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(b_j\)</span><span class="heti-spacing"> </span></span>不可能分布在任何超平面的同一侧</strong><br/></li>
-</ol>
-<p><img alt="img" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-995890416cc10e852566f5ff1a292f68_1440w.webp" style="zoom:50%;"/></p>
-<p>正线性相关（positive linear dependence）</p>
-<p>几何含义：<span><span class="arithmatex">\(a_j\)</span><span class="heti-spacing"> </span></span>不可能分布在任何超平面的同一侧</p>
-<p>正线性相关<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\Rightarrow\)</span><span class="heti-spacing"> </span></span>线性相关</p>
-<h4 id="fritz-john"><strong><span>Fritz John<span class="heti-spacing"> </span></span>定理</strong>——局部极小点必要条件<a class="headerlink" href="#fritz-john" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
-<div class="arithmatex">\[
-\mu_0^* \nabla f(x^*) - \sum_{i=1}^m \mu_i^* \nabla h_i(x^*) + \sum_{i=1}^m \mu_i^{**} \nabla h_i(x^*) - \sum_{j=1}^l \mu_j^* \nabla g_j(x^*) = 0
-\]</div>
-<div class="arithmatex">\[
-\Longrightarrow \mu_0^* \nabla f(x^*) - \sum_{i=1}^m (\mu_i^* - \mu_i^{**}) \nabla h_i(x^*) - \sum_{j=1}^l \mu_j^* \nabla g_j(x^*) = 0
-\]</div>
-<div class="arithmatex">\[
-\Longrightarrow \mu_0^* \nabla f(x^*) - \sum_{i=1}^m \gamma_i \nabla h_i(x^*) - \sum_{j=1}^l \mu_j^* \nabla g_j(x^*) = 0
-\]</div>
-<p>其中，<span class="arithmatex">\(\gamma_i = \mu_i^* - \mu_i^{**}\)</span>，并且有：</p>
-<div class="arithmatex">\[
-\mu_i^* \ge 0 \quad \mu_i^{**} \ge 0 \quad \Longrightarrow \gamma_i = \mu_i^* - \mu_i^{**} \text{ 无符号约束 } \quad i = 1, 2, ..., p
-\]</div>
-<p>注意，<span class="arithmatex">\(\mu_0\)</span>、<span class="arithmatex">\(\mu_j\)</span>、<span class="arithmatex">\(\gamma_i\)</span>​​ 不可同时为<span><span class="heti-spacing"> </span>0</span>。</p>
-<blockquote>
-<p><span><span class="arithmatex">\(\gamma_i\)</span><span class="heti-spacing"> </span></span>无符号约束，所以前边是加号或是减号都不影响</p>
-</blockquote>
-<p>假设<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(x^*\)</span><span class="heti-spacing"> </span></span>是局部极小点，存在不全为零的<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\mu_j^* (j=0, 1, 2, ..., m)\)</span><span class="heti-spacing"> </span></span>和<span><span class="heti-spacing"> </span><span class="arithmatex">\(\gamma_i (i=0, 1, 2, ..., p)\)</span></span>，满足：</p>
-<div class="arithmatex">\[
-\mu_0^* \nabla f(x^*) - \sum_{i=1}^m \gamma_i \nabla h_i(x^*) - \sum_{j=1}^l \mu_j^* \nabla g_j(x^*) = 0 \quad 拉格朗日条件
-\]</div>
-<div class="arithmatex">\[
-\mu_j^* g_j(x^*) = 0 \quad j = 1, 2, ..., m \quad 互补松弛条件\\
-\gamma_i h_i(x^*) = 0 \quad i = 1, 2, ..., p \quad 等式互补松弛
-\]</div>
-<div class="arithmatex">\[
-\mu_j^* \ge 0 \quad j = 0, 1, ..., m\\
-\sum_{j=0}^l \mu_j^* + \sum_{i=1}^m |\gamma_i^* |\neq 0 \quad 强非负条件
-\]</div>
-<p><img alt="image-20240521161306273" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240521161306273.png" style="zoom:50%;"/></p>
-<blockquote>
+<p>其中，<span><span class="arithmatex">\(O_{m \times n}\)</span><span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(O_{n \times m}\)</span><span class="heti-spacing"> </span></span>分别表示<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(m \times n\)</span><span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(n \times m\)</span><span class="heti-spacing"> </span></span>的零矩阵。</p>
+<p><strong>block diagonal matrix</strong></p>
 <ul>
-<li>对于紧致的约束条件，<span class="arithmatex">\(g(x^*) = 0\)</span>，但是<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\sum_{j=1}^l \mu_j \nabla g_j(X^*)\)</span><span class="heti-spacing"> </span></span>应该等于负梯度，<span class="arithmatex">\(\lambda_i \neq 0\)</span></li>
+<li>不满足交换律</li>
+<li>满足结合律</li>
 </ul>
+<h3 id="hadamard-product-"><span>Hadamard product -<span class="heti-spacing"> </span></span>逐元素相乘<a class="headerlink" href="#hadamard-product-" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<div class="arithmatex">\[
+(A_{m\times n} B_{m\times n})_{ij} = a_{ij} b_{ij}
+\]</div>
+<h3 id="kronecker-product-"><span>Kronecker product -<span class="heti-spacing"> </span></span>元素乘矩阵<a class="headerlink" href="#kronecker-product-" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ul>
-<li>对于松弛的约束条件，将<span><span class="heti-spacing"> </span><span class="arithmatex">\(x^*\)</span></span>​带入方程，一定是小于（大于）<span>0<span class="heti-spacing"> </span></span>的，最重要的是要让梯度在<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\lambda_i\)</span><span class="heti-spacing"> </span></span>的作用下不对结果起作用；<br/>在红线上的，在<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\lambda_i&gt;0\)</span><span class="heti-spacing"> </span></span>的情况下，是不能实现与负梯度相同的，所以<span><span class="heti-spacing"> </span><span class="arithmatex">\(\lambda_i=0\)</span></span></li>
+<li>应用：雷达、信号处理</li>
 </ul>
-</blockquote>
-<h4 id="slater"><span>Slater<span class="heti-spacing"> </span></span>条件——强对偶的充分条件<a class="headerlink" href="#slater" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
-<p><span>Slater<span class="heti-spacing"> </span></span>条件是指：存在一个点<span><span class="heti-spacing"> </span><span class="arithmatex">\(x \in relint D\)</span></span>，<span><span class="arithmatex">\(relint D\)</span><span class="heti-spacing"> </span></span>表示可行域<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(D\)</span><span class="heti-spacing"> </span></span>的相对内部。</p>
-<p>使得<span><span class="heti-spacing"> </span><span class="arithmatex">\(f_i(x) &lt; 0\)</span></span>，其中<span><span class="heti-spacing"> </span><span class="arithmatex">\(i = 1, 2, 3, ..., m\)</span></span>，<span class="arithmatex">\(Ax = b\)</span>。</p>
-<p>换句话说，<span>Slater<span class="heti-spacing"> </span></span>条件是指在可行域的内部存在一个点，使得所有约束函数的值都小于零。这个条件在线性规划和非线性规划中都有应用，是判断<strong>对偶问题是否具有强对偶性的充分条件之一</strong>。</p>
-<blockquote>
-<p>内部存在点</p>
-</blockquote>
-<p><img alt="image-20240521171945366" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240521171945366.png" style="zoom:50%;"/></p>
-<p><img alt="image-20240521175622067" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240521175622067.png" style="zoom:50%;"/></p>
-<h4 id="kkt"><span>KKT<span class="heti-spacing"> </span></span>条件——强对偶的必要条件<a class="headerlink" href="#kkt" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
-<p>正则条件（regular condition）是指起作用约束<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\nabla g_{i^*}(x^*)\)</span><span class="heti-spacing"> </span></span>线性无关。</p>
-<p>性质：若极小值<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(x^*\)</span><span class="heti-spacing"> </span></span>满足正则条件，则<span class="heti-skip"><span class="heti-spacing"> </span>KKT<span class="heti-spacing"> </span></span>条件成立。证明：<span><span class="arithmatex">\(x^*\)</span><span class="heti-spacing"> </span></span>满足正则条件，<span>Fritz John<span class="heti-spacing"> </span></span>条件中的<span><span class="heti-spacing"> </span><span class="arithmatex">\(\mu_i&gt;0\)</span></span>。</p>
-<p><span>Kuhn-Tucker<span class="heti-spacing"> </span></span>定理：若<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(x^*\)</span><span class="heti-spacing"> </span></span>是局部极小点，且满足正则条件（约束规格<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，则<span class="heti-skip"><span class="heti-spacing"> </span>Kuhn-Tucker<span class="heti-spacing"> </span></span>条件成立。</p>
-<p>对于问题来说</p>
-<p><span class="arithmatex">\(min f(x) \\s.t. \quad g(X) \le 0\)</span></p>
-<p>求得<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(X^*\)</span><span class="heti-spacing"> </span></span>有三种情况</p>
-<ul>
-<li><span><span class="arithmatex">\(g(X^*) &lt;0\)</span><span class="heti-spacing"> </span></span>符合条件，就是最优解<span><span class="heti-spacing"> </span>,<span class="arithmatex">\(\lambda =0\)</span></span></li>
-<li><span><span class="arithmatex">\(g(X^*) = 0\)</span><span class="heti-spacing"> </span></span>应用拉格朗日求解，引入<span><span class="heti-spacing"> </span><span class="arithmatex">\(\lambda \ge 0\)</span></span></li>
-<li><span><span class="arithmatex">\(g(X^*) &gt; 0\)</span><span class="heti-spacing"> </span></span>抛弃</li>
-</ul>
-<p>那如果想要不分类讨论<span><span class="heti-spacing"> </span><span class="arithmatex">\(\lambda g(X^*) = 0\)</span></span>​</p>
-<p>!!! note "<strong>能解出最优解的一定是等式，故式<span class="heti-skip"><span class="heti-spacing"> </span>(1)(2)(3)<span class="heti-spacing"> </span></span>帮我们求最优解；</strong>
-<strong>式<span class="heti-skip"><span class="heti-spacing"> </span>(4)<span class="heti-spacing"> </span></span>和式<span class="heti-skip"><span class="heti-spacing"> </span>(5)<span class="heti-spacing"> </span></span>是不等式，帮我们排除一些解，或者得到最优解的适用范围。</strong>"</p>
-<p><img alt="image-20240521172440334" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240521172440334.png" style="zoom:50%;"/></p>
-<p>（1）如果目标为最小化（Min）问题，那么不等式约束需要整理成“<span class="arithmatex">\(\le0\)</span>”的形式；
-（2）如果目标为最大化（Max）问题，那么不等式约束需要整理成“<span class="arithmatex">\(\ge0\)</span>”的形式；</p>
-<p><img alt="img" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/8101601f50f02cc9de347507ba01b44d.webp" style="zoom:50%;"/></p>
-<p><strong>梯度方向垂直于函数等值线，指向函数值增长的方向。</strong></p>
-<p>（2）画出<span class="heti-skip"><span class="heti-spacing"> </span>f(X)<span class="heti-spacing"> </span></span>的梯度方向（下图红色方向<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>：
-梯度方向是函数值增长的方向，因此指向右下方；负梯度方向是函数值下降的方向，指向左上方；
-（3）画出g(X)的梯度方向（下图蓝色方向）：
-由于曲线是g(X)=0，右下方是g(X)&lt;0，是在下降，因此，g(X)函数值增长的方向就是左上方了。</p>
-<p>在最优解<span><span class="heti-spacing"> </span>X</span><em>处，</em><em><span>f(X*)<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>g(X*)<span class="heti-spacing"> </span></span>的梯度方向</em><em>共线且方向相反。</em><em>向量共线且方向相反</em><span>*<span class="heti-spacing"> </span></span>在数学上的写法就是：</p>
-<p><strong>负梯度向量是另一个梯度向量的<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(lambda\)</span><span class="heti-spacing"> </span></span>倍</strong>。移项后发现，这不就是<strong><span>KKT<span class="heti-spacing"> </span></span>条件的第一个等式</strong>嘛！
-$$
-begin{align}
-nabla f(X^<em>) +lambda nabla g(X^</em>) = 0, lambda ge 0
-end{align}
-$$</p>
-<h5 id="kkt_1"><strong><span>KKT<span class="heti-spacing"> </span></span>条件的矩阵形式</strong><a class="headerlink" href="#kkt_1" title="anchor link to this section for reference">¶</a></h5>
+<p>每个元素都乘一个矩阵</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="" id="__tabbed_3_1" name="__tabbed_3" type="radio"/><input id="__tabbed_3_2" name="__tabbed_3" type="radio"/><div class="tabbed-labels"><label for="__tabbed_3_1">右<span class="heti-skip"><span class="heti-spacing"> </span>Kronecker<span class="heti-spacing"> </span></span>积</label><label for="__tabbed_3_2">左<span class="heti-skip"><span class="heti-spacing"> </span>Kronecker<span class="heti-spacing"> </span></span>积</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><span><span class="arithmatex">\(m \times n\)</span><span class="heti-spacing"> </span></span>矩阵<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A = [a_{11}, \cdots, a_{mn}]\)</span><span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(p \times q\)</span><span class="heti-spacing"> </span></span>矩阵<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(B\)</span><span class="heti-spacing"> </span></span>的右<span class="heti-skip"><span class="heti-spacing"> </span>Kronecker<span class="heti-spacing"> </span></span>积记作<span><span class="heti-spacing"> </span><span class="arithmatex">\(A \otimes B\)</span></span>，是一个<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(mp \times nq\)</span><span class="heti-spacing"> </span></span>矩阵，定义为</p>
 <div class="arithmatex">\[
-\begin{align}
-y^* = 
-\begin{bmatrix}
-y_1^* \\
-y_2^* \\
-\vdots \\
-y_m^*
-\end{bmatrix}\\
-\end{align}
+A \otimes B = [a_{ij}B]_{m \times n}^{p \times q} = \begin{bmatrix} a_{11}B &amp; a_{12}B &amp; \cdots &amp; a_{1n}B \\ a_{21}B &amp; a_{22}B &amp; \cdots &amp; a_{2n}B \\ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ a_{m1}B &amp; a_{m2}B &amp; \cdots &amp; a_{mn}B \end{bmatrix}
 \]</div>
-<div class="arithmatex">\[
-\nabla h(x) = 
-\begin{bmatrix}
-\nabla h_1(x) &amp; \nabla h_2(x) &amp; \cdots &amp; \nabla h_m(x)
-\end{bmatrix}
-\]</div>
-<div class="arithmatex">\[
-\nabla g(x) = 
-\begin{bmatrix}
-\nabla g_1(x) &amp; \nabla g_2(x) &amp; \cdots &amp; \nabla g_l(x)
-\end{bmatrix}= 
-\begin{bmatrix}
-\frac{\partial g_1}{\partial x_1} &amp; \frac{\partial g_2}{\partial x_1} &amp; \cdots &amp; \frac{\partial g_l}{\partial x_1} \\
-\frac{\partial g_1}{\partial x_2} &amp; \frac{\partial g_2}{\partial x_2} &amp; \cdots &amp; \frac{\partial g_l}{\partial x_2} \\
-\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
-\frac{\partial g_1}{\partial x_n} &amp; \frac{\partial g_2}{\partial x_n} &amp; \cdots &amp; \frac{\partial g_l}{\partial x_n} 
-\end{bmatrix}^T
-\]</div>
-<p><strong><span>Lagrange<span class="heti-spacing"> </span></span>驻点条件</strong></p>
-<div class="arithmatex">\[
-\nabla f(x^*) - \nabla h(x^*)y^* - \nabla g(x^*)\mu^* = 0
-\]</div>
-<p><strong>互补松弛条件</strong></p>
-<div class="arithmatex">\[
-\mu^* \odot g(x^*) = 0 \\\Leftrightarrow  \mu_j^* g_j(x^*) = 0 \quad j=1,2,...,l 
-\]</div>
-<p><strong>非负条件</strong></p>
-<div class="arithmatex">\[
-\mu^* \geq 0
-\]</div>
-<p><strong>可行性条件</strong></p>
-<div class="arithmatex">\[
-\begin{aligned}
-h(x^*) &amp;= 0 \\
-g(x^*) &amp;\geq 0
-\end{aligned}
-\]</div>
-<p>例题</p>
-<div class="arithmatex">\[
-\min  f(x_1, x_2) = (x_1 - 2)^2 + x_2^2 \\
-s.t. 
-\left\{
-\begin{array}{lr}
-  x_2 \le x_1 + 2 \\
- x_2 \ge x_1^2 + 1 \\
- x_1 \ge 0 \quad x_2 \ge 0
-\end{array}
-\right.
-\]</div>
-<p><strong>列出向量</strong></p>
-<div class="arithmatex">\[
-\begin{align}
-f(\mathbf{x}) = (x_1 - 2)^2 + x_2^2
-\end{align}
-\]</div>
-<div class="arithmatex">\[
-\nabla f(\mathbf{x}) = \left[ \begin{array}{c} 2(x_1 - 2) \\ 2x_2 \end{array} \right]
-\]</div>
-<div class="arithmatex">\[
-\mathbf{g}(\mathbf{x}) = \left[ \begin{array}{c} x_1 - x_2 + 2 \\ -x_1^2 + x_2 - 1 \\ x_1 \\ x_2 \end{array} \right]
-\]</div>
-<div class="arithmatex">\[
-\nabla \mathbf{g}(\mathbf{x}) = \left[ \begin{array}{cccc} 1 &amp; -2x_1 &amp; 1 &amp; 0 \\ -1 &amp; 1 &amp; 0 &amp; 1 \end{array} \right]
-\]</div>
-<p><strong>列出题目条件</strong></p>
-<div class="arithmatex">\[
-\begin{align}
-\nabla f(x^*) - \nabla h(x^*) y^* - \nabla g(x^*) \mu^* = 0
-\end{align}
-\]</div>
-<div class="arithmatex">\[
-\Longrightarrow \left[ \begin{array}{c} 2(x_1 - 2) \\ 2x_2 \end{array} \right] - \left[ \begin{array}{cccc} 1 &amp; -2x_1 &amp; 1 &amp; 0 \\ -1 &amp; 1 &amp; 0 &amp; 1 \end{array} \right] \left[ \begin{array}{c} \mu_1 \\ \mu_2 \\ \mu_3 \\ \mu_4 \end{array} \right] = \left[ \begin{array}{c} 0 \\ 0 \end{array} \right]
-\]</div>
-<div class="arithmatex">\[
-\mu^* \otimes g(x^*) = 0 \quad \Longrightarrow \left[ \begin{array}{c} \mu_1 (x_1 - x_2 + 2) \\ \mu_2 (-x_1^2 + x_2 - 1) \\ \mu_3 x_1 \\ \mu_4 x_2 \end{array} \right] = 0
-\]</div>
-<div class="arithmatex">\[
-g(x^*) \ge 0 \quad \mu^* \ge 0
-\]</div>
-<p><strong>得出方程</strong></p>
-<div class="arithmatex">\[
-\begin{align}
-2(x_1 - 2) - \mu_1 + 2 \mu_2 x_1 - \mu_3 = 0 \\
-2x_2 + \mu_1 - \mu_2 - \mu_4 = 0 \\
-\mu_1 (x_1 - x_2 + 2) = 0 \\
-\mu_2 (-x_1^2 + x_2 - 1) = 0 \\
-\mu_3 x_1 = 0 \\
-\mu_4 x_2 = 0 \\
-\mu_j \ge 0 \quad j = 1, 2, 3, 4 \\
-x_2 \le x_1 + 2 \\
-x_2 \ge x_1^2 + 1 \\
-x_1, x_2 \ge 0
-\end{align}
-\]</div>
-<p><strong>求解方程</strong>
-观察可得：<span class="arithmatex">\(\mu_1 = \mu_3 = \mu_4 = 0\)</span>（松弛性）</p>
-<p>所以有：</p>
-<div class="arithmatex">\[
-(1 + \mu_2) x_1 - 2 = 0
-\]</div>
-<div class="arithmatex">\[
-2x_2 - \mu_2 = 0
-\]</div>
-<div class="arithmatex">\[
--x_1^2 + x_2 - 1 = 0
-\]</div>
-<p>求解得：</p>
-<div class="arithmatex">\[
-\mu_2^* = 2.6219 \quad x_1^* = 0.5536 \quad x_2^* = 1.3064
-\]</div>
-<div class="arithmatex">\[
-f(x^*) = 3.7989
-\]</div>
-<h5 id="_18">条件与分析<a class="headerlink" href="#_18" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h5>
-<p><span>KKT<span class="heti-spacing"> </span></span>条件是判断某点是极值点的<strong>必要条件</strong>，<strong>不是充分条件</strong>。换句话说，<strong>最优解一定满足<span class="heti-skip"><span class="heti-spacing"> </span>KKT<span class="heti-spacing"> </span></span>条件</strong>，但<strong><span>KKT<span class="heti-spacing"> </span></span>条件的解不一定是最优解</strong>。</p>
-<p>对于<strong>凸规划</strong>，<span>KKT<span class="heti-spacing"> </span></span>条件就是<strong>充要条件</strong>了，只要满足<span class="heti-skip"><span class="heti-spacing"> </span>KKT<span class="heti-spacing"> </span></span>条件，则一定是极值点，且得到的一定还是<strong>全局最优解</strong>。</p>
-<h3 id="_19">在机器学习中的应用<a class="headerlink" href="#_19" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<p>最大熵</p>
-<p>交叉熵</p>
-<h2 id="_20">数值解法（无约束）<a class="headerlink" href="#_20" title="anchor link to this section for reference">¶</a></h2>
-<blockquote>
-<p><a href="https://zhuanlan.zhihu.com/p/37524275">梯度下降法、牛顿法和拟牛顿法<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>知乎<span><span class="heti-spacing"> </span>(zhihu.com)</span></a></p>
-</blockquote>
-<p>包括基于梯度的数值解法，如最速下降法、牛顿法、拟牛顿法等，以及有约束极值问题的数值解法，如可行方向法、制约函数法等。</p>
-<p><img alt="image-20240521193045743" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240521193045743.png" style="zoom:50%;"/></p>
-<h3 id="_21">迭代方向<a class="headerlink" href="#_21" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<h4 id="_22">最速下降法——迭代初期<a class="headerlink" href="#_22" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
-<p>下降最快的方向是负梯度方向</p>
-<p>性质：最优步长的时候<span><span class="heti-spacing"> </span><span class="arithmatex">\(\nabla f(x^{k+1}) \perp \nabla f(x^{(k)})\)</span></span></p>
-<p>优点：计算量小，适用于迭代初期</p>
-<p>缺点：之字形的迭代路径，接近极值点的时候更严重</p>
-<p><img alt="img" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-dd6ce242d10f41e2f20e15dfce22cd52_720w.webp"/></p>
-<div class="admonition note">
-<p class="admonition-title">注意</p>
-<p>梯度下降不一定能够找到全局的最优解，有可能是一个局部最优解。当然，如果损失函数是凸函数，梯度下降法得到的解就一定是全局最优解。</p>
 </div>
-<p>梯度下降算法：</p>
-<p>输入：目标函数<span><span class="heti-spacing"> </span><span class="arithmatex">\(f(x)\)</span></span> ，梯度函数<span><span class="heti-spacing"> </span><span class="arithmatex">\(g(x)=\nabla f(x)\)</span></span> ，计算精度<span><span class="heti-spacing"> </span><span class="arithmatex">\(\varepsilon\)</span></span></p>
-<p>输出： <span><span class="arithmatex">\(f(x)\)</span><span class="heti-spacing"> </span></span>的极小点<span><span class="heti-spacing"> </span><span class="arithmatex">\(x^*\)</span></span></p>
-<ol>
-<li>取初值<span><span class="heti-spacing"> </span><span class="arithmatex">\(x^{(0)} \in R^n\)</span></span> ，置<span><span class="heti-spacing"> </span><span class="arithmatex">\(k=0\)</span></span></li>
-<li>计算<span><span class="heti-spacing"> </span><span class="arithmatex">\(f\left(x^{(k)}\right)\)</span></span></li>
-<li>计算梯度<span><span class="heti-spacing"> </span><span class="arithmatex">\(g_{k}=g\left(x^{(k)}\right)\)</span></span> ，当<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\left\|g_{k}\right\|&lt;\varepsilon\)</span><span class="heti-spacing"> </span></span>时，停止迭代，令<span><span class="heti-spacing"> </span><span class="arithmatex">\(x^{*}=x^{(k)}\)</span></span> ；否则，令</li>
-</ol>
+<div class="tabbed-block">
+<p><span><span class="arithmatex">\(m \times n\)</span><span class="heti-spacing"> </span></span>矩阵<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A\)</span><span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(p \times q\)</span><span class="heti-spacing"> </span></span>矩阵<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(B = [b_{11}, \cdots, b_{pq}]\)</span><span class="heti-spacing"> </span></span>的左<span class="heti-skip"><span class="heti-spacing"> </span>Kronecker<span class="heti-spacing"> </span></span>积<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A \otimes B\)</span><span class="heti-spacing"> </span></span>是一个<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(mp \times nq\)</span><span class="heti-spacing"> </span></span>矩阵，定义为</p>
 <div class="arithmatex">\[
-\boldsymbol{p}_{k}=-\boldsymbol{g}\left(\boldsymbol{x}^{(k)}\right), \text { 求 } \lambda_{k} \text { ，使 }
+[A \otimes B]_{\text{left}} = [Ab_{ij}]_{m \times n}^{p \times q} = [b_{ij}A]_{p \times q}^{m \times n} = \begin{bmatrix} Ab_{11} &amp; Ab_{12} &amp; \cdots &amp; Ab_{1q} \\ Ab_{21} &amp; Ab_{22} &amp; \cdots &amp; Ab_{2q} \\ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ Ab_{p1} &amp; Ab_{p2} &amp; \cdots &amp; Ab_{pq} \end{bmatrix}
 \]</div>
-<div class="arithmatex">\[
-f\left(\boldsymbol{x}^{(k)}+\lambda_{k} \boldsymbol{p}_{k}\right)=\min _{\lambda \geq 0} f\left(\boldsymbol{x}^{(k)}+\lambda \boldsymbol{p}_{k}\right)
-\]</div>
-<ol>
-<li>置<span><span class="heti-spacing"> </span><span class="arithmatex">\(x^{(k+1)}=x^{(k)}+\lambda_{k} p_{k}\)</span></span> ，计算<span><span class="heti-spacing"> </span><span class="arithmatex">\(f\left(x^{(k+1)}\right)\)</span></span></li>
-<li>若<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\left|f\left(x^{(k+1)}\right)-f\left(x^{(k)}\right)\right|&lt;\varepsilon\)</span><span class="heti-spacing"> </span></span>或<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\left\|x^{(k+1)}-x^{(k)}\right\|&lt;\varepsilon\)</span><span class="heti-spacing"> </span></span>时，停止迭代，令<span><span class="heti-spacing"> </span><span class="arithmatex">\(x^{*}=x^{k+1}\)</span></span></li>
-<li>否则，置<span><span class="heti-spacing"> </span><span class="arithmatex">\(k=k+1\)</span></span> ，转<span><span class="heti-spacing"> </span>3</span>。</li>
-</ol>
-<div class="admonition note">
-<p class="admonition-title">极小值附近的等值面是椭球面</p>
 </div>
-<p><span class="arithmatex">\(X^T \cdot \mathbf{H} \cdot X = c\)</span></p>
-<ul>
-<li>如果<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\mathbf{H}\)</span><span class="heti-spacing"> </span></span>是对角矩阵，则显然是椭圆</li>
-<li>如果不是的话，相似对角化以后<span><span class="heti-spacing"> </span><span class="arithmatex">\(X^TM^T \ \Lambda\mathbf{}\ M X = c\)</span></span></li>
-</ul>
-<h4 id="_23">牛顿法——极值点附近<a class="headerlink" href="#_23" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
-<ul>
-<li>设计思想：近似为二次问题。</li>
-</ul>
-<div class="arithmatex">\[
-\begin{align}
-f(x) \approx f\left(x^{(k)}\right)+\nabla f\left(x^{(k)}\right)^{T}\left(x-x^{(k)}\right)+\frac{1}{2}\left(x-x^{(k)}\right)^{T} \nabla^{2} f\left(x^{(k)}\right)\left(x-x^{(k)}\right) 
-\end{align}
-\]</div>
-<p>函数<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(f(x)\)</span><span class="heti-spacing"> </span></span>有极值的必要条件是在极值点处一阶导数为<span><span class="heti-spacing"> </span>0</span>，即梯度向量为<span><span class="heti-spacing"> </span>0</span>。特别的当<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(H(x^{(k)})\)</span><span class="heti-spacing"> </span></span>是正定矩阵时，函数<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(f(x(k))\)</span><span class="heti-spacing"> </span></span>的极值为极小值。</p>
-<p>我们为了得到一阶导数为<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>的点，可以用到牛顿法求解方程方法。根据二阶泰勒展开，对 ∇𝑓(𝑥<span>)<span class="heti-spacing"> </span></span>在 𝑥(𝑘<span>)<span class="heti-spacing"> </span></span>进行展开得（也可以对上述泰勒公式再进行求导）</p>
-<p><span class="arithmatex">\(\nabla f(x) \approx g_k+H_k\left(x-x^{(k)}\right) \approx 0\)</span></p>
-<div class="arithmatex">\[
-\begin{align}
-迭代公式  \Longrightarrow x^{(k+1)} \approx x^{(k)}-H_k^{-1} g_k\\
-迭代方向  \Longrightarrow p^{(k)}=-H_k^{-1} g_k \quad 牛顿方向 \\
-其中，g_k = g(x{(k)} = \nabla f\left(x^{(k)}\right)\\
-\end{align}
-\]</div>
-<p>优点：极值点附近收敛速率快。</p>
-<p><span>A<span class="heti-spacing"> </span></span>缺点：计算量大，需要求二阶导数和<span class="heti-skip"><span class="heti-spacing"> </span>Hessian<span class="heti-spacing"> </span></span>矩阵逆。</p>
-<p>远离极值点时，不一定是下降方向，需采用进一步修正。</p>
-<div class="admonition note">
-<p class="admonition-title">为什么收敛快</p>
-<p>至于为什么牛顿法收敛更快，通俗来说梯度下降法每次只从你当前所处位置选一个坡度最大的方向走一步，牛顿法在选择方向时，不仅会考虑坡度是否够大，还会考虑你走了一步之后，坡度是否会变得更大。所以，可以说牛顿法比梯度下降法看得更远一点，能更快地走到最底部。</p>
 </div>
-<ul>
-<li>设<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A\)</span><span class="heti-spacing"> </span></span>为对称矩阵，二次函数<span><span class="heti-spacing"> </span><span class="arithmatex">\(f(x)=\frac{1}{2} x^T A x+b^T x+c\)</span></span></li>
-<li>驻点方程<span><span class="heti-spacing"> </span>: <span class="arithmatex">\(\nabla f(x)=Ax+b=0\)</span></span>
-    + 有解: <span class="arithmatex">\(\text{rank} A=\text{rank}[A \quad b]\)</span>
-    + 无解: <span class="arithmatex">\(\text{rank} A \neq \text{rank}[A \quad b]\)</span></li>
-<li><span>Hessian<span class="heti-spacing"> </span></span>矩阵<span><span class="heti-spacing"> </span>: <span class="arithmatex">\(\nabla^2 f(x)=A\)</span></span>​</li>
-</ul>
-<p>例<span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span>抛物面</p>
-<ul>
-<li><span>(1) <span class="arithmatex">\(A&gt;0\)</span><span class="heti-spacing"> </span></span>椭球面<span class="heti-skip"><span class="heti-spacing"> </span>: <span class="arithmatex">\(x^*=A^{-1} b\)</span><span class="heti-spacing"> </span></span>唯一极小点</li>
-<li><span>(2) <span class="arithmatex">\(A \geq 0 \quad \&amp; \quad \text{rank} A&lt;n\)</span><span class="heti-spacing"> </span></span>椭球柱面<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>平行超平面<span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span>无穷多个极小点</li>
-<li><span>(3) <span class="arithmatex">\(A \leq 0\)</span> (<span class="heti-spacing"> </span></span>降维<span class="heti-skip"><span class="heti-spacing"> </span>)<span class="heti-spacing"> </span></span>椭球面<span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span>无界解（极大点）</li>
-<li><span>(4) <span class="arithmatex">\(A\)</span><span class="heti-spacing"> </span></span>不定<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>高维<span class="heti-skip"><span class="heti-spacing"> </span>)<span class="heti-spacing"> </span></span>马鞍面<span class="heti-skip"><span class="heti-spacing"> </span>: <span class="arithmatex">\(f(x)=x_1^2-x_2^2\)</span><span class="heti-spacing"> </span></span>无界解（鞍点解）</li>
-</ul>
-<p><strong><span>Levenberg-Marquardt<span class="heti-spacing"> </span></span>修正</strong></p>
-<ul>
-<li>设计思想<span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span>将<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\nabla^2 f\left(x^{(k)}\right)\)</span><span class="heti-spacing"> </span></span>变为正定矩阵<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>保证<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(p\)</span><span class="heti-spacing"> </span></span>是下降方向</li>
-<li><span>L-M<span class="heti-spacing"> </span></span>修正方向<span><span class="heti-spacing"> </span>: <span class="arithmatex">\(p^{(k)}=-\left[\nabla^2 f\left(x^{(k)}\right)+\mu_{k} I\right]^{-1} \nabla f\left(x^{(k)}\right)\)</span></span></li>
-<li><span class="arithmatex">\(x^{(k+1)}=x^{(k)}-\left[\nabla^2 f\left(x^{(k)}\right)+\mu_{k} I\right]^{-1} \nabla f\left(x^{(k)}\right)\)</span></li>
-<li><span class="arithmatex">\(\mu_{k}&gt;\left|\lambda_{\text {min }}\right| \quad \lambda_{\text {min }} \text { 为 } \nabla^2 f\left(x^{(k)}\right) \text { 最小负特征值 }\)</span></li>
-<li><span><span class="arithmatex">\(\mu \rightarrow 0\)</span> :<span class="heti-spacing"> </span></span>牛顿法</li>
-<li><span><span class="arithmatex">\(\mu \rightarrow \infty\)</span> :<span class="heti-spacing"> </span></span>最速下降法</li>
-<li>如果不求特征值，可以从较小的<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\mu\)</span><span class="heti-spacing"> </span></span>值试探</li>
-</ul>
-<h4 id="_24">拟牛顿法<a class="headerlink" href="#_24" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
-<p>在牛顿法的迭代中，需要计算海森矩阵的逆矩阵<span><span class="heti-spacing"> </span><span class="arithmatex">\(\boldsymbol{H}^{-1}\)</span></span> ，这一计算比较复杂，考虑用一个<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(n\)</span><span class="heti-spacing"> </span></span>阶矩阵<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\boldsymbol{G}_{k}=\boldsymbol{G}\left(x^{(k)}\right)\)</span><span class="heti-spacing"> </span></span>来近似代替<span><span class="heti-spacing"> </span><span class="arithmatex">\(\boldsymbol{H}_{k}^{-1}=\boldsymbol{H}^{-1}\left(x^{(k)}\right)\)</span></span> 。这就是拟牛顿法的基本想法。</p>
-<p>要找到近似的替代矩阵，必定要和<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\boldsymbol{H}_{k}\)</span><span class="heti-spacing"> </span></span>有类似的性质。先看下牛顿法迭代中海森矩阵<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\boldsymbol{H}_{k}\)</span><span class="heti-spacing"> </span></span>满足的条件。首先<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\boldsymbol{H}_{k}\)</span><span class="heti-spacing"> </span></span>满足以下关系：</p>
-<p>在<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(x^{k+1}\)</span><span class="heti-spacing"> </span></span>处进行展开</p>
+</div>
+<p>显然，无论左或右<span class="heti-skip"><span class="heti-spacing"> </span>Kronecker<span class="heti-spacing"> </span></span>积都是一一映射：<span class="arithmatex">\(\mathbb{R}^{m \times n} \times \mathbb{R}^{p \times q} \rightarrow \mathbb{R}^{mp \times nq}\)</span></p>
+<details class="note">
+<summary><span>Kronecker<span class="heti-spacing"> </span></span>积的例子</summary>
 <div class="arithmatex">\[
-\nabla f(x)=g_{k+1}+\boldsymbol{H}_{k+1}\left(x-x^{(k+1)}\right)
-\]</div>
-<p>将<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\boldsymbol{x}=\boldsymbol{x}^{k}\)</span><span class="heti-spacing"> </span></span>代入</p>
-<div class="arithmatex">\[
-g_{k}-g_{k+1}=\boldsymbol{H}_{k+1}\left(x^{(k)}-x^{(k+1)}\right)
-\]</div>
-<p>记<span><span class="heti-spacing"> </span><span class="arithmatex">\(y_{k}=g_{k+1}-g_{k}, \delta_{k}=x^{(k+1)}-x^{k}\)</span></span> ，则</p>
-<div class="arithmatex">\[
-\begin{aligned}
-y_{k} &amp; =\boldsymbol{H}_{k+1} \delta_{k} \\
-\delta_{k}&amp; = \boldsymbol{H}_{k+1}^{-1} y_{k} \quad 拟牛顿条件(Secant\ equation)
-\end{aligned}
-\]</div>
-<p>其次，如果<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(H_k\)</span><span class="heti-spacing"> </span></span>是正定的（<span><span class="arithmatex">\(H_k^{-1}\)</span><span class="heti-spacing"> </span></span>也是正定的<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，那么保证牛顿法的搜索方向<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(p_k\)</span><span class="heti-spacing"> </span></span>是下降方向。这是因为搜索方向是<span><span class="heti-spacing"> </span><span class="arithmatex">\(p_k = -H_k^{-1}g_k\)</span></span>。</p>
-<p>由</p>
-<div class="arithmatex">\[
-x^{(k+1)} = x^{(k)} - H_k^{-1}g_k
-\]</div>
-<p>有</p>
-<div class="arithmatex">\[
-x = x^{(k)} - \lambda H_k^{-1}g_k = x^{(k)} + \lambda p_k
-\]</div>
-<p>则<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(f(x)\)</span><span class="heti-spacing"> </span></span>在<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(x^{(k)}\)</span><span class="heti-spacing"> </span></span>的泰勒展开可近似为</p>
-<div class="arithmatex">\[
-\begin{align}
-f(x) = f\left(x^{(k)}\right) - \lambda g_k^T H_k^{-1} g_k
-\end{align}
-\]</div>
-<p>由于<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(H_k^{-1}\)</span><span class="heti-spacing"> </span></span>正定，故<span><span class="heti-spacing"> </span><span class="arithmatex">\(g_k^T H_k^{-1} g_k &gt; 0\)</span></span>。当<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\lambda\)</span><span class="heti-spacing"> </span></span>为一个充分小的正数时，有<span><span class="heti-spacing"> </span><span class="arithmatex">\(f(x) &lt; f\left(x^{(k)}\right)\)</span></span>，即搜索方向<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(p_k\)</span><span class="heti-spacing"> </span></span>是下降方向。</p>
-<p>因此拟牛顿法将<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(G_k\)</span><span class="heti-spacing"> </span></span>作为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(H_k^{-1}\)</span><span class="heti-spacing"> </span></span>近似。要求<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(G_k\)</span><span class="heti-spacing"> </span></span>满足同样的条件下，首先，每次迭代矩阵<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(G_k\)</span><span class="heti-spacing"> </span></span>是正定时，<span><span class="arithmatex">\(G_k\)</span><span class="heti-spacing"> </span></span>满足下面的拟牛顿条件：</p>
-<div class="arithmatex">\[
-\begin{align}
-G_{k+1} y_k = \delta_k
-\end{align}
-\]</div>
-<p>按照拟牛顿条件，在每次迭代中可以选择更新矩阵<span><span class="heti-spacing"> </span><span class="arithmatex">\(G_{k+1}\)</span></span>​：</p>
-<div class="arithmatex">\[
-\begin{align}
-G_{k+1} = G_k + \Delta G_k
-\end{align}
-\]</div>
-<h4 id="dfp"><span>DFP<span class="heti-spacing"> </span></span>算法<a class="headerlink" href="#dfp" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
-<p>在<span><span class="heti-spacing"> </span>DFP</span>（Davidon-Fletcher-Powell）算法中，我们选择<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(G_k\)</span><span class="heti-spacing"> </span></span>作为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(H_k^{-1}\)</span><span class="heti-spacing"> </span></span>的近似。假设在每次迭代中，矩阵<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(G_{k+1}\)</span><span class="heti-spacing"> </span></span>由<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(G_k\)</span><span class="heti-spacing"> </span></span>加上两个附加项构成：</p>
-<div class="arithmatex">\[
-G_{k+1} = G_k + P_k + Q_k
-\]</div>
-<p>其中，<span><span class="arithmatex">\(P_k\)</span><span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(Q_k\)</span><span class="heti-spacing"> </span></span>是待定矩阵。那么，</p>
-<div class="arithmatex">\[
-G_{k+1}y_k = G_k y_k + P_k y_k + Q_k y_k
-\]</div>
-<p>为了使<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(G_{k+1}\)</span><span class="heti-spacing"> </span></span>满足拟牛顿条件，我们希望<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(P_k\)</span><span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(Q_k\)</span><span class="heti-spacing"> </span></span>满足以下条件：</p>
-<div class="arithmatex">\[
-\begin{aligned}
-&amp;P_k y_k = \delta_k \\
-&amp;Q_k y_k = -G_k y_k
-\end{aligned}
-\]</div>
-<p>因此，我们可以这样选择：</p>
-<div class="arithmatex">\[
-\begin{aligned}
-&amp;P_k = \frac{\delta_k \delta_k^T}{\delta_k^T y_k} \\
-&amp;Q_k = -\frac{\delta_k y_k^T G_k}{y_k^T G_k y_k}
-\end{aligned}
-\]</div>
-<p>这将导致矩阵<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(G_{k+1}\)</span><span class="heti-spacing"> </span></span>的迭代公式为：</p>
-<div class="arithmatex">\[
-G_{k+1} = G_k + \frac{\delta_k \delta_k^T}{\delta_k^T y_k} - \frac{\delta_k y_k^T G_k}{y_k^T G_k y_k}
-\]</div>
-<p>如果初始矩阵<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(G_0\)</span><span class="heti-spacing"> </span></span>是正定的，那么可以证明在迭代过程中每个矩阵<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(G_k\)</span><span class="heti-spacing"> </span></span>也都是正定的。</p>
-<p>可以证明<span><span class="heti-spacing"> </span>:</span> </p>
-<ul>
-<li>当目标函数为严格凸二次函数时<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>可经有限步迭代收敛于极值（二次终止性<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。为什么不是<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>步<span><span class="heti-spacing"> </span>?</span></li>
-</ul>
-<h4 id="_25">共轭梯度法<a class="headerlink" href="#_25" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
-<blockquote>
-<p>参考文献：<a href="https://blog.csdn.net/weixin_43940314/article/details/121125847">共轭梯度法的简单直观理解<span class="heti-skip"><span class="heti-spacing"> </span>-CSDN<span class="heti-spacing"> </span></span>博客</a></p>
-</blockquote>
-<p><img alt="在这里插入图片描述" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/4cb1ad1b7f5d4100b19e51a63eddedee.png"/></p>
-<p>为什么会走出这一<span class="heti-skip"><span class="heti-spacing"> </span>Z<span class="heti-spacing"> </span></span>形线呢？因为梯度下降的方向恰好与<span class="heti-skip"><span class="heti-spacing"> </span>f<span class="heti-spacing"> </span></span>垂直，也就是说和等高线垂直。沿着垂直于等高线的方向，一定能让函数减小，也就是最快地下了一个台阶。但是最快下台阶并不意味着最快到达目标位置（即最优解<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，因为你最终的目标并不是直对着台阶的。</p>
-<p>为了修正这一路线，采用另一个方向：即共轭向量的方向。</p>
-<p>对照梯度下降法，每次向下走的方向不是梯度了，而是专门的一个方向<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\vec{d}\)</span><span class="heti-spacing"> </span></span>除此之外和梯度下降法几乎一样。</p>
-<p>共轭向量<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(p_i^T A p_j = 0\)</span>,<span class="heti-spacing"> </span></span>其中<span class="heti-skip"><span class="heti-spacing"> </span>A<span class="heti-spacing"> </span></span>是一个对称正定矩阵。<span><span class="arithmatex">\(p_i,p_j\)</span><span class="heti-spacing"> </span></span>是一对共轭的向量。</p>
-<p>可见，共轭是正交的推广化，因为向量正交的定义为：<span class="arithmatex">\(p_i^T\cdot p_j = 0\)</span></p>
-<p>共轭比正交中间只多了个矩阵<span><span class="heti-spacing"> </span>A</span>，而矩阵的几何意义正是对一个向量进行线性变换（可见<span class="heti-skip"><span class="heti-spacing"> </span>Gilber Strang<span class="heti-spacing"> </span></span>的线代公开课<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。因此共轭向量的意思就是一个向量经过线性变换（缩放剪切和旋转）之后与另一个向量正交。
-<img alt="在这里插入图片描述" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/2b29249d0e29462dae65e18e1e2b25b7.png" style="zoom:50%;"/></p>
-<p><img alt="image-20240528092452183" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240528092452183.png" style="zoom:50%;"/></p>
-<h3 id="_26">步长选择<a class="headerlink" href="#_26" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<p>设计思想：沿搜索方向的目标函数值最小</p>
-<p><span class="arithmatex">\(\lambda_{k}=\arg \min \limits_{\lambda} f\left(\boldsymbol{x}^{(k)}+\lambda \boldsymbol{p}^{(k)}\right)\)</span></p>
-<p>分数法</p>
-<p><img alt="image-20240528081701243" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240528081701243.png"/></p>
-<p>斐波那契法</p>
-<p><img alt="image-20240528081631391" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240528081631391.png"/></p>
-<p><span>0.618<span class="heti-spacing"> </span></span>法</p>
-<p><img alt="image-20240528081607566" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240528081607566.png"/></p>
-<h3 id="_27">迭代终止准则<a class="headerlink" href="#_27" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<ul>
-<li>绝对误差准则</li>
-</ul>
-<div class="arithmatex">\[
-\left\|\boldsymbol{x}^{(k+1)}-\boldsymbol{x}^{(k)}\right\| \leq \varepsilon_{1} \quad\left|f\left(\boldsymbol{x}^{(k+1)}\right)-f\left(\boldsymbol{x}^{(k)}\right)\right| \leq \varepsilon_{2}
-\]</div>
-<ul>
-<li>相对误差准则</li>
-</ul>
-<div class="arithmatex">\[
-\frac{\left\|\boldsymbol{x}^{(k+1)}-\boldsymbol{x}^{(k)}\right\|}{\left\|\boldsymbol{x}^{(k)}\right\|} \leq \varepsilon_{3} \quad \frac{\left|f\left(\boldsymbol{x}^{(k+1)}\right)-f\left(\boldsymbol{x}^{(k)}\right)\right|}{\left|f\left(\boldsymbol{x}^{(k)}\right)\right|} \leq \varepsilon_{4}
-\]</div>
-<p>梯度模准则（first-order optimality measure）</p>
-<div class="arithmatex">\[
-\begin{align}
-\left\|\nabla f\left(\boldsymbol{x}^{(k)}\right)\right\| \leq \varepsilon_{5} \quad\left\|\nabla f\left(\boldsymbol{x}^{(0)}\right)\right\|
-\end{align}
-\]</div>
-<h2 id="_28">数值解法（有约束）<a class="headerlink" href="#_28" title="anchor link to this section for reference">¶</a></h2>
-<h3 id="zoutendijk">可行方向 —— <span>Zoutendijk<span class="heti-spacing"> </span></span>可行方向法<a class="headerlink" href="#zoutendijk" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<div class="arithmatex">\[
-\begin{array}{l}
-\nabla f\left(\boldsymbol{x}^{(k)}\right)^{T} \boldsymbol{p}&lt;0 \\
--\nabla g_{j}\left(\boldsymbol{x}^{(k)}\right)^{T} \boldsymbol{p}&lt;0, \quad j \in J\left(\boldsymbol{x}^{(k)}\right)
-\end{array}
+A = \begin{bmatrix} 1 &amp; 2 \\ 3 &amp; 4 \end{bmatrix},B = \begin{bmatrix} 5 &amp; 6 \\ 7 &amp; 8 \end{bmatrix}
 \]</div>
 <div class="arithmatex">\[
-\begin{align} 
-\min \eta \\
-s.t.
-\left\{
-    \begin{array}{lr}  
-    \nabla f\left(\boldsymbol{x}^{(k)}\right)^{T} \boldsymbol{p} \leq \eta \\
-    -\nabla g_{j}\left(\boldsymbol{x}^{(k)}\right)^{T} \boldsymbol{p} \leq \eta, \quad j \in J\left(\boldsymbol{x}^{(k)}\right)\\
-    -1 \le p \le 1
-    \end{array}
-\right.
-\end{align}
-\]</div>
-<ul>
-<li><span class="arithmatex">\(\eta&lt;0\)</span>：可行下降方向</li>
-<li><span class="arithmatex">\(\eta=0\)</span>：迭代结束！</li>
-<li><span class="arithmatex">\(\eta&gt;0\)</span>：不会出现</li>
-</ul>
-<h3 id="_29">制约函数<a class="headerlink" href="#_29" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<h4 id="_30">外点法——罚函数，罚外点<a class="headerlink" href="#_30" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
-<p><strong>思想：构造罚函数，惩罚可行域外的迭代点</strong></p>
-<div class="arithmatex">\[
-\begin{align}
-\min P(x,M)=f(x)+M\sum_{i=1}^{m}h_{i}^{2}(x)+M\sum_{j=1}^{l}[\min (0,g_{j}(x))]^{2}
-\end{align}
-\]</div>
-<p><span>Courant<span class="heti-spacing"> </span></span>罚函数</p>
-<p><span><span class="arithmatex">\(M&gt;0\)</span><span class="heti-spacing"> </span></span>为罚因子，当<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(M\)</span><span class="heti-spacing"> </span></span>趋向无穷时，<span><span class="arithmatex">\(x^{*}\)</span><span class="heti-spacing"> </span></span>为原问题约束极值解。</p>
-<p><span><span class="arithmatex">\([\min (0,g_{j}(x))]^{2}\)</span><span class="heti-spacing"> </span></span>是罚函数，因为在可行域内<span><span class="heti-spacing"> </span><span class="arithmatex">\(g(x)\ge 0\)</span></span>，可行域外<span><span class="heti-spacing"> </span><span class="arithmatex">\(g(x)\le 0\)</span></span> ，所以相当于用一个二次函数来拟合。</p>
-<p>例子</p>
-<p>最小化函数<span><span class="heti-spacing"> </span><span class="arithmatex">\(f(x) = -\frac{1}{3}(x_1+1)^3 + x_2\)</span></span>，满足以下条件：</p>
-<div class="arithmatex">\[
-\begin{aligned}
-x_1 - 1 &amp;\geq 0 \\
-x_2 &amp;\geq 0
-\end{aligned}
-\]</div>
-<p>其中，<span class="arithmatex">\(\nabla f(x) = \left[-\frac{(x_1+1)^2}{3}, 1\right]\)</span>​。</p>
-<p>构造罚函数<span><span class="heti-spacing"> </span>:</span></p>
-<div class="arithmatex">\[
-P(x, M)=\frac{1}{3}(x_{1}+1)^{3}+x_{2}+M[\min (0, x_{1}-1)]^{2}+M[\min (0, x_{2})]^{2}
-\]</div>
-<p>根据一阶驻点条件<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>有</p>
-<div class="arithmatex">\[
-\begin{aligned}
-\frac{\partial P}{\partial x_{1}} &amp; =(x_{1}+1)^{2}+2 M[\min (0, x_{1}-1)]=0 \\
-\frac{\partial P}{\partial x_{2}} &amp; =1+2 M[\min (0, x_{2})]=0
-\end{aligned}
-\]</div>
-<p>如果<span><span class="heti-spacing"> </span><span class="arithmatex">\(x_{1} \geq 1 \Rightarrow x_{1}=1\)</span></span> ，矛盾</p>
-<p>如果<span><span class="heti-spacing"> </span><span class="arithmatex">\(x_{2} \geq 0 \Rightarrow 1=0\)</span></span> ，不成立</p>
-<p>所以考虑<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(x_{1}&lt;1, x_{2}&lt;0\)</span><span class="heti-spacing"> </span></span>区域的驻点。<span>(<span class="heti-spacing"> </span></span>可行域外的点<span><span class="heti-spacing"> </span>)</span></p>
-<div class="arithmatex">\[
-\begin{align}
-\frac{\partial P}{\partial x_{1}}  =(x_{1}+1)^{2}+2 M(x_{1}-1)=0 \\
-\frac{\partial P}{\partial x_{2}}  =1+2 M x_{2}=0
-\end{align}
-\]</div>
-<p>可得<span><span class="heti-spacing"> </span>:</span></p>
-<div class="arithmatex">\[
-\begin{align}
-&amp; x_{1}^{*}=-1-M \pm \sqrt{M^{2}+4 M}\\
-&amp; x_{2}^{*}=-\frac{1}{2 M} \\
- &amp;\quad M \rightarrow+\infty \\
-&amp; \nabla^{2} P(x)=\left[\begin{array}{cc}
-2\left(x_{1}+1\right)+2 M &amp; 0 \\
-0 &amp; 2 M
-\end{array}\right]&gt;0 \\
-&amp; 故为极小值
-\end{align}
-\]</div>
-<p><img alt="image-20240612002931360" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240612002931360.png"/></p>
-<h4 id="_31">内点法——障碍函数，阻止内点<a class="headerlink" href="#_31" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
-<p><strong>构造障碍函数，阻止迭代点离开可行域。</strong></p>
-<div class="arithmatex">\[
-\begin{array}{l}
-\min \limits_{x \in R_{0}} \bar{P}(x, r)=f(x)+r \sum_{j=1}^{l} \frac{1}{g_{j}(x)} \\
-或  \\
-\min \limits_{x \in R_{0}} \bar{P}(x, r)=f(x)-\sum_{j=1}^{l} \log g_{j}(x)
-\end{array}
-\]</div>
-<p>其中<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(R_{0}=\left\{x \mid g_{j}(x) &gt; 0, j=1,2, \cdots, l\right\}\)</span><span class="heti-spacing"> </span></span>严格内点</p>
-<p><span><span class="arithmatex">\(r&gt;0\)</span><span class="heti-spacing"> </span></span>为障碍因子，其在迭代中的取值会不断减小，趋向于<span><span class="heti-spacing"> </span>0</span> ，使<span><span class="heti-spacing"> </span><span class="arithmatex">\(x\)</span></span>​可趋向于边界。</p>
-<p><strong>例子</strong></p>
-<p>最小化函数<span><span class="heti-spacing"> </span><span class="arithmatex">\(f(x) = x_1 + x_2\)</span></span>，满足以下条件：</p>
-<div class="arithmatex">\[
-\begin{aligned}
--x_1^2 + x_2 &amp;\geq 0 \\
-x_1 &amp;\geq 0
-\end{aligned}
-\]</div>
-<p>构造障碍函数<span><span class="heti-spacing"> </span>:</span></p>
-<div class="arithmatex">\[
-\begin{align}
-\bar{P}(x, r)=x_{1}+x_{2}-r \cdot\left[\log \left(-x_{1}^{2}+x_{2}\right)+\log \left(x_{1}\right)\right]
-\end{align}
-\]</div>
-<p>根据驻点一阶条件<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>有</p>
-<div class="arithmatex">\[
-\begin{array}{l}
-\frac{\partial \bar{P}}{\partial x_{1}}=1-r \cdot \frac{-2 x_{1}}{-x_{1}^{2}+x_{2}} \cdot r \cdot \frac{1}{x_{1}}=0 \\
-\frac{\partial \bar{P}}{\partial x_{2}}=1-r \cdot \frac{1}{-x_{1}^{2}+x_{2}}=0
-\end{array}
-\text { 求解得到: }
+A \otimes B = \begin{bmatrix} 1 \cdot B &amp; 2 \cdot B \\ 3 \cdot B &amp; 4 \cdot B \end{bmatrix}
 \]</div>
 <div class="arithmatex">\[
-\begin{array}{l}
-x_{1}=\frac{\sqrt{1+8 r}-1}{4} \\
-x_{2}=\frac{3}{2} r-\frac{\sqrt{1+8 r}-1}{8}
-\end{array}
+A \otimes B = \begin{bmatrix} \begin{bmatrix} 5 &amp; 6 \\ 7 &amp; 8 \end{bmatrix} &amp; \begin{bmatrix} 10 &amp; 12 \\ 14 &amp; 16 \end{bmatrix} \\ \begin{bmatrix} 15 &amp; 18 \\ 21 &amp; 24 \end{bmatrix} &amp; \begin{bmatrix} 20 &amp; 24 \\ 28 &amp; 32 \end{bmatrix} \end{bmatrix}
 \]</div>
-<p><span><span class="arithmatex">\(r \rightarrow 0\)</span><span class="heti-spacing"> </span></span>时<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>有</p>
+</details>
+<h3 id="_9">向量化和矩阵化<a class="headerlink" href="#_9" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p><span>motivation:<span class="heti-spacing"> </span></span>如何把一张图或者一个视频变成一个向量，送到神经网络中</p>
+<p>按列堆栈：</p>
 <div class="arithmatex">\[
-\left\{\begin{array}{l}
-x_{1}^{*}=0 \\
-x_{2}^{*}=0
-\end{array}\right.
+A = \begin{bmatrix}
+| &amp; | &amp; &amp; | \\
+a_1 &amp; a_2 &amp; \cdots &amp; a_n \\
+| &amp; | &amp; &amp; |
+\end{bmatrix}\quad  \text{vec}(A) = \begin{bmatrix} a_1 \\ \vdots \\ a_n \end{bmatrix}
 \]</div>
-<p><strong>内点法收敛性分析</strong></p>
-<p>障碍函数</p>
+<p>按行堆栈：</p>
 <div class="arithmatex">\[
-\bar{P}(x, r)=f(x)-r_k \sum_{j=1}^{l} \log g_{j}(x)
+A = \begin{bmatrix}
+—— &amp; a_1 &amp; —— \\
+—— &amp; a_2 &amp; —— \\
+—— &amp; \cdots&amp; —— \\
+—— &amp; a_n &amp; —— \\
+\end{bmatrix}\quad \text{rvec}(A) = \begin{bmatrix} -a_{1}-,- a_{2}-, \ldots, -a_{n}- \end{bmatrix}
 \]</div>
-<p>第<span class="heti-skip"><span class="heti-spacing"> </span>k<span class="heti-spacing"> </span></span>步障碍函数局部极小值满足</p>
+<div class="admonition example">
+<p class="admonition-title">向量化和矩阵化</p>
+<p>Consider a matrix <span class="arithmatex">\(A\)</span>:</p>
 <div class="arithmatex">\[
-\begin{align}
-\nabla \bar{P}\left(x^{(k)}, r_k\right)  =\nabla f\left(x^{(k)}\right)-r_k \sum_{j=1}^{l} \frac{1}{g_{j}\left(x^{(k)}\right)} \nabla g_{j}\left(x^{(k)}\right)=0 \\
-\nabla P\left(x^{(k)}, r_k\right)  =\nabla f\left(x^{(k)}\right)-\sum_{j=1}^{l} \mu_{j}\left(k\right) \nabla g_{j}\left(x^{(k)}\right)=0 \\
-\mu_{j}(k)=\frac{r}{g_{j}\left(x^{(k)}\right)} \geq 0
-\end{align}
+A = \begin{bmatrix} 1 &amp; 2 \\ 3 &amp; 4 \end{bmatrix}
 \]</div>
-<p><span><span class="arithmatex">\(x_{k}^{*}\)</span><span class="heti-spacing"> </span></span>迭代收敛时</p>
+<p>The vectorization of <span class="arithmatex">\(A\)</span> by stacking its columns is:</p>
 <div class="arithmatex">\[
-\begin{align}
- \nabla P\left(x^{*}, r\right)=\nabla f\left(x^{*}\right)-\sum_{j=1}^{l} \mu_{j}^{*} \nabla g_{j}\left(x^{*}\right)=0 \\
- \mu_{j}^{*}=\frac{r}{g_{j}\left(x^{*}\right)} \geq 0 \\
- \mu_{j}^{*} g_{j}\left(x^{*}\right)=r \rightarrow 0
-\end{align}
+\text{vec}(A) = \begin{bmatrix} 1 \\ 3 \\ 2 \\ 4 \end{bmatrix}
 \]</div>
-<p><strong><span>KKT<span class="heti-spacing"> </span></span>条件<span><span class="heti-spacing"> </span>!</span></strong></p>
-<p><strong>如果<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(x(k)\)</span><span class="heti-spacing"> </span></span>是<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\min \bar{P}(x ; r)\)</span><span class="heti-spacing"> </span></span>的全局极小值，则内点法收敛到全局最优解！</strong></p>
-<h3 id="_32">混合法<a class="headerlink" href="#_32" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<ul>
-<li>内点法不能处理等式约束问题</li>
-<li>外点法不能处理目标函数在可行域外不存在的问题</li>
-<li>对等式约束和当前不被满足的不等式约束，使用罚函数法，对满足的不等式约束，使用障碍函数法。</li>
-</ul>
-<h2 id="_33">智能计算<a class="headerlink" href="#_33" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<h3 id="bp-back-propagation">BP | back propagation<a class="headerlink" href="#bp-back-propagation" title="anchor link to this section for reference">¶</a></h3>
-<ul>
-<li>维度高，需研究提高训练效率。</li>
-<li>目标函数曲面复杂，存在多种类型的驻点。</li>
-<li>不是纯粹优化问题，可能过拟合，影响泛化。</li>
-</ul>
-<p>在机器学习部分</p>
-<h3 id="_34">蚁群算法<a class="headerlink" href="#_34" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<p>种群迭代</p>
-<p>理论上可收敛到全局最优解。</p>
-<ul>
-<li>模式定理</li>
-</ul>
-<ul>
-<li><span>Markov<span class="heti-spacing"> </span></span>链分析</li>
-</ul>
-<p>实际当适应度函数值的变化很小或达到最大种群迭代次数时终止</p>
-<h3 id="_35">模拟退火<a class="headerlink" href="#_35" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<h3 id="_36">遗传算法<a class="headerlink" href="#_36" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3></div>
+<p>The vectorization of <span class="arithmatex">\(A\)</span> by stacking its rows is:</p>
+<div class="arithmatex">\[
+\text{rvec}(A) = \begin{bmatrix} 1 &amp; 2 &amp; 3 &amp; 4 \end{bmatrix}
+\]</div>
+</div>
+<p>In numpy, this can be achieved using:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">flatten</span><span class="p">(</span><span class="n">order</span><span class="o">=</span><span class="s1">'F'</span><span class="p">))</span> <span class="c1"># 按列堆栈 1,3,2,4</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">flatten</span><span class="p">(</span><span class="n">order</span><span class="o">=</span><span class="s1">'C'</span><span class="p">))</span> <span class="c1"># 按行堆栈 1,2,3,4</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">按列堆栈和按行堆栈演示</span><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s1">'F'</span><span class="p">))</span><span class="c1"># 按列堆栈 1,3,2,4</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span><span class="c1"># 按行堆栈 1,2,3,4</span>
+</code></pre></div></div>
 <aside class="md-source-file">
 <span class="md-source-file__fact">
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年4月5日 10:16:34</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年5月10日 22:50:26</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年5月21日 17:14:45</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年4月29日 20:45:50</span>
 </span>
 </aside>
 <form class="md-feedback" hidden="" name="feedback">
@@ -4461,7 +3931,7 @@ x_{2}^{*}=0
 </main>
 <footer class="md-footer">
 <nav aria-label="页脚" class="md-footer__inner md-grid">
-<a aria-label="上一页: 规划论 | Mathematical Programming" class="md-footer__link md-footer__link--prev" href="OR-01-programming.html">
+<a aria-label="上一页: 01 | 基础" class="md-footer__link md-footer__link--prev" href="01-basic.html">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
 </div>
@@ -4470,17 +3940,17 @@ x_{2}^{*}=0
                 上一页
               </span>
 <div class="md-ellipsis">
-                规划论 | Mathematical Programming
+                01 | 基础
               </div>
 </div>
 </a>
-<a aria-label="下一页: 图论 | Graph Theory" class="md-footer__link md-footer__link--next" href="OR-03-graph.html">
+<a aria-label="下一页: 微分与积分" class="md-footer__link md-footer__link--next" href="02-2-derivative.html">
 <div class="md-footer__title">
 <span class="md-footer__direction">
                 下一页
               </span>
 <div class="md-ellipsis">
-                图论 | Graph Theory
+                微分与积分
               </div>
 </div>
 <div class="md-footer__button md-icon">
