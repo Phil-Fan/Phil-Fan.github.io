@@ -295,9 +295,16 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="00-index.html">
+<a class="md-nav__link" href="00-intro.html">
 <span class="md-ellipsis">
     导论与介绍
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="00-review.html">
+<span class="md-ellipsis">
+    矩阵论复习
   </span>
 </a>
 </li>
@@ -363,11 +370,22 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#eigen-value-decomposition">
+<a class="md-nav__link" href="#evd">
 <span class="md-ellipsis">
-      Eigen Value Decomposition | 特征分解
+      EVD | 特征分解
     </span>
 </a>
+<nav aria-label="EVD | 特征分解" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pca">
+<span class="md-ellipsis">
+      PCA | 主成分分析
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#svd">
@@ -606,7 +624,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../StochasticProcess/00-Index.html">
+<a class="md-nav__link" href="../StochasticProcess/00-Intro.html">
 <span class="md-ellipsis">
     随机过程
   </span>
@@ -3199,11 +3217,22 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#eigen-value-decomposition">
+<a class="md-nav__link" href="#evd">
 <span class="md-ellipsis">
-      Eigen Value Decomposition | 特征分解
+      EVD | 特征分解
     </span>
 </a>
+<nav aria-label="EVD | 特征分解" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pca">
+<span class="md-ellipsis">
+      PCA | 主成分分析
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#svd">
@@ -3228,7 +3257,7 @@
 <article class="md-content__inner md-typeset">
 <div><h1 id="04"><span>04 |<span class="heti-spacing"> </span></span>矩阵分解<a class="headerlink" href="#04" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>500<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"></path></svg></span> <span>2<span class="heti-spacing"> </span></span>行代码 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>2<span class="heti-spacing"> </span></span>分钟</p>
+<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>644<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"></path></svg></span> <span>2<span class="heti-spacing"> </span></span>行代码 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>3<span class="heti-spacing"> </span></span>分钟</p>
 </div>
 <h2 id="ldu-decomposition">LDU decomposition<a class="headerlink" href="#ldu-decomposition" title="anchor link to this section for reference">¶</a></h2>
 <ul>
@@ -3271,7 +3300,7 @@ v_1 &amp; v_2 &amp; \cdots &amp; v_n \\
 <p><strong>验证对角化</strong>：
 - 验证 <span class="arithmatex">\(A = P \Lambda P^{-1}\)</span> 是否成立。</p>
 </div>
-<h2 id="eigen-value-decomposition"><span>Eigen Value Decomposition |<span class="heti-spacing"> </span></span>特征分解<a class="headerlink" href="#eigen-value-decomposition" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="evd"><span>EVD |<span class="heti-spacing"> </span></span>特征分解<a class="headerlink" href="#evd" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p>特征值分解是一种特殊的奇异值分解</p>
 <div class="arithmatex">\[
 \begin{cases}
@@ -3301,8 +3330,36 @@ u_1 &amp; u_2 &amp; \cdots &amp; u_n
 A U=  U \Lambda
 \]</div>
 <div class="arithmatex">\[
-A = U \Lambda U^{-1}
+\begin{align*}
+A &amp;= U \Lambda U^{\mathrm{H}} \\
+&amp;= \begin{bmatrix}
+u_1 &amp; u_2 &amp; \cdots &amp; u_n
+\end{bmatrix} \begin{bmatrix}
+\lambda_1 &amp; 0 &amp; \cdots &amp; 0 \\
+0 &amp; \lambda_2 &amp; \cdots &amp; 0 \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+0 &amp; 0 &amp; \cdots &amp; \lambda_n
+\end{bmatrix} \begin{bmatrix}
+u_1^H \\ u_2^H \\ \vdots \\ u_n^H
+\end{bmatrix} \\
+&amp;= \sum_{i=1}^n \lambda_i u_i u_i^H
+\end{align*}
 \]</div>
+<h3 id="pca"><span>PCA |<span class="heti-spacing"> </span></span>主成分分析<a class="headerlink" href="#pca" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>线性降维</p>
+<p>想要保留尽可能多的信息，那么就需要让<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(Var(Z_n)\)</span><span class="heti-spacing"> </span></span>最大</p>
+<p><span>opt <span class="arithmatex">\(\Phi\)</span> such that <span class="arithmatex">\(Var(Z_n)\)</span><span class="heti-spacing"> </span></span>最大</p>
+<ul>
+<li>步骤</li>
+</ul>
+<ul>
+<li>中心化</li>
+<li>求解协方差矩阵<span><span class="heti-spacing"> </span>C</span></li>
+<li>EVD</li>
+<li>取前<span class="heti-skip"><span class="heti-spacing"> </span>k<span class="heti-spacing"> </span></span>个特征值对应的特征向量</li>
+<li>降维<span><span class="heti-spacing"> </span>$$</span></li>
+</ul>
+<p>等价于求解二次型的有约束极值问题</p>
 <h2 id="svd"><span>SVD |<span class="heti-spacing"> </span></span>奇异值分解<a class="headerlink" href="#svd" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p>变换<span class="heti-skip"><span class="heti-spacing"> </span>=<span class="heti-spacing"> </span></span>旋转和伸缩组合</p>
 <p>那么如果想把一个变换表示成为旋转和伸缩的组合，考虑先旋转到坐标轴，再做伸缩，最后再旋转回来，这就是奇异值分解</p>
@@ -3319,7 +3376,7 @@ A = U \Lambda U^{-1}
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年5月5日 10:46:31</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年5月12日 00:19:45</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">

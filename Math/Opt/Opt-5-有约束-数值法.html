@@ -295,9 +295,16 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../LinearAlgebra/00-index.html">
+<a class="md-nav__link" href="../LinearAlgebra/00-intro.html">
 <span class="md-ellipsis">
     导论与介绍
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../LinearAlgebra/00-review.html">
+<span class="md-ellipsis">
+    矩阵论复习
   </span>
 </a>
 </li>
@@ -439,19 +446,19 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_2">
 <span class="md-ellipsis">
-      外点法——罚函数，罚外点
+      外点法 —— 罚函数，罚外点
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_3">
+<a class="md-nav__link" href="#_6">
 <span class="md-ellipsis">
-      内点法——障碍函数，阻止内点
+      内点法 —— 障碍函数，阻止内点离开
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_4">
+<a class="md-nav__link" href="#_10">
 <span class="md-ellipsis">
       混合法
     </span>
@@ -610,7 +617,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../StochasticProcess/00-Index.html">
+<a class="md-nav__link" href="../StochasticProcess/00-Intro.html">
 <span class="md-ellipsis">
     随机过程
   </span>
@@ -3206,19 +3213,19 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_2">
 <span class="md-ellipsis">
-      外点法——罚函数，罚外点
+      外点法 —— 罚函数，罚外点
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_3">
+<a class="md-nav__link" href="#_6">
 <span class="md-ellipsis">
-      内点法——障碍函数，阻止内点
+      内点法 —— 障碍函数，阻止内点离开
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_4">
+<a class="md-nav__link" href="#_10">
 <span class="md-ellipsis">
       混合法
     </span>
@@ -3236,7 +3243,7 @@
 <article class="md-content__inner md-typeset">
 <div><h1 id="05"><span>05 |<span class="heti-spacing"> </span></span>有约束 数值解法<a class="headerlink" href="#05" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>909<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 17H7V3h14m0-2H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2M3 5H1v16a2 2 0 0 0 2 2h16v-2H3m12.96-10.71-2.75 3.54-1.96-2.36L8.5 15h11l-3.54-4.71Z"></path></svg></span> <span>1<span class="heti-spacing"> </span></span>张图片 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>4<span class="heti-spacing"> </span></span>分钟</p>
+<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>967<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>4<span class="heti-spacing"> </span></span>分钟</p>
 </div>
 <h2 id="zoutendijk">可行方向 —— <span>Zoutendijk<span class="heti-spacing"> </span></span>可行方向法<a class="headerlink" href="#zoutendijk" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <div class="arithmatex">\[
@@ -3264,17 +3271,81 @@ s.t.
 <li><span class="arithmatex">\(\eta&gt;0\)</span>：不会出现</li>
 </ul>
 <h2 id="_1">制约函数<a class="headerlink" href="#_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<h3 id="_2">外点法——罚函数，罚外点<a class="headerlink" href="#_2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<ul>
+<li>外点：启动点要求低，收敛满</li>
+<li>内点：启动点要求高，收敛快</li>
+</ul>
+<h3 id="_2">外点法 —— 罚函数，罚外点<a class="headerlink" href="#_2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p><strong>思想：构造罚函数，惩罚可行域外的迭代点</strong></p>
+<h4 id="_3">罚函数<a class="headerlink" href="#_3" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">加性罚函数</label><label for="__tabbed_1_2">乘性罚函数</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="arithmatex">\[
-\begin{align}
+\begin{align*}
+L(x) = \begin{cases}
+f(x) &amp; x \in \mathbb{F} \\
+f(x) + Mp(x) &amp; x \notin \mathbb{F} \quad p(x) &gt;0
+\end{cases}
+\end{align*}
+\]</div>
+</div>
+<div class="tabbed-block">
+<div class="arithmatex">\[
+\begin{align*}
+L(x) = \begin{cases}
+f(x) &amp; x \in \mathbb{F} \\
+f(x)\cdot p(x) &amp; x \notin \mathbb{F} \quad p(x) &gt;1
+\end{cases}
+\end{align*}
+\]</div>
+</div>
+</div>
+</div>
+<p><span class="arithmatex">\(x \in \mathbb{F} \in \mathbb{S} \in \mathbb{R}^n\)</span></p>
+<ul>
+<li><span class="arithmatex">\(\mathbb{F}\)</span>: feasible region</li>
+<li><span class="arithmatex">\(\mathbb{S}\)</span>: search region</li>
+<li><span><span class="arithmatex">\(M&gt;0\)</span><span class="heti-spacing"> </span></span>为罚因子，当<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(M\)</span><span class="heti-spacing"> </span></span>趋向无穷时，<span><span class="arithmatex">\(x^{*}\)</span><span class="heti-spacing"> </span></span>为原问题约束极值解。</li>
+</ul>
+<h4 id="_4">罚函数设计<a class="headerlink" href="#_4" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<div class="arithmatex">\[
+\begin{align*}
 \min P(x,M)=f(x)+M\sum_{i=1}^{m}h_{i}^{2}(x)+M\sum_{j=1}^{l}[\min (0,g_{j}(x))]^{2}
-\end{align}
+\end{align*}
 \]</div>
 <p><span>Courant<span class="heti-spacing"> </span></span>罚函数</p>
-<p><span><span class="arithmatex">\(M&gt;0\)</span><span class="heti-spacing"> </span></span>为罚因子，当<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(M\)</span><span class="heti-spacing"> </span></span>趋向无穷时，<span><span class="arithmatex">\(x^{*}\)</span><span class="heti-spacing"> </span></span>为原问题约束极值解。</p>
-<p><span><span class="arithmatex">\([\min (0,g_{j}(x))]^{2}\)</span><span class="heti-spacing"> </span></span>是罚函数，因为在可行域内<span><span class="heti-spacing"> </span><span class="arithmatex">\(g(x)\ge 0\)</span></span>，可行域外<span><span class="heti-spacing"> </span><span class="arithmatex">\(g(x)\le 0\)</span></span> ，所以相当于用一个二次函数来拟合。</p>
-<p>例子</p>
+<ul>
+<li><strong>等式约束</strong>：<span><span class="arithmatex">\(h_i^2(x)=0\)</span><span class="heti-spacing"> </span></span>是罚函数，因为在可行域内<span><span class="heti-spacing"> </span><span class="arithmatex">\(h(x)=0\)</span></span>，可行域外<span><span class="heti-spacing"> </span><span class="arithmatex">\(h(x)\ne 0\)</span></span> </li>
+<li><strong>不等式约束</strong>：<span><span class="arithmatex">\([\min (0,g_{j}(x))]^{2}\)</span><span class="heti-spacing"> </span></span>是罚函数，因为在可行域内<span><span class="heti-spacing"> </span><span class="arithmatex">\(g(x)\ge 0\)</span></span>，<span class="arithmatex">\(\min (0,g_{j}(x))=0\)</span>，可行域外<span><span class="heti-spacing"> </span><span class="arithmatex">\(g(x)&lt;0\)</span></span> ，<span class="arithmatex">\(\min (0,g_{j}(x))=g_{j}(x)\)</span>，所以相当于用一个二次函数来拟合。</li>
+</ul>
+<div class="admonition attention">
+<p class="admonition-title">这里要关注不等式的方向，方向不同，罚函数的形式也不同</p>
+</div>
+<h4 id="_5">外点法收敛性分析<a class="headerlink" href="#_5" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<div class="arithmatex">\[
+\nabla f(X^{*})-\sum_{i=1}^{m}\gamma_{i}^{*}\nabla h_{i}(X^{*})-\sum_{g_{j}(X^{*})=0}\mu_{j}^{*}\nabla g_{j}(X^{*})=0
+\]</div>
+<p>罚函数</p>
+<div class="arithmatex">\[
+P(x, M_k) = f(x) + M_k \sum_{i=1}^{m} h_i^2(x) + M_k \sum_{j=1}^{l} [\min(0, g_j(x))]^2
+\]</div>
+<p>第<span class="heti-skip"><span class="heti-spacing"> </span>k<span class="heti-spacing"> </span></span>步罚函数的局部极小值满足</p>
+<div class="arithmatex">\[
+\begin{align*}
+\nabla P(x^{(k)}, M_k) &amp;= \nabla f(x^{(k)}) + 2 M_k \sum_{i=1}^{m} h_i(x^{(k)}) \nabla h_i(x^{(k)}) + 2 M_k \sum_{g_j(x^{(k)}) \leq 0} g_j(x^{(k)}) \nabla g_j(x^{(k)}) = 0\\
+\nabla P(x^{(k)}, M_k) &amp;= \nabla f(x^{(k)}) - \sum_{i=1}^{m} {\color{red}{\lambda_i(k)}} \nabla h_i(x^{(k)}) - \sum_{g_j(x^{(k)}) \leq 0} {\color{green}{\mu_j(x^{(k)})}}  \nabla g_j(x^{(k)}) = 0\\
+&amp;where\quad \color{red}{\lambda_i(k) = -2 M_k h_i(x^{(k)})} \quad \color{green}{\mu_j(k) = -2 M_k g_j(x^{(k)}) \geq 0}
+\end{align*}
+\]</div>
+<p><span><span class="arithmatex">\(x^{(k)}\)</span><span class="heti-spacing"> </span></span>迭代收敛时</p>
+<div class="arithmatex">\[
+\nabla P(x^*, M) = \nabla f(x^*) - \sum_{i=1}^{m} \lambda_i^* \nabla h_i(x^*) - \sum_{g_j(x^*) \rightarrow 0} \mu_j^* \nabla g_j(x^*) = 0
+\]</div>
+<p><span>KKT<span class="heti-spacing"> </span></span>条件<span><span class="heti-spacing"> </span>!</span></p>
+<p>如果<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(x^{(k)}\)</span><span class="heti-spacing"> </span></span>是<span class="heti-skip"><span class="heti-spacing"> </span>min<span class="arithmatex">\(P(x, M_k)\)</span><span class="heti-spacing"> </span></span>的全局极小值，则外点法收敛到全局最优解<span><span class="heti-spacing"> </span>!</span></p>
+<div class="admonition example">
+<p class="admonition-title">罚函数示例</p>
 <p>最小化函数<span><span class="heti-spacing"> </span><span class="arithmatex">\(f(x) = -\frac{1}{3}(x_1+1)^3 + x_2\)</span></span>，满足以下条件：</p>
 <div class="arithmatex">\[
 \begin{aligned}
@@ -3289,46 +3360,65 @@ P(x, M)=\frac{1}{3}(x_{1}+1)^{3}+x_{2}+M[\min (0, x_{1}-1)]^{2}+M[\min (0, x_{2}
 \]</div>
 <p>根据一阶驻点条件<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>有</p>
 <div class="arithmatex">\[
-\begin{aligned}
+\begin{align*}
 \frac{\partial P}{\partial x_{1}} &amp; =(x_{1}+1)^{2}+2 M[\min (0, x_{1}-1)]=0 \\
 \frac{\partial P}{\partial x_{2}} &amp; =1+2 M[\min (0, x_{2})]=0
-\end{aligned}
+\end{align*}
 \]</div>
 <p>如果<span><span class="heti-spacing"> </span><span class="arithmatex">\(x_{1} \geq 1 \Rightarrow x_{1}=1\)</span></span> ，矛盾</p>
 <p>如果<span><span class="heti-spacing"> </span><span class="arithmatex">\(x_{2} \geq 0 \Rightarrow 1=0\)</span></span> ，不成立</p>
 <p>所以考虑<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(x_{1}&lt;1, x_{2}&lt;0\)</span><span class="heti-spacing"> </span></span>区域的驻点。<span>(<span class="heti-spacing"> </span></span>可行域外的点<span><span class="heti-spacing"> </span>)</span></p>
 <div class="arithmatex">\[
-\begin{align}
+\begin{align*}
 \frac{\partial P}{\partial x_{1}}  =(x_{1}+1)^{2}+2 M(x_{1}-1)=0 \\
 \frac{\partial P}{\partial x_{2}}  =1+2 M x_{2}=0
-\end{align}
+\end{align*}
 \]</div>
 <p>可得<span><span class="heti-spacing"> </span>:</span></p>
 <div class="arithmatex">\[
-\begin{align}
+\begin{align*}
 &amp; x_{1}^{*}=-1-M \pm \sqrt{M^{2}+4 M}\\
 &amp; x_{2}^{*}=-\frac{1}{2 M} \\
- &amp;\quad M \rightarrow+\infty \\
+&amp;\quad M \rightarrow+\infty \\
 &amp; \nabla^{2} P(x)=\left[\begin{array}{cc}
 2\left(x_{1}+1\right)+2 M &amp; 0 \\
 0 &amp; 2 M
 \end{array}\right]&gt;0 \\
 &amp; 故为极小值
-\end{align}
+\end{align*}
 \]</div>
-<p><img alt="image-20240612002931360" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240612002931360.png"/></p>
-<h3 id="_3">内点法——障碍函数，阻止内点<a class="headerlink" href="#_3" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+</div>
+<h3 id="_6">内点法 —— 障碍函数，阻止内点离开<a class="headerlink" href="#_6" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p><strong>构造障碍函数，阻止迭代点离开可行域。</strong></p>
+<h4 id="_7">障碍函数<a class="headerlink" href="#_7" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <div class="arithmatex">\[
-\begin{array}{l}
-\min \limits_{x \in R_{0}} \bar{P}(x, r)=f(x)+r \sum_{j=1}^{l} \frac{1}{g_{j}(x)} \\
-或  \\
-\min \limits_{x \in R_{0}} \bar{P}(x, r)=f(x)-\sum_{j=1}^{l} \log g_{j}(x)
-\end{array}
+\phi(x) = \begin{cases}
+0 &amp; x \in int(\mathbb{F}) \\
+\infty &amp; x \rightarrow \partial \mathbb{F} \\
+\end{cases}
+\]</div>
+<ul>
+<li><span class="arithmatex">\(int(\mathbb{F})\)</span>：可行域的内部</li>
+<li><span class="arithmatex">\(\partial \mathbb{F}\)</span>：可行域的边界</li>
+</ul>
+<h4 id="_8">如何构建<a class="headerlink" href="#_8" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<div class="arithmatex">\[
+p(x, r)=r \sum_{j=1}^{l} \frac{1}{g_{j}(x)}
+\]</div>
+<div class="arithmatex">\[
+p(x, r)=\sum_{j=1}^{l} \log g_{j}(x)
+\]</div>
+<div class="arithmatex">\[
+p(x,r) = \sum_{j=1}^{l} exp\left[\frac{1}{g_{j}(x)}\right]
+\]</div>
+<p>统一：</p>
+<div class="arithmatex">\[
+\min_{x\in R_0} \quad f(x) + M_1\sum_{i=1}^{m}|h_{i}(x)|^2+M_2\sum_{j=1}^{l}\frac{1}{g_{j}(x)}\log g_{j}(x)
 \]</div>
 <p>其中<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(R_{0}=\left\{x \mid g_{j}(x) &gt; 0, j=1,2, \cdots, l\right\}\)</span><span class="heti-spacing"> </span></span>严格内点</p>
-<p><span><span class="arithmatex">\(r&gt;0\)</span><span class="heti-spacing"> </span></span>为障碍因子，其在迭代中的取值会不断减小，趋向于<span><span class="heti-spacing"> </span>0</span> ，使<span><span class="heti-spacing"> </span><span class="arithmatex">\(x\)</span></span>​可趋向于边界。</p>
-<p><strong>例子</strong></p>
+<p><span><span class="arithmatex">\(r&gt;0\)</span><span class="heti-spacing"> </span></span>为障碍因子，其在迭代中的取值会不断减小，趋向于<span><span class="heti-spacing"> </span>0</span>，使<span><span class="heti-spacing"> </span><span class="arithmatex">\(x\)</span></span>​可趋向于边界。</p>
+<div class="admonition example">
+<p class="admonition-title">障碍函数示例</p>
 <p>最小化函数<span><span class="heti-spacing"> </span><span class="arithmatex">\(f(x) = x_1 + x_2\)</span></span>，满足以下条件：</p>
 <div class="arithmatex">\[
 \begin{aligned}
@@ -3363,30 +3453,31 @@ x_{1}^{*}=0 \\
 x_{2}^{*}=0
 \end{array}\right.
 \]</div>
-<p><strong>内点法收敛性分析</strong></p>
+</div>
+<h4 id="_9">收敛性分析<a class="headerlink" href="#_9" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p>障碍函数</p>
 <div class="arithmatex">\[
 \bar{P}(x, r)=f(x)-r_k \sum_{j=1}^{l} \log g_{j}(x)
 \]</div>
 <p>第<span class="heti-skip"><span class="heti-spacing"> </span>k<span class="heti-spacing"> </span></span>步障碍函数局部极小值满足</p>
 <div class="arithmatex">\[
-\begin{align}
+\begin{align*}
 \nabla \bar{P}\left(x^{(k)}, r_k\right)  =\nabla f\left(x^{(k)}\right)-r_k \sum_{j=1}^{l} \frac{1}{g_{j}\left(x^{(k)}\right)} \nabla g_{j}\left(x^{(k)}\right)=0 \\
 \nabla P\left(x^{(k)}, r_k\right)  =\nabla f\left(x^{(k)}\right)-\sum_{j=1}^{l} \mu_{j}\left(k\right) \nabla g_{j}\left(x^{(k)}\right)=0 \\
 \mu_{j}(k)=\frac{r}{g_{j}\left(x^{(k)}\right)} \geq 0
-\end{align}
+\end{align*}
 \]</div>
 <p><span><span class="arithmatex">\(x_{k}^{*}\)</span><span class="heti-spacing"> </span></span>迭代收敛时</p>
 <div class="arithmatex">\[
-\begin{align}
+\begin{align*}
  \nabla P\left(x^{*}, r\right)=\nabla f\left(x^{*}\right)-\sum_{j=1}^{l} \mu_{j}^{*} \nabla g_{j}\left(x^{*}\right)=0 \\
  \mu_{j}^{*}=\frac{r}{g_{j}\left(x^{*}\right)} \geq 0 \\
  \mu_{j}^{*} g_{j}\left(x^{*}\right)=r \rightarrow 0
-\end{align}
+\end{align*}
 \]</div>
 <p><strong><span>KKT<span class="heti-spacing"> </span></span>条件<span><span class="heti-spacing"> </span>!</span></strong></p>
 <p><strong>如果<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(x(k)\)</span><span class="heti-spacing"> </span></span>是<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\min \bar{P}(x ; r)\)</span><span class="heti-spacing"> </span></span>的全局极小值，则内点法收敛到全局最优解！</strong></p>
-<h3 id="_4">混合法<a class="headerlink" href="#_4" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_10">混合法<a class="headerlink" href="#_10" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ul>
 <li>内点法不能处理等式约束问题</li>
 <li>外点法不能处理目标函数在可行域外不存在的问题</li>
@@ -3397,7 +3488,7 @@ x_{2}^{*}=0
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年5月10日 22:50:26</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年5月12日 00:19:45</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">

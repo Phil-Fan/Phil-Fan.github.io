@@ -295,9 +295,16 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="00-index.html">
+<a class="md-nav__link" href="00-intro.html">
 <span class="md-ellipsis">
     导论与介绍
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="00-review.html">
+<span class="md-ellipsis">
+    矩阵论复习
   </span>
 </a>
 </li>
@@ -374,14 +381,46 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_5">
+<a class="md-nav__link" href="#_6">
 <span class="md-ellipsis">
       微分
     </span>
 </a>
+<nav aria-label="微分" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_7">
+<span class="md-ellipsis">
+      一些规则
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_6">
+<a class="md-nav__link" href="#jocabian">
+<span class="md-ellipsis">
+      Jocabian 矩阵辨识
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_8">
+<span class="md-ellipsis">
+      复向量
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#hession">
+<span class="md-ellipsis">
+      Hession矩阵
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_9">
 <span class="md-ellipsis">
       积分
     </span>
@@ -624,7 +663,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../StochasticProcess/00-Index.html">
+<a class="md-nav__link" href="../StochasticProcess/00-Intro.html">
 <span class="md-ellipsis">
     随机过程
   </span>
@@ -3242,14 +3281,46 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_5">
+<a class="md-nav__link" href="#_6">
 <span class="md-ellipsis">
       微分
     </span>
 </a>
+<nav aria-label="微分" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_7">
+<span class="md-ellipsis">
+      一些规则
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_6">
+<a class="md-nav__link" href="#jocabian">
+<span class="md-ellipsis">
+      Jocabian 矩阵辨识
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_8">
+<span class="md-ellipsis">
+      复向量
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#hession">
+<span class="md-ellipsis">
+      Hession矩阵
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_9">
 <span class="md-ellipsis">
       积分
     </span>
@@ -3264,7 +3335,7 @@
 <article class="md-content__inner md-typeset">
 <div><h1 id="_1">微分与积分<a class="headerlink" href="#_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>2411<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>9<span class="heti-spacing"> </span></span>分钟</p>
+<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>1856<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 17H7V3h14m0-2H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2M3 5H1v16a2 2 0 0 0 2 2h16v-2H3m12.96-10.71-2.75 3.54-1.96-2.36L8.5 15h11l-3.54-4.71Z"></path></svg></span> <span>1<span class="heti-spacing"> </span></span>张图片 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>7<span class="heti-spacing"> </span></span>分钟</p>
 </div>
 <h2 id="_2">变元与函数<a class="headerlink" href="#_2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p><span><span class="arithmatex">\(\boldsymbol{x}=[x_1,\cdots,x_m]^{\mathrm{T}}\in\mathbb{R}^m\)</span><span class="heti-spacing"> </span></span>为实向量变元；</p>
@@ -3370,13 +3441,34 @@ D_X f(X) = \frac{\partial f(X)}{\partial X^T} = \begin{bmatrix} \frac{\partial f
 <blockquote>
 <p>taking derivative <strong>with respect to</strong> a column vector</p>
 </blockquote>
+<p>具有连续偏导→可微→<strong>有切平面</strong>→切线都在切平面上→有一个斜率最大的</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="" id="__tabbed_2_1" name="__tabbed_2" type="radio"/><input id="__tabbed_2_2" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="__tabbed_2_1">标量函数<span class="heti-skip"><span class="heti-spacing"> </span>&amp;<span class="heti-spacing"> </span></span>向量变元</label><label for="__tabbed_2_2">标量函数<span class="heti-skip"><span class="heti-spacing"> </span>&amp;<span class="heti-spacing"> </span></span>矩阵变元</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="arithmatex">\[
 \nabla_{x}\stackrel{\mathrm{def}}{=}\frac{\partial}{\partial x_{m\times1}}=\left[\frac{\partial}{\partial x_{1}},\cdots,\frac{\partial}{\partial x_{m}}\right]^{\mathrm{T}}
 \]</div>
 <div class="arithmatex">\[
 \nabla_{\boldsymbol{x}}f(\boldsymbol{x})\stackrel{\mathrm{def}}{=}\left[\frac{\partial f(\boldsymbol{x})}{\partial x_{1}},\cdots,\frac{\partial f(\boldsymbol{x})}{\partial x_{m}}\right]^{\mathrm{T}}=\frac{\partial f(\boldsymbol{x})}{\partial\boldsymbol{x}}
 \]</div>
+</div>
+<div class="tabbed-block">
+<div class="arithmatex">\[
+\nabla_{\boldsymbol{X}}f(\boldsymbol{X})=\begin{bmatrix}\frac{\partial f(\boldsymbol{X})}{\partial x_{11}}&amp;\cdots&amp;\frac{\partial f(\boldsymbol{X})}{\partial x_{1n}}\\\vdots&amp;\ddots&amp;\vdots\\\frac{\partial f(\boldsymbol{X})}{\partial x_{m1}}&amp;\cdots&amp;\frac{\partial f(\boldsymbol{X})}{\partial x_{mn}}\end{bmatrix}=\frac{\partial f(\boldsymbol{X})}{\partial\boldsymbol{X}}
+\]</div>
 <p><strong>梯度矩阵是雅可比矩阵的转置</strong></p>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">方向导数是一个数，梯度是一个向量</p>
+</div>
+<h4 id="_4"><strong>方向导数</strong><a class="headerlink" href="#_4" title="anchor link to this section for reference">¶</a></h4>
+<p>方向导数是函数在某一特定方向上的变化率。它表示函数在定义域内某一点沿着给定方向的变化趋势。具体来说，对于一个具有定义域的函数<span><span class="heti-spacing"> </span><span class="arithmatex">\(f(x, y)\)</span></span>，在点<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\((x_0, y_0)\)</span><span class="heti-spacing"> </span></span>处沿着方向向量 </p>
+<div class="arithmatex">\[
+D_{\vec{u}}f(x_0, y_0) = \lim_{h \to 0} \frac{f(x_0 + hu_1, y_0 + hu_2) - f(x_0, y_0)}{h}
+\]</div>
+<p>其中，<span><span class="arithmatex">\(h\)</span><span class="heti-spacing"> </span></span>是一个很小的正数，<span><span class="arithmatex">\(u_1\)</span><span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(u_2\)</span><span class="heti-spacing"> </span></span>是方向向量<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\vec{u}\)</span><span class="heti-spacing"> </span></span>的分量。</p>
 <div class="admonition example">
 <p class="admonition-title">求导</p>
 <div class="arithmatex">\[
@@ -3387,7 +3479,10 @@ f(x) = x^{T}x = \sum_{i=1}^{n}x_{i}^{2}
 \]</div>
 <p>很多时候低维推到高维的时候，结构是类似的，所以高维求不出来的时候，可以先从低维开始推，然后推广到高维</p>
 </div>
-<p>梯度方向的负方向<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(-\nabla_{\boldsymbol{x}}f(\boldsymbol{x})\)</span><span class="heti-spacing"> </span></span>称为函数<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(f\)</span><span class="heti-spacing"> </span></span>在点<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\boldsymbol{x}\)</span><span class="heti-spacing"> </span></span>的梯度流<span><span class="heti-spacing"> </span>(gradient flow)</span>，记作</p>
+<ul>
+<li>梯度的方向：函数上升最快的方向</li>
+<li><strong>梯度流</strong>：函数下降最快的方向，梯度方向的负方向<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(-\nabla_{\boldsymbol{x}}f(\boldsymbol{x})\)</span><span class="heti-spacing"> </span></span>称为函数<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(f\)</span><span class="heti-spacing"> </span></span>在点<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\boldsymbol{x}\)</span><span class="heti-spacing"> </span></span>的梯度流<span><span class="heti-spacing"> </span>(gradient flow)</span>，记作</li>
+</ul>
 <div class="arithmatex">\[
 \dot{\boldsymbol{x}}=-\nabla_{\boldsymbol{x}}f(\boldsymbol{x}) \quad \text { 或 } \quad \dot{\boldsymbol{X}}=-\nabla_{\operatorname{vec} \boldsymbol{X}}f(\boldsymbol{X})
 \]</div>
@@ -3437,7 +3532,7 @@ f(x+d) \approx f(x) + \nabla x^T f(x) d
   $$</p>
 </li>
 </ul>
-<h4 id="_4">独立性基本假设<a class="headerlink" href="#_4" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h4 id="_5">独立性基本假设<a class="headerlink" href="#_5" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p>假定实值函数的向量变元<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\boldsymbol{x}=[x_{i}]_{i=1}^{m}\in\mathbb{R}^{m}\)</span><span class="heti-spacing"> </span></span>或者矩阵变元<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\boldsymbol{X}=[x_{ij}]_{i=1,j=1}^{m,n}\in\mathbb{R}^{m\times n}\)</span><span class="heti-spacing"> </span></span>本身无任何特殊结构<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>即向量或矩阵变元的元素之间是各自独立的。</p>
 <div class="arithmatex">\[
 \frac{\partial x_{i}}{\partial x_{j}}=\delta_{ij}=\begin{cases}1, &amp; i=j \\ 0, &amp; \text { 其他 }\end{cases}
@@ -3466,23 +3561,148 @@ f(x+d) \approx f(x) + \nabla x^T f(x) d
 \mathrm{D}_{X} F(X) \stackrel{\text { def }}{=} \frac{\partial \text{vec}(F(X))}{\partial(\text{vec} X)^{T}} \\ \mathrm{D}_{X} X = I_{n} \otimes I_{m} = I_{mn} \in \mathbb{R}^{mn \times mn}
 \]</div>
 </div>
-<h2 id="_5">微分<a class="headerlink" href="#_5" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_6">微分<a class="headerlink" href="#_6" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h3 id="_7">一些规则<a class="headerlink" href="#_7" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<ul>
+<li>标量函数 <p>$$
+  mathrm{d}[mathrm{tr}(mathbf{U})] = mathrm{d}left(sum_{i=1}^{n} u_{ii}right) = sum_{i=1}^{n} mathrm{d}u_{ii} = mathrm{tr}left(mathrm{d}mathbf{U}right)
+  $$</p>
+</li>
+</ul>
+<ul>
+<li>矩阵乘积<span class="heti-skip"><span class="heti-spacing"> </span>UV<span class="heti-spacing"> </span></span>的微分矩阵<p>$$
+  mathrm{d}(mathbf{U}mathbf{V}) = (mathrm{d}mathbf{U})mathbf{V} + mathbf{U}(mathrm{d}mathbf{V})
+  $$</p>
+</li>
+</ul>
+<ul>
+<li>矩阵的迹的矩阵微分等于矩阵微分的迹<p>$$
+  mathrm{d}left(mathrm{tr}(mathbf{X})right) = mathrm{tr}(mathrm{d}mathbf{X})
+  $$</p>
+</li>
+</ul>
+<ul>
+<li>矩阵转置的微分等于矩阵微分的转置<p>$$
+  mathrm{d}(boldsymbol{X}^T) = (mathrm{d}boldsymbol{X})^T
+  $$</p>
+</li>
+</ul>
+<ul>
+<li>矩阵线性组合的微分等于矩阵微分的线性组合<p>$$
+  mathrm{d}(alphaboldsymbol{X}+betaboldsymbol{Y}) = alphamathrm{d}boldsymbol{X}+betamathrm{d}boldsymbol{Y}
+  $$</p>
+</li>
+</ul>
+<h3 id="jocabian"><span>Jocabian<span class="heti-spacing"> </span></span>矩阵辨识<a class="headerlink" href="#jocabian" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>矩阵微分用符号<span class="heti-skip"><span class="heti-spacing"> </span>dX<span class="heti-spacing"> </span></span>表示</p>
 <p>更方便得到雅可比矩阵</p>
+<p>微分法则：</p>
+<p>对于标量函数<span><span class="heti-spacing"> </span><span class="arithmatex">\(f(\mathbf{x})\)</span></span>，其中<span><span class="heti-spacing"> </span><span class="arithmatex">\(\mathbf{x}=[x_1,x_2,\ldots,x_m]^T \in \mathbb{R}^m\)</span></span>：</p>
+<div class="arithmatex">\[
+\begin{aligned}
+df(\mathbf{x}) = &amp; \left[\frac{\partial f(\mathbf{x})}{\partial x_1},\ldots,\frac{\partial f(\mathbf{x})}{\partial x_m}\right]
+\begin{bmatrix}
+dx_1 \\ \vdots \\ dx_m
+\end{bmatrix} \\
+= &amp; \frac{\partial f(\mathbf{x})}{\partial\mathbf{x}^T}d\mathbf{x} \\
+= &amp; \mathrm{tr}(\boldsymbol{A}d\mathbf{x})
+\end{aligned}
+\]</div>
+<p>对于标量函数<span><span class="heti-spacing"> </span><span class="arithmatex">\(f(\boldsymbol{X})\)</span></span>，其中<span><span class="heti-spacing"> </span><span class="arithmatex">\(\boldsymbol{X} \in \mathbb{R}^{m\times n}\)</span></span>：</p>
+<div class="arithmatex">\[
+df(\boldsymbol{X}) = \mathrm{tr}(\boldsymbol{A}d\boldsymbol{X})
+\]</div>
+<p>对于向量变元的标量函数：</p>
+<div class="arithmatex">\[
+df(\mathbf{x})=\mathrm{tr}(\mathbf{A}d\mathbf{x}) \text{ 等价于 } D_\mathbf{x}f(\mathbf{x})=\frac{\partial f(\mathbf{x})}{\partial\mathbf{x}^T}=\mathbf{A}
+\]</div>
+<p>对于矩阵变元的标量函数：</p>
+<div class="arithmatex">\[
+df(\boldsymbol{X})=\mathrm{tr}(\boldsymbol{A}d\boldsymbol{X}) \text{ 等价于 } D_\mathbf{x}f(\boldsymbol{X})=\frac{\partial f(\boldsymbol{X})}{\partial\boldsymbol{X}^T}=\boldsymbol{A}
+\]</div>
+<p>行偏导与梯度的关系：</p>
+<div class="arithmatex">\[
+D_{\mathbf{x}}f(\boldsymbol{X})=\frac{\partial f(\boldsymbol{X})}{\partial\boldsymbol{X}^T}=\boldsymbol{A} \text{ 等价于 } \nabla_{\mathbf{x}}f(\boldsymbol{X})=\boldsymbol{A}^T
+\]</div>
+<h3 id="_8">复向量<a class="headerlink" href="#_8" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>复变量的偏导数定义：</p>
+<div class="arithmatex">\[
+\begin{cases}
+\frac{\partial}{\partial z}=\frac{1}{2}\left(\frac{\partial}{\partial x}-j\frac{\partial}{\partial y}\right)\\
+\frac{\partial}{\partial z^*}=\frac{1}{2}\left(\frac{\partial}{\partial x}+j\frac{\partial}{\partial y}\right)
+\end{cases}
+\]</div>
+<p>其中<span class="heti-skip"><span class="heti-spacing"> </span>x<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>y<span class="heti-spacing"> </span></span>是相互独立的<span><span class="heti-spacing"> </span>:</span></p>
+<div class="arithmatex">\[
+\begin{cases}
+\frac{\partial y}{\partial x}=0\\
+\frac{\partial x}{\partial y}=0
+\end{cases}
+\]</div>
+<p>可以证明<span class="heti-skip"><span class="heti-spacing"> </span>z<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>z*<span class="heti-spacing"> </span></span>也是相互独立的<span><span class="heti-spacing"> </span>:</span></p>
+<div class="arithmatex">\[
+\begin{aligned}
+\frac{\partial z}{\partial z^*}&amp;=\frac{\partial x}{\partial z^*}+j\frac{\partial y}{\partial z^*}\\
+&amp;=\frac{1}{2}\left(\frac{\partial x}{\partial x}+j\frac{\partial x}{\partial y}\right)+j\frac{1}{2}\left(\frac{\partial y}{\partial x}+j\frac{\partial y}{\partial y}\right)\\
+&amp;=\frac{1}{2}(1+0)+j\frac{1}{2}(0+j)=0
+\end{aligned}
+\]</div>
+<div class="arithmatex">\[
+\begin{aligned}
+\frac{\partial z^*}{\partial z}&amp;=\frac{\partial x}{\partial z}-j\frac{\partial y}{\partial z}\\
+&amp;=\frac{1}{2}\left(\frac{\partial x}{\partial x}-j\frac{\partial x}{\partial y}\right)-j\frac{1}{2}\left(\frac{\partial y}{\partial x}-j\frac{\partial y}{\partial y}\right)\\
+&amp;=\frac{1}{2}(1-0)-j\frac{1}{2}(0-j)=0
+\end{aligned}
+\]</div>
+<p>对于单变量复函数，其梯度定义为：</p>
+<div class="arithmatex">\[
+\nabla_zf(z,z^*)=\frac{\partial f(z,z^*)}{\partial z}|_{z^*=\text{常数}}
+\]</div>
+<div class="arithmatex">\[
+\nabla_{z^*}f(z,z^*)=\left.\frac{\partial f(z,z^*)}{\partial z^*}\right|_{z=\text{常数}}
+\]</div>
+<p>其微分形式为：</p>
+<div class="arithmatex">\[
+df(z,z^*)=\frac{\partial f(z,z^*)}{\partial z}dz+\frac{\partial f(z,z^*)}{\partial z^*}dz^*
+\]</div>
+<p>对于复变元向量：</p>
+<div class="arithmatex">\[
+\mathbf{z}=\begin{bmatrix}z_1,z_2,\ldots,z_m\end{bmatrix}^T
+\]</div>
+<p>其微分形式可以写作：</p>
+<div class="arithmatex">\[
+\begin{aligned}
+df(\mathbf{z},\mathbf{z}^*)&amp;=\left[\frac{\partial f(\mathbf{z},\mathbf{z}^*)}{\partial z_1},\cdots,\frac{\partial f(\mathbf{z},\mathbf{z}^*)}{\partial z_m}\right]\begin{bmatrix}dz_1\\\vdots\\dz_m\end{bmatrix}+\left[\frac{\partial f(\mathbf{z},\mathbf{z}^*)}{\partial z_1^*},\cdots,\frac{\partial f(\mathbf{z},\mathbf{z}^*)}{\partial z_m^*}\right]\begin{bmatrix}dz_1^*\\\vdots\\dz_m^*\end{bmatrix}\\
+&amp;=\frac{\partial f(\mathbf{z},\mathbf{z}^*)}{\partial\mathbf{z}^T}d\mathbf{z}+\frac{\partial f(\mathbf{z},\mathbf{z}^*)}{\partial\mathbf{z}^H}d\mathbf{z}^*
+\end{aligned}
+\]</div>
 <p>对于复变量来说，通常要求两个梯度，一个是<span><span class="heti-spacing"> </span><span class="arithmatex">\(\frac{\partial}{\partial z}\)</span></span>，一个是<span><span class="heti-spacing"> </span><span class="arithmatex">\(\frac{\partial}{\partial z^{*}}\)</span></span></p>
-<p>标量函数<span class="heti-skip"><span class="heti-spacing"> </span>tr(U)<span class="heti-spacing"> </span></span>的微分</p>
+<h3 id="hession"><span>Hession<span class="heti-spacing"> </span></span>矩阵<a class="headerlink" href="#hession" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>先求行偏导，再求梯度</p>
+<p>实值函数<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(f(\mathbf{x})\)</span><span class="heti-spacing"> </span></span>相对于<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(m \times 1\)</span><span class="heti-spacing"> </span></span>实向量<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\mathbf{x}\)</span><span class="heti-spacing"> </span></span>的二阶偏导称为<span class="heti-skip"><span class="heti-spacing"> </span>Hessian<span class="heti-spacing"> </span></span>矩阵，记作<span><span class="heti-spacing"> </span><span class="arithmatex">\(\mathbf{H}[f(\mathbf{x})]\)</span></span>，定义为</p>
 <div class="arithmatex">\[
-\mathrm{d}[\mathrm{tr}(\mathbf{U})] = \mathrm{d}\left(\sum_{i=1}^{n} u_{ii}\right) = \sum_{i=1}^{n} \mathrm{d}u_{ii} = \mathrm{tr}\left(\mathrm{d}\mathbf{U}\right)
+\mathbf{H}[f(\mathbf{x})] = \frac{\partial^2 f(\mathbf{x})}{\partial \mathbf{x} \partial \mathbf{x}^T} = \frac{\partial}{\partial \mathbf{x}} \left[ \frac{\partial f(\mathbf{x})}{\partial \mathbf{x}^T} \right] \in \mathbb{R}^{m \times m}
 \]</div>
-<p>矩阵乘积<span class="heti-skip"><span class="heti-spacing"> </span>UV<span class="heti-spacing"> </span></span>的微分矩阵</p>
+<p>或记作</p>
 <div class="arithmatex">\[
-\mathrm{d}(\mathbf{U}\mathbf{V}) = (\mathrm{d}\mathbf{U})\mathbf{V} + \mathbf{U}(\mathrm{d}\mathbf{V})
-\]</div>
-<p>矩阵的迹的矩阵微分等于矩阵微分的迹</p>
+\mathbf{H}[f(\mathbf{x})] = \nabla_x^2 f(\mathbf{x}) = \nabla_x (D_x f(\mathbf{x}))\]</div>
+<p>或写作</p>
 <div class="arithmatex">\[
-\mathrm{d}\left(\mathrm{tr}(\mathbf{X})\right) = \mathrm{tr}(\mathrm{d}\mathbf{X})
+\mathbf{H}[f(\mathbf{x})] = \begin{bmatrix}
+\frac{\partial^2 f}{\partial x_1 \partial x_1} &amp; \cdots &amp; \frac{\partial^2 f}{\partial x_1 \partial x_m} \\
+\vdots &amp; \ddots &amp; \vdots \\
+\frac{\partial^2 f}{\partial x_m \partial x_1} &amp; \cdots &amp; \frac{\partial^2 f}{\partial x_m \partial x_m}
+\end{bmatrix} \in \mathbb{R}^{m \times m}
 \]</div>
-<h2 id="_6">积分<a class="headerlink" href="#_6" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<p>二次型理论</p>
+<ul>
+<li><span><span class="arithmatex">\(\mathbf{H(f)}\)</span><span class="heti-spacing"> </span></span>负定，有极大值： 奇数阶主子式为负数，偶数阶为正数</li>
+<li><span><span class="arithmatex">\(\mathbf{H(f)}\)</span><span class="heti-spacing"> </span></span>正定，有极小值：顺序主子式都为正数</li>
+<li><span><span class="arithmatex">\(\mathbf{H(f)}\)</span><span class="heti-spacing"> </span></span>不定，鞍点：特征值有正有负</li>
+<li><span><span class="arithmatex">\(\mathbf{H(f)}\)</span><span class="heti-spacing"> </span></span>不可逆，无法判断：特征值有<span><span class="heti-spacing"> </span>0</span></li>
+</ul>
+<p><img alt="b05544056c037bc56f9070e45533f02" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/b05544056c037bc56f9070e45533f02.jpg" style="zoom: 33%;"/></p>
+<h2 id="_9">积分<a class="headerlink" href="#_9" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <div class="arithmatex">\[
 \int\mathbf{A}\mathrm{d}t=\begin{bmatrix}\int a_{11}\mathrm{d}t&amp;\int a_{12}\mathrm{d}t&amp;\cdots&amp;\int a_{1n}\mathrm{d}t\\\int a_{21}\mathrm{d}t&amp;\int a_{22}\mathrm{d}t&amp;\cdots&amp;\int a_{2n}\mathrm{d}t\\\vdots&amp;\vdots&amp;\ddots&amp;\vdots\\\int a_{m1}\mathrm{d}t&amp;\int a_{m2}\mathrm{d}t&amp;\cdots&amp;\int a_{mn}\mathrm{d}t\end{bmatrix}
 \]</div></div>
@@ -3491,7 +3711,7 @@ f(x+d) \approx f(x) + \nabla x^T f(x) d
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年5月10日 22:50:26</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年5月12日 00:19:45</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">

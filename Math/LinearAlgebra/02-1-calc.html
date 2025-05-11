@@ -295,9 +295,16 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="00-index.html">
+<a class="md-nav__link" href="00-intro.html">
 <span class="md-ellipsis">
     导论与介绍
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="00-review.html">
+<span class="md-ellipsis">
+    矩阵论复习
   </span>
 </a>
 </li>
@@ -371,9 +378,9 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#eigenvalues">
+<a class="md-nav__link" href="#_3">
 <span class="md-ellipsis">
-      Eigenvalues | 特征值
+      特征值和特征向量
     </span>
 </a>
 </li>
@@ -381,13 +388,6 @@
 <a class="md-nav__link" href="#trace">
 <span class="md-ellipsis">
       Trace | 迹
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#eigenvectors">
-<span class="md-ellipsis">
-      Eigenvectors | 特征向量
     </span>
 </a>
 </li>
@@ -423,7 +423,7 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_7">
+<a class="md-nav__link" href="#_6">
 <span class="md-ellipsis">
       矩阵之间
     </span>
@@ -431,7 +431,7 @@
 <nav aria-label="矩阵之间" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_8">
+<a class="md-nav__link" href="#_7">
 <span class="md-ellipsis">
       矩阵乘法
     </span>
@@ -459,7 +459,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_9">
+<a class="md-nav__link" href="#_8">
 <span class="md-ellipsis">
       向量化和矩阵化
     </span>
@@ -712,7 +712,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../StochasticProcess/00-Index.html">
+<a class="md-nav__link" href="../StochasticProcess/00-Intro.html">
 <span class="md-ellipsis">
     随机过程
   </span>
@@ -3334,9 +3334,9 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#eigenvalues">
+<a class="md-nav__link" href="#_3">
 <span class="md-ellipsis">
-      Eigenvalues | 特征值
+      特征值和特征向量
     </span>
 </a>
 </li>
@@ -3344,13 +3344,6 @@
 <a class="md-nav__link" href="#trace">
 <span class="md-ellipsis">
       Trace | 迹
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#eigenvectors">
-<span class="md-ellipsis">
-      Eigenvectors | 特征向量
     </span>
 </a>
 </li>
@@ -3386,7 +3379,7 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_7">
+<a class="md-nav__link" href="#_6">
 <span class="md-ellipsis">
       矩阵之间
     </span>
@@ -3394,7 +3387,7 @@
 <nav aria-label="矩阵之间" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_8">
+<a class="md-nav__link" href="#_7">
 <span class="md-ellipsis">
       矩阵乘法
     </span>
@@ -3422,7 +3415,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_9">
+<a class="md-nav__link" href="#_8">
 <span class="md-ellipsis">
       向量化和矩阵化
     </span>
@@ -3440,7 +3433,7 @@
 <article class="md-content__inner md-typeset">
 <div><h1 id="02"><span>02 |<span class="heti-spacing"> </span></span>矩阵运算<a class="headerlink" href="#02" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>2904<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"></path></svg></span> <span>10<span class="heti-spacing"> </span></span>行代码 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 17H7V3h14m0-2H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2M3 5H1v16a2 2 0 0 0 2 2h16v-2H3m12.96-10.71-2.75 3.54-1.96-2.36L8.5 15h11l-3.54-4.71Z"></path></svg></span> <span>1<span class="heti-spacing"> </span></span>张图片 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>11<span class="heti-spacing"> </span></span>分钟</p>
+<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>1931<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"></path></svg></span> <span>10<span class="heti-spacing"> </span></span>行代码 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 17H7V3h14m0-2H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2M3 5H1v16a2 2 0 0 0 2 2h16v-2H3m12.96-10.71-2.75 3.54-1.96-2.36L8.5 15h11l-3.54-4.71Z"></path></svg></span> <span>1<span class="heti-spacing"> </span></span>张图片 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>8<span class="heti-spacing"> </span></span>分钟</p>
 </div>
 <h2 id="_1">单个矩阵<a class="headerlink" href="#_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <div class="admonition note">
@@ -3494,106 +3487,7 @@
 <li><span>Hermitian<span class="heti-spacing"> </span></span>矩阵性质：对于任意矩阵<span><span class="heti-spacing"> </span><span class="arithmatex">\(A\)</span></span>，矩阵<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(B = A^{\mathrm{H}}A\)</span><span class="heti-spacing"> </span></span>都是<span class="heti-skip"><span class="heti-spacing"> </span>Hermitian<span class="heti-spacing"> </span></span>矩阵。</li>
 </ul>
 <h3 id="inverse">Inverse<a class="headerlink" href="#inverse" title="anchor link to this section for reference">¶</a></h3>
-<p>若<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A\)</span><span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(B\)</span><span class="heti-spacing"> </span></span>均可逆，则<span><span class="heti-spacing"> </span><span class="arithmatex">\((AB)^{-1} = B^{-1}A^{-1}\)</span></span></p>
-<p>性质（对于可逆的正方矩阵<span class="heti-skip"><span class="heti-spacing"> </span>A<span class="heti-spacing"> </span></span>和<span><span class="heti-spacing"> </span>B</span><heti-adjacent class="heti-adjacent-half">）</heti-adjacent>：</p>
-<ul>
-<li><span class="arithmatex">\((AB)^{-1} = B^{-1}A^{-1}\)</span></li>
-<li><span class="arithmatex">\((A^{*})^{-1} = (A^{-1})^{*}\)</span></li>
-<li><span class="arithmatex">\((A^{\mathrm{T}})^{-1} = (A^{-1})^{\mathrm{T}}\)</span></li>
-<li><span class="arithmatex">\((A^{\mathrm{H}})^{-1} = (A^{-1})^{\mathrm{H}}\)</span></li>
-</ul>
-<h4 id="_2">矩阵求逆引理<a class="headerlink" href="#_2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
-<p>background： 在许多实际问题中，经常会遇到这样的问题：已知一个矩阵<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A\)</span><span class="heti-spacing"> </span></span>的逆矩阵<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A^{-1}\)</span> ,<span class="heti-spacing"> </span></span>当矩阵<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A\)</span><span class="heti-spacing"> </span></span>产生了一个非常小的变化得到<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A+\Delta\)</span><span class="heti-spacing"> </span></span>时，通过已知的<span><span class="heti-spacing"> </span><span class="arithmatex">\(A^{-1}\)</span></span>，如何简单的求出<span><span class="heti-spacing"> </span><span class="arithmatex">\((A+\Delta)^{-1}\)</span>?</span></p>
-<div class="arithmatex">\[
-(A + xy^H)^{-1} = A^{-1} - \frac{A^{-1}xy^HA^{-1}}{1 + y^HA^{-1}x}
-\]</div>
-<p>作用：已经完成了矩阵的求逆，在<span class="heti-skip"><span class="heti-spacing"> </span>A<span class="heti-spacing"> </span></span>的基础上加上一个秩为<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>矩阵，求解逆矩阵的变化</p>
-<p>应用：</p>
-<ul>
-<li>自相关矩阵和协方差矩阵估计的更新</li>
-<li>最小二乘法</li>
-</ul>
-<div class="admonition warning">
-<p class="admonition-title">证明<span><span class="heti-spacing"> </span>todox</span></p>
-<div class="arithmatex">\[
-\begin{aligned}
-A^{-1} + X              &amp; = (A + BCD)^{-1} \\
-(A + BCD)(A^{-1} + X)   &amp; = I(I\text{为单位阵}) \\
-I + AX + BCDA^{-1} + BCDX &amp; = I \\
-AX + BCDA^{-1} + BCDX   &amp; = 0\text{(0为 0矩阵)} \\
-(A + BCD)X + BCDA^{-1}  &amp; = 0 \\
-X                      &amp; = -(A + BCD)^{-1}BCDA^{-1} \\
-X                      &amp; = -[B(B^{-1}A + CD)]^{-1}BCDA^{-1} \\
-X                      &amp; = -(B^{-1}A + CD)^{-1}CDA^{-1} \\
-X                      &amp; = -[C(C^{-1}B^{-1}A + D)]^{-1}CDA^{-1} \\
-X                      &amp; = -(C^{-1}B^{-1}A + D)^{-1}DA^{-1} \\
-X                      &amp; = -[(C^{-1}B^{-1} + DA^{-1})A]^{-1}DA^{-1} \\
-X                      &amp; = -A^{-1}(C^{-1}B^{-1} + DA^{-1})^{-1}DA^{-1} \\
-X                      &amp; = -A^{-1}[(C^{-1} + DA^{-1}B)B^{-1}]^{-1}DA^{-1} \\
-X                      &amp; = -A^{-1}B(C^{-1} + DA^{-1}B)^{-1}DA^{-1}
-\end{aligned}
-\]</div>
-</div>
-<div class="admonition note">
-<p class="admonition-title">应用：自相关矩阵求逆<span><span class="heti-spacing"> </span><span class="arithmatex">\(\hat{R}^{-1}(n)\)</span></span></p>
-<p><span><span class="arithmatex">\(\lambda\)</span><span class="heti-spacing"> </span></span>用来表征遗忘因子<span class="heti-skip"><span class="heti-spacing"> </span>;<span class="arithmatex">\(\lambda\)</span><span class="heti-spacing"> </span></span>越小，越倾向于相信现在的数据</p>
-<div class="arithmatex">\[
-(\lambda R + xx^H)^{-1} = \lambda^{-1}R^{-1} - \frac{(\lambda^{-1}R^{-1}x)(\lambda^{-1}R^{-1}x)^H}{1 + \lambda^{-1}x^HR^{-1}x}
-\]</div>
-<p>如果每次全量计算，时间复杂度很高，computational demanding</p>
-<p>改写成递推形式</p>
-<div class="arithmatex">\[
-\begin{align*}
-\hat{R}(n) &amp;= \sum_{j=0}^{n} \lambda^{n-j} x(j)x^H(j)\\
-\hat{R}(n) &amp;= \lambda \hat{R}(n-1) + x(n)x^H(n)\\
-\hat{R}^{-1}(n) &amp;= \lambda^{-1}\hat{R}^{-1}(n-1) - g(n)g^H(n)
-\end{align*}
-\]</div>
-<p>更新公式</p>
-<div class="arithmatex">\[
-\begin{align*}
-\bar{g}(n) &amp;= \lambda^{-1}\hat{R}^{-1}(n-1)x(n)\\
-\bar{\alpha}(n) &amp;= 1 + g^H(n)x(n)\\
-g(n) &amp;= \bar{g}(n)/\bar{\alpha}(n)
-\end{align*}
-\]</div>
-</div>
-<h4 id="_3">左右逆矩阵<a class="headerlink" href="#_3" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
-<p>对于方程<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\mathbf{Ax} = \mathbf{b}\)</span>,<span class="heti-spacing"> </span></span>其中<span><span class="heti-spacing"> </span><span class="arithmatex">\(\mathbf{A}_{m\times n}\)</span></span>， <span><span class="arithmatex">\(m\)</span><span class="heti-spacing"> </span></span>代表方程的个数，<span><span class="arithmatex">\(n\)</span><span class="heti-spacing"> </span></span>代表未知数的个数</p>
-<div class="admonition note">
-<p class="admonition-title">构造方法：想要构造成已经学过的方阵的求逆问题</p>
-<p>我们已经知道如何求解方阵的逆矩阵，所以如果想求解非方阵的逆矩阵，需要构造一个方阵</p>
-<p>所以，通过构造方阵的办法，我们很容易就可以求解非方阵的逆矩阵</p>
-</div>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">左逆</label><label for="__tabbed_1_2">右逆</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p>仅当<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(m \geq n\)</span><span class="heti-spacing"> </span></span>时<span><span class="heti-spacing"> </span>("Tall matrix")</span>，说明这个时候方程的数目大于未知数的个数，方程是过定<span class="heti-skip"><span class="heti-spacing"> </span>(overdetermined)<span class="heti-spacing"> </span></span>的。矩阵<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A\)</span><span class="heti-spacing"> </span></span>可能有<strong>左逆矩阵</strong> </p>
-<div class="arithmatex">\[
-A^\dagger_L = \left(A^HA\right)^{-1}A^H
-\]</div>
-<p>左逆列满秩的时候一定存在，即<span><span class="heti-spacing"> </span><span class="arithmatex">\(rank(A) = n\)</span></span></p>
-<p>证明：当<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(rank(A) = n\)</span><span class="heti-spacing"> </span></span>时，<span class="arithmatex">\(A^H A\)</span> is invertible</p>
-<p><strong>超定方程最小二乘解</strong></p>
-</div>
-<div class="tabbed-block">
-<p>仅当<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(m \leq n\)</span><span class="heti-spacing"> </span></span>时<span><span class="heti-spacing"> </span>("fat matrix")</span>，方程数目小于未知数的个数，方程式欠定的。矩阵<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A\)</span><span class="heti-spacing"> </span></span>可能有<strong>右逆矩阵</strong> </p>
-<div class="arithmatex">\[
-A^\dagger_R = A^H\left(AA^H\right)^{-1}
-\]</div>
-<p>右逆行满秩的时候一定存在</p>
-<p>欠定方程最小范数解</p>
-</div>
-</div>
-</div>
-<h4 id="moore-penrose-inverse"><span>Moore-Penrose Inverse |<span class="heti-spacing"> </span></span>伪逆矩阵<a class="headerlink" href="#moore-penrose-inverse" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
-<p>令<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A\)</span><span class="heti-spacing"> </span></span>是任意<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(m \times n\)</span><span class="heti-spacing"> </span></span>矩阵，称矩阵<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A^\dagger\)</span><span class="heti-spacing"> </span></span>是<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A\)</span><span class="heti-spacing"> </span></span>的广义逆矩阵，若<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A^\dagger\)</span><span class="heti-spacing"> </span></span>满足以下四个条件（常称<span class="heti-skip"><span class="heti-spacing"> </span>Moore-Penrose<span class="heti-spacing"> </span></span>条件<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>：</p>
-<ol>
-<li><span class="arithmatex">\(AA^\dagger A = A;\)</span></li>
-<li><span class="arithmatex">\(A^\dagger AA^\dagger = A^\dagger;\)</span></li>
-<li><span><span class="arithmatex">\(AA^\dagger\)</span><span class="heti-spacing"> </span></span>为<span class="heti-skip"><span class="heti-spacing"> </span>Hermitian<span class="heti-spacing"> </span></span>矩阵，即<span><span class="heti-spacing"> </span><span class="arithmatex">\(AA^\dagger = (AA^\dagger)^\mathrm{H};\)</span></span></li>
-<li><span><span class="arithmatex">\(A^\dagger A\)</span><span class="heti-spacing"> </span></span>为<span class="heti-skip"><span class="heti-spacing"> </span>Hermitian<span class="heti-spacing"> </span></span>矩阵，即<span><span class="heti-spacing"> </span><span class="arithmatex">\(A^\dagger A = (A^\dagger A)^\mathrm{H}.\)</span></span></li>
-</ol>
+<p>详见矩阵方程一节</p>
 <h3 id="norm">norm<a class="headerlink" href="#norm" title="anchor link to this section for reference">¶</a></h3>
 <h4 id="induced-norm">诱导范数（Induced Norm）<a class="headerlink" href="#induced-norm" title="anchor link to this section for reference">¶</a></h4>
 <ul>
@@ -3602,7 +3496,7 @@ A^\dagger_R = A^H\left(AA^H\right)^{-1}
 </ul>
 <p><strong>常用的诱导范数<span class="heti-skip"><span class="heti-spacing"> </span>- p<span class="heti-spacing"> </span></span>范数（p-Norm）</strong>：
    - p 范数定义为：<span class="arithmatex">\(\|A\|_p = \max_{x \neq 0} \frac{\|Ax\|_p}{\|x\|_p}\)</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="" id="__tabbed_2_1" name="__tabbed_2" type="radio"/><input id="__tabbed_2_2" name="__tabbed_2" type="radio"/><input id="__tabbed_2_3" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="__tabbed_2_1">当<span><span class="heti-spacing"> </span><span class="arithmatex">\(p = 1\)</span></span></label><label for="__tabbed_2_2"><span><span class="heti-spacing"> </span><span class="arithmatex">\(p = 2\)</span></span></label><label for="__tabbed_2_3"><span><span class="heti-spacing"> </span><span class="arithmatex">\(p = \infty\)</span></span></label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><input id="__tabbed_1_3" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">当<span><span class="heti-spacing"> </span><span class="arithmatex">\(p = 1\)</span></span></label><label for="__tabbed_1_2"><span><span class="heti-spacing"> </span><span class="arithmatex">\(p = 2\)</span></span></label><label for="__tabbed_1_3"><span><span class="heti-spacing"> </span><span class="arithmatex">\(p = \infty\)</span></span></label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>得到绝对列和范数
@@ -3625,7 +3519,7 @@ A^\dagger_R = A^H\left(AA^H\right)^{-1}
 </div>
 </div>
 </div>
-<h4 id="_4">“元素形式” 范数<a class="headerlink" href="#_4" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h4 id="_2">“元素形式” 范数<a class="headerlink" href="#_2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <div class="arithmatex">\[
 \|A\|_p \stackrel{\text{def}}{=}\left(\sum_{i=1}^m\sum_{j=1}^n|a_{ij}|^p\right)^{1/p}
 \]</div>
@@ -3682,42 +3576,17 @@ A^\dagger_R = A^H\left(AA^H\right)^{-1}
 \end{align*}
 \]</div>
 </div>
-<h3 id="eigenvalues"><span>Eigenvalues |<span class="heti-spacing"> </span></span>特征值<a class="headerlink" href="#eigenvalues" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<p>满足以下方程的<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\lambda\)</span><span class="heti-spacing"> </span></span>称为特征值</p>
-<p>第一定义</p>
-<div class="arithmatex">\[
-\mathbf{A} \mathbf{v} = \lambda \mathbf{v}
-\]</div>
-<p>第二定义</p>
-<div class="arithmatex">\[
-det(\mathbf{A} - \lambda \mathbf{I}) = 0
-\]</div>
-<p><strong>特征值和正定性</strong></p>
-<ul>
-<li>特征值为正，矩阵正定</li>
-<li>特征值非负，矩阵半正定</li>
-<li>特征值为负，矩阵负定</li>
-<li>特征值非正，矩阵半负定</li>
-<li>特征值有正有负，矩阵不定</li>
-</ul>
-<p><strong>性质</strong></p>
-<div class="arithmatex">\[
-det(A) \leq \prod_{i=1}^n \lambda_i
-\]</div>
-<div class="arithmatex">\[
-tr(A) \leq \sum_{i=1}^n \lambda_i
-\]</div>
+<h3 id="_3">特征值和特征向量<a class="headerlink" href="#_3" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <h3 id="trace"><span>Trace |<span class="heti-spacing"> </span></span>迹<a class="headerlink" href="#trace" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>所有特征值之和</p>
 <div class="arithmatex">\[
 tr(A) = \sum_{i=1}^n \lambda_i
 \]</div>
-<h3 id="eigenvectors"><span>Eigenvectors |<span class="heti-spacing"> </span></span>特征向量<a class="headerlink" href="#eigenvectors" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <h3 id="determinant"><span>Determinant |<span class="heti-spacing"> </span></span>行列式<a class="headerlink" href="#determinant" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <div class="arithmatex">\[
 det(AB) = det(A) \cdot det(B)
 \]</div>
-<h4 id="_5">求值<a class="headerlink" href="#_5" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h4 id="_4">求值<a class="headerlink" href="#_4" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <details class="note">
 <summary><span class="arithmatex">\(det = \Pi_i^n \lambda_i\)</span></summary>
 <p>矩阵的行列式等于其特征值的乘积<br/></p>
@@ -3734,7 +3603,7 @@ det(A) = det(V) \cdot det(\Lambda) \cdot det(V^{\mathbf{H}}) = det(\Lambda)
 <li><span class="arithmatex">\(\exists \lambda_i = 0\)</span>，行列式为<span><span class="heti-spacing"> </span>0</span>，矩阵奇异</li>
 <li><span class="arithmatex">\(\forall \lambda_i \neq 0\)</span>，行列式不为<span><span class="heti-spacing"> </span>0</span>，矩阵非奇异</li>
 </ul>
-<h4 id="_6">常用方法<a class="headerlink" href="#_6" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h4 id="_5">常用方法<a class="headerlink" href="#_5" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <h3 id="rank">rank<a class="headerlink" href="#rank" title="anchor link to this section for reference">¶</a></h3>
 <p>独立的方程的个数<span><span class="heti-spacing"> </span>;</span>
 矩阵中线性无关的行或者列的数目</p>
@@ -3756,11 +3625,11 @@ T_2(x) = \begin{bmatrix} x_1 - x_2 \\ x_2 + x_3 \end{bmatrix}, \quad \text{其�
 <div class="arithmatex">\[
 \begin{bmatrix} w_1 \\ w_2 \end{bmatrix} = \begin{bmatrix} 0 &amp; 0 \\ 0 &amp; 1 \end{bmatrix} \begin{bmatrix} x \\ y \end{bmatrix}
 \]</div>
-<h2 id="_7">矩阵之间<a class="headerlink" href="#_7" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_6">矩阵之间<a class="headerlink" href="#_6" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <div class="admonition attention">
 <p class="admonition-title">关注矩阵运算是如何改变矩阵的维度的</p>
 </div>
-<h3 id="_8">矩阵乘法<a class="headerlink" href="#_8" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_7">矩阵乘法<a class="headerlink" href="#_7" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>矩阵乘法的行视角： 每一行都代表不同样本的特征；
 左乘行向量相当于对行进行操作</p>
 <p>矩阵乘法的列视角：每一列都作为最后结果中的一个成分（采集语音）
@@ -3796,7 +3665,7 @@ O_{n \times m} &amp; B
 <li>应用：雷达、信号处理</li>
 </ul>
 <p>每个元素都乘一个矩阵</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="" id="__tabbed_3_1" name="__tabbed_3" type="radio"/><input id="__tabbed_3_2" name="__tabbed_3" type="radio"/><div class="tabbed-labels"><label for="__tabbed_3_1">右<span class="heti-skip"><span class="heti-spacing"> </span>Kronecker<span class="heti-spacing"> </span></span>积</label><label for="__tabbed_3_2">左<span class="heti-skip"><span class="heti-spacing"> </span>Kronecker<span class="heti-spacing"> </span></span>积</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="" id="__tabbed_2_1" name="__tabbed_2" type="radio"/><input id="__tabbed_2_2" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="__tabbed_2_1">右<span class="heti-skip"><span class="heti-spacing"> </span>Kronecker<span class="heti-spacing"> </span></span>积</label><label for="__tabbed_2_2">左<span class="heti-skip"><span class="heti-spacing"> </span>Kronecker<span class="heti-spacing"> </span></span>积</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p><span><span class="arithmatex">\(m \times n\)</span><span class="heti-spacing"> </span></span>矩阵<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A = [a_{11}, \cdots, a_{mn}]\)</span><span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(p \times q\)</span><span class="heti-spacing"> </span></span>矩阵<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(B\)</span><span class="heti-spacing"> </span></span>的右<span class="heti-skip"><span class="heti-spacing"> </span>Kronecker<span class="heti-spacing"> </span></span>积记作<span><span class="heti-spacing"> </span><span class="arithmatex">\(A \otimes B\)</span></span>，是一个<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(mp \times nq\)</span><span class="heti-spacing"> </span></span>矩阵，定义为</p>
@@ -3825,7 +3694,7 @@ A \otimes B = \begin{bmatrix} 1 \cdot B &amp; 2 \cdot B \\ 3 \cdot B &amp; 4 \cd
 A \otimes B = \begin{bmatrix} \begin{bmatrix} 5 &amp; 6 \\ 7 &amp; 8 \end{bmatrix} &amp; \begin{bmatrix} 10 &amp; 12 \\ 14 &amp; 16 \end{bmatrix} \\ \begin{bmatrix} 15 &amp; 18 \\ 21 &amp; 24 \end{bmatrix} &amp; \begin{bmatrix} 20 &amp; 24 \\ 28 &amp; 32 \end{bmatrix} \end{bmatrix}
 \]</div>
 </details>
-<h3 id="_9">向量化和矩阵化<a class="headerlink" href="#_9" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_8">向量化和矩阵化<a class="headerlink" href="#_8" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p><span>motivation:<span class="heti-spacing"> </span></span>如何把一张图或者一个视频变成一个向量，送到神经网络中</p>
 <p>按列堆栈：</p>
 <div class="arithmatex">\[
@@ -3877,7 +3746,7 @@ A = \begin{bmatrix} 1 &amp; 2 \\ 3 &amp; 4 \end{bmatrix}
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年5月10日 22:50:26</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年5月12日 00:19:45</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">
