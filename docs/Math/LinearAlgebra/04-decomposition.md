@@ -56,7 +56,7 @@ A = [1 2 3; 4 5 6; 7 8 9];
 
 
 
-## Eigen Value Decomposition | 特征分解
+## EVD | 特征分解
 
 特征值分解是一种特殊的奇异值分解
 
@@ -94,9 +94,41 @@ A U=  U \Lambda
 $$
 
 $$
-A = U \Lambda U^{-1}
+\begin{align*}
+A &= U \Lambda U^{\mathrm{H}} \\
+&= \begin{bmatrix}
+u_1 & u_2 & \cdots & u_n
+\end{bmatrix} \begin{bmatrix}
+\lambda_1 & 0 & \cdots & 0 \\
+0 & \lambda_2 & \cdots & 0 \\
+\vdots & \vdots & \ddots & \vdots \\
+0 & 0 & \cdots & \lambda_n
+\end{bmatrix} \begin{bmatrix}
+u_1^H \\ u_2^H \\ \vdots \\ u_n^H
+\end{bmatrix} \\
+&= \sum_{i=1}^n \lambda_i u_i u_i^H
+\end{align*}
 $$
 
+
+### PCA | 主成分分析
+
+线性降维
+
+想要保留尽可能多的信息，那么就需要让$Var(Z_n)$最大
+
+opt $\Phi$ such that $Var(Z_n)$最大
+
+
+- 步骤
+
+- 中心化
+- 求解协方差矩阵C
+- EVD
+- 取前k个特征值对应的特征向量
+- 降维$$
+
+等价于求解二次型的有约束极值问题
 
 
 

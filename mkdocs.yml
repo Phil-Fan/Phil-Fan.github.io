@@ -198,7 +198,8 @@ nav:
   - Math/ComplexFunction.md
   
   - "LA | 线性代数":
-    - Math/LinearAlgebra/00-index.md
+    - Math/LinearAlgebra/00-intro.md
+    - Math/LinearAlgebra/00-review.md
     - Math/LinearAlgebra/01-basic.md
     - Math/LinearAlgebra/02-1-calc.md
     - Math/LinearAlgebra/02-2-derivative.md
@@ -234,7 +235,7 @@ nav:
     - Math/Statistic/variable.md
 
   - "SP | 随机过程":
-    - Math/StochasticProcess/00-Index.md
+    - Math/StochasticProcess/00-Intro.md
     - Math/StochasticProcess/01-Concept.md
     - Math/StochasticProcess/02-Markov.md
     - Math/StochasticProcess/03-Possion.md

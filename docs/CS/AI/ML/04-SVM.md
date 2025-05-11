@@ -19,5 +19,9 @@ $\Phi: x \rightarrow \phi(x)$
 如果进阶的话，数院有《统计学习》《实用优化算法》等课程
 
 
+## RVM
+
+learn from data: RVM 
+
 
 

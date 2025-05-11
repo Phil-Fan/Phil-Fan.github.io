@@ -115,17 +115,45 @@ $m\times1$列向量偏导算子即梯度算子记作$\nabla_{\boldsymbol{x}}$,�
 
 > taking derivative **with respect to** a column vector
  
-$$
-\nabla_{x}\stackrel{\mathrm{def}}{=}\frac{\partial}{\partial x_{m\times1}}=\left[\frac{\partial}{\partial x_{1}},\cdots,\frac{\partial}{\partial x_{m}}\right]^{\mathrm{T}}
-$$
+
+具有连续偏导→可微→**有切平面**→切线都在切平面上→有一个斜率最大的
+
+=== "标量函数&向量变元"
+
+    $$
+    \nabla_{x}\stackrel{\mathrm{def}}{=}\frac{\partial}{\partial x_{m\times1}}=\left[\frac{\partial}{\partial x_{1}},\cdots,\frac{\partial}{\partial x_{m}}\right]^{\mathrm{T}}
+    $$
 
 
-$$
-\nabla_{\boldsymbol{x}}f(\boldsymbol{x})\stackrel{\mathrm{def}}{=}\left[\frac{\partial f(\boldsymbol{x})}{\partial x_{1}},\cdots,\frac{\partial f(\boldsymbol{x})}{\partial x_{m}}\right]^{\mathrm{T}}=\frac{\partial f(\boldsymbol{x})}{\partial\boldsymbol{x}}
-$$
+    $$
+    \nabla_{\boldsymbol{x}}f(\boldsymbol{x})\stackrel{\mathrm{def}}{=}\left[\frac{\partial f(\boldsymbol{x})}{\partial x_{1}},\cdots,\frac{\partial f(\boldsymbol{x})}{\partial x_{m}}\right]^{\mathrm{T}}=\frac{\partial f(\boldsymbol{x})}{\partial\boldsymbol{x}}
+    $$
 
 
-**梯度矩阵是雅可比矩阵的转置**
+   
+
+
+=== "标量函数&矩阵变元"
+
+    $$
+    \nabla_{\boldsymbol{X}}f(\boldsymbol{X})=\begin{bmatrix}\frac{\partial f(\boldsymbol{X})}{\partial x_{11}}&\cdots&\frac{\partial f(\boldsymbol{X})}{\partial x_{1n}}\\\vdots&\ddots&\vdots\\\frac{\partial f(\boldsymbol{X})}{\partial x_{m1}}&\cdots&\frac{\partial f(\boldsymbol{X})}{\partial x_{mn}}\end{bmatrix}=\frac{\partial f(\boldsymbol{X})}{\partial\boldsymbol{X}}
+    $$
+
+    **梯度矩阵是雅可比矩阵的转置**
+
+
+!!! note "方向导数是一个数，梯度是一个向量"
+
+#### **方向导数**
+
+方向导数是函数在某一特定方向上的变化率。它表示函数在定义域内某一点沿着给定方向的变化趋势。具体来说，对于一个具有定义域的函数 $f(x, y)$，在点 $(x_0, y_0)$ 处沿着方向向量 
+
+$$
+D_{\vec{u}}f(x_0, y_0) = \lim_{h \to 0} \frac{f(x_0 + hu_1, y_0 + hu_2) - f(x_0, y_0)}{h}
+$$
+
+其中，$h$ 是一个很小的正数，$u_1$ 和 $u_2$ 是方向向量 $\vec{u}$ 的分量。
+
 
 !!! example "求导"
     $$
@@ -139,7 +167,8 @@ $$
     很多时候低维推到高维的时候，结构是类似的，所以高维求不出来的时候，可以先从低维开始推，然后推广到高维
 
 
-梯度方向的负方向 $-\nabla_{\boldsymbol{x}}f(\boldsymbol{x})$ 称为函数 $f$ 在点 $\boldsymbol{x}$ 的梯度流 (gradient flow)，记作
+- 梯度的方向：函数上升最快的方向
+- **梯度流**：函数下降最快的方向，梯度方向的负方向 $-\nabla_{\boldsymbol{x}}f(\boldsymbol{x})$ 称为函数 $f$ 在点 $\boldsymbol{x}$ 的梯度流 (gradient flow)，记作
 
 $$
 \dot{\boldsymbol{x}}=-\nabla_{\boldsymbol{x}}f(\boldsymbol{x}) \quad \text { 或 } \quad \dot{\boldsymbol{X}}=-\nabla_{\operatorname{vec} \boldsymbol{X}}f(\boldsymbol{X})
@@ -239,32 +268,198 @@ $$
 
 ## 微分
 
+
+### 一些规则
+
+- 标量函数 
+
+    $$
+    \mathrm{d}[\mathrm{tr}(\mathbf{U})] = \mathrm{d}\left(\sum_{i=1}^{n} u_{ii}\right) = \sum_{i=1}^{n} \mathrm{d}u_{ii} = \mathrm{tr}\left(\mathrm{d}\mathbf{U}\right)
+    $$
+
+- 矩阵乘积UV的微分矩阵
+
+    $$
+    \mathrm{d}(\mathbf{U}\mathbf{V}) = (\mathrm{d}\mathbf{U})\mathbf{V} + \mathbf{U}(\mathrm{d}\mathbf{V})
+    $$
+
+- 矩阵的迹的矩阵微分等于矩阵微分的迹
+
+    $$
+    \mathrm{d}\left(\mathrm{tr}(\mathbf{X})\right) = \mathrm{tr}(\mathrm{d}\mathbf{X})
+    $$
+
+
+- 矩阵转置的微分等于矩阵微分的转置
+
+    $$
+    \mathrm{d}(\boldsymbol{X}^T) = (\mathrm{d}\boldsymbol{X})^T
+    $$
+
+- 矩阵线性组合的微分等于矩阵微分的线性组合
+
+    $$
+    \mathrm{d}(\alpha\boldsymbol{X}+\beta\boldsymbol{Y}) = \alpha\mathrm{d}\boldsymbol{X}+\beta\mathrm{d}\boldsymbol{Y}
+    $$
+
+
+### Jocabian 矩阵辨识
+
 矩阵微分用符号 dX 表示
 
 更方便得到雅可比矩阵
+
+微分法则：
+
+对于标量函数 $f(\mathbf{x})$，其中 $\mathbf{x}=[x_1,x_2,\ldots,x_m]^T \in \mathbb{R}^m$：
+
+$$
+\begin{aligned}
+df(\mathbf{x}) = & \left[\frac{\partial f(\mathbf{x})}{\partial x_1},\ldots,\frac{\partial f(\mathbf{x})}{\partial x_m}\right]
+\begin{bmatrix}
+dx_1 \\ \vdots \\ dx_m
+\end{bmatrix} \\
+= & \frac{\partial f(\mathbf{x})}{\partial\mathbf{x}^T}d\mathbf{x} \\
+= & \mathrm{tr}(\boldsymbol{A}d\mathbf{x})
+\end{aligned}
+$$
+
+对于标量函数 $f(\boldsymbol{X})$，其中 $\boldsymbol{X} \in \mathbb{R}^{m\times n}$：
+
+$$
+df(\boldsymbol{X}) = \mathrm{tr}(\boldsymbol{A}d\boldsymbol{X})
+$$
+
+对于向量变元的标量函数：
+
+$$
+df(\mathbf{x})=\mathrm{tr}(\mathbf{A}d\mathbf{x}) \text{ 等价于 } D_\mathbf{x}f(\mathbf{x})=\frac{\partial f(\mathbf{x})}{\partial\mathbf{x}^T}=\mathbf{A}
+$$
+
+对于矩阵变元的标量函数：
+
+$$
+df(\boldsymbol{X})=\mathrm{tr}(\boldsymbol{A}d\boldsymbol{X}) \text{ 等价于 } D_\mathbf{x}f(\boldsymbol{X})=\frac{\partial f(\boldsymbol{X})}{\partial\boldsymbol{X}^T}=\boldsymbol{A}
+$$
+
+行偏导与梯度的关系：
+
+$$
+D_{\mathbf{x}}f(\boldsymbol{X})=\frac{\partial f(\boldsymbol{X})}{\partial\boldsymbol{X}^T}=\boldsymbol{A} \text{ 等价于 } \nabla_{\mathbf{x}}f(\boldsymbol{X})=\boldsymbol{A}^T
+$$
+
+### 复向量
+复变量的偏导数定义：
+
+$$
+\begin{cases}
+\frac{\partial}{\partial z}=\frac{1}{2}\left(\frac{\partial}{\partial x}-j\frac{\partial}{\partial y}\right)\\
+\frac{\partial}{\partial z^*}=\frac{1}{2}\left(\frac{\partial}{\partial x}+j\frac{\partial}{\partial y}\right)
+\end{cases}
+$$
+
+其中 x 和 y 是相互独立的:
+
+$$
+\begin{cases}
+\frac{\partial y}{\partial x}=0\\
+\frac{\partial x}{\partial y}=0
+\end{cases}
+$$
+
+可以证明 z 和 z* 也是相互独立的:
+
+$$
+\begin{aligned}
+\frac{\partial z}{\partial z^*}&=\frac{\partial x}{\partial z^*}+j\frac{\partial y}{\partial z^*}\\
+&=\frac{1}{2}\left(\frac{\partial x}{\partial x}+j\frac{\partial x}{\partial y}\right)+j\frac{1}{2}\left(\frac{\partial y}{\partial x}+j\frac{\partial y}{\partial y}\right)\\
+&=\frac{1}{2}(1+0)+j\frac{1}{2}(0+j)=0
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+\frac{\partial z^*}{\partial z}&=\frac{\partial x}{\partial z}-j\frac{\partial y}{\partial z}\\
+&=\frac{1}{2}\left(\frac{\partial x}{\partial x}-j\frac{\partial x}{\partial y}\right)-j\frac{1}{2}\left(\frac{\partial y}{\partial x}-j\frac{\partial y}{\partial y}\right)\\
+&=\frac{1}{2}(1-0)-j\frac{1}{2}(0-j)=0
+\end{aligned}
+$$
+
+对于单变量复函数，其梯度定义为：
+
+$$
+\nabla_zf(z,z^*)=\frac{\partial f(z,z^*)}{\partial z}|_{z^*=\text{常数}}
+$$
+
+$$
+\nabla_{z^*}f(z,z^*)=\left.\frac{\partial f(z,z^*)}{\partial z^*}\right|_{z=\text{常数}}
+$$
+
+其微分形式为：
+
+$$
+df(z,z^*)=\frac{\partial f(z,z^*)}{\partial z}dz+\frac{\partial f(z,z^*)}{\partial z^*}dz^*
+$$
+
+对于复变元向量：
+
+$$
+\mathbf{z}=\begin{bmatrix}z_1,z_2,\ldots,z_m\end{bmatrix}^T
+$$
+
+其微分形式可以写作：
+
+$$
+\begin{aligned}
+df(\mathbf{z},\mathbf{z}^*)&=\left[\frac{\partial f(\mathbf{z},\mathbf{z}^*)}{\partial z_1},\cdots,\frac{\partial f(\mathbf{z},\mathbf{z}^*)}{\partial z_m}\right]\begin{bmatrix}dz_1\\\vdots\\dz_m\end{bmatrix}+\left[\frac{\partial f(\mathbf{z},\mathbf{z}^*)}{\partial z_1^*},\cdots,\frac{\partial f(\mathbf{z},\mathbf{z}^*)}{\partial z_m^*}\right]\begin{bmatrix}dz_1^*\\\vdots\\dz_m^*\end{bmatrix}\\
+&=\frac{\partial f(\mathbf{z},\mathbf{z}^*)}{\partial\mathbf{z}^T}d\mathbf{z}+\frac{\partial f(\mathbf{z},\mathbf{z}^*)}{\partial\mathbf{z}^H}d\mathbf{z}^*
+\end{aligned}
+$$
+
+
 
 
 对于复变量来说，通常要求两个梯度，一个是$\frac{\partial}{\partial z}$，一个是$\frac{\partial}{\partial z^{*}}$
 
 
+### Hession矩阵 
 
-标量函数 tr(U)的微分
+先求行偏导，再求梯度
 
-$$
-\mathrm{d}[\mathrm{tr}(\mathbf{U})] = \mathrm{d}\left(\sum_{i=1}^{n} u_{ii}\right) = \sum_{i=1}^{n} \mathrm{d}u_{ii} = \mathrm{tr}\left(\mathrm{d}\mathbf{U}\right)
-$$
-
-矩阵乘积UV的微分矩阵
+实值函数 $f(\mathbf{x})$ 相对于 $m \times 1$ 实向量 $\mathbf{x}$ 的二阶偏导称为 Hessian 矩阵，记作 $\mathbf{H}[f(\mathbf{x})]$，定义为
 
 $$
-\mathrm{d}(\mathbf{U}\mathbf{V}) = (\mathrm{d}\mathbf{U})\mathbf{V} + \mathbf{U}(\mathrm{d}\mathbf{V})
+\mathbf{H}[f(\mathbf{x})] = \frac{\partial^2 f(\mathbf{x})}{\partial \mathbf{x} \partial \mathbf{x}^T} = \frac{\partial}{\partial \mathbf{x}} \left[ \frac{\partial f(\mathbf{x})}{\partial \mathbf{x}^T} \right] \in \mathbb{R}^{m \times m}
 $$
 
-矩阵的迹的矩阵微分等于矩阵微分的迹
+或记作
 
 $$
-\mathrm{d}\left(\mathrm{tr}(\mathbf{X})\right) = \mathrm{tr}(\mathrm{d}\mathbf{X})
+\mathbf{H}[f(\mathbf{x})] = \nabla_x^2 f(\mathbf{x}) = \nabla_x (D_x f(\mathbf{x}))$$
+
+或写作
+
 $$
+\mathbf{H}[f(\mathbf{x})] = \begin{bmatrix}
+\frac{\partial^2 f}{\partial x_1 \partial x_1} & \cdots & \frac{\partial^2 f}{\partial x_1 \partial x_m} \\
+\vdots & \ddots & \vdots \\
+\frac{\partial^2 f}{\partial x_m \partial x_1} & \cdots & \frac{\partial^2 f}{\partial x_m \partial x_m}
+\end{bmatrix} \in \mathbb{R}^{m \times m}
+$$
+
+
+
+
+二次型理论
+
+- $\mathbf{H(f)}$负定，有极大值： 奇数阶主子式为负数，偶数阶为正数
+- $\mathbf{H(f)}$正定，有极小值：顺序主子式都为正数
+- $\mathbf{H(f)}$不定，鞍点：特征值有正有负
+- $\mathbf{H(f)}$不可逆，无法判断：特征值有0
+
+<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/b05544056c037bc56f9070e45533f02.jpg" alt="b05544056c037bc56f9070e45533f02" style="zoom: 33%;" />
+
+
 
 
 ## 积分

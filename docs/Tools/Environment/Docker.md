@@ -22,7 +22,18 @@
 ## 安装
 ### linux
 
-查看是否安装成功
+```shell title="安装docker"
+curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh get-docker.sh
+```
+
+
+```shell title="查看是否安装成功"
+docker --version
+```
+
+
+
 
 ```shell
 [root@localhost ~]# docker-compose --version
@@ -73,6 +84,45 @@ docker --version
 ### 常规操作
 
 上传文件：点击`files`在右键选择`import`选择文件夹即可，上传以后重启服务
+
+## 卸载
+
+1.删除docker及安装时自动安装的所有包
+
+```shell title="删除docker及安装时自动安装的所有包" 
+apt-get autoremove docker docker-ce docker-engine  docker.io  containerd runc
+```
+
+2.查看docker是否卸载干净
+
+```shell title="查看docker是否卸载干净"
+dpkg -l | grep docker
+```
+
+3.删除无用的相关的配置文件
+
+```shell title="删除无用的相关的配置文件"
+dpkg -l |grep ^rc|awk '{print $2}' |sudo xargs dpkg -P
+```
+
+4.删除没有删除的相关插件
+
+```shell title="删除没有删除的相关插件"
+apt-get autoremove docker-ce-*
+```
+
+5.删除docker的相关配置&目录
+
+```shell title="删除docker的相关配置&目录"
+rm -rf /etc/systemd/system/docker.service.d
+rm -rf /var/lib/docker
+```
+
+6.确定docker卸载完毕
+
+```shell title="确定docker卸载完毕"
+docker --version
+```
 
 
 ## 使用

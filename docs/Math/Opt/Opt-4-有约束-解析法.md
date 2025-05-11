@@ -1,6 +1,22 @@
 # 04 | 有约束 解析解法
 
 
+## Dual Ascent Method
+
+- 拉格朗日函数把约束问题转化为无约束问题
+- 对于固定的$\lambda,v$,求$x$,$\min$最小化问题
+- 找到更强的约束$\lambda,v$，最大化问题，要强化约束
+
+we tweak the dual variables to improve the balance iteratively
+
+aimly to set as close as possible to the best solution that respects all of the constraints
+
+
+有点像fine-tuning
+
+
+
+
 $$
 \begin{array}{ll} 
 \min & f(x) \\ 
@@ -11,13 +27,14 @@ $$
 
 
 
-#### 拉格朗日函数
+## 拉格朗日函数
 
 $$
 L(x, \lambda) = f(x) + \lambda^T h(x) = f(x) + \sum_{i=1}^m \lambda_i h_i(x)
 $$
 
 其中，$\lambda = [\lambda_1, \lambda_2, ..., \lambda_m]^T$。
+
 
 
 
@@ -57,7 +74,7 @@ $$
 
 
 
-#### **可行方向判别条件（充分条件）**
+### **可行方向判别条件（充分条件）**
 
 对于点$x^{(0)}$，若满足以下条件，则$p$是$x^{(0)}$的可行方向：
 
@@ -109,7 +126,7 @@ $$
 
 
 
-#### **Gordan引理**
+## **Gordan引理**
 
 设$B \in R^{m\times n}$，则下列两个系统有且仅有一个有解：<br>
 (I) $Bx < 0$<br>
@@ -134,7 +151,7 @@ $B^T$是$R^n$中一组基，由$m$个$n$维列向量组成，只存在两种情�
 
 
 
-#### **Fritz John定理**——局部极小点必要条件
+## **Fritz John定理**——局部极小点必要条件
 
 $$
 \mu_0^* \nabla f(x^*) - \sum_{i=1}^m \mu_i^* \nabla h_i(x^*) + \sum_{i=1}^m \mu_i^{**} \nabla h_i(x^*) - \sum_{j=1}^l \mu_j^* \nabla g_j(x^*) = 0
@@ -190,7 +207,7 @@ $$
 
 
 
-#### Slater条件——强对偶的充分条件
+## Slater条件——强对偶的充分条件
 
 Slater条件是指：存在一个点$x \in relint D$，$relint D$表示可行域$D$的相对内部。
 
@@ -204,7 +221,7 @@ Slater条件是指：存在一个点$x \in relint D$，$relint D$表示可行域
 
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240521175622067.png" alt="image-20240521175622067" style="zoom:50%;" />
 
-#### KKT条件——强对偶的必要条件
+## KKT条件——强对偶的必要条件
 
 正则条件（regular condition）是指起作用约束$\nabla g_{i^*}(x^*)$线性无关。
 
@@ -259,7 +276,7 @@ $$
 
 
 
-##### **KKT条件的矩阵形式**
+### **KKT条件的矩阵形式**
 
 
 
@@ -331,111 +348,108 @@ $$
 
 
 
+!!! example "例题"
 
-
-例题
-
-$$
-\min  f(x_1, x_2) = (x_1 - 2)^2 + x_2^2 \\
-s.t. 
-\left\{
-\begin{array}{lr}
-  x_2 \le x_1 + 2 \\
- x_2 \ge x_1^2 + 1 \\
- x_1 \ge 0 \quad x_2 \ge 0
-\end{array}
-\right.
-$$
-
-
-
-**列出向量**
-
-$$
-\begin{align}
-f(\mathbf{x}) = (x_1 - 2)^2 + x_2^2
-\end{align}
-$$
-
-$$
-\nabla f(\mathbf{x}) = \left[ \begin{array}{c} 2(x_1 - 2) \\ 2x_2 \end{array} \right]
-$$
-
-$$
-\mathbf{g}(\mathbf{x}) = \left[ \begin{array}{c} x_1 - x_2 + 2 \\ -x_1^2 + x_2 - 1 \\ x_1 \\ x_2 \end{array} \right]
-$$
-
-$$
-\nabla \mathbf{g}(\mathbf{x}) = \left[ \begin{array}{cccc} 1 & -2x_1 & 1 & 0 \\ -1 & 1 & 0 & 1 \end{array} \right]
-$$
-
-**列出题目条件**
-
-$$
-\begin{align}
-\nabla f(x^*) - \nabla h(x^*) y^* - \nabla g(x^*) \mu^* = 0
-\end{align}
-$$
-
-$$
-\Longrightarrow \left[ \begin{array}{c} 2(x_1 - 2) \\ 2x_2 \end{array} \right] - \left[ \begin{array}{cccc} 1 & -2x_1 & 1 & 0 \\ -1 & 1 & 0 & 1 \end{array} \right] \left[ \begin{array}{c} \mu_1 \\ \mu_2 \\ \mu_3 \\ \mu_4 \end{array} \right] = \left[ \begin{array}{c} 0 \\ 0 \end{array} \right]
-$$
-
-$$
-\mu^* \otimes g(x^*) = 0 \quad \Longrightarrow \left[ \begin{array}{c} \mu_1 (x_1 - x_2 + 2) \\ \mu_2 (-x_1^2 + x_2 - 1) \\ \mu_3 x_1 \\ \mu_4 x_2 \end{array} \right] = 0
-$$
-
-$$
-g(x^*) \ge 0 \quad \mu^* \ge 0
-$$
-
-**得出方程**
-
-$$
-\begin{align*}
-2(x_1 - 2) - \mu_1 + 2 \mu_2 x_1 - \mu_3 = 0 \\
-2x_2 + \mu_1 - \mu_2 - \mu_4 = 0 \\
-\mu_1 (x_1 - x_2 + 2) = 0 \\
-\mu_2 (-x_1^2 + x_2 - 1) = 0 \\
-\mu_3 x_1 = 0 \\
-\mu_4 x_2 = 0 \\
-\mu_j \ge 0 \quad j = 1, 2, 3, 4 \\
-x_2 \le x_1 + 2 \\
-x_2 \ge x_1^2 + 1 \\
-x_1, x_2 \ge 0
-\end{align*}
-$$
-
-**求解方程**
-观察可得：$\mu_1 = \mu_3 = \mu_4 = 0$（松弛性）
-
-所以有：
-
-$$
-(1 + \mu_2) x_1 - 2 = 0
-$$
-
-$$
-2x_2 - \mu_2 = 0
-$$
-
-$$
--x_1^2 + x_2 - 1 = 0
-$$
-
-求解得：
-
-$$
-\mu_2^* = 2.6219 \quad x_1^* = 0.5536 \quad x_2^* = 1.3064
-$$
-
-$$
-f(x^*) = 3.7989
-$$
+    $$
+    \min  f(x_1, x_2) = (x_1 - 2)^2 + x_2^2 \\
+    s.t. 
+    \left\{
+    \begin{array}{lr}
+      x_2 \le x_1 + 2 \\
+    x_2 \ge x_1^2 + 1 \\
+    x_1 \ge 0 \quad x_2 \ge 0
+    \end{array}
+    \right.
+    $$
 
 
 
-##### 条件与分析
+    **列出向量**
+
+    $$
+    \begin{align}
+    f(\mathbf{x}) = (x_1 - 2)^2 + x_2^2
+    \end{align}
+    $$
+
+    $$
+    \nabla f(\mathbf{x}) = \left[ \begin{array}{c} 2(x_1 - 2) \\ 2x_2 \end{array} \right]
+    $$
+
+    $$
+    \mathbf{g}(\mathbf{x}) = \left[ \begin{array}{c} x_1 - x_2 + 2 \\ -x_1^2 + x_2 - 1 \\ x_1 \\ x_2 \end{array} \right]
+    $$
+
+    $$
+    \nabla \mathbf{g}(\mathbf{x}) = \left[ \begin{array}{cccc} 1 & -2x_1 & 1 & 0 \\ -1 & 1 & 0 & 1 \end{array} \right]
+    $$
+
+    **列出题目条件**
+
+    $$
+    \begin{align*}
+    \nabla f(x^*) - \nabla h(x^*) y^* - \nabla g(x^*) \mu^* = 0
+    \end{align*}
+    $$
+
+    $$
+    \Longrightarrow \left[ \begin{array}{c} 2(x_1 - 2) \\ 2x_2 \end{array} \right] - \left[ \begin{array}{cccc} 1 & -2x_1 & 1 & 0 \\ -1 & 1 & 0 & 1 \end{array} \right] \left[ \begin{array}{c} \mu_1 \\ \mu_2 \\ \mu_3 \\ \mu_4 \end{array} \right] = \left[ \begin{array}{c} 0 \\ 0 \end{array} \right]
+    $$
+
+    $$
+    \mu^* \otimes g(x^*) = 0 \quad \Longrightarrow \left[ \begin{array}{c} \mu_1 (x_1 - x_2 + 2) \\ \mu_2 (-x_1^2 + x_2 - 1) \\ \mu_3 x_1 \\ \mu_4 x_2 \end{array} \right] = 0
+    $$
+
+    $$
+    g(x^*) \ge 0 \quad \mu^* \ge 0
+    $$
+
+    **得出方程**
+
+    $$
+    \begin{align*}
+    2(x_1 - 2) - \mu_1 + 2 \mu_2 x_1 - \mu_3 = 0 \\
+    2x_2 + \mu_1 - \mu_2 - \mu_4 = 0 \\
+    \mu_1 (x_1 - x_2 + 2) = 0 \\
+    \mu_2 (-x_1^2 + x_2 - 1) = 0 \\
+    \mu_3 x_1 = 0 \\
+    \mu_4 x_2 = 0 \\
+    \mu_j \ge 0 \quad j = 1, 2, 3, 4 \\
+    x_2 \le x_1 + 2 \\
+    x_2 \ge x_1^2 + 1 \\
+    x_1, x_2 \ge 0
+    \end{align*}
+    $$
+
+    **求解方程**
+    观察可得：$\mu_1 = \mu_3 = \mu_4 = 0$（松弛性）
+
+    所以有：
+
+    $$
+    (1 + \mu_2) x_1 - 2 = 0
+    $$
+
+    $$
+    2x_2 - \mu_2 = 0
+    $$
+
+    $$
+    -x_1^2 + x_2 - 1 = 0
+    $$
+
+    求解得：
+
+    $$
+    \mu_2^* = 2.6219 \quad x_1^* = 0.5536 \quad x_2^* = 1.3064
+    $$
+
+    $$
+    f(x^*) = 3.7989
+    $$
+
+
+### 条件与分析
 
 KKT条件是判断某点是极值点的**必要条件**，**不是充分条件**。换句话说，**最优解一定满足KKT条件**，但**KKT条件的解不一定是最优解**。
 

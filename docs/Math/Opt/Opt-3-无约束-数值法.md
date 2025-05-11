@@ -23,11 +23,11 @@
 
 ### 一阶 - GD - 迭代初期
 
-下降最快的方向是负梯度方向
+方向：下降最快的方向是负梯度方向
 
 性质：最优步长的时候 $\nabla f(x^{k+1}) \perp \nabla f(x^{(k)})$
 
-优点：计算量小，适用于迭代初期
+优点：计算量小(不需要求Hessian矩阵，以及求逆)，适用于迭代初期
 
 缺点：之字形的迭代路径，接近极值点的时候更严重
 
@@ -45,22 +45,19 @@
 输入：目标函数 $f(x)$ ，梯度函数 $g(x)=\nabla f(x)$ ，计算精度 $\varepsilon$
 
 输出： $f(x)$ 的极小点 $x^*$
+1. 选取初值 $x^{(0)}$，令 $k=0$
+2. 计算函数值 $f(x^{(k)})$
+3. 计算梯度 $g_k = \nabla f(x^{(k)})$
+   - 若 $\|g_k\| < \varepsilon$，停止迭代，输出 $x^* = x^{(k)}$
+   - 否则，取搜索方向 $p_k = -g_k$，求步长 $\lambda_k$ 使得:
+   $$f(x^{(k)} + \lambda_k p_k) = \min_{\lambda \geq 0} f(x^{(k)} + \lambda p_k)$$
 
-1. 取初值 $x^{(0)} \in R^n$ ，置 $k=0$
-2. 计算 $f\left(x^{(k)}\right)$
-3. 计算梯度 $g_{k}=g\left(x^{(k)}\right)$ ，当 $\left\|g_{k}\right\|<\varepsilon$ 时，停止迭代，令 $x^{*}=x^{(k)}$ ；否则，令
-
-$$
-\boldsymbol{p}_{k}=-\boldsymbol{g}\left(\boldsymbol{x}^{(k)}\right), \text { 求 } \lambda_{k} \text { ，使 }
-$$
-
-$$
-f\left(\boldsymbol{x}^{(k)}+\lambda_{k} \boldsymbol{p}_{k}\right)=\min _{\lambda \geq 0} f\left(\boldsymbol{x}^{(k)}+\lambda \boldsymbol{p}_{k}\right)
-$$
-
-4. 置 $x^{(k+1)}=x^{(k)}+\lambda_{k} p_{k}$ ，计算 $f\left(x^{(k+1)}\right)$
-5. 若 $\left|f\left(x^{(k+1)}\right)-f\left(x^{(k)}\right)\right|<\varepsilon$ 或 $\left\|x^{(k+1)}-x^{(k)}\right\|<\varepsilon$ 时，停止迭代，令 $x^{*}=x^{k+1}$
-6. 否则，置 $k=k+1$ ，转3。
+4. 更新 $x^{(k+1)} = x^{(k)} + \lambda_k p_k$
+5. 若满足终止条件:
+   - $|f(x^{(k+1)}) - f(x^{(k)})| < \varepsilon$ 或
+   - $\|x^{(k+1)} - x^{(k)}\| < \varepsilon$
+   则停止迭代，输出 $x^* = x^{(k+1)}$
+6. 否则 $k = k+1$，返回步骤3
 
 
 
@@ -72,7 +69,7 @@ $X^T \cdot \mathbf{H} \cdot X = c$
 - 如果不是的话，相似对角化以后$X^TM^T \ \Lambda\mathbf{}\ M X = c$
 
 
-### improve GD
+### 一阶 - improve GD
 
 
 problem with GD
@@ -158,7 +155,7 @@ A缺点：计算量大，需要求二阶导数和Hessian矩阵逆。
 * (4) $A$ 不定 (高维) 马鞍面: $f(x)=x_1^2-x_2^2$ 无界解（鞍点解）
 
 
-### 修正牛顿法 - 解决数值稳定性问题
+### 二阶 - 修正牛顿法 - 解决数值稳定性问题
 **Levenberg-Marquardt修正**
 
 * 设计思想: 将 $\nabla^2 f\left(x^{(k)}\right)$ 变为正定矩阵, 保证$p$是下降方向
@@ -317,13 +314,11 @@ $$
 
 设计思想：沿搜索方向的目标函数值最小
 
-$\lambda_{k}=\arg \min \limits_{\lambda} f\left(\boldsymbol{x}^{(k)}+\lambda \boldsymbol{p}^{(k)}\right)$
+$$
+\lambda_{k}=\arg \min \limits_{\lambda} f\left(\boldsymbol{x}^{(k)}+\lambda \boldsymbol{p}^{(k)}\right)
+$$
 
-
-
-### 分数法
-
-![image-20240528081701243](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240528081701243.png)
+但是求解上边的优化问题代价比较大
 
 
 
@@ -342,33 +337,38 @@ $\lambda_{k}=\arg \min \limits_{\lambda} f\left(\boldsymbol{x}^{(k)}+\lambda \bo
 
 - backtracking line search
 
-- goldstein准则 找一个步长点上下限
+### 回退法
 
-- diminishing rule
+### Goldstein准则 找一个步长点上下限
+
+### Diminishing rule
+
+
 一定能保证收敛，只不过可能慢一点，用于测试模型的性能
 
 
 
 ## 迭代终止准则 Terminate
 
+
+### 前后差值够小
 - 绝对误差准则
 
 $$
-\left\|\boldsymbol{x}^{(k+1)}-\boldsymbol{x}^{(k)}\right\| \leq \varepsilon_{1} \quad\left|f\left(\boldsymbol{x}^{(k+1)}\right)-f\left(\boldsymbol{x}^{(k)}\right)\right| \leq \varepsilon_{2}
+\|x_{k+1} - x_k\| \leq \varepsilon_1 \quad |f(x_{k+1}) - f(x_k)| \leq \varepsilon_2
 $$
 
 - 相对误差准则
 
 $$
-\frac{\left\|\boldsymbol{x}^{(k+1)}-\boldsymbol{x}^{(k)}\right\|}{\left\|\boldsymbol{x}^{(k)}\right\|} \leq \varepsilon_{3} \quad \frac{\left|f\left(\boldsymbol{x}^{(k+1)}\right)-f\left(\boldsymbol{x}^{(k)}\right)\right|}{\left|f\left(\boldsymbol{x}^{(k)}\right)\right|} \leq \varepsilon_{4}
+\frac{\|x_{k+1} - x_k\|}{\|x_k\|} \leq \varepsilon_3 \quad \frac{|f(x_{k+1}) - f(x_k)|}{|f(x_k)|} \leq \varepsilon_4
 $$
 
-梯度模准则（first-order optimality measure）
+
+### 梯度够小
 
 $$
-\begin{align}
-\left\|\nabla f\left(\boldsymbol{x}^{(k)}\right)\right\| \leq \varepsilon_{5} \quad\left\|\nabla f\left(\boldsymbol{x}^{(0)}\right)\right\|
-\end{align}
+\left\|\nabla f_k\right\| \leq \epsilon
 $$
 
 

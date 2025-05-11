@@ -29,11 +29,12 @@
 | 特殊矩阵         | 2学时 |
 | 矩阵微分         | 4学时 |
 | 梯度分析与最优化 | 4学时 |
-| 奇异值分析       | 4学时 |
 | 矩阵方程求解     | 2学时 |
 | 特征分析         | 4学时 |
+| 奇异值分析       | 4学时 |
 | 子空间分析       | 2学时 |
 | 习题             | 4学时 |
+
 
 
 ## Acknowledgement
@@ -42,7 +43,33 @@
 - [矩阵论 | 程磊](https://classroom.zju.edu.cn/livingroom?course_id=66128&sub_id=1264000)
 
 
+- 信电学院
+- 控制学院
 
+[【矩阵论/矩阵分析】龙强线性代数与矩阵分析 课件与听课笔记 - 心泉- CC98论坛](https://www.cc98.org/topic/6073079)
+
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=335998005&bvid=BV1TR4y1H7iG&cid=421967527&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" height=auto width=100%></iframe>
+[QiangLong2017/Matrix-theory: 本仓库用于存储《线性代数与矩阵分析》课程课件](https://github.com/QiangLong2017/Matrix-theory/)
+
+
+[思维导图 - Oddyti](https://www.cc98.org/topic/5197310/1#1)
+
+
+### A4
+[A4分享 - 戈炎](https://www.cc98.org/topic/6043432)
+[A4 - Vega](https://www.cc98.org/topic/5929784)
+[A4 - pcs](https://www.cc98.org/topic/5807522)
+[A4 - 陈归忱](https://www.cc98.org/topic/5806752)
+[A4 - 8h5d233](https://www.cc98.org/topic/5753179)
+
+
+
+### 作业
+[矩阵论大作业（图像去噪）及A4分享 - CC98论坛](https://www.cc98.org/topic/6043432)
+
+[习题答案 民间版 - CC98论坛](https://www.cc98.org/topic/5753179)
+
+[矩阵论人脸作业 - CC98论坛](https://www.cc98.org/topic/5459916)
 
 
 
