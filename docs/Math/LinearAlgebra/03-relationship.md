@@ -10,14 +10,14 @@
 
 - 相似矩阵的特征值相同，特征向量存在线性变换关系
     
-    $$
-    \begin{align*}
-    Bx &= \lambda x \\
-    S^{-1}ASx &= \lambda x \\
-    ASx &= \lambda Sx \\
-    A(Sx) &= \lambda (Sx)
-    \end{align*}
-    $$
+$$
+\begin{align*}
+Bx &= \lambda x \\
+S^{-1}ASx &= \lambda x \\
+ASx &= \lambda Sx \\
+A(Sx) &= \lambda (Sx)
+\end{align*}
+$$
 
 
 - $det(B)=det(A)$，因为行列式是特征值的乘积

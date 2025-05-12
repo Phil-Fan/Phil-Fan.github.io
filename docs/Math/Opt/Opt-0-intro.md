@@ -20,6 +20,8 @@ Nonlinear Programming
 
 - cvx toolbox 在多项式时间复杂度中，找到全局最优解
 
+可以在$O(n^{3.5})$左右时间复杂度中，找到全局最优解
+
 
 
 ## 大纲

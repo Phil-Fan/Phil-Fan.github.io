@@ -28,6 +28,7 @@ $$
 
 我们的目的：
 
+- 判断方程有没有解
 - 有解的方程去求解
 - 无解的方程近似解
 
@@ -51,15 +52,9 @@ $$
 ## 有无解
 
 
-奇异的意思是：冗余、重复、线性相关
 
-非奇异的意思是：线性无关
 
 关注 $m,n,rank(A)$ 之间的关系
-
-- $m>n$ 超定，瘦高型矩阵,约束比变量多
-- $m=n$ 方阵
-- $m<n$ 欠定，矮胖型矩阵
 
 > 秩的含义是：线性无关的行（列）向量的最大个数
 
@@ -71,6 +66,10 @@ $$
   - $\text{rank}(A) < n$ : 无穷多解
 
 
+> 奇异的意思是：冗余、重复、线性相关
+> 
+> 非奇异的意思是：线性无关
+
 **机械臂的例子理解**
 
 - 关节空间：关节的角度（旋转关节）或位移（移动关节）
@@ -78,8 +77,10 @@ $$
 
 对于机械臂来说，操作空间维度相当于$m$，关节数目相当于$n$（自变量数目）
 
-- 超定：$m>n$，约束比变量多，无解
+- 超定：$m>n$，约束比变量多，可能无解
 - 欠定：$m<n$，关节很多，维度比较低，有很多组解
+
+
 
 
 
@@ -295,6 +296,8 @@ $$
 \end{align*}
 $$
 
+> 这里求解二范数的原因详见统计视角
+
 通过求导并令导数为零，可以得到
 
 $$
@@ -371,29 +374,36 @@ $$
 首先定义拟合误差:
 
 $$
-Az-b=e
+Az = b + e
 $$
 
-其中e服从白噪声高斯分布:
+其中假设噪声$e$服从白噪声高斯分布
+
+> 使用高斯噪声的建模假设：模型的预测能力是比较好的，没有outlier（超出$3\sigma$的离群值），比如上课一次不来，作业一次不交，考试考100分的样本
+> 
+> 在这种时候使用高斯噪声建模，可以得到一个比较好的结果
+
 
 $$
-p(e)=N(e|C,\sigma^{2}I) \text{ 正比于 } \exp\left[-\frac{1}{\sigma^{2}}\mathrm{e}^{\mathrm{H}}e\right]
+e \sim N(e|0,\sigma^{2}I) \propto \exp\left[-\frac{1}{\sigma^{2}}\mathrm{e}^{\mathrm{H}}e\right]
 $$
 
 因此条件概率可以写作:
 
 $$
-p(b|Az)=p(b-Az)=p(e) \text{ 正比于 } \exp\left[-\frac{1}{\sigma^2}\mathrm{e}^\mathrm{H}e\right]
+p(b | Ax) = N(b|Ax,\sigma^{2}I)\\
+= \frac{1}{z}\exp\left[-\frac{(b-Ax)^T(b-Ax)}{\sigma^2}\right]
 $$
 
-根据极大似然估计,我们需要找到一个z使得$p(b|Az)$最大:
+根据极大似然估计,我们需要找到一个$z$使得$p(b|Az)$最大:
 
 $$
 \begin{aligned}
-\max(p(b|Az)) &\Leftrightarrow \max\ln(\exp\left[-\frac{1}{\sigma^2}\mathrm{e}^\mathrm{H}e\right]) \\
-&= \max\left[-\frac{1}{\sigma^2}\mathrm{e}^\mathrm{H}e\right] \\
-&= -\frac{1}{\sigma^2}\|Az-b\|_2^2 \\
-&\Leftrightarrow \min\left\|Az-b\right\|_2^2
+\max\ \log p(b|Az) &\Leftrightarrow \max\  \log  \frac{1}{z}\exp\left[-\frac{(b-Ax)^T(b-Ax)}{\sigma^2}\right]\\
+&= \max\ \log \frac{1}{z} -\frac{(b-Ax)^T(b-Ax)}{\sigma^2} \\
+&= \min\ \frac{(b-Ax)^T(b-Ax)}{\sigma^2}\\
+&= \min \ (b-Ax)^T(b-Ax)\\
+&= \min \ \|Ax-b\|_2^2
 \end{aligned}
 $$
 
@@ -403,7 +413,7 @@ conditional pdf 对b
 likelihood function 对z
 
 
-建模假设：模型的预测能力是比较好的，没有outlier（超出$3\sigma$的离群值），比如上课一次不来，作业一次不交，考试考100分。
+
 
 
 ### DLS - 最小数据二乘
@@ -432,6 +442,7 @@ $$
 > underlying idea: 每个数据的误差不会特别大
 
 !!! note "Frobenius 范数 $(p=2)$是矩阵元素范数的一种，平方和的平方根"
+
     $$
     \|A\|_F \stackrel{\text{def}}{=} \left( \sum_{i=1}^m \sum_{j=1}^n |a_{ij}|^2 \right)^{1/2} = \sqrt{\text{trace}(AA^H)}
     $$
@@ -478,6 +489,20 @@ $$
 
 
 
+
+$$
+\begin{align*}
+\max_{x ,y} & \quad x^H y \\
+\mathrm{s.t.} & \quad y = \frac{x}{(Ax-b)^H(Ax-b)}
+\end{align*}
+$$
+
+$$
+\min_{x, y} \|y\|_2^2 x^H A A^H x - 2 \mathrm{Re} \left\{ \|y\|_2^2 b^H A x \right\} + \|y\|_2^2 b^H b - 2 y^H x
+$$
+
+- Fix $x$, 那么$y$ 有闭式解
+- Fix $y$, 那么$x$ 是凸优化问题
 
 
 
@@ -532,7 +557,69 @@ $$
 
 
 
-### Tikhonov正则化 - 优化视角
+### Tikhonov正则化
+
+
+对于OLS问题，我们求解
+
+$$
+\min_x \|Ax-b\|_2^2
+$$
+
+$$
+x_{LS} = (A^T A)^{-1} A^T b
+$$
+
+但是如果$A$是病态的，那么$(A^T A)^{-1}$会很大，导致$x_{LS}$不稳定
+
+
+很直观的想法是让$A^{H}A$变得好一些，即
+
+
+$$
+\hat{x} = (A^{H}A + \lambda I)^{-1}A^{H}b
+$$
+
+
+(Bayesian Linear Regression)
+
+
+Tikhonov证明求下面的优化问题和上面的等价
+
+$$
+\min_x J(x) = \|Ax-b\|_2^2 + \lambda \|x\|_2^2, \quad \lambda \geq 0
+$$
+
+
+!!! note "证明一下"
+
+    $$
+    J(x)=||Ax-b||_{2}^{2}+\lambda||x||_{2}^{2}
+    $$
+
+    求解共轭梯度
+
+    $$
+    \frac{\partial J(x)}{\partial x^{*}}=A^{H}Ax-A^{H}b+\lambda x=0\\
+    (A^{H}A+\lambda I)x=A^{H}b
+    $$
+
+
+    解得
+
+    $$
+    \hat{x}_{Tik}=(A^{H}A+\lambda I)^{-1}Ab
+    $$
+
+
+
+
+
+
+
+
+
+
 
 
 - 解决过拟合
@@ -542,8 +629,6 @@ $$
 - 代价函数对应的是likelihood
 - 正则项对应的是prior
 
-
-### Tikhonov正则化 - 统计视角
 
 
 ### 应用 - 稀疏表示和压缩感知
@@ -615,3 +700,8 @@ $$
 ### Lyapunov方程
 
 [线性代数 | 李雅普诺夫方程](https://www.zhihu.com/tardis/zm/art/105326895?source_id=1005)
+
+
+## 优化与统计的联系
+
+

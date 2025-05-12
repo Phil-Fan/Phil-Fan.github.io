@@ -4,12 +4,22 @@
 ## Dual Ascent Method
 
 - 拉格朗日函数把约束问题转化为无约束问题
-- 对于固定的$\lambda,v$,求$x$,$\min$最小化问题
-- 找到更强的约束$\lambda,v$，最大化问题，要强化约束
+- Fix $\lambda,v$,update $x_k$: 
+  
+  $$
+  x_{k+1} = \arg \min_{x} L(x, \lambda_k, v_k)
+  $$
 
-we tweak the dual variables to improve the balance iteratively
+- Fix $x_{k+1}$,update $\lambda,v$: 
+  
+  $$
+  \lambda_{k+1},v_{k+1} = \arg \max_{\lambda,v} L(x_{k+1}, \lambda, v)
+  $$
 
-aimly to set as close as possible to the best solution that respects all of the constraints
+
+
+
+we tweak the dual variables to improve the balance iteratively aimly to set as close as possible to the best solution that respects all of the constraints
 
 
 有点像fine-tuning

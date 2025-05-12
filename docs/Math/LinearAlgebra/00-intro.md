@@ -21,6 +21,20 @@
 - 教学的宗旨应该是教会学生老师是如何思考的 —— 程磊
 - 
 
+
+
+<iframe src="./MatrixCookBook.pdf" width="100%" height="600px" style="border: none;">
+This browser does not support PDFs
+</iframe>
+
+
+## TODO
+
+- [ ] 第11讲 优化与统计的联系
+- [ ] 第7讲 - 雅可比矩阵的辨识
+- [ ] 步长的选择方法没听懂
+
+
 ## 大纲
 
 | 课程内容         | 学时  |

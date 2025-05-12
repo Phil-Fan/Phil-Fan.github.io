@@ -1,4 +1,4 @@
-# 微分与积分
+# 02 | 微分与积分
 
 ## 变元与函数
 
@@ -41,7 +41,7 @@ $$
 === "标量函数&向量变元 - 行偏导"
 
     行偏导算子
-
+    
     $$
     \begin{align*}
     \mathrm{D}_{x}&\overset{\mathrm{def}}{\operatorname*{=}}\frac{\partial}{\partial {x^{\mathrm{T}}}_{1\times m}}=\left[\frac{\partial}{\partial x_{1}},\cdots,\frac{\partial}{\partial x_{m}}\right]_{1\times m}\\
@@ -52,7 +52,7 @@ $$
 
 
     !!! example "行偏导"
-
+    
         $$
         \begin{aligned}
         f(x)&=x^{T}x\\
@@ -64,23 +64,23 @@ $$
 === "标量函数&矩阵变元"
 
     如果变元是矩阵，也可以写出行偏导
-
+    
     $$
     \begin{aligned}
     &\mathrm{D}_{\mathrm{vec}\boldsymbol{X}}f(\boldsymbol{X})=\frac{\partial f(\boldsymbol{X})}{\partial\mathrm{vec}^{\mathrm{T}}(\boldsymbol{X})}=\left[\frac{\partial f(\boldsymbol{X})}{\partial x_{11}},\cdots,\frac{\partial f(\boldsymbol{X})}{\partial x_{m1}},\cdots,\frac{\partial f(\boldsymbol{X})}{\partial x_{1n}},\cdots,\frac{\partial f(\boldsymbol{X})}{\partial x_{mn}}\right]_{1\times mn}\\
     &\mathrm{D}_{\mathrm{vec}\boldsymbol{X}}f(\boldsymbol{X})=\mathrm{rvec}(\mathrm{D}_{\boldsymbol{X}}f(\boldsymbol{X}))=\left(\mathrm{vec}(\mathrm{D}_{\boldsymbol{X}}^{\mathbf{T}}f(\boldsymbol{X}))\right)^{\mathbf{T}}
     \end{aligned}
     $$
-
+    
     所以求行偏导的结果相当于把雅可比矩阵给行向量化了
 
 
 === "标量函数&矩阵变元 - Jacobian Matrix"
 
     $f(X)$ 关于矩阵变元 $X$ 的 Jacobian 矩阵
-
+    
     $X \in \mathbb{R}^{m \times n}$
-
+    
     $$
     D_X f(X) = \frac{\partial f(X)}{\partial X^T} = \begin{bmatrix} \frac{\partial f(X)}{\partial x_{11}} & \ldots & \frac{\partial f(X)}{\partial x_{m1}} \\ \vdots & \ddots & \vdots \\ \frac{\partial f(X)}{\partial x_{1n}} & \ldots & \frac{\partial f(X)}{\partial x_{mn}} \end{bmatrix} \in \mathbb{R}^{n \times m}
     $$
@@ -94,9 +94,9 @@ $$
     $$
     \mathrm{D}_{\boldsymbol{X}}\boldsymbol{F}(\boldsymbol{X})\overset{\mathrm{def}}{\operatorname*{=}}\frac{\partial\mathrm{vec}(\boldsymbol{F}(\boldsymbol{X}))}{\partial(\mathrm{vec}\boldsymbol{X})^{\mathrm{T}}}\in\mathbb{R}^{pq\times mn}
     $$
-
+    
     思路：
-
+    
     - 把矩阵函数列向量化$vec(\mathbf{F}(\mathbf{X})) =vec\begin{bmatrix}\mathbf{F}_{1} & \mathbf{F}_{2} & \cdots & \mathbf{F}_{q} \end{bmatrix}$
     - 列向量化之后，相当于把矩阵函数的每一个元素展开成了一个列向量，然后相当于标量对于矩阵求行偏导
 
@@ -114,7 +114,7 @@ $$
 $m\times1$列向量偏导算子即梯度算子记作$\nabla_{\boldsymbol{x}}$,定义为
 
 > taking derivative **with respect to** a column vector
- 
+
 
 具有连续偏导→可微→**有切平面**→切线都在切平面上→有一个斜率最大的
 
@@ -130,7 +130,7 @@ $m\times1$列向量偏导算子即梯度算子记作$\nabla_{\boldsymbol{x}}$,�
     $$
 
 
-   
+
 
 
 === "标量函数&矩阵变元"
@@ -138,7 +138,7 @@ $m\times1$列向量偏导算子即梯度算子记作$\nabla_{\boldsymbol{x}}$,�
     $$
     \nabla_{\boldsymbol{X}}f(\boldsymbol{X})=\begin{bmatrix}\frac{\partial f(\boldsymbol{X})}{\partial x_{11}}&\cdots&\frac{\partial f(\boldsymbol{X})}{\partial x_{1n}}\\\vdots&\ddots&\vdots\\\frac{\partial f(\boldsymbol{X})}{\partial x_{m1}}&\cdots&\frac{\partial f(\boldsymbol{X})}{\partial x_{mn}}\end{bmatrix}=\frac{\partial f(\boldsymbol{X})}{\partial\boldsymbol{X}}
     $$
-
+    
     **梯度矩阵是雅可比矩阵的转置**
 
 
@@ -163,7 +163,7 @@ $$
     $$
     \nabla_{x}f(x) = \begin{bmatrix} \frac{\partial \sum_{i=1}^{n}x_{i}^{2}}{\partial x_{1}} \\ \vdots \\ \frac{\partial \sum_{i=1}^{n}x_{i}^{2}}{\partial x_{n}} \end{bmatrix} = \begin{bmatrix} 2x_{1} \\ \vdots \\ 2x_{n} \end{bmatrix} = 2x
     $$
-
+    
     很多时候低维推到高维的时候，结构是类似的，所以高维求不出来的时候，可以先从低维开始推，然后推广到高维
 
 
@@ -180,15 +180,15 @@ $$
     $$
     f(x+d) \approx f(x) + \nabla x^T f(x) d
     $$
-
+    
     如果想让函数值下降$f(x+d)<f(x)$
     
     则需要$d$ 和 $\nabla x^T f(x)$ 夹角大于90度，即$\cos \langle \nabla x^T f(x), d \rangle < 0$，而其中
-
+    
     $$
     -1 \leq \cos \langle \nabla x^T f(x), d \rangle = \frac{\nabla x^T f(x) d}{||\nabla x^T f(x)|| ||d||} \leq 1
     $$
-
+    
     当只有$d$ 和 $\nabla x^T f(x)$ 方向完全相反时，$\cos \langle \nabla x^T f(x), d \rangle = -1$，这个时候下降的速度最快
 
 
@@ -198,7 +198,7 @@ $$
 !!! note "特例"
 
     特例：$y \in R^{m\times 1}$, $\mathbf{A} \in R^{m\times m}$
-
+    
     - $\frac{\partial{\mathbf{A}\mathbf{X}}}{\partial{\mathbf{X}}} = \mathbf{A}^T$
     - $\frac{\partial{\mathbf{X}^T\mathbf{A}\mathbf{X}}}{\partial{\mathbf{X}}} = \mathbf{A}^T\mathbf{X} + \mathbf{AX}$
 
@@ -247,11 +247,11 @@ $$
     由于 $x^{T}Ax=\sum_{k=1}^{n}\sum_{l=1}^{n}a_{kl}x_{k}x_{l}$
     
     求出行偏导向量 $\frac{\partial x^{T}Ax}{\partial x^{T}}$ 的第 $i$ 个分量为
-
+    
     $$
     [\frac{\partial x^{T}Ax}{\partial x^{T}}]_{i}=\frac{\partial}{\partial x_{i}}\sum_{k=1}^{n}\sum_{l=1}^{n}a_{kl}x_{k}x_{l}=\sum_{k=1}^{n}x_{k}a_{ki}+\sum_{l=1}^{n}x_{l}a_{il}
     $$
-
+    
     先固定一个值，利用上面的独立性假设，可以求得
 
 !!! example "令 $F(X) = X \in \mathbb{R}^{m \times n}$，则直接计算偏导得"
@@ -259,9 +259,9 @@ $$
     $$
     \frac{\partial f_{kl}}{\partial x_{ij}} = \frac{\partial x_{kl}}{\partial x_{ij}} = \delta_{lj} \delta_{ki}
     $$
-
+    
     于是得 Jacobian 矩阵
-
+    
     $$
     \mathrm{D}_{X} F(X) \stackrel{\text { def }}{=} \frac{\partial \text{vec}(F(X))}{\partial(\text{vec} X)^{T}} \\ \mathrm{D}_{X} X = I_{n} \otimes I_{m} = I_{mn} \in \mathbb{R}^{mn \times mn}
     $$
@@ -320,26 +320,26 @@ df(\mathbf{x}) = & \left[\frac{\partial f(\mathbf{x})}{\partial x_1},\ldots,\fra
 dx_1 \\ \vdots \\ dx_m
 \end{bmatrix} \\
 = & \frac{\partial f(\mathbf{x})}{\partial\mathbf{x}^T}d\mathbf{x} \\
-= & \mathrm{tr}(\boldsymbol{A}d\mathbf{x})
+= & \text{tr}(\boldsymbol{A}d\mathbf{x})
 \end{aligned}
 $$
 
 对于标量函数 $f(\boldsymbol{X})$，其中 $\boldsymbol{X} \in \mathbb{R}^{m\times n}$：
 
 $$
-df(\boldsymbol{X}) = \mathrm{tr}(\boldsymbol{A}d\boldsymbol{X})
+df(\boldsymbol{X}) = \text{tr}(\boldsymbol{A}d\boldsymbol{X})
 $$
 
 对于向量变元的标量函数：
 
 $$
-df(\mathbf{x})=\mathrm{tr}(\mathbf{A}d\mathbf{x}) \text{ 等价于 } D_\mathbf{x}f(\mathbf{x})=\frac{\partial f(\mathbf{x})}{\partial\mathbf{x}^T}=\mathbf{A}
+df(\mathbf{x})=\text{tr}(\mathbf{A}d\mathbf{x}) \text{ 等价于 } D_\mathbf{x}f(\mathbf{x})=\frac{\partial f(\mathbf{x})}{\partial\mathbf{x}^T}=\mathbf{A}
 $$
 
 对于矩阵变元的标量函数：
 
 $$
-df(\boldsymbol{X})=\mathrm{tr}(\boldsymbol{A}d\boldsymbol{X}) \text{ 等价于 } D_\mathbf{x}f(\boldsymbol{X})=\frac{\partial f(\boldsymbol{X})}{\partial\boldsymbol{X}^T}=\boldsymbol{A}
+df(\boldsymbol{X})=\text{tr}(\boldsymbol{A}d\boldsymbol{X}) \text{ 等价于 } D_\mathbf{x}f(\boldsymbol{X})=\frac{\partial f(\boldsymbol{X})}{\partial\boldsymbol{X}^T}=\boldsymbol{A}
 $$
 
 行偏导与梯度的关系：
@@ -347,6 +347,59 @@ $$
 $$
 D_{\mathbf{x}}f(\boldsymbol{X})=\frac{\partial f(\boldsymbol{X})}{\partial\boldsymbol{X}^T}=\boldsymbol{A} \text{ 等价于 } \nabla_{\mathbf{x}}f(\boldsymbol{X})=\boldsymbol{A}^T
 $$
+
+!!! example "$f(x) = x^T A x$"
+
+    $$
+    f(x) = x^T A x
+    $$
+    
+    求解
+    
+    $$
+    \begin{aligned}
+    df(x) &= (dx^T) A x + x^T d(A x)\\
+    &= x^T A^T dx + x^T A dx\\
+    &= Tr(x^T (A^T + A) dx)
+    \end{aligned}
+    $$
+    
+    $$
+    \begin{aligned}
+    D_x f(x) &= x^T (A^T + A) \\
+    \nabla_x f(x) &= D_x^T f(x) = (A^T + A) x \\
+    \text{if } A^T &= A \text{ then } \nabla_x f(x) = 2 A x
+    \end{aligned}
+    $$
+
+!!! example "$f(X) = tr(A X^{-1})$"
+
+    $$
+    f(X) = tr(A X^{-1})
+    $$
+    
+    $$
+    \begin{aligned}
+    d f(x)&=d\ \text{tr}(A^{-1}X)\\
+    &= \text{tr}\left[d(A^{-1}X)\right]\\
+    &= \text{tr}\left[A^{-1}dX\right]\\
+    &= \text{tr}\left[A^{-1}(-X^{-1}dX X^{-1})\right]\\
+    &= \text{tr}\left[-X^{-1}A^{-1}dX X^{-1}\right]\\
+    \end{aligned}
+    $$
+    
+    最后一步运用了迹的性质
+    
+    $$
+    tr(ABC) = tr(BCA) = tr(CAB)
+    $$
+
+
+    $$
+    D_Xf(X)=-X^{-1}A^{-1}X^{-1}
+    $$
+
+
 
 ### 复向量
 复变量的偏导数定义：
@@ -390,6 +443,8 @@ $$
 $$
 \nabla_zf(z,z^*)=\frac{\partial f(z,z^*)}{\partial z}|_{z^*=\text{常数}}
 $$
+
+共轭梯度
 
 $$
 \nabla_{z^*}f(z,z^*)=\left.\frac{\partial f(z,z^*)}{\partial z^*}\right|_{z=\text{常数}}
@@ -435,20 +490,19 @@ $$
 或记作
 
 $$
-\mathbf{H}[f(\mathbf{x})] = \nabla_x^2 f(\mathbf{x}) = \nabla_x (D_x f(\mathbf{x}))$$
+\mathbf{H}[f(\mathbf{x})] = \nabla_x^2 f(\mathbf{x}) = \nabla_x (D_x f(\mathbf{x}))
+$$
 
 或写作
 
 $$
-\mathbf{H}[f(\mathbf{x})] = \begin{bmatrix}
-\frac{\partial^2 f}{\partial x_1 \partial x_1} & \cdots & \frac{\partial^2 f}{\partial x_1 \partial x_m} \\
-\vdots & \ddots & \vdots \\
-\frac{\partial^2 f}{\partial x_m \partial x_1} & \cdots & \frac{\partial^2 f}{\partial x_m \partial x_m}
-\end{bmatrix} \in \mathbb{R}^{m \times m}
+\mathbf{H(f)} = \nabla^{2} f(x)=\left[\begin{array}{cccc}
+\frac{\partial^{2} f(x)}{\partial x_{1}^{2}} & \frac{\partial^{2} f(x)}{\partial x_{1} \partial x_{2}} & \ldots & \frac{\partial^{2} f(x)}{\partial x_{1} \partial x_{m}} \\
+\frac{\partial^{2} f(x)}{\partial x_{2} \partial x_{1}} & \frac{\partial^{2} f(x)}{\partial x_{2}^{2}} & \ldots & \frac{\partial^{2} f(x)}{\partial x_{2} \partial x_{m}} \\
+\vdots & \vdots & \ddots & \vdots \\
+\frac{\partial^{2} f(x)}{\partial x_{m} \partial x_{1}} & \frac{\partial^{2} f(x)}{\partial x_{m} \partial x_{2}} & \ldots & \frac{\partial^{2} f(x)}{\partial x_{m}^{2}}
+\end{array}\right]\in \mathbb{R}^{m \times m}
 $$
-
-
-
 
 二次型理论
 
@@ -464,12 +518,9 @@ $$
 
 ## 积分
 
-
-
 $$
 \int\mathbf{A}\mathrm{d}t=\begin{bmatrix}\int a_{11}\mathrm{d}t&\int a_{12}\mathrm{d}t&\cdots&\int a_{1n}\mathrm{d}t\\\int a_{21}\mathrm{d}t&\int a_{22}\mathrm{d}t&\cdots&\int a_{2n}\mathrm{d}t\\\vdots&\vdots&\ddots&\vdots\\\int a_{m1}\mathrm{d}t&\int a_{m2}\mathrm{d}t&\cdots&\int a_{mn}\mathrm{d}t\end{bmatrix}
 $$
-
 
 
 

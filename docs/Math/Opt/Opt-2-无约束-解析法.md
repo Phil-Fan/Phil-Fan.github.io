@@ -66,52 +66,65 @@ $$
 
  
 
-## 平稳点
+## 平稳点与极值点
 
 $$
 \nabla f\left(x^{*}\right)=\left[\frac{\partial f(x)}{\partial x}\right]_{x=x^{*}}^{T}=0
 $$
 
-### local minimum
-
-### local maximum
-
-### saddle point
 
 
+### 实变量函数条件
+
+
+| 实变量函数 | $f(x) : \mathbb{R} \rightarrow \mathbb{R}$ | $f(x) : \mathbb{R}^n \rightarrow \mathbb{R}$ | $f(X) : \mathbb{R}^{m \times n} \rightarrow \mathbb{R}$ |
+|------------|-------------------------------------------|----------------------------------------------|--------------------------------------------------------|
+| 平稳点     | $\frac{df(x)}{dx} = 0$                    | $\nabla f(x) = 0$                            | $\frac{\partial f(X)}{\partial X} = O_{m \times n}$     |
+| 局部极小点 | $\frac{d^2f(x)}{dx^2} \geq 0$       | $\nabla^2 f(x) \succeq 0$                    | $\frac{\partial^2f(X)}{d\text{vec}(X)^T(\text{vec}X)^T} \preceq 0$ |
+| 严格局部极小点 | $\frac{d^2f(x)}{dx^2} > 0$    | $\nabla^2 f(x) \succ 0$                      | $\frac{\partial^2f(X)}{d\text{vec}(X)^T(\text{vec}X)^T}  \prec 0$ |
+| 局部极大点 | $\frac{d^2f(x)}{dx^2} \leq 0$        | $\nabla^2 f(x) \preceq 0$                    | $\frac{\partial^2f(X)}{d\text{vec}(X)^T(\text{vec}X)^T}  \succeq 0$ |
+| 严格局部极大点 | $\frac{d^2f(x)}{dx^2} < 0$      | $\nabla^2 f(x) \prec 0$                      | $\frac{\partial^2f(X)}{d\text{vec}(X)^T(\text{vec}X)^T}  \succ 0$ |
+| 鞍点       | $\frac{d^2f(x)}{dx^2}$ 不定               | $\nabla^2 f(x)$ 不定                         | $\frac{\partial^2f(X)}{d\text{vec}(X)^T(\text{vec}X)^T}$ 不定 |
 
 
 
+!!! note "这里$\succ,\succeq$的意思是半正定和正定"
 
 
 
+### 复变函数条件
 
 
-#### **黑塞矩阵 Hessian Matrix 二阶导数矩阵**
+1. 共轭梯度矩阵决定最小化问题的闭式解。
+2. 共轭梯度矩阵与 Hessian 矩阵给出局部极小点辨识的必要条件或充分条件。
+3. 共轭梯度向量的负方向决定求解最小化问题的最速下降迭代算法。
+4. Hessian 矩阵给出求解最小化问题的 Newton 算法。
+
+
+| 复变函数       | $f(z,z^{*}): \mathbb{C} \to \mathbb{R}$                      | $f(z,z^{*}): \mathbb{C}^{n} \to \mathbb{R}$                  | $f(Z,Z^{*}): \mathbb{C}^{m \times n} \to \mathbb{R}$         |
+| -------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 平稳点         | $\frac{\partial f(z,z^{*})}{\partial z^{*}} \bigg|_{z=c} = 0$ | $\frac{\partial f(z,z^{*})}{\partial z^{*}}\bigg|_{z=c}=0_{n \times 1}$ | $\frac{\partial f(Z,Z^{*})}{\partial Z^{*}} \bigg|_{Z=C} = O_{m \times n}$ |
+| 局部极小点     | $H(f(c,c^{*})) \succeq 0$                                    | $H(f(c,c^{*})) \succeq 0$                                    | $H(f(C,C^{*})) \succeq 0$                                    |
+| 严格局部极小点 | $H(f(c,c^{*})) \succ 0$                                      | $H(f(c,c^{*})) \succ 0$                                      | $H(f(C,C^{*})) \succ 0$                                      |
+| 局部极大点     | $H(f(c,c^{*})) \preceq 0$                                    | $H(f(c,c^{*})) \preceq 0$                                    | $H(f(C,C^{*})) \preceq 0$                                    |
+| 严格局部极大点 | $H(f(c,c^{*})) \prec 0$                                      | $H(f(c,c^{*})) \prec 0$                                      | $H(f(C,C^{*})) \prec 0$                                      |
+| 鞍点           | $H(f(c,c^{*}))$ 不定                                         | $H(f(c,c^{*}))$ 不定                                         | $H(f(C,C^{*}))$ 不定                                         |
+
+
+其中，平稳点需要求解共轭梯度
 
 $$
-\mathbf{H(f)} = \nabla^{2} f(x)=\left[\begin{array}{cccc}
-\frac{\partial^{2} f(x)}{\partial x_{1}^{2}} & \frac{\partial^{2} f(x)}{\partial x_{1} \partial x_{2}} & \ldots & \frac{\partial^{2} f(x)}{\partial x_{1} \partial x_{n}} \\
-\frac{\partial^{2} f(x)}{\partial x_{2} \partial x_{1}} & \frac{\partial^{2} f(x)}{\partial x_{2}^{2}} & \ldots & \frac{\partial^{2} f(x)}{\partial x_{2} \partial x_{n}} \\
-\vdots & \vdots & \ddots & \vdots \\
-\frac{\partial^{2} f(x)}{\partial x_{n} \partial x_{1}} & \frac{\partial^{2} f(x)}{\partial x_{n} \partial x_{2}} & \ldots & \frac{\partial^{2} f(x)}{\partial x_{n}^{2}}
-\end{array}\right]
+H(f(c,c^{*}))=\begin{bmatrix}\frac{\partial^{2}f(z,z^{*})}{\partial z^{*}\partial z}&\frac{\partial^{2}f(z,z^{*})}{\partial z^{*}\partial z^{*}}\\\frac{\partial^{2}f(z,z^{*})}{\partial z\partial z}&\frac{\partial^{2}f(z,z^{*})}{\partial z\partial z^{*}}\end{bmatrix}_{z=c}\in\mathbb{C}^{2\times2}
 $$
 
+$$
+H(f(c,c^{*}))=\begin{bmatrix}\frac{\partial^{2}f(z,z^{*})}{\partial z^{*}\partial z^{\mathrm{T}}}&\frac{\partial^{2}f(z,z^{*})}{\partial z^{*}\partial z^{\mathrm{H}}}\\\frac{\partial^{2}f(z,z^{*})}{\partial z\partial z^{\mathrm{T}}}&\frac{\partial^{2}f(z,z^{*})}{\partial z\partial z^{\mathrm{H}}}\end{bmatrix}_{z=\mathbf{c}}\in\mathbb{C}^{2n\times2n}
+$$
 
+$$
+H(f(C,C^{*}))=\begin{bmatrix}\frac{\partial^{2}f(Z,Z^{*})}{\partial(\operatorname{vec}Z^{*})\partial(\operatorname{vec}Z^{*})^{\mathrm{T}}}&\frac{\partial^{2}f(Z,Z^{*})}{\partial(\operatorname{vec}Z^{*})\partial(\operatorname{vec}Z^{*})^{\mathrm{T}}}\\\frac{\partial^{2}f(Z,Z^{*})}{\partial(\operatorname{vec}Z)\partial(\operatorname{vec}Z)^{\mathrm{T}}}&\frac{\partial^{2}f(Z,Z^{*})}{\partial(\operatorname{vec}Z)\partial(\operatorname{vec}Z^{*})^{\mathrm{T}}}\end{bmatrix}_{Z=C}\in\mathbb{C}^{2mn\times2mn}
+$$
 
-
-
-## 最优性条件
-### 实数域
-
-一阶必要条件：（局部极小值/局部极大值）：$\nabla f(x^*)=0$
-
-二阶必要条件：（局部极小值）$\nabla f(x^*)=0 \text{且} \nabla^2 f(x^*)\geq 0$
-
-二阶充分条件：（严格局部极小值）$\nabla f(x^*)=0 \text{且} \nabla^2 f(x^*)>0$
-
-### 复数域
 
 
 

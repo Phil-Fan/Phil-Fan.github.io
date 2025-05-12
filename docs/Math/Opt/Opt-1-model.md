@@ -89,15 +89,14 @@ $$
 
 
 
-**二阶条件：**
+**二阶充分必要条件：**
 
-对于任意的 $x \in \mathbb{R}^n$，都有
 
 $$
-\nabla^2 f(x) \geq 0
+H_x f(x) = \frac{\partial^2 f(x)}{\partial x \partial x^T} \succ 0,\forall x \in S
 $$
 
-即Hessian矩阵半正定
+即Hessian矩阵在**整个凸集**$S$均正定
 
 几何意义：函数曲线向上弯曲。
 
@@ -188,10 +187,9 @@ $$
 
 $$
 \begin{array}{ll}
-\min & f(x) \\
+\min_{x\in \mathbb{O}} & f(x) \\
 \text{s.t.} & h_i(x) = 0, \quad i = 1, 2, ..., m \\
 & g_j(x) \ge 0, \quad j = 1, 2, ..., l \\
-& x \in R^n
 \end{array}
 $$
 
@@ -199,11 +197,10 @@ $$
 
 $$
 \begin{array}{ll}
-\min & f(x) \\
+\mathop{min}_{x\in \mathbb{O}} & f(x) \\
 \text{s.t.} & h_i(x) \ge 0, \quad i = 1, 2, ..., m \\
 & -h_i(x) \ge 0, \quad i = 1, 2, ..., m \\
 & g_j(x) \ge 0, \quad j = 1, 2, ..., l \\
-& x \in R^n
 \end{array}
 $$
 
