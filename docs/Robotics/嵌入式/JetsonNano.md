@@ -83,7 +83,30 @@ nvcc -V
 
 ### pytorch
 
+
+
+
 根据官方的回答，jetpack 6.2 软件列表在[jp6/cu126 index](https://pypi.jetson-ai-lab.dev/jp6/cu126)
+
+
+```shell title="安装pytorch"
+wget https://pypi.jetson-ai-lab.dev/jp6/cu126/+f/6ef/f643c0a7acda9/torch-2.7.0-cp310-cp310-linux_aarch64.whl#sha256=6eff643c0a7acda92734cc798338f733ff35c7df1a4434576f5ff7c66fc97319
+```
+
+```shell title="安装torchaudio"
+wget https://pypi.jetson-ai-lab.dev/jp6/cu126/+f/c59/026d500c57366/torchaudio-2.7.0-cp310-cp310-linux_aarch64.whl#sha256=c59026d500c573666ae0437c4202ac312ac8ebe38fa12dbb37250a07c1e826f9
+```
+
+```shell title="安装torchvision"
+wget https://pypi.jetson-ai-lab.dev/jp6/cu126/+f/daa/bff3a07259968/torchvision-0.22.0-cp310-cp310-linux_aarch64.whl#sha256=daabff3a0725996886b92e4b5dd143f5750ef4b181b5c7d01371a9185e8f0402
+```
+
+```shell title="安装"
+pip install torch-2.7.0-cp310-cp310-linux_aarch64.whl
+pip install torchaudio-2.7.0-cp310-cp310-linux_aarch64.whl
+pip install torchvision-0.22.0-cp310-cp310-linux_aarch64.whl
+```
+
 
 
 

@@ -180,6 +180,20 @@ pip install -r requirements.txt
     通俗地说，CUDA是一种协助“CPU任务分发+GPU并行处理”的编程模型/平台，用于加速GPU和CPU之间的计算。
     
     也就是说CUDA通过CPU任务分发和GPU并行处理的方式，把计算任务通过CPU分发给GPU进行并行计算加速。而GPU并行计算的能力需要CUDA借助其自带的编程接口和工具，比如C/C++语言来编写并行计算程序，并通过CUDA编译器将程序转化为可以在英NVIDIA GPU上执行的机器码快速运行。
+
+
+
+#### CUDA 版本的兼容性
+
+[CUDA 版本兼容性问题](https://www.cnblogs.com/geekbruce/articles/18577150)
+
+CUDA 是向前和向后兼容的：这意味着，安装较新版本的 CUDA 驱动（例如 CUDA 12.3）时，较旧的 CUDA 版本（如 CUDA 12.1）依然可以正常运行。然而，安装一个支持更高 CUDA 版本（如 CUDA 12.4）的 PyTorch，可能会遇到兼容性问题，尤其是如果驱动版本与 CUDA 版本不完全匹配时。
+
+关键点：
+
+- 你的驱动是 CUDA 12.3。
+- 如果你安装的是 PyTorch 支持 CUDA 12.1（例如，cu121），这是完全兼容的，因为驱动版本向后兼容旧的 CUDA 版本。
+- CUDA 12.4 是在 CUDA 12.3 之后的版本，如果你的驱动是 12.3，理论上可能存在问题，因为 CUDA 12.4 可能需要更高的驱动版本（例如，支持 CUDA 12.4 的驱动），而你的驱动是 CUDA 12.3。
                         
 查看cuda支持版本，`win+R`输入`cmd`输入`nvidia-smi.exe`
 

@@ -489,32 +489,27 @@ nav:
   - Class/ITP-Law.md
   
   - Oral:
-    - Class/English/IELTS.md
-    - Class/English/Oral-Tips.md
-    - Class/English/TOFEL-speaking.md
-    - Class/English/VocabularyForSpeaking.md
+    - Class/English/00-intro-IELTS.md
+    - Class/English/01-Listening.md
+    - Class/English/02-Reading.md
+    - Class/English/03-Writing.md
+    - Class/English/04-Speaking-IELTS.md
+    - Class/English/04-Speaking-TOFEL.md
 
   - Finance:
-    - Class/Fin/invest.md
-    - Class/Fin/invest-stock.md
+    # - Class/Fin/invest.md
+    # - Class/Fin/invest-stock.md
     - Class/Fin/consulting.md
+    - Class/Fin/industry-analyze.md
+    - Class/Fin/industry-finance.md
+    - Class/Fin/industry-welfare.md
     - "微观经济学":
       - Class/Fin/micro/intro.md
   
-  - "行业研习":
-    - Class/Fin/industry-analyze.md
-    - Class/Fin/industry-internet.md
-    - Class/Fin/industry-car.md
-    - Class/Fin/industry-finance.md
-    - Class/Fin/industry-game.md
-    - Class/Fin/industry-hotel.md
-    - Class/Fin/industry-welfare.md
-
   - Books:
     - Class/Books/The Innovator`s Dilemma.md 
-    - Class/Books/Marxist principles.md
-    - Class/Philosophy.md
-    - Class/Philosophy-by-topic.md
+    - Class/Books/Philosophy.md
+    - Class/Books/Philosophy-by-topic.md
 
 
 - Tools:
