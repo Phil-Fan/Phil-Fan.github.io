@@ -45,42 +45,6 @@ bash Miniconda3-py39_24.7.1-0-Linux-aarch64.sh
 ### conda的环境变量配置
 在安装目录下的`\Scripts`文件夹下
 
-### pip
-
-查看某个包所有的版本
-```shell
-pip index versions <package>
-```
-
-安装指定版本的包
-
-```shell
-pip install <package>==<version>
-```
-
-#### 使用命令行调用不同版本的python
-
-在系统路径path（高级系统系统设置——环境变量）中加入python.exe所在目录（打开文件所在位置——属性——打开文件所在位置）（因为是快捷方式，所以需要先找到快捷方式所在目录，再找到原exe文件所在位置）
-
-**注：应考虑到优先级的问题，将想要通过命令行直接进入的python版本所对应的路径放在上面**
-### pip换源
-
-
-```shell title="临时换源"
-pip install package_name -i https://pypi.tuna.tsinghua.edu.cn/simple 
-```
-
-```shell title="清华源 永久换源"
-pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
-```
-
-!!! bug "WARNING: The repository located at mirrors.aliyun.com is not a trusted or secure host and is being ignored. If this repository is available via HTTPS we recommend you use HTTPS instead, otherwise you may silence this warning and allow it anyway with '--trusted-host mirrors.aliyun.com'."
-    在大多数情况下，这个警告表示pip无法验证镜像源的SSL证书。可能的原因包括：
-
-    SSL证书问题： 镜像源的SSL证书过期、自签名或存在其他问题。
-    网络问题： 在某些网络环境中（特别是公司网络或学校网络），中间人攻击(MITM)防御机制可能会导致证书验证失败。
-    
-    [已解决WARNING: The repository located at mirrors.aliyun.com is not a trusted or secure host异常的正确解决方法，亲测\_the repository located at mirrors, aliyun, com is -CSDN博客](https://blog.csdn.net/FMC_WBL/article/details/136143632)
 
 
 ### 使用
@@ -151,6 +115,49 @@ conda env export > freeze.yml
 conda env create -f freeze.yml
 ```
 
+
+
+## pip
+
+
+查看某个包所有的版本
+```shell
+pip index versions <package>
+```
+
+安装指定版本的包
+
+```shell
+pip install <package>==<version>
+```
+
+!!! note "windows使用命令行调用不同版本的python"
+
+    在系统路径path（高级系统系统设置——环境变量）中加入python.exe所在目录（打开文件所在位置——属性——打开文件所在位置）（因为是快捷方式，所以需要先找到快捷方式所在目录，再找到原exe文件所在位置）
+
+    **注：应考虑到优先级的问题，将想要通过命令行直接进入的python版本所对应的路径放在上面**
+
+
+### pip换源
+
+
+```shell title="临时换源"
+pip install package_name -i https://pypi.tuna.tsinghua.edu.cn/simple 
+```
+
+```shell title="清华源 永久换源"
+pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+```
+
+!!! bug "WARNING: The repository located at mirrors.aliyun.com is not a trusted or secure host and is being ignored. If this repository is available via HTTPS we recommend you use HTTPS instead, otherwise you may silence this warning and allow it anyway with '--trusted-host mirrors.aliyun.com'."
+    在大多数情况下，这个警告表示pip无法验证镜像源的SSL证书。可能的原因包括：
+
+    SSL证书问题： 镜像源的SSL证书过期、自签名或存在其他问题。
+    网络问题： 在某些网络环境中（特别是公司网络或学校网络），中间人攻击(MITM)防御机制可能会导致证书验证失败。
+    
+    [已解决WARNING: The repository located at mirrors.aliyun.com is not a trusted or secure host异常的正确解决方法，亲测\_the repository located at mirrors, aliyun, com is -CSDN博客](https://blog.csdn.net/FMC_WBL/article/details/136143632)
+
+
 ### pip 导出环境
 
 1. 导出结果含有路径
@@ -170,6 +177,87 @@ pip list --format=freeze > requirement.txt
 ```shell
 pip install -r requirements.txt
 ```
+
+
+
+
+
+
+
+## uv
+
+### uv 简介
+
+uv 是一个用 Rust 编写的 Python 包安装器和解析器，旨在提供比 pip 更快的包安装体验。它完全兼容 pip，但提供了显著的性能改进。
+
+主要特点：
+
+1. **极快的安装速度**
+   - 比 pip 快 10-100 倍
+   - 并行下载和安装
+   - 优化的依赖解析
+
+2. **完全兼容性**
+   - 支持所有 pip 命令
+   - 兼容 requirements.txt
+   - 支持 wheel 和 source 分发
+
+3. **现代化特性**
+   - 原生支持虚拟环境
+   - 内置缓存系统
+   - 更好的错误处理
+
+### 安装 uv
+
+```shell
+pip install uv
+```
+
+```shell
+uv pip install -r requirements.txt
+```
+
+uv使用
+```shell
+# 查看uv版本
+uv --version
+
+# 查看uv帮助
+uv help
+
+# 下载库
+uv pip install <package>
+
+# 下载库并指定版本
+uv pip install <package>==<version>
+
+# 卸载
+uv pip uninstall <package>
+
+# 查看已安装的库
+uv pip list
+```
+
+## python调试方法
+
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=631692904&bvid=BV1Yb4y1k7oR&cid=368901845&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="80%" height=640px></iframe>
+
+### print
+
+### pdb
+
+```python
+import pdb
+pdb.set_trace()
+```
+
+### ide调试
+
+在ide中点击调试按钮，选择python文件，点击运行，即可进入调试模式。
+
+需要写`.json`文件，在文件中写入调试的配置，在ide中点击调试按钮，选择python文件，点击运行，即可进入调试模式。
+
+可以安装`vpdb`库自动生成
 
 
 

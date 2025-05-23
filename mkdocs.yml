@@ -477,8 +477,11 @@ nav:
   #   - CS/Web3/contract.md
   #   - CS/Web3/solidity.md
 
-  # - Dev:
-  #   - CS/missing_knowledge.md
+  - Dev:
+    - "开源项目尝鲜":
+      - CS/Dev/vtuber.md
+
+    - CS/Dev/missing_knowledge.md
   #   - CS/Dev/rules.md
   #   - CS/Dev/CI-CD.md
   #   - CS/Dev/tampermonkey.md

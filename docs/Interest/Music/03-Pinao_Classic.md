@@ -44,6 +44,8 @@ comments: true
 
 
 ## 肖邦
+埋葬在巴黎，心脏运回波兰，很受人喜欢
+
 ### e小调第一钢琴协奏曲第一乐章 Op.11
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241015152330.png)
 双城市部，乐队先进，演奏主题

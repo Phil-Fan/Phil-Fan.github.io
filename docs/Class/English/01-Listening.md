@@ -1,16 +1,66 @@
 # 01 | Listening
 
+共40道题，30分钟。
+
+分为4个部分：
+* Part1：生活场景，填空题
+* Part2：生活场景，选择题
+* Part3：学术场景，填空题
+* Part4：学术场景，选择题
 
 
+## 注意点
 
-## Tips
+
+### 单复数
+
 - 单复数！！单复数！！单复数！！
 
-- 注意加定冠词
 
+Rule1：**可数名词不裸奔**，前面要有
+* 定冠词(the)
+* 不定冠词(a/an)
+* 数量词(two/two-storey)
+* 所有格(his/her/its/our/your/their)
+
+Rule2：**主谓一致**
+* the 后面可以加单数，也可以加复数。
+* 可以结合定语从句中谓语主谓一致原则；
+* there be 就近原则
+
+!!! example "例子"
+    1. Can take photos of the __________ that **surround** the lake.
+
+    2. There **are** __________ accommodation in the area.
+
+    3. __________ from military tests **are** linked to some recent strandings.
+
+    4. Unrestricted __________ is affecting the salmon supply.
+    不可数
+
+    5. Maintenance __________ of the spirit bears' territory **is** heeded.
+    不可数
+
+
+Rule3: **看前边的量词**
+
+
+!!! example "例子"
+    1. By 300 BC, the Chinese had a calendar made up of **a number of** __________.
+
+    2. It is currently found on **a small number of** __________.
+
+    3. Compositions show **a great deal of** __________ from various cultural sources.
+
+
+
+### 状语
 - 一些数字前面的状语也是要放在填空题里面的，比如说像
 
 approximately
+
+## 题型
+
 
 
 

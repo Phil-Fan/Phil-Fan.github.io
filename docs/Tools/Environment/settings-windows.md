@@ -424,60 +424,6 @@ net user
 <iframe src="https://support.microsoft.com/zh-cn/microsoft-edge/microsoft-edge-%E4%B8%AD%E7%9A%84%E9%94%AE%E7%9B%98%E5%BF%AB%E6%8D%B7%E6%96%B9%E5%BC%8F-50d3edab-30d9-c7e4-21ce-37fe2713cfad" width="100%" height="600px"></iframe>
 
 
-## vscode
-### 使用
-
-- F1打开命令面板
-- `ctrl + P` 搜索文件名打开文件
-- `ctrl + F` 搜索内容
-- 搜索工作区内容的快捷键是`Ctrl + Shift + F`，或者在菜单栏中选择 `查看 (View)` -> `搜索 (Search)`
-
-### 自动换行
-- F1，输入 `Open User Settings`
-- 搜索 `word wrap`
-- 修改为 `on`
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241211133345.png)
-
-### 卸载
-
-[Windows下彻底删除VSCode\_vscode注册表怎么删除-CSDN博客](https://blog.csdn.net/Zhangguohao666/article/details/105667095)
-
-### 内存占用过大问题
-
-1. 找到文件-首选项-设置：禁用自动保存
-2. 找到文件-首选项-设置，搜索`git.enabled`,禁用git
-3. 禁用`search.followSymlinks`：控制是否在搜索中跟踪符号链接
-4. 按`f1`，输入`developer: open process explorer`，会打开一个任务管理器一样的窗口，查看里面cpu和内存占用最高的进程，然后一个个禁用你的扩展插件，直到cpu和内存占用正常，这样就可以找出耗内存的扩展然后按照你的开发需求更换或者禁用
-
-
-### 插件
-**markdown 插件 —— Markdown Preview Enhanced**
-
-设置一个`picgo`的快捷键，我这里设置的是`ctrl + alt + P`
-
-截图之后直接按就可以将图片上传到图床，并将连接复制到剪贴板
-
-**vim插件 —— vim**
-
-
-**copy as markdown**
-
-[chorme下载地址](https://microsoftedge.microsoft.com/addons/detail/copy-as-markdown/cbbdkefgbfifiljnnklfhnhcnlmpglpd)
-
-解决链接复制之后只有url没有标题的问题
-
-### 安装
-
-把vscode安装路径下的`bin\`文件夹添加到环境变量中，就可以实现命令行操作
-- `code .` 打开当前文件夹
-- `code filename` 打开文件
-
-### PlatformIO
-PlatformIO is a cross-platform, cross-architecture, multiple framework, professional tool for embedded systems engineers and for software developers who write applications for embedded products.
-
-
-[VSCode 下 PlatformIO 的安装教程-CSDN博客](https://blog.csdn.net/qq_40018676/article/details/128680677)
-
 ## c环境
 [MSVC、MINGW，gcc、g++，qmake、cmake的联系和区别是什么？ - 知乎](https://www.zhihu.com/question/333560253)
 
