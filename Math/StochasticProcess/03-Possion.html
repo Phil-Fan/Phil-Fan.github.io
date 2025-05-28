@@ -641,7 +641,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_5">
 <span class="md-ellipsis">
-      指数分布与泊分布
+      指数分布与泊松分布
     </span>
 </a>
 </li>
@@ -789,7 +789,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="04-Brown.html">
 <span class="md-ellipsis">
-    04 | 布朗运动
+    04 | 布朗运动、维纳过程
   </span>
 </a>
 </li>
@@ -3358,7 +3358,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_5">
 <span class="md-ellipsis">
-      指数分布与泊分布
+      指数分布与泊松分布
     </span>
 </a>
 </li>
@@ -3509,7 +3509,7 @@
 <article class="md-content__inner md-typeset">
 <div><h1 id="03"><span>03 |<span class="heti-spacing"> </span></span>泊松过程<a class="headerlink" href="#03" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>2590<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 17H7V3h14m0-2H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2M3 5H1v16a2 2 0 0 0 2 2h16v-2H3m12.96-10.71-2.75 3.54-1.96-2.36L8.5 15h11l-3.54-4.71Z"></path></svg></span> <span>1<span class="heti-spacing"> </span></span>张图片 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>10<span class="heti-spacing"> </span></span>分钟</p>
+<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>3541<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 17H7V3h14m0-2H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2M3 5H1v16a2 2 0 0 0 2 2h16v-2H3m12.96-10.71-2.75 3.54-1.96-2.36L8.5 15h11l-3.54-4.71Z"></path></svg></span> <span>1<span class="heti-spacing"> </span></span>张图片 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>14<span class="heti-spacing"> </span></span>分钟</p>
 </div>
 <h2 id="cheet-sheet">公式<span><span class="heti-spacing"> </span>Cheet Sheet</span><a class="headerlink" href="#cheet-sheet" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <table>
@@ -3534,6 +3534,31 @@
 </tr>
 </tbody>
 </table>
+<ul>
+<li>若<span><span class="heti-spacing"> </span><span class="arithmatex">\(s &gt; 0\)</span></span>，则</li>
+</ul>
+<div class="arithmatex">\[
+\begin{aligned}
+P\left[N(t)-N(s)=k\right]&amp;\sim\pi(\lambda(t-s))\\
+&amp;=\frac {[\lambda(t-s)]^k·e^{-\lambda(t-s)}}{k!},\quad k=0,1,2,\dots
+\end{aligned}
+\]</div>
+<ul>
+<li>若<span><span class="heti-spacing"> </span><span class="arithmatex">\(s = 0\)</span></span>，则</li>
+</ul>
+<div class="arithmatex">\[
+P\left[N(t)=k\right]=\frac {[\lambda t]^k·e^{-\lambda t}}{k!},\quad k=0,1,2,\dots
+\]</div>
+<ul>
+<li>均值函数：<span class="arithmatex">\(\mu_N(t)=E[N(t)]=\lambda t\)</span></li>
+<li>方差函数：<span class="arithmatex">\(D_N(t)=D[N(t)]=\lambda t\)</span></li>
+</ul>
+<ul>
+<li>自相关函数：<span class="arithmatex">\(R_N(t_1,t_2)=E[N(t_1)·N(t_2)]=\lambda min(t_1,t_2)\)</span></li>
+</ul>
+<ul>
+<li>自协方差函数：<span class="arithmatex">\(C_N(t_1,t_2)=Cov[N(t_1),N(t_2)]=\lambda min(t_1,t_2)+\lambda^2t_1t_2\)</span></li>
+</ul>
 <h2 id="_1">独立增量过程<a class="headerlink" href="#_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p><span><span class="arithmatex">\(\forall\;n\geq2\)</span><span class="heti-spacing"> </span></span>且<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(n\in Z\)</span><span class="heti-spacing"> </span></span>与<span><span class="heti-spacing"> </span><span class="arithmatex">\(t_0&lt;t_1&lt;\dots&lt;t_n\)</span></span> ，增量<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(X(t_1)-X(t_0),X(t_2)-X(t_1),\dots,X(t_n)-X(t_{n-1})\)</span><span class="heti-spacing"> </span></span>相互独立。</p>
 <p>若<span><span class="heti-spacing"> </span><span class="arithmatex">\(\forall\;0\leq s&lt;t\)</span></span> ，增量<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(X(t)-X(s)\)</span><span class="heti-spacing"> </span></span>的分布只依赖于<span><span class="heti-spacing"> </span><span class="arithmatex">\(t-s\)</span></span> ，则为平稳独立增量过程。</p>
@@ -3591,10 +3616,10 @@ E(x^{2})&amp;=\sum_{i=0}^{\infty}i^{2}P(x-i)=\sum_{i=1}^{\infty}i^{2}\frac{e^{-\
 \end{aligned}
 \]</div>
 </details>
-<h3 id="_5">指数分布与泊分布<a class="headerlink" href="#_5" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<ul>
-<li>
-<p><strong>泊松分布</strong>：</p>
+<h3 id="_5">指数分布与泊松分布<a class="headerlink" href="#_5" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">泊松分布</label><label for="__tabbed_1_2">指数分布</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <ul>
 <li>用于描述<strong>单位时间或单位空间内事件发生的次数</strong>。</li>
 <li>若某随机变量<span><span class="heti-spacing"> </span><span class="arithmatex">\(X \sim \text{Poisson}(\lambda t)\)</span></span>，则表示单位时间内平均有<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\lambda\)</span><span class="heti-spacing"> </span></span>次事件，<span><span class="arithmatex">\(t\)</span><span class="heti-spacing"> </span></span>为观察时间长度。</li>
@@ -3605,11 +3630,8 @@ P(X = k) = \frac{(\lambda t)^k e^{-\lambda t}}{k!}, \quad k = 0, 1, 2, \dots
 \]</div>
 </li>
 </ul>
-</li>
-</ul>
-<ul>
-<li>
-<p><strong>指数分布</strong>：</p>
+</div>
+<div class="tabbed-block">
 <ul>
 <li>用于描述<strong>两个事件之间的时间间隔（等待时间）</strong>。</li>
 <li>若等待时间<span><span class="heti-spacing"> </span><span class="arithmatex">\(T \sim \text{Exp}(\lambda)\)</span></span>，表示事件平均每单位时间发生<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\lambda\)</span><span class="heti-spacing"> </span></span>次。</li>
@@ -3620,8 +3642,9 @@ f(t) = \lambda e^{-\lambda t}, \quad t \geq 0
 \]</div>
 </li>
 </ul>
-</li>
-</ul>
+</div>
+</div>
+</div>
 <ol>
 <li>
 <p><strong>泊松过程中的时间间隔分布是指数分布</strong>：</p>
@@ -4029,73 +4052,58 @@ P(N(3) \geq 2 \mid N(1) = 1) &amp;= P(N(3) - N(1) \geq 1 \mid N(1) = 1) \\
 \]</div>
 </div>
 <h4 id="411">4.11<a class="headerlink" href="#411" title="anchor link to this section for reference">¶</a></h4>
-<p><span>!!! example "<span class="heti-spacing"> </span></span>设电话总机在<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\((0,t]\)</span> (<span class="heti-spacing"> </span></span>单位：<span>min)<span class="heti-spacing"> </span></span>内接到的呼叫数为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(N(t),\{N(t)\}\)</span><span class="heti-spacing"> </span></span>是强度为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\lambda\)</span><span class="heti-spacing"> </span></span>的泊松过程<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>求：
-    (1)2分钟到3次呼叫的概率；</p>
-<div class="highlight"><pre><span></span><code>(2)第2分内接到第3次呼叫的概率.
-
---- 
-**(1) 2 分钟内接到 3 次呼叫的概率**
-
-设泊松过程的强度为 $\lambda$，则：
-
-* 呼叫数在时间 $t$ 内满足：
-
-$$
+<div class="admonition example">
+<p class="admonition-title">设电话总机在<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\((0,t]\)</span> (<span class="heti-spacing"> </span></span>单位：<span>min)<span class="heti-spacing"> </span></span>内接到的呼叫数为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(N(t),\{N(t)\}\)</span><span class="heti-spacing"> </span></span>是强度为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\lambda\)</span><span class="heti-spacing"> </span></span>的泊松过程<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>求：</p>
+<p><span>(1)2<span class="heti-spacing"> </span></span>分钟到<span class="heti-skip"><span class="heti-spacing"> </span>3<span class="heti-spacing"> </span></span>次呼叫的概率；</p>
+<p><span>(2)<span class="heti-spacing"> </span></span>第<span class="heti-skip"><span class="heti-spacing"> </span>2<span class="heti-spacing"> </span></span>分内接到第<span class="heti-skip"><span class="heti-spacing"> </span>3<span class="heti-spacing"> </span></span>次呼叫的概率<span><span class="heti-spacing"> </span>.</span></p>
+<hr/>
+<p><strong>(1) <span>2<span class="heti-spacing"> </span></span>分钟内接到<span class="heti-skip"><span class="heti-spacing"> </span>3<span class="heti-spacing"> </span></span>次呼叫的概率</strong></p>
+<p>设泊松过程的强度为<span><span class="heti-spacing"> </span><span class="arithmatex">\(\lambda\)</span></span>，则：</p>
+<ul>
+<li>呼叫数在时间<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(t\)</span><span class="heti-spacing"> </span></span>内满足：</li>
+</ul>
+<div class="arithmatex">\[
 N(t) \sim \text{Poisson}(\lambda t)
-$$
-
-* 所以在 2 分钟内：
-
-$$
+\]</div>
+<ul>
+<li>所以在<span class="heti-skip"><span class="heti-spacing"> </span>2<span class="heti-spacing"> </span></span>分钟内：</li>
+</ul>
+<div class="arithmatex">\[
 N(2) \sim \text{Poisson}(2\lambda)
-$$
-
-我们要求的是：
-
-$$
+\]</div>
+<p>我们要求的是：</p>
+<div class="arithmatex">\[
 P(N(2) = 3) = \frac{(2\lambda)^3}{3!} e^{-2\lambda} = \frac{4\lambda^3}{3} e^{-2\lambda}
-$$
-
----
-
-**(2) 第 2 分钟内接到第 3 次呼叫的概率**
-
-即：
-
-$$
+\]</div>
+<hr/>
+<p><strong>(2) 第<span class="heti-skip"><span class="heti-spacing"> </span>2<span class="heti-spacing"> </span></span>分钟内接到第<span class="heti-skip"><span class="heti-spacing"> </span>3<span class="heti-spacing"> </span></span>次呼叫的概率</strong></p>
+<p>即：</p>
+<div class="arithmatex">\[
 P(1 \leq W_3 \leq 2)
-$$
-
-其中 $W_3$ 是第 3 次呼叫到达的时刻，满足：$W_3 \sim \Gamma(3, \lambda)$（即 Erlang 分布）
-
-伽马分布累积分布函数为：
-
-$$
+\]</div>
+<p>其中<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(W_3\)</span><span class="heti-spacing"> </span></span>是第<span class="heti-skip"><span class="heti-spacing"> </span>3<span class="heti-spacing"> </span></span>次呼叫到达的时刻，满足：<span class="arithmatex">\(W_3 \sim \Gamma(3, \lambda)\)</span>（即<span class="heti-skip"><span class="heti-spacing"> </span>Erlang<span class="heti-spacing"> </span></span>分布）</p>
+<p>伽马分布累积分布函数为：</p>
+<div class="arithmatex">\[
 F_{W_3}(x) = 1 - e^{-\lambda x} \left(1 + \lambda x + \frac{(\lambda x)^2}{2} \right)
-$$
-
-所以：
-
-$$
+\]</div>
+<p>所以：</p>
+<div class="arithmatex">\[
 \begin{aligned}
 P(1 \leq W_3 \leq 2) &amp;= F_{W_3}(2) - F_{W_3}(1) \\
 &amp;= \left[1 - e^{-2\lambda} \left(1 + 2\lambda + 2\lambda^2\right)\right] - \left[1 - e^{-\lambda} \left(1 + \lambda + \tfrac{1}{2}\lambda^2\right)\right] \\
 &amp;= e^{-\lambda} \left(1 + \lambda + \tfrac{1}{2}\lambda^2 \right) - e^{-2\lambda} \left(1 + 2\lambda + 2\lambda^2 \right)
 \end{aligned}
-$$
-
----
-
-也可以把问题转化为
-
-$$
+\]</div>
+<hr/>
+<p>也可以把问题转化为</p>
+<div class="arithmatex">\[
 \begin{aligned}
 P(1 \leq W_3 \leq 2)&amp;= P\{N(1)\leqslant2,N(2)\geqslant3\} \\
 &amp;= P\{N(1)=0,N(2)-N(1)\geqslant3\} + P\{N(1)=1,N(2)-N(1)\geqslant2\} + P\{N(1)=2,N(2)-N(1)\geqslant1\} \\
 &amp;= (1+\lambda+\frac{1}{2}\lambda^2)e^{-\lambda}-(1+2\lambda+2\lambda^2)e^{-2\lambda}
 \end{aligned}
-$$
-</code></pre></div>
+\]</div>
+</div>
 <div class="admonition example">
 <p class="admonition-title">例题：短信分类的泊松过程</p>
 <p>用<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(N(t)\)</span><span class="heti-spacing"> </span></span>表示在<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\((0, t\,]\)</span><span class="heti-spacing"> </span></span>小时内收到的短信数目。设<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\{N(t); t \geq 0\}\)</span><span class="heti-spacing"> </span></span>是强度为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\lambda = 5\)</span><span class="heti-spacing"> </span></span>条<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>小时的泊松过程，且每条短信独立地以概率<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(0.6\)</span><span class="heti-spacing"> </span></span>是垃圾短信。</p>
@@ -4153,10 +4161,7 @@ P(N_1(1) \geq 1 \mid N(1) \leq 2)
 </div>
 <div class="admonition example">
 <p class="admonition-title">设<span class="heti-skip"><span class="heti-spacing"> </span>{<span class="arithmatex">\(N(t),t\geq0\)</span>}<span class="heti-spacing"> </span></span>是强度为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\lambda\)</span><span class="heti-spacing"> </span></span>的泊松过程，<span><span class="arithmatex">\(0\leq s&lt;t\)</span>,<span class="arithmatex">\(T_i\)</span><span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(W_i\)</span><span class="heti-spacing"> </span></span>分别表示点间间距和等待时间。</p>
-<p>求<span><span class="heti-spacing"> </span>(1)<span class="arithmatex">\(P(T_1\leq s|N(t)=2)\)</span>;</span></p>
-<p>(2)<span class="arithmatex">\(P(W_2\leq s|N(t)=2)\)</span>;</p>
-<p>(3)<span class="arithmatex">\(P(W_1\leq s,W_2\leq t)\)</span>。</p>
-<p>解：(1)</p>
+<p>(1)<span class="arithmatex">\(P(T_1\leq s|N(t)=2)\)</span>;</p>
 <div class="arithmatex">\[
 \begin{align*}
 P(T_1\leq s|N(t)=2)&amp;=P(N(s)\geq1|N(t)=2)\\
@@ -4165,7 +4170,8 @@ P(T_1\leq s|N(t)=2)&amp;=P(N(s)\geq1|N(t)=2)\\
 &amp;=\frac{s(2t-s)}{t^2}
 \end{align*}
 \]</div>
-<p>(2)</p>
+<hr/>
+<p>(2)<span class="arithmatex">\(P(W_2\leq s|N(t)=2)\)</span>;</p>
 <div class="arithmatex">\[
 \begin{aligned}
 P(W_2\leq s|N(t)=2)&amp;=P(N(s)\geq2|N(t)=2)\\
@@ -4173,7 +4179,8 @@ P(W_2\leq s|N(t)=2)&amp;=P(N(s)\geq2|N(t)=2)\\
 &amp;=\frac{s^2}{t^2}
 \end{aligned}
 \]</div>
-<p>(3)</p>
+<hr/>
+<p>(3)<span class="arithmatex">\(P(W_1\leq s,W_2\leq t)\)</span></p>
 <div class="arithmatex">\[
 \begin{aligned}
 P(W_1\leq s,\, W_2\leq t) 
@@ -4189,10 +4196,6 @@ P(W_1\leq s,\, W_2\leq t)
 <h4 id="410">4.10<a class="headerlink" href="#410" title="anchor link to this section for reference">¶</a></h4>
 <div class="admonition example">
 <p class="admonition-title">设<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\{N(t)\}\)</span><span class="heti-spacing"> </span></span>是强度为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\lambda\)</span><span class="heti-spacing"> </span></span>的泊松过程<span class="heti-skip"><span class="heti-spacing"> </span>, <span class="arithmatex">\(0 \leqslant s &lt; t, k \leqslant n\)</span>,<span class="heti-spacing"> </span></span>其中<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(W_k\)</span><span class="heti-spacing"> </span></span>表示第<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(k\)</span><span class="heti-spacing"> </span></span>个事件发生的时刻<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>求</p>
-<p>(1) <span class="arithmatex">\(P(N(s)=k \mid N(t)=n)\)</span>;</p>
-<p>(2) <span class="arithmatex">\(P(W_2 \leqslant 3 \mid W_1=1)\)</span>;</p>
-<p>(3) <span class="arithmatex">\(P(W_k \leqslant s \mid N(t)=n)\)</span>.</p>
-<hr/>
 <p>(1) <span class="arithmatex">\(P(N(s)=k \mid N(t)=n)\)</span></p>
 <div class="arithmatex">\[
 \begin{aligned}
@@ -4349,7 +4352,125 @@ P(1 \leq W_3 \leq 2)
 \end{aligned}
 \]</div>
 </div>
+<h4 id="417">4.17<a class="headerlink" href="#417" title="anchor link to this section for reference">¶</a></h4>
+<div class="admonition example">
+<p class="admonition-title">某人在钓鱼，他只可能钓到鲫鱼或鳙鱼。他钓到鲫鱼的规律服从强度为<span class="heti-skip"><span class="heti-spacing"> </span>2<span class="heti-spacing"> </span></span>条<span class="heti-skip"><span class="heti-spacing"> </span>/h<span class="heti-spacing"> </span></span>的泊松过程，钓到鳙鱼的规律服从强度为<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>条<span class="heti-skip"><span class="heti-spacing"> </span>/h<span class="heti-spacing"> </span></span>的泊松过程，且这两个过程相互独立。假设每条鱼的质量（单位：kg）独立同分布，且服从<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\mathcal{U}(0, 2)\)</span><span class="heti-spacing"> </span></span>上均匀分布。</p>
+<ul>
+<li><span>(1)<span class="heti-spacing"> </span></span>计算此人在<span class="heti-skip"><span class="heti-spacing"> </span>1h<span class="heti-spacing"> </span></span>内钓到<span class="heti-skip"><span class="heti-spacing"> </span>2<span class="heti-spacing"> </span></span>条鱼的概率；</li>
+<li><span>(2)<span class="heti-spacing"> </span></span>计算此人在<span class="heti-skip"><span class="heti-spacing"> </span>1h<span class="heti-spacing"> </span></span>内钓到<span class="heti-skip"><span class="heti-spacing"> </span>4<span class="heti-spacing"> </span></span>条鱼，其中<span class="heti-skip"><span class="heti-spacing"> </span>2<span class="heti-spacing"> </span></span>条不足<span class="heti-skip"><span class="heti-spacing"> </span>1kg<span class="heti-spacing"> </span></span>的概率；</li>
+<li><span>(3)<span class="heti-spacing"> </span></span>计算此人在第<span class="heti-skip"><span class="heti-spacing"> </span>1h<span class="heti-spacing"> </span></span>内和第<span class="heti-skip"><span class="heti-spacing"> </span>2h<span class="heti-spacing"> </span></span>内各钓到<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>条鱼，且都重达<span class="heti-skip"><span class="heti-spacing"> </span>1kg<span class="heti-spacing"> </span></span>以上鲫鱼的概率；</li>
+<li><span>(4)<span class="heti-spacing"> </span></span>若已知此人在<span class="heti-skip"><span class="heti-spacing"> </span>2h<span class="heti-spacing"> </span></span>内各钓到两条鱼，求这两条都是重达<span class="heti-skip"><span class="heti-spacing"> </span>1kg<span class="heti-spacing"> </span></span>以上鲫鱼的概率。</li>
+</ul>
+<p>翻译一下题目</p>
+<table>
+<thead>
+<tr>
+<th>鱼类</th>
+<th>不足<span><span class="heti-spacing"> </span>1kg</span></th>
+<th>重达<span><span class="heti-spacing"> </span>1kg</span></th>
+<th>总条数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>鲫鱼</td>
+<td><span class="arithmatex">\(N_{11}(t)_{\lambda=1}\)</span></td>
+<td><span class="arithmatex">\(N_{12}(t)_{\lambda=1}\)</span></td>
+<td><span class="arithmatex">\(N_1(t)_{\lambda=2}\)</span></td>
+</tr>
+<tr>
+<td>鳊鱼</td>
+<td><span class="arithmatex">\(N_{21}(t)_{\lambda=0.5}\)</span></td>
+<td><span class="arithmatex">\(N_{22}(t)_{\lambda=0.5}\)</span></td>
+<td><span class="arithmatex">\(N_2(t)_{\lambda=1}\)</span></td>
+</tr>
+<tr>
+<td>总条数</td>
+<td><span class="arithmatex">\(N_1^*(t)_{\lambda=1.5}\)</span></td>
+<td><span class="arithmatex">\(N_2^*(t)_{\lambda=1.5}\)</span></td>
+<td><span class="arithmatex">\(N(t)_{\lambda=3}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><strong><span>(1)<span class="heti-spacing"> </span></span>计算此人在<span class="heti-skip"><span class="heti-spacing"> </span>1h<span class="heti-spacing"> </span></span>内钓到<span class="heti-skip"><span class="heti-spacing"> </span>2<span class="heti-spacing"> </span></span>条鱼的概率：</strong></p>
+<div class="arithmatex">\[
+P\{N(1) = 2\} = \frac{9}{2} e^{-3}
+\]</div>
+<p><strong><span>(2)<span class="heti-spacing"> </span></span>计算此人在<span class="heti-skip"><span class="heti-spacing"> </span>1h<span class="heti-spacing"> </span></span>内钓到<span class="heti-skip"><span class="heti-spacing"> </span>4<span class="heti-spacing"> </span></span>条鱼，其中<span class="heti-skip"><span class="heti-spacing"> </span>2<span class="heti-spacing"> </span></span>条不足<span class="heti-skip"><span class="heti-spacing"> </span>1kg<span class="heti-spacing"> </span></span>的概率：</strong></p>
+<div class="arithmatex">\[
+\begin{align*}
+P\{N(1) = 4,\, N_1^*(1) = 2\} 
+&amp;= P\{N_1^*(1) = 2,\, N_2^*(1) = 2\} \\
+&amp;= \left[\frac{9}{8} e^{-3/2}\right] \times \left[\frac{9}{8} e^{-3/2}\right] \\
+&amp;= \frac{81}{64} e^{-3}
+\end{align*}
+\]</div>
+<p><strong><span>(3)<span class="heti-spacing"> </span></span>计算此人在第<span class="heti-skip"><span class="heti-spacing"> </span>1h<span class="heti-spacing"> </span></span>内和第<span class="heti-skip"><span class="heti-spacing"> </span>2h<span class="heti-spacing"> </span></span>内各钓到<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>条鱼，且都重达<span class="heti-skip"><span class="heti-spacing"> </span>1kg<span class="heti-spacing"> </span></span>以上鲫鱼的概率：</strong></p>
+<div class="arithmatex">\[
+\begin{align*}
+&amp;P\{N(1)=N(2)-N(1)=1,\, N_{12}(1)=N_{12}(2)-N_{12}(1)=1\} \\
+&amp;= P\{N_1^*(1)=0,\, N_1^*(2)-N_1^*(1)=0,\, N_{22}(1)=0,\, N_{22}(2)-N_{22}(1)=0,\, N_{12}(1)=1,\, N_{12}(2)-N_{12}(1)=1\} \\
+&amp;= e^{-\frac{3}{2}} \times e^{-\frac{3}{2}} \times e^{-\frac{1}{2}} \times e^{-\frac{1}{2}} \times e^{-1} \times e^{-1} \\
+&amp;= e^{-6}
+\end{align*}
+\]</div>
+<p>或者</p>
+<div class="arithmatex">\[
+\begin{align*}
+&amp;P\{N(1)=N(2)-N(1)=1,\, N_{12}(1)=N_{12}(2)-N_{12}(1)=1\} \\
+&amp;= P\{N(1)-N_{12}(1)=0,\, (N(2)-N(1))-(N_{12}(2)-N_{12}(1))=0,\, N_{12}(1)=1,\, N_{12}(2)-N_{12}(1)=1\} \\
+&amp;= e^{-2} \times e^{-2} \times e^{-1} \times e^{-1} \\
+&amp;= e^{-6}
+\end{align*}
+\]</div>
+<p><strong><span>(4)<span class="heti-spacing"> </span></span>若已知此人在<span class="heti-skip"><span class="heti-spacing"> </span>2h<span class="heti-spacing"> </span></span>内各钓到两条鱼，求这两条都是重达<span class="heti-skip"><span class="heti-spacing"> </span>1kg<span class="heti-spacing"> </span></span>以上鲫鱼的概率：</strong></p>
+<p>由泊松过程的性质，有</p>
+<div class="arithmatex">\[
+\begin{align*}
+P\{N_{12}(2)=2\,|\,N(2)=2\}
+&amp;= \frac{P\{N(2)-N_{12}(2)=0,\, N_{12}(2)=2\}}{P\{N(2)=2\}} \\
+&amp;= \frac{e^{-4} \times 2e^{-2}}{18e^{-6}} \\
+&amp;= \frac{1}{9}
+\end{align*}
+\]</div>
+<p>还有一种理解方法</p>
+<div class="arithmatex">\[
+\begin{align*}
+P\{N_{12}(2)=2\,|\,N(2)=2\} 
+&amp;= \frac{P\{N_{2}(2) =0, N_{12}(2)=2\,N_{11}(2) = 0\}}{P\{N(2)=2\}} \\
+&amp;= \frac{e^{-2} \times 2e^{-2} \times e^{-2}}{18e^{-6}} \\
+&amp;= \frac{1}{9}
+\end{align*}
+\]</div>
+</div>
 <h3 id="_22">非齐次<a class="headerlink" href="#_22" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h4 id="418">4.18<a class="headerlink" href="#418" title="anchor link to this section for reference">¶</a></h4>
+<div class="admonition example">
+<p class="admonition-title">设<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\{N(t); t \geqslant 0\}\)</span><span class="heti-spacing"> </span></span>是强度为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\lambda(t) = t\)</span><span class="heti-spacing"> </span></span>的非齐次泊松过程，求<span><span class="heti-spacing"> </span>:</span></p>
+<p>(1) <span class="arithmatex">\(P(N(2) = 3)\)</span></p>
+<div class="arithmatex">\[N(t) - N(s) \sim \pi(\int_s^t \lambda(h) \mathrm{d}h)\]</div>
+<div class="arithmatex">\[
+P(N(2) = 3) = \frac{2^3 e^{-2}}{3!} = \frac{4}{3} e^{-2}
+\]</div>
+<hr/>
+<p>(2)<span class="arithmatex">\(P(N(1) = 2, N(2) = 4)\)</span></p>
+<div class="arithmatex">\[
+\begin{aligned}
+P(N(1) = 2, N(2) = 4) &amp;= P(N(1) = 2) P(N(2) = 4 | N(1) = 2) \\
+&amp;=P(N(1) = 2)P(N(2)-N(1) = 2)\\
+&amp;= \frac{(1/2)^2 e^{-1/2}}{2!} \cdot \frac{(3/2)^2 e^{-3/2}}{2!} \\
+&amp;= \frac{9}{64} e^{-2}
+\end{aligned}
+\]</div>
+<hr/>
+<p>(3)<span class="arithmatex">\(P(N(1) = 2 | N(2) = 4)\)</span></p>
+<div class="arithmatex">\[
+\begin{align*}
+P(N(1) = 2 | N(2) = 4) &amp;= \frac{P(N(1) = 2, N(2) = 4)}{P(N(2) = 4)}\quad \text{previous question}\\
+&amp;=\frac{\frac{9}{64}e^2}{\frac{2^4}{4!}e^{2}}= \frac{27}{128}
+\end{align*}
+\]</div>
+</div>
 <div class="admonition example">
 <p class="admonition-title">设<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\{N(t), t \geq 0\}\)</span><span class="heti-spacing"> </span></span>是非齐次泊松过程，强度为<span><span class="heti-spacing"> </span><span class="arithmatex">\(\lambda(t) = t^2\)</span></span></p>
 <p>计算<span><span class="heti-spacing"> </span>(1)<span class="arithmatex">\(E(N(2))\)</span>;</span></p>
@@ -4394,7 +4515,7 @@ P(N(1) = 1 | N(2) = 2) &amp;= \frac{P(N(1) = 1, N(2) = 2)}{P(N(2) = 2)} \\
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年5月26日 15:51:05</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年5月28日 16:52:31</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">
@@ -4461,13 +4582,13 @@ P(N(1) = 1 | N(2) = 2) &amp;= \frac{P(N(1) = 1, N(2) = 2)}{P(N(2) = 2)} \\
               </div>
 </div>
 </a>
-<a aria-label="下一页: 04 | 布朗运动" class="md-footer__link md-footer__link--next" href="04-Brown.html">
+<a aria-label="下一页: 04 | 布朗运动、维纳过程" class="md-footer__link md-footer__link--next" href="04-Brown.html">
 <div class="md-footer__title">
 <span class="md-footer__direction">
                 下一页
               </span>
 <div class="md-ellipsis">
-                04 | 布朗运动
+                04 | 布朗运动、维纳过程
               </div>
 </div>
 <div class="md-footer__button md-icon">
