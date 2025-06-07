@@ -130,24 +130,73 @@
 
 推荐几篇写的很好的博客[CFS](https://zhuanlan.zhihu.com/p/418211643),[CTFT](https://zhuanlan.zhihu.com/p/418220682),[DFS](https://zhuanlan.zhihu.com/p/418221087)
 
-!!! bug
+!!! example
     写出非周期连续信号傅里叶变换和周期连续信号傅里叶变换的公式，并简述他们的特点。
 
-### **傅里叶变换的各种性质**
 
-比较重要，需要反复记忆背诵
+### 冲激信号
 
-!!! bug 
+**定义：**  时间无穷小，瞬时幅度无限大
+
+$$
+\begin{cases}
+\delta(t) = 0 \quad t\neq 0\\
+\int_{\infty}^{\infty} \delta(t)dt = 1
+\end{cases}
+$$
+
+> 可以根据矩形脉冲、三角脉冲的极限推导得来
+> $\delta(t) = \mathop{lim}_{\tau \rightarrow 0} \frac{1}{\tau}\left[u(t+\frac{\tau}{2}) + u(t-\frac{\tau}{2})\right]$
+
+#### 性质
+
+1. 偶函数： $\delta(t) = \delta(-t)$
+2. 积分： $\int_{-\infty}^{t}\delta(\tau) d\tau = u(t)$
+3. 微分：是阶跃函数的微分，$\frac{d}{dt} \cdot u(t) = \delta(t)$
+4. 筛选：
+
+    $$
+    \int_{-\infty}^{\infty} x(t) \delta(t-t_0) dt = x(t_0)
+    $$
+
+    特别地
+    
+    $$
+    \int_{-\infty}^{\infty} \delta(t)x(t) dt = x(0)
+    $$
+
+5. 卷积：任意信号和单位冲激信号$\delta(t)$卷积等于原信号(偶函数以及筛选性质推导)
+
+    $$
+    \delta(t) * x(t) ={\color{gray} \int_{-\infty}^{\infty} x(\tau) \delta(t-\tau) d\tau = \int_{-\infty}^{\infty} x(\tau) \delta(\tau-t) d\tau } =  x(t)
+    $$
+
+!!! note "卷积性质"
+    $$
+    \begin{aligned}
+    &x(t) * \delta(t - t_0) \qquad\qquad\quad = \int_{-\infty}^{+\infty} x(\tau)\, \delta(t - t_0 - \tau)\, d\tau = x(t - t_0) \\[1em]
+    &x(t - t_1) * \delta(t - t_2) \qquad\; = x(t - t_1 - t_2) \\[1em]
+    &\delta(t) * \delta(t) \qquad\qquad\qquad\;\; = \delta(t) \\[0.5em]
+    &\delta(t) * \delta(t - t_0) \qquad\qquad = \delta(t - t_0) \\[0.5em]
+    &\delta(t - t_1) * \delta(t - t_2) \qquad\;\; = \delta(t - t_1 - t_2) \\[0.5em]
+    &x(t) * \delta'(t) \qquad\qquad\qquad = x'(t)
+    \end{aligned}
+    $$
+
+!!! example
     $\mathscr{F}(Sa(\frac{t}{2})) = ?\quad \int_{-\infty}^{\infty}Sa(\frac{t}{2})dt = ?$
     解答：<br>第一问使用CFT的尺度变换性质<br>第二问其实是一类题目，通常都是常见变换中少了一项，少了$\frac{1}{2\pi} $, 或是少了 $e^{j \omega t}$(找到缺失的$\omega$或者$t$). 这种题目就是找到等价的时域值或者是频域值就行了。今年考试中有多个题目都运用了这种思想。
 
 
-!!! bug "连续信号的傅里叶变换频谱是双边谱"
+!!! example "连续信号的傅里叶变换频谱是双边谱"
     错误，实连续信号可以；
     但复指数信号不行
     例如$e^{j\omega_0 t} \rightarrow  2\pi \delta(\omega-\omega_0)$
 
 
+
+
+### 常见信号的傅里叶变换
 
 各种常见信号傅里叶变换需要记住
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240620212932.png)
@@ -157,6 +206,8 @@
 - $cos(\omega_0 t)$频谱搬移
 - 门函数的表达 $u(t) - u(t-t_0)$
 
+
+### 傅里叶变换的性质
 
 **微分性质**
 

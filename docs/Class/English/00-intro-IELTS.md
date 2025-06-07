@@ -60,6 +60,8 @@ https://ielts.papaen.com/center/reading——PP教育，剑雅真题全，UI更�
 
 同桌英语
 
+[词典下载网站](https://forum.freemdict.com/tag/%EF%BB%BF英语/l/hot)
+
 ### 资源
 
 刘洪波阅读真经重点词汇，有七个list

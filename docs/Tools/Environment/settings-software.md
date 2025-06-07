@@ -10,7 +10,7 @@
 - PDF阅读：Adobe Acrobat(adobe处下载)
 - Markdown: [Typora](https://typoraio.cn/)
 - 云同步(付费)：[百度网盘](https://pan.baidu.com/download#win)、[阿里网盘](https://www.alipan.com/)
-- 翻译：[欧陆词典](https://www.eudic.net/v4/en/app/download),欧陆词典文件
+- 翻译：[欧陆词典](https://www.eudic.net/v4/en/app/download),欧陆词典文件[词典下载网站](https://forum.freemdict.com/tag/%EF%BB%BF英语/l/hot)
 - 音乐：[QQ音乐](https://y.qq.com/download/index.html)
 - 远程：[TeamViewer](https://www.teamviewer.com/en/download/) 全平台体验不错
 - 压缩：[Bandzip](https://www.bandisoft.com/bandizip/)

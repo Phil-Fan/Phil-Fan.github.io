@@ -208,6 +208,31 @@ pluginkit -e "use" -i "com.bandisoft.mac.bandizip.findersyncextension"
 ```
 
 
+### gem
+
+```
+brew install gem
+```
+
+```shell
+brew install cocoapods
+```
+
+```shell title="verify"
+pod
+```
+
+```shell
+brew tap dart-lang/dart
+brew install dart
+brew tap flutter/flutter
+brew install flutter
+```
+
+```shell title="verify"
+flutter doctor
+```
+
 ## 效率工具
 
 ### icloud 软件 + icloud书签实现edge和safari的同步
