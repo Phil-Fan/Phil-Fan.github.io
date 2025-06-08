@@ -10,7 +10,7 @@
 <link href="05-StationaryProcess.html" rel="next"/>
 <link href="../../logo.ico" rel="icon"/>
 <meta content="mkdocs-1.6.0, mkdocs-material-9.5.31" name="generator"/>
-<title>04 | 布朗运动、维纳过程 - PhilFan's Notebook</title>
+<title>04 | 布朗运动 - PhilFan's Notebook</title>
 <link href="../../assets/stylesheets/main.3cba04c6.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1 7.775V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 0 1 0 2.474l-5.026 5.026a1.75 1.75 0 0 1-2.474 0l-6.25-6.25A1.752 1.752 0 0 1 1 7.775Zm1.5 0c0 .066.026.13.073.177l6.25 6.25a.25.25 0 0 0 .354 0l5.025-5.025a.25.25 0 0 0 0-.354l-6.25-6.25a.25.25 0 0 0-.177-.073H2.75a.25.25 0 0 0-.25.25ZM6 5a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"/></svg>');--md-admonition-icon--abstract:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.5 1.75v11.5c0 .138.112.25.25.25h3.17a.75.75 0 0 1 0 1.5H2.75A1.75 1.75 0 0 1 1 13.25V1.75C1 .784 1.784 0 2.75 0h8.5C12.216 0 13 .784 13 1.75v7.736a.75.75 0 0 1-1.5 0V1.75a.25.25 0 0 0-.25-.25h-8.5a.25.25 0 0 0-.25.25Zm13.274 9.537v-.001l-4.557 4.45a.75.75 0 0 1-1.055-.008l-1.943-1.95a.75.75 0 0 1 1.062-1.058l1.419 1.425 4.026-3.932a.75.75 0 1 1 1.048 1.074ZM4.75 4h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM4 7.75A.75.75 0 0 1 4.75 7h2a.75.75 0 0 1 0 1.5h-2A.75.75 0 0 1 4 7.75Z"/></svg>');--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/></svg>');--md-admonition-icon--tip:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.499.75a.75.75 0 0 1 1.5 0v.996C5.9 2.903 6.793 3.65 7.662 4.376l.24.202c-.036-.694.055-1.422.426-2.163C9.1.873 10.794-.045 12.622.26 14.408.558 16 1.94 16 4.25c0 1.278-.954 2.575-2.44 2.734l.146.508.065.22c.203.701.412 1.455.476 2.226.142 1.707-.4 3.03-1.487 3.898C11.714 14.671 10.27 15 8.75 15h-6a.75.75 0 0 1 0-1.5h1.376a4.484 4.484 0 0 1-.563-1.191 3.835 3.835 0 0 1-.05-2.063 4.647 4.647 0 0 1-2.025-.293.75.75 0 0 1 .525-1.406c1.357.507 2.376-.006 2.698-.318l.009-.01a.747.747 0 0 1 1.06 0 .748.748 0 0 1-.012 1.074c-.912.92-.992 1.835-.768 2.586.221.74.745 1.337 1.196 1.621H8.75c1.343 0 2.398-.296 3.074-.836.635-.507 1.036-1.31.928-2.602-.05-.603-.216-1.224-.422-1.93l-.064-.221c-.12-.407-.246-.84-.353-1.29a2.425 2.425 0 0 1-.507-.441 3.075 3.075 0 0 1-.633-1.248.75.75 0 0 1 1.455-.364c.046.185.144.436.31.627.146.168.353.305.712.305.738 0 1.25-.615 1.25-1.25 0-1.47-.95-2.315-2.123-2.51-1.172-.196-2.227.387-2.706 1.345-.46.92-.27 1.774.019 3.062l.042.19a.884.884 0 0 1 .01.05c.348.443.666.949.94 1.553a.75.75 0 1 1-1.365.62c-.553-1.217-1.32-1.94-2.3-2.768L6.7 5.527c-.814-.68-1.75-1.462-2.692-2.619a3.737 3.737 0 0 0-1.023.88c-.406.495-.663 1.036-.722 1.508.116.122.306.21.591.239.388.038.797-.06 1.032-.19a.75.75 0 0 1 .728 1.31c-.515.287-1.23.439-1.906.373-.682-.067-1.473-.38-1.879-1.193L.75 5.677V5.5c0-.984.48-1.94 1.077-2.664.46-.559 1.05-1.055 1.673-1.353V.75Z"/></svg>');--md-admonition-icon--success:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"/></svg>');--md-admonition-icon--question:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.92 6.085h.001a.749.749 0 1 1-1.342-.67c.169-.339.436-.701.849-.977C6.845 4.16 7.369 4 8 4a2.756 2.756 0 0 1 1.637.525c.503.377.863.965.863 1.725 0 .448-.115.83-.329 1.15-.205.307-.47.513-.692.662-.109.072-.22.138-.313.195l-.006.004a6.24 6.24 0 0 0-.26.16.952.952 0 0 0-.276.245.75.75 0 0 1-1.248-.832c.184-.264.42-.489.692-.661.103-.067.207-.132.313-.195l.007-.004c.1-.061.182-.11.258-.161a.969.969 0 0 0 .277-.245C8.96 6.514 9 6.427 9 6.25a.612.612 0 0 0-.262-.525A1.27 1.27 0 0 0 8 5.5c-.369 0-.595.09-.74.187a1.01 1.01 0 0 0-.34.398ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>');--md-admonition-icon--warning:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>');--md-admonition-icon--failure:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.344 2.343h-.001a8 8 0 0 1 11.314 11.314A8.002 8.002 0 0 1 .234 10.089a8 8 0 0 1 2.11-7.746Zm1.06 10.253a6.5 6.5 0 1 0 9.108-9.275 6.5 6.5 0 0 0-9.108 9.275ZM6.03 4.97 8 6.94l1.97-1.97a.749.749 0 0 1 1.275.326.749.749 0 0 1-.215.734L9.06 8l1.97 1.97a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L8 9.06l-1.97 1.97a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734L6.94 8 4.97 6.03a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018Z"/></svg>');--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M9.504.43a1.516 1.516 0 0 1 2.437 1.713L10.415 5.5h2.123c1.57 0 2.346 1.909 1.22 3.004l-7.34 7.142a1.249 1.249 0 0 1-.871.354h-.302a1.25 1.25 0 0 1-1.157-1.723L5.633 10.5H3.462c-1.57 0-2.346-1.909-1.22-3.004L9.503.429Zm1.047 1.074L3.286 8.571A.25.25 0 0 0 3.462 9H6.75a.75.75 0 0 1 .694 1.034l-1.713 4.188 6.982-6.793A.25.25 0 0 0 12.538 7H9.25a.75.75 0 0 1-.683-1.06l2.008-4.418.003-.006a.036.036 0 0 0-.004-.009l-.006-.006-.008-.001c-.003 0-.006.002-.009.004Z"/></svg>');--md-admonition-icon--bug:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M4.72.22a.75.75 0 0 1 1.06 0l1 .999a3.488 3.488 0 0 1 2.441 0l.999-1a.748.748 0 0 1 1.265.332.75.75 0 0 1-.205.729l-.775.776c.616.63.995 1.493.995 2.444v.327c0 .1-.009.197-.025.292.408.14.764.392 1.029.722l1.968-.787a.75.75 0 0 1 .556 1.392L13 7.258V9h2.25a.75.75 0 0 1 0 1.5H13v.5c0 .409-.049.806-.141 1.186l2.17.868a.75.75 0 0 1-.557 1.392l-2.184-.873A4.997 4.997 0 0 1 8 16a4.997 4.997 0 0 1-4.288-2.427l-2.183.873a.75.75 0 0 1-.558-1.392l2.17-.868A5.036 5.036 0 0 1 3 11v-.5H.75a.75.75 0 0 1 0-1.5H3V7.258L.971 6.446a.75.75 0 0 1 .558-1.392l1.967.787c.265-.33.62-.583 1.03-.722a1.677 1.677 0 0 1-.026-.292V4.5c0-.951.38-1.814.995-2.444L4.72 1.28a.75.75 0 0 1 0-1.06Zm.53 6.28a.75.75 0 0 0-.75.75V11a3.5 3.5 0 1 0 7 0V7.25a.75.75 0 0 0-.75-.75ZM6.173 5h3.654A.172.172 0 0 0 10 4.827V4.5a2 2 0 1 0-4 0v.327c0 .096.077.173.173.173Z"/></svg>');--md-admonition-icon--example:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M5 5.782V2.5h-.25a.75.75 0 0 1 0-1.5h6.5a.75.75 0 0 1 0 1.5H11v3.282l3.666 5.76C15.619 13.04 14.543 15 12.767 15H3.233c-1.776 0-2.852-1.96-1.899-3.458Zm-2.4 6.565a.75.75 0 0 0 .633 1.153h9.534a.75.75 0 0 0 .633-1.153L12.225 10.5h-8.45ZM9.5 2.5h-3V6c0 .143-.04.283-.117.403L4.73 9h6.54L9.617 6.403A.746.746 0 0 1 9.5 6Z"/></svg>');--md-admonition-icon--quote:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1.75 2.5h10.5a.75.75 0 0 1 0 1.5H1.75a.75.75 0 0 1 0-1.5Zm4 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5ZM2.5 7.75v6a.75.75 0 0 1-1.5 0v-6a.75.75 0 0 1 1.5 0Z"/></svg>');}</style>
@@ -57,7 +57,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              04 | 布朗运动、维纳过程
+              04 | 布朗运动
             
           </span>
 </div>
@@ -594,13 +594,13 @@
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
 <label class="md-nav__link md-nav__link--active" for="__toc">
 <span class="md-ellipsis">
-    04 | 布朗运动、维纳过程
+    04 | 布朗运动
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
 <a class="md-nav__link md-nav__link--active" href="04-Brown.html">
 <span class="md-ellipsis">
-    04 | 布朗运动、维纳过程
+    04 | 布朗运动
   </span>
 </a>
 <nav aria-label="目录" class="md-nav md-nav--secondary">
@@ -687,21 +687,46 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_8">
 <span class="md-ellipsis">
-      数字特征计算
+      相似性
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_9">
 <span class="md-ellipsis">
-      相似性
+      首次击中时
     </span>
 </a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_10">
 <span class="md-ellipsis">
-      首次击中时
+      习题
+    </span>
+</a>
+<nav aria-label="习题" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#421">
+<span class="md-ellipsis">
+      4.21
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#427">
+<span class="md-ellipsis">
+      4.27
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#429">
+<span class="md-ellipsis">
+      4.29
     </span>
 </a>
 </li>
@@ -3315,21 +3340,46 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_8">
 <span class="md-ellipsis">
-      数字特征计算
+      相似性
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_9">
 <span class="md-ellipsis">
-      相似性
+      首次击中时
     </span>
 </a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_10">
 <span class="md-ellipsis">
-      首次击中时
+      习题
+    </span>
+</a>
+<nav aria-label="习题" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#421">
+<span class="md-ellipsis">
+      4.21
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#427">
+<span class="md-ellipsis">
+      4.27
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#429">
+<span class="md-ellipsis">
+      4.29
     </span>
 </a>
 </li>
@@ -3343,18 +3393,25 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<div><h1 id="04"><span>04 |<span class="heti-spacing"> </span></span>布朗运动、维纳过程<a class="headerlink" href="#04" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h1>
+<div><h1 id="04"><span>04 |<span class="heti-spacing"> </span></span>布朗运动<a class="headerlink" href="#04" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>1806<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 17H7V3h14m0-2H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2M3 5H1v16a2 2 0 0 0 2 2h16v-2H3m12.96-10.71-2.75 3.54-1.96-2.36L8.5 15h11l-3.54-4.71Z"></path></svg></span> <span>1<span class="heti-spacing"> </span></span>张图片 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>7<span class="heti-spacing"> </span></span>分钟</p>
+<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>2003<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 17H7V3h14m0-2H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2M3 5H1v16a2 2 0 0 0 2 2h16v-2H3m12.96-10.71-2.75 3.54-1.96-2.36L8.5 15h11l-3.54-4.71Z"></path></svg></span> <span>1<span class="heti-spacing"> </span></span>张图片 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>8<span class="heti-spacing"> </span></span>分钟</p>
 </div>
 <h2 id="cheet-sheet">Cheet Sheet<a class="headerlink" href="#cheet-sheet" title="anchor link to this section for reference">¶</a></h2>
+<ol>
+<li>方差、协方差的解法</li>
+<li>写成增量的形式，增量之间互相独立，就不需要考虑协方差的问题了</li>
+</ol>
+<p>数字特征：
+* <span class="arithmatex">\(\forall\;0\leq s&lt;t\quad X(t)-X(s)\sim N(0,\sigma^2(t-s))\)</span>
+* 均值函数：<span class="arithmatex">\(\mu_B(t)=0\)</span>
+* 方差函数：<span class="arithmatex">\(D_B(t)=t\)</span>
+* 自协方差函数：<span class="arithmatex">\(C_B(t,s) =min(t,s)\qquad t,s&gt;0\)</span></p>
+<p>性质：
+* 自相似性：<span class="arithmatex">\(\forall\;a\neq0\quad\)</span>   { <span class="arithmatex">\(\frac1aB(a^2t);t\geq 0\)</span> } 是标准布朗运动。
+* <span class="arithmatex">\(0-\infty\)</span>对称性：<span class="arithmatex">\(\overset{\sim}B(t)=\begin{cases}tB(\frac 1t)\quad t&gt;0\\[2ex]0\qquad\quad t=0\end{cases}\)</span>   则 { <span class="arithmatex">\(\overset{\sim}B(t);t\geq0\)</span> } 是标准布朗运动。</p>
+<p>特殊分布：</p>
 <ul>
-<li><span class="arithmatex">\(\forall\;0\leq s&lt;t\quad X(t)-X(s)\sim N(0,\sigma^2(t-s))\)</span></li>
-<li>均值函数：<span class="arithmatex">\(\mu_B(t)=0\)</span></li>
-<li>方差函数：<span class="arithmatex">\(D_B(t)=t\)</span></li>
-<li>自协方差函数：<span class="arithmatex">\(C_B(t,s) =min(t,s)\qquad t,s&gt;0\)</span></li>
-<li>自相似性：<span><span class="arithmatex">\(\forall\;a\neq0\quad\)</span>   { <span class="arithmatex">\(\frac1aB(a^2t);t\geq 0\)</span> }<span class="heti-spacing"> </span></span>是标准布朗运动。</li>
-<li><span><span class="arithmatex">\(0-\infty\)</span><span class="heti-spacing"> </span></span>对称性：<span><span class="arithmatex">\(\overset{\sim}B(t)=\begin{cases}tB(\frac 1t)\quad t&gt;0\\[2ex]0\qquad\quad t=0\end{cases}\)</span><span class="heti-spacing"> </span></span>则<span class="heti-skip"><span class="heti-spacing"> </span>{ <span class="arithmatex">\(\overset{\sim}B(t);t\geq0\)</span> }<span class="heti-spacing"> </span></span>是标准布朗运动。</li>
 <li>首次击中时间：<span class="arithmatex">\(P\left(\max_{s\leq t}B(s)\geq a\right) = P(T_a \leq t) = 2P(B(t)\geq a),\quad a &gt; 0\)</span></li>
 </ul>
 <h2 id="_1">定义<a class="headerlink" href="#_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
@@ -3362,8 +3419,6 @@
 <p><strong>①</strong> <span class="arithmatex">\(X(t)\sim N(0,\sigma^2)\)</span></p>
 <p><strong>②</strong> <span class="arithmatex">\(X(0)=0\)</span></p>
 <p><strong>③</strong> <span class="arithmatex">\(\forall\;0\leq s&lt;t\quad X(t)-X(s)\sim N(0,\sigma^2(t-s))\)</span></p>
-<p>一般考虑<strong>标准布朗运动</strong>，即<span><span class="heti-spacing"> </span><span class="arithmatex">\(B(t)\sim N(0,t)\)</span></span>
-<span class="arithmatex">\(\qquad (\sigma^2=1)\)</span>   且 <span class="arithmatex">\(C_B(t_1,t_2)=min(t_1,t_2)\)</span></p>
 <h2 id="_2">标准布朗运动的性质<a class="headerlink" href="#_2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <ol>
 <li>齐次的独立增量过程</li>
@@ -3380,6 +3435,33 @@
 </code></pre></div>
 </li>
 </ol>
+<details class="note">
+<summary>证明</summary>
+<p>我们考虑<span><span class="heti-spacing"> </span><span class="arithmatex">\(t \leq s\)</span></span>（不妨设<span><span class="heti-spacing"> </span><span class="arithmatex">\(t \leq s\)</span></span>，因为结果是对称的<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>：</p>
+<p>我们将<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(B(s)\)</span><span class="heti-spacing"> </span></span>拆成两个部分：</p>
+<div class="arithmatex">\[
+B(s) = B(t) + (B(s) - B(t))
+\]</div>
+<p>将其代入协方差函数中：</p>
+<div class="arithmatex">\[
+\begin{align*}
+\mathbb{E}[B(t) B(s)] &amp;= \mathbb{E}[B(t)(B(t) + (B(s) - B(t)))]\\
+&amp;= \mathbb{E}[B(t)^2] + \mathbb{E}[B(t)(B(s) - B(t))]\\
+&amp;= \text{Var}(B(t))  + \mathbb{E}[B(t)]\mathbb{E}(B(s)-B(t))\\
+&amp;= t
+\end{align*}
+\]</div>
+<p>注意：</p>
+<ul>
+<li><span><span class="arithmatex">\(B(t)\)</span><span class="heti-spacing"> </span></span>与<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(B(s) - B(t)\)</span><span class="heti-spacing"> </span></span>独立；</li>
+<li><span class="arithmatex">\(\mathbb{E}[B(s) - B(t)] = 0\)</span>；</li>
+<li>因为独立且后者期望为零，交叉项为<span><span class="heti-spacing"> </span>0</span>。</li>
+</ul>
+<p>因为我们设定<span><span class="heti-spacing"> </span><span class="arithmatex">\(t \leq s\)</span></span>，所以</p>
+<div class="arithmatex">\[
+\mathbb{E}[B(t)B(s)] = \min(t,s)
+\]</div>
+</details>
 <h3 id="_3">布朗运动判定<a class="headerlink" href="#_3" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>布朗运动当且仅当它是正态过程，<span><span class="arithmatex">\(E(B(t))=0\)</span><span class="heti-spacing"> </span></span>且<span><span class="heti-spacing"> </span><span class="arithmatex">\(E[B(t)B(s)]=t\wedge s.\)</span></span></p>
 <h3 id="markov"><span>Markov<span class="heti-spacing"> </span></span>性<a class="headerlink" href="#markov" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
@@ -3672,11 +3754,63 @@ P\{\underset{0\leq s\leq t}{max}\,\left[B(s)-B(t)\right]\leq x\}=&amp;P\{\unders
 </li>
 </ul>
 <h2 id="_7">例题<a class="headerlink" href="#_7" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<ol>
-<li>方差、协方差的解法</li>
-<li>写成增量的形式，增量之间互相独立，就不需要考虑协方差的问题了</li>
-</ol>
-<h3 id="_8">数字特征计算<a class="headerlink" href="#_8" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<div class="admonition example">
+<p class="admonition-title">设<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\{B(t); t \geq 0\}\)</span><span class="heti-spacing"> </span></span>是<strong>标准布朗运动</strong>，则</p>
+<div class="arithmatex">\[
+P\left( \max_{0 \leq s \leq 4} B(s) \geq 2 \right) = \underline{\qquad\qquad\qquad}
+\]</div>
+<div class="arithmatex">\[
+P(B(3) &lt; 3 \mid B(1) = 1, B(2) = 1) = \underline{\qquad\qquad\qquad}
+\]</div>
+<p>设<span><span class="heti-spacing"> </span><span class="arithmatex">\(A \sim N(1,1)\)</span></span>，且<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A\)</span><span class="heti-spacing"> </span></span>与<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\{B(t); t \geq 0\}\)</span><span class="heti-spacing"> </span></span>独立，定义<span><span class="heti-spacing"> </span><span class="arithmatex">\(X(t) = B(t) + A t\)</span></span>，则：</p>
+<ul>
+<li><span><span class="arithmatex">\(X(1)\)</span><span class="heti-spacing"> </span></span>服从<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\underline{\qquad\qquad\qquad}\)</span><span class="heti-spacing"> </span></span>分布，</li>
+<li><span><span class="arithmatex">\(X(1) + X(2)\)</span><span class="heti-spacing"> </span></span>服从<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\underline{\qquad\qquad\qquad}\)</span><span class="heti-spacing"> </span></span>分布，</li>
+<li><span class="arithmatex">\(\mathrm{Cov}(X(1) + X(2), X(1)) = \underline{\qquad\qquad\qquad}\)</span></li>
+</ul>
+<hr/>
+<p>利用布朗运动最大值分布反射原理</p>
+<div class="arithmatex">\[
+P\left( \max_{0 \leq s \leq t} B(s) \geq a \right) = 2 P(B(t) \geq a) = 2 \left(1 - \Phi\left(\frac{a}{\sqrt{t}}\right)\right)
+\]</div>
+<p>取<span><span class="heti-spacing"> </span><span class="arithmatex">\(a=2, t=4\)</span></span>，得
+$$
+Pleft( max_{0 leq s leq 4} B(s) geq 2 right) = 2(1 - Phi(1)) approx 2 times 0.1587 = 0.3174
+$$</p>
+<hr/>
+<p><span><span class="arithmatex">\((B(1), B(2), B(3))\)</span><span class="heti-spacing"> </span></span>是三元正态分布，条件分布计算后有</p>
+<div class="arithmatex">\[
+P(B(3) &lt; 3 \mid B(1) = 1, B(2) = 1) = \Phi\left( \frac{3-2}{\sqrt{1}} \right) = \Phi(1) \approx 0.8413
+\]</div>
+<hr/>
+<p><span class="arithmatex">\(A \sim N(1,1)\)</span>，独立于<span><span class="heti-spacing"> </span><span class="arithmatex">\(B(t)\)</span></span>，<span class="arithmatex">\(X(t) = B(t) + At\)</span>。
+- <span class="arithmatex">\(X(1) = B(1) + A \sim N(0,1)+N(1,1)=N(1,2)\)</span>
+- <span class="arithmatex">\(X(2) = B(2) + 2A \sim N(0,2)+N(2,4)=N(2,6)\)</span>
+- <span class="arithmatex">\(X(1) + X(2) = B(1) + B(2) + 3A\)</span>
+- <span class="arithmatex">\(\mu_{X(1) + X(2)} = \mu_{B(1) + B(2)} + 3\mu_A = 0 + 3 = 3\)</span></p>
+<div class="arithmatex">\[
+\begin{align*}
+\text{Var}(X(1) + X(2)) &amp;= \text{Var}X(1) + \text{Var}X(2) + 2\text{Cov}(X(1),X(2)) \\
+&amp;= 2 + 6 + 2\text{Cov}(B(1)+A,B(2)+2A) \\
+&amp;= 2 + 6 + 2\text{Cov}(B(1),B(2)) + 2\text{Cov}(A,A)\\
+&amp;= 2 + 6 + 2\min\{1,2\} + 2\\
+&amp;= 12
+\end{align*}
+\]</div>
+<p>这里貌似算错了</p>
+<hr/>
+<p>求协方差：</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\mathrm{Cov}(X(1) + X(2), X(1)) &amp;= \mathrm{Cov}(X(1), X(1)) + \mathrm{Cov}(X(2), X(1))\\
+&amp;=  \mathrm{Var}(X(1)) + \mathrm{Cov}(X(2), X(1))\\
+&amp;= 2 + \mathrm{Cov}(B(2)+2A,B(1)+A)\\
+&amp;= 2 + \mathrm{Cov}(B(2),B(1)) + 2\mathrm{Cov}(A,A)\\
+&amp;= 2 + \min\{2,1\} + 2\\
+&amp;= 5
+\end{aligned}
+\]</div>
+</div>
 <div class="admonition example">
 <p class="admonition-title">设<span class="heti-skip"><span class="heti-spacing"> </span>{ <span class="arithmatex">\(B(t);t\geq0\)</span> }<span class="heti-spacing"> </span></span>是标准布朗运动，则</p>
 <p>（1）<span class="arithmatex">\(B(3)-2B(1)\)</span> </p>
@@ -3707,7 +3841,29 @@ P(\underset{0\leq t\leq6.25}{max}\,B(t)&lt;2.5)&amp;=1-P(\underset{0\leq t\leq6.
 \end{aligned}
 \]</div>
 </div>
-<h4 id="421">4.21<a class="headerlink" href="#421" title="anchor link to this section for reference">¶</a></h4>
+<h3 id="_8">相似性<a class="headerlink" href="#_8" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<div class="admonition example">
+<p class="admonition-title">设<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\{B(t),t\geq0\}\)</span><span class="heti-spacing"> </span></span>是标准布朗运动，求</p>
+<p>(1) <span class="arithmatex">\(P\{B(0.5)\leq1|B(1)=1,B(2)=2\}\)</span>;</p>
+<p>解：<span><span class="arithmatex">\(\{B(t);t\geq0\}\)</span><span class="heti-spacing"> </span></span>是标准布朗运动<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>又<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(B(t)=t\bar{B}(1/t)\)</span>,<span class="heti-spacing"> </span></span>所以</p>
+<div class="arithmatex">\[
+P\{B(0.5)\leq1|B(1)=1,B(2)=2\}\\
+=P\{0.5\bar{B}(2)\leq1|\bar{B}(1)=1,2\bar{B}(0.5)=2\}\\
+=P\{\bar{B}(2)\leq2|\bar{B}(1)=1,\bar{B}(0.5)=1\}\\
+=P\{\bar{B}(2)-\bar{B}(1)\leq1\}=\Phi(1)=0.8413
+\]</div>
+<hr/>
+<p><span>(2)<span class="heti-spacing"> </span></span>在<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(B(1)=1,B(2)=2\)</span><span class="heti-spacing"> </span></span>的条件下，<span><span class="arithmatex">\(B(0.5)\)</span><span class="heti-spacing"> </span></span>服从什么分布？</p>
+<p>即是在<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\bar{B}(1)=1,\bar{B}(0.5)=1\)</span><span class="heti-spacing"> </span></span>的条件下，</p>
+<div class="arithmatex">\[
+\bar{B}(2)=1+(\bar{B}(2)-\bar{B}(1))\sim N(1,1)
+\]</div>
+<p>所以<span><span class="heti-spacing"> </span><span class="arithmatex">\(B(0.5)=0.5\bar{B}(2)\sim N(0.5,0.25)\)</span>.</span></p>
+</div>
+<h3 id="_9">首次击中时<a class="headerlink" href="#_9" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>脑子里回想正态分布<span class="heti-skip"><span class="heti-spacing"> </span>pdf<span class="heti-spacing"> </span></span>的图像</p>
+<h2 id="_10">习题<a class="headerlink" href="#_10" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h3 id="421">4.21<a class="headerlink" href="#421" title="anchor link to this section for reference">¶</a></h3>
 <div class="admonition example">
 <p class="admonition-title">设<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\{B(t);\, t \geq 0\}\)</span><span class="heti-spacing"> </span></span>是标准布朗运动，求：</p>
 <p>(1) <span class="arithmatex">\(P\{B(3.6) \leq 1 \mid B(1.6) = 0.8,\, B(2.39) = -0.1\}\)</span>；</p>
@@ -3745,26 +3901,7 @@ D(2B(1) + B(2))
 \end{align*}
 \]</div>
 </div>
-<h3 id="_9">相似性<a class="headerlink" href="#_9" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<div class="admonition example">
-<p class="admonition-title">设<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\{B(t),t\geq0\}\)</span><span class="heti-spacing"> </span></span>是标准布朗运动，求</p>
-<p>(1) <span class="arithmatex">\(P\{B(0.5)\leq1|B(1)=1,B(2)=2\}\)</span>;</p>
-<p>解：<span><span class="arithmatex">\(\{B(t);t\geq0\}\)</span><span class="heti-spacing"> </span></span>是标准布朗运动<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>又<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(B(t)=t\bar{B}(1/t)\)</span>,<span class="heti-spacing"> </span></span>所以</p>
-<div class="arithmatex">\[
-P\{B(0.5)\leq1|B(1)=1,B(2)=2\}\\
-=P\{0.5\bar{B}(2)\leq1|\bar{B}(1)=1,2\bar{B}(0.5)=2\}\\
-=P\{\bar{B}(2)\leq2|\bar{B}(1)=1,\bar{B}(0.5)=1\}\\
-=P\{\bar{B}(2)-\bar{B}(1)\leq1\}=\Phi(1)=0.8413
-\]</div>
-<hr/>
-<p><span>(2)<span class="heti-spacing"> </span></span>在<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(B(1)=1,B(2)=2\)</span><span class="heti-spacing"> </span></span>的条件下，<span><span class="arithmatex">\(B(0.5)\)</span><span class="heti-spacing"> </span></span>服从什么分布？</p>
-<p>即是在<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\bar{B}(1)=1,\bar{B}(0.5)=1\)</span><span class="heti-spacing"> </span></span>的条件下，</p>
-<div class="arithmatex">\[
-\bar{B}(2)=1+(\bar{B}(2)-\bar{B}(1))\sim N(1,1)
-\]</div>
-<p>所以<span><span class="heti-spacing"> </span><span class="arithmatex">\(B(0.5)=0.5\bar{B}(2)\sim N(0.5,0.25)\)</span>.</span></p>
-</div>
-<h4 id="427">4.27<a class="headerlink" href="#427" title="anchor link to this section for reference">¶</a></h4>
+<h3 id="427">4.27<a class="headerlink" href="#427" title="anchor link to this section for reference">¶</a></h3>
 <div class="admonition example">
 <p class="admonition-title">设<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\{B(t); t \geqslant 0\}\)</span><span class="heti-spacing"> </span></span>是标准布朗运动，计算：</p>
 <p>(1) <span class="arithmatex">\(P\left(B\left(\frac{1}{10}\right) \geqslant 1.5 \mid B\left(\frac{1}{6}\right) = 2,\, B\left(\frac{1}{4}\right) = 2.4\right)\)</span>；</p>
@@ -3791,9 +3928,7 @@ P\{B(0.5)\leq1|B(1)=1,B(2)=2\}\\
 B(\frac{1}{10})\sim\frac{1}{10}\widetilde{B(10)}\sim N(\frac{6}{5},\frac{1}{25})
 \]</div>
 </div>
-<h3 id="_10">首次击中时<a class="headerlink" href="#_10" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<p>脑子里回想正态分布<span class="heti-skip"><span class="heti-spacing"> </span>pdf<span class="heti-spacing"> </span></span>的图像</p>
-<h4 id="429">4.29<a class="headerlink" href="#429" title="anchor link to this section for reference">¶</a></h4>
+<h3 id="429">4.29<a class="headerlink" href="#429" title="anchor link to this section for reference">¶</a></h3>
 <div class="admonition note">
 <p class="admonition-title">设<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\{B(t); t \geqslant 0\}\)</span><span class="heti-spacing"> </span></span>是标准布朗运动，对任意<span><span class="heti-spacing"> </span><span class="arithmatex">\(t&gt;0, x&gt;0\)</span></span></p>
 <p>(1) <span class="arithmatex">\(P(|B(t)| \leqslant x)\)</span>；</p>
@@ -3823,7 +3958,7 @@ P(|B(t)| \leqslant x)
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年5月28日 16:52:31</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年6月9日 01:13:41</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">
