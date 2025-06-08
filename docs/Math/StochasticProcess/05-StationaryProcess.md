@@ -1,12 +1,21 @@
 # 05 | 平稳过程
 
-## CheetSheet
+## Cheet Sheet
+本章题目比较格式化，大概都是这种流程，背公式就行了，对常用的傅立叶变换对要记忆清楚
 
-**①** 证明是宽平稳过程，只需证 $E[X(t)]$ 为常数且 $R_X$ 为只和 $\tau$ 有关的函数
 
-**②** 证明是各态历经过程，只需证 $\langle X(t)\rangle\equiv\mu_X$ 且 $\langle X(t)X(t+\tau)\rangle\equiv R_X(\tau)$
+**①** 证明是宽平稳过程
+- $E[X(t)]$ 为常数
+- $R_X$ 为只和 $\tau$ 有关的函数
 
-**③** 在 $\underset{\tau\rightarrow+\infty}\lim R_X(\tau)$ 存在的条件下，证明均值具有各态历经性，也可转而证 $\underset{\tau\rightarrow+\infty}\lim R_X(\tau)=\mu_X^2$ 
+**②** 均值各态历经
+
+- $\langle X(t)\rangle\equiv\mu_X$ 
+- 在 $\underset{\tau\rightarrow+\infty}\lim R_X(\tau)$ 存在的条件下，证明$\underset{\tau\rightarrow+\infty}\lim R_X(\tau)=\mu_X^2$ 
+
+**③** 自相关函数各态历经
+
+- $\langle X(t)X(t+\tau)\rangle\equiv R_X(\tau)$
 
 
 **④** 功率谱密度：对自相关函数进行傅里叶变换
@@ -498,7 +507,124 @@ $$
 	S = R_{z}(0) = \frac{1}{2}
 	$$
 
+!!! example "例题5"
+	设 $\{X(t);-\infty < t < \infty\}$ 是宽平稳过程，若自相关函数 $R_X(\tau)=2\delta(\tau)+2$，则谱密度 $S_X(\omega)=$ ______，$\{X(t)\}$ 的均值各态历经当且仅当均值 $\mu_X=$ ______。
 
+	**解：**
+
+	**1. 求谱密度 $S_X(\omega)$** 
+
+	答案：$2+4\pi\delta(\omega)$
+	
+	**2. 求均值 $\mu_X$**
+
+	答案：$\pm\sqrt{2}$
+
+
+
+!!! example "例题6"
+	设$\{X(t);-\infty<t<\infty\}$是宽平稳过程，若均值函数$\mu_{X}=2$，自相关函数$R_{X}(\tau)=e^{-|\tau|}+a$，则$\{X(t)\}$的谱密度$S_{X}(\omega)=$_____， 均值各态历经当且仅当均值$a=$ _____。
+
+	答案：
+	- $\frac{2}{1+\omega^{2}}+2\pi a\delta(\omega)$
+	- $4$
+
+
+!!! example "例题7"
+	设$\{B(t);t\geq0\}$是标准布朗运动，$A\sim N(1,1)$，且$A$与$\{B(t);t\geq0\}$独立。设$X(t)=A[B(t+1)-B(t)]$，$t\geq0$。
+
+	**1. 计算$\{X(t)\}$的均值函数和自相关函数，并证明它是宽平稳过程**
+
+	(1)$\mu_X(t)=EX(t)=0$
+
+	$$
+	\begin{aligned}
+	R_X(t,t+\tau) &= EX(t)X(t+\tau) \\
+	&= \begin{cases}2(1-|\tau|), & |\tau|\leq1; \\ 0, & |\tau|>1.\end{cases}
+	\end{aligned}
+	$$
+
+	因为$\mu_X(t)$是常数,$R_X(t,t+\tau)$只与$\tau$有关,所以$\{X(t)\}$是宽平稳过程。
+
+	--- 
+
+	**2. 判断$\{X(t)\}$的均值是否具有各态历经性，并说明理由**
+
+	(2)$\lim_{\tau\to\infty}R_X(\tau)=0=\mu_X^2$,所以均值具有各态历经性
+
+
+!!! example "例题8"
+	设 $X(t)=A\cos(t+\Theta)+B$，$-\infty<t<\infty$，这里 $A,B,\Theta$ 相互独立，$A\sim N(1,1)$，$\Theta\sim U(0,2\pi)$，$B$ 具有概率密度 $f(x)=\begin{cases}|x|,&-1<x<1;\\0,&其它.\end{cases}$
+
+	**1. 计算 $\{X(t)\}$ 的均值函数和自相关函数，并证明它是一个宽平稳过程**
+
+	(1) $\mu _{X}( t) = 0$
+
+	$$R_{X}(t,t+\tau)=\frac{1}{2}+\cos\tau $$
+
+	因为$\mu_{X}(t)$是常数，$R_{X}(t,t+\tau)$只与$\tau$有关，所以是宽平稳
+
+	**答案**
+
+	(1) 
+
+	- $\mu _{X}( t) = 0$
+	- $R_{X}(t,t+\tau)=\frac{1}{2}+\cos\tau$
+
+	因为$\mu_{X}(t)$是常数，$R_{X}(t,t+\tau)$只与$\tau$有关，所以是宽平稳
+
+	(2) 
+	
+	- $\langle X( t) \rangle = \operatorname* { lim} _{T\to \infty }\frac 1{2T}\int _{- T}^{T}X( t) dt= B$
+	- $\langle X(t)X(t+\tau) \rangle=\lim_{T\to\infty}\frac{1}{2T}\int_{-T}^{T}X(t)X(t+\tau)dt=\frac{A^{2}}{2}\cos\tau+B^{2}$
+
+	(3)都不具有各态历经性
+
+!!! example "例题9"
+	设 $X(t)=A\cos(t+2\pi B)$, $-\infty<t<\infty$, 这里 $A$, $B$ 相互独立同服从区间 $(0,1)$ 上的均匀分布。
+
+	**1. 计算 $\{X(t); -\infty<t<\infty\}$ 的均值函数和自相关函数, 并证明它是一个宽平稳过程**
+
+	**(2) 计算 $\{X(t); -\infty<t<\infty\}$ 的时间均值 $\langle X(t) \rangle$ 和时间相关函数 $\langle X(t)X(t+\tau) \rangle$, 判断 $\{X(t); -\infty<t<\infty\}$ 是否为各态历经过程, 说明理由。**
+
+
+	(1) 首先计算均值和自相关函数：
+
+	$$
+	E(A) = 0, \quad E(A^2) = \frac{1}{3}
+	$$
+
+	$$
+	\mu_X(t) = 0
+	$$
+
+	$$
+	R_X(t, t+\tau) = \frac{\cos\tau}{6}
+	$$
+
+	因此，$\{X(t)\}$ 是宽平稳过程。
+
+	---
+
+	(2) 计算时间均值和时间相关函数：
+
+	- 时间均值为$\langle X(t) \rangle = \lim_{T\to\infty} \frac{1}{2T} \int_{-T}^{T} (A\cos(t+2\pi B))\,dt = 0$<br>由于$P(\langle X(t) \rangle = \mu_X) = 1$，所以均值具有各态历经性。
+	- 时间相关函数为
+
+		$$
+		\begin{aligned}
+		\langle X(t)X(t+\tau) \rangle &= \lim_{T\to\infty} \frac{1}{2T} \int_{-T}^{T} A^2\cos(t+2\pi B)\cos(t+\tau+2\pi B)\,dt \\
+		&= \frac{A^2\cos\tau}{2}
+		\end{aligned}
+		$$
+
+		而$P(\langle X(t)X(t+\tau) \rangle = R_X(\tau)) = P\left(\frac{A^2\cos\tau}{2} = \frac{\cos\tau}{6}\right) \neq 1$，所以相关函数不具各态历经性，$\{X(t)\}$ 不是各态历经过程。
+
+
+
+## 习题
+
+!!! note "各个题目为自己做的答案，欢迎提交issue或者PR纠错"
 
 ### 5.2
 !!! example "5.2"
@@ -602,22 +728,113 @@ $$
     - 因此，$\{X(t)\}$是严平稳过程。
 
 ### 5.12
+
 !!! example "5.12"
-    设随机过程 $X(t) = \sqrt{2}X \cos t + Y \sin t, -\infty < t < \infty$, 其中 $X$, $Y$ 相互独立, $X$ 具有密度函数
+    设随机过程 $X(t) = \sqrt{2}X \cos t + Y \sin t,\ -\infty < t < \infty$，其中 $X, Y$ 相互独立，$X$ 的密度函数为
 
     $$
-    f(x) = \begin{cases}
-    1 - |x|, & -1 < x < 1, \\
-    0, & \text{其他},
+    f(x) = 
+    \begin{cases}
+        1 - |x|, & -1 < x < 1, \\
+        0, & \text{其他},
     \end{cases}
     $$
 
-    $Y$ 服从区间 $(-1, 1)$ 上的均匀分布.
-    (1) 求 $\mu_X(t)$, $R_X(t, t+\tau)$, 并证明 $\{X(t); -\infty < t < \infty\}$ 是平稳过程;
-    (2) 求 $\{X(t)\}$ 的时间均值 $\langle X(t) \rangle$, 并判断 $\{X(t); -\infty < t < \infty\}$ 的均值是否具有各态历经性;
-    (3) 判断 $\{X(t); -\infty < t < \infty\}$ 是否为各态历经过程.
+    $Y$ 服从区间 $(-1, 1)$ 上的均匀分布。
 
-	---
+    (1) 求 $\mu_X(t)$, $R_X(t, t+\tau)$，并证明 $\{X(t); -\infty < t < \infty\}$ 是平稳过程；
+
+    (2) 求 $\{X(t)\}$ 的时间均值 $\langle X(t) \rangle$，并判断 $\{X(t); -\infty < t < \infty\}$ 的均值是否具有各态历经性；
+
+    (3) 判断 $\{X(t); -\infty < t < \infty\}$ 是否为各态历经过程。
+
+    **解：**
+
+    **(1) 计算均值函数 $\mu_X(t)$ 和自相关函数 $R_X(t, t+\tau)$**
+
+    首先计算 $E(X)$：
+
+    $$
+	\begin{align*}
+    E(X) &= \int_{-1}^1 x(1 - |x|) dx \\
+    &= \int_0^1 x(1 - x) dx + \int_{-1}^0 x(1 + x) dx\\
+    &= \int_0^1 x dx - \int_0^1 x^2 dx + \int_{-1}^0 x dx + \int_{-1}^0 x^2 dx\\
+    &= \frac{1}{2} - \frac{1}{3} - \frac{1}{2} + \frac{1}{3} = 0
+	\end{align*}
+    $$
+
+    因为$Y$服从区间 $(-1, 1)$ 上的均匀分布，所以$E(Y) = 0$。
+
+    因此，
+
+    $$
+	\begin{align*}
+    \mu_X(t) &= E[X(t)]\\
+	 &= \sqrt{2} \cos t \cdot E(X) + \sin t \cdot E(Y) \\
+	 &= 0
+	\end{align*}
+    $$
+
+    进一步计算方差和协方差：
+
+	$$
+    \begin{align*}
+    E(X^2) &= \int_{-1}^1 x^2 (1 - |x|) dx = \frac{1}{6} \\
+    E(Y^2) &= \int_{-1}^1 y^2 \cdot \frac{1}{2} dy = \frac{1}{3} \\
+    E(XY) &= E(X)E(Y) = 0 \\
+    D(Y) &= E(Y^2) - [E(Y)]^2 = \frac{1}{3}
+    \end{align*}
+	$$
+
+    计算自相关函数：
+
+    $$
+    \begin{aligned}
+    R_X(t, t+\tau) &= E[X(t) X(t+\tau)] \\
+    &= E\left[ (\sqrt{2} X \cos t + Y \sin t)(\sqrt{2} X \cos (t+\tau) + Y \sin (t+\tau)) \right] \\
+    &= 2 E(X^2) \cos t \cos (t+\tau) + E(Y^2) \sin t \sin (t+\tau) \\
+    &= \frac{1}{3} \cos t \cos (t+\tau) + \frac{1}{3} \sin t \sin (t+\tau) \\
+    &= \frac{1}{3} \cos \tau
+    \end{aligned}
+    $$
+
+    因此，$\{X(t)\}$ 是平稳过程。
+
+    ---
+
+    **(2) 计算时间均值 $\langle X(t) \rangle$ 并判断均值的各态历经性**
+
+    $$
+	\begin{align*}
+	\langle X(t) \rangle &= \lim_{T \rightarrow \infty} \frac{1}{2T} \int_{-T}^{T} X(t) dt\\
+    &= \lim_{T \rightarrow \infty} \frac{1}{2T} \int_{-T}^{T} (\sqrt{2} X \cos t + Y \sin t) dt\\
+    &= \lim_{T \rightarrow \infty} \frac{1}{2T} \left( 2\sqrt{2} X \sin T + 2Y \cos T \right) = 0
+	\end{align*}
+    $$
+
+    所以
+
+    $$
+    \langle X(t) \rangle = E[X(t)] = 0
+    $$
+
+    因此，均值具有各态历经性。
+
+    ---
+
+    **(3) 判断是否为各态历经过程**
+
+    计算二阶时间均值：
+
+    $$
+	\begin{align*}
+    \langle X(t) X(t + \tau) \rangle &= \lim_{T \rightarrow \infty} \frac{1}{2T} \int_{-T}^{T} X(t) X(t + \tau) dt\\
+    &= \lim_{T \rightarrow \infty} \frac{1}{2T} \int_{-T}^{T} (\sqrt{2} X \cos t + Y \sin t)(\sqrt{2} X \cos (t + \tau) + Y \sin (t + \tau)) dt\\
+    &= (X^2 + \frac{Y^2}{2}) \cos^2 \tau \neq R_X(t, t + \tau)
+	\end{align*}
+    $$
+
+    因此，$\{X(t)\}$ 不是各态历经过程。
 
 ### 5.14
 !!! example "5.14"

@@ -1,12 +1,23 @@
-# 04 | 布朗运动、维纳过程
+# 04 | 布朗运动
 
 ## Cheet Sheet
+
+
+1. 方差、协方差的解法
+2. 写成增量的形式，增量之间互相独立，就不需要考虑协方差的问题了
+
+数字特征：
 * $\forall\;0\leq s<t\quad X(t)-X(s)\sim N(0,\sigma^2(t-s))$
 * 均值函数：$\mu_B(t)=0$
 * 方差函数：$D_B(t)=t$
 * 自协方差函数：$C_B(t,s) =min(t,s)\qquad t,s>0$
+
+性质：
 * 自相似性：$\forall\;a\neq0\quad$	{ $\frac1aB(a^2t);t\geq 0$ } 是标准布朗运动。
 * $0-\infty$对称性：$\overset{\sim}B(t)=\begin{cases}tB(\frac 1t)\quad t>0\\[2ex]0\qquad\quad t=0\end{cases}$ 	则 { $\overset{\sim}B(t);t\geq0$ } 是标准布朗运动。
+
+特殊分布：
+
 * 首次击中时间：$P\left(\max_{s\leq t}B(s)\geq a\right) = P(T_a \leq t) = 2P(B(t)\geq a),\quad a > 0$
 
 
@@ -20,8 +31,6 @@
 
 **③** $\forall\;0\leq s<t\quad X(t)-X(s)\sim N(0,\sigma^2(t-s))$
 
-一般考虑**标准布朗运动**，即 $B(t)\sim N(0,t)$
-$\qquad (\sigma^2=1)$	且 $C_B(t_1,t_2)=min(t_1,t_2)$
 
 ## 标准布朗运动的性质
 
@@ -38,6 +47,40 @@ $\qquad (\sigma^2=1)$	且 $C_B(t_1,t_2)=min(t_1,t_2)$
         &=min(t,s)\qquad t,s>0
         \end{aligned}
         $$
+
+
+
+??? note "证明"
+    我们考虑 $t \leq s$（不妨设 $t \leq s$，因为结果是对称的）：
+
+    我们将 $B(s)$ 拆成两个部分：
+
+    $$
+    B(s) = B(t) + (B(s) - B(t))
+    $$
+
+    将其代入协方差函数中：
+
+    $$
+    \begin{align*}
+    \mathbb{E}[B(t) B(s)] &= \mathbb{E}[B(t)(B(t) + (B(s) - B(t)))]\\
+    &= \mathbb{E}[B(t)^2] + \mathbb{E}[B(t)(B(s) - B(t))]\\
+    &= \text{Var}(B(t))  + \mathbb{E}[B(t)]\mathbb{E}(B(s)-B(t))\\
+    &= t
+    \end{align*}
+    $$
+
+    注意：
+
+    * $B(t)$ 与 $B(s) - B(t)$ 独立；
+    * $\mathbb{E}[B(s) - B(t)] = 0$；
+    * 因为独立且后者期望为零，交叉项为 0。
+
+    因为我们设定 $t \leq s$，所以
+
+    $$
+    \mathbb{E}[B(t)B(s)] = \min(t,s)
+    $$
 
 
 ### 布朗运动判定
@@ -343,11 +386,82 @@ $X(t)=B(t)-tB(1)\quad 0\leq t \leq 1$
     
 
 ## 例题
-1. 方差、协方差的解法
-2. 写成增量的形式，增量之间互相独立，就不需要考虑协方差的问题了
+
+!!! example "设 $\{B(t); t \geq 0\}$ 是**标准布朗运动**，则"
+
+    $$
+    P\left( \max_{0 \leq s \leq 4} B(s) \geq 2 \right) = \underline{\qquad\qquad\qquad}
+    $$
+
+    $$
+    P(B(3) < 3 \mid B(1) = 1, B(2) = 1) = \underline{\qquad\qquad\qquad}
+    $$
+
+    设 $A \sim N(1,1)$，且 $A$ 与 $\{B(t); t \geq 0\}$ 独立，定义 $X(t) = B(t) + A t$，则：
+
+    - $X(1)$ 服从 $\underline{\qquad\qquad\qquad}$ 分布，
+    - $X(1) + X(2)$ 服从 $\underline{\qquad\qquad\qquad}$ 分布，
+    - $\mathrm{Cov}(X(1) + X(2), X(1)) = \underline{\qquad\qquad\qquad}$
+
+    ---
+
+    利用布朗运动最大值分布反射原理
+
+    $$
+    P\left( \max_{0 \leq s \leq t} B(s) \geq a \right) = 2 P(B(t) \geq a) = 2 \left(1 - \Phi\left(\frac{a}{\sqrt{t}}\right)\right)
+    $$
+
+    取 $a=2, t=4$，得
+    $$
+    P\left( \max_{0 \leq s \leq 4} B(s) \geq 2 \right) = 2(1 - \Phi(1)) \approx 2 \times 0.1587 = 0.3174
+    $$
+
+    ---
+    
+    $(B(1), B(2), B(3))$ 是三元正态分布，条件分布计算后有
+    
+    $$
+    P(B(3) < 3 \mid B(1) = 1, B(2) = 1) = \Phi\left( \frac{3-2}{\sqrt{1}} \right) = \Phi(1) \approx 0.8413
+    $$
+
+    ---
+
+    $A \sim N(1,1)$，独立于 $B(t)$，$X(t) = B(t) + At$。
+    - $X(1) = B(1) + A \sim N(0,1)+N(1,1)=N(1,2)$
+    - $X(2) = B(2) + 2A \sim N(0,2)+N(2,4)=N(2,6)$
+    - $X(1) + X(2) = B(1) + B(2) + 3A$
+    - $\mu_{X(1) + X(2)} = \mu_{B(1) + B(2)} + 3\mu_A = 0 + 3 = 3$
+
+    $$
+    \begin{align*}
+    \text{Var}(X(1) + X(2)) &= \text{Var}X(1) + \text{Var}X(2) + 2\text{Cov}(X(1),X(2)) \\
+    &= 2 + 6 + 2\text{Cov}(B(1)+A,B(2)+2A) \\
+    &= 2 + 6 + 2\text{Cov}(B(1),B(2)) + 2\text{Cov}(A,A)\\
+    &= 2 + 6 + 2\min\{1,2\} + 2\\
+    &= 12
+    \end{align*}
+    $$
+
+    这里貌似算错了
+
+    
+    ---
+    
+    求协方差：
+
+    $$
+    \begin{aligned}
+    \mathrm{Cov}(X(1) + X(2), X(1)) &= \mathrm{Cov}(X(1), X(1)) + \mathrm{Cov}(X(2), X(1))\\
+    &=  \mathrm{Var}(X(1)) + \mathrm{Cov}(X(2), X(1))\\
+    &= 2 + \mathrm{Cov}(B(2)+2A,B(1)+A)\\
+    &= 2 + \mathrm{Cov}(B(2),B(1)) + 2\mathrm{Cov}(A,A)\\
+    &= 2 + \min\{2,1\} + 2\\
+    &= 5
+    \end{aligned}
+    $$
 
 
-### 数字特征计算
+
 !!! example "设 { $B(t);t\geq0$ } 是标准布朗运动，则"
 
     （1）$B(3)-2B(1)$ 
@@ -390,7 +504,52 @@ $X(t)=B(t)-tB(1)\quad 0\leq t \leq 1$
     $$
 
 
-#### 4.21
+
+### 相似性
+
+
+
+!!! example "设$\{B(t),t\geq0\}$是标准布朗运动，求"
+
+    (1) $P\{B(0.5)\leq1|B(1)=1,B(2)=2\}$;
+
+
+
+
+    解：$\{B(t);t\geq0\}$是标准布朗运动.又$B(t)=t\bar{B}(1/t)$, 所以
+
+
+    $$
+    P\{B(0.5)\leq1|B(1)=1,B(2)=2\}\\
+    =P\{0.5\bar{B}(2)\leq1|\bar{B}(1)=1,2\bar{B}(0.5)=2\}\\
+    =P\{\bar{B}(2)\leq2|\bar{B}(1)=1,\bar{B}(0.5)=1\}\\
+    =P\{\bar{B}(2)-\bar{B}(1)\leq1\}=\Phi(1)=0.8413
+    $$
+
+    ---
+
+    (2) 在$B(1)=1,B(2)=2$的条件下，$B(0.5)$服从什么分布？
+
+    即是在$\bar{B}(1)=1,\bar{B}(0.5)=1$的条件下，
+
+    $$
+    \bar{B}(2)=1+(\bar{B}(2)-\bar{B}(1))\sim N(1,1)
+    $$
+
+    所以$B(0.5)=0.5\bar{B}(2)\sim N(0.5,0.25)$.
+
+
+
+
+### 首次击中时
+
+脑子里回想正态分布pdf的图像
+
+
+## 习题
+
+
+### 4.21
 
 !!! example "设 $\{B(t);\, t \geq 0\}$ 是标准布朗运动，求："
 
@@ -440,42 +599,7 @@ $X(t)=B(t)-tB(1)\quad 0\leq t \leq 1$
     \end{align*}
     $$
 
-### 相似性
-
-
-
-!!! example "设$\{B(t),t\geq0\}$是标准布朗运动，求"
-
-    (1) $P\{B(0.5)\leq1|B(1)=1,B(2)=2\}$;
-
-
-
-
-    解：$\{B(t);t\geq0\}$是标准布朗运动.又$B(t)=t\bar{B}(1/t)$, 所以
-
-
-    $$
-    P\{B(0.5)\leq1|B(1)=1,B(2)=2\}\\
-    =P\{0.5\bar{B}(2)\leq1|\bar{B}(1)=1,2\bar{B}(0.5)=2\}\\
-    =P\{\bar{B}(2)\leq2|\bar{B}(1)=1,\bar{B}(0.5)=1\}\\
-    =P\{\bar{B}(2)-\bar{B}(1)\leq1\}=\Phi(1)=0.8413
-    $$
-
-    ---
-
-    (2) 在$B(1)=1,B(2)=2$的条件下，$B(0.5)$服从什么分布？
-
-    即是在$\bar{B}(1)=1,\bar{B}(0.5)=1$的条件下，
-
-    $$
-    \bar{B}(2)=1+(\bar{B}(2)-\bar{B}(1))\sim N(1,1)
-    $$
-
-    所以$B(0.5)=0.5\bar{B}(2)\sim N(0.5,0.25)$.
-
-
-
-#### 4.27
+### 4.27
 
 
 !!! example "设 $\{B(t); t \geqslant 0\}$ 是标准布朗运动，计算："
@@ -515,13 +639,7 @@ $X(t)=B(t)-tB(1)\quad 0\leq t \leq 1$
     $$
     B(\frac{1}{10})\sim\frac{1}{10}\widetilde{B(10)}\sim N(\frac{6}{5},\frac{1}{25})
     $$
-
-
-### 首次击中时
-
-脑子里回想正态分布pdf的图像
-
-#### 4.29
+### 4.29
 !!! note "设 $\{B(t); t \geqslant 0\}$ 是标准布朗运动，对任意 $t>0, x>0$"
 
     (1) $P(|B(t)| \leqslant x)$；
