@@ -587,19 +587,19 @@
       简介
     </span>
 </a>
-</li>
+<nav aria-label="简介" class="md-nav">
+<ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_3">
 <span class="md-ellipsis">
-      框架
+      学习方法
     </span>
 </a>
-<nav aria-label="框架" class="md-nav">
-<ul class="md-nav__list">
+</li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_4">
 <span class="md-ellipsis">
-      学习方法
+      复习进度记录
     </span>
 </a>
 </li>
@@ -635,15 +635,15 @@
     </span>
 </a>
 </li>
-</ul>
-</nav>
-</li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_8">
 <span class="md-ellipsis">
-      课程安排
+      其他
     </span>
 </a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -680,6 +680,13 @@
 <a class="md-nav__link" href="05-StationaryProcess.html">
 <span class="md-ellipsis">
     05 | 平稳过程
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="06-review.html">
+<span class="md-ellipsis">
+    00 | 随机过程复习
   </span>
 </a>
 </li>
@@ -3208,19 +3215,19 @@
       简介
     </span>
 </a>
-</li>
+<nav aria-label="简介" class="md-nav">
+<ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_3">
 <span class="md-ellipsis">
-      框架
+      学习方法
     </span>
 </a>
-<nav aria-label="框架" class="md-nav">
-<ul class="md-nav__list">
+</li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_4">
 <span class="md-ellipsis">
-      学习方法
+      复习进度记录
     </span>
 </a>
 </li>
@@ -3256,15 +3263,15 @@
     </span>
 </a>
 </li>
-</ul>
-</nav>
-</li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_8">
 <span class="md-ellipsis">
-      课程安排
+      其他
     </span>
 </a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -3275,70 +3282,29 @@
 <article class="md-content__inner md-typeset">
 <div><h1 id="_1">随机过程<a class="headerlink" href="#_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>950<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>4<span class="heti-spacing"> </span></span>分钟</p>
+<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>1056<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>4<span class="heti-spacing"> </span></span>分钟</p>
 </div>
 <ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> <span>Chap1<span class="heti-spacing"> </span></span>随机过程基本概念</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> <span>Chap1<span class="heti-spacing"> </span></span>随机过程基本概念</li>
 <li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> <span>Chap2<span class="heti-spacing"> </span></span>马尔可夫链</li>
 <li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> <span>Chap3<span class="heti-spacing"> </span></span>泊松过程</li>
 <li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> <span>Chap4<span class="heti-spacing"> </span></span>布朗运动</li>
-<li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> <span>Chap5<span class="heti-spacing"> </span></span>平稳过程</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> <span>Chap5<span class="heti-spacing"> </span></span>平稳过程</li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">段子</p>
+<p>人的一生应当学四次随机过程</p>
+<p>第一次是在概率论的阶梯教室，马尔可夫链在转移矩阵里安睡，而你的青春正与无记忆性较劲。抛硬币的轨迹画出鞅的边界，像极了二十岁未知的心跳，总以为找到稳态分布，就握住了命运的均值，却不知窗外纷飞的柳絮，正把泊松过程写成飘散的随机游走诗篇。</p>
+<p>第二次是在数字丛林的代码战场，条件期望在循环语句里重构日常。你在算法构筑的<span class="heti-skip"><span class="heti-spacing"> </span>"<span class="heti-spacing"> </span></span>遍历性<span class="heti-skip"><span class="heti-spacing"> </span>"<span class="heti-spacing"> </span></span>迷宫中突围，用蒙特卡洛采样丈量需求的热度。当截止日期逼近，<span>BUG<span class="heti-spacing"> </span></span>像布朗运动般涌现，那些闪烁的屏幕，都是随机微分的证明，将三十岁的热望，熔炼成凌晨三点的概率流。 </p>
+<p>第三次是在孩童的乐高城堡边，陪他拼接蒙特卡洛的积木。马尔科夫毯下藏着成长的平稳分布——就像房贷是本该收敛的鞅，旋转木马的欢笑是瞬态响应，而生活样本空间的更新，总在亲子协方差的涨落中，把中年的方差，换算成睡前故事的正交分解。</p>
+<p>第四次是在夕阳浸润的落地窗前，看见鞅的收敛穿过时间序列。窗格间的卡方检验折射生涯的置信区间。那些离散的故人啊，原来是协方差平稳的相位噪声，虽隔着重样本的间距，仍有自相关的温度，在记忆的宽平稳里，完成最后一次弱收敛的证明。</p>
+</div>
 <h2 id="_2">简介<a class="headerlink" href="#_2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p>课程成绩由平时成绩（40%）和期末成绩（60%）组成。平时成绩注重过程考核，包括平时到课率<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>数字点名<span><span class="heti-spacing"> </span>)</span>，课后作业，以及随堂小测（周六小测，类似概统<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>；</p>
 <p>期末考试采用闭卷考试，考试时间通常为两个小时。</p>
 <p>填空：布朗运动、数字特征、平稳过程、泊松运动
 大题：数字特征+泊松过程+马尔科夫链×2+平稳过程</p>
-<h2 id="_3">框架<a class="headerlink" href="#_3" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<ol>
-<li>
-<p><strong>概率论基础知识</strong></p>
-<ul>
-<li>二维随机变量分析（边缘分布、条件分布、数学期望等数字特征）</li>
-<li>特征函数</li>
-<li>条件数学期望</li>
-<li>二重积分的计算</li>
-<li>定积分的计算</li>
-</ul>
-</li>
-<li>
-<p><strong>随机过程基本概念</strong></p>
-<ul>
-<li>随机过程的定义</li>
-<li>描述随机过程的数字特征（均值、自相关函数、互相关函数）</li>
-</ul>
-</li>
-<li>
-<p><strong>常用随机过程</strong></p>
-<ul>
-<li>独立过程</li>
-<li>独立增量过程</li>
-<li>正态过程</li>
-<li>维纳过程</li>
-<li>泊松过程</li>
-<li>马尔可夫过程</li>
-</ul>
-</li>
-<li>
-<p><strong>均方微积分</strong></p>
-<ul>
-<li>均方收敛</li>
-<li>均方可积</li>
-<li>均方可导</li>
-<li>均方连续</li>
-</ul>
-</li>
-<li>
-<p><strong>平稳随机过程分析</strong></p>
-<ul>
-<li>宽平稳</li>
-<li>严格平稳</li>
-<li>各态历经性质</li>
-<li>功率谱密度</li>
-</ul>
-</li>
-</ol>
-<h3 id="_4">学习方法<a class="headerlink" href="#_4" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_3">学习方法<a class="headerlink" href="#_3" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>公式记牢、基本概念记牢、多做计算题
 把握重点，有针对性复习
 对于数学基础不好的同学，强调应用结论而不是理解或者推导结论
@@ -3346,6 +3312,14 @@
 <ul>
 <li>随机过程各个章节的内容其实关联不是特别紧密，中间可以不按照顺序来学。
 不过像98一个学姐说的那样，一定要珍惜每一道题目</li>
+</ul>
+<h3 id="_4">复习进度记录<a class="headerlink" href="#_4" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 半个下午<span class="heti-skip"><span class="heti-spacing"> </span>+<span class="heti-spacing"> </span></span>晚上<span><span class="heti-spacing"> </span>chap4possion+brown+chap5 stationary</span></li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 听了复习课<span class="heti-skip"><span class="heti-spacing"> </span>+<span class="heti-spacing"> </span></span>复习<span class="heti-skip"><span class="heti-spacing"> </span>Chap3 Markov Chap2<span class="heti-spacing"> </span></span>定义；梳理特殊概念；做了<span class="heti-skip"><span class="heti-spacing"> </span>4<span class="heti-spacing"> </span></span>章复习题<span><span class="heti-spacing"> </span>PPT</span></li>
+<li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 做了老师上课讲的<span class="heti-skip"><span class="heti-spacing"> </span>3<span class="heti-spacing"> </span></span>套卷子<span class="heti-skip"><span class="heti-spacing"> </span>+<span class="heti-spacing"> </span></span>历年题的几套卷子</li>
+<li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 作业整理</li>
+<li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 通俗含义解释</li>
 </ul>
 <h2 id="acknowledgement">Acknowledgement<a class="headerlink" href="#acknowledgement" title="anchor link to this section for reference">¶</a></h2>
 <p>在学习随机过程的过程中，我参考了以下资料：</p>
@@ -3364,11 +3338,15 @@
 <li><a href="https://www.cc98.org/topic/4855261"><span>2018-2019<span class="heti-spacing"> </span></span></a><span>(<span class="heti-spacing"> </span></span>随机过程与排队论<span><span class="heti-spacing"> </span>)</span></li>
 </ul>
 <ul>
+<li><a href="https://file.cc98.org/v4-upload/d/2025/0528/2zeatkye.pdf"><span>16-17<span class="heti-spacing"> </span></span>秋随过补考题目</a></li>
+</ul>
+<ul>
 <li><a href="https://www.cc98.org/topic/4728993"><span>2017<span class="heti-spacing"> </span></span></a><span>(<span class="heti-spacing"> </span></span>随机过程与排队论<span><span class="heti-spacing"> </span>)</span></li>
 </ul>
 <ul>
 <li><a href="https://www.cc98.org/topic/4641632"><span>2016<span class="heti-spacing"> </span></span></a><span>(<span class="heti-spacing"> </span></span>随机过程与排队论<span><span class="heti-spacing"> </span>)</span></li>
 </ul>
+<p><a href="https://www.cc98.org/topic/6198962"><span>Akino -<span class="heti-spacing"> </span></span>随过（工科<span class="heti-skip"><span class="heti-spacing"> </span>1.5<span class="heti-spacing"> </span></span>学分）版搜历年卷合集</a></p>
 <h3 id="_6">习题答案<a class="headerlink" href="#_6" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p><a href="https://www.cc98.org/topic/5358767"><span>orz_xiaoa -<span class="heti-spacing"> </span></span>应用随机过程（<span>1.5<span class="heti-spacing"> </span></span>学分）部分作业习题答案<span class="heti-skip"><span class="heti-spacing"> </span>- CC98<span class="heti-spacing"> </span></span>论坛</a></p>
 <p>课后习题全解
@@ -3407,66 +3385,14 @@
 <p><a href="https://www.cc98.org/topic/6202803/1">启动<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>随机过程复习资料</a></p>
 </li>
 </ol>
-<h2 id="_8">课程安排<a class="headerlink" href="#_8" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<p>- <strong>第<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>次</strong>：第二章随机过程基本概念
-  - 随机过程定义
-  - 随机过程的有限维分布</p>
-<ul>
-<li><strong>第<span class="heti-skip"><span class="heti-spacing"> </span>2<span class="heti-spacing"> </span></span>次</strong>：第二章随机过程基本概念<ul>
-<li>随机过程的有限维分布</li>
-<li>随机过程的数字特征</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><strong>第<span class="heti-skip"><span class="heti-spacing"> </span>3<span class="heti-spacing"> </span></span>次</strong>：第三章马尔可夫链<ul>
-<li>马尔可夫链的定义</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><strong>第<span class="heti-skip"><span class="heti-spacing"> </span>4<span class="heti-spacing"> </span></span>次</strong>：第三章马尔可夫链<ul>
-<li>有限维分布</li>
-<li>常返和暂留</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><strong>第<span class="heti-skip"><span class="heti-spacing"> </span>5<span class="heti-spacing"> </span></span>次</strong>：第三章马尔可夫链，第四章泊松过程与布朗运动<ul>
-<li>马尔可夫链的平稳分布</li>
-<li>独立增量过程</li>
-<li>泊松过程定义</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><strong>第<span class="heti-skip"><span class="heti-spacing"> </span>6<span class="heti-spacing"> </span></span>次</strong>：第四章泊松过程与布朗运动<ul>
-<li>泊松过程的合成与分解</li>
-<li>等待时间和点间间距的分布</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><strong>第<span class="heti-skip"><span class="heti-spacing"> </span>7<span class="heti-spacing"> </span></span>次</strong>：第四章泊松过程与布朗运动，第五章平稳过程<ul>
-<li>布朗运动的定义及性质</li>
-<li>平稳过程定义</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><strong>第<span class="heti-skip"><span class="heti-spacing"> </span>8<span class="heti-spacing"> </span></span>次</strong>：第五章平稳过程，总复习<ul>
-<li>平稳过程的各态历经性</li>
-<li>功率谱密度</li>
-<li>梳理复习课程的知识点</li>
-</ul>
-</li>
-</ul></div>
+<h3 id="_8">其他<a class="headerlink" href="#_8" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p><a href="https://www.cc98.org/topic/6158605">人的一生应该学四次随机过程<span class="heti-skip"><span class="heti-spacing"> </span>- CC98<span class="heti-spacing"> </span></span>论坛</a></p></div>
 <aside class="md-source-file">
 <span class="md-source-file__fact">
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年6月9日 01:13:41</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年6月9日 23:45:18</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">
