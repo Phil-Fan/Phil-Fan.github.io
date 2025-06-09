@@ -241,6 +241,8 @@ nav:
     - Math/StochasticProcess/03-Possion.md
     - Math/StochasticProcess/04-Brown.md
     - Math/StochasticProcess/05-StationaryProcess.md
+    - Math/StochasticProcess/06-review.md
+    
     
   - "OR | 运筹学":
     - Math/OR/OR-00-index.md

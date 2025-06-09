@@ -50,13 +50,16 @@ F(s,t; x,y) = P\{X(s) < x, X(t) < y\}$$
 - 方差是用来度量单个随机变量的离散程度
 - 协方差则一般用来刻画两个随机变量的相似程度（相关性）
 
-> [如何直观地理解「协方差矩阵」？ - 知乎](https://zhuanlan.zhihu.com/p/37609917)
-> ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250427223326.png)
-> 
-> 协方差：用与均值面积正负来刻画相关性(一三象限是正相关，二四象限是负相关)
-> 把原点看作$(\bar{x},\bar{y})$，那么$\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})$就可以理解为这些矩形的面积了
-> 图片出自[如何通俗地解释协方差｜马同学图解数学\_哔哩哔哩\_bilibili](https://www.bilibili.com/video/BV1gY4y187TL/)
-> <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=640953390&bvid=BV1gY4y187TL&cid=584782501&p=1&t=142&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=60% height=400px></iframe>
+??? note "如何理解协方差"
+    [如何直观地理解「协方差矩阵」？ - 知乎](https://zhuanlan.zhihu.com/p/37609917)
+    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250427223326.png)
+
+    协方差：用与均值面积正负来刻画相关性(一三象限是正相关，二四象限是负相关)
+
+    把原点看作$(\bar{x},\bar{y})$，那么$\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})$就可以理解为这些矩形的面积了
+    > 图片出自[如何通俗地解释协方差｜马同学图解数学\_哔哩哔哩\_bilibili](https://www.bilibili.com/video/BV1gY4y187TL/)
+
+    <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=640953390&bvid=BV1gY4y187TL&cid=584782501&p=1&t=142&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=60% height=400px></iframe>
 
 
 ### 单个随机过程
@@ -67,6 +70,11 @@ F(s,t; x,y) = P\{X(s) < x, X(t) < y\}$$
 
 > 理解自相关的例子：家族男性当中：父子身高的相关性、爷孙身高的相关性<br>
 > 自协方差：$t$和$t+\tau$的信号幅值变化相同，想找一个函数来去掉直流分量的影响
+
+- $\text{Var}(A+B) = \text{Var}(A) + \text{Var}(B) + 2\text{Cov}(A, B)$
+- $\text{Var}(A) = \text{Cov}(A, A)$
+- $\text{Cov}(A, B) = E(AB) - E(A)E(B)$
+- $\text{Var}(A) = E(A^2) - [E(A)]^2$
 
 
 ### 两个随机过程
@@ -83,6 +91,17 @@ F(s,t; x,y) = P\{X(s) < x, X(t) < y\}$$
 
 
 
+
+
+## 正态过程
+
+$\{X(t),t\in T\}$是一随机过程，对任意整数$n\geq1$及
+
+任意$t_1,t_2,\cdotp\cdotp\cdotp t_n\in T,(X(t_1),X(t_2),\cdotp\cdotp\cdotp X(t_n))$服从$n$维正态分布，则称$\{X(t),t\in T\}$是正态过程。
+
+正态过程的全部统计特性完全由它的均值函数和自协方差函数所确定。
+
+如果对任意的$t_1,t_2\in T$,恒有$C_XY(t_1,t_2)=0$ 称随机过程$\left\{X(t)\right\}$和$\left\{Y(t)\right\}$是不相关的。
 
 
 
@@ -192,7 +211,8 @@ F(s,t; x,y) = P\{X(s) < x, X(t) < y\}$$
     \begin{aligned}&E\big(Y(t)\big)=\frac{\mathrm{d}}{\mathrm{d}t}E\big(X(t)\big)=5\cos t\\&R_{Y}(t,s)=\frac{\partial^2}{\partial s\:\partial t}R_X(t,s)\end{aligned}
     $$
 
-!!! example "随机过$X(t)=A\cos wt,Y(t)=(1-B)\cos wt$,其中$A,B$同为均值为2，方差为$\sigma^2$的高斯随机变量，$A,B$统计独立，$w$为非零常数。求两个随机过程的均值、互相关函数、互协方差函数"
+!!! example "例题"
+    随机过$X(t)=A\cos wt,Y(t)=(1-B)\cos wt$,其中$A,B$同为均值为2，方差为$\sigma^2$的高斯随机变量，$A,B$统计独立，$w$为非零常数。求两个随机过程的均值、互相关函数、互协方差函数
 
     $$
     \begin{aligned}
@@ -201,6 +221,68 @@ F(s,t; x,y) = P\{X(s) < x, X(t) < y\}$$
     &R_{XY}(t_{1},t_{2})=E\big(X(t_{1})Y(t_{2})\big)=E\big(A\cos wt_{1}\times(1-B)\cos wt_{2}\big)=-2\cos wt_{1}\cos wt_{2}\\&C_{XY}(t_{1},t_{2})=R_{XY}(t_{1},t_{2})-E\big(X(t)\big)E\big(Y(t)\big)=0
     \end{aligned}
     $$
+
+
+!!! example "例题"
+    设 $X(t) = At^B$，其中 $A \sim N(1,1)$，$P(B=1) = P(B=2) = 0.5$，$A$ 和 $B$ 相互独立。计算：
+
+    (1) 随机过程 $\{X(t); t \geq 0\}$ 的均值函数和自相关函数；
+
+    (2) $P(X(2) < 4)$；
+
+    (3) $P(X(1) > 1, X(2) < 4)$。
+
+    ---
+
+    **答案：**
+
+    (1) 均值函数和自相关函数：
+
+    $$
+    \mu_X(t) = \frac{t + t^2}{2}
+    $$
+
+    $$
+    R_X(s, t) = ts + t^2s^2
+    $$
+
+    (2) 
+    $$
+    P(X(2) < 4) = P(B=1)P(A < 2) + P(B=2)P(A < 1) = 0.67
+    $$
+
+    (3) 
+    $$
+    P(X(1) > 1, X(2) < 4) = P(B=1)P(1 < A < 2) + P(B=2)P(A > 1, A < 1) = 0.17
+    $$
+
+
+!!! example "例题"
+    设 $X(t) = A\cos t + B\sin t,\ t \geq 0$，
+    其中 $A \sim N(1, 2),\ B \sim N(0, 2)$，且 $A, B$ 独立。
+
+    求：
+
+    1. 自相关函数 $R_X(s,t)$
+    2. $X\left(\dfrac{3\pi}{4}\right)$ 的分布
+
+    ---
+
+    答案：
+
+    1. 自相关函数：
+
+    $$
+    R_X(s,t) = 3\cos s \cos t + 2\sin s \sin t
+    $$
+
+    2. 分布：
+
+    $$
+    X\left(\dfrac{3\pi}{4}\right) \sim N\left(-\dfrac{\sqrt{2}}{2},\ 2\right)
+    $$
+
+
 
 
 ### 求分布函数
@@ -231,3 +313,117 @@ F(s,t; x,y) = P\{X(s) < x, X(t) < y\}$$
         |------------------|--------------|-------------|
         | $0$              | $\frac{1}{4}$ | $\frac{1}{4}$ |
         | $1$              | $\frac{1}{4}$ | $\frac{1}{4}$ |
+
+
+!!! example "设 $X(t)=At+B,t≥0$，这里 $A$ 和 $B$ 相互独立服从相同分布，$P(A=1)=0.6$，$P(A=-1)=0.4$"
+    (1) 写出 $X(t)$ 的全部样本函数；
+    
+    (2) 求 $(X(1),X(2))$ 的联合分布律及 $X(2)$ 的边际分布律； 
+    
+    (3) 求 $\{X(t);t≥0\}$ 的均值函数和自相关函数。
+
+    --- 
+    答案
+
+    5 (1) 
+    - $x_{1}(t)=t+1$
+    - $x_{2}(t)=t-1$
+    - $x_{3}(t)=-t+1$
+    - $x_{4}(t)=-t-1$。
+
+    (2)
+
+    | $X(1)$ $\backslash$ $X(2)$ | -3 | -1 | 1 | 3 |
+    | --- | --- | --- | --- | --- |
+    | -2 | 0.16 | 0 | 0 | 0 |
+    | 0 | 0 | 0.24 | 0.24 | 0 |
+    | 2 | 0 | 0 | 0 | 0.36 |
+    | $P(X(2)=j)$ | 0.16 | 0.24 | 0.24 | 0.36 |
+
+    (3) 
+    - $E[X(t)]=EAt+EB=0.2t+0.2$
+    - $E[X(t)X(s)]=EA^{2}ts+E(AB)(s+t)+E(B^{2})=ts+0.04(t+s)+1$。
+
+
+### 正态过程相关
+
+
+!!! example "设 {$X(t);t\geq0$} 是正态过程，$EX(t)=0$，$EX(t)X(s)=1+ts+0.5(t+s)$"
+    则 $X(1)$ 服从 ______________ 分布，$X(0)+X(1)$ 服从 ______________ 分布，$X(1)$ 与 $X(-1)$ 独立吗？并说明理由 ______________ 。
+
+    ---
+    **答案**
+    - N(0,3)，N(0,7)，是，因为它们是二元联合正态分布且协方差为0。
+
+    ---
+    **解析**
+    📌 求 $X(0) + X(1)$ 的分布
+
+    * $\mathbb{E}[X(0) + X(1)] = 0 + 0 = 0$
+    * 方差：$\mathrm{Var}(X(0) + X(1)) = \mathrm{Var}(X(0)) + \mathrm{Var}(X(1)) + 2\mathrm{Cov}(X(0), X(1))= 1 + 3 + 2(1.5) = 4 + 3 = 7$
+
+
+    📌 问题：$X(1)$ 与 $X(-1)$ 独立吗？
+
+    先注意：题目最初只说 $t \geq 0$，但这里又问了 $X(-1)$，我们暂时延拓过程到实数轴上，继续看协方差：
+
+    $$
+    \mathrm{Cov}(X(1), X(-1)) = R_X(1, -1) = 1 - 1 + 0 = 0
+    $$
+
+    又因为 $X(t)$ 是**高斯过程**（正态过程），而高斯过程中**零协方差 ⇒ 独立性**（只在联合正态情形成立）
+
+
+
+!!! example "设 $\{X(t); t \geq 0\}$ 是正态过程，$E[X(t)] = 2t$，$Cov(X(t), X(s)) = ts + 4$"
+
+    (1) $X(t)$ 服从 $\underline{\qquad\qquad\qquad\qquad}$ 分布。  
+
+    (2) $X(t) - X(s)$ 服从 $\underline{\qquad\qquad\qquad\qquad}$ 分布。  
+
+    (3) $Cov(X(t+1) - X(t),\ X(s+1) - X(s)) = \underline{\qquad}$。  
+
+    (4) 令 $Y(t) = X(t+1) - X(t)$，随机过程 $\{Y(t); t \geq 0\}$ 是宽平稳过程吗？为什么？$\underline{\qquad\qquad\qquad\qquad}$ 
+
+    ---
+    **答案与推导**
+
+    (1) $X(t)$ 服从 $N(2t,\, 4 + t^2)$
+
+    - 均值 $E[X(t)] = 2t$
+    - 方差 $Cov(X(t), X(t)) = t^2 + 4$
+
+    (2) $X(t) - X(s)$ 服从 $N(2(t-s),\, (t-s)^2)$
+
+    - 均值 $E[X(t) - X(s)] = 2t - 2s = 2(t-s)$
+    - 方差：
+
+      $$
+      \begin{aligned}
+      Var(X(t) - X(s)) &= Cov(X(t)-X(s), X(t)-X(s)) \\
+      &= Var(X(t)) + Var(X(s)) - 2Cov(X(t), X(s)) \\
+      &= (t^2+4) + (s^2+4) - 2(ts+4) \\
+      &= (t-s)^2
+      \end{aligned}
+      $$
+
+    (3) $Cov(X(t+1) - X(t),\ X(s+1) - X(s)) = 1$
+
+    - 计算：
+  
+      $$
+      \begin{aligned}
+      &Cov(X(t+1)-X(t),\ X(s+1)-X(s)) \\
+      &= Cov(X(t+1), X(s+1)) - Cov(X(t+1), X(s)) - Cov(X(t), X(s+1)) + Cov(X(t), X(s)) \\
+      &= (t+1)(s+1)+4 - (t+1)s+4 - t(s+1)+4 + ts+4 \\
+      &= 1
+      \end{aligned}
+      $$
+
+    (4) 是，因为 $Y(t)$ 
+    - 均值 $\mu_t = 2$ 是常数
+    - 协方差 $C_Y(t, t+\tau) = 1$
+    - 自相关函数$R_Y(t,t+\tau) = C_Y(t,t+\tau) +\mu_t\mu_{t+\tau} = 1+2\times2 = 5$
+     
+    与 $t$ 无关，满足宽平稳过程的定义。
+

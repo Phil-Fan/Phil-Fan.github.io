@@ -33,6 +33,9 @@ $$
 - 自协方差函数：$C_N(t_1,t_2)=Cov[N(t_1),N(t_2)]=\lambda min(t_1,t_2)+\lambda^2t_1t_2$
 
 1. 经验： 如果有求解$X\geq m$类型的概率，都是使用$1-P(X<m)$来求解。
+
+指数分布刻画时间，柏松分布刻画计数，参数相同
+
 **①** 泊松过程的合成与分解。
 
 **②** 一定要将不独立的变量转化为独立增量。
@@ -40,11 +43,25 @@ $$
 **③** 布朗运动的 $Markov$ 性。
 
 **④** 各种相关分布的结论。
+
+在独立增量过程有很多应用题和填空题需要进行分类讨论，要做到不重不漏
 ## 独立增量过程
 
 $\forall\;n\geq2$ 且 $n\in Z$ 与 $t_0<t_1<\dots<t_n$ ，增量 $X(t_1)-X(t_0),X(t_2)-X(t_1),\dots,X(t_n)-X(t_{n-1})$ 相互独立。
 
-若 $\forall\;0\leq s<t$ ，增量 $X(t)-X(s)$ 的分布只依赖于 $t-s$ ，则为平稳独立增量过程。
+
+
+
+性质：
+
+若$\left\{X(t),t\geq0\right\}$是独立增量过程，且$X(0)=0$,则：
+
+1. $X( t)$的有限维分布函数族可以由增量$X(t)-X(s)\left(0\leq s<t\right)$的分布所确定；
+2. 设 $D_X(t)$ 已知，则$C_X(s, t) = D_X\left(\min(s, t)\right)$
+
+若对$\forall h$和$\forall s<t$,$X(t+h)-X(s+h)\overset{d}{=}X(t)-X(s),$称$\{X(t)\}$平稳增量过程
+
+- 独立增量+平稳增量=平稳(齐次)独立增量
 
 ## 泊松分布
 
@@ -407,11 +424,10 @@ $$
 
 $$
 \begin{aligned}
-P(N(t)-N(s)=k)&=\frac {[\int_s^t\lambda(u)du]^k·e^{-\int_s^t\lambda(u)du}}{k!},\quad k=0,1,2,\dots,\\
+P(N(t)-N(s)=k)&\sim \pi(\int_s^{t} \lambda(u) du)\\
+&=\frac {[\int_s^t\lambda(u)du]^k·e^{-\int_s^t\lambda(u)du}}{k!},\quad k=0,1,2,\dots,\\
 \end{aligned}
 $$
-
-**④** 均值函数 $E[N(t)]=\int_0^t \lambda(u)du$
 
 
 ## 例题

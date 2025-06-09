@@ -11,6 +11,7 @@
 **②** 均值各态历经
 
 - $\langle X(t)\rangle\equiv\mu_X$ 
+- $\lim_{T\rightarrow\infty} \frac1T\int_0^\infty C_x(\tau) d\tau$
 - 在 $\underset{\tau\rightarrow+\infty}\lim R_X(\tau)$ 存在的条件下，证明$\underset{\tau\rightarrow+\infty}\lim R_X(\tau)=\mu_X^2$ 
 
 **③** 自相关函数各态历经
@@ -18,7 +19,7 @@
 - $\langle X(t)X(t+\tau)\rangle\equiv R_X(\tau)$
 
 
-**④** 功率谱密度：对自相关函数进行傅里叶变换
+**④** 功率谱密度：对自相关函数进行傅里叶变换;实、非负、偶函数
 
 
 | 时域 | 频域 |
@@ -66,34 +67,15 @@ $\{X(t);t\in T\}$ 中所有 $X_t$ 同分布， 且 $\forall\;n\geq2\quad(X_{t_1}
 
 存在二阶矩的严平稳过程。平稳过程均指**宽平稳过程**。
 
-### 均值函数
-
-$\mu_X(t)=E[X(t)]=E[X(0)]\overset{记为}\Longrightarrow\mu_X\;$(常数)
-
-### 方差函数
-
-$D[X(t)]=R_X(0)-\mu_X^2\;$(常数)
-
-### 自相关函数
-
-$E[X(t)X(t+\tau)]=E[X(0)X(\tau)]=R_X(\tau)$(为时间差的函数)
-
-$E[X^2(t)]=R_X(0)$(常数) 
-
-$E[X_{t_1}X_{t_2}]=R_X(t_2-t_1)$
-
-
-
-### 自协方差函数
-
-$C_X(\tau)=R_X(\tau)-\mu_X^2$
-
-### 平稳过程自相关函数的性质
+- 均值函数：$\mu_X(t)=E[X(t)]=E[X(0)]\overset{记为}\Longrightarrow\mu_X\;$(常数)
+- 方差函数：$D[X(t)]=R_X(0)-\mu_X^2\;$(常数)
+- 自相关函数：
+  - $E[X(t)X(t+\tau)]=E[X(0)X(\tau)]=R_X(\tau)$(为时间差的函数)
+  - $E[X^2(t)]=R_X(0) = Var(X)$(常数) 
+- 自协方差函数：$C_X(\tau)=R_X(\tau)-\mu_X^2$
 
 ### 平稳相关过程
-若 { $X(t);t\in T$ }、{ $Y(t);t\in T$ } 是两个平稳过程，$X(t),Y(t)$ 的互相关函数也为时间差 $\tau$ 的函数$\overset{记为}\Longrightarrow R_{XY}(\tau)$
-
-称 $X(t),Y(t)$ 是平稳相关/联合（宽）平稳的。
+若 { $X(t);t\in T$ }、{ $Y(t);t\in T$ } 是两个平稳过程，$X(t),Y(t)$ 的互相关函数也为时间差 $\tau$ 的函数$\overset{记为}\Longrightarrow R_{XY}(\tau)$，称 $X(t),Y(t)$ 是平稳相关/联合（宽）平稳的。
 
 ### 平稳过程自相关函数的性质
 
@@ -131,6 +113,9 @@ $C_X(\tau)=R_X(\tau)-\mu_X^2$
 
 ## 各态历经性
 
+> 只有一个样本函数，如何刻画
+
+
 $x(t)$ 为随机过程的任意一个实现（样本函数）
 
 ### 时间均值
@@ -163,7 +148,10 @@ $\langle X_nX_{n+m}\rangle=\underset{N\rightarrow+\infty}\lim \frac 1N\sum_{n=1}
 
 ### 均值各态历经定理
 
-在 $\underset{\tau\rightarrow+\infty}\lim R_X(\tau)$ 存在的条件下，若 $\underset{\tau\rightarrow+\infty}\lim R_X(\tau)=\mu_X^2$ ，则**均值具有各态历经性**，反之不具有。
+设 $\{X(t), -\infty < t < \infty\}$ 为平稳过程，则$P\left\{ \langle X(t) \rangle = \mu_X \right\} = 1$,等价于$\lim_{T \to +\infty} \frac{1}{T} \int_0^T C_X(\tau) \, d\tau = 0$
+
+
+**推论**：在 $\underset{\tau\rightarrow+\infty}\lim R_X(\tau)$ 存在的条件下，若 $\underset{\tau\rightarrow+\infty}\lim R_X(\tau)=\mu_X^2$ ，则**均值具有各态历经性**，反之不具有。
 
 ## 平稳过程的功率谱密度
 
@@ -227,6 +215,8 @@ $$
 ### 性质
 
 
+实、非负、偶
+
 
 - 功率谱密度具有非负性：$P_{\xi}(f) \geq 0$
 
@@ -248,7 +238,7 @@ $$
 S = \int_{-\infty}^{+\infty} P_{\xi}(f) \, \mathrm{d}f = \frac{1}{2\pi} \int_{-\infty}^{+\infty} P_{\xi}(\omega) \, \mathrm{d}\omega
 $$
 
-### 常用 $Fourier$ 变换对
+### 常用傅立叶变换对
 
 !!! note "这部分的题目和信号与系统相关知识联系比较紧密，可以对照着进行学习"
 
@@ -271,6 +261,18 @@ $$
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240620213040.png)
 - $cos(\omega_0 t)$频谱搬移
 - 门函数的表达 $u(t) - u(t-t_0)$
+
+### 互谱密度
+设 $X(t)$ 和 $Y(t)$ 是两个平稳相关的随机过程,
+
+定义: $S_{XY}(\omega) = \lim_{T \to +\infty} \frac{1}{2T} E \left\{ F_X(-\omega, T) F_Y(\omega, T) \right\}$
+为平稳过程 $X(t)$ 和 $Y(t)$ 的互谱密度。
+
+它有以下特性:
+
+1. $S_{XY}(\omega) = S_{YX}^*(\omega)$, 即 $S_{XY}(\omega)$ 和 $S_{YX}(\omega)$ 互为共轭函数
+2. 当 $\int_{-\infty}^{+\infty} |R_{XY}(\tau)| d\tau < \infty$ 时, 成立维纳-辛钦公式
+$S_{XY}(\omega) = \int_{-\infty}^{+\infty} R_{XY}(\tau) e^{-i\omega\tau} d\tau, \quad R_{XY}(\tau) = \frac{1}{2\pi} \int_{-\infty}^{+\infty} S_{XY}(\omega) e^{i\omega\tau} d\omega;$
 
 
 ## 例题
@@ -872,7 +874,7 @@ $$
 
 ### 5.21
 
-!!! example	"设 $X(t) = A \cos t + B \sin t + C$, $-\infty < t < \infty$，其中 $A, B, C$ 相互独立且同服从区间 $[-1, 1]$ 上的均匀分布。
+!!! example	"设 $X(t) = A \cos t + B \sin t + C$, $-\infty < t < \infty$，其中 $A, B, C$ 相互独立且同服从区间 $[-1, 1]$ 上的均匀分布。"
 
 	**(1) 证明 $\{X(t); -\infty < t < \infty\}$ 是平稳过程**
 
@@ -976,8 +978,8 @@ $$
 	谱密度即傅里叶变换，利用傅立叶变换性质，有
 
 
-	* $R_X(\tau) \xleftrightarrow{\mathcal{F}} S_X(\omega)$
-	* $\cos(\omega_0 \tau) \xleftrightarrow{\mathcal{F}} \pi[\delta(\omega - \omega_0) + \delta(\omega + \omega_0)]$
+	* $R_X(\tau)$ 的傅里叶变换为 $S_X(\omega)$
+	* $\cos(\omega_0 \tau) $的傅立叶变换是$\pi[\delta(\omega - \omega_0) + \delta(\omega + \omega_0)]$
 
 
 	**直接运算**
@@ -1002,14 +1004,14 @@ $$
 	**时域卷积对应频域相乘**
 
 	$$
-	f(\tau)g(\tau) \xleftrightarrow{\mathcal{F}} \frac{1}{2\pi} F(\omega) * G(\omega)
+	f(\tau)g(\tau) \rightarrow \frac{1}{2\pi} F(\omega) * G(\omega)
 	$$
 
 	应用到当前情况：
 
 	$$
 	\begin{aligned}
-	R_X(\tau)\cos(\omega_0 \tau) &\xleftrightarrow{\mathcal{F}} \frac{1}{2\pi} S_X(\omega) * \pi[\delta(\omega - \omega_0) + \delta(\omega + \omega_0)]\\
+	R_X(\tau)\cos(\omega_0 \tau) &\rightarrow{\mathcal{F}} \frac{1}{2\pi} S_X(\omega) * \pi[\delta(\omega - \omega_0) + \delta(\omega + \omega_0)]\\
 	&= \frac{1}{2} \left[S_X(\omega - \omega_0) + S_X(\omega + \omega_0)\right]
 	\end{aligned}
 	$$

@@ -27,7 +27,7 @@ comments: true
     - [ ] 把智能家居魔杖丰富一下<br>
     - [ ] 路由器已经到了，配置openwrt<br>
     - [x] 写一个必至居预约的脚本<br>丰富一下各个api调用，看看能不能不用抓包的，开箱即用的方法
-    - [ ] 学习英语：每天听力/阅读轮流 1h<br>
+    - [x] 学习英语：每天听力/阅读轮流 1h<br>
     - [ ] 找一个开源项目写中文文档build with bombs?
 
 
@@ -53,13 +53,14 @@ comments: true
     🧑‍🍳 每周尝试一道新的菜（✅完成）
 
 
-!!! inline tip "目前网页bug"
-    - [x] jupyter notebook下 数学公式渲染错误
-    - [ ] jupyter notebook下不同的block标题会从0开始记录
-    - [x] 公式在不翻墙的情况下加载太慢
-    - [ ] 插入pdf的时候，在vscode当中会跳下载页面
-    - [ ] 表情emoji出错
-    - [ ] 图床配置出错
+## 目前网页bug
+- [x] jupyter notebook下 数学公式渲染错误
+- [ ] jupyter notebook下不同的block标题会从0开始记录
+- [x] 公式在不翻墙的情况下加载太慢
+- [ ] 插入pdf的时候，在vscode当中会跳下载页面
+- [x] 表情emoji出错
+- [x] 图床配置出错
+- [ ] safari 网页渲染有误
 
 ## enhancement
 
