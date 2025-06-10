@@ -760,9 +760,27 @@
       例题
     </span>
 </a>
-</li>
+<nav aria-label="例题" class="md-nav">
+<ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_18">
+<span class="md-ellipsis">
+      求解宽平稳、各态历经性、谱密度
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_19">
+<span class="md-ellipsis">
+      各态历经定理和推论
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_20">
 <span class="md-ellipsis">
       习题
     </span>
@@ -848,7 +866,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="06-review.html">
 <span class="md-ellipsis">
-    00 | 随机过程复习
+    06 | 随机过程复习
   </span>
 </a>
 </li>
@@ -3515,9 +3533,27 @@
       例题
     </span>
 </a>
-</li>
+<nav aria-label="例题" class="md-nav">
+<ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_18">
+<span class="md-ellipsis">
+      求解宽平稳、各态历经性、谱密度
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_19">
+<span class="md-ellipsis">
+      各态历经定理和推论
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_20">
 <span class="md-ellipsis">
       习题
     </span>
@@ -3606,10 +3642,15 @@
 <article class="md-content__inner md-typeset">
 <div><h1 id="05"><span>05 |<span class="heti-spacing"> </span></span>平稳过程<a class="headerlink" href="#05" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>2967<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 17H7V3h14m0-2H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2M3 5H1v16a2 2 0 0 0 2 2h16v-2H3m12.96-10.71-2.75 3.54-1.96-2.36L8.5 15h11l-3.54-4.71Z"></path></svg></span> <span>5<span class="heti-spacing"> </span></span>张图片 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>12<span class="heti-spacing"> </span></span>分钟</p>
+<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>3898<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 17H7V3h14m0-2H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2M3 5H1v16a2 2 0 0 0 2 2h16v-2H3m12.96-10.71-2.75 3.54-1.96-2.36L8.5 15h11l-3.54-4.71Z"></path></svg></span> <span>5<span class="heti-spacing"> </span></span>张图片 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>15<span class="heti-spacing"> </span></span>分钟</p>
 </div>
 <h2 id="cheet-sheet">Cheet Sheet<a class="headerlink" href="#cheet-sheet" title="anchor link to this section for reference">¶</a></h2>
 <p>本章题目比较格式化，大概都是这种流程，背公式就行了，对常用的傅立叶变换对要记忆清楚</p>
+<ol>
+<li>一般都是第一问算<strong>均值和自相关函数</strong>，然后验证是不是宽平稳过程（有独立的就拆开，没有的利用<span class="heti-skip"><span class="heti-spacing"> </span>pdf<span class="heti-spacing"> </span></span>进行积分）</li>
+<li>第二问算<strong>时间均值</strong>和<strong>时间相关函数</strong>，然后验证均值和自相关的各态历经性</li>
+<li>求<strong>谱密度</strong>（与傅立叶变换相联系）</li>
+</ol>
 <p><strong>①</strong> 证明是宽平稳过程
 - <span class="arithmatex">\(E[X(t)]\)</span> 为常数
 - <span class="arithmatex">\(R_X\)</span> 为只和 <span class="arithmatex">\(\tau\)</span> 有关的函数</p>
@@ -3624,6 +3665,9 @@
 <li><span class="arithmatex">\(\langle X(t)X(t+\tau)\rangle\equiv R_X(\tau)\)</span></li>
 </ul>
 <p><strong>④</strong> 功率谱密度：对自相关函数进行傅里叶变换<span class="heti-skip"><span class="heti-spacing"> </span>;<span class="heti-spacing"> </span></span>实、非负、偶函数</p>
+<ul>
+<li>傅立叶变换的性质：时域相乘等于频域卷积</li>
+</ul>
 <table>
 <thead>
 <tr>
@@ -3791,7 +3835,9 @@ R(\tau) = \int_{-\infty}^{+\infty} P_{\xi}(f) e^{j2\pi f\tau} \, \mathrm{d}f
 <div class="arithmatex">\[
 R(\tau) \Leftrightarrow P_{\xi}(f)
 \]</div>
-<p><span>!!! note <span class="arithmatex">\(\omega = 2\pi\cdot f\)</span><span class="heti-spacing"> </span></span>所以积分的时候有变换关系</p>
+<div class="admonition note">
+<p class="admonition-title"><span><span class="arithmatex">\(\omega = 2\pi\cdot f\)</span><span class="heti-spacing"> </span></span>所以积分的时候有变换关系</p>
+</div>
 <p>因为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(S_X\;R_X\)</span><span class="heti-spacing"> </span></span>都是实偶函数，所以<span><span class="heti-spacing"> </span><span class="arithmatex">\(R_X\overset{F}\longleftrightarrow S_X\quad S_X\overset{F}\longleftrightarrow 2\pi R_X\)</span></span></p>
 <h3 id="_13">性质<a class="headerlink" href="#_13" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>实、非负、偶</p>
@@ -3859,9 +3905,11 @@ S = \int_{-\infty}^{+\infty} P_{\xi}(f) \, \mathrm{d}f = \frac{1}{2\pi} \int_{-\
 <img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240620212932.png"/>
 <img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240620212944.png"/>
 <img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240620213012.png"/>
-<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240620213040.png"/>
-- <span class="arithmatex">\(cos(\omega_0 t)\)</span>频谱搬移
-- 门函数的表达 <span class="arithmatex">\(u(t) - u(t-t_0)\)</span></p>
+<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240620213040.png"/></p>
+<ul>
+<li><span><span class="arithmatex">\(cos(\omega_0 t)\)</span><span class="heti-spacing"> </span></span>频谱搬移</li>
+<li>门函数的表达<span><span class="heti-spacing"> </span><span class="arithmatex">\(u(t) - u(t-t_0)\)</span></span></li>
+</ul>
 <h3 id="_16">互谱密度<a class="headerlink" href="#_16" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>设<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(X(t)\)</span><span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(Y(t)\)</span><span class="heti-spacing"> </span></span>是两个平稳相关的随机过程<span><span class="heti-spacing"> </span>,</span></p>
 <p>定义<span><span class="heti-spacing"> </span>: <span class="arithmatex">\(S_{XY}(\omega) = \lim_{T \to +\infty} \frac{1}{2T} E \left\{ F_X(-\omega, T) F_Y(\omega, T) \right\}\)</span></span>
@@ -3873,6 +3921,98 @@ S = \int_{-\infty}^{+\infty} P_{\xi}(f) \, \mathrm{d}f = \frac{1}{2\pi} \int_{-\
 <span class="arithmatex">\(S_{XY}(\omega) = \int_{-\infty}^{+\infty} R_{XY}(\tau) e^{-i\omega\tau} d\tau, \quad R_{XY}(\tau) = \frac{1}{2\pi} \int_{-\infty}^{+\infty} S_{XY}(\omega) e^{i\omega\tau} d\omega;\)</span></li>
 </ol>
 <h2 id="_17">例题<a class="headerlink" href="#_17" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h3 id="_18">求解宽平稳、各态历经性、谱密度<a class="headerlink" href="#_18" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<div class="admonition example">
+<p class="admonition-title">例题</p>
+<p>已知信号过程<span><span class="heti-spacing"> </span><span class="arithmatex">\([X(t);\, t \geq 0]\)</span></span>，满足<span><span class="heti-spacing"> </span><span class="arithmatex">\(P(X(t) = \pm 1) = \frac{1}{2}\)</span></span>，且在区间<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\((t, t+\tau]\)</span><span class="heti-spacing"> </span></span>内取正负号的次数服从参数为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\lambda \tau\)</span><span class="heti-spacing"> </span></span>的泊松分布。另有过程<span><span class="heti-spacing"> </span><span class="arithmatex">\(Y(t) = \cos(t - \theta)\)</span></span>，<span class="arithmatex">\(-\infty &lt; t &lt; +\infty\)</span>，其中<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\theta\)</span><span class="heti-spacing"> </span></span>在区间<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\((0, 2\pi)\)</span><span class="heti-spacing"> </span></span>上服从均匀分布。<span><span class="arithmatex">\(\{X(t);\, t \geq 0\}\)</span><span class="heti-spacing"> </span></span>与<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\{Y(t);\, -\infty &lt; t &lt; +\infty\}\)</span><span class="heti-spacing"> </span></span>相互独立。定义<span><span class="heti-spacing"> </span><span class="arithmatex">\(Z(t) = X(t)Y(t) + 1\)</span></span>，<span class="arithmatex">\(0 \leq t &lt; +\infty\)</span>。请回答下列问题：</p>
+<ol>
+<li>
+<p><span><span class="arithmatex">\(\{X(t);\, t \geq 0\}\)</span><span class="heti-spacing"> </span></span>的均值函数<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\mu_X(t)\)</span><span class="heti-spacing"> </span></span>和自相关函数<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(R_X(t, t+\tau)\)</span><span class="heti-spacing"> </span></span>为
+    - (A) <span class="arithmatex">\(\mu_X(t) = 0\)</span>，<span class="arithmatex">\(R_X(t, t+\tau) = \dfrac{1}{2} e^{-2\lambda \tau}\)</span>
+    - (B) <span class="arithmatex">\(\mu_X(t) = 0\)</span>，<span class="arithmatex">\(R_X(t, t+\tau) = e^{-2\lambda \tau}\)</span>
+    - (C) <span class="arithmatex">\(\mu_X(t) = 0\)</span>，<span class="arithmatex">\(R_X(t, t+\tau) = \dfrac{1}{2} e^{-2\lambda |\tau|}\)</span>
+    - <span style="color:red;font-weight:bold;">(D) <span class="arithmatex">\(\mu_X(t) = 0\)</span>，<span class="arithmatex">\(R_X(t, t+\tau) = e^{-2\lambda |\tau|}\)</span></span></p>
+</li>
+<li>
+<p><span><span class="arithmatex">\(\{X(t);\, t \geq 0\}\)</span><span class="heti-spacing"> </span></span>的谱密度函数<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(S_X(\omega)\)</span><span class="heti-spacing"> </span></span>为
+    - (A) <span class="arithmatex">\(\dfrac{2\lambda}{\lambda^2 + \omega^2}\)</span>
+    - (B) <span class="arithmatex">\(\dfrac{4\lambda}{2\lambda^2 + \omega^2}\)</span>
+    - (C) <span class="arithmatex">\(\dfrac{2\lambda}{4\lambda^2 + \omega^2}\)</span>
+    - <span style="color:red;font-weight:bold;">(D) <span class="arithmatex">\(\dfrac{4\lambda}{4\lambda^2 + \omega^2}\)</span></span></p>
+</li>
+<li>
+<p><span><span class="arithmatex">\(\{Y(t);\, -\infty &lt; t &lt; +\infty\}\)</span><span class="heti-spacing"> </span></span>的时间均值<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\langle Y(t) \rangle\)</span><span class="heti-spacing"> </span></span>为
+    - <span style="color:red;font-weight:bold;">(A) <span class="arithmatex">\(0\)</span></span>
+    - (B) <span class="arithmatex">\(\cos t\)</span>
+    - (C) <span class="arithmatex">\(\sin(t - \theta)\)</span>
+    - (D) <span class="arithmatex">\(\cos(t - \theta)\)</span></p>
+</li>
+<li>
+<p><span><span class="arithmatex">\(\{Y(t);\, -\infty &lt; t &lt; +\infty\}\)</span><span class="heti-spacing"> </span></span>的时间相关函数<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\langle Y(t) Y(t+\tau) \rangle\)</span><span class="heti-spacing"> </span></span>为
+    - (A) <span class="arithmatex">\(0\)</span>
+    - (B) <span class="arithmatex">\(\cos 2\tau\)</span>
+    - (C) <span class="arithmatex">\(\cos \tau\)</span>
+    - <span style="color:red;font-weight:bold;">(D) <span class="arithmatex">\(\dfrac{1}{2} \cos \tau\)</span></span></p>
+</li>
+<li>
+<p><span><span class="arithmatex">\(\{Y(t);\, -\infty &lt; t &lt; +\infty\}\)</span><span class="heti-spacing"> </span></span>的各态历经性为
+    - (A) 均值、自相关函数都不具有各态历经性
+    - (B) 均值具有各态历经性，但自相关函数不具有各态历经性
+    - (C) 自相关函数具有各态历经性，但均值不具有各态历经性
+    - <span style="color:red;font-weight:bold;">(D) 均值、自相关函数都具有各态历经性</span></p>
+</li>
+<li>
+<p>下列等式中正确的是
+    - (A) <span class="arithmatex">\(\mu_Z(t) = \mu_X(t)\mu_Y(t)\)</span>
+    - (B) <span class="arithmatex">\(R_Z(t, t+\tau) = R_X(t, t+\tau) + R_Y(t, t+\tau)\)</span>
+    - <span style="color:red;font-weight:bold;">(D) <span class="arithmatex">\(R_Z(t, t+\tau) = R_X(t, t+\tau) R_Y(t, t+\tau) + 1\)</span></span>
+    - (C) <span class="arithmatex">\(\mu_Z(t) = \mu_X(t) + \mu_Y(t) + 1\)</span></p>
+</li>
+<li>
+<p>关于<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\{Z(t);\, t \geq 0\}\)</span><span class="heti-spacing"> </span></span>的叙述错误的是
+    - (A) <span class="arithmatex">\(\{Z(t);\, t \geq 0\}\)</span> 是平稳过程
+    - (B) <span class="arithmatex">\(\{Z(t);\, t \geq 0\}\)</span> 的自相关函数为 <span class="arithmatex">\(\dfrac{1}{2} e^{-2\lambda|\tau|} \cos\tau + 1\)</span>
+    - <span style="color:red;font-weight:bold;">(C) <span class="arithmatex">\(\{Z(t);\, t \geq 0\}\)</span> 的谱密度函数为 <span class="arithmatex">\(\dfrac{\lambda}{4\lambda^2 + (\omega-1)^2} + \dfrac{\lambda}{4\lambda^2 + (\omega+1)^2} + \pi\delta(\omega)\)</span></span>
+    - (D) <span class="arithmatex">\(\{Z(t);\, t \geq 0\}\)</span> 的均值具有各态历经性$</p>
+</li>
+</ol>
+<hr/>
+<p>答案： <span style="color:red;font-weight:bold;">DDADDDC</span></p>
+<p>其中<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(X(t)\)</span><span class="heti-spacing"> </span></span>题干比较难以理解，但其实作为选择题可以交叉排除做出来。</p>
+<p>顺序是：
+- <span class="arithmatex">\(X(t)\)</span>均值、自相关、谱密度、时间均值、时间自相关
+- <span class="arithmatex">\(Y(t)\)</span>均值、自相关、谱密度、时间均值、时间自相关</p>
+<p>求<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(Z(t)\)</span><span class="heti-spacing"> </span></span>的谱密度的时候，可以使用时域相乘等于频域卷积的性质，但是要注意公式前面的<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\frac{1}{2\pi}\)</span><span class="heti-spacing"> </span></span>不要遗漏</p>
+<hr/>
+<ol>
+<li>
+<p>均值函数<span><span class="heti-spacing"> </span><span class="arithmatex">\(\mu_X(t)\)</span></span>
+由于 <span class="arithmatex">\(X(t)\)</span> 在任一时刻取值为 <span class="arithmatex">\(\pm 1\)</span> 且概率各为 <span class="arithmatex">\(1/2\)</span>，其期望为：
+<span class="arithmatex">\(<span class="arithmatex">\(\mu_X(t) = \mathbb{E}[X(t)] = \frac{1}{2}(1) + \frac{1}{2}(-1) = 0.\)</span>\)
+因此所有选项中均值函数均为 0，符合题设。</p>
+</li>
+<li>
+<p>自相关函数<span><span class="heti-spacing"> </span><span class="arithmatex">\(R_X(t, t+\tau)\)</span></span>
+需计算 <span class="arithmatex">\(\mathbb{E}[X(t)X(t+\tau)]\)</span>。由题意可知：
+- <span class="arithmatex">\(X(t)\)</span> 在区间 <span class="arithmatex">\((t, t+\tau)\)</span> 内的符号翻转次数 <span class="arithmatex">\(N(\tau)\)</span> 服从参数为 <span class="arithmatex">\(\lambda\tau\)</span> 的泊松分布。
+- <span class="arithmatex">\(X(t+\tau)\)</span> 的符号取决于 <span class="arithmatex">\(N(\tau)\)</span> 的奇偶性：若 <span class="arithmatex">\(N(\tau)\)</span> 为偶数（含 0 次），则 <span class="arithmatex">\(X(t+\tau) = X(t)\)</span>；若为奇数，则 <span class="arithmatex">\(X(t+\tau) = -X(t)\)</span>。
+因此：
+$$
+X(t+tau) = X(t) cdot (-1)^{N(tau)},
+$$
+代入自相关函数得：</p>
+</li>
+</ol>
+<div class="arithmatex">\[
+\begin{align*}
+R_X(\tau) &amp;= \mathbb{E}[X(t)X(t+\tau)] = P(N(\tau) \text{取偶数})\cdot 1 + P(N(\tau) \text{取奇数}) \cdot (-1)\\
+&amp;= \sum_{k=0}^{\infty} \frac{(\lambda\tau)^k}{k!} e^{-\lambda\tau} (\text{偶数}) - \sum_{k=0}^{\infty} \frac{(\lambda\tau)^k}{k!} e^{-\lambda\tau}\text{奇数}) \\
+&amp;= \sum_{k=0}^{\infty} \frac{(-\lambda\tau)^k}{k!} e^{-\lambda\tau} \quad \text{把-1乘进去}\\
+&amp;= e^{-\lambda\tau} \cdot e^{-\lambda\tau} \quad \text{级数的性质}\\
+&amp;= e^{-2\lambda|\tau|}
+\end{align*}
+\]</div>
+</div>
 <div class="admonition example">
 <p class="admonition-title">设<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\{X(t);-\infty&lt;t&lt;\infty \}\)</span><span class="heti-spacing"> </span></span>是宽平稳过程，<span class="arithmatex">\(X(t)=Acos(t+2\pi B)\)</span> ，<span><span class="arithmatex">\(A,B\)</span><span class="heti-spacing"> </span></span>独立且服从<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\((0,1)\)</span><span class="heti-spacing"> </span></span>上的均匀分布</p>
 <div class="arithmatex">\[
@@ -4133,7 +4273,30 @@ R_X(t, t+\tau) = \frac{\cos\tau}{6}
 </li>
 </ul>
 </div>
-<h2 id="_18">习题<a class="headerlink" href="#_18" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h3 id="_19">各态历经定理和推论<a class="headerlink" href="#_19" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<div class="admonition example">
+<p class="admonition-title">例题</p>
+<p>已知谱密度函数<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(S_X(\omega) = \frac{\omega^2+5}{\omega^4+10\omega^2+9}\)</span>,<span class="heti-spacing"> </span></span>则自相关函数<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(R_X(\tau) = \underline{\quad\quad}\)</span>,<span class="heti-spacing"> </span></span>均值<span><span class="heti-spacing"> </span><span class="arithmatex">\(\mu_X = \underline{\quad\quad}\)</span></span></p>
+<p><strong>解析</strong></p>
+<p>记住变换对： <span><span class="arithmatex">\(e^{-a\mid\tau\mid}\)</span><span class="heti-spacing"> </span></span>与<span><span class="heti-spacing"> </span><span class="arithmatex">\(\frac{2a}{a^2+\omega^2}\)</span></span> </p>
+<p>先进行因式分解</p>
+<div class="arithmatex">\[
+\begin{aligned}
+S_X(\omega) &amp;= \frac{\omega^2+5}{\omega^4+10\omega^2+9} \\
+&amp;= \frac{\omega^2+5}{(\omega^2+1)(\omega^2+9)} \\
+&amp;= \frac{1/2}{\omega^2+1} + \frac{1/2}{\omega^2+9}
+\end{aligned}
+\]</div>
+<p>再进行傅立叶反变换</p>
+<div class="arithmatex">\[
+\begin{align*}
+R(\tau) = &amp;\mathcal{F}^{-1} (\frac{1/2}{\omega^2+1} + \frac{1/2}{\omega^2+9}) \\
+&amp;= \frac14 e^{-|\tau|}+\frac1{12}e^{-3|\tau|} 
+\end{align*}
+\]</div>
+<p>根据各态历经定理：在<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\underset{\tau\rightarrow+\infty}\lim R_X(\tau)\)</span><span class="heti-spacing"> </span></span>存在的条件下，<span class="arithmatex">\(\underset{\tau\rightarrow+\infty}\lim R_X(\tau)=\mu_X^2\)</span>，所以<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\underset{\tau\rightarrow+\infty}\lim R_X(\tau) = 0\)</span>,<span class="heti-spacing"> </span></span>所以均值为<span><span class="heti-spacing"> </span>0</span></p>
+</div>
+<h2 id="_20">习题<a class="headerlink" href="#_20" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <div class="admonition note">
 <p class="admonition-title">各个题目为自己做的答案，欢迎提交<span class="heti-skip"><span class="heti-spacing"> </span>issue<span class="heti-spacing"> </span></span>或者<span class="heti-skip"><span class="heti-spacing"> </span>PR<span class="heti-spacing"> </span></span>纠错</p>
 </div>
@@ -4473,7 +4636,7 @@ S_Y(\omega) &amp;= S_X(\omega)(2 - (e^{j\omega L} + e^{-j\omega L}))\\
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年6月9日 23:45:18</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年6月10日 20:28:10</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">
@@ -4540,13 +4703,13 @@ S_Y(\omega) &amp;= S_X(\omega)(2 - (e^{j\omega L} + e^{-j\omega L}))\\
               </div>
 </div>
 </a>
-<a aria-label="下一页: 00 | 随机过程复习" class="md-footer__link md-footer__link--next" href="06-review.html">
+<a aria-label="下一页: 06 | 随机过程复习" class="md-footer__link md-footer__link--next" href="06-review.html">
 <div class="md-footer__title">
 <span class="md-footer__direction">
                 下一页
               </span>
 <div class="md-ellipsis">
-                00 | 随机过程复习
+                06 | 随机过程复习
               </div>
 </div>
 <div class="md-footer__button md-icon">
