@@ -3,6 +3,11 @@
 ## Cheet Sheet
 本章题目比较格式化，大概都是这种流程，背公式就行了，对常用的傅立叶变换对要记忆清楚
 
+1. 一般都是第一问算**均值和自相关函数**，然后验证是不是宽平稳过程（有独立的就拆开，没有的利用pdf进行积分）
+2. 第二问算**时间均值**和**时间相关函数**，然后验证均值和自相关的各态历经性
+3. 求**谱密度**（与傅立叶变换相联系）
+
+
 
 **①** 证明是宽平稳过程
 - $E[X(t)]$ 为常数
@@ -21,6 +26,7 @@
 
 **④** 功率谱密度：对自相关函数进行傅里叶变换;实、非负、偶函数
 
+- 傅立叶变换的性质：时域相乘等于频域卷积
 
 | 时域 | 频域 |
 |------|------|
@@ -204,7 +210,7 @@ $$
 
 
 
-!!! note $\omega = 2\pi\cdot f$ 所以积分的时候有变换关系
+!!! note "$\omega = 2\pi\cdot f$ 所以积分的时候有变换关系"
 
 
 
@@ -259,6 +265,7 @@ $$
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240620212944.png)
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240620213012.png)
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240620213040.png)
+
 - $cos(\omega_0 t)$频谱搬移
 - 门函数的表达 $u(t) - u(t-t_0)$
 
@@ -276,6 +283,91 @@ $S_{XY}(\omega) = \int_{-\infty}^{+\infty} R_{XY}(\tau) e^{-i\omega\tau} d\tau, 
 
 
 ## 例题
+
+### 求解宽平稳、各态历经性、谱密度
+
+!!! example "例题"
+	已知信号过程 $[X(t);\, t \geq 0]$，满足 $P(X(t) = \pm 1) = \frac{1}{2}$，且在区间 $(t, t+\tau]$ 内取正负号的次数服从参数为 $\lambda \tau$ 的泊松分布。另有过程 $Y(t) = \cos(t - \theta)$，$-\infty < t < +\infty$，其中 $\theta$ 在区间 $(0, 2\pi)$ 上服从均匀分布。$\{X(t);\, t \geq 0\}$ 与 $\{Y(t);\, -\infty < t < +\infty\}$ 相互独立。定义 $Z(t) = X(t)Y(t) + 1$，$0 \leq t < +\infty$。请回答下列问题：
+
+	1. $\{X(t);\, t \geq 0\}$ 的均值函数 $\mu_X(t)$ 和自相关函数 $R_X(t, t+\tau)$ 为
+      	- (A) $\mu_X(t) = 0$，$R_X(t, t+\tau) = \dfrac{1}{2} e^{-2\lambda \tau}$
+      	- (B) $\mu_X(t) = 0$，$R_X(t, t+\tau) = e^{-2\lambda \tau}$
+      	- (C) $\mu_X(t) = 0$，$R_X(t, t+\tau) = \dfrac{1}{2} e^{-2\lambda |\tau|}$
+      	- <span style="color:red;font-weight:bold;">(D) $\mu_X(t) = 0$，$R_X(t, t+\tau) = e^{-2\lambda |\tau|}$</span>
+
+	2. $\{X(t);\, t \geq 0\}$ 的谱密度函数 $S_X(\omega)$ 为
+      	- (A) $\dfrac{2\lambda}{\lambda^2 + \omega^2}$
+      	- (B) $\dfrac{4\lambda}{2\lambda^2 + \omega^2}$
+      	- (C) $\dfrac{2\lambda}{4\lambda^2 + \omega^2}$
+      	- <span style="color:red;font-weight:bold;">(D) $\dfrac{4\lambda}{4\lambda^2 + \omega^2}$</span>
+
+	3. $\{Y(t);\, -\infty < t < +\infty\}$ 的时间均值 $\langle Y(t) \rangle$ 为
+      	- <span style="color:red;font-weight:bold;">(A) $0$</span>
+      	- (B) $\cos t$
+      	- (C) $\sin(t - \theta)$
+      	- (D) $\cos(t - \theta)$
+
+	4. $\{Y(t);\, -\infty < t < +\infty\}$ 的时间相关函数 $\langle Y(t) Y(t+\tau) \rangle$ 为
+      	- (A) $0$
+      	- (B) $\cos 2\tau$
+      	- (C) $\cos \tau$
+      	- <span style="color:red;font-weight:bold;">(D) $\dfrac{1}{2} \cos \tau$</span>
+
+	5. $\{Y(t);\, -\infty < t < +\infty\}$ 的各态历经性为
+      	- (A) 均值、自相关函数都不具有各态历经性
+      	- (B) 均值具有各态历经性，但自相关函数不具有各态历经性
+      	- (C) 自相关函数具有各态历经性，但均值不具有各态历经性
+      	- <span style="color:red;font-weight:bold;">(D) 均值、自相关函数都具有各态历经性</span>
+
+	6. 下列等式中正确的是
+      	- (A) $\mu_Z(t) = \mu_X(t)\mu_Y(t)$
+      	- (B) $R_Z(t, t+\tau) = R_X(t, t+\tau) + R_Y(t, t+\tau)$
+      	- <span style="color:red;font-weight:bold;">(D) $R_Z(t, t+\tau) = R_X(t, t+\tau) R_Y(t, t+\tau) + 1$</span>
+      	- (C) $\mu_Z(t) = \mu_X(t) + \mu_Y(t) + 1$
+
+	7. 关于 $\{Z(t);\, t \geq 0\}$ 的叙述错误的是
+      	- (A) $\{Z(t);\, t \geq 0\}$ 是平稳过程
+      	- (B) $\{Z(t);\, t \geq 0\}$ 的自相关函数为 $\dfrac{1}{2} e^{-2\lambda|\tau|} \cos\tau + 1$
+      	- <span style="color:red;font-weight:bold;">(C) $\{Z(t);\, t \geq 0\}$ 的谱密度函数为 $\dfrac{\lambda}{4\lambda^2 + (\omega-1)^2} + \dfrac{\lambda}{4\lambda^2 + (\omega+1)^2} + \pi\delta(\omega)$</span>
+      	- (D) $\{Z(t);\, t \geq 0\}$ 的均值具有各态历经性$
+	---
+
+	答案： <span style="color:red;font-weight:bold;">DDADDDC</span>
+
+	其中$X(t)$题干比较难以理解，但其实作为选择题可以交叉排除做出来。
+
+	顺序是：
+	- $X(t)$均值、自相关、谱密度、时间均值、时间自相关
+	- $Y(t)$均值、自相关、谱密度、时间均值、时间自相关
+
+	求$Z(t)$的谱密度的时候，可以使用时域相乘等于频域卷积的性质，但是要注意公式前面的$\frac{1}{2\pi}$不要遗漏
+
+	---
+	1. 均值函数 $\mu_X(t)$
+	由于 $X(t)$ 在任一时刻取值为 $\pm 1$ 且概率各为 $1/2$，其期望为：
+	$$\mu_X(t) = \mathbb{E}[X(t)] = \frac{1}{2}(1) + \frac{1}{2}(-1) = 0.$$
+	因此所有选项中均值函数均为 0，符合题设。
+
+	2. 自相关函数 $R_X(t, t+\tau)$
+	需计算 $\mathbb{E}[X(t)X(t+\tau)]$。由题意可知：
+	- $X(t)$ 在区间 $(t, t+\tau)$ 内的符号翻转次数 $N(\tau)$ 服从参数为 $\lambda\tau$ 的泊松分布。
+	- $X(t+\tau)$ 的符号取决于 $N(\tau)$ 的奇偶性：若 $N(\tau)$ 为偶数（含 0 次），则 $X(t+\tau) = X(t)$；若为奇数，则 $X(t+\tau) = -X(t)$。
+	因此：
+	$$
+	X(t+\tau) = X(t) \cdot (-1)^{N(\tau)},
+	$$
+	代入自相关函数得：
+
+	$$
+	\begin{align*}
+	R_X(\tau) &= \mathbb{E}[X(t)X(t+\tau)] = P(N(\tau) \text{取偶数})\cdot 1 + P(N(\tau) \text{取奇数}) \cdot (-1)\\
+	&= \sum_{k=0}^{\infty} \frac{(\lambda\tau)^k}{k!} e^{-\lambda\tau} (\text{偶数}) - \sum_{k=0}^{\infty} \frac{(\lambda\tau)^k}{k!} e^{-\lambda\tau}\text{奇数}) \\
+	&= \sum_{k=0}^{\infty} \frac{(-\lambda\tau)^k}{k!} e^{-\lambda\tau} \quad \text{把-1乘进去}\\
+	&= e^{-\lambda\tau} \cdot e^{-\lambda\tau} \quad \text{级数的性质}\\
+	&= e^{-2\lambda|\tau|}
+	\end{align*}
+	$$
+
 
 !!! example "设 $\{X(t);-\infty<t<\infty \}$ 是宽平稳过程，$X(t)=Acos(t+2\pi B)$ ，$A,B$ 独立且服从 $(0,1)$ 上的均匀分布"
 
@@ -622,7 +714,38 @@ $S_{XY}(\omega) = \int_{-\infty}^{+\infty} R_{XY}(\tau) e^{-i\omega\tau} d\tau, 
 
 		而$P(\langle X(t)X(t+\tau) \rangle = R_X(\tau)) = P\left(\frac{A^2\cos\tau}{2} = \frac{\cos\tau}{6}\right) \neq 1$，所以相关函数不具各态历经性，$\{X(t)\}$ 不是各态历经过程。
 
+### 各态历经定理和推论
 
+!!! example "例题"
+	已知谱密度函数 $S_X(\omega) = \frac{\omega^2+5}{\omega^4+10\omega^2+9}$, 则自相关函数 $R_X(\tau) = \underline{\quad\quad}$, 均值 $\mu_X = \underline{\quad\quad}$
+
+	**解析**
+
+	记住变换对： $e^{-a\mid\tau\mid}$ 与 $\frac{2a}{a^2+\omega^2}$ 
+
+	先进行因式分解
+
+	$$
+	\begin{aligned}
+	S_X(\omega) &= \frac{\omega^2+5}{\omega^4+10\omega^2+9} \\
+	&= \frac{\omega^2+5}{(\omega^2+1)(\omega^2+9)} \\
+	&= \frac{1/2}{\omega^2+1} + \frac{1/2}{\omega^2+9}
+	\end{aligned}
+	$$
+
+	再进行傅立叶反变换
+
+	$$
+	\begin{align*}
+	R(\tau) = &\mathcal{F}^{-1} (\frac{1/2}{\omega^2+1} + \frac{1/2}{\omega^2+9}) \\
+	&= \frac14 e^{-|\tau|}+\frac1{12}e^{-3|\tau|} 
+	\end{align*}
+	$$
+	
+
+	根据各态历经定理：在 $\underset{\tau\rightarrow+\infty}\lim R_X(\tau)$ 存在的条件下，$\underset{\tau\rightarrow+\infty}\lim R_X(\tau)=\mu_X^2$，所以$\underset{\tau\rightarrow+\infty}\lim R_X(\tau) = 0$,所以均值为0
+
+    
 
 ## 习题
 

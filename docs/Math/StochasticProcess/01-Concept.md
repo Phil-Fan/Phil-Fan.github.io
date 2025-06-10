@@ -1,14 +1,9 @@
 # 01 | 基本概念
 
-
-
-
 ## 基本定义
 
-<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=975933966&bvid=BV1644y1t7pB&cid=550373188&p=2&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=60% height=400px></iframe>
-
-
-
+??? note "参考视频"
+    <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=975933966&bvid=BV1644y1t7pB&cid=550373188&p=2&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=100% height=500px></iframe>
 
 ### 随机过程
 
@@ -28,20 +23,7 @@ $X(t)$ ，为 $t$ 的函数。（所有随机变量取到可能出现的值）
 - 状态空间：所有状态取值构成的集合。
 
 
-## 分布函数
 
-随机过程的分布函数
-
-- 一维分布函数
-
-$$
-F(t,x) = P\{X(t) < x\}
-$$
-
-- 二维分布函数
-
-$$
-F(s,t; x,y) = P\{X(s) < x, X(t) < y\}$$
 
 ## 数字特征
 
@@ -111,6 +93,27 @@ $\{X(t),t\in T\}$是一随机过程，对任意整数$n\geq1$及
 ### 求数字特征
 
 !!! note "需要搞清楚谁是随机变量"
+
+
+!!! note "例题"
+    3.下列式子中的各记号同教材或课件，则等式成立的是()
+    
+    $$
+    \begin{aligned}&(A)C_{XY}(s,t)=C_{YX}(s,t)\\
+    &(B)D_{X}(t)=C_{X}(t,t)\\
+    &(C)\mu_{X}(s)+\mu_{X}(t)=\mu_{X}(s+t)\\
+    &(D)R_{X}(s,t)=\mu_{X}(s)\mu_{X}(t)\end{aligned}
+    $$
+
+    ---
+    那为什么有时候说 $C_{XY}(s, t) \neq C_{YX}(s, t)$？
+
+    这是因为在**随机过程**中，$C_{XY}(s, t)$ 的两个维度含义不同：
+
+    * $C_{XY}(s, t) = \mathrm{Cov}(X(s), Y(t))$
+    * $C_{YX}(s, t) = \mathrm{Cov}(Y(s), X(t))$
+
+    你可以看到这两个表达式不是简单地交换了变量，而是**交换了变量和时间索引的位置**。
 
 !!! example "设随机过程 $X(t)=At+B$ ，其中 $A$、$B$ 独立同分布，$P(A=1)=0.6$ ，$P(A=-1)=0.4$ 。"
 
@@ -270,13 +273,13 @@ $\{X(t),t\in T\}$是一随机过程，对任意整数$n\geq1$及
 
     答案：
 
-    1. 自相关函数：
+    3. 自相关函数：
 
     $$
     R_X(s,t) = 3\cos s \cos t + 2\sin s \sin t
     $$
 
-    2. 分布：
+    4. 分布：
 
     $$
     X\left(\dfrac{3\pi}{4}\right) \sim N\left(-\dfrac{\sqrt{2}}{2},\ 2\right)

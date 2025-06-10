@@ -38,6 +38,8 @@ ikr = I know Right
 
 ## Terms
 
+
+take a leap of faith
 let's face it
 i mean it
 

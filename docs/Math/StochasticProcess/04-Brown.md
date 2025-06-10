@@ -2,24 +2,44 @@
 
 ## Cheet Sheet
 
+**数字特征**：
 
-1. 方差、协方差的解法
-2. 写成增量的形式，增量之间互相独立，就不需要考虑协方差的问题了
-
-数字特征：
 * $\forall\;0\leq s<t\quad X(t)-X(s)\sim N(0,\sigma^2(t-s))$
+  * 正态分布的pdf，在求特殊分布的时候有用
+
+      $$
+      f(x) = \frac{1}{\sqrt{2\pi \sigma^2}} \exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\right)
+      $$
 * 均值函数：$\mu_B(t)=0$
 * 方差函数：$D_B(t)=t$
+  * $Var(A\pm B) = Cov(A\pm B,A\pm B) = Var(A) + Var(B) \pm 2Cov(A,B)$
 * 自协方差函数：$C_B(t,s) =min(t,s)\qquad t,s>0$
 
-性质：
+**性质**：
+
+* 写成增量的形式，增量之间互相独立
+
+* $B(t+\tau)-B(\tau)$也是标准布朗
 * 自相似性：$\forall\;a\neq0\quad$	{ $\frac1aB(a^2t);t\geq 0$ } 是标准布朗运动。
 * $0-\infty$对称性：$\overset{\sim}B(t)=\begin{cases}tB(\frac 1t)\quad t>0\\[2ex]0\qquad\quad t=0\end{cases}$ 	则 { $\overset{\sim}B(t);t\geq0$ } 是标准布朗运动。
 
-特殊分布：
+> 当遇到条件比现在大的情况 如$P(B(1)>1|B(2)=2)$
+> 一般都考虑使用相似或者对称性质进行求解，而不是使用贝叶斯
+
+
+**特殊分布**：
 
 * 首次击中时间：$P\left(\max_{s\leq t}B(s)\geq a\right) = P(T_a \leq t) = 2P(B(t)\geq a),\quad a > 0$
 
+
+**布朗桥**
+
+$X(t)=B(t)-tB(1)\quad 0\leq t \leq 1$
+
+- $X(0)=X(1)=0$	（桥的形状）
+- 均值：$\mu_X(t)=0$
+- 协方差：$C_X(s, t) = s(1 - t),\quad 0 < s < t < 1$
+    
 
 ## 定义
 
@@ -430,23 +450,16 @@ $X(t)=B(t)-tB(1)\quad 0\leq t \leq 1$
 
     ---
 
-    $A \sim N(1,1)$，独立于 $B(t)$，$X(t) = B(t) + At$。
-    - $X(1) = B(1) + A \sim N(0,1)+N(1,1)=N(1,2)$
-    - $X(2) = B(2) + 2A \sim N(0,2)+N(2,4)=N(2,6)$
     - $X(1) + X(2) = B(1) + B(2) + 3A$
-    - $\mu_{X(1) + X(2)} = \mu_{B(1) + B(2)} + 3\mu_A = 0 + 3 = 3$
-
+    
     $$
     \begin{align*}
-    \text{Var}(X(1) + X(2)) &= \text{Var}X(1) + \text{Var}X(2) + 2\text{Cov}(X(1),X(2)) \\
-    &= 2 + 6 + 2\text{Cov}(B(1)+A,B(2)+2A) \\
-    &= 2 + 6 + 2\text{Cov}(B(1),B(2)) + 2\text{Cov}(A,A)\\
-    &= 2 + 6 + 2\min\{1,2\} + 2\\
-    &= 12
+    \mu &= \mu_{B(1)} + \mu_{B(2)} + 3\mu_A = 0 + 3 = 3\\
+    Var(B(1)+B(2)+3A) &= Var(B(1)) + Var(B(2))+Var(3A) + 2Cov(B(1),B(2))+2Cov(B(1),3A)+2Cov(B(2),3A)\\
+    &= 1+2 + 9 + 2 \min\{1,2\} + 0 + 0 (\text{独立})\\
+    &=14
     \end{align*}
     $$
-
-    这里貌似算错了
 
     
     ---
@@ -542,12 +555,378 @@ $X(t)=B(t)-tB(1)\quad 0\leq t \leq 1$
 
     所以$B(0.5)=0.5\bar{B}(2)\sim N(0.5,0.25)$.
 
+!!! example "例题"
+    3. $\{cB(t/4);\, t\geq0\}$ 仍是标准布朗运动的充要条件是 $c=$ ( )
+    
+    (A) $\pm\frac{1}{2}$  (B) $\pm\frac{1}{4}$  (C) $\pm2$  (D) $\pm4$
+
+    ---
+
+    **答案：C**
+
+    **解析：**
+
+    利用布朗运动的自相似性：$\forall\, a>0,\ \left\{\frac{1}{a}B(a^2 t);\, t\geq0\right\}$ 仍是标准布朗运动。
+
+    题中 $t \mapsto t/4$，即 $a^2 t = t/4 \implies a = 1/2$，所以
+
+    $$
+    \left\{\frac{1}{a}B(a^2 t)\right\} = \left\{2B(t/4)\right\}
+    $$
+
+    仍是标准布朗运动。
+
+    因此 $c = \pm 2$，选 C。
+    
+条件分布的问题，使用markov性质进行构造，注意这里会有自相似和对称性质的应用，均值会改变
 
 
+
+!!! example "6. 在 $B(1)=1$ 的条件下，$B(2)$ 的条件分布函数 $F_{B(2)|B(1)}(x|1)$ 为 ( )"
+
+    (A) $\Phi(x)$  (B) $\Phi(x-1)$  (C) $\Phi(x+1)$  (D) $\Phi\left(\frac{x-1}{2}\right)$
+
+    **解析：**  
+    $B(2)|B(1)= B(2) - B(1)+B(1) = 1 + N(0,1) \sim N (1,1)$，所以分布函数为 $\Phi\left(\frac{x-1}{1}\right)$，即选 (B)。
+
+
+!!! example "7. 在 $B(2)=2$ 的条件下，$B(1)$ 的条件密度函数 $f_{B(1)|B(2)}(x|2)$ 为 ( )"
+
+    (A) $\sqrt{2}\varphi\left(\frac{x-1}{0.5}\right)$  
+    (B) $\sqrt{2}\varphi\left(\frac{x-1}{\sqrt{0.5}}\right)$  
+    (C) $\varphi\left(\frac{x-1}{0.5}\right)$  
+    (D) $\varphi\left(\frac{x-1}{\sqrt{0.5}}\right)$
+
+    **解析：**  
+    
+    先应用$0 \sim \infty$对称性,令$B(t) = t\widetilde{B}(\frac{1}{t})$（注意这种写法，比较重要）
+
+    所以可以得到条件分布函数为
+
+    $$
+    \begin{align*}
+    F_{B(1)|B(2)}(x|2) &= P\{B(1)\leq x|B(2)=2\} \\
+    &= P\{\widetilde{B}(1)\leq x | \widetilde{B}(\frac12)=1\} \\
+    &= P\{\widetilde{B}(1) - \widetilde{B}(\frac12)\leq x -1\} \\
+    &= \Phi\left(\frac{x-1}{\sqrt{0.5}}\right)
+    \end{align*}
+    $$
+
+    但是需要注意的是，这里求得是pdf，所以需要对分布函数$F_{B(1)|B(2)}(x|2)$求导
+
+    $$
+    f_{B(1)|B(2)}(x|2) = \frac{d}{dx}F_{B(1)|B(2)}(x|2) = \frac{1}{\sqrt{0.5}} \varphi\left(\frac{x-1}{\sqrt{0.5}}\right) = \sqrt{2}\varphi\left(\frac{x-1}{\sqrt{0.5}}\right)
+    $$
+
+    所以选 (B)。
 
 ### 首次击中时
 
 脑子里回想正态分布pdf的图像
+
+!!! example "击中时 + 绝对值"
+    $P\left\{|\min_{1\leq t\leq 2} B(t)| \geq 2 \mid B(1)=0\right\} = $ ( )
+
+    (A) 0.02  (B) 0.04  (C) 0.96  (D) 0.98
+
+    **解析：**  
+
+    $\Phi(0.5) = 0.69,\Phi(1)=0.84,\Phi(2)=0.98,\Phi(2.5)=0.99$
+
+    $$
+    \begin{align*}
+    P\left\{|\min_{1\leq t\leq 2} B(t) |\geq 2 \mid B(1)=0\right\} 
+    &=P\left\{-\min_{1\leq t\leq 2} B(t) - B(1) \ge 2 \right\} \quad \text{脱去绝对值}\\
+    &= P \left\{ -\min_{0\leq t\leq 1} B(t)\ge 2 \right\}= P \left\{ \min_{0\leq t\leq 1} B(t)\le -2 \right\} \quad \text{反射原理}\\
+    &= P \left\{ \max_{0\leq t\leq 1} B(t)\ge 2 \right\} \\
+    &= 2\cdot P \left\{ B(1)\ge 2 \right\} \\
+    &=2(1-\Phi(2)) = 0.04
+    \end{align*}
+    $$
+
+    所以选B
+
+### 布朗桥
+
+!!! question "例题"
+    已知 $B(t)$ 是一个标准布朗运动，请回答以下问题：
+
+    (1) $2B(1)-B(2)$ 符合什么分布？
+
+    (2) 证明 $(t+1)B\left(\frac{1}{t+1}\right)-B(1)$ 也是标准布朗运动。
+
+    (3) 求 $P\{B(1)>1|B(2)=2,B(114)=514\}$。
+
+    (4) 求 $P\{\min_{1\leq s\leq2}B(t)\leq-2|B(1)=-1\}$。
+
+    (5) 设 $X(t)=\{B(t),0<t<1|B(1)=0\}$，计算 $D_X(t)$。
+
+    ---
+
+    **答案：**
+
+    (1) $N(0,2)$
+
+    **解析：**
+    $2B(1) \sim N(0,4)$，$B(2) \sim N(0,2)$，且 $\operatorname{Cov}(2B(1),B(2)) = 2\operatorname{Cov}(B(1),B(2)) = 2$。
+    
+    因此 $\operatorname{Var}(2B(1)-B(2)) = 4 + 2 - 2 \times 2 = 2$，所以 $2B(1)-B(2) \sim N(0,2)$。
+
+    (2) 书上两个定理结合下
+
+    **解析：**
+    利用布朗运动的自相似性和时间反转性质：
+    - 自相似性：$\{aB(t/a^2); t \geq 0\}$ 是标准布朗运动
+    - 时间反转：$\{tB(1/t); t > 0\}$ 是标准布朗运动
+    
+
+    (3) $\frac{1}{2}$
+    **解析：**
+    
+    $$
+    P\{B(1)>1|B(2)=2,B(114)=514\} = P\{B(1)>1|2B(\frac12)=2,114B(\frac1{114})=514\}\\
+    = P\{B(1)>1|B(\frac12)=1\}
+    $$
+
+    在$B(\frac12)=1$的条件下，$B(1)$服从
+
+    $$
+    \begin{align*}
+    B(1) &= B(1) - B(\frac12) + B(\frac12)\\
+    &= N(0,\frac12) + 1\\
+    &= N(1,\frac12)
+    \end{align*}
+    $$
+
+    所以$P(B(1)>1| B(\frac12)=1) = 0.5$
+
+    (4) $0.32$
+
+    **解析：**
+
+    由反射原理
+
+    $$
+    \begin{align*}
+    P\{\min_{1\leq t\leq2}B(t)\leq-2|B(1)=-1\} &= P\{\max_{1\leq t\leq2}B(t)-B(1)\geq 1\} \\
+    &= P\{max_{0\leq t\leq1}B(t)\geq 1\} \\
+    &= 2[P\{B(1)\geq 1\}] \\
+    &= 2[1-\Phi(1)] \\
+    &= 2[1-0.84]= 0.32
+    \end{align*}
+    $$
+
+
+
+    (5) $t(1-t)$
+
+    **解析：**
+    布朗桥过程 $X(t)$ 的方差为 $D_X(t) = t(1-t)$。
+    这是因为在 $B(1)=0$ 条件下，$X(t) = B(t) - tB(1)$，
+    所以 $D_X(t) = \operatorname{Var}(B(t)) + t^2\operatorname{Var}(B(1)) - 2t\operatorname{Cov}(B(t),B(1)) = t + t^2 - 2t^2 = t(1-t)$。
+
+    **注：** 第四题是布朗桥过程，这部分容易被忽视。
+
+
+### 数字特征求解与特殊
+
+
+!!! question "已知 $B(t)$是标准正态函数，则$\sum_{k=1}^{n}B(k)$符合____分布，$X(t)=e^{B(t)}$的均值函数是____。"
+
+    **解析：**
+
+    $\sum_{k=1}^{n}B(k)$符合$N(0,\frac{k(k+1)(2k+1)}{6})$分布，$X(t)=e^{B(t)}$的均值函数是$e^{\frac{t}{2}}$
+
+    **对数正态分布**的均值函数是
+    
+    $$
+    E[e^X] = e^{\mu + \frac{1}{2}\sigma^2}
+    $$
+
+
+??? note "对数正态分布均值求解"
+    > 以下推导过程摘选自[x服从正态分布,求e^x的期望？ - 知乎](https://www.zhihu.com/question/38754314)
+
+    如果 $f(x)$ 是随机变量 $X$ 的概率密度函数，那么我们有如下引理：
+
+    $$
+    E[g(X)] = \int_{-\infty}^{\infty} g(x) f(x) dx
+    $$
+
+    在我们的问题里，$X \sim N(\mu, \sigma^2)$，所以 
+
+    $$
+    f(x) = \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}
+    $$
+
+    根据引理，我们可以得：
+
+    $$
+    E[e^X] = \frac{1}{\sigma \sqrt{2\pi}} \int_{-\infty}^{\infty} e^x e^{-\frac{(x-\mu)^2}{2\sigma^2}} dx
+    $$
+
+    让我们对 $e^x e^{-\frac{(x-\mu)^2}{2\sigma^2}}$ 做一些调整可得：
+
+    $$
+    = e^{x-\frac{(x-\mu)^2}{2\sigma^2}} = e^{\mu + \frac{1}{2}\sigma^2} e^{x-\mu - \frac{1}{2}\sigma^2 - \frac{(x-\mu)^2}{2\sigma^2}} = e^{\mu + \frac{1}{2}\sigma^2} e^{-\frac{(x-\sigma^2)-\mu}{2\sigma^2}}
+    $$
+
+    这个时候，
+
+    $$
+    E[e^X] = \frac{1}{\sigma \sqrt{2\pi}} \int_{-\infty}^{\infty} e^{\mu + \frac{1}{2}\sigma^2} e^{-\frac{(x-\sigma^2)-\mu}{2\sigma^2}} dx\\
+    = e^{\mu + \frac{1}{2}\sigma^2} \int_{-\infty}^{\infty} \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{(x-\sigma^2)-\mu}{2\sigma^2}} dx$$
+
+    令 $t = x - \sigma^2$，我们有：
+
+    $$
+    E[e^X] = e^{\mu + \frac{1}{2}\sigma^2} \int_{-\infty}^{\infty} \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{(t-\mu)^2}{2\sigma^2}} dt
+    $$
+
+    右边这个项 $\int_{-\infty}^{\infty} \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{(t-\mu)^2}{2\sigma^2}} dt$ 是不是似曾相识？它其实是一个服从 $N(\mu, \sigma^2)$ 的随机变量的累积分布函数 (CDF)，所以 
+
+    $$
+    \int_{-\infty}^{\infty} \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{(t-\mu)^2}{2\sigma^2}} dt = 1
+    $$
+
+    所以我们可以得到 
+
+    $$
+    E[e^X] = e^{\mu + \frac{1}{2}\sigma^2}
+    $$
+
+    在这里 $X \sim N(\mu, \sigma^2)$。
+
+
+    方法2：用Moment Generating Function来解释
+
+    让我们用 $M_X(t)$ 表示随机变量 $X$ 的Moment Generating Function，这里 $t \in \mathbb{R}$ 。那我们有
+
+    $$
+    M_X(t) = E(e^{tX})
+    $$
+
+    如果随机变量 $X \sim N(\mu, \sigma^2)$ ，那我们有
+
+    $$
+    M_X(t) = E(e^{tX}) = e^{t\mu + \frac{t^2}{2}\sigma^2}
+    $$
+
+    当 $t = 1$ 的时候，即 $E(e^X) = e^{\mu + \frac{1}{2}\sigma^2}$ 。
+
+
+!!! example "2. $B(2) + B(1)$ 服从下列什么分布？"
+
+    (A) $N(0,1)$  (B) $N(0,3)$  (C) $N(0,5)$  (D) $N(0,6)$
+
+    **解析：**  
+    $B(2)$ 和 $B(1)$ 联合正态，$B(2) \sim N(0,2)$，$B(1) \sim N(0,1)$，且 $\operatorname{Cov}(B(2), B(1)) = 1$。  
+
+    $$
+    \operatorname{Var}(B(2) + B(1)) = \operatorname{Var}(B(2)) + \operatorname{Var}(B(1)) + 2\operatorname{Cov}(B(2), B(1)) = 2 + 1 + 2 \times 1 = 5
+    $$
+
+    所以选 (C)。
+
+    
+
+
+!!! example "例题 - pdf - 公式记忆"
+    $B(2)$ 的密度函数 $f_{B(2)}(x)$ 为 ( )
+
+    (A) $\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}$  
+    (B) $\frac{1}{2\sqrt{\pi}}e^{-\frac{x^2}{2}}$  
+    (C) $\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{4}}$  
+    (D) $\frac{1}{2\sqrt{\pi}}e^{-\frac{x^2}{4}}$
+
+    **解析：**  
+    $B(2) \sim N(0,2)$，标准正态密度调整方差为 $2$，即
+
+    $$
+    f(x) = \frac{1}{\sqrt{2\pi \cdot 2}} e^{-\frac{x^2}{2 \cdot 2}} = \frac{1}{2\sqrt{\pi}} e^{-\frac{x^2}{4}}
+    $$
+
+    所以选 (D)。
+
+!!! example "独立增量拆分"
+    已知标准布朗分布$\{B(t);t\geq0\}$,求$E(B(2)B(4)B(6))$
+
+
+
+
+
+!!! example "习题"
+    已知 $X(t) = \cos (t + \Theta) + e^{-t} B(e^{2t})$，其中 $\Theta \sim U(0, 2\pi)$，$B(t)$ 为标准布朗运动，且 $\Theta$ 与 $B(t)$ 相互独立。
+
+    (1) 计算均值函数与自协方差函数，并证明 $\{X(t)\,|\, -\infty < X(t) < +\infty\}$ 是平稳分布。
+
+    (2) 判断是否有均值的各态历经性。
+
+    (3) 求其功率谱函数。
+
+    ---
+    **答：**
+
+    $$
+    \begin{align*}
+    &(1)\quad 0,\quad C_X(\tau) = \frac{1}{2}\cos\tau + e^{-|\tau|} \\
+    &(2)\quad \text{不具有均值的各态历经性} \\
+    &(3)\quad S_X(\omega) = \frac{2}{\omega^2+1} + \pi[\delta(\omega+1)+\delta(\omega-1)]
+    \end{align*}
+    $$
+
+    ---
+
+    **解答过程：**
+
+    **(1) 计算均值函数与自协方差函数**
+
+    先计算均值函数：
+
+    $$
+    E[X(t)] = E[\cos(t+\Theta)] + E[e^{-t}B(e^{2t})]\\
+    = 0 + e^{-t} \cdot 0  =0
+    $$
+
+    再计算自协方差函数 
+
+    !!! note "这里计算过程中用到的Brown的性质比较关键"
+
+    $$
+    \begin{align*}
+    E[X(t)X(s)] &= E\left[\left(\cos(t+\Theta) + e^{-t}B(e^{2t})\right)\left(\cos(s+\Theta) + e^{-s}B(e^{2s})\right)\right] \\
+    &= E[\cos(t+\Theta)\cos(s+\Theta)] + E[e^{-t}B(e^{2t})e^{-s}B(e^{2s})] + E[\cos(t+\Theta)]E[e^{-s}B(e^{2s})] + E[\cos(s+\Theta)]E[e^{-t}B(e^{2t})] \\
+    &=\frac{1}{2} \cos(t-s) + e^{-(t+s)}E(B(e^{2t}B(e^{2s})))\\
+    &=  \frac{1}{2} \cos(\tau)+e^{-(t+s)}\min(e^{2t}, e^{2s})\\
+    &= \frac{1}{2} \cos(\tau)+ e^{-|t-s|} \quad \text{可分 $t \geq s$ 和 $t < s$ 两种情况验证}
+    \end{align*}
+    $$
+
+    由于 $\Theta$ 与 $B(t)$ 独立，且 $E[\cos(t+\Theta)] = 0$，$E[B(\cdot)] = 0$，所以后两项为0。
+
+    $$
+    C_X(t,s) = \frac{1}{2}\cos(t-s) + e^{-|t-s|}
+    $$
+
+    由于 $C_X(t,s)$ 只与 $t-s$ 有关，且均值为常数，故 $X(t)$ 是平稳分布。
+
+    **(2) 判断是否有均值的各态历经性**
+
+    由于 $X(t)$ 包含 $\cos(t+\Theta)$ 项，$\Theta$ 是随机常数，导致 $X(t)$ 的均值对不同样本轨道不一样，因此不具有均值的各态历经性。
+
+    **(3) 求其功率谱函数**
+
+    功率谱为自协方差的傅里叶变换：
+
+    - $\frac{1}{2}\cos(t-s)$ 的谱为 $\frac{\pi}{2}[\delta(\omega+1)+\delta(\omega-1)]$
+    - $e^{-|t-s|}$ 的谱为 $\frac{2}{\omega^2+1}$
+
+    所以
+    $$
+    S_X(\omega) = \frac{2}{\omega^2+1} + \pi[\delta(\omega+1)+\delta(\omega-1)]
+    $$
+
+    
 
 
 ## 习题
@@ -615,7 +994,7 @@ $X(t)=B(t)-tB(1)\quad 0\leq t \leq 1$
     $$
     \begin{align*}
     &P\left(B\left(\frac{1}{10}\right) \geqslant 1.5 \mid B\left(\frac{1}{6}\right) = 2,\, B\left(\frac{1}{4}\right) = 2.4\right) \\
-    &= P\left(\widetilde{B}(10) \geqslant 15 \mid \widetilde{B}(6) = 12,\, \widetilde{B}(4) = 8\right) \\
+    &= P\left(\widetilde{B}(10) \geqslant 15 \mid \widetilde{B}(6) = 12,\, \widetilde{B}(4) = 9.6\right) \\
     &= P\left(\widetilde{B}(10) - \widetilde{B}(6) \geqslant 3\right) \\
     &= 1 - \Phi(1.5)
     \end{align*}
