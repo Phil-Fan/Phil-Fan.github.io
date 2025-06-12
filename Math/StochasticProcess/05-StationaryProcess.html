@@ -532,6 +532,13 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../Statistic/13-Survival_Analysis.html">
+<span class="md-ellipsis">
+    生存分析
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../Statistic/big_data_security%26privacy_protection.html">
 <span class="md-ellipsis">
     大数据安全与隐私保护
@@ -2124,9 +2131,30 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../CS/AI/12-CasualInference.md">
+<span class="md-ellipsis">
+    None
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../CS/AI/DTRs.md">
+<span class="md-ellipsis">
+    None
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../CS/AI/ML/15-interpretable_models.html">
 <span class="md-ellipsis">
     Interpretable ML
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../CS/AI/kaggle.md">
+<span class="md-ellipsis">
+    None
   </span>
 </a>
 </li>
@@ -2276,6 +2304,51 @@
 <a class="md-nav__link" href="../../CS/AI/RL/RL-01.html">
 <span class="md-ellipsis">
     强化学习 | Reinforcement Learning
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_6_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_6_6" id="__nav_4_6_6_label" tabindex="0">
+<span class="md-ellipsis">
+    学习资源
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_6_6_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_6_6">
+<span class="md-nav__icon md-icon"></span>
+            学习资源
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="https://datawhalechina.github.io/pumpkin-book/">
+<span class="md-ellipsis">
+    南瓜书
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="https://www.statlearning.com/">
+<span class="md-ellipsis">
+    ISLR
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="https://datawhalechina.github.io/statistical-learning-method-solutions-manual/">
+<span class="md-ellipsis">
+    统计学习方法习题解答
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="https://zh.d2l.ai/index.html/">
+<span class="md-ellipsis">
+    d2l
   </span>
 </a>
 </li>
@@ -3927,82 +4000,100 @@ S = \int_{-\infty}^{+\infty} P_{\xi}(f) \, \mathrm{d}f = \frac{1}{2\pi} \int_{-\
 <p>已知信号过程<span><span class="heti-spacing"> </span><span class="arithmatex">\([X(t);\, t \geq 0]\)</span></span>，满足<span><span class="heti-spacing"> </span><span class="arithmatex">\(P(X(t) = \pm 1) = \frac{1}{2}\)</span></span>，且在区间<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\((t, t+\tau]\)</span><span class="heti-spacing"> </span></span>内取正负号的次数服从参数为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\lambda \tau\)</span><span class="heti-spacing"> </span></span>的泊松分布。另有过程<span><span class="heti-spacing"> </span><span class="arithmatex">\(Y(t) = \cos(t - \theta)\)</span></span>，<span class="arithmatex">\(-\infty &lt; t &lt; +\infty\)</span>，其中<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\theta\)</span><span class="heti-spacing"> </span></span>在区间<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\((0, 2\pi)\)</span><span class="heti-spacing"> </span></span>上服从均匀分布。<span><span class="arithmatex">\(\{X(t);\, t \geq 0\}\)</span><span class="heti-spacing"> </span></span>与<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\{Y(t);\, -\infty &lt; t &lt; +\infty\}\)</span><span class="heti-spacing"> </span></span>相互独立。定义<span><span class="heti-spacing"> </span><span class="arithmatex">\(Z(t) = X(t)Y(t) + 1\)</span></span>，<span class="arithmatex">\(0 \leq t &lt; +\infty\)</span>。请回答下列问题：</p>
 <ol>
 <li>
-<p><span><span class="arithmatex">\(\{X(t);\, t \geq 0\}\)</span><span class="heti-spacing"> </span></span>的均值函数<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\mu_X(t)\)</span><span class="heti-spacing"> </span></span>和自相关函数<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(R_X(t, t+\tau)\)</span><span class="heti-spacing"> </span></span>为
-    - (A) <span class="arithmatex">\(\mu_X(t) = 0\)</span>，<span class="arithmatex">\(R_X(t, t+\tau) = \dfrac{1}{2} e^{-2\lambda \tau}\)</span>
-    - (B) <span class="arithmatex">\(\mu_X(t) = 0\)</span>，<span class="arithmatex">\(R_X(t, t+\tau) = e^{-2\lambda \tau}\)</span>
-    - (C) <span class="arithmatex">\(\mu_X(t) = 0\)</span>，<span class="arithmatex">\(R_X(t, t+\tau) = \dfrac{1}{2} e^{-2\lambda |\tau|}\)</span>
-    - <span style="color:red;font-weight:bold;">(D) <span class="arithmatex">\(\mu_X(t) = 0\)</span>，<span class="arithmatex">\(R_X(t, t+\tau) = e^{-2\lambda |\tau|}\)</span></span></p>
+<p><span><span class="arithmatex">\(\{X(t);\, t \geq 0\}\)</span><span class="heti-spacing"> </span></span>的均值函数<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\mu_X(t)\)</span><span class="heti-spacing"> </span></span>和自相关函数<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(R_X(t, t+\tau)\)</span><span class="heti-spacing"> </span></span>为</p>
+<ul>
+<li>(A) <span class="arithmatex">\(\mu_X(t) = 0\)</span>，<span class="arithmatex">\(R_X(t, t+\tau) = \dfrac{1}{2} e^{-2\lambda \tau}\)</span></li>
+<li>(B) <span class="arithmatex">\(\mu_X(t) = 0\)</span>，<span class="arithmatex">\(R_X(t, t+\tau) = e^{-2\lambda \tau}\)</span></li>
+<li>(C) <span class="arithmatex">\(\mu_X(t) = 0\)</span>，<span class="arithmatex">\(R_X(t, t+\tau) = \dfrac{1}{2} e^{-2\lambda |\tau|}\)</span></li>
+<li><span style="color:red;font-weight:bold;">(D) <span class="arithmatex">\(\mu_X(t) = 0\)</span>，<span class="arithmatex">\(R_X(t, t+\tau) = e^{-2\lambda |\tau|}\)</span></span></li>
+</ul>
 </li>
 <li>
-<p><span><span class="arithmatex">\(\{X(t);\, t \geq 0\}\)</span><span class="heti-spacing"> </span></span>的谱密度函数<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(S_X(\omega)\)</span><span class="heti-spacing"> </span></span>为
-    - (A) <span class="arithmatex">\(\dfrac{2\lambda}{\lambda^2 + \omega^2}\)</span>
-    - (B) <span class="arithmatex">\(\dfrac{4\lambda}{2\lambda^2 + \omega^2}\)</span>
-    - (C) <span class="arithmatex">\(\dfrac{2\lambda}{4\lambda^2 + \omega^2}\)</span>
-    - <span style="color:red;font-weight:bold;">(D) <span class="arithmatex">\(\dfrac{4\lambda}{4\lambda^2 + \omega^2}\)</span></span></p>
+<p><span><span class="arithmatex">\(\{X(t);\, t \geq 0\}\)</span><span class="heti-spacing"> </span></span>的谱密度函数<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(S_X(\omega)\)</span><span class="heti-spacing"> </span></span>为</p>
+<ul>
+<li>(A) <span class="arithmatex">\(\dfrac{2\lambda}{\lambda^2 + \omega^2}\)</span></li>
+<li>(B) <span class="arithmatex">\(\dfrac{4\lambda}{2\lambda^2 + \omega^2}\)</span></li>
+<li>(C) <span class="arithmatex">\(\dfrac{2\lambda}{4\lambda^2 + \omega^2}\)</span></li>
+<li><span style="color:red;font-weight:bold;">(D) <span class="arithmatex">\(\dfrac{4\lambda}{4\lambda^2 + \omega^2}\)</span></span></li>
+</ul>
 </li>
 <li>
-<p><span><span class="arithmatex">\(\{Y(t);\, -\infty &lt; t &lt; +\infty\}\)</span><span class="heti-spacing"> </span></span>的时间均值<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\langle Y(t) \rangle\)</span><span class="heti-spacing"> </span></span>为
-    - <span style="color:red;font-weight:bold;">(A) <span class="arithmatex">\(0\)</span></span>
-    - (B) <span class="arithmatex">\(\cos t\)</span>
-    - (C) <span class="arithmatex">\(\sin(t - \theta)\)</span>
-    - (D) <span class="arithmatex">\(\cos(t - \theta)\)</span></p>
+<p><span><span class="arithmatex">\(\{Y(t);\, -\infty &lt; t &lt; +\infty\}\)</span><span class="heti-spacing"> </span></span>的时间均值<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\langle Y(t) \rangle\)</span><span class="heti-spacing"> </span></span>为</p>
+<ul>
+<li><span style="color:red;font-weight:bold;">(A) <span class="arithmatex">\(0\)</span></span></li>
+<li>(B) <span class="arithmatex">\(\cos t\)</span></li>
+<li>(C) <span class="arithmatex">\(\sin(t - \theta)\)</span></li>
+<li>(D) <span class="arithmatex">\(\cos(t - \theta)\)</span></li>
+</ul>
 </li>
 <li>
-<p><span><span class="arithmatex">\(\{Y(t);\, -\infty &lt; t &lt; +\infty\}\)</span><span class="heti-spacing"> </span></span>的时间相关函数<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\langle Y(t) Y(t+\tau) \rangle\)</span><span class="heti-spacing"> </span></span>为
-    - (A) <span class="arithmatex">\(0\)</span>
-    - (B) <span class="arithmatex">\(\cos 2\tau\)</span>
-    - (C) <span class="arithmatex">\(\cos \tau\)</span>
-    - <span style="color:red;font-weight:bold;">(D) <span class="arithmatex">\(\dfrac{1}{2} \cos \tau\)</span></span></p>
+<p><span><span class="arithmatex">\(\{Y(t);\, -\infty &lt; t &lt; +\infty\}\)</span><span class="heti-spacing"> </span></span>的时间相关函数<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\langle Y(t) Y(t+\tau) \rangle\)</span><span class="heti-spacing"> </span></span>为</p>
+<ul>
+<li>(A) <span class="arithmatex">\(0\)</span></li>
+<li>(B) <span class="arithmatex">\(\cos 2\tau\)</span></li>
+<li>(C) <span class="arithmatex">\(\cos \tau\)</span></li>
+<li><span style="color:red;font-weight:bold;">(D) <span class="arithmatex">\(\dfrac{1}{2} \cos \tau\)</span></span></li>
+</ul>
 </li>
 <li>
-<p><span><span class="arithmatex">\(\{Y(t);\, -\infty &lt; t &lt; +\infty\}\)</span><span class="heti-spacing"> </span></span>的各态历经性为
-    - (A) 均值、自相关函数都不具有各态历经性
-    - (B) 均值具有各态历经性，但自相关函数不具有各态历经性
-    - (C) 自相关函数具有各态历经性，但均值不具有各态历经性
-    - <span style="color:red;font-weight:bold;">(D) 均值、自相关函数都具有各态历经性</span></p>
+<p><span><span class="arithmatex">\(\{Y(t);\, -\infty &lt; t &lt; +\infty\}\)</span><span class="heti-spacing"> </span></span>的各态历经性为</p>
+<ul>
+<li><span>(A)<span class="heti-spacing"> </span></span>均值、自相关函数都不具有各态历经性</li>
+<li><span>(B)<span class="heti-spacing"> </span></span>均值具有各态历经性，但自相关函数不具有各态历经性</li>
+<li><span>(C)<span class="heti-spacing"> </span></span>自相关函数具有各态历经性，但均值不具有各态历经性</li>
+<li><span style="color:red;font-weight:bold;"><span>(D)<span class="heti-spacing"> </span></span>均值、自相关函数都具有各态历经性</span></li>
+</ul>
 </li>
 <li>
-<p>下列等式中正确的是
-    - (A) <span class="arithmatex">\(\mu_Z(t) = \mu_X(t)\mu_Y(t)\)</span>
-    - (B) <span class="arithmatex">\(R_Z(t, t+\tau) = R_X(t, t+\tau) + R_Y(t, t+\tau)\)</span>
-    - <span style="color:red;font-weight:bold;">(D) <span class="arithmatex">\(R_Z(t, t+\tau) = R_X(t, t+\tau) R_Y(t, t+\tau) + 1\)</span></span>
-    - (C) <span class="arithmatex">\(\mu_Z(t) = \mu_X(t) + \mu_Y(t) + 1\)</span></p>
+<p>下列等式中正确的是</p>
+<ul>
+<li>(A) <span class="arithmatex">\(\mu_Z(t) = \mu_X(t)\mu_Y(t)\)</span></li>
+<li>(B) <span class="arithmatex">\(R_Z(t, t+\tau) = R_X(t, t+\tau) + R_Y(t, t+\tau)\)</span></li>
+<li><span style="color:red;font-weight:bold;">(D) <span class="arithmatex">\(R_Z(t, t+\tau) = R_X(t, t+\tau) R_Y(t, t+\tau) + 1\)</span></span></li>
+<li>(C) <span class="arithmatex">\(\mu_Z(t) = \mu_X(t) + \mu_Y(t) + 1\)</span></li>
+</ul>
 </li>
 <li>
-<p>关于<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\{Z(t);\, t \geq 0\}\)</span><span class="heti-spacing"> </span></span>的叙述错误的是
-    - (A) <span class="arithmatex">\(\{Z(t);\, t \geq 0\}\)</span> 是平稳过程
-    - (B) <span class="arithmatex">\(\{Z(t);\, t \geq 0\}\)</span> 的自相关函数为 <span class="arithmatex">\(\dfrac{1}{2} e^{-2\lambda|\tau|} \cos\tau + 1\)</span>
-    - <span style="color:red;font-weight:bold;">(C) <span class="arithmatex">\(\{Z(t);\, t \geq 0\}\)</span> 的谱密度函数为 <span class="arithmatex">\(\dfrac{\lambda}{4\lambda^2 + (\omega-1)^2} + \dfrac{\lambda}{4\lambda^2 + (\omega+1)^2} + \pi\delta(\omega)\)</span></span>
-    - (D) <span class="arithmatex">\(\{Z(t);\, t \geq 0\}\)</span> 的均值具有各态历经性$</p>
+<p>关于<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\{Z(t);\, t \geq 0\}\)</span><span class="heti-spacing"> </span></span>的叙述错误的是</p>
+<ul>
+<li><span>(A) <span class="arithmatex">\(\{Z(t);\, t \geq 0\}\)</span><span class="heti-spacing"> </span></span>是平稳过程</li>
+<li><span>(B) <span class="arithmatex">\(\{Z(t);\, t \geq 0\}\)</span><span class="heti-spacing"> </span></span>的自相关函数为<span><span class="heti-spacing"> </span><span class="arithmatex">\(\dfrac{1}{2} e^{-2\lambda|\tau|} \cos\tau + 1\)</span></span></li>
+<li><span style="color:red;font-weight:bold;"><span>(C) <span class="arithmatex">\(\{Z(t);\, t \geq 0\}\)</span><span class="heti-spacing"> </span></span>的谱密度函数为<span><span class="heti-spacing"> </span><span class="arithmatex">\(\dfrac{\lambda}{4\lambda^2 + (\omega-1)^2} + \dfrac{\lambda}{4\lambda^2 + (\omega+1)^2} + \pi\delta(\omega)\)</span></span></span></li>
+<li><span>(D) <span class="arithmatex">\(\{Z(t);\, t \geq 0\}\)</span><span class="heti-spacing"> </span></span>的均值具有各态历经性<span><span class="heti-spacing"> </span>$</span></li>
+</ul>
 </li>
 </ol>
 <hr/>
 <p>答案： <span style="color:red;font-weight:bold;">DDADDDC</span></p>
 <p>其中<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(X(t)\)</span><span class="heti-spacing"> </span></span>题干比较难以理解，但其实作为选择题可以交叉排除做出来。</p>
-<p>顺序是：
-- <span class="arithmatex">\(X(t)\)</span>均值、自相关、谱密度、时间均值、时间自相关
-- <span class="arithmatex">\(Y(t)\)</span>均值、自相关、谱密度、时间均值、时间自相关</p>
+<p>顺序是：</p>
+<ul>
+<li><span><span class="arithmatex">\(X(t)\)</span><span class="heti-spacing"> </span></span>均值、自相关、谱密度、时间均值、时间自相关</li>
+<li><span><span class="arithmatex">\(Y(t)\)</span><span class="heti-spacing"> </span></span>均值、自相关、谱密度、时间均值、时间自相关</li>
+</ul>
 <p>求<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(Z(t)\)</span><span class="heti-spacing"> </span></span>的谱密度的时候，可以使用时域相乘等于频域卷积的性质，但是要注意公式前面的<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\frac{1}{2\pi}\)</span><span class="heti-spacing"> </span></span>不要遗漏</p>
 <hr/>
 <ol>
-<li>
-<p>均值函数<span><span class="heti-spacing"> </span><span class="arithmatex">\(\mu_X(t)\)</span></span>
-由于 <span class="arithmatex">\(X(t)\)</span> 在任一时刻取值为 <span class="arithmatex">\(\pm 1\)</span> 且概率各为 <span class="arithmatex">\(1/2\)</span>，其期望为：
-<span class="arithmatex">\(<span class="arithmatex">\(\mu_X(t) = \mathbb{E}[X(t)] = \frac{1}{2}(1) + \frac{1}{2}(-1) = 0.\)</span>\)
-因此所有选项中均值函数均为 0，符合题设。</p>
-</li>
-<li>
-<p>自相关函数<span><span class="heti-spacing"> </span><span class="arithmatex">\(R_X(t, t+\tau)\)</span></span>
-需计算 <span class="arithmatex">\(\mathbb{E}[X(t)X(t+\tau)]\)</span>。由题意可知：
-- <span class="arithmatex">\(X(t)\)</span> 在区间 <span class="arithmatex">\((t, t+\tau)\)</span> 内的符号翻转次数 <span class="arithmatex">\(N(\tau)\)</span> 服从参数为 <span class="arithmatex">\(\lambda\tau\)</span> 的泊松分布。
-- <span class="arithmatex">\(X(t+\tau)\)</span> 的符号取决于 <span class="arithmatex">\(N(\tau)\)</span> 的奇偶性：若 <span class="arithmatex">\(N(\tau)\)</span> 为偶数（含 0 次），则 <span class="arithmatex">\(X(t+\tau) = X(t)\)</span>；若为奇数，则 <span class="arithmatex">\(X(t+\tau) = -X(t)\)</span>。
-因此：
-$$
-X(t+tau) = X(t) cdot (-1)^{N(tau)},
-$$
-代入自相关函数得：</p>
-</li>
+<li>均值函数<span><span class="heti-spacing"> </span><span class="arithmatex">\(\mu_X(t)\)</span></span>
+由于 <span class="arithmatex">\(X(t)\)</span> 在任一时刻取值为 <span class="arithmatex">\(\pm 1\)</span> 且概率各为 <span class="arithmatex">\(1/2\)</span>，其期望为：</li>
 </ol>
+<div class="arithmatex">\[
+\mu_X(t) = \mathbb{E}[X(t)] = \frac{1}{2}(1) + \frac{1}{2}(-1) = 0.
+\]</div>
+<p>因此所有选项中均值函数均为<span><span class="heti-spacing"> </span>0</span>，符合题设。</p>
+<ol>
+<li>自相关函数<span><span class="heti-spacing"> </span><span class="arithmatex">\(R_X(t, t+\tau)\)</span></span>
+需计算 <span class="arithmatex">\(\mathbb{E}[X(t)X(t+\tau)]\)</span>。由题意可知：</li>
+</ol>
+<ul>
+<li><span><span class="arithmatex">\(X(t)\)</span><span class="heti-spacing"> </span></span>在区间<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\((t, t+\tau)\)</span><span class="heti-spacing"> </span></span>内的符号翻转次数<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(N(\tau)\)</span><span class="heti-spacing"> </span></span>服从参数为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\lambda\tau\)</span><span class="heti-spacing"> </span></span>的泊松分布。</li>
+<li><span><span class="arithmatex">\(X(t+\tau)\)</span><span class="heti-spacing"> </span></span>的符号取决于<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(N(\tau)\)</span><span class="heti-spacing"> </span></span>的奇偶性：若<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(N(\tau)\)</span><span class="heti-spacing"> </span></span>为偶数（含<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>次<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，则<span><span class="heti-spacing"> </span><span class="arithmatex">\(X(t+\tau) = X(t)\)</span></span>；若为奇数，则<span><span class="heti-spacing"> </span><span class="arithmatex">\(X(t+\tau) = -X(t)\)</span></span>。</li>
+</ul>
+<p>因此：</p>
+<div class="arithmatex">\[
+X(t+\tau) = X(t) \cdot (-1)^{N(\tau)},
+\]</div>
+<p>代入自相关函数得：</p>
 <div class="arithmatex">\[
 \begin{align*}
 R_X(\tau) &amp;= \mathbb{E}[X(t)X(t+\tau)] = P(N(\tau) \text{取偶数})\cdot 1 + P(N(\tau) \text{取奇数}) \cdot (-1)\\
@@ -4099,10 +4190,10 @@ S &amp;= \frac{1}{2\pi} \int_{-\infty}^{+\infty} P_{xx}(w) dw \\
 &amp;= \frac{1}{2\pi} \cdot 2 \cdot \frac{\pi A^2}{2} = \frac{A^2}{2} \\
 \end{aligned}
 \]</div>
-<p>注意到
-$$
-int_{-infty}^{+infty} delta(t) dt = 1
-$$</p>
+<p>注意到</p>
+<div class="arithmatex">\[
+\int_{-\infty}^{+\infty} \delta(t) dt = 1
+\]</div>
 <hr/>
 <p><strong><span>3)<span class="heti-spacing"> </span></span>判断<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\xi(t)\)</span><span class="heti-spacing"> </span></span>是否具有各态历经性</strong></p>
 <div class="arithmatex">\[
@@ -4172,8 +4263,8 @@ R_{z}(\tau) = \frac{1}{2} R_{m}(\tau) \cos \omega_{c} \tau
 <div class="arithmatex">\[
 \begin{align*}
 P_{z}(\omega)  &amp;= \mathcal{F}(f_{1}(t) \cdot f_{2}(t)) =\frac{1}{2\pi} F_{1}(\omega) * F_{2}(\omega) \\
-&amp;= \frac{1}{2\pi}\cdot {\color{blue}\mathcal{F}(\frac{1}{2}R_m(\tau))}\cdot{\color{red}\mathcal{F}(\cos(\omega_c\tau))}\\
-&amp;= \frac{1}{2\pi} \cdot {\color{blue}\frac{1}{2} Sa^{2}(\frac{\omega}{2}) }\cdot {\color{red} \pi [\delta(\omega + \omega_{c}) + \delta(\omega - \omega_{c})]}\\
+&amp;= \frac{1}{2\pi}\cdot {\color{red}\mathcal{F}(\frac{1}{2}R_m(\tau))}\cdot{\color{blue}\mathcal{F}(\cos(\omega_c\tau))}\\
+&amp;= \frac{1}{2\pi} \cdot {\color{red}\frac{1}{2} Sa^{2}(\frac{\omega}{2}) }\cdot {\color{blue} \pi [\delta(\omega + \omega_{c}) + \delta(\omega - \omega_{c})]}\\
 &amp;= \frac{1}{4} [Sa^{2}(\frac{\omega + \omega_{c}}{2}) + Sa^{2}(\frac{\omega - \omega_{c}}{2})]
 \end{align*}
 \]</div>
@@ -4636,7 +4727,7 @@ S_Y(\omega) &amp;= S_X(\omega)(2 - (e^{j\omega L} + e^{-j\omega L}))\\
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年6月10日 20:28:10</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年6月12日 21:36:12</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">

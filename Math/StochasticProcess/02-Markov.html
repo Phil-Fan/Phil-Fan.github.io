@@ -532,6 +532,13 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../Statistic/13-Survival_Analysis.html">
+<span class="md-ellipsis">
+    生存分析
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../Statistic/big_data_security%26privacy_protection.html">
 <span class="md-ellipsis">
     大数据安全与隐私保护
@@ -2185,9 +2192,30 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../CS/AI/12-CasualInference.md">
+<span class="md-ellipsis">
+    None
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../CS/AI/DTRs.md">
+<span class="md-ellipsis">
+    None
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../CS/AI/ML/15-interpretable_models.html">
 <span class="md-ellipsis">
     Interpretable ML
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../CS/AI/kaggle.md">
+<span class="md-ellipsis">
+    None
   </span>
 </a>
 </li>
@@ -2337,6 +2365,51 @@
 <a class="md-nav__link" href="../../CS/AI/RL/RL-01.html">
 <span class="md-ellipsis">
     强化学习 | Reinforcement Learning
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_6_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_6_6" id="__nav_4_6_6_label" tabindex="0">
+<span class="md-ellipsis">
+    学习资源
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_6_6_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_6_6">
+<span class="md-nav__icon md-icon"></span>
+            学习资源
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="https://datawhalechina.github.io/pumpkin-book/">
+<span class="md-ellipsis">
+    南瓜书
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="https://www.statlearning.com/">
+<span class="md-ellipsis">
+    ISLR
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="https://datawhalechina.github.io/statistical-learning-method-solutions-manual/">
+<span class="md-ellipsis">
+    统计学习方法习题解答
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="https://zh.d2l.ai/index.html/">
+<span class="md-ellipsis">
+    d2l
   </span>
 </a>
 </li>
@@ -3825,17 +3898,23 @@
 </tr>
 </tbody>
 </table>
-<p>1️⃣<strong>转移矩阵</strong> 画出状态转移图，写出一步转移矩阵。<strong>观察</strong>状态转移图：求平稳分布<span><span class="heti-spacing"> </span>: <span class="arithmatex">\(\pi = \pi P\)</span></span>（左乘）
-- <span class="arithmatex">\(p_{ij}^{(n)}\)</span>:求出<span class="arithmatex">\(P^{(n)}\)</span>后，<span class="arithmatex">\(p_{ij}^{(n)}\)</span> 为 <span class="arithmatex">\(P^n\)</span> 的第 <span class="arithmatex">\(i\)</span> 行第 <span class="arithmatex">\(j\)</span> 列的元素</p>
-<p>2️⃣<strong>等价类</strong> 只要某几个状态两两互达，则为一互达等价类。若任一状态<strong>常返</strong>，则闭；反之不闭。
-- 互达等价类的周期、常返性都一样</p>
+<p>1️⃣<strong>转移矩阵</strong> 画出状态转移图，写出一步转移矩阵。<strong>观察</strong>状态转移图：求平稳分布<span><span class="heti-spacing"> </span>: <span class="arithmatex">\(\pi = \pi P\)</span></span>（左乘）</p>
+<ul>
+<li><span><span class="arithmatex">\(p_{ij}^{(n)}\)</span>:<span class="heti-spacing"> </span></span>求出<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(P^{(n)}\)</span><span class="heti-spacing"> </span></span>后，<span><span class="arithmatex">\(p_{ij}^{(n)}\)</span><span class="heti-spacing"> </span></span>为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(P^n\)</span><span class="heti-spacing"> </span></span>的第<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(i\)</span><span class="heti-spacing"> </span></span>行第<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(j\)</span><span class="heti-spacing"> </span></span>列的元素</li>
+</ul>
+<p>2️⃣<strong>等价类</strong> 只要某几个状态两两互达，则为一互达等价类。若任一状态<strong>常返</strong>，则闭；反之不闭。</p>
+<ul>
+<li>互达等价类的周期、常返性都一样</li>
+</ul>
 <p>3️⃣<strong>周期</strong>：对周期的判断则看返回步数的所有可能取值，如果有指向自己的步，则非周期，若出现质数，则<strong>非周期</strong>；反之，周期为其最大公约数。</p>
 <ul>
 <li><span><span class="arithmatex">\(f_{ij}^{(k)}\)</span>:<span class="heti-spacing"> </span></span>为从状态<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(i\)</span><span class="heti-spacing"> </span></span>出发在<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(n\)</span><span class="heti-spacing"> </span></span>步首次到达状态<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(j\)</span><span class="heti-spacing"> </span></span>的概率<span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span>直接数一下有几种情况即可</li>
 </ul>
 <p>4️⃣ 若某一状态一旦出去就回不来了，则<strong>暂留</strong>；若还能回来，则<strong>正常返</strong>。</p>
-<p>5️⃣ 求<strong>平均回转时</strong>可先进行状态分解，在<strong>互达等价类</strong>内部求平稳分布<span><span class="heti-spacing"> </span><span class="arithmatex">\(\pi\)</span></span> ，<strong>平均回转时</strong>即倒数。
-- 平稳分布 <span class="arithmatex">\(\pi = \pi P\)</span> （左乘）</p>
+<p>5️⃣ 求<strong>平均回转时</strong>可先进行状态分解，在<strong>互达等价类</strong>内部求平稳分布<span><span class="heti-spacing"> </span><span class="arithmatex">\(\pi\)</span></span> ，<strong>平均回转时</strong>即倒数。</p>
+<ul>
+<li>平稳分布<span><span class="heti-spacing"> </span><span class="arithmatex">\(\pi = \pi P\)</span></span> （左乘）</li>
+</ul>
 <p>6️⃣ 求<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(n\)</span><span class="heti-spacing"> </span></span>步转移概率<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>稳态概率<span><span class="heti-spacing"> </span><span class="arithmatex">\(\lim p_{AB}^{(n)}\)</span></span> ，方法同 ⑤ 。若某一状态<strong>暂留</strong>，则<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(n\)</span><span class="heti-spacing"> </span></span>步后到该状态的概率<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>稳态概率为<span><span class="heti-spacing"> </span>0</span> ；反之为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(B\)</span><span class="heti-spacing"> </span></span>状态对应的<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\pi\)</span><span class="heti-spacing"> </span></span>值。</p>
 <p>7️⃣求吸收概率<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>吸收时间：找到吸收态，定义不同吸收态的取值，列出<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>步之后的方程，求解得到概率。</p>
 <ul>
@@ -4428,7 +4507,7 @@ p_{ij}=\begin{cases}\dfrac{1}{d_i},&amp;j\text{ 是 }i\text{ 的邻}\\\\0,&amp;\
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年6月10日 20:28:10</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年6月12日 21:36:12</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">
