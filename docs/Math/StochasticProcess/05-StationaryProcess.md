@@ -290,46 +290,54 @@ $S_{XY}(\omega) = \int_{-\infty}^{+\infty} R_{XY}(\tau) e^{-i\omega\tau} d\tau, 
 	已知信号过程 $[X(t);\, t \geq 0]$，满足 $P(X(t) = \pm 1) = \frac{1}{2}$，且在区间 $(t, t+\tau]$ 内取正负号的次数服从参数为 $\lambda \tau$ 的泊松分布。另有过程 $Y(t) = \cos(t - \theta)$，$-\infty < t < +\infty$，其中 $\theta$ 在区间 $(0, 2\pi)$ 上服从均匀分布。$\{X(t);\, t \geq 0\}$ 与 $\{Y(t);\, -\infty < t < +\infty\}$ 相互独立。定义 $Z(t) = X(t)Y(t) + 1$，$0 \leq t < +\infty$。请回答下列问题：
 
 	1. $\{X(t);\, t \geq 0\}$ 的均值函数 $\mu_X(t)$ 和自相关函数 $R_X(t, t+\tau)$ 为
+
       	- (A) $\mu_X(t) = 0$，$R_X(t, t+\tau) = \dfrac{1}{2} e^{-2\lambda \tau}$
       	- (B) $\mu_X(t) = 0$，$R_X(t, t+\tau) = e^{-2\lambda \tau}$
       	- (C) $\mu_X(t) = 0$，$R_X(t, t+\tau) = \dfrac{1}{2} e^{-2\lambda |\tau|}$
       	- <span style="color:red;font-weight:bold;">(D) $\mu_X(t) = 0$，$R_X(t, t+\tau) = e^{-2\lambda |\tau|}$</span>
 
 	2. $\{X(t);\, t \geq 0\}$ 的谱密度函数 $S_X(\omega)$ 为
-      	- (A) $\dfrac{2\lambda}{\lambda^2 + \omega^2}$
+      	
+		- (A) $\dfrac{2\lambda}{\lambda^2 + \omega^2}$
       	- (B) $\dfrac{4\lambda}{2\lambda^2 + \omega^2}$
       	- (C) $\dfrac{2\lambda}{4\lambda^2 + \omega^2}$
       	- <span style="color:red;font-weight:bold;">(D) $\dfrac{4\lambda}{4\lambda^2 + \omega^2}$</span>
 
 	3. $\{Y(t);\, -\infty < t < +\infty\}$ 的时间均值 $\langle Y(t) \rangle$ 为
-      	- <span style="color:red;font-weight:bold;">(A) $0$</span>
+      	
+		- <span style="color:red;font-weight:bold;">(A) $0$</span>
       	- (B) $\cos t$
       	- (C) $\sin(t - \theta)$
       	- (D) $\cos(t - \theta)$
 
 	4. $\{Y(t);\, -\infty < t < +\infty\}$ 的时间相关函数 $\langle Y(t) Y(t+\tau) \rangle$ 为
-      	- (A) $0$
+      	
+		- (A) $0$
       	- (B) $\cos 2\tau$
       	- (C) $\cos \tau$
       	- <span style="color:red;font-weight:bold;">(D) $\dfrac{1}{2} \cos \tau$</span>
 
 	5. $\{Y(t);\, -\infty < t < +\infty\}$ 的各态历经性为
-      	- (A) 均值、自相关函数都不具有各态历经性
+      	
+		- (A) 均值、自相关函数都不具有各态历经性
       	- (B) 均值具有各态历经性，但自相关函数不具有各态历经性
       	- (C) 自相关函数具有各态历经性，但均值不具有各态历经性
       	- <span style="color:red;font-weight:bold;">(D) 均值、自相关函数都具有各态历经性</span>
 
 	6. 下列等式中正确的是
-      	- (A) $\mu_Z(t) = \mu_X(t)\mu_Y(t)$
+      	
+		- (A) $\mu_Z(t) = \mu_X(t)\mu_Y(t)$
       	- (B) $R_Z(t, t+\tau) = R_X(t, t+\tau) + R_Y(t, t+\tau)$
       	- <span style="color:red;font-weight:bold;">(D) $R_Z(t, t+\tau) = R_X(t, t+\tau) R_Y(t, t+\tau) + 1$</span>
       	- (C) $\mu_Z(t) = \mu_X(t) + \mu_Y(t) + 1$
 
 	7. 关于 $\{Z(t);\, t \geq 0\}$ 的叙述错误的是
-      	- (A) $\{Z(t);\, t \geq 0\}$ 是平稳过程
+      	
+		- (A) $\{Z(t);\, t \geq 0\}$ 是平稳过程
       	- (B) $\{Z(t);\, t \geq 0\}$ 的自相关函数为 $\dfrac{1}{2} e^{-2\lambda|\tau|} \cos\tau + 1$
       	- <span style="color:red;font-weight:bold;">(C) $\{Z(t);\, t \geq 0\}$ 的谱密度函数为 $\dfrac{\lambda}{4\lambda^2 + (\omega-1)^2} + \dfrac{\lambda}{4\lambda^2 + (\omega+1)^2} + \pi\delta(\omega)$</span>
       	- (D) $\{Z(t);\, t \geq 0\}$ 的均值具有各态历经性$
+	
 	---
 
 	答案： <span style="color:red;font-weight:bold;">DDADDDC</span>
@@ -337,6 +345,7 @@ $S_{XY}(\omega) = \int_{-\infty}^{+\infty} R_{XY}(\tau) e^{-i\omega\tau} d\tau, 
 	其中$X(t)$题干比较难以理解，但其实作为选择题可以交叉排除做出来。
 
 	顺序是：
+
 	- $X(t)$均值、自相关、谱密度、时间均值、时间自相关
 	- $Y(t)$均值、自相关、谱密度、时间均值、时间自相关
 
@@ -345,17 +354,25 @@ $S_{XY}(\omega) = \int_{-\infty}^{+\infty} R_{XY}(\tau) e^{-i\omega\tau} d\tau, 
 	---
 	1. 均值函数 $\mu_X(t)$
 	由于 $X(t)$ 在任一时刻取值为 $\pm 1$ 且概率各为 $1/2$，其期望为：
-	$$\mu_X(t) = \mathbb{E}[X(t)] = \frac{1}{2}(1) + \frac{1}{2}(-1) = 0.$$
+	
+	$$
+	\mu_X(t) = \mathbb{E}[X(t)] = \frac{1}{2}(1) + \frac{1}{2}(-1) = 0.
+	$$
+
 	因此所有选项中均值函数均为 0，符合题设。
 
 	2. 自相关函数 $R_X(t, t+\tau)$
 	需计算 $\mathbb{E}[X(t)X(t+\tau)]$。由题意可知：
+
 	- $X(t)$ 在区间 $(t, t+\tau)$ 内的符号翻转次数 $N(\tau)$ 服从参数为 $\lambda\tau$ 的泊松分布。
 	- $X(t+\tau)$ 的符号取决于 $N(\tau)$ 的奇偶性：若 $N(\tau)$ 为偶数（含 0 次），则 $X(t+\tau) = X(t)$；若为奇数，则 $X(t+\tau) = -X(t)$。
+
 	因此：
+
 	$$
 	X(t+\tau) = X(t) \cdot (-1)^{N(\tau)},
 	$$
+
 	代入自相关函数得：
 
 	$$
@@ -489,6 +506,7 @@ $S_{XY}(\omega) = \int_{-\infty}^{+\infty} R_{XY}(\tau) e^{-i\omega\tau} d\tau, 
 	$$
 	
 	注意到
+	
 	$$
 	\int_{-\infty}^{+\infty} \delta(t) dt = 1
 	$$
@@ -581,8 +599,8 @@ $S_{XY}(\omega) = \int_{-\infty}^{+\infty} R_{XY}(\tau) e^{-i\omega\tau} d\tau, 
 	$$
 	\begin{align*}
 	P_{z}(\omega)  &= \mathcal{F}(f_{1}(t) \cdot f_{2}(t)) =\frac{1}{2\pi} F_{1}(\omega) * F_{2}(\omega) \\
-	&= \frac{1}{2\pi}\cdot {\color{blue}\mathcal{F}(\frac{1}{2}R_m(\tau))}\cdot{\color{red}\mathcal{F}(\cos(\omega_c\tau))}\\
-	&= \frac{1}{2\pi} \cdot {\color{blue}\frac{1}{2} Sa^{2}(\frac{\omega}{2}) }\cdot {\color{red} \pi [\delta(\omega + \omega_{c}) + \delta(\omega - \omega_{c})]}\\
+	&= \frac{1}{2\pi}\cdot {\color{red}\mathcal{F}(\frac{1}{2}R_m(\tau))}\cdot{\color{blue}\mathcal{F}(\cos(\omega_c\tau))}\\
+	&= \frac{1}{2\pi} \cdot {\color{red}\frac{1}{2} Sa^{2}(\frac{\omega}{2}) }\cdot {\color{blue} \pi [\delta(\omega + \omega_{c}) + \delta(\omega - \omega_{c})]}\\
 	&= \frac{1}{4} [Sa^{2}(\frac{\omega + \omega_{c}}{2}) + Sa^{2}(\frac{\omega - \omega_{c}}{2})]
 	\end{align*}
 	$$

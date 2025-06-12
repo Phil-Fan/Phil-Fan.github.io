@@ -6,6 +6,11 @@
 - [x] Chap4 布朗运动
 - [x] Chap5 平稳过程
 
+- [01 | 基本概念 - PhilFan's Notebook](https://www.philfan.cn/Math/StochasticProcess/01-Concept.html)
+- [02 | 马尔可夫链 - PhilFan's Notebook](https://www.philfan.cn/Math/StochasticProcess/02-Markov.html)
+- [03 | 泊松过程 - PhilFan's Notebook](https://www.philfan.cn/Math/StochasticProcess/03-Possion.html)
+- [04 | 布朗运动 - PhilFan's Notebook](https://www.philfan.cn/Math/StochasticProcess/04-Brown.html)
+- [05 | 平稳过程 - PhilFan's Notebook](https://www.philfan.cn/Math/StochasticProcess/05-StationaryProcess.html)
 
 !!! note "段子"
     人的一生应当学四次随机过程
@@ -52,7 +57,9 @@
 ## 资源汇总
 
 通过网盘分享的文件：随机过程
+
 链接: https://pan.baidu.com/s/1Z47JujDl_nhpDbRhhAdOGw?pwd=PHIL 提取码: PHIL
+
 
 ```
 .
@@ -77,7 +84,8 @@
 │   └── 思考题、习题答案.pdf
 ├── 04-quiz
 │   ├── 随过小测题库1.pdf
-│   └── 随过小测题库2.pdf
+│   ├── 随过小测题库2.pdf
+│   └── 小测题库 by czqlds.pdf
 └── 05-review
     ├── 复习题
     │   ├── 第2章复习题.ppt
@@ -96,18 +104,26 @@
     │   ├── 22-23.pdf
     │   ├── 23-24.pdf
     │   └── 随过历年卷 蓝田书店.pdf
-    └── 随过笔记by Peter_H.pdf
+    ├── 随过笔记 by 启动.pdf
+    ├── 随过笔记 by 竝
+    └── 随过笔记 by Peter_H.pdf
 ```
 
 
 ## Acknowledgement
 
+
+### 课程笔记
 在学习随机过程的过程中，我参考了以下资料：
 
 其中，markdown笔记记录过程中参考了[竝](https://www.cc98.org/topic/4929320)学长，[小胖一族](https://skillful-vest-b8d.notion.site/1-5-68ec83a57e504b79901e66a2b7e4e5ce)学长和[TyrannosaurusLjx](https://github.com/TyrannosaurusLjx/TyrannosaurusLjx.github.io/tree/main/docs/Notebook/Random-Process)学长的，感谢几位学长。
 
+- [启动 前辈的笔记](https://file.cc98.org/v4-upload/d/2025/0602/55uqtm1w.pdf)
+- [竝 - 笔记](https://www.cc98.org/topic/4929320)
+
 ### 回忆卷
 
+- [Akino - 随过（工科1.5学分）版搜历年卷合集](https://www.cc98.org/topic/6198962)
 - [2023-2024](https://www.cc98.org/topic/5930307)
 - [2022-2023](https://www.cc98.org/topic/5643156)
 - [2019-2020](https://www.cc98.org/topic/4958697)
@@ -116,30 +132,23 @@
 - [2017](https://www.cc98.org/topic/4728993) (随机过程与排队论)
 - [2016](https://www.cc98.org/topic/4641632) (随机过程与排队论)
 - 蓝田扫描版
-- 本学年复习课上ppt
-- 古早复习课的ppt
+- 另外，老师发了一些复习题目ppt
 
 
-> 部分参考[Akino - 随过（工科1.5学分）版搜历年卷合集](https://www.cc98.org/topic/6198962)
 
 
-### 习题答案
+### 习题与小测
 
-
-可以参考
-
-[orz_xiaoa - 应用随机过程（1.5学分）部分作业习题答案 - CC98论坛](https://www.cc98.org/topic/5358767)
-课后习题全解
-链接：https://pan.baidu.com/s/11s85aX0ZooESH3shA02fHA 
-提取码：7ttc
-
-我也把我自己的习题答案写在了对应章节的部分，欢迎纠错
+- [orz_xiaoa - 应用随机过程（1.5学分）部分作业习题答案 - CC98论坛](https://www.cc98.org/topic/5358767):链接：https://pan.baidu.com/s/11s85aX0ZooESH3shA02fHA  提取码：7ttc
+- 我也把我自己的部分习题答案写在了对应章节，欢迎纠错
+- [czqlds - 小测题目和答案分享](https://www.cc98.org/topic/6191222)
+- [climb - 书后附课后题答案分享](https://www.cc98.org/topic/5891251)
 
 
 ### 课程资料
 1. [宫水三翊 - 随机过程 / 随过 （1.5学分wxy老师班）资料分享](https://www.cc98.org/topic/6121175)
 
-2. [暴龙战士 - 随机过程资源分享](https://www.cc98.org/topic/5927145)
+2. [暴龙战士 - 随机过程资源分享](https://www.cc98.org/topic/5927145) 数院3学分
 
 3. [Uiiiii - 复习资料](https://www.cc98.org/topic/5926769)
 
@@ -149,13 +158,10 @@
 
 6. [WinW - 学习笔记](https://www.cc98.org/topic/5720807)
 
-7. [竝 - 笔记](https://www.cc98.org/topic/4929320)
+7. [keke25 - 复习整理](https://www.cc98.org/topic/5355801)
 
-8. [keke25 - 复习整理](https://www.cc98.org/topic/5355801)
+8. [8h5d233 - 随机过程传送门（资源整合）](https://www.cc98.org/topic/5639264)
 
-9. [8h5d233 - 随机过程传送门（资源整合）](https://www.cc98.org/topic/5639264)
-
-10. [启动 - 随机过程复习资料](https://www.cc98.org/topic/6202803/1)
 
 ### 其他
 [人的一生应该学四次随机过程 - CC98论坛](https://www.cc98.org/topic/6158605)

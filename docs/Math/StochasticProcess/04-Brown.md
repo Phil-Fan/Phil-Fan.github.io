@@ -10,6 +10,7 @@
       $$
       f(x) = \frac{1}{\sqrt{2\pi \sigma^2}} \exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\right)
       $$
+
 * 均值函数：$\mu_B(t)=0$
 * 方差函数：$D_B(t)=t$
   * $Var(A\pm B) = Cov(A\pm B,A\pm B) = Var(A) + Var(B) \pm 2Cov(A,B)$
@@ -353,13 +354,13 @@ $$
 
     $X(t)=\mid \underset{0\leq s\leq t}{min}\,B(s)\mid = -\underset{0\leq s\leq t}{max}\,B_1(s)$
 
-    $$
-    \begin{aligned}
-    F_{X(t)}(y)=&P(X(t)\leq y)\overset{B_1(s)=-B(s)}{\longleftrightarrow}P(\underset{0\leq s\leq t}{max}\,B_1(s)\leq y)\\
-    =&1-2P(B_1(t)>y)\\
-    =&2\Phi(\frac y{\sqrt t})-1\qquad(t\geq 0)
-    \end{aligned}
-    $$
+$$
+\begin{align*}
+F_{X(t)}(y)=&P(X(t)\leq y)\overset{B_1(s)=-B(s)}{\longleftrightarrow}P(\underset{0\leq s\leq t}{max}\,B_1(s)\leq y)\\
+=&1-2P(B_1(t)>y)\\
+=&2\Phi(\frac y{\sqrt t})-1\qquad(t\geq 0)
+\end{align*}
+$$
 
 
 
@@ -391,23 +392,23 @@ $X(t)=B(t)-tB(1)\quad 0\leq t \leq 1$
 
 - 均值：
 
-    $$
-    \mu_X(t) = E[X(t)] = E[B(t) - tB(1)] = E[B(t)] - tE[B(1)] = 0 - t \cdot 0 = 0
-    $$
+$$
+\mu_X(t) = E[X(t)] = E[B(t) - tB(1)] = E[B(t)] - tE[B(1)] = 0 - t \cdot 0 = 0
+$$
 
 - 协方差（$0 < s < t < 1$）：
 
-    $$
-    \begin{aligned}
-    C_X(s, t) &= \operatorname{Cov}(X(s), X(t)) \\
-    &= \operatorname{Cov}(B(s) - sB(1),\; B(t) - tB(1)) \\
-    &= \operatorname{Cov}(B(s), B(t)) - t\operatorname{Cov}(B(s), B(1)) - s\operatorname{Cov}(B(1), B(t)) + st\operatorname{Cov}(B(1), B(1)) \\
-    &= \min(s, t) - t\min(s, 1) - s\min(1, t) + st \\
-    &= s - t s - s t + s t \\
-    &= s(1 - t)
-    \end{aligned}
-    $$
-    
+$$
+\begin{align*}
+C_X(s, t) &= \operatorname{Cov}(X(s), X(t)) \\
+&= \operatorname{Cov}(B(s) - sB(1),\; B(t) - tB(1)) \\
+&= \operatorname{Cov}(B(s), B(t)) - t\operatorname{Cov}(B(s), B(1)) - s\operatorname{Cov}(B(1), B(t)) + st\operatorname{Cov}(B(1), B(1)) \\
+&= \min(s, t) - t\min(s, 1) - s\min(1, t) + st \\
+&= s - t s - s t + s t \\
+&= s(1 - t)
+\end{align*}
+$$
+
 
 ## 例题
 
@@ -436,6 +437,7 @@ $X(t)=B(t)-tB(1)\quad 0\leq t \leq 1$
     $$
 
     取 $a=2, t=4$，得
+
     $$
     P\left( \max_{0 \leq s \leq 4} B(s) \geq 2 \right) = 2(1 - \Phi(1)) \approx 2 \times 0.1587 = 0.3174
     $$
@@ -625,7 +627,10 @@ $X(t)=B(t)-tB(1)\quad 0\leq t \leq 1$
 脑子里回想正态分布pdf的图像
 
 !!! example "击中时 + 绝对值"
-    $P\left\{|\min_{1\leq t\leq 2} B(t)| \geq 2 \mid B(1)=0\right\} = $ ( )
+
+    $$
+    P\left\{|\min_{1\leq t\leq 2} B(t)| \geq 2 \mid B(1)=0\right\} = 
+    $$
 
     (A) 0.02  (B) 0.04  (C) 0.96  (D) 0.98
 
@@ -850,6 +855,11 @@ $X(t)=B(t)-tB(1)\quad 0\leq t \leq 1$
 
 !!! example "独立增量拆分"
     已知标准布朗分布$\{B(t);t\geq0\}$,求$E(B(2)B(4)B(6))$
+
+
+    令X=B2，Y=B4-B2，Z=B6-B4，三者独立同分布N(0, 2)，然后把均值里面的三项乘开分别求。有XYZ的奇数次幂的项都为0（因为写成积分的话是个奇函数），结果算了个0
+
+    [随机过程布朗运动一道题 - CC98论坛](https://www.cc98.org/topic/5920161)
 
 
 

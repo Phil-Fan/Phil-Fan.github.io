@@ -1279,9 +1279,9 @@ $$
     \begin{aligned}
     P(1 \leq W_3 \leq 2) 
     &= P\{N(1)\leqslant 2,\, N(2)\geqslant 3\} \\
-    &= \color{#d14}{P\{N(1)=0,\, N(2)-N(1)\geq 3\}} + \color{#1c7}{P\{N(1)=1,\, N(2)-N(1)\geq 2\}} + \color{#00a}{P\{N(1)=2,\, N(2)-N(1)\geq 1\}} \\
-    &= \color{#d14}{P(N(1)=0)\cdot P(N(1,2]\geq 3)} + \color{#1c7}{P(N(1)=1)\cdot P(N(1,2]\geq 2)} + \color{#00a}{P(N(1)=2)\cdot P(N(1,2]\geq 1)} \\
-    &= \color{#d14}{e^{-\lambda} \left[1 - (1+\lambda+\tfrac{1}{2}\lambda^2)e^{-\lambda}\right]} + \color{#1c7}{\lambda e^{-\lambda} \left[1 - (1+\lambda)e^{-\lambda}\right]} + \color{#00a}{\tfrac{1}{2}\lambda^2 e^{-\lambda} (1 - e^{-\lambda})} \\
+    &= \color{red}{P\{N(1)=0,\, N(2)-N(1)\geq 3\}} + \color{green}{P\{N(1)=1,\, N(2)-N(1)\geq 2\}} + \color{blue}{P\{N(1)=2,\, N(2)-N(1)\geq 1\}} \\
+    &= \color{red}{P(N(1)=0)\cdot P(N(1,2]\geq 3)} + \color{green}{P(N(1)=1)\cdot P(N(1,2]\geq 2)} + \color{blue}{P(N(1)=2)\cdot P(N(1,2]\geq 1)} \\
+    &= \color{red}{e^{-\lambda} \left[1 - (1+\lambda+\tfrac{1}{2}\lambda^2)e^{-\lambda}\right]} + \color{green}{\lambda e^{-\lambda} \left[1 - (1+\lambda)e^{-\lambda}\right]} + \color{blue}{\tfrac{1}{2}\lambda^2 e^{-\lambda} (1 - e^{-\lambda})} \\
     &= e^{-\lambda} \left(1 + \lambda + \tfrac{1}{2}\lambda^2\right) - e^{-2\lambda} \left(1 + 2\lambda + 2\lambda^2\right)
     \end{aligned}
     $$

@@ -231,6 +231,7 @@ nav:
     - Notebook page: Math/Statistic/10-Multiple_Regression_and_Analysis_of_Variance.ipynb
     - Math/Statistic/11-anova.md
     - Math/Statistic/12-data_mining.md
+    - Math/Statistic/13-Survival_Analysis.md
     - Math/Statistic/big_data_security&privacy_protection.md
     - Math/Statistic/variable.md
 
@@ -408,7 +409,10 @@ nav:
       - CS/AI/ML/09-SparseRepresentation.md
       - CS/AI/ML/10-SemiSupervisedLearning.md
       - CS/AI/ML/11-ConceptLearning.md
+      - CS/AI/12-CasualInference.md
+      - CS/AI/DTRs.md
       - CS/AI/ML/15-interpretable_models.md
+      - CS/AI/kaggle.md
 
     - "DL | 深度学习":
       - CS/AI/DL/00-Lingo.md
@@ -429,6 +433,12 @@ nav:
 
     - "RL | 强化学习":
       - CS/AI/RL/RL-01.md
+
+    - "学习资源":
+      - 南瓜书: https://datawhalechina.github.io/pumpkin-book/
+      - ISLR: https://www.statlearning.com/
+      - 统计学习方法习题解答: https://datawhalechina.github.io/statistical-learning-method-solutions-manual/
+      - d2l: https://zh.d2l.ai/index.html/
 
 
     # - "对抗攻击":
