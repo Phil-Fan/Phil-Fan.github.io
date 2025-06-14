@@ -516,10 +516,10 @@ nav:
     # - Class/Fin/invest-stock.md
     - Class/Fin/consulting.md
     - Class/Fin/industry-analyze.md
-    - Class/Fin/industry-finance.md
-    - Class/Fin/industry-welfare.md
-    - "微观经济学":
-      - Class/Fin/micro/intro.md
+    # - Class/Fin/industry-finance.md
+    # - Class/Fin/industry-welfare.md
+    # - "微观经济学":
+      # - Class/Fin/micro/intro.md
   
   - Books:
     - Class/Books/The Innovator`s Dilemma.md 
@@ -584,11 +584,11 @@ nav:
     - Interest/Travel/C-journey.md
     - Interest/Travel/C-J-杭州.md
     - Interest/Travel/C-J-浙江.md
-    - Interest/Travel/C-J-江西.md
+    # - Interest/Travel/C-J-江西.md
     - Interest/Travel/C-J-四川.md
-    - Interest/Travel/C-J-安徽.md
-    - 香港: 
-      - Interest/Travel/C-J-HK.md
+    # - Interest/Travel/C-J-安徽.md
+    #- 香港: 
+     # - Interest/Travel/C-J-HK.md
     - 日本: 
       - Interest/Travel/C-J-Japan.md
     - 马来西亚: 
@@ -601,16 +601,16 @@ nav:
     - Interest/Music/01-Piano_Class.md
     - Interest/Music/02-Piano_SelfSelect.md
     - Interest/Music/03-Pinao_Classic.md
-    - Interest/Music/music_band.md
-    - Interest/Music/music_classification.md
+    #- Interest/Music/music_band.md
+    #- Interest/Music/music_classification.md
 
   - "🎨审美":
     - Interest/Aesthetic/flower.md
     - Interest/Aesthetic/design.md
     - Interest/Aesthetic/powerpoint.md
     - Interest/Aesthetic/Photography-base.md
-    - Interest/Aesthetic/Photography-Landscape.md
-    - Interest/Aesthetic/Photography-Portrait.md
+    #- Interest/Aesthetic/Photography-Landscape.md
+    #- Interest/Aesthetic/Photography-Portrait.md
 
   - "🎮游戏":
     - Interest/Game/fifa.md

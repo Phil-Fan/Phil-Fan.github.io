@@ -18,7 +18,7 @@
 - 公式识别：[SimpleTex](https://simpletex.cn/)  优化得不错
 
 
-**以下为macos专属**
+### macos
 - 开发工具iTerm2：[iTerm2 - macOS Terminal Replacement](https://iterm2.com/)<br>教程：[iTerm2安装配置使用指南——保姆级 - 知乎](https://zhuanlan.zhihu.com/p/550022490)
 - [Raycast - Your shortcut to everything](https://www.raycast.com/) 替代聚焦
   - command +k 显示
@@ -50,7 +50,7 @@
     ``` 
 
 
-**以下为windows专属：**
+### windows
 
 - 图片： [bandView](https://www.bandisoft.com/bandiview/)，[honeycam(动图)](https://www.bandisoft.com/honeycam/)
 - 网络相关：[Clash for windows](https://www.clash.la/archives/748/),[v2rayN](https://github.com/2dust/v2rayN/releases),[下载 .NET 8.0 Desktop Runtime (v8.0.8) - Windows x64 Installer](https://dotnet.microsoft.com/zh-cn/download/dotnet/thank-you/runtime-desktop-8.0.8-windows-x64-installer?cid=getdotnetcore)
@@ -80,6 +80,7 @@
 
 ## 有用的anti-school插件
 - [WuliAPO/Fuck_QCZJ](https://github.com/WuliAPO/Fuck_QCZJ): 青年大学习打卡<br>
+- [iOSRealRun/iOSRealRun-cli-17](https://github.com/iOSRealRun/iOSRealRun-cli-17): (iOS 17+) 基于虚拟定位的 iOS 免越狱模拟跑步打卡，跨平台支持，在线拾取路径，可设置跑步速度，随机速度与路线
 - [Mythologyli/iOSFakeRun](https://github.com/Mythologyli/iOSFakeRun): 基于虚拟定位的 iOS 免越狱模拟跑步打卡，在线拾取路径，可设置循环次数和跑步速度<br>
 - [ginnnnnncc/GinsMooc](https://github.com/ginnnnnncc/GinsMooc): 中国大学MOOC查询测验/作业/考试答案，插件支持，测验支持选择/判断/填空。<br>
 
