@@ -31,9 +31,9 @@ $$
 - 均值函数：$\mu_N(t)=E[N(t)]=\lambda t$
 - 方差函数：$D_N(t)=D[N(t)]=\lambda t$
 
-- 自相关函数：$R_N(t_1,t_2)=E[N(t_1)·N(t_2)]=\lambda min(t_1,t_2)$
+- 自相关函数：$C_N(t_1,t_2)=Cov[N(t_1),N(t_2)]=\lambda min(t_1,t_2)+\lambda^2t_1t_2$
 
-- 自协方差函数：$C_N(t_1,t_2)=Cov[N(t_1),N(t_2)]=\lambda min(t_1,t_2)+\lambda^2t_1t_2$
+- 自协方差函数：$R_N(t_1,t_2)=E[N(t_1)·N(t_2)]=\lambda min(t_1,t_2)$
 
 
 
@@ -823,17 +823,22 @@ $$
 
 
     但更常用的公式是
+
     $$
     \mathcal{R}_{\mathcal{N}}(s, t) = E[\mathcal{N}(s)] + E[\mathcal{N}(s)]E[\mathcal{N}(t)]
     $$
+    u
     其中 $E[\mathcal{N}(t)] = \int_0^t \lambda(u) du$。
 
     这里 $\lambda(t) = 2t$，所以
+    
     $$
     E[\mathcal{N}(1)] = \int_0^1 2t\,dt = [t^2]_0^1 = 1 \\
     E[\mathcal{N}(2)] = \int_0^2 2t\,dt = [t^2]_0^2 = 4
     $$
+
     所以
+
     $$
     \mathcal{R}_{\mathcal{N}}(1, 2) = E[\mathcal{N}(1)] + E[\mathcal{N}(1)]E[\mathcal{N}(2)] = 1 + 1 \times 4 = 5
     $$

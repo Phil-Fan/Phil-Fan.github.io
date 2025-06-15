@@ -20,9 +20,9 @@
 
 * 写成增量的形式，增量之间互相独立
 
-* $B(t+\tau)-B(\tau)$也是标准布朗
-* 自相似性：$\forall\;a\neq0\quad$	{ $\frac1aB(a^2t);t\geq 0$ } 是标准布朗运动。
-* $0-\infty$对称性：$\overset{\sim}B(t)=\begin{cases}tB(\frac 1t)\quad t>0\\[2ex]0\qquad\quad t=0\end{cases}$ 	则 { $\overset{\sim}B(t);t\geq0$ } 是标准布朗运动。
+* **马尔科夫性**：$B(t+\tau)-B(\tau)$也是标准布朗
+* **自相似性**：$\forall\;a\neq0\quad$	{ $\frac1aB(a^2t);t\geq 0$ } 是标准布朗运动。
+* $0-\infty$**对称性**：$\overset{\sim}B(t)=\begin{cases}tB(\frac 1t)\quad t>0\\[2ex]0\qquad\quad t=0\end{cases}$ 	则 { $\overset{\sim}B(t);t\geq0$ } 是标准布朗运动。
 
 > 当遇到条件比现在大的情况 如$P(B(1)>1|B(2)=2)$
 > 一般都考虑使用相似或者对称性质进行求解，而不是使用贝叶斯
@@ -447,8 +447,8 @@ $$
     $(B(1), B(2), B(3))$ 是三元正态分布，条件分布计算后有
     
     $$
-    P(B(3) < 3 \mid B(1) = 1, B(2) = 1) = \Phi\left( \frac{3-2}{\sqrt{1}} \right) = \Phi(1) \approx 0.8413
-    $$
+    P(B(3) < 3 \mid B(1) = 1, B(2) = 1) = P(B(1) < 3-1 = 2) = \Phi(2) = 0.98
+    $$ 
 
     ---
 
@@ -461,6 +461,10 @@ $$
     &= 1+2 + 9 + 2 \min\{1,2\} + 0 + 0 (\text{独立})\\
     &=14
     \end{align*}
+    $$
+
+    $$
+    \therefore X(1)+X(2) \sim N(3,14)
     $$
 
     
@@ -493,7 +497,8 @@ $$
 
     $$
     \begin{aligned}
-    Cov(B(3)-2B(1),B(2))&=D[B(2)-B(1)]-D[B(1)]=0
+    Cov(B(3)-2B(1),B(2))&=Cov(B(3),B(2)) - 2Cov(B(1),B(2))\\
+    &=min\{3,2\} - 2\min\{2,1\} = 0
     \end{aligned}
     $$
 
@@ -580,7 +585,7 @@ $$
 
     因此 $c = \pm 2$，选 C。
     
-条件分布的问题，使用markov性质进行构造，注意这里会有自相似和对称性质的应用，均值会改变
+条件分布的问题，使用markov性质和独立增量性质进行构造，注意这里会有自相似和对称性质的应用，均值会改变
 
 
 
@@ -653,7 +658,7 @@ $$
 
 ### 布朗桥
 
-!!! question "例题"
+!!! example "例题"
     已知 $B(t)$ 是一个标准布朗运动，请回答以下问题：
 
     (1) $2B(1)-B(2)$ 符合什么分布？
@@ -681,8 +686,22 @@ $$
 
     **解析：**
     利用布朗运动的自相似性和时间反转性质：
-    - 自相似性：$\{aB(t/a^2); t \geq 0\}$ 是标准布朗运动
+
+    - markov性质：$B(t+\tau)-B(\tau)$ 是标准布朗运动
     - 时间反转：$\{tB(1/t); t > 0\}$ 是标准布朗运动
+
+    步骤
+
+    $$
+    \begin{align*}
+    &\because \{B(t)\} \text{ 是标准布朗运动} \\
+    &\because \text{Markov性质：} \{B(t+\tau)-B(\tau)\} \text{ 是标准布朗运动} \\
+    &\therefore \{B(t+1)-B(1)\} \text{ 是标准布朗运动} \\
+    &\because \text{时间反转：} \{tB(1/t)\} \text{ 是标准布朗运动} \\
+    &\therefore \{(t+1)B(\frac{1}{t+1})-B(1)\} \text{ 是标准布朗运动} \\
+    &\blacksquare
+    \end{align*}
+    $$
     
 
     (3) $\frac{1}{2}$
@@ -726,11 +745,16 @@ $$
     (5) $t(1-t)$
 
     **解析：**
-    布朗桥过程 $X(t)$ 的方差为 $D_X(t) = t(1-t)$。
-    这是因为在 $B(1)=0$ 条件下，$X(t) = B(t) - tB(1)$，
-    所以 $D_X(t) = \operatorname{Var}(B(t)) + t^2\operatorname{Var}(B(1)) - 2t\operatorname{Cov}(B(t),B(1)) = t + t^2 - 2t^2 = t(1-t)$。
+    
+    在 $B(1)=0$ 条件下，$X(t) = B(t) - tB(1)$，
+    
+    而布朗桥运动的协方差为$C_X(s, t) = s(1 - t),\quad 0 < s < t < 1$
 
-    **注：** 第四题是布朗桥过程，这部分容易被忽视。
+
+    
+    所以 $D_X(t) = C_x(t,t) =  \operatorname{Var}(B(t)) + t^2\operatorname{Var}(B(1)) - 2t\operatorname{Cov}(B(t),B(1)) = t + t^2 - 2t^2 = t(1-t)$。
+
+    **注：** 第五题是布朗桥过程，这部分容易被忽视。
 
 
 ### 数字特征求解与特殊
@@ -857,9 +881,74 @@ $$
     已知标准布朗分布$\{B(t);t\geq0\}$,求$E(B(2)B(4)B(6))$
 
 
-    令X=B2，Y=B4-B2，Z=B6-B4，三者独立同分布N(0, 2)，然后把均值里面的三项乘开分别求。有XYZ的奇数次幂的项都为0（因为写成积分的话是个奇函数），结果算了个0
 
-    [随机过程布朗运动一道题 - CC98论坛](https://www.cc98.org/topic/5920161)
+    $$
+    \begin{aligned}
+    &\text{设 } A = B_2,\quad X = B_4 - B_2,\quad Y = B_6 - B_4 \\
+    &\text{则 } B_4 = A + X,\quad B_6 = A + X + Y \\
+    \mathbb{E}[B_2 B_4 B_6] &= \mathbb{E}[A (A + X)(A + X + Y)] \\
+    &= \mathbb{E}\left[ A(A + X)^2 + A(A + X)Y \right] \\
+    &= \mathbb{E}\left[ A^3 + 2A^2 X + A X^2 + A^2 Y + A X Y \right] \\
+    &= \mathbb{E}[A^3] + 2\mathbb{E}[A^2 X] + \mathbb{E}[A X^2] + \mathbb{E}[A^2 Y] + \mathbb{E}[A X Y] \\
+    &= 0 + 2 \cdot \mathbb{E}[A^2] \cdot \mathbb{E}[X] + \mathbb{E}[A] \cdot \mathbb{E}[X^2] + \mathbb{E}[A^2] \cdot \mathbb{E}[Y] + \mathbb{E}[A] \cdot \mathbb{E}[X Y] \\
+    &= E(A^3) = E(B^3(2))
+    \end{aligned}
+    $$
+
+    $A$ 对称正态，奇次中心矩为 $0$
+
+    ??? note "证明"
+
+        我们来推导一个对称正态随机变量（如 $A \sim \mathcal{N}(0, \sigma^2)$）的奇数阶矩为 0，即：
+
+
+        设 $A \sim \mathcal{N}(0, \sigma^2)$，其概率密度函数为：
+
+        $$
+        f_A(x) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left( -\frac{x^2}{2\sigma^2} \right)
+        $$
+
+        ---
+
+        $$
+        \mathbb{E}[A^{2k+1}] = \int_{-\infty}^{\infty} x^{2k+1} f_A(x) \, dx
+        $$
+
+        将 $f_A(x)$ 代入：
+
+        $$
+        \mathbb{E}[A^{2k+1}] = \int_{-\infty}^{\infty} x^{2k+1} \cdot \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left( -\frac{x^2}{2\sigma^2} \right) dx
+        $$
+
+        ---
+
+        * 被积函数：$x^{2k+1} \cdot \exp\left( -\frac{x^2}{2\sigma^2} \right)$ 是**奇函数**
+
+        * $x^{2k+1}$ 是奇函数
+        * $\exp\left( -\frac{x^2}{2\sigma^2} \right)$ 是偶函数
+        * 奇 × 偶 = 奇
+
+        * 奇函数在对称区间上积分为 0：
+
+        $$
+        \int_{-\infty}^{\infty} \text{奇函数}(x) \, dx = 0
+        $$
+
+        因此：
+
+        $$
+        \boxed{\mathbb{E}[A^{2k+1}] = 0}
+        $$
+
+    因此：
+
+    $$
+    \boxed{\mathbb{E}[B_2 B_4 B_6] = 0}
+    $$
+
+    > 也可以看98上的讨论[随机过程布朗运动一道题 - CC98论坛](https://www.cc98.org/topic/5920161)
+    > 令X=B2，Y=B4-B2，Z=B6-B4，三者独立同分布N(0, 2)，然后把均值里面的三项乘开分别求。有XYZ的奇数次幂的项都为0（因为写成积分的话是个奇函数），结果算了个0
+
 
 
 

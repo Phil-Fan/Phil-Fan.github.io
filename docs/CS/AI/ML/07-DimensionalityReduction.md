@@ -77,7 +77,7 @@ $$
 1NN的时候，当点数很大的时候，1NN可以无限接近于真实点，模型的bias约等于0；模型的var（不同数据集合下的表现）约等于 $\sigma^2$
 > 不同数据集间的差距就是系统的噪声，可以理解为var体现了这一点
 
-knn 的时候，variance 约为 $\frac{\sigma^2}{k}$,${bias}^2$会增加，因为neighbours远离$x_0$
+knn 的时候，variance 约为 $\frac{\sigma^2}{k}$,${bias}$会增加，因为neighbours远离$x_0$
 
 - 当k增大的时候，模型复杂度降低，模型趋于整体的均值，bias增加，var降低。
 - k较小的时候，模型复杂度高，模型的bias低，但是var比较高
