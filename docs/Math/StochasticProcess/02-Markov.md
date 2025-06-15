@@ -814,7 +814,7 @@ stateDiagram-v2
     0 & q & 0 & p & 0 \\
     0 & 0 & q & 0 & p \\
     0 & 0 & 0 & q & p
-    \end{pmatrix}
+    \end{pmatrix} 
     $$
 
 ### 爬梯子模型

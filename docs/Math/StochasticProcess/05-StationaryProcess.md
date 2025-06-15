@@ -10,6 +10,7 @@
 
 
 **①** 证明是宽平稳过程
+
 - $E[X(t)]$ 为常数
 - $R_X$ 为只和 $\tau$ 有关的函数
 
@@ -26,7 +27,17 @@
 
 **④** 功率谱密度：对自相关函数进行傅里叶变换;实、非负、偶函数
 
+
+
+$$
+\begin{cases}
+P_{\xi}(\omega) = \int_{-\infty}^{+\infty} R(\tau) e^{-j\omega\tau} \, \mathrm{d}\tau \\
+R(\tau) = \frac{1}{2\pi} \int_{-\infty}^{+\infty} P_{\xi}(\omega) e^{j\omega\tau} \, \mathrm{d}\omega
+\end{cases}
+$$
+
 - 傅立叶变换的性质：时域相乘等于频域卷积
+
 
 | 时域 | 频域 |
 |------|------|
@@ -37,6 +48,22 @@
 | $cos\omega_0\tau$ | $\pi[\delta(\omega+\omega_0)+\delta(\omega-\omega_0)]$ |
 
 
+
+$$
+\begin{aligned}
+e^{j\omega_0 \tau} &= \cos(\omega_0 \tau) + j\sin(\omega_0 \tau) \\
+e^{-j\omega_0 \tau} &= \cos(\omega_0 \tau) - j\sin(\omega_0 \tau)
+\end{aligned}
+$$
+
+因此
+
+$$
+\begin{aligned}
+\cos(\omega_0 \tau) &= \frac{1}{2}(e^{j\omega_0 \tau} + e^{-j\omega_0 \tau}) \\
+\sin(\omega_0 \tau) &= \frac{1}{2j}(e^{j\omega_0 \tau} - e^{-j\omega_0 \tau})
+\end{aligned}
+$$
 
 
 
@@ -283,6 +310,70 @@ $S_{XY}(\omega) = \int_{-\infty}^{+\infty} R_{XY}(\tau) e^{-i\omega\tau} d\tau, 
 
 
 ## 例题
+### 严平稳
+
+
+!!! example "例 5.1.1"
+    设 $\{X_{n}; n=1,2,\cdots\}$ 是随机变量序列, $E(X_{n})=\mu$, $D(X_{n})=\sigma^{2}$.
+
+    (1) 若 $X_{1},X_{2},\cdots$ 两两不相关, 问 $\{X_{n};n=1,2,\cdots\}$ 是否为宽平稳序列?
+
+    (2) 若 $X_{1},X_{2},\cdots$ 独立同分布, 问 $\{X_{n};n=1,2,\cdots\}$ 是否为严平稳序列?
+
+    (3) 若 $X_{1},X_{2},\cdots$ 两两不相关, 对 $n\geqslant 1$,
+    
+	$$
+	X_{2n-1}\sim N(\mu,\sigma^{2}),\quad X_{2n}\sim U(\mu-\sqrt{3}\sigma,\mu+\sqrt{3}\sigma)
+	$$
+
+    这里 $\sigma^{2}>0$. 问 $\{X_{n};n=1,2,\cdots\}$, 是否为宽平稳序列? 是否为严平稳序列?
+
+    ---
+
+	(1) 当 $\{X_{n};n=1,2,\cdots\}$ 是两两不相关随机变量序列时, 由条件知, $E(X_{n})=\mu$,
+
+	$$
+	R_{X}(n,m)=
+	\begin{cases}
+	\sigma^{2}+\mu^{2}, & n=m, \\
+	\mu^{2}, & n\neq m,
+	\end{cases} \quad n,m=1,2,\cdots,
+	$$
+	
+	即均值函数是常数, 自相关函数只与 $n-m$ 有关, 因此 $\{X_{n};n=1,2,\cdots\}$ 是宽平稳序列.
+
+	(2) 当 $\{X_{n};n=1,2,\cdots\}$ 是相互独立随机变量序列时, 设 $X_{n}$ 的分布函数为 $F(x)$, 对 $n_{1}<n_{2}<\cdots<n_{k}$, $(X_{n_{1}},X_{n_{2}},\cdots,X_{n_{k}})$ 在点 $(x_{1},x_{2},\cdots,x_{k})$ 处的分布函数值
+
+	$$
+	F(x_{1},x_{2},\cdots,x_{k};n_{1},n_{2},\cdots,n_{k})=F(x_{1})F(x_{2})\cdots F(x_{k})
+	$$
+	
+	而 $(X_{n_{1}+m},X_{n_{2}+m},\cdots,X_{n_{k}+m})$ 在点 $(x_{1},x_{2},\cdots,x_{k})$ 处的分布函数值
+	
+	$$
+	F(x_{1},x_{2},\cdots,x_{k};n_{1}+m,n_{2}+m,\cdots,n_{k}+m)=F(x_{1})F(x_{2})\cdots F(x_{k})
+	$$
+
+	由定义知, $\{X_{n};n=1,2,\cdots\}$ 是严平稳序列.
+
+!!! example "例 5.1.2"
+    设 $X$ 是一个非常值随机变量, 对任何 $n \geq 1$, 令 $Y_n = X$. 问 $\{Y_n;n = 1,2,\cdots\}$ 是否为严平稳序列? 当 $E(X^2) < \infty$ 时, $\{Y_n;n = 1,2,\cdots\}$ 是否为宽平稳序列?
+	
+	---
+
+	对任何 $k \geq 1$, $n_1, n_2,\cdots, n_k \geq 1$, $m \geq 1$, 有
+	
+	$$
+	(Y_{n_1},Y_{n_2},\cdots,Y_{n_k})=(\underbrace{X,X,\cdots,X}_{k个})\\
+	=(Y_{n_1+m},Y_{n_2+m},\cdots,Y_{n_k+m})
+	$$
+
+	所以 $\{Y_n;n = 1,2,\cdots\}$ 为严平稳序列.
+
+	---
+
+	当 $E(X^2) < \infty$ 时, $E(Y_n) = E(X)$ 存在且为常数, $E(Y_mY_n) = E(X^2)$ 为常数. 所以 $\{Y_n;n = 1,2,\cdots\}$ 为宽平稳序列.
+
 
 ### 求解宽平稳、各态历经性、谱密度
 
@@ -378,12 +469,18 @@ $S_{XY}(\omega) = \int_{-\infty}^{+\infty} R_{XY}(\tau) e^{-i\omega\tau} d\tau, 
 	$$
 	\begin{align*}
 	R_X(\tau) &= \mathbb{E}[X(t)X(t+\tau)] = P(N(\tau) \text{取偶数})\cdot 1 + P(N(\tau) \text{取奇数}) \cdot (-1)\\
-	&= \sum_{k=0}^{\infty} \frac{(\lambda\tau)^k}{k!} e^{-\lambda\tau} (\text{偶数}) - \sum_{k=0}^{\infty} \frac{(\lambda\tau)^k}{k!} e^{-\lambda\tau}\text{奇数}) \\
+	&= \sum_{k=0}^{\infty} \frac{(\lambda\tau)^k}{k!} e^{-\lambda\tau} (\text{偶数}) - \sum_{k=0}^{\infty} \frac{(\lambda\tau)^k}{k!} e^{-\lambda\tau}(\text{奇数}) \\
 	&= \sum_{k=0}^{\infty} \frac{(-\lambda\tau)^k}{k!} e^{-\lambda\tau} \quad \text{把-1乘进去}\\
 	&= e^{-\lambda\tau} \cdot e^{-\lambda\tau} \quad \text{级数的性质}\\
 	&= e^{-2\lambda|\tau|}
 	\end{align*}
 	$$
+
+	--- 
+
+	**本题目改编自课本例5.1.6**
+
+	![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/202506151904855.png)
 
 
 !!! example "设 $\{X(t);-\infty<t<\infty \}$ 是宽平稳过程，$X(t)=Acos(t+2\pi B)$ ，$A,B$ 独立且服从 $(0,1)$ 上的均匀分布"
@@ -428,8 +525,9 @@ $S_{XY}(\omega) = \int_{-\infty}^{+\infty} R_{XY}(\tau) e^{-i\omega\tau} d\tau, 
 	$$
 	\begin{align*}
 	\langle X(t)\rangle&=\underset{T\rightarrow+\infty}\lim\frac 1{2T}\int_{-T}^TX(t)dt\\
-	&=\underset{T\rightarrow+\infty}\lim\frac{AsinTcos(2\pi B)}T\\
-	&\equiv\mu_X
+	&=\underset{T\rightarrow+\infty}\lim\frac 1{T}\int_0^{T}Acos(t+2\pi B)\\
+	&=A\underset{T\rightarrow+\infty}\lim \frac{ \sin(T+2\pi B) - \sin(2\pi B)}{T}\\
+	&=0\equiv\mu_X
 	\end{align*}
 	$$
 	
@@ -575,8 +673,8 @@ $S_{XY}(\omega) = \int_{-\infty}^{+\infty} R_{XY}(\tau) e^{-i\omega\tau} d\tau, 
 	\begin{align*}
 	R_{z}(\tau) &= \frac{1}{2} R_{m}(\tau) \cos \omega_{c} \tau\\
 	&=\begin{cases}
-	\frac{1}{2} \cos \omega_{c} \tau & -1 < \tau < 0 \\
-	\frac{1}{2} \cos \omega_{c} \tau & 0 < \tau < 1 \\
+	\frac{1}{2} (1+\tau)\cos \omega_{c} \tau & -1 < \tau < 0 \\
+	\frac{1}{2} (1-\tau)\cos \omega_{c} \tau & 0 < \tau < 1 \\
 	0 & \text{其他}
 	\end{cases}
 	\end{align*}
@@ -638,6 +736,7 @@ $S_{XY}(\omega) = \int_{-\infty}^{+\infty} R_{XY}(\tau) e^{-i\omega\tau} d\tau, 
 	设$\{X(t);-\infty<t<\infty\}$是宽平稳过程，若均值函数$\mu_{X}=2$，自相关函数$R_{X}(\tau)=e^{-|\tau|}+a$，则$\{X(t)\}$的谱密度$S_{X}(\omega)=$_____， 均值各态历经当且仅当均值$a=$ _____。
 
 	答案：
+
 	- $\frac{2}{1+\omega^{2}}+2\pi a\delta(\omega)$
 	- $4$
 
@@ -792,6 +891,7 @@ $S_{XY}(\omega) = \int_{-\infty}^{+\infty} R_{XY}(\tau) e^{-i\omega\tau} d\tau, 
     $$
 
     但 $E_A[A]=0$，所以
+
     $$
     \mu_X(t) = 0
     $$
@@ -1087,6 +1187,10 @@ $S_{XY}(\omega) = \int_{-\infty}^{+\infty} R_{XY}(\tau) e^{-i\omega\tau} d\tau, 
 	\end{aligned}
 	$$
 
+
+
+
+
 ### 5.24
 
 !!! example	"设 $\{X(t); -\infty < t < \infty\}$ 是均值为零的平稳过程, $Y(t) = X(t)\cos(t+\Theta)$, 其中 $P(\Theta=\frac{\pi}{4})=P(\Theta=-\frac{\pi}{4})=0.5$, 且 $\{X(t)\}$ 与 $\Theta$ 相互独立. 记 $\{X(t)\}$ 的自相关函数为 $R_X(\tau)$, 谱密度为 $S_X(\omega)$. 证明:"
@@ -1120,7 +1224,7 @@ $S_{XY}(\omega) = \int_{-\infty}^{+\infty} R_{XY}(\tau) e^{-i\omega\tau} d\tau, 
 
 
 	* $R_X(\tau)$ 的傅里叶变换为 $S_X(\omega)$
-	* $\cos(\omega_0 \tau) $的傅立叶变换是$\pi[\delta(\omega - \omega_0) + \delta(\omega + \omega_0)]$
+	* $\cos(\omega_0\tau)$ 的傅立叶变换是 $\pi[\delta(\omega-\omega_0)+\delta(\omega+\omega_0)]$
 
 
 	**直接运算**

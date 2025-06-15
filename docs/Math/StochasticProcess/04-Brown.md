@@ -7,9 +7,9 @@
 * $\forall\;0\leq s<t\quad X(t)-X(s)\sim N(0,\sigma^2(t-s))$
   * 正态分布的pdf，在求特殊分布的时候有用
 
-      $$
-      f(x) = \frac{1}{\sqrt{2\pi \sigma^2}} \exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\right)
-      $$
+$$
+f(x) = \frac{1}{\sqrt{2\pi \sigma^2}} \exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\right)
+$$
 
 * 均值函数：$\mu_B(t)=0$
 * 方差函数：$D_B(t)=t$
@@ -685,6 +685,50 @@ $$
     (2) 书上两个定理结合下
 
     **解析：**
+    
+    法1：使用性质1进行证明
+    
+    !!! note "性质 1 设$\{X(t);t\geqslant0\}$是一样本轨道连续的随机过程，则$\{X(t);t\geqslant0\}$是标准布朗运动当且仅当它是正态过程且$\mu_X(t)=0,R_X(s,t)=\min\{s,t\}.$"
+
+    设 $X(t) = (t+1)B(\frac{1}{t+1}) - B(1)$，需要证明 $X(t)$ 是标准布朗运动。
+
+    1. 首先证明 $X(t)$ 是正态过程：
+       - $B(\frac{1}{t+1})$ 是正态过程
+       - $B(1)$ 是正态随机变量
+       - 因此 $X(t)$ 是正态过程
+
+    2. 计算均值函数：
+    $$
+    \begin{align*}
+    E[X(t)] &= E[(t+1)B(\frac{1}{t+1}) - B(1)] \\
+    &= (t+1)E[B(\frac{1}{t+1})] - E[B(1)] \\
+    &= 0
+    \end{align*}
+    $$
+
+    3. 计算自相关函数：
+    $$
+    \begin{align*}
+    R_X(s,t) &= E[X(s)X(t)] \\
+    &= E[(s+1)B(\frac{1}{s+1}) - B(1)][(t+1)B(\frac{1}{t+1}) - B(1)] \\
+    &= (s+1)(t+1)E[B(\frac{1}{s+1})B(\frac{1}{t+1})] - (s+1)E[B(\frac{1}{s+1})B(1)] - (t+1)E[B(\frac{1}{t+1})B(1)] + E[B^2(1)] \\
+    &= (s+1)(t+1)\min(\frac{1}{s+1},\frac{1}{t+1}) - (s+1)\min(\frac{1}{s+1},1) - (t+1)\min(\frac{1}{t+1},1) + 1 \\
+    &= \min(s+1,t+1) - \min(s+1,1) - \min(t+1,1) + 1 \\
+    &= \min(s+1,t+1) - 1\\
+    &= \min(s,t)
+    \end{align*}
+    $$
+
+    因此，$X(t)$ 是标准布朗运动。
+
+    ---
+
+
+
+
+
+    法二：使用性质2的组合进行证明
+
     利用布朗运动的自相似性和时间反转性质：
 
     - markov性质：$B(t+\tau)-B(\tau)$ 是标准布朗运动
@@ -760,17 +804,51 @@ $$
 ### 数字特征求解与特殊
 
 
-!!! question "已知 $B(t)$是标准正态函数，则$\sum_{k=1}^{n}B(k)$符合____分布，$X(t)=e^{B(t)}$的均值函数是____。"
+!!! example "已知 $B(t)$是标准正态函数，则$\sum_{k=1}^{n}B(k)$符合____分布，$X(t)=e^{B(t)}$的均值函数是____。"
 
     **解析：**
 
     $\sum_{k=1}^{n}B(k)$符合$N(0,\frac{k(k+1)(2k+1)}{6})$分布，$X(t)=e^{B(t)}$的均值函数是$e^{\frac{t}{2}}$
+
+    ---
+
+    对于布朗运动 $B(t)$，我们知道 $B(k) \sim \mathcal{N}(0, k)$，并且$B(k)$ 与 $B(k-1)$ **不独立**（因为是一个过程）；改写成增量的形式
+
+    $$
+    B(k) = \sum_{i=1}^{k} \left[ B(i) - B(i-1) \right], \text{ 其中 } B(i)-B(i-1) \sim \mathcal{N}(0,1), \text{ 相互独立}
+    $$
+
+    * 所以 $\sum_{k=1}^n B(k)$ 是这些正态变量的**线性组合**。我们将其写为：
+
+    $$
+    \begin{align*}
+    \sum_{k=1}^n B(k) &= \sum_{k=1}^n \sum_{j=1}^k (B(j) - B(j-1)) = \sum_{j=1}^n (n - j + 1)(B(j) - B(j-1))\\
+    &= \sum_{j=1}^n (n - j + 1) \cdot \Delta B_j, \quad \Delta B_j := B(j) - B(j-1)
+    \end{align*}
+    $$
+
+    * 因为每个 $\Delta B_j \sim \mathcal{N}(0, 1)$ 且独立 ⇒ 此和是**均值为 0 的正态分布**
+
+    * 方差为：
+
+    $$
+    \operatorname{Var} \left( \sum_{j=1}^n (n - j + 1) \cdot \Delta B_j \right) = \sum_{j=1}^n (n - j + 1)^2\\
+    = \sum_{k=1}^n k^2 = \frac{n(n+1)(2n+1)}{6}
+    $$
+
+
+    ---
 
     **对数正态分布**的均值函数是
     
     $$
     E[e^X] = e^{\mu + \frac{1}{2}\sigma^2}
     $$
+
+    而$B(t)$的均值是0，$\sigma^2 = t$
+
+    带入公式即可
+
 
 
 ??? note "对数正态分布均值求解"
@@ -995,7 +1073,7 @@ $$
     \begin{align*}
     E[X(t)X(s)] &= E\left[\left(\cos(t+\Theta) + e^{-t}B(e^{2t})\right)\left(\cos(s+\Theta) + e^{-s}B(e^{2s})\right)\right] \\
     &= E[\cos(t+\Theta)\cos(s+\Theta)] + E[e^{-t}B(e^{2t})e^{-s}B(e^{2s})] + E[\cos(t+\Theta)]E[e^{-s}B(e^{2s})] + E[\cos(s+\Theta)]E[e^{-t}B(e^{2t})] \\
-    &=\frac{1}{2} \cos(t-s) + e^{-(t+s)}E(B(e^{2t}B(e^{2s})))\\
+    &=\frac{1}{2} \cos(t-s) + e^{-(t+s)}E(B(e^{2t})B(e^{2s}))\\
     &=  \frac{1}{2} \cos(\tau)+e^{-(t+s)}\min(e^{2t}, e^{2s})\\
     &= \frac{1}{2} \cos(\tau)+ e^{-|t-s|} \quad \text{可分 $t \geq s$ 和 $t < s$ 两种情况验证}
     \end{align*}
@@ -1015,15 +1093,26 @@ $$
 
     **(3) 求其功率谱函数**
 
-    功率谱为自协方差的傅里叶变换：
+    功率谱为自相关函数的傅里叶变换：
+
+    又因为均值为0，所以自相关等于自协方差
 
     - $\frac{1}{2}\cos(t-s)$ 的谱为 $\frac{\pi}{2}[\delta(\omega+1)+\delta(\omega-1)]$
     - $e^{-|t-s|}$ 的谱为 $\frac{2}{\omega^2+1}$
 
     所以
+    
     $$
     S_X(\omega) = \frac{2}{\omega^2+1} + \pi[\delta(\omega+1)+\delta(\omega-1)]
     $$
+
+    --- 
+
+    改编自课本5.1.7
+    
+    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/202506151907951.png)
+
+
 
     
 
@@ -1121,8 +1210,10 @@ $$
     $$
     B(\frac{1}{10})\sim\frac{1}{10}\widetilde{B(10)}\sim N(\frac{6}{5},\frac{1}{25})
     $$
+
 ### 4.29
-!!! note "设 $\{B(t); t \geqslant 0\}$ 是标准布朗运动，对任意 $t>0, x>0$"
+
+!!! example "设 $\{B(t); t \geqslant 0\}$ 是标准布朗运动，对任意 $t>0, x>0$"
 
     (1) $P(|B(t)| \leqslant x)$；
 
@@ -1151,3 +1242,5 @@ $$
     &= 1 - 2\left[1 - \Phi\left(\frac{x}{\sqrt{t}}\right)\right] = 2\Phi\left(\frac{x}{\sqrt{t}}\right) - 1
     \end{align*}
     $$
+
+    
