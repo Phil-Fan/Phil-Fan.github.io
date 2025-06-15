@@ -337,9 +337,34 @@
       留数
     </span>
 </a>
-</li>
+<nav aria-label="留数" class="md-nav">
+<ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_7">
+<span class="md-ellipsis">
+      奇点类型判断
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_8">
+<span class="md-ellipsis">
+      留数计算
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_9">
+<span class="md-ellipsis">
+      留数的应用 —— 求解实函数定积分
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_13">
 <span class="md-ellipsis">
       保角映射
     </span>
@@ -3219,9 +3244,34 @@
       留数
     </span>
 </a>
-</li>
+<nav aria-label="留数" class="md-nav">
+<ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_7">
+<span class="md-ellipsis">
+      奇点类型判断
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_8">
+<span class="md-ellipsis">
+      留数计算
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_9">
+<span class="md-ellipsis">
+      留数的应用 —— 求解实函数定积分
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_13">
 <span class="md-ellipsis">
       保角映射
     </span>
@@ -3243,7 +3293,7 @@
 <article class="md-content__inner md-typeset">
 <div><h1 id="_1">复变函数<a class="headerlink" href="#_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>401<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>2<span class="heti-spacing"> </span></span>分钟</p>
+<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>1336<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>5<span class="heti-spacing"> </span></span>分钟</p>
 </div>
 <h2 id="_2">解析函数<a class="headerlink" href="#_2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p>复解析函数</p>
@@ -3287,7 +3337,169 @@
 <h3 id="_5">泰勒展开<a class="headerlink" href="#_5" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <h3 id="talor"><span>Talor<span class="heti-spacing"> </span></span>定理<a class="headerlink" href="#talor" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <h2 id="_6">留数<a class="headerlink" href="#_6" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<h2 id="_7">保角映射<a class="headerlink" href="#_7" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<iframe allowfullscreen="true" border="0" frameborder="no" framespacing="0" height="450px" scrolling="no" src="//player.bilibili.com/player.html?isOutside=true&amp;aid=305213390&amp;bvid=BV1iP411g7J3&amp;cid=891588515&amp;p=1&amp;autoplay=0" width="100%"></iframe>
+<p>复合闭路定理的具体体现</p>
+<h3 id="_7">奇点类型判断<a class="headerlink" href="#_7" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<ul>
+<li>可去奇点：洛必达</li>
+<li>本性奇点：洛朗展开</li>
+<li><span>m<span class="heti-spacing"> </span></span>级极点：</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">例<span><span class="heti-spacing"> </span>1.1</span>：求<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(f(z)=\frac{z^{2}}{e^{z}-1}\)</span><span class="heti-spacing"> </span></span>的奇点，并指出奇点类型</p>
+<p>解：令<span><span class="heti-spacing"> </span><span class="arithmatex">\(e^{z}-1=0\)</span></span>，即<span><span class="heti-spacing"> </span><span class="arithmatex">\(e^{z}=1\)</span></span>，即<span><span class="heti-spacing"> </span><span class="arithmatex">\(z=\mathrm{Ln}1=2k\pi i\)</span></span>。
+故<span class="arithmatex">\(f(z)\)</span>的奇点为<span class="arithmatex">\(z=2k\pi i\)</span>(<span class="arithmatex">\(k=0,\pm 1,\pm 2,\dots\)</span>)。</p>
+<p>①对<span><span class="heti-spacing"> </span><span class="arithmatex">\(e^{z}-1\)</span>:</span>
+<span class="arithmatex">\((e^{z}-1)'|_{z=2k\pi i}=e^{z}|_{z=2k\pi i}=1\neq 0\)</span>，
+故<span class="arithmatex">\(z=2k\pi i\)</span>为<span class="arithmatex">\(e^{z}-1\)</span>的1级零点;</p>
+<p>②对<span><span class="heti-spacing"> </span><span class="arithmatex">\(z^{2}\)</span>:</span>
+当<span class="arithmatex">\(k=0\)</span>时，<span class="arithmatex">\(z=0\)</span>显然是<span class="arithmatex">\(z^{2}\)</span>的2级零点;
+当<span class="arithmatex">\(k\neq 0\)</span>时，<span class="arithmatex">\(z=2k\pi i\)</span>不是<span class="arithmatex">\(z^{2}\)</span>的零点。</p>
+<p>故<span><span class="heti-spacing"> </span>:</span>
+<span class="arithmatex">\(z=0\)</span>是<span class="arithmatex">\(f(z)\)</span>的可去奇点,
+<span class="arithmatex">\(z=2k\pi i\)</span>(<span class="arithmatex">\(k=\pm 1,\pm 2,\dots\)</span>)是<span class="arithmatex">\(f(z)\)</span>的1级极点。</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">例<span><span class="heti-spacing"> </span>1.2</span>：求<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(f(z)=\frac{\cot(\pi z)}{2z-3}\)</span><span class="heti-spacing"> </span></span>在<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(|z-i|=2\)</span><span class="heti-spacing"> </span></span>内的奇点</p>
+<p>解：<span class="arithmatex">\(f(z)=\frac{\cot(\pi z)}{2z-3}=\frac{\cos(\pi z)}{\sin(\pi z)(2z-3)}\)</span>.
+令<span class="arithmatex">\(\sin(\pi z)=0\)</span>，则<span class="arithmatex">\(z=k\)</span>(<span class="arithmatex">\(k=0,\pm 1\)</span>),
+令<span class="arithmatex">\(2z-3=0\)</span>，则<span class="arithmatex">\(z=\frac{3}{2}\)</span>.</p>
+<p>①<span><span class="arithmatex">\(z=\frac{3}{2}\)</span><span class="heti-spacing"> </span></span>是<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(2z-3\)</span><span class="heti-spacing"> </span></span>的<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>级零点，不是<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\sin(\pi z)\)</span><span class="heti-spacing"> </span></span>的零点，是<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\cos(\pi z)\)</span><span class="heti-spacing"> </span></span>的<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>级零点，则其是<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(f(z)\)</span><span class="heti-spacing"> </span></span>的可去奇点<span><span class="heti-spacing"> </span>;</span></p>
+<p>②<span><span class="arithmatex">\(z=k\)</span><span class="heti-spacing"> </span></span>不是<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(2z-3\)</span><span class="heti-spacing"> </span></span>的零点，是<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\sin(\pi z)\)</span><span class="heti-spacing"> </span></span>的<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>级零点，不是<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\cos(\pi z)\)</span><span class="heti-spacing"> </span></span>的零点，则其是<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(f(z)\)</span><span class="heti-spacing"> </span></span>的<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>级极点。</p>
+<p>故在<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(|z-i|=2\)</span><span class="heti-spacing"> </span></span>内，
+<span class="arithmatex">\(z=\frac{3}{2}\)</span>是<span class="arithmatex">\(f(z)\)</span>的可去奇点，<span class="arithmatex">\(z=0,\pm 1\)</span>是<span class="arithmatex">\(f(z)\)</span>的1级极点。</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">例题</p>
+<p>对于函数<span><span class="heti-spacing"> </span><span class="arithmatex">\(\frac{1}{z}e^{zt-\frac{1}{z}}=\frac{1}{z}e^{zt}\cdot e^{-\frac{1}{z}}\)</span></span>，<span><span class="arithmatex">\(z=0\)</span><span class="heti-spacing"> </span></span>是函数的本性奇点，函数在<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(z=0\)</span><span class="heti-spacing"> </span></span>的去心邻域<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\{z;0&lt;|z|&lt;+\infty\}\)</span><span class="heti-spacing"> </span></span>中的罗朗展开式为</p>
+<div class="arithmatex">\[
+\begin{align*}
+\frac{1}{z}e^{zt-\frac{1}{z}}&amp;=\frac{1}{z}e^{zt}\cdot e^{-\frac{1}{z}}\\
+&amp;=\frac{1}{z}\left[1+zt+\frac{1}{2!}(zt)^2+\cdots+\frac{1}{n!}(zt)^n+\cdots\right]\\
+&amp;\quad\cdot\left[1-\frac{1}{z}+\frac{1}{2!}\frac{1}{z^2}+\cdots+\frac{(-1)^n}{n!}\frac{1}{z^n}+\cdots\right]\\
+&amp;\quad(0&lt;|z|&lt;+\infty)
+\end{align*}
+\]</div>
+<p>所以相乘后的级数<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\frac{1}{z}\)</span><span class="heti-spacing"> </span></span>的系数<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(C_{-1}\)</span><span class="heti-spacing"> </span></span>为</p>
+<div class="arithmatex">\[
+C_{-1}=\text{Res}\left[\frac{1}{z}e^{zt-\frac{1}{z}};0\right]
+\]</div>
+</div>
+<h3 id="_8">留数计算<a class="headerlink" href="#_8" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>基础方法：洛朗展开式</p>
+<ul>
+<li><strong>有理分式函数</strong>，<span>1<span class="heti-spacing"> </span></span>级极点：</li>
+</ul>
+<p>若<span><span class="heti-spacing"> </span><span class="arithmatex">\(f(z)=\frac{P(z)}{Q(z)}\)</span></span>，且<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(z_0\)</span><span class="heti-spacing"> </span></span>不是<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(P(z)\)</span><span class="heti-spacing"> </span></span>的零点，是<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(Q(z)\)</span><span class="heti-spacing"> </span></span>的<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>级零点，则</p>
+<div class="arithmatex">\[
+\text{Res}[f(z),z_0]=\frac{P(z)}{Q'(z)}
+\]</div>
+<blockquote>
+<p>注：只能用于「非零点<span class="heti-skip"><span class="heti-spacing"> </span>/1<span class="heti-spacing"> </span></span>级零点<span class="heti-skip"><span class="heti-spacing"> </span>= 1<span class="heti-spacing"> </span></span>级极点」的情况。</p>
+</blockquote>
+<ul>
+<li><strong><span>m<span class="heti-spacing"> </span></span>级极点</strong><span class="arithmatex">\((m=1,2,3...)\)</span></li>
+</ul>
+<p>若<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(z_0\)</span><span class="heti-spacing"> </span></span>是<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(f(z)\)</span><span class="heti-spacing"> </span></span>的<span class="heti-skip"><span class="heti-spacing"> </span>m<span class="heti-spacing"> </span></span>级极点，则</p>
+<div class="arithmatex">\[
+\text{Res}[f(z),z_0]=\frac{1}{(m-1)!}\lim_{z\to z_0}\frac{\mathrm{d}^{m-1}}{\mathrm{d}z^{m-1}}[(z-z_0)^mf(z)]
+\]</div>
+<p>注：意思是，先作函数<span><span class="heti-spacing"> </span><span class="arithmatex">\(G(z)=(z-z_0)^mf(z)\)</span></span>，然后求其<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(m-1\)</span><span class="heti-spacing"> </span></span>阶导数<span><span class="heti-spacing"> </span><span class="arithmatex">\(G^{(m-1)}(z)\)</span></span>，再求它趋于<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(z\to z_0\)</span><span class="heti-spacing"> </span></span>的极限，最后乘上系数<span><span class="heti-spacing"> </span><span class="arithmatex">\(\frac{1}{(m-1)!}\)</span></span>。</p>
+<p>请留意，极点级数为<span><span class="heti-spacing"> </span><span class="arithmatex">\(m\)</span></span>，乘上的多项式次数为<span><span class="heti-spacing"> </span><span class="arithmatex">\(m\)</span></span>，但求导次数和系数都是<span><span class="heti-spacing"> </span><span class="arithmatex">\(m-1\)</span></span>。</p>
+<div class="admonition example">
+<p class="admonition-title">例<span><span class="heti-spacing"> </span>2.1</span>：求<span><span class="heti-spacing"> </span><span class="arithmatex">\(\oint_{C}\frac{e^{z}}{z(z+1)^{2}}dz\)</span></span>，其中<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(C\)</span><span class="heti-spacing"> </span></span>为正向圆周<span><span class="heti-spacing"> </span><span class="arithmatex">\(|z|=2\)</span></span></p>
+<p>解：<span><span class="arithmatex">\(f(z)=\frac{e^{z}}{z(z+1)^{2}}\)</span><span class="heti-spacing"> </span></span>的奇点为<span><span class="heti-spacing"> </span><span class="arithmatex">\(z=0\)</span></span>，<span class="arithmatex">\(z=-1\)</span>；显然<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(z=0\)</span><span class="heti-spacing"> </span></span>是它的<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>级极点，<span><span class="arithmatex">\(z=-1\)</span><span class="heti-spacing"> </span></span>是它的<span class="heti-skip"><span class="heti-spacing"> </span>2<span class="heti-spacing"> </span></span>级极点。</p>
+<p>则<span><span class="heti-spacing"> </span><span class="arithmatex">\(\text{Res}[f(z),0]=\lim_{z\to 0}zf(z)=\lim_{z\to 0}\frac{e^{z}}{(z+1)^{2}}=1\)</span></span>；</p>
+<p><span class="arithmatex">\(\text{Res}[f(z),-1]=\lim_{z\to -1}[(z+1)^{2}f(z)]'=\lim_{z\to -1}\left[\frac{e^{z}}{z}\right]'=\lim_{z\to -1}\frac{(z-1)e^{z}}{z^{2}}=\frac{-2}{e}\)</span>。</p>
+<p>则<span><span class="heti-spacing"> </span><span class="arithmatex">\(\oint_{C}\frac{e^{z}}{z(z+1)^{2}}dz=2\pi i\{\text{Res}[f(z),0]+\text{Res}[f(z),-1]\}=2\pi i(1-\frac{2}{e})\)</span></span>。</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">例<span><span class="heti-spacing"> </span>2.2</span>：求<span><span class="heti-spacing"> </span><span class="arithmatex">\(\oint_{C}\frac{z-\sin z}{z^{6}}dz\)</span></span>，其中<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(C\)</span><span class="heti-spacing"> </span></span>为正向圆周<span><span class="heti-spacing"> </span><span class="arithmatex">\(|z|=1\)</span></span></p>
+<p>解：<span><span class="arithmatex">\(f(z)=\frac{z-\sin z}{z^{6}}\)</span><span class="heti-spacing"> </span></span>的奇点为<span><span class="heti-spacing"> </span><span class="arithmatex">\(z=0\)</span></span>，这是它的<span class="heti-skip"><span class="heti-spacing"> </span>3<span class="heti-spacing"> </span></span>级奇点。<span>*<span class="heti-spacing"> </span></span>故此题用求留数的规则较繁琐</p>
+<p>将<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(f(z)\)</span><span class="heti-spacing"> </span></span>在<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(0&lt;|z|&lt;1\)</span><span class="heti-spacing"> </span></span>上洛朗展开，则
+$$
+begin{align<em>}
+f(z)&amp;=frac{z}{z<sup>{6}}-frac{1}{z</sup>sin z\
+&amp;=frac{z}{z}<sup>{6}}-frac{1}{z</sup>}}sum_{n=0<sup n="n">{infty}frac{(-1)</sup>\
+&amp;=frac{1}{z}}{(2n+1)!}z^{2n+1<sup _105_nfty="infty">{5}}-sum_{n=0}</sup>frac{(-1)<sup>{n}}{(2n+1)!}z</sup>
+end{align</em>}
+$$</p>
+<p>则<span><span class="heti-spacing"> </span><span class="arithmatex">\(c_{-1}=-\frac{(-1)^{2}}{(2\times 2+1)!}=\frac{1}{120}\)</span></span>。</p>
+<p>则<span><span class="heti-spacing"> </span><span class="arithmatex">\(\oint_{C}\frac{z-\sin z}{z^{6}}dz=2\pi i\text{Res}[f(z),0]=-\frac{1}{60}\pi i\)</span></span>。</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">例<span><span class="heti-spacing"> </span>3.3</span>：用留数计算定积分<span><span class="heti-spacing"> </span><span class="arithmatex">\(I = \int_{-\infty}^{+\infty} \frac{x^2}{(x^2+1)(x^2+4)} dx\)</span></span></p>
+<p>解：<span><span class="arithmatex">\(f(z) = \frac{z^2}{(z^2+1)(z^2+4)}\)</span><span class="heti-spacing"> </span></span>在上半复平面上的奇点为<span><span class="heti-spacing"> </span><span class="arithmatex">\(z=i, z=2i\)</span></span>，且均为其<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>级极点，
+故 <span class="arithmatex">\(I = 2\pi i \{ \text{Res}[f(z), i] + \text{Res}[f(z), 2i] \} = 2\pi i \left[ \lim_{z \to i} \frac{z^2}{(z+i)(z^2+4)} + \lim_{z \to 2i} \frac{z^2}{(z^2+1)(z+2i)} \right] = 0\)</span>。</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">例<span><span class="heti-spacing"> </span>3.4</span>：用留数计算定积分<span><span class="heti-spacing"> </span><span class="arithmatex">\(I = \int_{0}^{+\infty} \frac{x^2}{x^4+1} dx\)</span></span></p>
+<p>解：显然<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(f(x) = \frac{x^2}{x^4+1}\)</span><span class="heti-spacing"> </span></span>为偶函数，则<span><span class="heti-spacing"> </span><span class="arithmatex">\(I = \frac{1}{2} \int_{-\infty}^{+\infty} f(x) dx\)</span></span>。
+<span class="arithmatex">\(f(z) = \frac{z^2}{z^4+1}\)</span> 在上半复平面上的奇点为 <span class="arithmatex">\(z = \pm \frac{\sqrt{2}}{2} + \frac{\sqrt{2}}{2} i\)</span>，且均为其1级极点，
+故 <span class="arithmatex">\(I = 2\pi i \left\{ \text{Res} \left[f(z), \frac{\sqrt{2}}{2} + \frac{\sqrt{2}}{2} i \right] + \text{Res} \left[f(z), -\frac{\sqrt{2}}{2} + \frac{\sqrt{2}}{2} i \right] \right\} = \pi i \left[ \frac{1-i}{4\sqrt{2}} - \frac{1+i}{4\sqrt{2}} \right] = \frac{\sqrt{2}}{4} \pi\)</span>。</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">例<span><span class="heti-spacing"> </span>3.5</span>：用留数计算定积分<span><span class="heti-spacing"> </span><span class="arithmatex">\(I=\int_{0}^{+\infty}\frac{\cos x}{(x^{2}+1)(x^{2}+9)}dx\)</span></span></p>
+<p>解：显然<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(f(x)=\frac{\cos x}{(x^{2}+1)(x^{2}+9)}\)</span><span class="heti-spacing"> </span></span>为偶函数，则<span><span class="heti-spacing"> </span><span class="arithmatex">\(I=\frac{1}{2}\int_{-\infty}^{+\infty}f(x)dx\)</span></span>。</p>
+<p>而<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(F(z)=\frac{e^{iz}}{(z^{2}+1)(z^{2}+9)}\)</span><span class="heti-spacing"> </span></span>在上半复平面上的奇点为<span><span class="heti-spacing"> </span><span class="arithmatex">\(z=i,z=3i\)</span></span>，且均为其<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>级极点，</p>
+<p>故<span><span class="heti-spacing"> </span><span class="arithmatex">\(I=\frac{1}{2}\text{Re}\left(2\pi i\left\{\text{Res}[F(z),i]+\text{Res}[F(z),3i]\right\}\right)=\frac{1}{2}\text{Re}\left(2\pi i\left\{\frac{e^{-1}}{16i}-\frac{e^{-3}}{48i}\right\}\right)=\left(\frac{e^{-1}}{16}-\frac{e^{-3}}{48}\right)\pi\)</span></span>。</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">例<span><span class="heti-spacing"> </span>3.6</span>：用留数计算定积分<span><span class="heti-spacing"> </span><span class="arithmatex">\(I=\int_{-\infty}^{+\infty}\frac{x\sin3x}{x^{2}+16}dx\)</span></span></p>
+<p>解：<span><span class="arithmatex">\(F(z)=\frac{ze^{i3z}}{z^{2}+16}\)</span><span class="heti-spacing"> </span></span>在上半复平面上的奇点为<span><span class="heti-spacing"> </span><span class="arithmatex">\(z=4i\)</span></span>，且为其<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>级极点，</p>
+<p>故<span><span class="heti-spacing"> </span><span class="arithmatex">\(I=\text{Im}(2\pi i\text{ Res}[F(z),4i])=\text{Im}\left(2\pi i\lim_{z\to4i}\frac{ze^{3z}}{z+4i}\right)=\pi e^{-12}\)</span></span>。</p>
+</div>
+<h3 id="_9">留数的应用 —— 求解实函数定积分<a class="headerlink" href="#_9" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>实函数可以认为是复数仅在实轴上“活动”得到的。实函数的定积分也同样如此。
+因此，将定积分与复变积分关联起来，再用留数定理求出复变积分，有时可以方便的求出一些不易计算的定积分。
+这里我们不加证明的给出三种形式的定积分与复变积分的关系。</p>
+<h4 id="_10">有理三角函数全周期积分<a class="headerlink" href="#_10" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<div class="arithmatex">\[
+\int_{0}^{2\pi}R(\cos\theta,\sin\theta)d\theta
+\]</div>
+<p>令<span><span class="heti-spacing"> </span><span class="arithmatex">\(z=e^{i\theta}\)</span></span>，则积分路径<span><span class="heti-spacing"> </span><span class="arithmatex">\(|z|=1\)</span></span></p>
+<ul>
+<li><span class="arithmatex">\(\sin\theta=\frac{e^{i\theta}-e^{-i\theta}}{2i}=\frac{z^{2}-1}{2iz}\)</span></li>
+<li><span class="arithmatex">\(\cos\theta=\frac{e^{i\theta}+e^{-i\theta}}{2}=\frac{z^{2}+1}{2z}\)</span></li>
+<li><span class="arithmatex">\(dz=ie^{i\theta}d\theta\quad\rightarrow\quad d\theta=\frac{1}{iz}dz\)</span></li>
+</ul>
+<h4 id="_11">有理分式函数无穷广义积分<a class="headerlink" href="#_11" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<div class="arithmatex">\[
+\int_{-\infty}^{+\infty}R(x)dx
+\]</div>
+<p>直接将<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(R(x)\)</span><span class="heti-spacing"> </span></span>改为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(R(z)\)</span>,<span class="heti-spacing"> </span></span>上半平面奇点的留数之和</p>
+<div class="arithmatex">\[
+\int_{-\infty}^{+\infty}R(x)dx=2\pi i\sum\text{Res}[R(z),z_{0}]
+\]</div>
+<h4 id="_12">有理函数乘三角函数无穷广义积分<a class="headerlink" href="#_12" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<div class="arithmatex">\[
+\int_{-\infty}^{+\infty}R(x)\cos ax\,dx(a&gt;0) \quad \text{或}R(x)\sin ax
+\]</div>
+<p>构造函数<span><span class="heti-spacing"> </span><span class="arithmatex">\(R(z)e^{iaz}\)</span></span>，求留数</p>
+<div class="arithmatex">\[
+\int_{-\infty}^{+\infty}R(x)\cos ax\,dx+i\int_{-\infty}^{+\infty}R(x)\sin ax\,dx=2\pi i\sum\text{Res}[R(z)e^{iaz},z_{0}]
+\]</div>
+<p>这个值是一个复数</p>
+<ul>
+<li>实部对应含<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\cos ax\)</span><span class="heti-spacing"> </span></span>的积分</li>
+<li>虚部对应含<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\sin ax\)</span><span class="heti-spacing"> </span></span>的积分</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">例<span><span class="heti-spacing"> </span>27</span>：计算积分<span><span class="heti-spacing"> </span><span class="arithmatex">\(I=\int_{0}^{+\infty}\frac{1}{x^{4}+1}dx\)</span></span></p>
+<p>解：<span><span class="arithmatex">\(f(z)=\frac{1}{z^{4}+1}\)</span><span class="heti-spacing"> </span></span>在上半平面有单极点<span><span class="heti-spacing"> </span><span class="arithmatex">\(e^{\frac{\pi}{4}i},e^{\frac{3\pi}{4}i}\)</span></span>。</p>
+<p>由于被积函数为偶函数，则</p>
+<div class="arithmatex">\[
+\begin{align*}
+I &amp;= \int_{0}^{+\infty}\frac{1}{x^{4}+1}dx \\
+&amp;= \frac{1}{2}\int_{-\infty}^{+\infty}\frac{1}{x^{4}+1}dx \\
+&amp;= \frac{1}{2}\cdot2\pi i(\mathrm{Res}[\frac{1}{z^{4}+1};e^{\frac{\pi}{4}i}]+\mathrm{Res}[\frac{1}{z^{4}+1};e^{\frac{3\pi}{4}i}]) \\
+&amp;= \pi i(\frac{1}{4e^{\frac{3\pi}{4}i}}+\frac{1}{4e^{\frac{9\pi}{4}i}}) \\
+&amp;= \frac{\pi i}{4}\frac{1}{\sqrt{2}}(-1-i+1-i) \\
+&amp;= \frac{\sqrt{2}}{4}\pi
+\end{align*}
+\]</div>
+</div>
+<h2 id="_13">保角映射<a class="headerlink" href="#_13" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <h2 id="laplace"><span>Laplace<span class="heti-spacing"> </span></span>变换<a class="headerlink" href="#laplace" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p><a href="https://blog.csdn.net/wh_STUDY/article/details/126403817">拉普拉斯变换与拉普拉斯逆变换的常用结论与经典公式<span class="heti-skip"><span class="heti-spacing"> </span>-CSDN<span class="heti-spacing"> </span></span>博客</a></p></div>
 <aside class="md-source-file">
@@ -3295,7 +3507,7 @@
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年5月10日 22:50:26</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年6月15日 20:53:54</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">
