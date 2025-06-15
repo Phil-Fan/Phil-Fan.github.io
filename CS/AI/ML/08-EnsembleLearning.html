@@ -1863,17 +1863,17 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#boosting">
+<a class="md-nav__link" href="#boosting-adaboost">
 <span class="md-ellipsis">
-      boosting
+      boosting - AdaBoost
     </span>
 </a>
-<nav aria-label="boosting" class="md-nav">
+<nav aria-label="boosting - AdaBoost" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#adaboost">
+<a class="md-nav__link" href="#training-error-bound">
 <span class="md-ellipsis">
-      AdaBoost
+      📌Training Error Bound
     </span>
 </a>
 </li>
@@ -1886,6 +1886,17 @@
       bagging
     </span>
 </a>
+<nav aria-label="bagging" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#random-forest">
+<span class="md-ellipsis">
+      Random Forest
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_1">
@@ -3154,17 +3165,17 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#boosting">
+<a class="md-nav__link" href="#boosting-adaboost">
 <span class="md-ellipsis">
-      boosting
+      boosting - AdaBoost
     </span>
 </a>
-<nav aria-label="boosting" class="md-nav">
+<nav aria-label="boosting - AdaBoost" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#adaboost">
+<a class="md-nav__link" href="#training-error-bound">
 <span class="md-ellipsis">
-      AdaBoost
+      📌Training Error Bound
     </span>
 </a>
 </li>
@@ -3177,6 +3188,17 @@
       bagging
     </span>
 </a>
+<nav aria-label="bagging" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#random-forest">
+<span class="md-ellipsis">
+      Random Forest
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_1">
@@ -3201,17 +3223,87 @@
 <article class="md-content__inner md-typeset">
 <div><h1 id="08"><span>08 |<span class="heti-spacing"> </span></span>集成学习<a class="headerlink" href="#08" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>81<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间不到<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>分钟</p>
+<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>685<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>3<span class="heti-spacing"> </span></span>分钟</p>
 </div>
-<h2 id="boosting">boosting<a class="headerlink" href="#boosting" title="anchor link to this section for reference">¶</a></h2>
-<h3 id="adaboost">AdaBoost<a class="headerlink" href="#adaboost" title="anchor link to this section for reference">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">好的集成，个体学习器应该“好而不同” </p>
+</div>
+<blockquote>
+<p>君子和而不同</p>
+</blockquote>
+<ul>
+<li>个体学习器强依赖关系，采用串行式的方法：boosting</li>
+<li>个体学习期不存在强依赖关系，并行化的方法<span><span class="heti-spacing"> </span>:bagging,RF</span></li>
+</ul>
+<h2 id="boosting-adaboost">boosting - AdaBoost<a class="headerlink" href="#boosting-adaboost" title="anchor link to this section for reference">¶</a></h2>
 <p><a href="https://zhuanlan.zhihu.com/p/41536315">通俗易懂理解——<span>Adaboost<span class="heti-spacing"> </span></span>算法原理<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>知乎</a></p>
+<h3 id="training-error-bound">📌Training Error Bound<a class="headerlink" href="#training-error-bound" title="anchor link to this section for reference">¶</a></h3>
+<p><span>Adaboost<span class="heti-spacing"> </span></span>的训练误差界：</p>
+<div class="arithmatex">\[
+\text{Training Error} \leq \exp\left(-2 \sum_{t=1}^T \left(\frac{1}{2} - \epsilon_t\right)^2\right)
+\]</div>
+<p>体现了其<span class="heti-skip"><span class="heti-spacing"> </span>"<span class="heti-spacing"> </span></span>自适应性<span class="heti-skip"><span class="heti-spacing"> </span>"<span class="heti-spacing"> </span></span>和对弱分类器的强整合能力。这也是<span class="heti-skip"><span class="heti-spacing"> </span>Adaboost<span class="heti-spacing"> </span></span>能够从多个<span class="heti-skip"><span class="heti-spacing"> </span>"<span class="heti-spacing"> </span></span>弱<span class="heti-skip"><span class="heti-spacing"> </span>"<span class="heti-spacing"> </span></span>分类器中获得强大性能的理论基础。</p>
+<p>设：</p>
+<ul>
+<li>我们有<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(m\)</span><span class="heti-spacing"> </span></span>个训练样本<span><span class="heti-spacing"> </span><span class="arithmatex">\({(x_i, y_i)}_{i=1}^m\)</span></span>，其中<span><span class="heti-spacing"> </span><span class="arithmatex">\(y_i \in \{-1, +1\}\)</span></span></li>
+<li>使用<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(T\)</span><span class="heti-spacing"> </span></span>轮<span><span class="heti-spacing"> </span>boosting</span>，每轮产生一个弱分类器<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(h_t(x)\)</span><span class="heti-spacing"> </span></span>和对应的权重<span><span class="heti-spacing"> </span><span class="arithmatex">\(\alpha_t\)</span></span></li>
+<li>
+<p>最终分类器为加权投票：</p>
+<div class="arithmatex">\[
+H(x) = \text{sign}\left(\sum_{t=1}^T \alpha_t h_t(x)\right)
+\]</div>
+</li>
+</ul>
+<hr/>
+<p><strong>训练误差上界公式</strong></p>
+<p><span>Adaboost<span class="heti-spacing"> </span></span>的训练误差满足如下上界：</p>
+<div class="arithmatex">\[
+\frac{1}{m} \sum_{i=1}^m \mathbb{I}\left(H(x_i) \neq y_i\right) \leq \prod_{t=1}^T Z_t
+\]</div>
+<p>其中：</p>
+<ul>
+<li>
+<p><span><span class="arithmatex">\(Z_t\)</span><span class="heti-spacing"> </span></span>是第<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(t\)</span><span class="heti-spacing"> </span></span>轮的归一化因子（normalization factor<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>：</p>
+<div class="arithmatex">\[
+Z_t = \sum_{i=1}^m D_t(i) \cdot e^{-\alpha_t y_i h_t(x_i)}
+\]</div>
+<p>它也可以用来表示该轮加权训练误差的<span><span class="heti-spacing"> </span>"soft upper bound"</span>。</p>
+</li>
+</ul>
+<p>更进一步，如果每一轮的弱分类器误差为：</p>
+<div class="arithmatex">\[
+\epsilon_t = \Pr_{i \sim D_t}[h_t(x_i) \neq y_i]
+\]</div>
+<p>并且我们选择：</p>
+<div class="arithmatex">\[
+\alpha_t = \frac{1}{2} \ln \left( \frac{1 - \epsilon_t}{\epsilon_t} \right)
+\]</div>
+<p>那么：</p>
+<div class="arithmatex">\[
+Z_t = 2 \sqrt{\epsilon_t (1 - \epsilon_t)} \leq e^{-2\gamma_t^2} \quad \text{其中 } \gamma_t = \frac{1}{2} - \epsilon_t
+\]</div>
+<blockquote>
+<p>这里使用的是泰勒展开</p>
+</blockquote>
+<p>因此，训练误差上界变为：</p>
+<div class="arithmatex">\[
+\frac{1}{m} \sum_{i=1}^m \mathbb{I}\left(H(x_i) \neq y_i\right) \leq \prod_{t=1}^T Z_t \leq \exp\left(-2 \sum_{t=1}^T \gamma_t^2 \right)
+\]</div>
+<hr/>
+<p>🔍 直观解释</p>
+<ul>
+<li><span><span class="arithmatex">\(\gamma_t\)</span><span class="heti-spacing"> </span></span>是<span><span class="heti-spacing"> </span>margin</span>，表示弱分类器超出随机猜测的一点点优势。</li>
+<li>即使每个<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\gamma_t\)</span><span class="heti-spacing"> </span></span>很小（每个分类器仅稍微优于随机<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，累积起来依然能让训练误差快速收敛到<span><span class="heti-spacing"> </span>0</span>。</li>
+<li>上界是<strong>指数下降的</strong>，这解释了<span class="heti-skip"><span class="heti-spacing"> </span>Adaboost<span class="heti-spacing"> </span></span>的<span class="heti-skip"><span class="heti-spacing"> </span>"<span class="heti-spacing"> </span></span>奇迹<span><span class="heti-spacing"> </span>"</span>：即使每一轮很弱，只要<span class="heti-skip"><span class="heti-spacing"> </span>"<span class="heti-spacing"> </span></span>稳定比随机好<span><span class="heti-spacing"> </span>"</span>，整体误差下降得非常快。</li>
+</ul>
 <h2 id="bagging">bagging<a class="headerlink" href="#bagging" title="anchor link to this section for reference">¶</a></h2>
+<p>使用<span class="heti-skip"><span class="heti-spacing"> </span>bootstrap<span class="heti-spacing"> </span></span>方法进行采样：<span><span class="arithmatex">\(m\)</span><span class="heti-spacing"> </span></span>个样本的数据集，又放回的随机采样<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(m\)</span><span class="heti-spacing"> </span></span>次，初始训练集约有<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(63.2\%\)</span><span class="heti-spacing"> </span></span>的样本出现在采样集合</p>
+<p>采样出<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(T\)</span><span class="heti-spacing"> </span></span>个这样的数据集合，训练出<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(T\)</span><span class="heti-spacing"> </span></span>个基学习器，使用简单平均<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>投票法进行集成。
+1️</p>
 <p><a href="https://zhuanlan.zhihu.com/p/261387233">机器学习中的<span class="heti-skip"><span class="heti-spacing"> </span>bootstrap<span class="heti-spacing"> </span></span>到底是什么？ <span>-<span class="heti-spacing"> </span></span>知乎</a></p>
 <p><a href="https://zhuanlan.zhihu.com/p/37730184#:~:text=%E6%9C%AC%E6%96%87%E5%B0%86%E4%BB%8B%E7%BB%8DBaggi">从<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>开始机器学习<span class="heti-skip"><span class="heti-spacing"> </span>-Bagging<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>Boosting -<span class="heti-spacing"> </span></span>知乎</a></p>
-<p><strong>RF</strong></p>
-<p>Random Forest
-<a href="https://easyai.tech/ai-definition/random-forest/">一文看懂随机森林 - Random Forest（4个实现步骤+10个优缺点）</a></p>
+<h3 id="random-forest">Random Forest<a class="headerlink" href="#random-forest" title="anchor link to this section for reference">¶</a></h3>
+<p>放在<span class="heti-skip"><span class="heti-spacing"> </span>Decision Tree<span class="heti-spacing"> </span></span>一节</p>
 <h2 id="_1">结合策略<a class="headerlink" href="#_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <h2 id="_2">多样性分析<a class="headerlink" href="#_2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2></div>
 <aside class="md-source-file">
@@ -3219,7 +3311,7 @@
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年5月10日 15:40:29</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年6月15日 15:10:21</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">
