@@ -3735,6 +3735,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <p><strong>一般的流程：</strong> 假设真理→计算真理条件下容许出错的样本空间→落在这个之外的就拒绝</p>
 <p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/db14861d8d378615a4c3c58ed7cb59ef.jpg"/></p>
 <h2 id="">检验错误<a class="anchor-link" href="#"><span><span class="heti-spacing"> </span>¶</span></a></h2><p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/63b4282175bc38d9c62c10974c890f3b.jpg"/></p>
+<p><img alt="" src="https://pic1.zhimg.com/v2-03d8728c2bfd660810f77033acc62ba4_1440w.jpg"/></p>
 <table>
 <thead>
 <tr>
@@ -3745,20 +3746,30 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </thead>
 <tbody>
 <tr>
-<td><span>$H_0$<span class="heti-spacing"> </span></span>正确</td>
-<td>Type Ⅰ error $\alpha$</td>
-<td>$1-\alpha$</td>
-</tr>
-<tr>
 <td><span>$H_1$<span class="heti-spacing"> </span></span>正确</td>
 <td>$1-\beta$</td>
 <td>Type Ⅱ error $\beta$</td>
+</tr>
+<tr>
+<td><span>$H_0$<span class="heti-spacing"> </span></span>正确</td>
+<td>Type Ⅰ error $\alpha$</td>
+<td>$1-\alpha$</td>
 </tr>
 </tbody>
 </table>
 <ul>
 <li>一类错误和二类错误无法同时变小</li>
 <li>通常要求一类错误的概率小</li>
+</ul>
+<p>放在机器学习领域：</p>
+<p>真实情况<span class="heti-skip"><span class="heti-spacing"> </span>\<span class="heti-spacing"> </span></span>预测情况<span class="heti-skip"><span class="heti-spacing"> </span>|<span class="heti-spacing"> </span></span>正例 ｜ 反例
+正例 TP FN
+反例 FP TN</p>
+<p><span>Type I Error<span class="heti-spacing"> </span></span>误报
+Type II Error 漏报</p>
+<ul>
+<li>当没有火警时，火警会响起（Type 1<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>；发生火灾时，火警警报无法响起（Type 2）</li>
+<li>医生说男人怀孕了（Type 1<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>；医生说孕妇没有怀孕（Type 2）</li>
 </ul>
 <p>不要老关注平均值，误差才是重要的</p>
 </div>
@@ -3821,7 +3832,7 @@ plt.fill_between(x,pdfb,where=x&lt;=0,alpha=0.3)
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[1]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>&lt;matplotlib.collections.FillBetweenPolyCollection at 0x7f4876ffaba0&gt;</pre>
+<pre>&lt;matplotlib.collections.FillBetweenPolyCollection at 0x7fbc2687ac00&gt;</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
@@ -3917,7 +3928,7 @@ plt.fill_between(x,pdfb,where=x&lt;-1.64,alpha=0.3)</div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[2]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>&lt;matplotlib.collections.FillBetweenPolyCollection at 0x7f4876c0b1d0&gt;</pre>
+<pre>&lt;matplotlib.collections.FillBetweenPolyCollection at 0x7fbc2669cc80&gt;</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
@@ -4002,7 +4013,7 @@ plt.fill_between(x,pdfb,where=x&gt;1.64,alpha=0.3)</div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>&lt;matplotlib.collections.FillBetweenPolyCollection at 0x7f4876aa03e0&gt;</pre>
+<pre>&lt;matplotlib.collections.FillBetweenPolyCollection at 0x7fbc2655fef0&gt;</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
@@ -4094,7 +4105,7 @@ plt.fill_between(x,pdfb,where=(x&gt;1.96)|(x&lt;-1.96),alpha=0.3)</div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[4]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>&lt;matplotlib.collections.FillBetweenPolyCollection at 0x7f48749097f0&gt;</pre>
+<pre>&lt;matplotlib.collections.FillBetweenPolyCollection at 0x7fbc26546990&gt;</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
@@ -4184,7 +4195,7 @@ plt.fill_between(x,t,where=(x&gt;2.57)|(x&lt;-2.57),alpha=0.3)</div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[5]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>&lt;matplotlib.collections.FillBetweenPolyCollection at 0x7f4876b6c3e0&gt;</pre>
+<pre>&lt;matplotlib.collections.FillBetweenPolyCollection at 0x7fbc265dd340&gt;</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
@@ -4300,7 +4311,7 @@ plt.fill_between(x/20,chi,where=(x/20<l_alpha plt.fill_between="" x="">r_alpha_2
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[6]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>&lt;matplotlib.collections.FillBetweenPolyCollection at 0x7f48749dcda0&gt;</pre>
+<pre>&lt;matplotlib.collections.FillBetweenPolyCollection at 0x7fbc26458b00&gt;</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
@@ -4425,7 +4436,7 @@ plt.fill_between(x,chi,where=(x&gt;rv.ppf(0.025)) &amp; (x<rv.ppf div="" p="" pr
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年4月5日 10:16:34</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年6月20日 07:29:20</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">
