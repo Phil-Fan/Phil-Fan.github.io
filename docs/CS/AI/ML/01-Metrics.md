@@ -186,37 +186,3 @@ AUC（ROC曲线下面积）是ROC曲线下的面积，用于衡量分类器性�
 
 假设检验：
 有多少把握在统计意义上说这个模型是好的
-
-
-
-
-### bias and variance decomposition
-
-- bias: 最好的模型和ground truth之间的差距;模型的上限; training error
-- variance: 最优的模型和最差的模型之间的差距；模型的下限; the difference between training error and test error
-
-prediction error = bias + variance + noise
-
-- high bias, low variance: underfitting
-- low bias, high variance: overfitting
-- low bias, low variance: good model
-
-
-改进策略
-
-underfitting:
-- add more features
-- use more complex model
-- descrease regularization
-
-overfitting:
-- decrease model complexity
-- decrease number of features
-- add more regularization
-- add more data
-
-!!! note "train val test"
-    60% 20% 20%
-    - training set: train the model
-    - validation set: tune the hyperparameters
-    - test set: evaluate the model

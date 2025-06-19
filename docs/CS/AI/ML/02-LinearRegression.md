@@ -1,227 +1,166 @@
 # 02 | Linear Regression
 
-y 是一个连续的值；
-区别于classification，y是一个离散的值
+## OLS
 
-
-
-!!! note "因此，在高斯噪声的假设下，最小化均方误差等价于对线性模型的极大似然估计。"
-
-
-
-
-## Polynomial Curve Fitting
-
-$f(x,\omega) = \omega_0 + \omega_1x + \omega_2x^2 + \omega_3x^3 + \dots + \omega_Mx^M = \sum_{j=0}^{M}\omega_jx^j$
-
-loss function: MSE: 
-
-
-$MSE(\omega) = \frac{1}{N}\sum_{i=1}^{N}(y_i - f(x_i,\omega))^2$
-
-模型是已知的，$\omega$未知，通过最小化MSE来求解$\omega$
-
-- 最小二乘法
-
-只能用于线性回归
-
-
-using matrix notation for convenience: $X = [1,x,x^2,x^3,...,x^n], y = [y_1,y_2,...,y_n]^T$
-
-$Loss(\omega) = (y - X^T\omega)^T(y - X^T\omega)$
-
-梯度： $\nabla_{\omega}Loss(\omega) = -2X(y - X^T\omega)$
-
-令梯度为0，求解$\omega$，得到$\omega = (X^TX)^{-1}X^Ty$
-
-!!! tip "这里应该需要补充一下矩阵求导的一些知识"
-    [矩阵的导数运算](https://www.bilibili.com/video/BV1av4y1b7MM/?spm_id_from=333.788&vd_source=8b7a5460b512357b2cf80ce1cefc69f5)
-    
-    矩阵求导广泛应用于最优控制、机器学习等领域
-    
-    [小白都能理解的矩阵与向量求导链式法则\_矩阵求导链式法则-CSDN博客](https://blog.csdn.net/bitcarmanlee/article/details/105668357)
-
-
-- Gradient Descent | 梯度下降法
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240806020009.png)
-步长的大小：学习率
-Time complexity: $O(ndt)$,t是迭代次数,d是特征的数量,n是样本的数量
-
-
-stochastic gradient descent | 随机梯度下降法
-- randomly select b(batch size) samples from the training set
-- Time complexity: $O(bdt)$
-
-
-- Quasi Newton Method | 拟牛顿法
-
-
-## 损失函数 | 统计模型
-
-如果将小批量的总损失替换为小批量损失的平均值，需要如何更改学习率？
-
-如果将小批量的总损失替换为小批量损失的平均值，则需要将学习率乘以批量大小。这是因为在计算梯度时，我们使用了小批量中所有样本的信息。因此，如果我们将小批量的总损失替换为小批量损失的平均值，则相当于将每个样本的梯度除以批量大小。因此，我们需要将学习率乘以批量大小，以保持相同的更新步长
-
-
-损失为什么求平均：更好调学习率，相当于学习率之和梯度有关，和batch size没有关系
-
-每次算梯度的时候要记得清零，不然会做累加
-
-### l1 loss
-不常用绝对差值而用平方损失：不好求导
-
-有不平滑性，可能不稳定
-
-离远点较远的时候，不一定希望有一个很大的梯度
-### l2 loss
-
-
-### Huber Robust loss
-
-### softmax 回归
-- 不仅对硬分类感兴趣，还对软分类（概率）感兴趣
-
-直接使用实数对应不太合适，所以使用向量来代表分类
-
-#### 为什么使用
-- 线性有可能有负数，概率应该是非负的
-- 概率之和需要为1
-
-
-
-### 交叉熵
-
-
-
-信息论：
-
-信息量 ： 不确定-》确定的难度
-
-可以理解为惊异程度，不确定度更大，则信息量更大
-
-系统的熵
+考虑经典的线性回归模型：
 
 $$
-H[P] = \sum_j - P(j) \log P(j).
+y = X \beta + \varepsilon, \quad \varepsilon \sim \mathcal{N}(0, \sigma^2 I_n)
 $$
 
-![image-20230330192802815](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20230330192802815.png)
+其中：
 
-KL散度
-
-交叉熵
-
-衡量两个概率的区别
-
-我们可以把交叉熵想象为“主观概率为$Q$的观察者在看到根据概率$P$生成的数据时的预期惊异”。 
-
-（i）最大化观测数据的似然；
-（ii）最小化传达标签所需的惊异。
-## 优化算法 | 优化模型
-
-随机梯度下降：随机采样
-
-关注的不是收敛快不快，而是收敛到哪一个点；牛顿法可能不平坦
-## 训练过程
-
-对于每一个小批量，我们会进行以下步骤:
-
-- 通过调用net(X)生成预测并计算损失l（前向传播）。
-- 通过进行反向传播来计算梯度。
-- 通过调用优化器来更新模型参数。
+* $y \in \mathbb{R}^n$：响应变量
+* $X \in \mathbb{R}^{n \times p}$：满秩设计矩阵（列满秩）
+* $\beta \in \mathbb{R}^p$：未知回归系数
+* $\varepsilon$：独立同分布噪声，均值 0，方差 $\sigma^2$
 
 
-### 训练框架
-`epoch`: 训练轮次
-`iter` 训练小批量
+残差平方和（Residual Sum of Squares, RSS）定义为：
 
-nn模块定义了大量的神经网络层和常见损失函数。
-```python
-num_epochs = 3
-for epoch in range(num_epochs):
-    for X, y in data_iter:
-        l = loss(net(X) ,y)
-        trainer.zero_grad() # 清除梯度，防止累计
-        l.backward() # 自动计算梯度
-        trainer.step() # 优化算法
-    l = loss(net(features), labels)
-    print(f'epoch {epoch + 1}, loss {l:f}')
-```
+$$
+RSS = \sum_{i=1}^n \left( y_i - x_{i1}\beta_1 - \cdots - x_{ip}\beta_p \right)^2
+$$
 
-### 初始化
-可以使用固定的初始值，但是不能为0
+也可以写成向量形式：
 
-!!! tip "如果我们将权重初始化为零，会发生什么。算法仍然有效吗？"
+$$
+RSS = \|\mathbf{y} - \mathbf{X}\boldsymbol{\beta}\|^2 = (\mathbf{y} - \mathbf{X}\boldsymbol{\beta})^\mathsf{T}(\mathbf{y} - \mathbf{X}\boldsymbol{\beta})
+$$
 
-    如果将权重初始化为零，那么每个神经元的输出都是相同的，这意味着每个神经元学习到的参数也是相同的。因此，每个神经元都会更新相同的参数，最终导致所有神经元学习到相同的特征。因此，权重初始化为零会使算法失效。这样就失去了神经网络的优势，即可以学习到不同特征的能力。
+最小二乘估计（Ordinary Least Squares, OLS）就是选择使 RSS 最小的 $\boldsymbol{\beta}$：
 
-    逻辑回归和神经网络有不同的权重初始化方法。对于逻辑回归，可以将权重初始化为零，因为这是一个线性模型，梯度下降算法仍然可以更新它们。然而，对于神经网络来说，将权重初始化为零可能会导致对称性问题，并阻止隐藏单元学习不同的特征。因此，最好使用随机或其他方法来初始化神经网络的权重。
-
-### 读取
+$$
+\widehat{\beta} = \underset{\boldsymbol{\beta}}{\operatorname*{arg\,min}} \; (\mathbf{y} - \mathbf{X}\boldsymbol{\beta})^\mathsf{T}(\mathbf{y} - \mathbf{X}\boldsymbol{\beta})
+$$
 
 
-```python
-def load_array(data_arrays, batch_size, is_train=True):  #@save
-    """构造一个PyTorch数据迭代器"""
-    dataset = data.TensorDataset(*data_arrays)
-    return data.DataLoader(dataset, batch_size, shuffle=is_train)
+- To estimate $\beta$, we set the derivative equal to 0
+$$\frac{\partial \text{RSS}}{\partial \beta} = -2 \mathbf{X}^\top (\mathbf{y} - \mathbf{X} \beta) = 0$$
 
-batch_size = 10
-data_iter = load_array((features, labels), batch_size)
-```
+$$
+\widehat{\beta} = (\mathbf{X}^\top \mathbf{X})^{-1} \mathbf{X}^\top \mathbf{y}
+$$
 
-batchsize 中最后一个batch中多余的样本：
-1. 丢掉
-2. 再随机采样，补满
-3. 直接使用小样本
+- $\mathbf{X}$ full rank $\iff \mathbf{X}^\top \mathbf{X}$ invertible
 
+### 性质
 
-### 学习率
-
-尝试使用不同的学习率，观察损失函数值下降的快慢。
-
-学习率过大前期损失值下降快，但是后面不容易收敛
-学习率太小，损失函数下降慢
-
-调学习率的一些心得
-1. 选择对学习率不太敏感的算法：Adam
-2. 合理的参数的初始化
-   
-
-学习率设置过大会导致梯度爆炸的问题
-
-
-### 收敛判断 | epoch
-- 真实训练中，凭直觉
-- 先训练小批次
-
-## overfitting | 过拟合
-在测试集上效果好的模型就是好的模型
-
-在测试集上效果差的模型就是差模型
-
-把training data中的noise也学习到了
-
-- Ridge Regression | 岭回归
-
-Loss(\omega*)
-
-regularization: 一些先验的假设，比如$\omega$是稀疏的，或者$\omega$是平滑的；避免学习到
-
-超参数：
-- $\lambda$：控制正则化的强度: $\lambda$越大，正则化的强度越大，模型越简单，training error 越大；如下图，左侧叫做过拟合，右侧叫做欠拟合![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240806021738.png)
-- $\alpha$：控制学习率
-
-
-神经网络需要学习一些噪声：batchsize小一点有时候不是坏事
-采用dropout的方法
-> 教小孩的时候不能一直夸奖
+$$
+\hat{\beta} = (X^T X)^{-1} X^T y
+$$
 
 
 
 
+**无偏**
 
-## Logistic Regression
+
+
+
+我们计算 $\mathbb{E}[\hat{\beta}]$：
+
+$$
+\begin{aligned}
+\mathbb{E}[\hat{\beta}] &= \mathbb{E}[(X^T X)^{-1} X^T y] \\
+&= (X^T X)^{-1} X^T \mathbb{E}[y] \\
+&= (X^T X)^{-1} X^T (X\beta) \\
+&= (X^T X)^{-1} X^T X \beta \\
+&= \beta
+\end{aligned}
+$$
+
+---
+
+**方差**
+
+将 $\mathbf{y} = \mathbf{X} \boldsymbol{\beta} + \boldsymbol{\varepsilon}$ 代入：
+
+$$
+\hat{\boldsymbol{\beta}} = (\mathbf{X}^\top \mathbf{X})^{-1} \mathbf{X}^\top (\mathbf{X} \boldsymbol{\beta} + \boldsymbol{\varepsilon}) \\
+= \boldsymbol{\beta} + (\mathbf{X}^\top \mathbf{X})^{-1} \mathbf{X}^\top \boldsymbol{\varepsilon}
+$$
+
+有
+
+$$
+\begin{aligned}
+\operatorname{Var}(\hat{\boldsymbol{\beta}})
+&= \operatorname{Var} \left( (\mathbf{X}^\top \mathbf{X})^{-1} \mathbf{X}^\top \boldsymbol{\varepsilon} \right) \\
+&= (\mathbf{X}^\top \mathbf{X})^{-1} \mathbf{X}^\top \operatorname{Var}(\boldsymbol{\varepsilon}) \mathbf{X} (\mathbf{X}^\top \mathbf{X})^{-1} \\
+&= \sigma^2 (\mathbf{X}^\top \mathbf{X})^{-1} \mathbf{X}^\top \mathbf{X} (\mathbf{X}^\top \mathbf{X})^{-1} \\
+&=\boxed{ \sigma^2 (\mathbf{X}^\top \mathbf{X})^{-1} }\\
+&= \widehat{\sigma}^2 (\mathbf{X}^\top \mathbf{X})^{-1} \quad \text{（可用残差平方和估计）} \\
+&= \frac{RSS}{n - p} (\mathbf{X}^\top \mathbf{X})^{-1} \\
+&= \frac{1}{n - p} \sum_{i=1}^n \hat{\varepsilon}_i^2 (\mathbf{X}^\top \mathbf{X})^{-1}
+\end{aligned}
+$$
+
+
+---
+
+**UMVUE**
+
+Lehmann–Scheffé 定理告诉我们：
+
+> 若某无偏估计量是充分统计量的函数，则它是 UMVUE。
+
+我们来验证：
+
+1️⃣ $\hat{\beta}$ 是 $\beta$ 的无偏估计量 → ✅
+
+已证
+
+2️⃣ $X^T y$ 是充分统计量 → ✅
+
+由**因子分解定理**：
+
+* $y \sim \mathcal{N}(X\beta, \sigma^2 I)$
+* 联合密度函数可以写成关于 $X^T y$ 的函数和不含 $\beta$ 的函数之积
+* 所以 $X^T y$ 是 $\beta$ 的充分统计量
+
+而 $\hat{\beta}$ 是 $X^T y$ 的函数 ⇒ 它是**充分统计量的函数**
+
+✅ 满足 Lehmann–Scheffé 定理条件 ⇒ 是 UMVUE！
+
+---
+
+或者你也可以使用 Gauss-Markov 定理（非正态条件下）
+
+> 在线性模型中，在所有线性无偏估计量中，OLS 是方差最小的。
+
+但要注意：
+
+* **Gauss-Markov 定理 → 最优线性无偏估计（BLUE）**
+* **Lehmann–Scheffé 定理（+ 正态性）→ 最小方差无偏估计（UMVUE）**
+
+
+
+### Training Error & Test Error
+
+$$
+\begin{aligned}
+\mathbb{E}[\mathrm{TestErr}] &= \mathbb{E}\|\mathbf{y}^*-\mathbf{X}\widehat{\beta}\|^2 \\
+&= \mathbb{E}\|(\mathbf{y}^*-\mathbf{X}\beta)+(\mathbf{X}\beta-\mathbf{X}\widehat{\beta})\|^2 \\
+&= \mathbb{E}\|\mathbf{y}^*-\mu\|^2 + \mathbb{E}\|\mathbf{X}(\widehat{\beta}-\beta)\|^2 \\
+&= \mathbb{E}\|\mathbf{e}^*\|^2 + \mathrm{Trace}(\mathbf{X}^\mathsf{T}\mathbf{X}\,\mathrm{Cov}(\widehat{\beta})) \\
+&= n\sigma^2 + p\sigma^2
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+\mathbb{E}[\mathrm{TrainErr}] &= \mathbb{E}\|\mathbf{y}-\mathbf{\widehat{y}}\|^2 = \mathbb{E}\|(\mathbf{I}-\mathbf{H})\mathbf{y}\|^2 \\
+&= \mathbb{E}\|(\mathbf{I}-\mathbf{H})\mathbf{e}\|^2 \\
+&= \mathrm{Trace}\left((\mathbf{I}-\mathbf{H})^\mathsf{T}(\mathbf{I}-\mathbf{H})\,\mathrm{Cov}(\mathbf{e})\right) \\
+&= (n-p)\sigma^2
+\end{aligned}
+$$
+
+## 广义线性回归
+
+### logistic
+
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240807233452.png)
 
 线性回归有一个很强的假设，就是y是连续的；并且有更像邻近数的趋势(MSE 对于线性回归不是一个好的function)
@@ -258,6 +197,377 @@ cons:
 
 
 对于分类问题，只关心分类正确的类的值
+
+## 统计视角
+
+!!! note "因此，在高斯噪声的假设下，最小化均方误差等价于对线性模型的极大似然估计。"
+
+
+## Penalty
+
+A unified framework is to minimize the objective function
+
+$$
+\arg\min_{\beta} \frac{1}{2n}\|\mathbf{y}-\mathbf{X}\boldsymbol{\beta}\|^2 + \sum_{j=1}^p P_{\lambda}(\beta_j)
+$$
+
+where $P_{\lambda}(\cdot)$ is a penalty function applied on the value of each parameter, and $\lambda$ is a tuning parameter.
+
+- Lasso: $P_{\lambda}(\beta) = \lambda|\beta|$
+- Ridge: $P_{\lambda}(\beta) = \lambda\beta^2$
+- Best subset: $P_{\lambda}(\beta) = \lambda\mathbf{1}\{\beta \neq 0\}$
+- Elastic net: $P_{\lambda}(\beta) = \lambda_1|\beta| + \lambda_2\beta^2$
+
+
+### Lasso - l1
+
+| 核心内容            | 解释                                          |
+| --------------- | ------------------------------------------- |
+| Oracle Property | 同时实现变量选择一致性 + 最优估计精度                        |
+| Lasso 的问题       | 有偏差，不能同时实现两者                                |
+| 理论上条件           | 为了选变量，$\lambda$ 要够大；但为估计精度，$\lambda$ 又要趋于 0 |
+| 解决方法            | 改用无偏惩罚函数（如 SCAD），或者接受一定折中                   |
+
+
+求解下面的优化问题
+
+$$
+\begin{aligned}
+& \text{minimize } \sum_{i=1}^{n} \left(y_i - \sum_{j=1}^{p} \beta_j x_{ij}\right)^2 \\
+& \text{subject to } \sum_{j=1}^{p} |\beta_j| \leq s
+\end{aligned}
+$$
+
+- Each value of $\lambda$ corresponds to an unique value of $s$.
+
+
+#### Lasso 回归在正交设计下的推导与原理
+
+
+**假设：**
+
+* 设计矩阵满足 $\mathbf{X}^\top \mathbf{X} = \mathbf{I}_p$（即列向量正交，单位范数）
+* 目标是求解 Lasso 回归问题：
+
+$$
+\widehat{\boldsymbol{\beta}}^{\text{lasso}} = \arg\min_{\boldsymbol{\beta}} \|\mathbf{y} - \mathbf{X} \boldsymbol{\beta}\|^2 + \lambda \|\boldsymbol{\beta}\|_1
+$$
+
+步骤 1：插入 OLS 解
+
+因为 OLS 解为：
+
+$$
+\widehat{\boldsymbol{\beta}}^{\text{ols}} = \mathbf{X}^\top \mathbf{y}
+$$
+
+我们将其插入目标函数：
+
+$$
+\begin{align*}
+\|\mathbf{y} - \mathbf{X} \boldsymbol{\beta}\|^2 &= \|\mathbf{y} - \mathbf{X} \widehat{\boldsymbol{\beta}}^{\text{ols}} + \mathbf{X} \widehat{\boldsymbol{\beta}}^{\text{ols}} - \mathbf{X} \boldsymbol{\beta}\|^2\\
+&= \|\mathbf{y} - \mathbf{X} \widehat{\boldsymbol{\beta}}^{\text{ols}}\|^2 + \|\mathbf{X} \widehat{\boldsymbol{\beta}}^{\text{ols}} - \mathbf{X} \boldsymbol{\beta}\|^2 + 2 \underbrace{(\mathbf{y} - \mathbf{X} \widehat{\boldsymbol{\beta}}^{\text{ols}})^\top (\mathbf{X} \widehat{\boldsymbol{\beta}}^{\text{ols}} - \mathbf{X} \boldsymbol{\beta})}_{=0}
+\end{align*}
+$$
+
+其中最后一项为 0 是因为：
+
+* 残差 $\mathbf{r} = \mathbf{y} - \mathbf{X} \widehat{\boldsymbol{\beta}}^{\text{ols}}$ 垂直于 $\operatorname{Col}(\mathbf{X})$
+* 而 $\mathbf{X}(\widehat{\boldsymbol{\beta}}^{\text{ols}} - \boldsymbol{\beta}) \in \operatorname{Col}(\mathbf{X})$
+
+---
+
+步骤 2：目标函数化简
+
+因为第一项与 $\boldsymbol{\beta}$ 无关，我们只需最小化第二项 + 正则项：
+
+$$
+\min_{\boldsymbol{\beta}} \|\mathbf{X} \widehat{\boldsymbol{\beta}}^{\text{ols}} - \mathbf{X} \boldsymbol{\beta}\|^2 + \lambda \|\boldsymbol{\beta}\|_1\\
+\leftrightarrow \min_{\boldsymbol{\beta}} \|\widehat{\boldsymbol{\beta}}^{\text{ols}} - \boldsymbol{\beta}\|^2 + \lambda \|\boldsymbol{\beta}\|_1 \quad (\because\mathbf{X}^\top \mathbf{X} = \mathbf{I})
+$$
+
+**变量独立求解**
+
+目标函数可分解为每个参数的独立优化：
+
+$$
+\widehat{\beta}_j^{\text{lasso}} = \arg\min_{x} (x - a)^2 + \lambda |x|, \quad a = \widehat{\beta}_j^{\text{ols}}
+$$
+
+这就是经典的 **Soft Thresholding 问题**，解为：
+
+$$
+\boxed{
+\widehat{\beta}_j^{\text{lasso}} = \operatorname{sign}(a) \cdot \max(|a| - \lambda/2, 0)
+}
+$$
+
+即：
+
+* 如果 $|a| \leq \lambda/2$，解为 0
+* 否则，在方向上缩减 $\lambda/2$
+
+Soft Thresholding = 变量选择机制
+
+* Ridge 回归使用 $\ell_2$ 惩罚：系数永远不会变为 0，只是变小
+* Lasso 使用 $\ell_1$ 惩罚：会直接把小的系数压成 0
+* 所以 Lasso 能实现 **变量选择（sparsity）**
+
+
+| 项目             | 解释   |
+| ---------------- | ------------------------ |
+| 正交设计         | $\mathbf{X}^\top \mathbf{X} = \mathbf{I}$ 简化问题            |
+| 拆分误差项        | 残差项垂直于列空间，交叉项为 0                               |
+| 可分解目标        | 可对每个 $\beta_j$ 独立求解                                  |
+| Soft Threshold 解 | |
+| 稀疏性来源        | 系数可能直接为 0，实现选择                                   |
+| $\lambda$ 越大   | 越多的参数会被压成 0                                         |
+
+
+
+### Ridge - l2
+
+| 视角    | 解释                                                                                                   |
+| ----- | ---------------------------------------------------------------------------------------------------- |
+| 最优化视角 | Ridge 解是最小化 $\|\mathbf{y} - \mathbf{X}\boldsymbol{\beta} \|^2 + \lambda \|\boldsymbol{\beta}\|^2$ 的解 |
+| 贝叶斯视角 | Ridge 解是 $\boldsymbol{\beta} \sim \mathcal{N}(0, \frac{\sigma^2}{\lambda} \mathbf{I})$ 下的后验均值        |
+|PCA视角||
+
+#### 优化视角
+最优化视角，即求解下面的最优化问题
+
+$$
+(y - X\beta)^{\top}(y - X\beta) + \lambda\beta^{\top}\beta
+$$
+
+Take derivative with respect to $\beta$ and set to zero
+
+$$
+\begin{aligned}
+\widehat{\beta}^{\mathrm{~ridge}}&= \boxed{(X^{\top}X + \lambda I)^{-1}X^{\top}y}\\&=(\mathbf{X}^\mathsf{T}\mathbf{X}+\lambda\mathbf{I})^{-1}(\mathbf{X}^\mathsf{T}\mathbf{X})(\mathbf{X}^\mathsf{T}\mathbf{X})^{-1}\mathbf{X}^\mathsf{T}\mathbf{y}\\&=(\mathbf{X}^\mathsf{T}\mathbf{X}+\lambda\mathbf{I})^{-1}(\mathbf{X}^\mathsf{T}\mathbf{X})\widehat{\boldsymbol{\beta}}^\mathsf{ols}\\&=\mathbf{Z}\widehat{\boldsymbol{\beta}}^{\mathrm{ols}}
+\end{aligned}
+$$
+
+
+#### PCA视角
+
+!!! note "SVD 分解"
+
+    $$
+    \mathbf{X} = U D V^\top
+    $$
+
+    * $U$：正交列向量，表示在数据空间中的方向（主成分）
+    * $D$：奇异值（与协方差矩阵特征值相关）
+    * $V$：输入空间的正交基（回归系数方向）
+
+
+将协方差矩阵写成 PCA 形式：
+
+$$
+\frac{1}{n} \mathbf{X}^\top \mathbf{X} = V D^2 V^\top
+$$
+
+* 说明协方差的主方向（特征向量）就是 $V$，对应特征值 $d_j^2$
+* 第 $j$ 个主成分为 $X v_j = d_j u_j$
+* 大的奇异值方向：数据方差大，保留信息多
+* 小的奇异值方向：容易过拟合，要强烈惩罚
+
+Ridge 回归对响应变量的估计：
+
+$$
+\mathbf{X} \hat{\boldsymbol{\beta}}^{\text{ridge}} = \sum_{j=1}^p u_j \cdot \frac{d_j^2}{d_j^2 + \lambda} \cdot u_j^\top \mathbf{y}
+$$
+
+
+1. 把 $\mathbf{y}$ 投影到每个主成分方向 $u_j$
+2. 投影结果 $u_j^\top y$ 被 **缩小** 了一个因子 $\frac{d_j^2}{d_j^2 + \lambda}$
+3. $d_j^2$ 小的方向（低方差）被惩罚得更严重，防止对噪声过拟合
+
+
+| 主题     | 内容                                    |
+| ------ | ------------------------------------- |
+| 有偏性    | Ridge 有偏，但可控制偏差                       |
+| 方差降低   | Ridge 显著减少估计方差                        |
+| MSE 更优 | 合适的 $\lambda$ 可让 MSE 优于 OLS           |
+| 几何理解   | Ridge 在 PCA 空间中对不同方向施加不同强度的 shrinkage |
+| 实用价值   | 尤其在高维/共线性严重时表现更好                      |
+
+
+
+
+#### 贝叶斯视角
+
+📌 先验假设
+
+我们将回归系数 $\boldsymbol{\beta}$ 视为一个随机变量，赋予如下先验分布：
+
+$$
+\boldsymbol{\beta} \sim \mathcal{N}\left(0, \frac{\sigma^2}{\lambda} \mathbf{I} \right)
+$$
+
+这是一个零均值、高斯先验，对每个参数都做了 $\ell_2$ 范数的惩罚。
+
+🎯 似然函数（来自线性模型）
+
+$$
+\mathbf{y} \mid \boldsymbol{\beta} \sim \mathcal{N}(\mathbf{X}\boldsymbol{\beta}, \sigma^2 \mathbf{I})
+$$
+
+🧠 后验分布
+
+利用贝叶斯定理（高斯 + 高斯 ⇒ 高斯），得到后验分布为：
+
+$$
+\boldsymbol{\beta} \mid \mathbf{y} \sim \mathcal{N}\left( \underbrace{(\mathbf{X}^\top \mathbf{X} + \lambda \mathbf{I})^{-1} \mathbf{X}^\top \mathbf{y}}_{\text{ridge 解}}, \; \text{协方差矩阵} \right)
+$$
+
+其中后验 **均值** 正是 Ridge 回归的解析解：
+
+$$
+\boxed{
+\mathbb{E}[\boldsymbol{\beta} \mid \mathbf{y}] = (\mathbf{X}^\top \mathbf{X} + \lambda \mathbf{I})^{-1} \mathbf{X}^\top \mathbf{y}
+}
+$$
+
+
+
+
+
+
+#### bias
+
+
+**Ridge 回归是有偏估计**
+
+$$
+\mathbb{E}[\hat{\boldsymbol{\beta}}^{\text{ridge}}] = Z \boldsymbol{\beta}, \quad Z = (\mathbf{X}^\top \mathbf{X} + \lambda \mathbf{I})^{-1} \mathbf{X}^\top \mathbf{X}
+$$
+
+* 因为 $Z \neq I$，所以 ridge 估计是 **有偏的**
+* 随着正则化参数 $\lambda$ 增大，**bias² 增加**
+* 这是偏差-方差权衡的一部分
+
+
+
+#### variance
+
+$$
+\begin{align*}
+\operatorname{Var}\left(\widehat{\boldsymbol{\beta}}^{\text{ ridge}}\right) &= \operatorname{Var}\left(\mathbf{Z}\widehat{\boldsymbol{\beta}}^{\mathrm{ols}}\right) \\
+ &= {\color{red}Z}\operatorname{Var}\left(\widehat{\boldsymbol{\beta}}^{\mathrm{ols}}\right) {\color{red}Z^T}\\
+&= {\color{red}(\mathbf{X}^\mathsf{T}\mathbf{X}+\lambda\mathbf{I})^{-1}(\mathbf{X}^\mathsf{T}\mathbf{X})}\sigma^2(X^TX)^{-1}{\color{red}(\mathbf{X}^\mathsf{T}\mathbf{X})(\mathbf{X}^\mathsf{T}\mathbf{X}+\lambda\mathbf{I})^{-1}}\\
+&=\sigma^{2}\left(\mathbf{X}^{\top} \mathbf{X}+\lambda \mathbf{I}\right)^{-1} \mathbf{X}^{\top} \mathbf{X}\left(\mathbf{X}^{\top} \mathbf{X}+\lambda \mathbf{I}\right)^{-1}
+\end{align*}
+$$
+
+!!! note "总体方差是一个关于正则化强度 $\lambda$ 的**单调递减函数**"
+
+    $$
+    \text{Total Variance} = \operatorname{Tr}\left( \operatorname{Var}\left(\hat{\boldsymbol{\beta}}^{\text{ridge}} \right) \right)
+    = \sigma^2 \cdot \operatorname{Tr} \left[ \left( X^T X + \lambda I \right)^{-1} X^T X \left( X^T X + \lambda I \right)^{-1} \right]
+    $$
+
+    记 $\mathbf{S} = X^T X$，它是对称正定的
+
+    我们可以对它做**特征值分解**（因为它对称）：
+
+    $$
+    \mathbf{S} = Q \Lambda Q^\top, \quad \text{其中 } \Lambda = \text{diag}(\lambda_1, \ldots, \lambda_p), \lambda_i > 0
+    $$
+
+    于是整个方差矩阵可以化简为：
+
+    $$
+    \operatorname{Var}(\hat{\boldsymbol{\beta}}^{\text{ridge}})
+    = \sigma^2 Q \cdot \text{diag} \left( \frac{\lambda_i}{(\lambda_i + \lambda)^2} \right) \cdot Q^\top
+    $$
+
+    所以其 trace 为：
+
+    $$
+    \text{Total Variance} = \sigma^2 \sum_{i=1}^p \frac{\lambda_i}{(\lambda_i + \lambda)^2}
+    $$
+
+    * 总体方差是一个关于正则化强度 $\lambda$ 的**单调递减函数**
+    * 换句话说，**正则化越强 ⇒ 系数波动越小**
+
+
+#### 自由度
+
+
+* Ridge 回归虽然估计 $\widehat{\boldsymbol{\beta}}^{\text{ridge}} \in \mathbb{R}^p$，但由于 **Shrinkage**，不等价于使用所有 $p$ 个变量的全部自由度。
+* 自由度随着 $\lambda$ 的变化而变化：
+
+  * $\lambda \to 0$: Ridge 退化为 OLS，$\text{df} = p$
+  * $\lambda \to \infty$: 所有参数被压缩到 0，$\text{df} \to 0$
+  * 所以：
+
+    $$
+    0 \leq \text{df}(\lambda) \leq p
+    $$
+
+!!! note "dof"
+    $$
+    \text{df}(\hat{f}) = \frac{1}{\sigma^2} \sum_{i=1}^n \operatorname{Cov}(\hat{y}_i, y_i) = \frac{1}{\sigma^2} \operatorname{Trace} \left( \operatorname{Cov}(\hat{\mathbf{y}}, \mathbf{y}) \right)
+    $$
+
+$$
+\widehat{\mathbf{y}} = \mathbf{S} \mathbf{y}, \quad \text{其中} \quad \mathbf{S} = \mathbf{X}(\mathbf{X}^\top \mathbf{X} + \lambda \mathbf{I})^{-1} \mathbf{X}^\top
+$$
+
+$$
+\text{df}(\lambda) = \operatorname{Trace}(\mathbf{S}) = \operatorname{Trace} \left( \mathbf{X}(\mathbf{X}^\top \mathbf{X} + \lambda \mathbf{I})^{-1} \mathbf{X}^\top \right)
+$$
+
+* 若对 $\mathbf{X}$ 做奇异值分解（SVD）：
+
+  $$
+  \mathbf{X} = UDV^\top, \quad \text{其中} \ D = \operatorname{diag}(d_1, \dots, d_p)
+  $$
+
+* 则自由度可写为：
+
+$$
+\boxed{
+\text{df}(\lambda) = \sum_{j=1}^{p} \frac{d_j^2}{d_j^2 + \lambda}
+}
+$$
+
+* 每个主成分方向 $j$ 的自由度贡献是一个 shrinkage 因子：
+
+  $$
+  \frac{d_j^2}{d_j^2 + \lambda}
+  $$
+* 方差小的方向（$d_j$ 小）会被严重 shrink，自由度贡献也少
+* 这是 Ridge 比 OLS 更稳健但有偏的原因
+
+
+
+
+
+### elastic
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/202506200340914.png)
+
+lasso与ridge对比
+- Ridge is $\ell_{2}$ penalty
+- Lasso is $\ell_{1}$ penalty
+- Best subset is $\ell_{0}$ penalty
+- Bridge penalty is $\ell_{q}$ normal
+
+$q = 4$  
+$q = 2$  
+$q = 1$  
+$q = 0.5$  
+$q = 0.1$
+
+$\sum_{j}|\beta_{j}|^{q}$ for given values of $q$.
+
+Elastic-net is a hybrid of $\ell_{1}$ and $\ell_{2}$:
+
+$\lambda_{1}\|\beta\|_{1} + \lambda_{2}\|\beta\|_{2}^{2}$
+
+
 ## LDA
 
 [理解主成分分析（1）——最大方差投影与数据重建 - Fenrier Lab](https://seanwangjs.github.io/2017/12/21/principal-components-analysis.html)

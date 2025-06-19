@@ -165,7 +165,7 @@ $d=1$, $d=3$, $d=10$
 
 $\text{out1} = \text{gam}(y \sim x)$
 
-$\text{out2} = \text{gam}(y \sim \text{as.factor}(x))$
+$\text{out2} = \text{gam}(y \sim \te xt{as.factor}(x))$
 
 $\text{out3} = \text{gam}(y \sim s(x))$
 

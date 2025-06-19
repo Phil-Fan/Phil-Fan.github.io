@@ -1,5 +1,9 @@
 # 随机过程
 
+![](https://d33y0z4ooepzrm.cloudfront.net/images/964741a61d8044f9a864e5dfb860cbb2aa865e69/fullscreen/964741a61d8044f9a864e5dfb860cbb2aa865e69.jpg)
+> 莫奈 《昂蒂布的城堡》 高中时候最喜欢的一个错题本的封面
+
+
 - [x] Chap1 随机过程基本概念
 - [x] Chap2 马尔可夫链
 - [x] Chap3 泊松过程

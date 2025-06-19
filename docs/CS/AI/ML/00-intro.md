@@ -2,23 +2,108 @@
 
 !!! note "课程信息"
     === "机器学习"
+
         - 课程时间：2024年秋冬
         - 课程教师：赵洲
         - 考核内容：2次书面作业+2次编程作业[Kaggle](https://www.kaggle.com/)（45%）+15次随机签到（15%）+1次期末摸底考试+1次期末考试；（40%）
         - 课本：西瓜书
 
     === "人工智能与安全"
+
         - 课程时间：2024年秋冬
         - 课程教师：陈艳姣
         - workload：一篇论文阅读报告+pre
 
     === "统计学习"
+
         - 课程时间：2025年春夏
         - 课程教师：崔逸凡
         - workload：
 
 ## Acknowledgement
 
+
+### 笔记
+
+[人工智能基础 - 鹤翔万里的笔记本 (tonycrane.cc)](https://note.tonycrane.cc/cs/ai/basic/)
+
+[02：贝叶斯定理 - 小角龙的学习记录 (zhang-each.github.io)](https://zhang-each.github.io/My-CS-Notebook/ML/统计机器学习02：贝叶斯定理/)
+
+[命题逻辑 - Jerry's Blog (wxxcl.tech)](https://blog.wxxcl.tech/course/aid/知识表达与推理/命题逻辑/)
+
+[笔记](https://github.com/mura1n/Machine-Learning-in-Practice-Crash-Course-Notes)
+
+
+https://github.com/AccumulateMore 
+
+
+
+### 网课
+
+B站https://space.bilibili.com/1567748478/ 论文带读
+
+
+[Machine Learning in Practice Crash Course | Jinming Hu (conanhujinming.github.io)](https://conanhujinming.github.io/post/ml_in_practice_crash_course/)
+
+[实用的机器学习 第一课 机器学习导论 2024summer_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1Gw4m1i7ys/?spm_id_from=333.788.recommend_more_video.0&vd_source=8b7a5460b512357b2cf80ce1cefc69f5)
+
+[机器学习2023-10-19第6-8节 (zju.edu.cn)](https://classroom.zju.edu.cn/livingpage?course_id=53449&sub_id=915451&tenant_code=112)
+
+
+
+
+
+
+
+
+[有监督的机器学习：回归与分类 | Coursera](https://www.coursera.org/learn/machine-learning?action=enroll)
+
+[CS229吴恩达机器学习](https://www.bilibili.com/video/BV16J411t71N)
+
+[CS229: Machine Learning (stanford.edu)](https://cs229.stanford.edu/)
+
+
+
+深度学习
+
+[CS231n Convolutional Neural Networks for Visual Recognition](https://cs231n.github.io/)：deep learning for CV
+
+[图灵班《机器学习》课程总结 - CC98论坛](https://www.cc98.org/topic/5599897)
+
+我在心灵学ML系列doge
+
+[再次入门deep learning以及一些回忆（更新第二部分） - CC98论坛](https://www.cc98.org/topic/5207160)
+
+[再次入门deep learning，这次直接上重点（完结篇） - CC98论坛](https://www.cc98.org/topic/5208795)
+
+
+
+
+
+
+### 会议论文
+- ICML (International Conference on Machine
+Learning)
+- NeurIPS (Neural Information Processing Systems)
+- KDD (ACM SIGKDD Conference on Knowledge Discovery and Data Mining)
+- AAAI (AAAI conference on Artificial Intelligence)
+
+
+### 相关网课
+
+CS188
+
+1. 机器学习：B站/youtube 李宏毅/吴恩达
+
+2. 深度学习：https://zh-v2.d2l.ai/ notebook和课程质量较高，使用的框架的话, pytorch文献用的比较多,tensorflow和硬件兼容性好，根据需求选择框架学习, 如果觉得难以接受可以多刷几遍
+
+3. 强化学习：https://hrl.boyuai.com/   https://datawhalechina.github.io/easy-rl/#/ 
+
+
+一步步教你每个数据是怎么产生怎么删除的, 可视化做的非常好,手脚架给你搭建好了, 不需要复杂的工程思考, 只需要思考最本质的 梯度,    可以快速理解梯度, activation, opt 
+[LLM Training Puzzles - 寒假摸鱼 (2) - Garl的文章 - 知乎](https://zhuanlan.zhihu.com/p/20265169815)
+[LLM-Training-Puzzles](https://github.com/srush/LLM-Training-Puzzles/tree/main )
+[colab地址](https://colab.research.google.com/github/srush/LLM-Training-Puzzles/blob/main/puzzles.ipynb)
 
 
 
@@ -146,91 +231,6 @@ pipeline，中文意为管线，意义等同于流水线。土味一点 你把�
 - 模型调参
 
 是一个**迭代**的过程
-
-
-## 学习资源
-
-[Machine Learning in Practice Crash Course | Jinming Hu (conanhujinming.github.io)](https://conanhujinming.github.io/post/ml_in_practice_crash_course/)
-
-[实用的机器学习 第一课 机器学习导论 2024summer_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1Gw4m1i7ys/?spm_id_from=333.788.recommend_more_video.0&vd_source=8b7a5460b512357b2cf80ce1cefc69f5)
-
-[机器学习2023-10-19第6-8节 (zju.edu.cn)](https://classroom.zju.edu.cn/livingpage?course_id=53449&sub_id=915451&tenant_code=112)
-
-
-
-
-
-
-
-
-[有监督的机器学习：回归与分类 | Coursera](https://www.coursera.org/learn/machine-learning?action=enroll)
-
-[CS229吴恩达机器学习](https://www.bilibili.com/video/BV16J411t71N)
-
-[CS229: Machine Learning (stanford.edu)](https://cs229.stanford.edu/)
-
-
-
-深度学习
-
-[CS231n Convolutional Neural Networks for Visual Recognition](https://cs231n.github.io/)：deep learning for CV
-
-[图灵班《机器学习》课程总结 - CC98论坛](https://www.cc98.org/topic/5599897)
-
-我在心灵学ML系列doge
-
-[再次入门deep learning以及一些回忆（更新第二部分） - CC98论坛](https://www.cc98.org/topic/5207160)
-
-[再次入门deep learning，这次直接上重点（完结篇） - CC98论坛](https://www.cc98.org/topic/5208795)
-
-
-
-
-
-
-### 会议论文
-- ICML (International Conference on Machine
-Learning)
-- NeurIPS (Neural Information Processing Systems)
-- KDD (ACM SIGKDD Conference on Knowledge Discovery and Data Mining)
-- AAAI (AAAI conference on Artificial Intelligence)
-
-
-### 相关网课
-
-CS188
-
-1. 机器学习：B站/youtube 李宏毅/吴恩达
-
-2. 深度学习：https://zh-v2.d2l.ai/ notebook和课程质量较高，使用的框架的话, pytorch文献用的比较多,tensorflow和硬件兼容性好，根据需求选择框架学习, 如果觉得难以接受可以多刷几遍
-
-3. 强化学习：https://hrl.boyuai.com/   https://datawhalechina.github.io/easy-rl/#/ 
-
-
-一步步教你每个数据是怎么产生怎么删除的, 可视化做的非常好,手脚架给你搭建好了, 不需要复杂的工程思考, 只需要思考最本质的 梯度,    可以快速理解梯度, activation, opt 
-[LLM Training Puzzles - 寒假摸鱼 (2) - Garl的文章 - 知乎](https://zhuanlan.zhihu.com/p/20265169815)
-[LLM-Training-Puzzles](https://github.com/srush/LLM-Training-Puzzles/tree/main )
-[colab地址](https://colab.research.google.com/github/srush/LLM-Training-Puzzles/blob/main/puzzles.ipynb)
-
-
-### 学习笔记
-
-[人工智能基础 - 鹤翔万里的笔记本 (tonycrane.cc)](https://note.tonycrane.cc/cs/ai/basic/)
-
-[02：贝叶斯定理 - 小角龙的学习记录 (zhang-each.github.io)](https://zhang-each.github.io/My-CS-Notebook/ML/统计机器学习02：贝叶斯定理/)
-
-[命题逻辑 - Jerry's Blog (wxxcl.tech)](https://blog.wxxcl.tech/course/aid/知识表达与推理/命题逻辑/)
-
-[笔记](https://github.com/mura1n/Machine-Learning-in-Practice-Crash-Course-Notes)
-
-
-https://github.com/AccumulateMore 
-
-
-B站https://space.bilibili.com/1567748478/ 论文带读
-### 注意点
-
-**特征工程**，指的不是特征选择（无监督学习的降维），而是特征表征（feature represent），深度学习里面叫embedding（自己看了功能后理解的），就是我们应该怎样去表征问题，将问题的信息表示为数据给计算机进行学习。
 
 
 

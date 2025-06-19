@@ -1,19 +1,18 @@
 # 计算机控制系统
 
+## 基本信息
+- 学分：3.5pt
+- 成绩组成:<br>平时成绩占20%——出勤、课堂测试/互动/交流、作业<br>
+   实践成绩占35%——综合实践大作业，小组情况、个人完成情况各占50%计算<br>
+   期末考试占45%——半开卷，1张A4纸，手写，复印无效<br>
 
-!!! note "课程信息"
-    - 授课教师：
-    - 上课时间：2025春夏
-    - 学分：3.5pt
-    - 成绩组成:<br>平时成绩占20%——出勤、课堂测试/互动/交流、作业<br>
-        实践成绩占35%——综合实践大作业，小组情况、个人完成情况各占50%计算<br>
-        期末考试占45%——半开卷，1张A4纸，手写，复印无效<br>
-    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250220082031246.png)
-    
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250220082031246.png)
 
 <iframe src="http://www.cse.zju.edu.cn/aec/2012/0308/c73095a2676372/page.htm" width="100%" height="600px" frameborder="0"></iframe>
 
-## A4
+
+
+### A4
 
 [云高天遥 - A4原型](https://www.cc98.org/topic/5645283)
 
@@ -21,16 +20,25 @@
 
 [Rainbow0 - A4](https://www.cc98.org/topic/5658322)
 
-## 历年卷
+### 历年卷
 [计算机控制系统设计与实践 2023-2024春夏 回忆卷 - CC98论坛](https://www.cc98.org/topic/5925877)
 
 [计算机控制系统设计与实践（计控）22-23春夏回忆卷 - CC98论坛](https://www.cc98.org/topic/5644108)
 
 [计算机控制系统设计与实践（计控）21-22春夏回忆卷 - CC98论坛](https://www.cc98.org/topic/5353159)
 
+阀门定位器，与气动…一起形成负反馈
+计算机控制系统的实时性要求
+氢腐蚀概念
+ 二线制或者四线制
+分辨率概念相关
+酸碱腐蚀性
+给传递函数，推导离散PID
+
+如何评价安全的传感系统（大概这个意思）
 
 
-## 实验课
+### 实验课
 
 硬件、软件、编程、综合实践
 
@@ -134,31 +142,96 @@ ao:
 4. **工业以太网**
 
 
-工控系统为什么以前不用Ethernet通信？
-•
-CSMA/CD→先听后说/边听边说→大负荷时存在碰撞可能→存在“原理上的不确定性”
-•
-通信速率↑，网络负荷↓，碰撞概率↓
-•
-交换技术发展 → 进一步减轻碰撞问题
-•
-e网负荷＜10%时，基本无碰撞；负荷＜25%时，e网通信响应时间明显短于令牌网
-•
-“不确定性”不再是e网用于工控底层网络的主要障碍（工业以太网）
+!!! question "工控系统为什么以前不用Ethernet通信？"
+      - CSMA/CD→先听后说/边听边说→大负荷时存在碰撞可能→存在"原理上的不确定性"
+      - 通信速率↑，网络负荷↓，碰撞概率↓
+      - 交换技术发展 → 进一步减轻碰撞问题
+      - e网负荷＜10%时，基本无碰撞；负荷＜25%时，e网通信响应时间明显短于令牌网
+      - "不确定性"不再是e网用于工控底层网络的主要障碍（工业以太网）
 
 
-短帧信息多、长帧信息少
-◆
-周期性信息多（测量、控制信息），非周期性信息少（操作指令、组态信息；报警等突发性事件信息）
-◆
-信息流向方向性明显
-◆
-节点数少、网络负荷较平稳
-◆
-简化的OSI模型（7层→3、4层）
-工业以太网碰撞概率是很低的
+- 短帧信息多、长帧信息少
+- 周期性信息多（测量、控制信息），非周期性信息少（操作指令、组态信息；报警等突发性事件信息）；信息流向方向性明显
+- 节点数少、网络负荷较平稳
+- 简化的OSI模型（7层→3、4层）
+- 工业以太网碰撞概率是很低的
+
+
+
+!!! question "低频电压信号，则接收端输入阻抗越大越好；对低频电流信号，则接收端阻抗越小越好"
+      正确
+
+      ---
+
+      ```
+         电压源 V_s
+               |
+            ┌─┴─┐
+            │ R_s│ ← 源内阻（小）
+            └─┬─┘
+               |
+               ├───────► 接收端
+               |
+            ┌─┴─┐
+            │ R_in│ ← 接收端输入阻抗（我们要讨论的）
+            └────┘
+      ```
+
+
+      传到接收端的电压 $V_{\text{in}}$ 为：
+
+      $$
+      V_{\text{in}} = V_s \cdot \frac{R_{\text{in}}}{R_s + R_{\text{in}}}
+      $$
+
+      * 若 $R_{\text{in}} \to \infty$，则 $V_{\text{in}} \to V_s$：信号几乎无衰减，完美还原。
+      * 若 $R_{\text{in}} \ll R_s$，则 $V_{\text{in}}$ 很小，几乎损失殆尽。
+
+      ✅ **结论**：**电压信号→接收端阻抗应尽量大**。
+
+      ---
+
+      ```
+         电流源 I_s
+               |
+            ┌─┴─┐
+            │ R_s│ ← 源内阻（大）
+            └─┬─┘
+               |
+               ├───────► 接收端
+               |
+            ┌─┴─┐
+            │ R_in│ ← 接收端输入阻抗
+            └────┘
+      ```
+
+      设总串联阻抗 $R_{\text{total}} = R_s + R_{\text{in}}$
+
+      电流源输出 $I_s$ 不变，通过接收端的电压为：
+
+      $$
+      V_{\text{in}} = I_s \cdot R_{\text{in}}
+      $$
+
+      但重点是：**你不希望 $R_{\text{in}}$ 大，否则电压升高，容易引入误差或限制电流源输出能力**。
+
+      超过电流源的最大输出电压会导致电流输出不稳定
+
+
 
 ## 检测仪表原理与选型
+
+| 类型       | 信号类型                    | 特点说明                         |
+| -------- | ----------------------- | ---------------------------- |
+| **数字传输** | 数字信号（离散的0和1）在物理信道上传输    | 电平明确（如高电平=1，低电平=0），对噪声有更强鲁棒性 |
+| **模拟传输** | 模拟信号（连续变化的电压/频率等）在信道上传输 | 容易受到噪声干扰，信息以波形特征（幅度/频率/相位）编码 |
+
+
+| 对比项     | 基带传输           | 频带传输        |
+| ------- | -------------- | ----------- |
+| 数字/模拟传输 | 数字信号的数字传输      | 数字信号的模拟传输   |
+| 是否调制    | 否（直接传输数字信号）    | 是（需调制成模拟波形） |
+| 典型应用    | 有线局域网、USB、串口通信 | 无线通信、电视、广播  |
 
 ### 仪表分类
 
@@ -335,17 +408,43 @@ Ex+i本安 d隔爆[a本安 a类 b本安 b类]+IIA、IIB、IIC+T1-6
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=933910874&bvid=BV1VT4y1d7Y2&cid=435152367&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="600px"></iframe>
 
 
-调节阀的动态图像
-
-<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=426048381&bvid=BV1K3411K75w&cid=585036087&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="600px"></iframe>
-
-<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=250631535&bvid=BV1sv41137kQ&cid=413242027&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="600px"></iframe>
-
-下面视频演示了刀闸阀，三片式球阀，楔式闸阀，两偏心蝶阀，旋启式止回阀
-
-<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=413437773&bvid=BV1vV411r7XS&cid=199989737&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="600px"></iframe>
 
 
+!!! note "调节阀的动态图像"
+      <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=426048381&bvid=BV1K3411K75w&cid=585036087&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="600px"></iframe>
+
+      <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=250631535&bvid=BV1sv41137kQ&cid=413242027&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="600px"></iframe>
+
+      下面视频演示了刀闸阀，三片式球阀，楔式闸阀，两偏心蝶阀，旋启式止回阀
+
+      <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=413437773&bvid=BV1vV411r7XS&cid=199989737&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="600px"></iframe>
+
+!!! question "调节阀最小可调流量即为调节阀的泄漏量"
+      ❌
+
+      | 概念               | 定义                                  | 说明                             |
+      | ---------------- | ----------------------------------- | ------------------------------ |
+      | **泄漏量（Leakage）** | 在**阀门完全关闭**（关断状态）时，仍有少量介质从阀芯与阀座之间泄出 | 是一个**静态特性**，表示阀门的密封性           |
+      | **最小可调流量**       | 在阀门**调节状态**下，系统中能稳定控制的**最小有效流量变化**  | 是一个**动态调节性能**指标，取决于执行器灵敏度、阀特性等 |
+
+      标称最大流量：100 m³/h
+
+      泄漏量：0.05 m³/h（完全关闭状态时仍有微小泄漏）
+
+      最小可调流量：0.5 m³/h（调节状态下能精确控制的最小流量）
+
+      调节阀在保证控制稳定性前提下，最大可控制流量与最小可稳定控制流量之比。
+
+      可调比 = $\frac{\text{最大可调流量}}{\text{最小可调流量}}$
+
+      📌 举例：
+      一个调节阀最大流量是 100 m³/h，最小能稳定调节的是 1 m³/h
+
+      可调比 = $\frac{100}{1} = 100:1$
+
+      如果最小只能调到 10 m³/h：
+
+      可调比 = $\frac{100}{10} = 10:1$
 
 ### 开关阀
 
@@ -425,7 +524,15 @@ PID离散化
 数字控制器
 
 ### PLC概述
- 
+
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/202506191005216.png)
+
+ | 图  | 电容C作用          | 功能说明                 |
+| -- | -------------- | -------------------- |
+| 左图 | RC滤波、去抖动、防止误触发 | 机械开关/继电器信号稳定处理       |
+| 右图 | 整流滤波、信号保持      | 交流输入信号转换为稳定逻辑电平，驱动光耦 |
+
 
 
 ## Chap 6 控制系统工程设计
@@ -437,6 +544,8 @@ PID离散化
 - 自主可控
 - 先进有效
 - 性价比高
+
+
 
 
 ### 图表

@@ -6,10 +6,45 @@
 ### 内部指标
 
 
+## 层次聚类
+产生不同层次的聚类结果，可以通过树状图来表示
+### 聚合聚类算法
+
+只需要距离矩阵，而不需要原始向量
+
+**距离度量**：
+
+- 单链接（最小距离）
+- 全链接（最大距离）
+- 均链接（平均距离）
+
+
+
+
+**合并规则**：
+
+- 从每个样本开始，将每个样本初始视为一个独立的簇，然后通过迭代过程逐步合并距离最近的两个簇
+- 最短距离合并成一个簇
+
+**停止条件**：
+最后只剩余一个簇
 
 ## 原型聚类
 
 ### k-means
+
+算法思想：
+
+- 1 随机选取K个中心
+- 2 对于每个点，选择离之最近的中心
+- 3 重新计算每个类的均值，作为迭代后的中心
+- 重复23步，直至簇的数量不发生变化或者达到最大迭代次数
+
+
+#### 分析
+
+稳定性：
+
 
 #### K值选择
 
@@ -38,7 +73,13 @@ $$
 而所有样本点i的轮廓系数的平均值，即为该聚类结果总的轮廓系数 $S$ 。$S \in [-1, 1]$ ，$S$ 越接近与1，聚类效果越好。
 
 
+#### 均值点改进
+
+K-medoids： 选取离均值最近的点作为新的质心，找一个点，离其他点距离之和最小
+
 #### 初始点选择
+
+
 
 **随机选择**
 
@@ -180,6 +221,17 @@ if __name__ == "__main__":
     main()
 ```
 
+### kernel clustering
+
+
+### 谱聚类 spectual clustering
+
+
+[一文带你深入浅出地搞懂谱聚类 - 知乎](https://zhuanlan.zhihu.com/p/392736238)
+
+Laplace矩阵的含义[What's the intuition behind a Laplacian matrix? - Quora](https://www.quora.com/Whats-the-intuition-behind-a-Laplacian-matrix-Im-not-so-much-interested-in-mathematical-details-or-technical-applications-Im-trying-to-grasp-what-a-laplacian-matrix-actually-represents-and-what-aspects-of-a-graph-it-makes-accessible/answer/Muni-Sreenivas-Pydi)
+
+#### 步骤
 
 
 ### LVQ | 学习向量量化
@@ -198,6 +250,4 @@ if __name__ == "__main__":
 
 ### OPTICS
 
-## 层次聚类
-产生不同层次的聚类结果，可以通过树状图来表示
-### AGNES
+
