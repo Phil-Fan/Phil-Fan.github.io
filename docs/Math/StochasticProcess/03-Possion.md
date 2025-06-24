@@ -827,7 +827,8 @@ $$
     $$
     \mathcal{R}_{\mathcal{N}}(s, t) = E[\mathcal{N}(s)] + E[\mathcal{N}(s)]E[\mathcal{N}(t)]
     $$
-    u
+
+    
     其中 $E[\mathcal{N}(t)] = \int_0^t \lambda(u) du$。
 
     这里 $\lambda(t) = 2t$，所以

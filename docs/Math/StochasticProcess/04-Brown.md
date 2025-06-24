@@ -66,12 +66,12 @@ $X(t)=B(t)-tB(1)\quad 0\leq t \leq 1$
     * 方差函数：$D_B(t)=t$
     * 自协方差函数：
         
-        $$
-        \begin{aligned}
-        C_B(t,s) &= R_B(t,s) = D_B[\min (s,t)]\\
-        &=min(t,s)\qquad t,s>0
-        \end{aligned}
-        $$
+$$
+\begin{aligned}
+C_B(t,s) &= R_B(t,s) = D_B[\min (s,t)]\\
+&=min(t,s)\qquad t,s>0
+\end{aligned}
+$$
 
 
 
@@ -366,9 +366,9 @@ $$
 
 - 对称性 
     
-    $$
-    P(\underset{0\leq s\leq t}{min}\,B(s)\leq -y)=P(\underset{0\leq s\leq t}{max}\,B(s)\geq y)
-    $$	
+$$
+P(\underset{0\leq s\leq t}{min}\,B(s)\leq -y)=P(\underset{0\leq s\leq t}{max}\,B(s)\geq y)
+$$	
 
 - 换元
 
@@ -698,6 +698,7 @@ $$
        - 因此 $X(t)$ 是正态过程
 
     2. 计算均值函数：
+    
     $$
     \begin{align*}
     E[X(t)] &= E[(t+1)B(\frac{1}{t+1}) - B(1)] \\
@@ -707,6 +708,7 @@ $$
     $$
 
     3. 计算自相关函数：
+
     $$
     \begin{align*}
     R_X(s,t) &= E[X(s)X(t)] \\

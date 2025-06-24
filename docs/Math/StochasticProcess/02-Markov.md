@@ -1048,55 +1048,60 @@ stateDiagram-v2
 (4) 若 $P(X_{0}=3)=P(X_{0}=4)=\frac{1}{2}$, 对 $i=4,5,6,7$, 计算 $\lim_{n\to\infty} P(X_{n}=i)$.
 
 
-   $a_{00}=0,a_{11}=0$
+$a_{00}=0,a_{11}=0$
 
-   $$
-   \begin{aligned}
-   a_{01} &= 1+0.4a_{01}+0.1a_{10} \\
-   a_{10} &= 1+ 0.3a_{01}+0.2a_{10}
-   \end{aligned}
-   $$
+$$
+\begin{aligned}
+a_{01} &= 1+0.4a_{01}+0.1a_{10} \\
+a_{10} &= 1+ 0.3a_{01}+0.2a_{10}
+\end{aligned}
+$$
 
-   同理计算$\{6,7\}$的平稳分布$(\pi_6,\pi_7)$
-   $$
-   \begin{aligned}
-   &\begin{cases}
-   \pi_6+\pi_7 = 1 \\
-   \pi_6 = \pi_7 \times \frac{1}{2} \\
-   \end{cases} \\
-   &\text{可求得平稳分布为}(\frac{1}{3},\frac{2}{3}) \\
-   &\text{因此平均回转时间为：}\mu_6 = 3,\mu_7 =3/2
-   \end{aligned}
-   $$
+同理计算$\{6,7\}$的平稳分布$(\pi_6,\pi_7)$
+
+$$
+\begin{aligned}
+&\begin{cases}
+\pi_6+\pi_7 = 1 \\
+\pi_6 = \pi_7 \times \frac{1}{2} \\
+\end{cases} \\
+&\text{可求得平稳分布为}(\frac{1}{3},\frac{2}{3}) \\
+&\text{因此平均回转时间为：}\mu_6 = 3,\mu_7 =3/2
+\end{aligned}
+$$
 
 (3) 因为$\{4,5\}$为暂留态，所以$\lim_{n\to \infty} p_{45}^{(n)} = 0$
 
-   根据$\{6,7\}$的平稳分布可得$\lim_{n\to \infty} p_{67}^{(n)} = \frac{2}{3}$
+根据$\{6,7\}$的平稳分布可得$\lim_{n\to \infty} p_{67}^{(n)} = \frac{2}{3}$
 
 (4) 同理因为$\{4,5\}$为暂留态，所以
-   $$
-   \begin{aligned}
-   &\lim_{n\to \infty} P(X_n=4) =0 \\
-   &\lim_{n\to \infty} P(X_n=5) =0
-   \end{aligned}
-   $$
    
-   然后我们来考虑初始状态为$X_0 =3,X_0 = 4$分别以什么概率进入吸收态$\{6,7\}$
+$$
+\begin{aligned}
+&\lim_{n\to \infty} P(X_n=4) =0 \\
+&\lim_{n\to \infty} P(X_n=5) =0
+\end{aligned}
+$$
 
-   我们令$h_i$表示以状态$i$到达状态$6$的概率，则显然$h_3=0,h_6=1$
-   $$
-   \begin{aligned}
-   &h_4 = \frac{1}{3}h_4+\frac{1}{3}h_5 \\
-   &h_5 = \frac{1}{2}h_4+\frac{1}{2}
-   \end{aligned}
-   $$
-   可求得$h_4 = \frac{1}{3},h_5 = \frac{2}{3}$，因此
-   $$
-   \begin{aligned}
-   &\lim_{n\to \infty} P(X_n=6) =\frac{1}{2}\frac{1}{3}\frac{1}{3} = \frac{1}{18} \\
-   &\lim_{n\to \infty} P(X_n=7) =\frac{1}{9}
-   \end{aligned}
-   $$
+然后我们来考虑初始状态为$X_0 =3,X_0 = 4$分别以什么概率进入吸收态$\{6,7\}$
+
+我们令$h_i$表示以状态$i$到达状态$6$的概率，则显然$h_3=0,h_6=1$
+
+$$
+\begin{aligned}
+&h_4 = \frac{1}{3}h_4+\frac{1}{3}h_5 \\
+&h_5 = \frac{1}{2}h_4+\frac{1}{2}
+\end{aligned}
+$$
+
+可求得$h_4 = \frac{1}{3},h_5 = \frac{2}{3}$，因此
+
+$$
+\begin{aligned}
+&\lim_{n\to \infty} P(X_n=6) =\frac{1}{2}\frac{1}{3}\frac{1}{3} = \frac{1}{18} \\
+&\lim_{n\to \infty} P(X_n=7) =\frac{1}{9}
+\end{aligned}
+$$
 
 ### 3.20
 
@@ -1126,6 +1131,7 @@ $$
 
 
 令$h_i$代表从$i$出发在有限时间访问7号房间的概率，则有$h_7 =1 ,h_9=0$
+
 $$
 h_i = \sum_{j} p_{ij}h_j
 $$

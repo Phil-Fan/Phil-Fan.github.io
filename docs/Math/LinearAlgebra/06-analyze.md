@@ -100,69 +100,134 @@ $$
 tr(A) = \sum_{i=1}^n \lambda_i
 $$
 
+### 谱
 
-所有特征值的集合 矩阵的谱 spectrum
+矩阵的谱是指该矩阵的所有特征值的集合：
 
-$$
-\lambda(A) = \{\lambda_1, \lambda_2, \cdots, \lambda_n\}
-$$
 
 $$
-\rho(A) = \max_{i=1,2,\cdots,n} |\lambda_i| = |(\lambda(A))|_{L_{\infty}}
+\sigma(A)=\{\lambda_1,\lambda_2,...,\lambda_n\}
 $$
 
-特征值的模
+矩阵的谱半径是该矩阵所有特征值的绝对值中的最大值：
+
+$$
+\rho(A)=\max\{|\lambda_1|,|\lambda_2|,...,|\lambda_n|\}
+$$
 
 
 ### 矩阵多项式
 
-$$
-A\nu = \lambda \nu
-$$
+假设 $A$ 是一个$n\times n$的方阵，$p(A)$ 是以矩阵$A$为变量的一个矩阵多项式，即：
 
 $$
-A^2\nu = A(A\nu) = A(\lambda \nu) = \lambda (A\nu) = \lambda^2 \nu
+p(A)=c_0I+c_1A+c_2A^2+...+c_kA^k
 $$
 
+其中，$c_0, c_1, . . . , c_k$ 是常数，$I$ 是单位矩阵。
+
+
+矩阵$A$的特征值为$\lambda_1,\lambda_2,...,\lambda_n$,则矩阵多项式$p(A)$的特征值为：
+
 $$
-A^k\nu = \lambda^k \nu
+p(\lambda_i)=c_0+c_1\lambda_i+c_2\lambda_i^2+...+c_k\lambda_i^k,\quad i=1,2,...,n
 $$
 
 
+也就是说，矩阵多项式 $p(A)$ 的特征值等于将矩阵 $A$ 的每个特征值代入多项式中所得$p(\lambda_i)$
 
-$$
-e^A = I + A + \frac{A^2}{2!} + \cdots + \frac{A^k}{k!} + \cdots
-$$
 
-$$
-[e^A] \nu = \sum_{k=0}^{\infty} \frac{A^k}{k!} \nu = \sum_{k=0}^{\infty} \frac{\lambda^k}{k!} \nu = e^{\lambda} \nu
-$$
+!!! note "证明$A^k x = \lambda^k x$"
+    
 
+    当 $k = 1$ 时：
+
+    $$
+    A^1 x = Ax = \lambda x
+    $$
+
+    假设 $k = m$ 时 $A^m x = \lambda^m x$ 成立
+    
+    则当 $k = m + 1$ 时：
+
+    $$
+    A^{m+1} x = A^m (Ax) = A^m (\lambda x) = \lambda (A^m x) = \lambda (\lambda^m x) = \lambda^{m+1} x
+    $$
+
+    因此由数学归纳法得出
+
+    $$
+    A^k x = \lambda^k x, \quad \text{其中 } k = 1, 2, ...$$
+    则有：
+    
+    $$
+    p(A) x = (c_0 I + c_1 A + c_2 A^2 + ... + c_k A^k) x = (c_0 + c_1 \lambda_i + c_2 \lambda_i^2 + ... + c_k \lambda_i^k) x
+    $$
+
+    则矩阵多项式 $p(A)$ 的特征值为：
+    
+    $$
+    p(\lambda_i) = c_0 + c_1 \lambda_i + c_2 \lambda_i^2 + ... + c_k \lambda_i^k, \quad i = 1, 2, ..., n
+    $$
+
+!!! example "求矩阵指数 $e^A$的特征值"
+
+    对于一个方阵$A$,矩阵的指数$e^A$定义为矩阵的幂级数：
+
+
+    $$
+    e^A=I+A+\frac{A^2}{2!}+\frac{A^3}{3!}+...=\sum_{k=0}^\infty\frac{A^k}{k!}$$
+
+    如果矩阵$A$的特征值为$\lambda_1,\lambda_2,...,\lambda_n$,那么矩阵$e^A$的特征值为：
+
+    $$
+    1+\lambda_i+\frac{\lambda_i^2}{2!}+\frac{\lambda_i^3}{3!}+...=\sum_{k=0}^\infty\frac{\lambda_i^k}{k!}=e^{\lambda_i},\quad i=1,2,...,n
+    $$
 
 
 ### Cayley-Hamilton定理 - 求逆
 
-$$
-P_n A^n + P_{n-1}A^{n-1} + \cdots + P_1A + P_0I = 0
-$$
+任何一个$n\times n$的方阵$A$ 都满足以它自身为变量的特征多项式，即$p(A)=0$
 
-- $P_n$来自$P(x) = det(xI - A)$
-
-
-同乘$A^{-1}$
+具体来说，设矩阵$A$的特征多项式为：
 
 $$
-P_n A^{n-1} + P_{n-1}A^{n-2} + \cdots + P_1I + P_0A^{-1} = 0
+p(\lambda)=\det\left(\lambda I-A\right)=\lambda^n+a_{n-1}\lambda^{n-1}+\cdots+a_1\lambda+a_0
 $$
 
+则有：
+
+
 $$
-A^{-1} = -\frac{1}{P_0}(P_n A^{n-1} + P_{n-1}A^{n-2} + \cdots + P_1I)
+p(A)=A^n+a_{n-1}A^{n-1}+\cdots+a_1A+a_0I=0
 $$
 
+在矩阵求逆上的应用：
+
+当矩阵$A$是可逆的 (即$\det(A)\neq0$)时，可以利用 Cayley-Hamilton 定理来求$A^{-1}$的表达式。
 
 
+1. **求特征多项式 $p(\lambda)$：**
 
+   计算 $p(\lambda) = \det(\lambda I - A)$，得到特征多项式的系数 $a_i$。
 
+2. **写出 Cayley-Hamilton 方程：**
+
+   $$
+   A^n + a_{n-1}A^{n-1} + \cdots + a_1A + a_0I = 0
+   $$
+
+3. **两边同时左乘 $A^{-1}$，整理关于 $A^{-1}$ 的项：**
+
+   $$
+   A^{n-1} + a_{n-1}A^{n-2} + \cdots + a_1I + a_0A^{-1} = 0
+   $$
+
+4. **移项并解出 $A^{-1}$：**
+
+   $$
+   A^{-1} = -\frac{1}{a_0}\left(A^{n-1} + a_{n-1}A^{n-2} + \cdots + a_1I\right)
+   $$
 
 
 

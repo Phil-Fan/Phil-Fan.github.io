@@ -5,6 +5,10 @@
         智云链接：[2024秋冬](https://classroom.zju.edu.cn/livingroom?course_id=66128&sub_id=1264000)<br>
         教师：程磊（老师特别有意思hhh）<br>
         上课风格：课前会有同学来帮助回顾上节课的内容，老师推导也特别清楚，会联系到一些与其他课程相关联的例子<br>
+        workload: 过程作业题目*3 + 大作业*1 + A4考试
+
+        作业25%+实验10%+课堂表现5%+半开卷考60%
+
         旁听友好<br>
 
     === "MIT 18.065 | Gilbert Strang"
@@ -12,14 +16,29 @@
         教师：Gilbert Strang<br>
         还没上过<br>
 
+        [Matrix Methods in Data Analysis, Signal Processing, and Machine Learning | Mathematics | MIT OpenCourseWare](https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/)
+
+        [mitmath/18065: 18.065/18.0651: Matrix Methods in Data Analysis, Signal Processing, and Machine Learning](https://github.com/mitmath/18065)
+
         <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=91245806&bvid=BV1a7411M7wH&cid=155763110&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" height=auto width=100%></iframe>
+
+
+    === "龙强线性代数与矩阵分析"
+        链接：[龙强线性代数与矩阵分析](https://www.cc98.org/topic/6073079)
+        教师：龙强<br>
+        上课风格：<br>
+        [QiangLong2017/Matrix-theory: 本仓库用于存储《线性代数与矩阵分析》课程课件](https://github.com/QiangLong2017/Matrix-theory/)
+
+
+    【矩阵分析第一讲 什么是矩阵分析 线性系统】https://www.bilibili.com/video/BV1p44y1h78d?vd_source=b38d40e4ee48a659bc5c5113dcf1c249
+
+
 
 
 学矩阵论的目的：
 
 - 用矩阵的语言去建模遇到的数学问题
-- 教学的宗旨应该是教会学生老师是如何思考的 —— 程磊
-- 
+- 教学的宗旨应该是教会学生 老师是如何思考的 —— 程磊
 
 
 
@@ -53,20 +72,87 @@ This browser does not support PDFs
 
 ## Acknowledgement
 
+```
+.
+01-textbook
+    MatrixCookBook.pdf
+    nonlinear-programming.pdf
+    矩阵分析与应用 张显达.pdf
+    矩阵论_戴华.pdf
+    控制论中的矩阵计算_徐树方.pdf
+    最优化：建模、算法与理论.pdf
+02-slides
+    Slide1.pdf
+    Slide2.pdf
+    Slide3.pdf
+    Slide4.pdf
+    Slide5.pdf
+    Slide6.pdf
+    Slide7.pdf
+    Slide8.pdf
+    Slide9.pdf
+    Slide10.pdf
+    Slide11.pdf
+    Slide12.pdf
+    Slide13.pdf
+    Slide14.pdf
+    Slide15.pdf
+03-homework
+    answer/
+    Homework1.pdf
+    Homework2.pdf
+    Homework3.pdf
+    习题解答.pdf
+04-review
+    Review10.pptx
+    Review11.pdf
+    Review3.pdf
+    Review4.pdf
+    Review5.pdf
+    Review6.pdf
+    Review7.pdf
+    Review8.pptx
+    Review9.pptx
+    思维导图 - Oddyti.xmind
+    最后一次的课前复习.pdf
+05-exam
+    A4
+        A4 - 8h5d233.jpg
+        A4 - 8h5d2333.jpg
+        A4 - pcs.pdf
+        A4 - Vega.pdf
+        A4 - 陈归忱.pdf
+        A4 - 戈炎-2.webp
+        A4 - 戈炎.webp
+    历年卷
+        16.pdf
+        17.pdf
+        18.pdf
+        19-20 by boommmm,核子.pdf
+        19.pdf
+        20.pdf
+        21 by Oddyti,核子.pdf
+        21_新.pdf
+        22_新.pdf
+        22-23 秋 by 核子.pdf
+        23 by Tannin Rachel.pdf
+        23.doc
+        README.txt
+```
+
 - [MIT 18.065 | Gilbert Strang](https://www.youtube.com/watch?v=ZK3O402wf1c&list=PLUl4u3cNGP61Oq3tWYp6V_F-5BBJyqSQH)
 - [矩阵论 | 程磊](https://classroom.zju.edu.cn/livingroom?course_id=66128&sub_id=1264000)
 
 
-- 信电学院
-- 控制学院
 
 [【矩阵论/矩阵分析】龙强线性代数与矩阵分析 课件与听课笔记 - 心泉- CC98论坛](https://www.cc98.org/topic/6073079)
-
-<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=335998005&bvid=BV1TR4y1H7iG&cid=421967527&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" height=auto width=100%></iframe>
 [QiangLong2017/Matrix-theory: 本仓库用于存储《线性代数与矩阵分析》课程课件](https://github.com/QiangLong2017/Matrix-theory/)
 
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=335998005&bvid=BV1TR4y1H7iG&cid=421967527&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" height=auto width=100%></iframe>
 
-[思维导图 - Oddyti](https://www.cc98.org/topic/5197310/1#1)
+
+
+
 
 
 ### A4
@@ -84,6 +170,17 @@ This browser does not support PDFs
 [习题答案 民间版 - CC98论坛](https://www.cc98.org/topic/5753179)
 
 [矩阵论人脸作业 - CC98论坛](https://www.cc98.org/topic/5459916)
+
+[思维导图 - Oddyti](https://www.cc98.org/topic/5197310/1#1)
+
+### 考试
+
+[22-23秋 矩阵论 回忆卷 及往年回忆卷勘误 - 核子](https://www.cc98.org/topic/5461635)
+
+[2021秋 - Oddyti](https://www.cc98.org/topic/5197310)
+
+[矩阵论近七年历年卷整合翻新，资料以及A4纸分享 - 8h5d233](https://www.cc98.org/topic/5753179)
+
 
 
 

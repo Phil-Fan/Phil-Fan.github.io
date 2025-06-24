@@ -2,6 +2,11 @@
 - dimensionality reduction tries to transform high-demensional data into a low-dimensioanl space while preserving the data structure.
 - data might lie on low-dimensional manifolds.
 
+$$
+\underset{D\times1\ (\text{high dim})}{x} \longrightarrow \underset{M\times1\ (\text{low dim})}{\mathbf{w}}
+$$
+
+
 
 
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241022172142.png)
@@ -169,6 +174,9 @@ def MDS(data, n=2):
 	return Z
 ```
 [多维缩放(MDS)算法的详细推导及Python实现\_多维缩放算法证明 知乎-CSDN博客](https://blog.csdn.net/weixin_38053887/article/details/104700192)
+
+
+
 ## PCA
 [降维技巧 | 导论与流形学习：1/5 ](https://www.bilibili.com/video/BV1aF4m1u789)
 
@@ -199,6 +207,26 @@ U是特征向量，S是特征值，V是特征向量
 
 
 协方差矩阵告诉我们变量的方差和联合方向
+
+对于线性降维：
+
+$$
+\mathbf{z}=\mathbf{\Phi x}
+$$
+
+即每一个$\mathbf{z}_i$都是$\mathbf{x}_1,\mathbf{x}_2,...,\mathbf{x}_D$的线性组合。
+
+非线性降维，在线性变换之后添加非线性激活函数：
+
+$$
+z=\sigma(\Phi x)
+$$
+
+$$
+z_1=\cdotp\cdotp\cdotp\sigma(\Phi_2\sigma(\Phi_1x_n))
+$$
+
+非线性激活函数的引入打破了神经网络中的线性限制，使得网络能够捕捉复杂的非线性关系。
 
 
 ## 流形学习

@@ -10,11 +10,6 @@
 - [x] Chap4 布朗运动
 - [x] Chap5 平稳过程
 
-- [01 | 基本概念 - PhilFan's Notebook](https://www.philfan.cn/Math/StochasticProcess/01-Concept.html)
-- [02 | 马尔可夫链 - PhilFan's Notebook](https://www.philfan.cn/Math/StochasticProcess/02-Markov.html)
-- [03 | 泊松过程 - PhilFan's Notebook](https://www.philfan.cn/Math/StochasticProcess/03-Possion.html)
-- [04 | 布朗运动 - PhilFan's Notebook](https://www.philfan.cn/Math/StochasticProcess/04-Brown.html)
-- [05 | 平稳过程 - PhilFan's Notebook](https://www.philfan.cn/Math/StochasticProcess/05-StationaryProcess.html)
 
 !!! note "段子"
     人的一生应当学四次随机过程
@@ -28,6 +23,7 @@
     第四次是在夕阳浸润的落地窗前，看见鞅的收敛穿过时间序列。窗格间的卡方检验折射生涯的置信区间。那些离散的故人啊，原来是协方差平稳的相位噪声，虽隔着重样本的间距，仍有自相关的温度，在记忆的宽平稳里，完成最后一次弱收敛的证明。
 
 ## 简介
+选这个课是想再学一点概率相关的话题，补一点数学知识
 
 课程成绩由平时成绩（40%）和期末成绩（60%）组成。平时成绩注重过程考核，包括平时到课率(数字点名)，课后作业，以及随堂小测（周六小测，类似概统）；
 
@@ -38,13 +34,14 @@
 大题：数字特征+泊松过程+马尔科夫链×2+平稳过程
 
 ### 学习方法
-公式记牢、基本概念记牢、多做计算题
-把握重点，有针对性复习
-对于数学基础不好的同学，强调应用结论而不是理解或者推导结论
-不要过于重视公式或者概念背后的深层含义，不求甚解
 
-- 随机过程各个章节的内容其实关联不是特别紧密，中间可以不按照顺序来学。
-不过像98一个学姐说的那样，一定要珍惜每一道题目
+
+公式记牢、基本概念记牢、多做计算题
+
+对于数学基础不好的同学，强调应用结论而不是理解或者推导结论；不要过于重视公式或者概念背后的深层含义，不求甚解
+
+随机过程各个章节的内容其实关联不是特别紧密，中间可以不按照顺序来学。
+
 
 ### 复习进度记录 & todo
 
@@ -52,11 +49,11 @@
 - [x] 听了复习课 + 复习Chap3 Markov Chap2 定义；梳理特殊概念；做了4章复习题PPT
 - [x] 做了老师上课讲的3套卷子 + 历年题的几套卷子
 - [x] 复习题目整理
-- [ ] Brown两个定理理解 + 各态历经定理
-- [ ] 布朗桥证明题写法
-- [ ] 作业整理
+- [x] Brown两个定理理解 + 各态历经定理
+- [x] 布朗桥证明题写法
+- [x] 作业整理
 - [ ] 通俗含义解释
-- [ ] 公式cheet sheet整理
+- [x] 公式cheet sheet整理
 
 ## 资源汇总
 
@@ -107,6 +104,7 @@
     │   ├── 22-23_答案.pdf
     │   ├── 22-23.pdf
     │   ├── 23-24.pdf
+    │   ├── 25.pdf
     │   └── 随过历年卷 蓝田书店.pdf
     ├── 随过笔记 by 启动.pdf
     ├── 随过笔记 by 竝
@@ -126,7 +124,7 @@
 - [竝 - 笔记](https://www.cc98.org/topic/4929320)
 
 ### 回忆卷
-
+- [2025夏 - principle](https://www.cc98.org/topic/6215739)
 - [Akino - 随过（工科1.5学分）版搜历年卷合集](https://www.cc98.org/topic/6198962)
 - [2023-2024](https://www.cc98.org/topic/5930307)
 - [2022-2023](https://www.cc98.org/topic/5643156)
