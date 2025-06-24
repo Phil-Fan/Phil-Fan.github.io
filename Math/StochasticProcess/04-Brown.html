@@ -3458,15 +3458,14 @@ f(x) = \frac{1}{\sqrt{2\pi \sigma^2}} \exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\rig
 <li>数字特征
     * 均值函数：<span class="arithmatex">\(\mu_B(t)=0\)</span>
     * 方差函数：<span class="arithmatex">\(D_B(t)=t\)</span>
-    * 自协方差函数：<div class="highlight"><pre><span></span><code>  $$
-  \begin{aligned}
-  C_B(t,s) &amp;= R_B(t,s) = D_B[\min (s,t)]\\
-  &amp;=min(t,s)\qquad t,s&gt;0
-  \end{aligned}
-  $$
-</code></pre></div>
-</li>
+    * 自协方差函数：</li>
 </ol>
+<div class="arithmatex">\[
+\begin{aligned}
+C_B(t,s) &amp;= R_B(t,s) = D_B[\min (s,t)]\\
+&amp;=min(t,s)\qquad t,s&gt;0
+\end{aligned}
+\]</div>
 <details class="note">
 <summary>证明</summary>
 <p>我们考虑<span><span class="heti-spacing"> </span><span class="arithmatex">\(t \leq s\)</span></span>（不妨设<span><span class="heti-spacing"> </span><span class="arithmatex">\(t \leq s\)</span></span>，因为结果是对称的<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>：</p>
@@ -3742,11 +3741,11 @@ F_{X(t)}(y)=&amp;P(X(t)\leq y)\overset{B_1(s)=-B(s)}{\longleftrightarrow}P(\unde
 \end{align*}
 \]</div>
 <ul>
-<li>对称性 <p>$$
-  P(underset{0leq sleq t}{min},B(s)leq -y)=P(underset{0leq sleq t}{max},B(s)geq y)
-  $$  </p>
-</li>
+<li>对称性 </li>
 </ul>
+<div class="arithmatex">\[
+P(\underset{0\leq s\leq t}{min}\,B(s)\leq -y)=P(\underset{0\leq s\leq t}{max}\,B(s)\geq y)
+\]</div>
 <ul>
 <li>换元</li>
 </ul>
@@ -3993,30 +3992,30 @@ P\left\{|\min_{1\leq t\leq 2} B(t) |\geq 2 \mid B(1)=0\right\}
 </ul>
 </li>
 <li>
-<p>计算均值函数：
-$$
-begin{align<em>}
-E[X(t)] &amp;= E[(t+1)B(frac{1}{t+1}) - B(1)] \
-&amp;= (t+1)E[B(frac{1}{t+1})] - E[B(1)] \
-&amp;= 0
-end{align</em>}
-$$</p>
-</li>
-<li>
-<p>计算自相关函数：
-$$
-begin{align<em>}
-R_X(s,t) &amp;= E[X(s)X(t)] \
-&amp;= E[(s+1)B(frac{1}{s+1}) - B(1)][(t+1)B(frac{1}{t+1}) - B(1)] \
-&amp;= (s+1)(t+1)E[B(frac{1}{s+1})B(frac{1}{t+1})] - (s+1)E[B(frac{1}{s+1})B(1)] - (t+1)E[B(frac{1}{t+1})B(1)] + E[B^2(1)] \
-&amp;= (s+1)(t+1)min(frac{1}{s+1},frac{1}{t+1}) - (s+1)min(frac{1}{s+1},1) - (t+1)min(frac{1}{t+1},1) + 1 \
-&amp;= min(s+1,t+1) - min(s+1,1) - min(t+1,1) + 1 \
-&amp;= min(s+1,t+1) - 1\
-&amp;= min(s,t)
-end{align</em>}
-$$</p>
+<p>计算均值函数：</p>
 </li>
 </ol>
+<div class="arithmatex">\[
+\begin{align*}
+E[X(t)] &amp;= E[(t+1)B(\frac{1}{t+1}) - B(1)] \\
+&amp;= (t+1)E[B(\frac{1}{t+1})] - E[B(1)] \\
+&amp;= 0
+\end{align*}
+\]</div>
+<ol>
+<li>计算自相关函数：</li>
+</ol>
+<div class="arithmatex">\[
+\begin{align*}
+R_X(s,t) &amp;= E[X(s)X(t)] \\
+&amp;= E[(s+1)B(\frac{1}{s+1}) - B(1)][(t+1)B(\frac{1}{t+1}) - B(1)] \\
+&amp;= (s+1)(t+1)E[B(\frac{1}{s+1})B(\frac{1}{t+1})] - (s+1)E[B(\frac{1}{s+1})B(1)] - (t+1)E[B(\frac{1}{t+1})B(1)] + E[B^2(1)] \\
+&amp;= (s+1)(t+1)\min(\frac{1}{s+1},\frac{1}{t+1}) - (s+1)\min(\frac{1}{s+1},1) - (t+1)\min(\frac{1}{t+1},1) + 1 \\
+&amp;= \min(s+1,t+1) - \min(s+1,1) - \min(t+1,1) + 1 \\
+&amp;= \min(s+1,t+1) - 1\\
+&amp;= \min(s,t)
+\end{align*}
+\]</div>
 <p>因此，<span><span class="arithmatex">\(X(t)\)</span><span class="heti-spacing"> </span></span>是标准布朗运动。</p>
 <hr/>
 <p>法二：使用性质<span class="heti-skip"><span class="heti-spacing"> </span>2<span class="heti-spacing"> </span></span>的组合进行证明</p>
@@ -4394,7 +4393,7 @@ P(|B(t)| \leqslant x)
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年6月15日 20:53:54</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年6月24日 19:01:27</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">

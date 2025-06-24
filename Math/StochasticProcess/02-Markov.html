@@ -4566,47 +4566,47 @@ P^3 = P^2 \cdot P = \begin{pmatrix}
 <p><span>(3)<span class="heti-spacing"> </span></span>计算<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\lim_{n\to\infty} p_{45}^{(n)}\)</span><span class="heti-spacing"> </span></span>和<span><span class="heti-spacing"> </span><span class="arithmatex">\(\lim_{n\to\infty} p_{67}^{(n)}\)</span>;</span></p>
 <p><span>(4)<span class="heti-spacing"> </span></span>若<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(P(X_{0}=3)=P(X_{0}=4)=\frac{1}{2}\)</span>,<span class="heti-spacing"> </span></span>对<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(i=4,5,6,7\)</span>,<span class="heti-spacing"> </span></span>计算<span><span class="heti-spacing"> </span><span class="arithmatex">\(\lim_{n\to\infty} P(X_{n}=i)\)</span>.</span></p>
 <p><span class="arithmatex">\(a_{00}=0,a_{11}=0\)</span></p>
-<p>$$
-   begin{aligned}
-   a_{01} &amp;= 1+0.4a_{01}+0.1a_{10} \
-   a_{10} &amp;= 1+ 0.3a_{01}+0.2a_{10}
-   end{aligned}
-   $$</p>
-<p>同理计算<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\{6,7\}\)</span><span class="heti-spacing"> </span></span>的平稳分布<span><span class="heti-spacing"> </span><span class="arithmatex">\((\pi_6,\pi_7)\)</span></span>
-   $$
-   begin{aligned}
-   &amp;begin{cases}
-   pi_6+pi_7 = 1 \
-   pi_6 = pi_7 times frac{1}{2} \
-   end{cases} \
-   &amp;text{可求得平稳分布为}(frac{1}{3},frac{2}{3}) \
-   &amp;text{因此平均回转时间为：}mu_6 = 3,mu_7 =3/2
-   end{aligned}
-   $$</p>
+<div class="arithmatex">\[
+\begin{aligned}
+a_{01} &amp;= 1+0.4a_{01}+0.1a_{10} \\
+a_{10} &amp;= 1+ 0.3a_{01}+0.2a_{10}
+\end{aligned}
+\]</div>
+<p>同理计算<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\{6,7\}\)</span><span class="heti-spacing"> </span></span>的平稳分布<span><span class="heti-spacing"> </span><span class="arithmatex">\((\pi_6,\pi_7)\)</span></span></p>
+<div class="arithmatex">\[
+\begin{aligned}
+&amp;\begin{cases}
+\pi_6+\pi_7 = 1 \\
+\pi_6 = \pi_7 \times \frac{1}{2} \\
+\end{cases} \\
+&amp;\text{可求得平稳分布为}(\frac{1}{3},\frac{2}{3}) \\
+&amp;\text{因此平均回转时间为：}\mu_6 = 3,\mu_7 =3/2
+\end{aligned}
+\]</div>
 <p><span>(3)<span class="heti-spacing"> </span></span>因为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\{4,5\}\)</span><span class="heti-spacing"> </span></span>为暂留态，所以<span><span class="heti-spacing"> </span><span class="arithmatex">\(\lim_{n\to \infty} p_{45}^{(n)} = 0\)</span></span></p>
 <p>根据<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\{6,7\}\)</span><span class="heti-spacing"> </span></span>的平稳分布可得<span><span class="heti-spacing"> </span><span class="arithmatex">\(\lim_{n\to \infty} p_{67}^{(n)} = \frac{2}{3}\)</span></span></p>
-<p><span>(4)<span class="heti-spacing"> </span></span>同理因为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\{4,5\}\)</span><span class="heti-spacing"> </span></span>为暂留态，所以
-   $$
-   begin{aligned}
-   &amp;lim_{nto infty} P(X_n=4) =0 \
-   &amp;lim_{nto infty} P(X_n=5) =0
-   end{aligned}
-   $$</p>
+<p><span>(4)<span class="heti-spacing"> </span></span>同理因为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\{4,5\}\)</span><span class="heti-spacing"> </span></span>为暂留态，所以</p>
+<div class="arithmatex">\[
+\begin{aligned}
+&amp;\lim_{n\to \infty} P(X_n=4) =0 \\
+&amp;\lim_{n\to \infty} P(X_n=5) =0
+\end{aligned}
+\]</div>
 <p>然后我们来考虑初始状态为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(X_0 =3,X_0 = 4\)</span><span class="heti-spacing"> </span></span>分别以什么概率进入吸收态<span><span class="heti-spacing"> </span><span class="arithmatex">\(\{6,7\}\)</span></span></p>
-<p>我们令<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(h_i\)</span><span class="heti-spacing"> </span></span>表示以状态<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(i\)</span><span class="heti-spacing"> </span></span>到达状态<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(6\)</span><span class="heti-spacing"> </span></span>的概率，则显然<span><span class="heti-spacing"> </span><span class="arithmatex">\(h_3=0,h_6=1\)</span></span>
-   $$
-   begin{aligned}
-   &amp;h_4 = frac{1}{3}h_4+frac{1}{3}h_5 \
-   &amp;h_5 = frac{1}{2}h_4+frac{1}{2}
-   end{aligned}
-   $$
-   可求得<span class="arithmatex">\(h_4 = \frac{1}{3},h_5 = \frac{2}{3}\)</span>，因此
-   $$
-   begin{aligned}
-   &amp;lim_{nto infty} P(X_n=6) =frac{1}{2}frac{1}{3}frac{1}{3} = frac{1}{18} \
-   &amp;lim_{nto infty} P(X_n=7) =frac{1}{9}
-   end{aligned}
-   $$</p>
+<p>我们令<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(h_i\)</span><span class="heti-spacing"> </span></span>表示以状态<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(i\)</span><span class="heti-spacing"> </span></span>到达状态<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(6\)</span><span class="heti-spacing"> </span></span>的概率，则显然<span><span class="heti-spacing"> </span><span class="arithmatex">\(h_3=0,h_6=1\)</span></span></p>
+<div class="arithmatex">\[
+\begin{aligned}
+&amp;h_4 = \frac{1}{3}h_4+\frac{1}{3}h_5 \\
+&amp;h_5 = \frac{1}{2}h_4+\frac{1}{2}
+\end{aligned}
+\]</div>
+<p>可求得<span><span class="heti-spacing"> </span><span class="arithmatex">\(h_4 = \frac{1}{3},h_5 = \frac{2}{3}\)</span></span>，因此</p>
+<div class="arithmatex">\[
+\begin{aligned}
+&amp;\lim_{n\to \infty} P(X_n=6) =\frac{1}{2}\frac{1}{3}\frac{1}{3} = \frac{1}{18} \\
+&amp;\lim_{n\to \infty} P(X_n=7) =\frac{1}{9}
+\end{aligned}
+\]</div>
 <h3 id="320">3.20<a class="headerlink" href="#320" title="anchor link to this section for reference">¶</a></h3>
 <p><span>(<span class="heti-spacing"> </span></span>迷宫中的老鼠<span class="heti-skip"><span class="heti-spacing"> </span>)<span class="heti-spacing"> </span></span>如图所示<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>迷宫中有九个房间<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>老鼠待在<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>号房间<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>猫待在<span class="heti-skip"><span class="heti-spacing"> </span>7<span class="heti-spacing"> </span></span>号房间<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>奶酪放在<span class="heti-skip"><span class="heti-spacing"> </span>9<span class="heti-spacing"> </span></span>号房间<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>现在假设猫不动<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>老鼠开始移动<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>由于无记忆性<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>如果<span class="heti-skip"><span class="heti-spacing"> </span>n<span class="heti-spacing"> </span></span>时老鼠待在<span class="heti-skip"><span class="heti-spacing"> </span>i<span class="heti-spacing"> </span></span>号房间<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>则<span class="heti-skip"><span class="heti-spacing"> </span>n+1<span class="heti-spacing"> </span></span>时老鼠等可能地移到<span class="heti-skip"><span class="heti-spacing"> </span>i<span class="heti-spacing"> </span></span>号房间相邻的房间<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>即有门与<span class="heti-skip"><span class="heti-spacing"> </span>i<span class="heti-spacing"> </span></span>号房间相连的房间<span class="heti-skip"><span class="heti-spacing"> </span>).<span class="heti-spacing"> </span></span>并且假设老鼠一旦到<span class="heti-skip"><span class="heti-spacing"> </span>7<span class="heti-spacing"> </span></span>号房间<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>猫就吃掉老鼠<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>从而认为老鼠此后就永远留在<span class="heti-skip"><span class="heti-spacing"> </span>7<span class="heti-spacing"> </span></span>号房间<span class="heti-skip"><span class="heti-spacing"> </span>;<span class="heti-spacing"> </span></span>一旦到<span class="heti-skip"><span class="heti-spacing"> </span>9<span class="heti-spacing"> </span></span>号房间<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>老鼠就吃掉奶酪而将永远留在<span class="heti-skip"><span class="heti-spacing"> </span>9<span class="heti-spacing"> </span></span>号房间<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>用<span class="heti-skip"><span class="heti-spacing"> </span>X_{n}<span class="heti-spacing"> </span></span>表示<span class="heti-skip"><span class="heti-spacing"> </span>n<span class="heti-spacing"> </span></span>时老鼠所在的房间<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>则<span class="heti-skip"><span class="heti-spacing"> </span>{X_{n}}<span class="heti-spacing"> </span></span>是一个时齐马尔可夫链<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>写出状态空间和一步转移矩阵<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>并计算老鼠被猫吃掉的概率<span><span class="heti-spacing"> </span>.</span></p>
 <p><img alt="image-20250428202251387" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20250428202251387.png"/></p>
@@ -4626,10 +4626,10 @@ P = \begin{bmatrix}
 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 \\
 \end{bmatrix}
 \]</div>
-<p>令<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(h_i\)</span><span class="heti-spacing"> </span></span>代表从<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(i\)</span><span class="heti-spacing"> </span></span>出发在有限时间访问<span class="heti-skip"><span class="heti-spacing"> </span>7<span class="heti-spacing"> </span></span>号房间的概率，则有<span><span class="heti-spacing"> </span><span class="arithmatex">\(h_7 =1 ,h_9=0\)</span></span>
-$$
-h_i = sum_{j} p_{ij}h_j
-$$</p>
+<p>令<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(h_i\)</span><span class="heti-spacing"> </span></span>代表从<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(i\)</span><span class="heti-spacing"> </span></span>出发在有限时间访问<span class="heti-skip"><span class="heti-spacing"> </span>7<span class="heti-spacing"> </span></span>号房间的概率，则有<span><span class="heti-spacing"> </span><span class="arithmatex">\(h_7 =1 ,h_9=0\)</span></span></p>
+<div class="arithmatex">\[
+h_i = \sum_{j} p_{ij}h_j
+\]</div>
 <p>根据一步转移矩阵有如下公式：</p>
 <div class="arithmatex">\[
 \begin{aligned}
@@ -4831,7 +4831,7 @@ p_{ij}=\begin{cases}\dfrac{1}{d_i},&amp;j\text{ 是 }i\text{ 的邻}\\\\0,&amp;\
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年6月20日 07:29:20</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年6月24日 19:01:27</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">
