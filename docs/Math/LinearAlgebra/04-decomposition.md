@@ -28,51 +28,19 @@ A = [1 2 3; 4 5 6; 7 8 9];
 随机向量不仅变成了独立的，能量还是1，想当于是白噪声
 
 
-
-
-
-
-
-## 相似对角化
-[全网最快速的特征向量暴力求法（纯干货技巧）\_哔哩哔哩\_bilibili](https://www.bilibili.com/video/BV1aT411E75Q/?spm_id_from=333.337.top_right_bar_window_history.content.click)
-
-[相似对角化太难算，哈-凯定理怒斩A的n次方！（细节拉满了）\_哔哩哔哩\_bilibili](https://www.bilibili.com/video/BV11P411w716/?spm_id_from=333.337.search-card.all.click&vd_source=8b7a5460b512357b2cf80ce1cefc69f5)
-
-!!! note "求解方法"
-     **求特征值**：
-    - 计算矩阵 $A$ 的特征值 $\lambda_i$ ，这些特征值将构成对角矩阵 $\Lambda$ 的对角线元素。
-
-    **求特征向量**：
-    - 对于每个特征值 $\lambda_i$，求解特征向量 $v_i$，这些特征向量将构成矩阵 $P$ 的列。
-    
-    **构造对角矩阵和特征向量矩阵**：
-    - 对角矩阵 $\Lambda$：
-        
-    $$
-    \Lambda = \begin{bmatrix}
-    \lambda_1 & 0 & \cdots & 0 \\
-    0 & \lambda_2 & \cdots & 0 \\
-    \vdots & \vdots & \ddots & \vdots \\
-    0 & 0 & \cdots & \lambda_n
-    \end{bmatrix}
-    $$
-        
-    - 特征向量矩阵 $P$：
-    
-    $$
-    P = \begin{bmatrix}
-    | & | & & | \\
-    v_1 & v_2 & \cdots & v_n \\
-    | & | & & |
-    \end{bmatrix}
-    $$
-    
-    **验证对角化**：
-    - 验证 $A = P \Lambda P^{-1}$ 是否成立。
-
-
-
 ## EVD | 特征分解
+
+处理的一般是 
+
+$$
+A = U \Sigma U^H
+$$
+
+- U拿出来之后，可以用来降维；
+- 可以用来去相关
+
+绕不开的操作是求解协方差矩阵
+
 
 特征值分解是一种特殊的奇异值分解
 
@@ -246,8 +214,74 @@ $$
 
 因此，取最大的特征值 $\lambda_1$ 时 $f(\Phi_1)$ 最大，此时 $\Phi_1$ 为最大特征值对应的特征向量 $\mathbf{u}_1$。
 
+### 计算方法
+
+[全网最快速的特征向量暴力求法（纯干货技巧）\_哔哩哔哩\_bilibili](https://www.bilibili.com/video/BV1aT411E75Q/?spm_id_from=333.337.top_right_bar_window_history.content.click)
+
+[相似对角化太难算，哈-凯定理怒斩A的n次方！（细节拉满了）\_哔哩哔哩\_bilibili](https://www.bilibili.com/video/BV11P411w716/?spm_id_from=333.337.search-card.all.click&vd_source=8b7a5460b512357b2cf80ce1cefc69f5)
+
+
+**求特征值**：
+
+- 计算矩阵 $A$ 的特征值 $\lambda_i$ ，这些特征值将构成对角矩阵 $\Lambda$ 的对角线元素。
+
+**求特征向量**：
+
+- 对于每个特征值 $\lambda_i$，求解特征向量 $v_i$，这些特征向量将构成矩阵 $P$ 的列。
+
+**构造对角矩阵和特征向量矩阵**：
+
+- 对角矩阵 $\Lambda$：
+    
+$$
+\Lambda = \begin{bmatrix}
+\lambda_1 & 0 & \cdots & 0 \\
+0 & \lambda_2 & \cdots & 0 \\
+\vdots & \vdots & \ddots & \vdots \\
+0 & 0 & \cdots & \lambda_n
+\end{bmatrix}
+$$
+    
+- 特征向量矩阵 $P$：
+
+$$
+P = \begin{bmatrix}
+| & | & & | \\
+v_1 & v_2 & \cdots & v_n \\
+| & | & & |
+\end{bmatrix}
+$$
+
+**验证对角化**：
+
+- 验证 $A = P \Lambda P^{-1}$ 是否成立。
+
+
 
 ## SVD | 奇异值分解
+
+如何对非方阵进行分解？
+
+
+
+$$
+A = [a_1 \quad a_2 \quad \cdots \quad a_n] \in \mathbb{R}^{m \times n}\\
+A = U \Sigma V^H
+$$
+
+
+- $U^HU = UU^H = I$     左奇异向量
+- $V^HV = VV^H = I$     右奇异向量
+- $\Sigma$ 对角线上的元素是奇异值，不是方阵
+
+
+### 性质
+
+
+### 含义
+
+
+
 
 变换 = 旋转和伸缩组合
 
@@ -262,6 +296,70 @@ $$
 奇异值分解
 
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=652439242&bvid=BV1YY4y1U7UX&cid=1024031413&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"></iframe>
+
+
+作用：求解逆矩阵、伪逆矩阵
+
+### 截断SVD
+
+```
+svd(Y,'econ')
+```
+
+econ: economic mode
+
+
+
+
+
+### 计算方法
+
+注意，奇异值的定义中就是大于0的
+
+### 应用1 - 求伪逆矩阵
+
+
+### 应用2 - 求范数
+
+酉矩阵不改变向量的范数
+
+
+### 应用3 - 图像降噪
+
+
+### 应用4 - 数据压缩
+
+截断SVD
+
+
+
+最优逼近定理
+
+需求: $P \leq r$, rank-P 矩阵 $\hat{Y}$,使得$Y$与$\hat{Y}$最接近
+
+$$
+\min_{\hat{Y}} ||Y - \hat{Y}||_F^2 \quad \text{or} \quad \min_{\hat{Y}} ||Y - \hat{Y}||_2^2
+s.t. rank(\hat{Y})= P
+$$
+
+定理：
+
+把截断SVD的前p个分量取出来
+
+
+有效秩的确定（超参数调优的问题）
+
+SNR较大的时候，使用拐点图
+
+- 归一化奇异值方法
+- 范数方法
+
+SNR较低，贝叶斯低秩分解
+
+
+
+
+
 
 ## 张量CP分解
 

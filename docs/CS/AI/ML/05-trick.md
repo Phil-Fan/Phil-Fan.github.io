@@ -1,4 +1,5 @@
-# 正则化
+# 05 | Tricks
+## 正则化
 
 
 
@@ -20,3 +21,5 @@ o Often, between 20% and 50% of the units are dropped
 
 
 Batch normalization layers
+
+## 多GPU

@@ -191,72 +191,90 @@ nav:
 - Home: 
   - index.md
   - "友链": friends.md
-    
+
 - Math:
-  - Math/signal.md
-  - Math/logic.md
-  - Math/ComplexFunction.md
-  
-  - "LA | 线性代数":
-    - Math/LinearAlgebra/00-intro.md
-    - Math/LinearAlgebra/00-review.md
-    - Math/LinearAlgebra/01-basic.md
-    - Math/LinearAlgebra/02-1-calc.md
-    - Math/LinearAlgebra/02-2-derivative.md
-    - Math/LinearAlgebra/03-relationship.md
-    - Math/LinearAlgebra/04-decomposition.md
-    - Math/LinearAlgebra/05-matrix_equation.md
-    - Math/LinearAlgebra/06-analyze.md
+    - Math/signal.md
 
-  - "Opt | 凸优化":
-    - Math/Opt/Opt-0-intro.md
-    - Math/Opt/Opt-1-model.md
-    - Math/Opt/Opt-2-无约束-解析法.md
-    - Math/Opt/Opt-3-无约束-数值法.md
-    - Math/Opt/Opt-4-有约束-解析法.md
-    - Math/Opt/Opt-5-有约束-数值法.md
-    - Math/Opt/Opt-6-else.md
+    - 基础知识:
+        - Math/不等式.md
+        - Math/information.md
+        - Math/logic.md
+        - Math/ODE.md
+        - Math/ComplexFunction.md
 
-  - "概率论":
-    - Math/Statistic/00-intro.md
-    - Notebook page: Math/Statistic/01-probability.ipynb
-    - Notebook page: Math/Statistic/02-Univariate_Random_Variable.ipynb
-    - Notebook page: Math/Statistic/03-Multivariate_Random_Variable.ipynb
-    - Notebook page: Math/Statistic/04-Numerical_Features.ipynb
-    - Notebook page: Math/Statistic/05-Special_Functions.ipynb
-    - Notebook page: Math/Statistic/06-Parameter_Estimation.ipynb
-    - Notebook page: Math/Statistic/07-Hypothesis_Testing.ipynb
-    - Notebook page: Math/Statistic/08-Goodness_of_Fit.ipynb
-    - Notebook page: Math/Statistic/09-Regression.ipynb
-    - Notebook page: Math/Statistic/10-Multiple_Regression_and_Analysis_of_Variance.ipynb
-    - Math/Statistic/11-anova.md
-    - Math/Statistic/12-data_mining.md
-    - Math/Statistic/13-Survival_Analysis.md
-    - Math/Statistic/big_data_security&privacy_protection.md
-    - Math/Statistic/variable.md
+    - LA | 线性代数:
+        - Math/LinearAlgebra/00-intro.md
+        - Math/LinearAlgebra/00-review.md
+        - Math/LinearAlgebra/01-basic.md
+        - Math/LinearAlgebra/02-1-calc.md
+        - Math/LinearAlgebra/02-2-derivative.md
+        - Math/LinearAlgebra/03-relationship.md
+        - Math/LinearAlgebra/04-decomposition.md
+        - Math/LinearAlgebra/05-matrix_equation.md
+        - Math/LinearAlgebra/06-analyze.md
 
-  - "SP | 随机过程":
-    - Math/StochasticProcess/00-Intro.md
-    - Math/StochasticProcess/01-Concept.md
-    - Math/StochasticProcess/02-Markov.md
-    - Math/StochasticProcess/03-Possion.md
-    - Math/StochasticProcess/04-Brown.md
-    - Math/StochasticProcess/05-StationaryProcess.md
-    - Math/StochasticProcess/06-review.md
-    
-    
-  - "OR | 运筹学":
-    - Math/OR/OR-00-index.md
-    - Math/OR/OR-01-programming.md
-    - Math/OR/OR-03-graph.md
-    - Math/OR/OR-04-DP.md
-    - Math/OR/OR-05-1-GameTheory.md
-    - Math/OR/OR-05-2-GameTheoryModel.md
-    - Math/OR/OR-06-QueuingTheory.md
-  
+    - Opt | 凸优化:
+        - Math/Opt/Opt-0-intro.md
+        - Math/Opt/Opt-1-model.md
+        - Math/Opt/Opt-2-无约束-解析法.md
+        - Math/Opt/Opt-3-无约束-数值法.md
+        - Math/Opt/Opt-4-有约束-解析法.md
+        - Math/Opt/Opt-5-有约束-数值法.md
+        - Math/Opt/Opt-6-else.md
+
+    - 概率论:
+        - Math/Statistic/00-intro.md
+        - Notebook page: Math/Statistic/01-probability.ipynb
+        - Notebook page: Math/Statistic/02-Univariate_Random_Variable.ipynb
+        - Notebook page: Math/Statistic/03-Multivariate_Random_Variable.ipynb
+        - Notebook page: Math/Statistic/04-Numerical_Features.ipynb
+        - Notebook page: Math/Statistic/05-Special_Functions.ipynb
+        - Notebook page: Math/Statistic/06-Parameter_Estimation.ipynb
+        - Notebook page: Math/Statistic/07-Hypothesis_Testing.ipynb
+        - Notebook page: Math/Statistic/08-Goodness_of_Fit.ipynb
+        - Notebook page: Math/Statistic/09-Regression.ipynb
+        - Notebook page: Math/Statistic/10-Multiple_Regression_and_Analysis_of_Variance.ipynb
+        - Math/Statistic/11-anova.md
+        - Math/Statistic/12-data_mining.md
+        - Math/Statistic/13-Survival_Analysis.md
+        - Math/Statistic/big_data_security&privacy_protection.md
+        - Math/Statistic/variable.md
+
+    - SP | 随机过程:
+        - Math/StochasticProcess/00-Intro.md
+        - Math/StochasticProcess/01-Concept.md
+        - Math/StochasticProcess/02-Markov.md
+        - Math/StochasticProcess/03-Possion.md
+        - Math/StochasticProcess/04-Brown.md
+        - Math/StochasticProcess/05-StationaryProcess.md
+        - Math/StochasticProcess/06-review.md
+
+    - OR | 运筹学:
+        - Math/OR/OR-00-index.md
+        - Math/OR/OR-01-programming.md
+        - Math/OR/OR-03-graph.md
+        - Math/OR/OR-04-DP.md
+        - Math/OR/OR-05-1-GameTheory.md
+        - Math/OR/OR-05-2-GameTheoryModel.md
+        - Math/OR/OR-06-QueuingTheory.md
+
+    - ML | 机器学习:
+        - Math/ML/00-intro.md
+        - Math/ML/00-proof.md
+        - Math/ML/01-Metrics.md
+        - Math/ML/02-LinearRegression.md
+        - Math/ML/03-DecisionTree.md
+        - Math/ML/04-SVM.md
+        - Math/ML/05-Bayes.md
+        - Math/ML/06-Clustering.md
+        - Math/ML/07-DimensionalityReduction.md
+        - Math/ML/08-EnsembleLearning.md
+        - Math/ML/09-SparseRepresentation.md
+        - Math/ML/10-ConceptLearning.md
+        - Math/ML/12-interpretable_models.md
+        - Math/ML/13-CasualInference.md
   
 - Robotics:
-
   - Model:
     - 简介: Robotics/Model/0-index.md
     - 1 空间描述与变换: Robotics/Model/1-Basis.md
@@ -351,6 +369,7 @@ nav:
     - CS/Language/C.md
     - CS/Language/C++.md
     - CS/Language/Python.md
+    - CS/Language/Dart.md
     - Notebook page: CS/Language/Python_Package.ipynb
     - "Python速查":
       - "Seaborn": https://seaborn.pydata.org/api.html
@@ -373,19 +392,15 @@ nav:
     - CS/DS/DataStructure-Hash.md
     - CS/DS/DataStructure-Sorting.md
 
-  - "CN | 计算机网络" :
-    - CS/CN/ComputerNetwork-00-intro.md
-    - CS/CN/ComputerNetwork-01-ApplicationLayer.md
-    - CS/CN/ComputerNetwork-02-TransportLayer.md
-    - CS/CN/ComputerNetwork-03-NetworkLayer.md
-    - CS/CN/ComputerNetwork-04-LinkLayer.md
-    - CS/CN/ComputerNetwork-05-PhysicalLayer.md
-    - CS/CN/ComputerNetwork-06-experiment.md
-    - CS/CN/ComputerNetwork-07-问题探究.md
-    - CS/CN/ComputerNetwork-08-security.md
-    - CS/CN/DingBot.md
-    - CS/CN/Router.md
-    - CS/CN/software.md
+  - "CN | 计算机网络":
+    - "00-简介": CS/CN/00-intro.md
+    - "01-应用层": CS/CN/01-ApplicationLayer.md
+    - "02-传输层": CS/CN/02-TransportLayer.md
+    - "03-网络层": CS/CN/03-NetworkLayer.md
+    - "04-链路层": CS/CN/04-LinkLayer.md
+    - "05-物理层": CS/CN/05-PhysicalLayer.md
+    - "06-安全": CS/CN/06-security.md
+    - "07-问题探究": CS/CN/07-问题探究.md
     
     
   - "AI | 人工智能": 
@@ -395,24 +410,14 @@ nav:
       - CS/AI/Search/03-InformedSearch.md       
       - CS/AI/Search/04-OtherSearch.md
 
-    - "ML | 机器学习": 
-      - CS/AI/ML/00-intro.md
+    - "ML | 机器学习实践": 
       - CS/AI/ML/00-Review.md
-      - CS/AI/ML/01-Metrics.md
-      - CS/AI/ML/02-LinearRegression.md
-      - CS/AI/ML/03-DecisionTree.md
-      - CS/AI/ML/04-SVM.md
-      - CS/AI/ML/05-Bayes.md
-      - CS/AI/ML/06-Clustering.md
-      - CS/AI/ML/07-DimensionalityReduction.md
-      - CS/AI/ML/08-EnsembleLearning.md
-      - CS/AI/ML/09-SparseRepresentation.md
-      - CS/AI/ML/10-SemiSupervisedLearning.md
-      - CS/AI/ML/11-ConceptLearning.md
-      - CS/AI/12-CasualInference.md
-      - CS/AI/DTRs.md
-      - CS/AI/ML/15-interpretable_models.md
-      - CS/AI/kaggle.md
+      - CS/AI/ML/01-kaggle.md
+      - CS/AI/ML/02-process.md
+      - CS/AI/ML/03-training_method.md
+      - CS/AI/ML/04-parameters.md
+      - CS/AI/ML/05-trick.md
+      - CS/AI/ML/Problem.md
 
     - "DL | 深度学习":
       - CS/AI/DL/00-Lingo.md
@@ -476,27 +481,27 @@ nav:
   #   - CS/CV/HumanPoseEstimation.md  
 
   - CTF:
-    - CS/SEC/CTF-intro.md
-    - CS/SEC/CTF-web.md
-    - CS/SEC/CTF-misc.md
-    - CS/SEC/CTF-reverse.md
-    - CS/SEC/CTF-pwn.md
-    - CS/SEC/CTF-crypto.md
-    - CS/SEC/CTF-CPS.md
+    - CS/CTF/00-intro.md
+    - CS/CTF/01-web.md
+    - CS/CTF/02-misc.md
+    - CS/CTF/03-pwn.md
+    - CS/CTF/04-reverse.md
+    - CS/CTF/05-crypto.md
+    - CS/CTF/06-CPS.md
     
-  # - Web3:
-  #   - CS/Web3/blockchain.md
-  #   - CS/Web3/contract.md
-  #   - CS/Web3/solidity.md
+  - Web3:
+    - CS/Web3/blockchain.md
+    - CS/Web3/contract.md
+    - CS/Web3/solidity.md
 
   - Dev:
+    - CS/Dev/DingBot.md
+    - CS/Dev/missing_knowledge.md
+    - CS/Dev/rules.md
+    - CS/Dev/CI-CD.md
     - "开源项目尝鲜":
       - CS/Dev/vtuber.md
-
-    - CS/Dev/missing_knowledge.md
-  #   - CS/Dev/rules.md
-  #   - CS/Dev/CI-CD.md
-  #   - CS/Dev/tampermonkey.md
+      - CS/Dev/tampermonkey.md
 
 - Class:
   - Class/马原.md
@@ -531,7 +536,6 @@ nav:
   - Efficiency:
     - Tools/Efficiency/latex.md
     - Tools/Efficiency/typst.md
-    - Tools/Efficiency/sites.md
     - Tools/Efficiency/Makefile.md
     - Tools/Efficiency/markdown.md
     - Tools/Efficiency/vim.md
@@ -544,6 +548,7 @@ nav:
     - Tools/Environment/Python.md
     - Tools/Environment/ROS.md
     - Tools/Environment/reveal.js.md
+    - Tools/Environment/MCP.md
 
   - Software:
     - Tools/Software/Git.md
@@ -554,6 +559,8 @@ nav:
     - Tools/Software/Tableau.md
     - Tools/Software/AdobeIllustrator.md
     - Tools/Software/AdobePhotoshop.md
+    - Tools/Software/Web.md
+    - Tools/Software/Xcode.md
 
   - "工作环境配置":
     - Tools/Environment/settings-software.md
@@ -563,6 +570,7 @@ nav:
     - Tools/Environment/settings-linux.md
     - Tools/Environment/settings-linux-kali.md
     - Tools/Environment/settings-server.md
+    - Tools/Environment/settings-router.md
   
 
 - "生命因你而火热":
@@ -577,12 +585,12 @@ nav:
   - "🥢食为天":
     - Interest/Eat/eat.md
     - Interest/Eat/eat-west.md
+    - Interest/Eat/eat-hangzhou.md
     - Interest/Eat/coffee.md
 
   - "🗺️出行":
     - Interest/Travel/C-Driving.md
     - Interest/Travel/C-journey.md
-    - Interest/Travel/C-J-杭州.md
     - Interest/Travel/C-J-浙江.md
     # - Interest/Travel/C-J-江西.md
     - Interest/Travel/C-J-四川.md

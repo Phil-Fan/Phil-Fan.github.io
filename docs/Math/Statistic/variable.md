@@ -124,14 +124,3 @@ $$\rho_{ij} = \frac{E\{[x_i(\xi) - \mu_i][x_j(\xi) - \mu_j]^*\}}{\sqrt{E\{[x_i(\
 | 熵                 | Entropy                       |
 | Kullback–Leibler散度 | Kullback–Leibler Divergence   |
 | 交叉熵             | Cross-entropy                 |
-
-### 优化算法
-
-| 中文名             | 英文名                        |
-|--------------------|-------------------------------|
-| 梯度下降           | Gradient Descent              |
-| 牛顿法             | Newton's Method               |
-| 共轭梯度法         | Conjugate Gradient Method     |
-| 拉格朗日乘数法     | Lagrange Multipliers          |
-| 约束优化           | Constrained Optimization      |
-| 无约束优化         | Unconstrained Optimization    |

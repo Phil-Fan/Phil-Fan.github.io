@@ -325,310 +325,13 @@ Hessian矩阵是正定的，所以$f(x)$是凸函数，因此平稳点（导数�
 
 
 
-#### Gussian-Markov定理
 
-$$
-Ax = b + \epsilon
-$$
-
-噪声$\epsilon$满足
-
-$$
-\begin{align*}
-\mathbb{E}(\epsilon) &= 0\\
-Cov(\epsilon) &= \mathbb{E}[\epsilon \epsilon^T] = \sigma^2 I
-\end{align*}
-$$
-
-> 内含的假设：误差的干扰源是独立的
-
-
-$$
-\hat{x}_{LS} = (A^T A)^{-1} A^T b
-$$
-
-**OLS最小二乘估计是$x$的最小方差无偏估计**
-
-即满足
-
-$$
-\begin{align*}
-\mathbb{E}[\hat{x}_{LS}] &= \mathbb{E}\left[(A^T A)^{-1} A^T b\right] \\
-&= (A^T A)^{-1} A^T \mathbb{E}(Ax - \epsilon) \\
-&= (A^T A)^{-1} A^T A x \\
-&= x\\
-Var(\hat{x}_{LS}) &\leq Var(\tilde{x})
-\end{align*}
-$$
-
-
-
-
-
-### OLS - 统计视角
-
-!!! note "OLS和MLE在高斯噪声的条件下是等价的"
-
-!!! note "观测出模型的假设非常关键，给人判定模型好坏的一个直观的方法"
-
-首先定义拟合误差:
-
-$$
-Az = b + e
-$$
-
-其中假设噪声$e$服从白噪声高斯分布
-
-> 使用高斯噪声的建模假设：模型的预测能力是比较好的，没有outlier（超出$3\sigma$的离群值），比如上课一次不来，作业一次不交，考试考100分的样本
-> 
-> 在这种时候使用高斯噪声建模，可以得到一个比较好的结果
-
-
-$$
-e \sim N(e|0,\sigma^{2}I) \propto \exp\left[-\frac{1}{\sigma^{2}}\mathrm{e}^{\mathrm{H}}e\right]
-$$
-
-因此条件概率可以写作:
-
-$$
-p(b | Ax) = N(b|Ax,\sigma^{2}I)\\
-= \frac{1}{z}\exp\left[-\frac{(b-Ax)^T(b-Ax)}{\sigma^2}\right]
-$$
-
-根据极大似然估计,我们需要找到一个$z$使得$p(b|Az)$最大:
-
-$$
-\begin{aligned}
-\max\ \log p(b|Az) &\Leftrightarrow \max\  \log  \frac{1}{z}\exp\left[-\frac{(b-Ax)^T(b-Ax)}{\sigma^2}\right]\\
-&= \max\ \log \frac{1}{z} -\frac{(b-Ax)^T(b-Ax)}{\sigma^2} \\
-&= \min\ \frac{(b-Ax)^T(b-Ax)}{\sigma^2}\\
-&= \min \ (b-Ax)^T(b-Ax)\\
-&= \min \ \|Ax-b\|_2^2
-\end{aligned}
-$$
-
-
-conditional pdf 对b
-
-likelihood function 对z
-
-
-
-
-
-### DLS - 最小数据二乘
-
-
-
-假设数据矩阵$A$存在误差（比如记录样本数据的时候写错了）
-
-$$
-A = A_0 + E \\
-E_{ij} \stackrel{\text{i.i.d.}}{\sim} N(0, \sigma^2)
-$$
-
-
-
-
-使用校正量$\Delta A$来表示误差,即考察下面的约束优化问题 
-
-$$
-\begin{align*}
-\min \quad & ||\Delta A||^2_F\\
-s.t. \quad &\left[ A + \Delta A \right] x = b 
-\end{align*}
-$$
-
-> underlying idea: 每个数据的误差不会特别大
-
-!!! note "Frobenius 范数 $(p=2)$是矩阵元素范数的一种，平方和的平方根"
-
-    $$
-    \|A\|_F \stackrel{\text{def}}{=} \left( \sum_{i=1}^m \sum_{j=1}^n |a_{ij}|^2 \right)^{1/2} = \sqrt{\text{trace}(AA^H)}
-    $$
-
-对于有约束问题，写出拉格朗日函数
-
-$$
-\begin{align*}
-L(A, \lambda) &= \|A\|_F^2 + \lambda^H \left[(A + \Delta A)x - b\right]\\
-&= Trace(AA^H) + \lambda^H \left[(A + \Delta A)x - b\right]
-\end{align*}
-$$
-
-求导数并令导数为0
-
-$$
-\begin{align*}
-\frac{\partial L(A, \lambda)}{\partial \Delta A} &= \Delta A^H + \lambda x^H = 0\\
-\frac{\partial L(A, \lambda)}{\partial \lambda^H} &= (A + \Delta A)x - b = 0
-\end{align*}
-$$
-
-可以解出
-
-$$
-\Delta A = - \frac{(Ax-b)x^H}{x^H x}\quad \lambda = \frac{Ax-b}{x^H x}
-$$
-
-
-把$\Delta A$和$\lambda$代入$L(A, \lambda)$，得到
-
-$$
-L(\Delta A, \lambda,x) = \frac{(Ax-b)^H (Ax-b)}{x^H x}
-$$
-
-变成了一个无约束的优化问题
-
-$$
-\min_x J(x) =\frac{(Ax-b)^H (Ax-b)}{x^H x}
-$$
-
-- 方法1:使用梯度下降法求解$x^{t+1} = x^t - \eta \nabla J(x^t)$
-- 方法2:这是一个分式优化的问题(Fractional Programming)，2018 IEEE TSP
-
-
-
-
-$$
-\begin{align*}
-\max_{x ,y} & \quad x^H y \\
-\mathrm{s.t.} & \quad y = \frac{x}{(Ax-b)^H(Ax-b)}
-\end{align*}
-$$
-
-$$
-\min_{x, y} \|y\|_2^2 x^H A A^H x - 2 \mathrm{Re} \left\{ \|y\|_2^2 b^H A x \right\} + \|y\|_2^2 b^H b - 2 y^H x
-$$
-
-- Fix $x$, 那么$y$ 有闭式解
-- Fix $y$, 那么$x$ 是凸优化问题
-
-
+### DLS
 
 
 ### TLS - 总体最小二乘
 
-
-
-$$
-\begin{align*}
-\min_{\Delta A, \Delta b,x} \quad & ||\Delta A||^2_F + ||\Delta b||^2\\
-s.t. \quad &\left[ A + \Delta A \right] x = b + \Delta b
-\end{align*}
-$$
-
-写成分块矩阵的形式
-
-$$
-\begin{bmatrix}A & b\end{bmatrix}\begin{bmatrix} x \\ -1 \end{bmatrix} +\begin{bmatrix} \Delta A & \Delta b \end{bmatrix} \begin{bmatrix} x \\ -1 \end{bmatrix} = 0
-$$
-
-$$
-(\mathbf{B} + \mathbf{D}) z = 0
-$$
-
-
-所以原始问题可以写成
-
-$$
-\begin{align*}
-\min_{\Delta A, \Delta b,x} \quad & \|\Delta A\|^2_F + \|\Delta b\|^2 \\
-&= \left\|\begin{bmatrix} \Delta A & \Delta b \end{bmatrix}\right\|^2_F \\
-&= \|\mathbf{D}\|_F^2 \\
-\text{s.t.} \quad   &(\mathbf{B} + \mathbf{D})z = 0
-\end{align*}
-$$
-
-可以看出，TLS是DLS在$b = 0$的特殊情况
-
-$$
-\min_{z} \frac{(Bz-0)^H (Bz-0)}{z^H z}= \min_{z} \frac{z^H B^H B z}{z^H z}
-$$
-
-两个二次型相除
-
-- Rayleigh商，有闭式解
-
-
-
-
-
-
-
-
-### Tikhonov正则化
-
-
-对于OLS问题，我们求解
-
-$$
-\min_x \|Ax-b\|_2^2
-$$
-
-$$
-x_{LS} = (A^T A)^{-1} A^T b
-$$
-
-但是如果$A$是病态的，那么$(A^T A)^{-1}$会很大，导致$x_{LS}$不稳定
-
-
-很直观的想法是让$A^{H}A$变得好一些，即
-
-
-$$
-\hat{x} = (A^{H}A + \lambda I)^{-1}A^{H}b
-$$
-
-
-(Bayesian Linear Regression)
-
-
-Tikhonov证明求下面的优化问题和上面的等价
-
-$$
-\min_x J(x) = \|Ax-b\|_2^2 + \lambda \|x\|_2^2, \quad \lambda \geq 0
-$$
-
-
-!!! note "证明一下"
-
-    $$
-    J(x)=||Ax-b||_{2}^{2}+\lambda||x||_{2}^{2}
-    $$
-
-    求解共轭梯度
-
-    $$
-    \frac{\partial J(x)}{\partial x^{*}}=A^{H}Ax-A^{H}b+\lambda x=0\\
-    (A^{H}A+\lambda I)x=A^{H}b
-    $$
-
-
-    解得
-
-    $$
-    \hat{x}_{Tik}=(A^{H}A+\lambda I)^{-1}Ab
-    $$
-
-
-
-
-
-
-
-
-
-
-
-
-- 解决过拟合
-- 解决病态问题，提高数值稳定性
-
-
-- 代价函数对应的是likelihood
-- 正则项对应的是prior
-
+详见[LR](../ML/02-LinearRegression.md)一章的笔记
 
 
 ### 应用 - 稀疏表示和压缩感知
@@ -700,6 +403,34 @@ $$
 ### Lyapunov方程
 
 [线性代数 | 李雅普诺夫方程](https://www.zhihu.com/tardis/zm/art/105326895?source_id=1005)
+
+
+## 方程解的稳定性
+
+条件数的问题
+
+delta b 如何影响 delta x
+
+如何度量扰动的大小对于解的影响
+
+conditional number 
+
+A如果是方阵
+
+$$
+cond(A) = ||A||_2 ||A^{-1}||_2\\
+= \frac{\sigma_{max}}{\sigma_{min}}
+$$
+
+
+A如果不是方阵
+
+- if cond(A) is large, then A is ill-conditioned
+- if cond(A) is small, then A is well-conditioned
+
+
+
+
 
 
 ## 优化与统计的联系

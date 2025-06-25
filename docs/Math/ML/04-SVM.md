@@ -1,4 +1,4 @@
-# 04 | SVM 支持向量机
+# 04 | SVM
 
 [SVM支持向量机原算法与对偶算法举例\_支持向量机对偶形式例题-CSDN博客](https://blog.csdn.net/u013066730/article/details/123711427)
 

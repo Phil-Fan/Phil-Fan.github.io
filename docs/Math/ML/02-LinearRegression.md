@@ -1,6 +1,6 @@
 # 02 | Linear Regression
 
-## OLS
+## OLS - 优化视角
 
 考虑经典的线性回归模型：
 
@@ -127,7 +127,44 @@ Lehmann–Scheffé 定理告诉我们：
 
 或者你也可以使用 Gauss-Markov 定理（非正态条件下）
 
-> 在线性模型中，在所有线性无偏估计量中，OLS 是方差最小的。
+!!! note "Gauss-Markov 定理"
+
+    **在线性模型中，在所有线性无偏估计量中，OLS 是方差最小的。**
+
+    ---
+    $$
+    Ax = b + \epsilon
+    $$
+
+    噪声$\epsilon$满足
+
+    $$
+    \begin{align*}
+    \mathbb{E}(\epsilon) &= 0\\
+    Cov(\epsilon) &= \mathbb{E}[\epsilon \epsilon^T] = \sigma^2 I
+    \end{align*}
+    $$
+
+    > 内含的假设：误差的干扰源是独立的
+
+
+    $$
+    \hat{x}_{LS} = (A^T A)^{-1} A^T b
+    $$
+
+    **OLS最小二乘估计是$x$的最小方差无偏估计**
+
+    即满足
+
+    $$
+    \begin{align*}
+    \mathbb{E}[\hat{x}_{LS}] &= \mathbb{E}\left[(A^T A)^{-1} A^T b\right] \\
+    &= (A^T A)^{-1} A^T \mathbb{E}(Ax - \epsilon) \\
+    &= (A^T A)^{-1} A^T A x \\
+    &= x\\
+    Var(\hat{x}_{LS}) &\leq Var(\tilde{x})
+    \end{align*}
+    $$
 
 但要注意：
 
@@ -156,6 +193,316 @@ $$
 &= (n-p)\sigma^2
 \end{aligned}
 $$
+
+## OLS - 统计视角
+
+!!! note "OLS和MLE在高斯噪声的条件下是等价的"
+
+!!! note "观测出模型的假设非常关键，给人判定模型好坏的一个直观的方法"
+
+首先定义拟合误差:
+
+$$
+Az = b + e
+$$
+
+其中假设噪声$e$服从白噪声高斯分布
+
+> 使用高斯噪声的建模假设：模型的预测能力是比较好的，没有outlier（超出$3\sigma$的离群值），比如上课一次不来，作业一次不交，考试考100分的样本
+> 
+> 在这种时候使用高斯噪声建模，可以得到一个比较好的结果
+
+
+$$
+e \sim N(e|0,\sigma^{2}I) \propto \exp\left[-\frac{1}{\sigma^{2}}\mathrm{e}^{\mathrm{H}}e\right]
+$$
+
+因此条件概率可以写作:
+
+$$
+p(b | Ax) = N(b|Ax,\sigma^{2}I)\\
+= \frac{1}{z}\exp\left[-\frac{(b-Ax)^T(b-Ax)}{\sigma^2}\right]
+$$
+
+根据极大似然估计,我们需要找到一个$z$使得$p(b|Az)$最大:
+
+$$
+\begin{aligned}
+\max\ \log p(b|Az) &\Leftrightarrow \max\  \log  \frac{1}{z}\exp\left[-\frac{(b-Ax)^T(b-Ax)}{\sigma^2}\right]\\
+&= \max\ \log \frac{1}{z} -\frac{(b-Ax)^T(b-Ax)}{\sigma^2} \\
+&= \min\ \frac{(b-Ax)^T(b-Ax)}{\sigma^2}\\
+&= \min \ (b-Ax)^T(b-Ax)\\
+&= \min \ \|Ax-b\|_2^2
+\end{aligned}
+$$
+
+
+conditional pdf 对b
+
+likelihood function 对z
+
+
+## DLS - 最小数据二乘
+
+
+
+假设数据矩阵$A$存在误差（比如记录样本数据的时候写错了）
+
+$$
+A = A_0 + E \\
+E_{ij} \stackrel{\text{i.i.d.}}{\sim} N(0, \sigma^2)
+$$
+
+
+
+
+使用校正量$\Delta A$来表示误差,即考察下面的约束优化问题 
+
+$$
+\begin{align*}
+\min \quad & ||\Delta A||^2_F\\
+s.t. \quad &\left[ A + \Delta A \right] x = b 
+\end{align*}
+$$
+
+> underlying idea: 每个数据的误差不会特别大
+
+!!! note "Frobenius 范数 $(p=2)$是矩阵元素范数的一种，平方和的平方根"
+
+    $$
+    \|A\|_F \stackrel{\text{def}}{=} \left( \sum_{i=1}^m \sum_{j=1}^n |a_{ij}|^2 \right)^{1/2} = \sqrt{\text{trace}(AA^H)}
+    $$
+
+对于有约束问题，写出拉格朗日函数
+
+$$
+\begin{align*}
+L(A, \lambda) &= \|A\|_F^2 + \lambda^H \left[(A + \Delta A)x - b\right]\\
+&= Trace(AA^H) + \lambda^H \left[(A + \Delta A)x - b\right]
+\end{align*}
+$$
+
+求导数并令导数为0
+
+$$
+\begin{align*}
+\frac{\partial L(A, \lambda)}{\partial \Delta A} &= \Delta A^H + \lambda x^H = 0\\
+\frac{\partial L(A, \lambda)}{\partial \lambda^H} &= (A + \Delta A)x - b = 0
+\end{align*}
+$$
+
+可以解出
+
+$$
+\Delta A = - \frac{(Ax-b)x^H}{x^H x}\quad \lambda = \frac{Ax-b}{x^H x}
+$$
+
+
+把$\Delta A$和$\lambda$代入$L(A, \lambda)$，得到
+
+$$
+L(\Delta A, \lambda,x) = \frac{(Ax-b)^H (Ax-b)}{x^H x}
+$$
+
+变成了一个无约束的优化问题
+
+$$
+\min_x J(x) =\frac{(Ax-b)^H (Ax-b)}{x^H x}
+$$
+
+- 方法1:使用梯度下降法求解$x^{t+1} = x^t - \eta \nabla J(x^t)$
+- 方法2:这是一个分式优化的问题(Fractional Programming)，2018 IEEE TSP
+
+
+
+
+$$
+\begin{align*}
+\max_{x ,y} & \quad x^H y \\
+\mathrm{s.t.} & \quad y = \frac{x}{(Ax-b)^H(Ax-b)}
+\end{align*}
+$$
+
+$$
+\min_{x, y} \|y\|_2^2 x^H A A^H x - 2 \mathrm{Re} \left\{ \|y\|_2^2 b^H A x \right\} + \|y\|_2^2 b^H b - 2 y^H x
+$$
+
+- Fix $x$, 那么$y$ 有闭式解
+- Fix $y$, 那么$x$ 是凸优化问题
+
+
+
+
+## TLS - 总体最小二乘
+
+**优化问题**：纠正最小$\Delta A$和$\Delta b$，同时可以满足约束
+
+### 步骤
+
+1. input $A$和$b$
+2. 增广矩阵 $B = \begin{bmatrix} A & b \end{bmatrix}$
+3. $B^HB = V \Sigma V^H$
+4. 找$\lambda_{min}$对应的特征向量$v_{min}$
+5. $z^{\star} = v_{min} \times \frac{-1}{v_ {n+1}}$
+
+
+### 问题求解
+
+$$
+\begin{align*}
+\min_{\Delta A, \Delta b,x} \quad & ||\Delta A||^2_F + ||\Delta b||^2\\
+s.t. \quad &\left[ A + \Delta A \right] x = b + \Delta b
+\end{align*}
+$$
+
+写成分块矩阵的形式
+
+$$
+\begin{bmatrix}A & b\end{bmatrix}\begin{bmatrix} x \\ -1 \end{bmatrix} +\begin{bmatrix} \Delta A & \Delta b \end{bmatrix} \begin{bmatrix} x \\ -1 \end{bmatrix} = 0
+$$
+
+令
+
+$$
+B = \begin{bmatrix} A & b \end{bmatrix} \quad D = \begin{bmatrix} \Delta A & \Delta b \end{bmatrix} \quad z = \begin{bmatrix} x \\ -1 \end{bmatrix}
+$$
+
+所以原始问题可以写成
+
+$$
+\begin{align*}
+\min_{\Delta A, \Delta b,x} \quad & \|\mathbf{D}\|_F^2 \\
+\text{s.t.} \quad   &(\mathbf{B} + \mathbf{D})z = 0
+\end{align*}
+$$
+
+可以看出，TLS是DLS在$b = 0$的特殊情况
+
+使用拉格朗日乘子法
+
+$$
+\begin{align*}
+    \min_{z} \quad & \frac{(Bz-0)^H (Bz-0)}{z^H z} \\
+    =\; & \min_{z} \frac{z^H B^H B z}{z^H z}
+\end{align*}
+$$
+
+两个二次型相除：Rayleigh商，有闭式解（在PCA和TLS中都有应用）
+
+对$B^HB = V \Sigma V^H$进行特征值分解
+
+那么最优解$z^{\star} = \begin{bmatrix} x^{\star} \\ -1 \end{bmatrix} =  v_{min}$（最小特征值对应的特征向量）
+
+但是这里存在一个问题：$v_{min}$的最后一行不一定是$-1$,所以需要进行归一化，把最后一行构造成$-1$
+
+$$
+\frac{-1}{v_{n+1}} V_{min}= \begin{bmatrix} \frac{-v_1}{v_{n+1}} \\ \frac{-v_2}{v_{n+1}} \\ \vdots \\ \frac{-v_n}{v_{n+1}} \\ -1 \end{bmatrix} = \begin{bmatrix} x^{\star} \\ -1 \end{bmatrix}
+$$
+
+
+
+### 几何含义
+
+普通LS是让竖直方向的距离误差最小
+
+而TLS是让垂直方向上的距离误差最小;即找到一条直线，让所有点到直线的距离最小
+
+$$
+\begin{align*}
+ \min_{z} \frac{z^H B^H B z}{z^H z}
+    =\;&\frac{
+        \begin{bmatrix}
+            x \\ -1
+        \end{bmatrix}^H
+        \left(
+            \begin{bmatrix}
+                A & b
+            \end{bmatrix}^H
+            \begin{bmatrix}
+                A & b
+            \end{bmatrix}
+        \right)
+        \begin{bmatrix}
+            x \\ -1
+        \end{bmatrix}
+    }{
+        \begin{bmatrix}
+            x \\ -1
+        \end{bmatrix}^H
+        \begin{bmatrix}
+            x \\ -1
+        \end{bmatrix}
+    } \\
+    =\; & \frac{ \|A_{\color{red}m\times n}x_{\color{red}n\times 1}-b_{\color{red}m\times 1}\|_2^2 }{ \|x_{\color{red}n\times 1}\|_2^2 + 1 }\\
+    =\; &\frac{\sum_{i=1}^{m}(a_i^Tx-b_i)^2}{\|x\|^2+1} \quad \text{矩阵的行视角}
+\end{align*}
+$$
+
+!!! note "点到直线距离公式"
+    假设点 $P(x_1, y_1)$ 到直线 $Ax + By + C = 0$ 的距离为 $d$，则距离公式为：
+
+    $$
+    d = \frac{|Ax_1 + By_1 + C|}{\sqrt{A^2 + B^2}}
+    $$
+
+对于直线$Ax -b = 0$，如果我们把$A$看作是横坐标变量，$b$看作是纵坐标变量，那么点$(a_1,b_1)$到直线$b = Ax$的距离就是
+
+$$
+d^2 = \frac{|Ax -b|^2}{x^2 + 1}
+$$
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/202506242052169.png)
+
+
+
+
+
+
+
+!!! example "Rayleigh商的应用场景 —— 最大信噪比的接收滤波器设计"
+
+    $$
+    r(t) = BS(t) +noise(t)
+    $$
+
+    > - $r(t)$是接收到的信号
+    > - $S(t)$是发射信号
+    > - $noise(t)$是噪声
+
+    signal-to-noise ratio
+
+    设计滤波器，使得输出信噪比SNR最大
+
+    $$
+    \underset{\text{filter output}}{x^H r(t)} = \underset{\text{signal}}{x^H B s(t)} + \underset{\text{noise}}{x^H n(t)}
+    $$
+
+    $$
+    \mathrm{SNR} = \frac{\mathbb{E}\left[\,|x^H B s(t)|^2\,\right]}{\mathbb{E}\left[\,|x^H n(t)|^2\,\right]} = \frac{x^H B\, \mathbb{E}\left[\underset{发射信号协方差}{S(t)S^H(t)}\right] B^H x}{x^H\, \mathbb{E}\left[\underset{噪声协方差}{n(t)n^H(t)}\right] x}
+    $$
+
+
+    如果建模噪声是白噪声，彼此正交；且认为信号也是彼此正交的
+
+    即
+
+    - $E(s(t)s^H(t)) = \alpha I$
+    - $E(n(t)n^H(t)) = \beta I$
+
+
+    $$
+    \mathrm{SNR} = \frac{\alpha x^H B B^H x}{\beta x^H x}
+    $$
+
+    > 得到了Rayleigh商的表达式
+
+    如果要maximize SNR，那么需要 对$B B^H$进行特征值分解，取最大的特征值对应的特征向量
+
+
+
+
+
+
 
 ## 广义线性回归
 
@@ -198,9 +545,6 @@ cons:
 
 对于分类问题，只关心分类正确的类的值
 
-## 统计视角
-
-!!! note "因此，在高斯噪声的假设下，最小化均方误差等价于对线性模型的极大似然估计。"
 
 
 ## Penalty
@@ -431,6 +775,69 @@ $$
 $$
 
 
+#### Tikhonov正则化
+
+
+对于OLS问题，我们求解
+
+$$
+\min_x \|Ax-b\|_2^2
+$$
+
+$$
+x_{LS} = (A^T A)^{-1} A^T b
+$$
+
+但是如果$A$是病态的，那么$(A^T A)^{-1}$会很大，导致$x_{LS}$不稳定
+
+
+很直观的想法是让$A^{H}A$变得好一些，即
+
+
+$$
+\hat{x} = (A^{H}A + \lambda I)^{-1}A^{H}b
+$$
+
+
+(Bayesian Linear Regression)
+
+
+Tikhonov证明求下面的优化问题和上面的等价
+
+$$
+\min_x J(x) = \|Ax-b\|_2^2 + \lambda \|x\|_2^2, \quad \lambda \geq 0
+$$
+
+
+!!! note "证明一下"
+
+    $$
+    J(x)=||Ax-b||_{2}^{2}+\lambda||x||_{2}^{2}
+    $$
+
+    求解共轭梯度
+
+    $$
+    \frac{\partial J(x)}{\partial x^{*}}=A^{H}Ax-A^{H}b+\lambda x=0\\
+    (A^{H}A+\lambda I)x=A^{H}b
+    $$
+
+
+    解得
+
+    $$
+    \hat{x}_{Tik}=(A^{H}A+\lambda I)^{-1}Ab
+    $$
+
+
+
+
+- 解决过拟合
+- 解决病态问题，提高数值稳定性
+
+
+- 代价函数对应的是likelihood
+- 正则项对应的是prior
 
 
 

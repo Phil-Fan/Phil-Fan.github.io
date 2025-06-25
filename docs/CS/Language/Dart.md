@@ -14,12 +14,18 @@
 
 ### 项目管理
 - 安装项目依赖：
+  
   ```bash
   flutter pub get
   ```
 - 运行项目（调试模式）：
+  
   ```bash
   flutter run
+  ```
+ 
+  ```bash title="指定设备"
+  flutter run -d xxx[device_id]
   ```
 
 ### 构建 Release 版本

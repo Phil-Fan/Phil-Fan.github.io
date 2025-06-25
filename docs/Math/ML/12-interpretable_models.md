@@ -1,4 +1,4 @@
-# Interpretable ML
+# 12 | Interpretable ML
 
 !!! note "Challenges"
     - Do we understand the decisions suggested by ML models?

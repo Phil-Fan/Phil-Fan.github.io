@@ -2,10 +2,11 @@
 
 !!! tip "这篇文章列举一些在产品开发中遇到的知识点和有用的技能"
 
-## 开源
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240714184808.png)
 
-[x-lab 课程 第一讲](https://xlab2017.yuque.com/staff-kbz9wp/ut3q7i/uipcr0gbxd7d3kvx?singleDoc)
+## 开发过程
+
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=114572195274554&bvid=BV1ZZjjzvEFD&cid=30156590888&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"></iframe>
+
 
 
 ## 版本号
@@ -18,8 +19,8 @@
 - 其他：开发一个新项目时一般以`0.1.0`作为你的初始化开发版本，并在后续的每次发行时递增。当软件开发好后准备正式发布，第一个公开的版本一般是`1.0.0`
 
 
+## 开源
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240714184808.png)
 
+[x-lab 课程 第一讲](https://xlab2017.yuque.com/staff-kbz9wp/ut3q7i/uipcr0gbxd7d3kvx?singleDoc)
 
-## 开发过程
-
-<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=114572195274554&bvid=BV1ZZjjzvEFD&cid=30156590888&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"></iframe>

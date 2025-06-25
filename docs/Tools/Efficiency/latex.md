@@ -1,6 +1,6 @@
 # Latex备忘录
 
-
+!!! attention "本文写于2024年，有些信息可能有些过时，请注意甄别"
 
 ## Overleaf | 边学边用的使用指南
 
@@ -16,7 +16,6 @@
     这一个章节面向0 latex 基础小白，使用`overleaf`平台，希望实现的效果是基本掌握后，只用15-20min就能完成日常论文/实验报告作业的排版。
 
 
-!!! attention "本文写于2024年，有些信息可能有些过时，请注意甄别"
 
 
 === "我为什么要用latex"
@@ -624,7 +623,7 @@ F1  输入`Open Keyboard Shortcuts`
 
 ### `IguanaTex` | LaTeX in PPT
 
-!!! attention "这个产品需求其实挺怪的，适用"
+!!! attention "mac平台的keynote本身自带latex功能；windows平台的powerpoint的公式对于latex的支持比较一般，使用体验较差； 如果windows有展示公式的需求且比较反感公式截图，可以考虑beamer或者reveal-md 制作slides"
 
 
 假设已经安装好了Texlive

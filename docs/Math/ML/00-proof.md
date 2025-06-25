@@ -1,4 +1,4 @@
-
+# 关键证明总结
 ## Bias-Variance 分解
 
 - $y_D$训练标签
@@ -55,3 +55,5 @@ E(f; D) = \text{var}(\boldsymbol{x}) + \text{bias}^2(\boldsymbol{x}) + \epsilon^
 $$
 
 ## Kernel Method
+
+## 贝叶斯分类
