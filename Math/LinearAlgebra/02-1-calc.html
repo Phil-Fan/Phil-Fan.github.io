@@ -3631,25 +3631,23 @@
 \|A\|_p \stackrel{\text{def}}{=}\left(\sum_{i=1}^m\sum_{j=1}^n|a_{ij}|^p\right)^{1/p}
 \]</div>
 <ol>
-<li>
-<p><span><span class="arithmatex">\(L_1\)</span><span class="heti-spacing"> </span></span>范数<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>和范数<span><span class="heti-spacing"> </span>) <span class="arithmatex">\((p=1)\)</span></span>，绝对值的和</p>
-<p>$$
- |A|<em i="1">1 stackrel{text{def}}{=} sum</em>|
- $$}^m sum_{j=1}^n |a_{ij</p>
-</li>
-<li>
-<p><span>Frobenius<span class="heti-spacing"> </span></span>范数<span><span class="heti-spacing"> </span><span class="arithmatex">\((p=2)\)</span></span>，平方和的平方根</p>
-<p>$$
- |A|<em i="1">F stackrel{text{def}}{=} left( sum</em>
- $$}^m sum_{j=1}^n |a_{ij}|^2 right)^{½</p>
-</li>
-<li>
-<p>最大范数<span class="heti-skip"><span class="heti-spacing"> </span>(max norm)<span class="heti-spacing"> </span></span>即<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(p=\infty\)</span><span class="heti-spacing"> </span></span>的<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(p\)</span><span class="heti-spacing"> </span></span>范数<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>定义为</p>
-<p>$$
- |A|<em i="1,cdots,m;" j="1,cdots,n">{infty} = max</em>|}
- $$} {|a_{ij</p>
-</li>
+<li><span><span class="arithmatex">\(L_1\)</span><span class="heti-spacing"> </span></span>范数<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>和范数<span><span class="heti-spacing"> </span>) <span class="arithmatex">\((p=1)\)</span></span>，绝对值的和</li>
 </ol>
+<div class="arithmatex">\[
+\|A\|_1 \stackrel{\text{def}}{=} \sum_{i=1}^m \sum_{j=1}^n |a_{ij}|
+\]</div>
+<ol>
+<li><span>Frobenius<span class="heti-spacing"> </span></span>范数<span><span class="heti-spacing"> </span><span class="arithmatex">\((p=2)\)</span></span>，平方和的平方根</li>
+</ol>
+<div class="arithmatex">\[
+\|A\|_F \stackrel{\text{def}}{=} \left( \sum_{i=1}^m \sum_{j=1}^n |a_{ij}|^2 \right)^{1/2}
+\]</div>
+<ol>
+<li>最大范数<span class="heti-skip"><span class="heti-spacing"> </span>(max norm)<span class="heti-spacing"> </span></span>即<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(p=\infty\)</span><span class="heti-spacing"> </span></span>的<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(p\)</span><span class="heti-spacing"> </span></span>范数<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>定义为</li>
+</ol>
+<div class="arithmatex">\[
+\|A\|_{\infty} = \max_{i=1,\cdots,m; j=1,\cdots,n} \{|a_{ij}|\}
+\]</div>
 <h3 id="quadratic-form"><span>quadratic form |<span class="heti-spacing"> </span></span>二次型<a class="headerlink" href="#quadratic-form" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>对于任意一个二次型函数<span><span class="heti-spacing"> </span><span class="arithmatex">\(f(x_1, \ldots, x_n) = \sum_{i=1}^n \sum_{j=1}^n \alpha_{ij} x_i x_j\)</span></span>，存在许多矩阵<span><span class="heti-spacing"> </span><span class="arithmatex">\(A\)</span></span>，它们的二次型<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(x^T A x = f(x_1, \ldots, x_n)\)</span><span class="heti-spacing"> </span></span>相同。</p>
 <blockquote>
@@ -3699,7 +3697,9 @@ det(AB) = det(A) \cdot det(B)
 <p>矩阵的行列式等于其特征值的乘积<br/></p>
 <p>对于一个<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(n \times n\)</span><span class="heti-spacing"> </span></span>的方阵<span><span class="heti-spacing"> </span><span class="arithmatex">\(A\)</span></span>，如果它有<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(n\)</span><span class="heti-spacing"> </span></span>个线性无关的特征向量<span><span class="heti-spacing"> </span><span class="arithmatex">\(v_1, v_2, \ldots, v_n\)</span></span>，那么<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A\)</span><span class="heti-spacing"> </span></span>可以表示为：</p>
 <div class="arithmatex">\[ 
-A = V \Lambda V^{\mathbf{H}}\\
+A = V \Lambda V^{\mathbf{H}}
+\]</div>
+<div class="arithmatex">\[
 det(A) = det(V) \cdot det(\Lambda) \cdot det(V^{\mathbf{H}}) = det(\Lambda) 
 \]</div>
 <p>而特征向量矩阵<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(V\)</span><span class="heti-spacing"> </span></span>是正交矩阵<span><span class="heti-spacing"> </span><span class="arithmatex">\(V\cdot V^{\mathbf{H}} = I\)</span></span>；所以<span><span class="heti-spacing"> </span><span class="arithmatex">\(det(V) = 1\)</span></span></p>
@@ -3853,7 +3853,7 @@ A = \begin{bmatrix} 1 &amp; 2 \\ 3 &amp; 4 \end{bmatrix}
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年5月12日 00:19:45</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年6月26日 14:39:48</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">

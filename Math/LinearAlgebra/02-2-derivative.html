@@ -3619,26 +3619,26 @@ f(x+d) \approx f(x) + \nabla x^T f(x) d
 <li><strong>若<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(f(X)=c\)</span><span class="heti-spacing"> </span></span>为常数</strong>，其中<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(X\)</span><span class="heti-spacing"> </span></span>为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(m\times n\)</span><span class="heti-spacing"> </span></span>矩阵，则梯度<span><span class="heti-spacing"> </span><span class="arithmatex">\(\frac{\partial c}{\partial X}= O_{m\times n}\)</span></span></li>
 </ul>
 <ul>
-<li><strong>线性法则</strong>：若<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(f(\boldsymbol{X})\)</span><span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(g(\boldsymbol{X})\)</span><span class="heti-spacing"> </span></span>分别是矩阵<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(X\)</span><span class="heti-spacing"> </span></span>的实值函数，<span><span class="arithmatex">\(c_1\)</span><span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(c_2\)</span><span class="heti-spacing"> </span></span>为实常数，则<p>$$
-  frac{partial[c_1f(boldsymbol{X})+c_2g(boldsymbol{X})]}{partialboldsymbol{X}}=c_1frac{partial f(boldsymbol{X})}{partialboldsymbol{X}}+c_2frac{partial g(boldsymbol{X})}{partialboldsymbol{X}}
-  $$</p>
-</li>
+<li><strong>线性法则</strong>：若<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(f(\boldsymbol{X})\)</span><span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(g(\boldsymbol{X})\)</span><span class="heti-spacing"> </span></span>分别是矩阵<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(X\)</span><span class="heti-spacing"> </span></span>的实值函数，<span><span class="arithmatex">\(c_1\)</span><span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(c_2\)</span><span class="heti-spacing"> </span></span>为实常数，则</li>
 </ul>
+<div class="arithmatex">\[
+\frac{\partial[c_1f(\boldsymbol{X})+c_2g(\boldsymbol{X})]}{\partial\boldsymbol{X}}=c_1\frac{\partial f(\boldsymbol{X})}{\partial\boldsymbol{X}}+c_2\frac{\partial g(\boldsymbol{X})}{\partial\boldsymbol{X}}
+\]</div>
 <ul>
-<li><strong>乘积法则</strong>：若<span><span class="heti-spacing"> </span><span class="arithmatex">\(f(X)\)</span></span>、<span><span class="arithmatex">\(g(X)\)</span><span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(h(X)\)</span><span class="heti-spacing"> </span></span>都是矩阵<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(X\)</span><span class="heti-spacing"> </span></span>的实值函数，则<p>$$
-  frac{partial[f(X)g(X)]}{partial X}=g(X)frac{partial f(X)}{partial X}+f(X)frac{partial g(X)}{partial X}
-  $$</p>
-<p>$$
-  frac{partial[f(X)g(X)h(X)]}{partial X}=g(X)h(X)frac{partial f(X)}{partial X}+f(X)h(X)frac{partial g(X)}{partial X}+f(X)g(X)frac{partial h(X)}{partial X}
-  $$</p>
-</li>
+<li><strong>乘积法则</strong>：若<span><span class="heti-spacing"> </span><span class="arithmatex">\(f(X)\)</span></span>、<span><span class="arithmatex">\(g(X)\)</span><span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(h(X)\)</span><span class="heti-spacing"> </span></span>都是矩阵<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(X\)</span><span class="heti-spacing"> </span></span>的实值函数，则</li>
 </ul>
+<div class="arithmatex">\[
+\frac{\partial[f(X)g(X)]}{\partial X}=g(X)\frac{\partial f(X)}{\partial X}+f(X)\frac{\partial g(X)}{\partial X}
+\]</div>
+<div class="arithmatex">\[
+\frac{\partial[f(X)g(X)h(X)]}{\partial X}=g(X)h(X)\frac{\partial f(X)}{\partial X}+f(X)h(X)\frac{\partial g(X)}{\partial X}+f(X)g(X)\frac{\partial h(X)}{\partial X}
+\]</div>
 <ul>
-<li><strong>链式法则</strong>：<p>$$
-  frac{partial g(f(boldsymbol X))}{partialboldsymbol X}=frac{mathrm{d}g(y)}{mathrm{d}y}frac{partial f(boldsymbol X)}{partialboldsymbol X}
-  $$</p>
-</li>
+<li><strong>链式法则</strong>：</li>
 </ul>
+<div class="arithmatex">\[
+\frac{\partial g(f(\boldsymbol X))}{\partial\boldsymbol X}=\frac{\mathrm{d}g(y)}{\mathrm{d}y}\frac{\partial f(\boldsymbol X)}{\partial\boldsymbol X}
+\]</div>
 <h4 id="_4">独立性基本假设<a class="headerlink" href="#_4" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p>假定实值函数的向量变元<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\boldsymbol{x}=[x_{i}]_{i=1}^{m}\in\mathbb{R}^{m}\)</span><span class="heti-spacing"> </span></span>或者矩阵变元<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\boldsymbol{X}=[x_{ij}]_{i=1,j=1}^{m,n}\in\mathbb{R}^{m\times n}\)</span><span class="heti-spacing"> </span></span>本身无任何特殊结构<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>即向量或矩阵变元的元素之间是各自独立的。</p>
 <div class="arithmatex">\[
@@ -3671,35 +3671,35 @@ f(x+d) \approx f(x) + \nabla x^T f(x) d
 <h2 id="_5">微分<a class="headerlink" href="#_5" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <h3 id="_6">一些规则<a class="headerlink" href="#_6" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ul>
-<li>标量函数 <p>$$
-  mathrm{d}[mathrm{tr}(mathbf{U})] = mathrm{d}left(sum_{i=1}^{n} u_{ii}right) = sum_{i=1}^{n} mathrm{d}u_{ii} = mathrm{tr}left(mathrm{d}mathbf{U}right)
-  $$</p>
-</li>
+<li>标量函数 </li>
 </ul>
+<div class="arithmatex">\[
+\mathrm{d}[\mathrm{tr}(\mathbf{U})] = \mathrm{d}\left(\sum_{i=1}^{n} u_{ii}\right) = \sum_{i=1}^{n} \mathrm{d}u_{ii} = \mathrm{tr}\left(\mathrm{d}\mathbf{U}\right)
+\]</div>
 <ul>
-<li>矩阵乘积<span class="heti-skip"><span class="heti-spacing"> </span>UV<span class="heti-spacing"> </span></span>的微分矩阵<p>$$
-  mathrm{d}(mathbf{U}mathbf{V}) = (mathrm{d}mathbf{U})mathbf{V} + mathbf{U}(mathrm{d}mathbf{V})
-  $$</p>
-</li>
+<li>矩阵乘积<span class="heti-skip"><span class="heti-spacing"> </span>UV<span class="heti-spacing"> </span></span>的微分矩阵</li>
 </ul>
+<div class="arithmatex">\[
+\mathrm{d}(\mathbf{U}\mathbf{V}) = (\mathrm{d}\mathbf{U})\mathbf{V} + \mathbf{U}(\mathrm{d}\mathbf{V})
+\]</div>
 <ul>
-<li>矩阵的迹的矩阵微分等于矩阵微分的迹<p>$$
-  mathrm{d}left(mathrm{tr}(mathbf{X})right) = mathrm{tr}(mathrm{d}mathbf{X})
-  $$</p>
-</li>
+<li>矩阵的迹的矩阵微分等于矩阵微分的迹</li>
 </ul>
+<div class="arithmatex">\[
+\mathrm{d}\left(\mathrm{tr}(\mathbf{X})\right) = \mathrm{tr}(\mathrm{d}\mathbf{X})
+\]</div>
 <ul>
-<li>矩阵转置的微分等于矩阵微分的转置<p>$$
-  mathrm{d}(boldsymbol{X}^T) = (mathrm{d}boldsymbol{X})^T
-  $$</p>
-</li>
+<li>矩阵转置的微分等于矩阵微分的转置</li>
 </ul>
+<div class="arithmatex">\[
+\mathrm{d}(\boldsymbol{X}^T) = (\mathrm{d}\boldsymbol{X})^T
+\]</div>
 <ul>
-<li>矩阵线性组合的微分等于矩阵微分的线性组合<p>$$
-  mathrm{d}(alphaboldsymbol{X}+betaboldsymbol{Y}) = alphamathrm{d}boldsymbol{X}+betamathrm{d}boldsymbol{Y}
-  $$</p>
-</li>
+<li>矩阵线性组合的微分等于矩阵微分的线性组合</li>
 </ul>
+<div class="arithmatex">\[
+\mathrm{d}(\alpha\boldsymbol{X}+\beta\boldsymbol{Y}) = \alpha\mathrm{d}\boldsymbol{X}+\beta\mathrm{d}\boldsymbol{Y}
+\]</div>
 <h3 id="jocabian"><span>Jocabian<span class="heti-spacing"> </span></span>矩阵辨识<a class="headerlink" href="#jocabian" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>矩阵微分用符号<span class="heti-skip"><span class="heti-spacing"> </span>dX<span class="heti-spacing"> </span></span>表示</p>
 <p>更方便得到雅可比矩阵</p>
@@ -3864,7 +3864,7 @@ df(\mathbf{z},\mathbf{z}^*)&amp;=\left[\frac{\partial f(\mathbf{z},\mathbf{z}^*)
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年6月25日 12:02:11</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年6月26日 14:39:48</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">
