@@ -238,8 +238,8 @@ G 可写为一个置换矩阵和一个非奇异对角阵的乘积,$G = P\Lambda$
 
     得到的$\hat{\mathbf{s}}(t)$有两种不确定性：
 
-    1) permutation ambiguity 累加导致信号顺序不确定
-    2) scale ambiguity 信号幅度不确定 $x( t) = \sum _{i= 1}^n\frac {\mathbf{a}_i}{\alpha _i}\alpha _is_i( t)$
+    1. permutation ambiguity 累加导致信号顺序不确定
+    2. scale ambiguity 信号幅度不确定 $x( t) = \sum _{i= 1}^n\frac {\mathbf{a}_i}{\alpha _i}\alpha _is_i( t)$
 
     这两种不确定性可以通过广义置换矩阵进行描述
 
@@ -287,14 +287,17 @@ G 可写为一个置换矩阵和一个非奇异对角阵的乘积,$G = P\Lambda$
 
 定义在复数域，方阵
 
-- $U U^{H} = U^{H} U = I$
+$$
+U U^{H} = U^{H} U = I
+$$
 
-酉变换
 
 - 向量内积、向量范数、向量夹角在酉变换下不变
+
     - 内积：$\langle Ux, Uy\rangle = (Ux)^H (Uy) = x^H U^H U y = x^H y = \langle x, y\rangle$
     - 长度：$||Ux||^2 = \langle Ux, Ux\rangle = \langle x, x\rangle = ||x||^2$
     - 夹角：$\cos\theta = \frac{\langle Ux, Uy\rangle}{||Ux|| ||Uy||} = \frac{\langle x, y\rangle}{||x|| ||y||} = \cos\theta$
+
 - 正交矩阵在实数域而酉矩阵在复数域
 
 

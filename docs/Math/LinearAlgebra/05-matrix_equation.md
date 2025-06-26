@@ -409,28 +409,108 @@ $$
 
 条件数的问题
 
-delta b 如何影响 delta x
-
-如何度量扰动的大小对于解的影响
-
-conditional number 
-
-A如果是方阵
+对于方程
 
 $$
-cond(A) = ||A||_2 ||A^{-1}||_2\\
-= \frac{\sigma_{max}}{\sigma_{min}}
+Ax = b
 $$
+
+假设$A$稳定不变，想要探究$b$的扰动如何影响$x$
+
+$$
+A(x + \Delta x) = b + \Delta b
+$$
+
+
+即$\Delta b$ 如何影响 $\Delta x$。如何度量扰动的大小对于解的影响？探究$\frac{\|\Delta x\|}{\|x\|}$与$\frac{\|\Delta b\|}{\|b\|}$的关系
+
+
+① $A$ 是方阵 $n \times n$
+
+!!! note "Lemma: $||AB||_2 \leq ||A||_2 ||B||_2$"
+
+$$
+A\delta x = \delta b\\
+\implies \quad ||\delta x||_2 \leq ||A^{-1}||_2 ||\delta b||_2 \tag{①}
+$$
+
+
+$$
+Ax = b\\
+\implies \quad ||b||_2 \leq ||A||_2 ||x||_2\\
+\implies \quad ||x||_2 \geq \frac{1}{||A||_2} \cdot ||b||_2\\
+\implies \quad \frac{1}{||x||_2} \leq \frac{||A||_2}{||b||_2} \tag{②}
+$$
+
+
+$$
+\begin{aligned}
+1: \quad ||\delta x||_2 &\leq ||A^{-1}||_2 ||\delta b||_2\\
+2: \quad \frac{1}{||x||_2} &\leq \frac{||A||_2}{||b||_2}\\
+\implies \quad \frac{\|\delta x\|}{\|x\|} &\leq (||A||_2 ||A^{-1}||_2)\frac{\|\delta b\|}{\|b\|}
+\end{aligned}
+$$
+
+所以把$A$的范数和$A^{-1}$的范数相乘，得到一个常数，这个常数就是$A$的condition number
+
+
+$$
+cond(A) = ||A||_2 ||A^{-1}||_2 =\sigma_{max} \cdot \frac{1}{\sigma_{min}}= \frac{\sigma_{max}}{\sigma_{min}} \geq 1
+$$
+
+
+
+- if $cond(A) \rightarrow \infty$ then A is ill-conditioned
+- if $cond(A) \rightarrow 1$ then A is well-conditioned
+
+改善病态矩阵的方法：
+
+- 增加数据量
+- 增加正则化
+- 使用更稳定的算法
+
+$$
+A + \lambda I \rightarrow \begin{bmatrix}\sigma_1+\lambda & 0 & \cdots & 0 \\ 0 & \sigma_2+\lambda & \cdots & 0 \\ \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & \cdots & \sigma_n+\lambda \end{bmatrix}
+$$
+
+
+$$
+cond(A + \lambda I) = \frac{\sigma_{max}+\lambda}{\sigma_{min}+\lambda}
+$$
+
 
 
 A如果不是方阵
 
-- if cond(A) is large, then A is ill-conditioned
-- if cond(A) is small, then A is well-conditioned
 
 
+$$
+\begin{aligned}
+Ax &= b\\
+\underbrace{A^H A}_{视作A} x &= \underbrace{A^H b}_{视作b}\\
+x &= (A^H A)^{-1} A^H b
+\end{aligned}
+$$
 
+则按照刚才的算法，可以得到
 
+$$
+\begin{aligned}
+\text{cond}(A^H A) &=||A^H A||_2 ||(A^H A)^{-1}||_2 \\
+&= (\frac{\sigma_{max}}{\sigma_{min}})^2 \quad {\color{gray} A = U\Sigma V^H, A^H A = V\Sigma^2 V^H}\\
+&= \left[\text{cond}(A)\right]^2
+\end{aligned}
+$$
+
+!!! example "例子"
+    $$
+    \begin{aligned}
+    &A\begin{bmatrix}1&1\\\epsilon&0\\0&\epsilon\end{bmatrix}\quad 0<\epsilon<1\quad b=\begin{bmatrix}2\\\epsilon\\\epsilon\end{bmatrix}\\
+    &Ax=b\Rightarrow x=\begin{bmatrix}1\\1\end{bmatrix}\\
+    &A^HA=\begin{bmatrix}1+\epsilon^{2}&1\\1&1+\epsilon^{2}\end{bmatrix}\\
+    &\text{cond}(A)\rightarrow\infty.\quad(MATLAB无法求解)
+    \end{aligned}
+    $$
 
 
 ## 优化与统计的联系

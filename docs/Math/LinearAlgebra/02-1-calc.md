@@ -84,21 +84,21 @@ $$
 
 1. $L_1$ 范数 (和范数) $(p=1)$，绝对值的和
 
-   $$
-   \|A\|_1 \stackrel{\text{def}}{=} \sum_{i=1}^m \sum_{j=1}^n |a_{ij}|
-   $$
+$$
+\|A\|_1 \stackrel{\text{def}}{=} \sum_{i=1}^m \sum_{j=1}^n |a_{ij}|
+$$
 
 2. Frobenius 范数 $(p=2)$，平方和的平方根
    
-   $$
-   \|A\|_F \stackrel{\text{def}}{=} \left( \sum_{i=1}^m \sum_{j=1}^n |a_{ij}|^2 \right)^{1/2}
-   $$
+$$
+\|A\|_F \stackrel{\text{def}}{=} \left( \sum_{i=1}^m \sum_{j=1}^n |a_{ij}|^2 \right)^{1/2}
+$$
 
 3. 最大范数 (max norm) 即 $p=\infty$ 的 $p$ 范数, 定义为
 
-   $$
-   \|A\|_{\infty} = \max_{i=1,\cdots,m; j=1,\cdots,n} \{|a_{ij}|\}
-   $$
+$$
+\|A\|_{\infty} = \max_{i=1,\cdots,m; j=1,\cdots,n} \{|a_{ij}|\}
+$$
 
 
 ### quadratic form | 二次型
@@ -169,7 +169,10 @@ $$
     对于一个 $n \times n$ 的方阵 $A$，如果它有 $n$ 个线性无关的特征向量 $v_1, v_2, \ldots, v_n$，那么 $A$ 可以表示为：
     
     $$ 
-    A = V \Lambda V^{\mathbf{H}}\\
+    A = V \Lambda V^{\mathbf{H}}
+    $$
+    
+    $$
     det(A) = det(V) \cdot det(\Lambda) \cdot det(V^{\mathbf{H}}) = det(\Lambda) 
     $$
     

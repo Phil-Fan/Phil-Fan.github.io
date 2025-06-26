@@ -205,25 +205,25 @@ $$
 
 - **线性法则**：若 $f(\boldsymbol{X})$ 和 $g(\boldsymbol{X})$ 分别是矩阵 $X$ 的实值函数，$c_1$ 和 $c_2$ 为实常数，则
 
-    $$
-    \frac{\partial[c_1f(\boldsymbol{X})+c_2g(\boldsymbol{X})]}{\partial\boldsymbol{X}}=c_1\frac{\partial f(\boldsymbol{X})}{\partial\boldsymbol{X}}+c_2\frac{\partial g(\boldsymbol{X})}{\partial\boldsymbol{X}}
-    $$
+$$
+\frac{\partial[c_1f(\boldsymbol{X})+c_2g(\boldsymbol{X})]}{\partial\boldsymbol{X}}=c_1\frac{\partial f(\boldsymbol{X})}{\partial\boldsymbol{X}}+c_2\frac{\partial g(\boldsymbol{X})}{\partial\boldsymbol{X}}
+$$
 
 - **乘积法则**：若 $f(X)$、$g(X)$ 和 $h(X)$ 都是矩阵 $X$ 的实值函数，则
 
-    $$
-    \frac{\partial[f(X)g(X)]}{\partial X}=g(X)\frac{\partial f(X)}{\partial X}+f(X)\frac{\partial g(X)}{\partial X}
-    $$
+$$
+\frac{\partial[f(X)g(X)]}{\partial X}=g(X)\frac{\partial f(X)}{\partial X}+f(X)\frac{\partial g(X)}{\partial X}
+$$
 
-    $$
-    \frac{\partial[f(X)g(X)h(X)]}{\partial X}=g(X)h(X)\frac{\partial f(X)}{\partial X}+f(X)h(X)\frac{\partial g(X)}{\partial X}+f(X)g(X)\frac{\partial h(X)}{\partial X}
-    $$
+$$
+\frac{\partial[f(X)g(X)h(X)]}{\partial X}=g(X)h(X)\frac{\partial f(X)}{\partial X}+f(X)h(X)\frac{\partial g(X)}{\partial X}+f(X)g(X)\frac{\partial h(X)}{\partial X}
+$$
 
 - **链式法则**：
 
-    $$
-    \frac{\partial g(f(\boldsymbol X))}{\partial\boldsymbol X}=\frac{\mathrm{d}g(y)}{\mathrm{d}y}\frac{\partial f(\boldsymbol X)}{\partial\boldsymbol X}
-    $$
+$$
+\frac{\partial g(f(\boldsymbol X))}{\partial\boldsymbol X}=\frac{\mathrm{d}g(y)}{\mathrm{d}y}\frac{\partial f(\boldsymbol X)}{\partial\boldsymbol X}
+$$
 
 
 #### 独立性基本假设
@@ -271,34 +271,34 @@ $$
 
 - 标量函数 
 
-    $$
-    \mathrm{d}[\mathrm{tr}(\mathbf{U})] = \mathrm{d}\left(\sum_{i=1}^{n} u_{ii}\right) = \sum_{i=1}^{n} \mathrm{d}u_{ii} = \mathrm{tr}\left(\mathrm{d}\mathbf{U}\right)
-    $$
+$$
+\mathrm{d}[\mathrm{tr}(\mathbf{U})] = \mathrm{d}\left(\sum_{i=1}^{n} u_{ii}\right) = \sum_{i=1}^{n} \mathrm{d}u_{ii} = \mathrm{tr}\left(\mathrm{d}\mathbf{U}\right)
+$$
 
 - 矩阵乘积UV的微分矩阵
 
-    $$
-    \mathrm{d}(\mathbf{U}\mathbf{V}) = (\mathrm{d}\mathbf{U})\mathbf{V} + \mathbf{U}(\mathrm{d}\mathbf{V})
-    $$
+$$
+\mathrm{d}(\mathbf{U}\mathbf{V}) = (\mathrm{d}\mathbf{U})\mathbf{V} + \mathbf{U}(\mathrm{d}\mathbf{V})
+$$
 
 - 矩阵的迹的矩阵微分等于矩阵微分的迹
 
-    $$
-    \mathrm{d}\left(\mathrm{tr}(\mathbf{X})\right) = \mathrm{tr}(\mathrm{d}\mathbf{X})
-    $$
+$$
+\mathrm{d}\left(\mathrm{tr}(\mathbf{X})\right) = \mathrm{tr}(\mathrm{d}\mathbf{X})
+$$
 
 
 - 矩阵转置的微分等于矩阵微分的转置
 
-    $$
-    \mathrm{d}(\boldsymbol{X}^T) = (\mathrm{d}\boldsymbol{X})^T
-    $$
+$$
+\mathrm{d}(\boldsymbol{X}^T) = (\mathrm{d}\boldsymbol{X})^T
+$$
 
 - 矩阵线性组合的微分等于矩阵微分的线性组合
 
-    $$
-    \mathrm{d}(\alpha\boldsymbol{X}+\beta\boldsymbol{Y}) = \alpha\mathrm{d}\boldsymbol{X}+\beta\mathrm{d}\boldsymbol{Y}
-    $$
+$$
+\mathrm{d}(\alpha\boldsymbol{X}+\beta\boldsymbol{Y}) = \alpha\mathrm{d}\boldsymbol{X}+\beta\mathrm{d}\boldsymbol{Y}
+$$
 
 
 ### Jocabian 矩阵辨识

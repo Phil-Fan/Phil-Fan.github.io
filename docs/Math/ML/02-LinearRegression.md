@@ -24,6 +24,7 @@ $$
 
 也可以写成向量形式：
 
+
 $$
 RSS = \|\mathbf{y} - \mathbf{X}\boldsymbol{\beta}\|^2 = (\mathbf{y} - \mathbf{X}\boldsymbol{\beta})^\mathsf{T}(\mathbf{y} - \mathbf{X}\boldsymbol{\beta})
 $$
@@ -407,6 +408,9 @@ $$
 
 而TLS是让垂直方向上的距离误差最小;即找到一条直线，让所有点到直线的距离最小
 
+
+
+
 $$
 \begin{align*}
  \min_{z} \frac{z^H B^H B z}{z^H z}
@@ -452,6 +456,72 @@ d^2 = \frac{|Ax -b|^2}{x^2 + 1}
 $$
 
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/202506242052169.png)
+
+
+!!! note "引理： TLS拟合直线一定过$(\bar{x}, \bar{y})$"
+    $$
+    \bar{x} = \frac{\sum_{i=1}^{N} x_i}{n}\qquad
+    \bar{y} = \frac{\sum_{i=1}^{N} y_i}{n}
+    $$
+
+    设直线方程为$ax+by+c =0$,因过点$(\bar{x},\bar{y})$，所以有$a\bar{x}+b\bar{y} + c =0 \leftrightarrow c = -a\bar{x} - b \bar{y}$
+
+    带入原来的方程可得 $a(x-\bar{x}) + b (y - \bar{y}) = 0$
+
+    为了减少参数量，使用重参数化技巧，令
+    
+    $$
+    k = \frac{-a}{b}
+    $$
+
+    得到
+    
+    $$
+    k(x-\bar{x}) + (y - \bar{y}) = 0
+    $$
+
+
+    假设我们有点集$(x_i,y_i)$
+
+    那么即有
+
+    $$
+    \begin{bmatrix}
+    x_1 - \bar{x}\\
+    x_2 - \bar{x}\\
+    \cdots\\
+    x_n - \bar{x} 
+    \end{bmatrix}
+    k = \begin{bmatrix}y_1 - \bar{y}\\y_2 - \bar{y}\\\cdots\\y_n - \bar{y}\end{bmatrix}\\
+    Ak = b
+    $$
+
+
+### 求解案例 
+
+假设有点$(2,1),(2,4),(5,1)$
+
+- $\bar{x} = 3,\bar{y} = 2$
+
+
+$$
+\begin{align*}
+B &= \begin{bmatrix}2-3 & 1-2\\ 2-3 & 4-2\\ 5-3 & 1-2\end{bmatrix} = \begin{bmatrix}-1 & -1\\ -1 & 2\\ 2 & -1\end{bmatrix}\\
+B^{H}B &= \begin{bmatrix}-1 & -1 & 2\\ -1 & 2 & -1\end{bmatrix} \begin{bmatrix}-1 & -1\\ -1 & 2\\ 2 & -1\end{bmatrix}= \begin{bmatrix}6 & -3\\ -3 & 6\end{bmatrix}\\
+V_{\min} &= \begin{bmatrix}\frac{1}{\sqrt{2}}\\ \frac{1}{\sqrt{2}}\end{bmatrix}\\
+z &= \begin{bmatrix}-1\\ -1\end{bmatrix}=\begin{bmatrix}k\\-1\end{bmatrix}\quad \text{进行归一化}
+\end{align*}
+$$
+
+$$
+\begin{align*}
+\therefore k &= -1\\
+&-(x-3) = y-2\\
+y &= -x +5
+\end{align*}
+$$
+
+
 
 
 
