@@ -55,6 +55,7 @@ theme:
     - content.code.select  # 允许选择代码块
     - content.tabs.link  # 支持内容中的标签链接
     - content.action.edit  # 支持编辑按钮 在页面右上角添加编辑按钮，跳转到源码仓库的对应文件
+    - content.action.view  # 支持查看按钮 在页面右上角添加查看按钮，跳转到源码仓库的对应文件
 
 
   language: 'zh'
@@ -432,7 +433,9 @@ nav:
     - "ADV | 生成式模型":
       - CS/AI/ADV/00-intro.md
       - CS/AI/ADV/01-Attention.md
-      - CS/AI/ADV/02-Transformer.md
+      - CS/AI/ADV/02-01-Transformer.md
+      - CS/AI/ADV/02-02-GPT.md
+      - CS/AI/ADV/02-03-BERT.md
       - CS/AI/ADV/03-GAN.md
       - CS/AI/ADV/04-VAE.md
       - CS/AI/ADV/05-Flow-Based.md

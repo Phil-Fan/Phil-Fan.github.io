@@ -1,10 +1,29 @@
 # 生成式模型
 
+## 任务分类
 
-## 常见名词解释
+- seq2labels：词性标注
+- seq2label：命名实体识别
+- seq2seq：机器翻译
+
+### seq2seq model
+
+- speech recognition
+- machine translation
+- speech translation：使用1500h的台语电视剧和中文字幕，训练一个模型，把台语翻译成中文
+- TTS问题
+- chatbot
+    - QA：问答
+- syntactical parsing： 把句子解析成语法树
+- multi-label classification： 一个样本属于多个类别
+
+## Embedding
+
+one-hot 编码，两个向量没有任何关系
+
+word embedding 词汇之间有语意的关系
 
 
-Embedding
 但为什么需要用到Embedding将唯一的token在转换一次，变成一个向量呢？这是因为词与词之间是存在相关性的，我们希望利用上这个信息。例如"man", "gentleman", "guy"表达的意思几乎是相同的，他们生成的embedding应该是相似的。而对于长得差不多，但是意义完全不同的单词，则会生成截然不同的embedding。
 
 embedding是控制生成图片结果的重要元素之一，正确的embedding训练可以触发任意的物体和风格。

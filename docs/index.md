@@ -1,6 +1,7 @@
 ---
 title: 留言板
 comments: true
+statistics: True
 ---
 
 # 欢迎来到PhilFan的笔记本
@@ -34,4 +35,10 @@ mindmap
 
 > todo: 规范笔记风格，并添加一些笔记的索引
 
+!!! note "Statistics"
+    - 笔记总数：{{pages}}篇
+    - 总字数：{{words}}字
+
 ## About Me
+
+
