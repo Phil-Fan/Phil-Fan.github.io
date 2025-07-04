@@ -283,10 +283,31 @@ nav:
 
 - AI: 
     - "学习资源":
+        - 论文阅读: https://github.com/mli/paper-reading
         - 南瓜书: https://datawhalechina.github.io/pumpkin-book/
         - ISLR: https://www.statlearning.com/
         - 统计学习方法习题解答: https://datawhalechina.github.io/statistical-learning-method-solutions-manual/
         - d2l: https://zh.d2l.ai/index.html/
+    
+
+    - "ADV | 生成式模型":
+        - AI/ADV/00-intro.md
+        - AI/ADV/01-Transformers.md
+        - AI/ADV/02-FlowBased.md
+        - AI/ADV/03-GAN.md
+        - AI/ADV/04-VAE.md
+        - AI/ADV/05-Diffusion.md
+
+    - "LLM | 大模型":
+        - AI/LLM/00-intro.md
+        - AI/LLM/00-Settings.md
+        - AI/LLM/01-Attention.md
+        - AI/LLM/02-Transformer.md
+        - AI/LLM/03-GPTs.md
+        - AI/LLM/04-BERT.md
+        - AI/LLM/05-Others.md
+        - AI/LLM/06-Tricks.md
+        - AI/LLM/07-LongChain.md
 
     - "DL | 深度学习":
         - AI/DL/00-Lingo.md
@@ -299,22 +320,6 @@ nav:
     - "RL | 强化学习":
         - AI/RL/RL-01.md
 
-    - "ADV | 生成式模型":
-        - AI/ADV/00-intro.md
-        - AI/ADV/01-Transformers.md
-        - AI/ADV/02-FlowBased.md
-        - AI/ADV/03-GAN.md
-        - AI/ADV/04-VAE.md
-        - AI/ADV/05-Diffusion.md
-
-    - "LLM | 大模型":
-        - AI/LLM/00-intro.md
-        - AI/LLM/00-settings.md
-        - AI/LLM/01-Attention.md
-        - AI/LLM/02-Transformer.md
-        - AI/LLM/03-GPTs.md
-        - AI/LLM/04-BERT.md
-        - AI/LLM/05-Others.md
 
     - "ML | 机器学习实践": 
         - AI/ML/00-Review.md
