@@ -26,6 +26,7 @@ comments: true
     - [x] 写一个必至居预约的脚本<br>丰富一下各个api调用，看看能不能不用抓包的，开箱即用的方法
     - [x] 学习英语：每天听力/阅读轮流 1h<br>
     - [ ] 找一个开源项目写中文文档build with bombs?
+    - [ ] 学习一下limu怎么引用论文，把这个[Semantic Scholar - Academic Graph API](https://api.semanticscholar.org/api-docs/graph)搞到文档里面
 
 
     

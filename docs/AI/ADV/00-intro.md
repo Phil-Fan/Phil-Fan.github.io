@@ -1,5 +1,9 @@
 # 生成式模型
 
+## Acknowledgement
+
+[mli/paper-reading: 深度学习经典、新论文逐段精读](https://github.com/mli/paper-reading?tab=readme-ov-file)
+
 ## 任务分类
 
 - seq2labels：词性标注

@@ -1,5 +1,9 @@
 # 注意力机制
 
+个人学习流程：
+
+3b1b 视频 ➡️ 李宏毅视频 ➡️ 李沐视频 ➡️ 论文阅读 ➡️ 代码实战 ➡️ 公司面试八股
+
 <iframe src="https://arxiv.org/pdf/1706.03762" width="100%" height="600px" style="border: none;">
 This browser does not support PDFs
 </iframe>
@@ -591,6 +595,13 @@ This browser does not support PDFs
 
 
 ### 训练速度
+
+### attention is not all you need
+
+
+<iframe src="https://arxiv.org/pdf/2103.03404" width="100%" height="600px" style="border: none;">
+Attention is not all you need
+</iframe>
 
 
 

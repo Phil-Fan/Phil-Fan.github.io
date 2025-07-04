@@ -83,9 +83,12 @@ markdown_extensions:
   # 基础Markdown扩展
   - abbr  # 支持缩写
   - admonition  # 支持警告框
-  - attr_list  # 允许为Markdown元素添加HTML属性
   - def_list  # 支持定义列表
+  
+  # 可以支持图片缩放等功能
+  - attr_list  # 允许为Markdown元素添加HTML属性
   - md_in_html  # 支持在HTML中使用Markdown
+  
   - tables  # 支持表格
   - mdx_truly_sane_lists # 嵌套列表（需要pip安装）
 
@@ -276,7 +279,54 @@ nav:
         - Math/ML/10-ConceptLearning.md
         - Math/ML/12-interpretable_models.md
         - Math/ML/13-CasualInference.md
-  
+
+
+- AI: 
+    - "学习资源":
+        - 南瓜书: https://datawhalechina.github.io/pumpkin-book/
+        - ISLR: https://www.statlearning.com/
+        - 统计学习方法习题解答: https://datawhalechina.github.io/statistical-learning-method-solutions-manual/
+        - d2l: https://zh.d2l.ai/index.html/
+
+    - "DL | 深度学习":
+        - AI/DL/00-Lingo.md
+        - AI/DL/01-MLP.md
+        - AI/DL/02-CNN.md
+        - AI/DL/03-Modern_CNN.md
+        - AI/DL/04-RNN.md
+        - AI/DL/05-Modern_RNN.md
+      
+    - "RL | 强化学习":
+        - AI/RL/RL-01.md
+
+    - "ADV | 生成式模型":
+        - AI/ADV/00-intro.md
+        - AI/ADV/01-Transformers.md
+        - AI/ADV/02-FlowBased.md
+        - AI/ADV/03-GAN.md
+        - AI/ADV/04-VAE.md
+        - AI/ADV/05-Diffusion.md
+
+    - "LLM | 大模型":
+        - AI/LLM/00-intro.md
+        - AI/LLM/00-settings.md
+        - AI/LLM/01-Attention.md
+        - AI/LLM/02-Transformer.md
+        - AI/LLM/03-GPTs.md
+        - AI/LLM/04-BERT.md
+        - AI/LLM/05-Others.md
+
+    - "ML | 机器学习实践": 
+        - AI/ML/00-Review.md
+        - AI/ML/01-kaggle.md
+        - AI/ML/02-process.md
+        - AI/ML/03-training_method.md
+        - AI/ML/04-parameters.md
+        - AI/ML/05-trick.md
+        - AI/ML/Problem.md
+
+
+
 - Robotics:
   - Model:
     - 简介: Robotics/Model/0-index.md
@@ -366,34 +416,22 @@ nav:
     - Robotics/嵌入式/外设.md
 
 
-- "CS":
-  - Language:
-    # - CS/Language/Assembly.md
-    - CS/Language/C.md
-    - CS/Language/C++.md
-    - CS/Language/Python.md
-    - CS/Language/Dart.md
-    - Notebook page: CS/Language/Python_Package.ipynb
-    - "Python速查":
-      - "Seaborn": https://seaborn.pydata.org/api.html
-      - "Pandas": https://pandas.pydata.org/docs/reference/index.html
-      - "Scipy": https://docs.scipy.org/doc/scipy/reference/index.html
-  
-  - FrontEnd:
-    - CS/Frontend/HTML.md
-    - CS/Frontend/CSS.md
-    - CS/Frontend/JavaScript.md
 
-  - BackEnd:
-    - CS/Backend/SQL.md
-    - CS/Backend/Nodejs.md
-    - CS/Backend/PHP.md
+- "CS":
 
   - "DS | 数据结构":
     - CS/DS/DataStructure.md
     - CS/DS/DataStructure-Tree.md
     - CS/DS/DataStructure-Hash.md
     - CS/DS/DataStructure-Sorting.md
+    - "搜索 | Search": 
+      - CS/DS/Search/01-AI_history&intro.md
+      - CS/DS/Search/02-UninformedSearch.md     
+      - CS/DS/Search/03-InformedSearch.md       
+      - CS/DS/Search/04-OtherSearch.md
+  
+  - "OS | 操作系统":
+    - CS/OS/00-intro.md
 
   - "CN | 计算机网络":
     - "00-简介": CS/CN/00-intro.md
@@ -404,86 +442,6 @@ nav:
     - "05-物理层": CS/CN/05-PhysicalLayer.md
     - "06-安全": CS/CN/06-security.md
     - "07-问题探究": CS/CN/07-问题探究.md
-    
-    
-  - "AI | 人工智能": 
-    - "搜索 | Search": 
-      - CS/AI/Search/01-AI_history&intro.md
-      - CS/AI/Search/02-UninformedSearch.md     
-      - CS/AI/Search/03-InformedSearch.md       
-      - CS/AI/Search/04-OtherSearch.md
-
-    - "ML | 机器学习实践": 
-      - CS/AI/ML/00-Review.md
-      - CS/AI/ML/01-kaggle.md
-      - CS/AI/ML/02-process.md
-      - CS/AI/ML/03-training_method.md
-      - CS/AI/ML/04-parameters.md
-      - CS/AI/ML/05-trick.md
-      - CS/AI/ML/Problem.md
-
-    - "DL | 深度学习":
-      - CS/AI/DL/00-Lingo.md
-      - CS/AI/DL/01-MLP.md
-      - CS/AI/DL/02-CNN.md
-      - CS/AI/DL/03-Modern_CNN.md
-      - CS/AI/DL/04-RNN.md
-      - CS/AI/DL/05-Modern_RNN.md
-
-    - "ADV | 生成式模型":
-      - CS/AI/ADV/00-intro.md
-      - CS/AI/ADV/01-Attention.md
-      - CS/AI/ADV/02-01-Transformer.md
-      - CS/AI/ADV/02-02-GPT.md
-      - CS/AI/ADV/02-03-BERT.md
-      - CS/AI/ADV/03-GAN.md
-      - CS/AI/ADV/04-VAE.md
-      - CS/AI/ADV/05-Flow-Based.md
-      - CS/AI/ADV/06-Diffusion.md
-
-    - "RL | 强化学习":
-      - CS/AI/RL/RL-01.md
-
-    - "学习资源":
-      - 南瓜书: https://datawhalechina.github.io/pumpkin-book/
-      - ISLR: https://www.statlearning.com/
-      - 统计学习方法习题解答: https://datawhalechina.github.io/statistical-learning-method-solutions-manual/
-      - d2l: https://zh.d2l.ai/index.html/
-
-
-    # - "对抗攻击":
-    #   - CS/AI/ADV/SEC-01-attack.md
-    #   - CS/AI/ADV/SEC-02-whitebox.md
-    #   - CS/AI/ADV/SEC-03-blackbox.md
-
-    # - "实验相关":
-    #   - CS/AI/Exp/Parameters.md
-    #   - CS/AI/Exp/Problem.md
-    #   - CS/AI/Exp/Regularization.md
-    #   - CS/AI/Exp/Trick.md
-    
-    # - "LLM | 大模型相关":
-    #   - CS/llm/llm.md
-    #   - CS/llm/MCP.md
-      
-         
-  # - "CV | 计算机视觉":
-  #   - CS/CV/CV-00-1-intro.md
-  #   - "图像处理":
-  #       - CS/CV/CV-00-base.md
-  #       - CS/CV/color.md
-  #       - CS/CV/CV-00-2-camera.md
-  #       - CS/CV/CV-00-3-format.md
-  #   - "基本任务":
-  #       - CS/CV/CV-01-classification.md
-  #       - CS/CV/CV-02-Image-location.md
-  #       - CS/CV/CV-03-face-Recognition.md
-  #       - CS/CV/CV-03-Object-Recognition.md
-  #       - CS/CV/CV-04-Segmentation.md
-  #       - CS/CV/CV-10-3D.md
-  #       - CS/CV/CV-11-motion_estimation.md
-  #   - CS/CV/OpenCV.md
-  #   - CS/CV/HumanPoseEstimation.md  
 
   - CTF:
     - CS/CTF/00-intro.md
@@ -493,7 +451,7 @@ nav:
     - CS/CTF/04-reverse.md
     - CS/CTF/05-crypto.md
     - CS/CTF/06-CPS.md
-    
+  
   - Web3:
     - CS/Web3/blockchain.md
     - CS/Web3/contract.md
@@ -504,6 +462,30 @@ nav:
     - CS/Dev/missing_knowledge.md
     - CS/Dev/rules.md
     - CS/Dev/CI-CD.md
+    
+    - Language:
+      - CS/Dev/Language/汇编.md
+      - CS/Dev/Language/C.md
+      - CS/Dev/Language/C++.md
+      - CS/Dev/Language/Python.md
+      - CS/Dev/Language/Dart.md
+      - Notebook page: CS/Dev/Language/Python_Package.ipynb
+      - "Python速查":
+        - "Seaborn": https://seaborn.pydata.org/api.html
+        - "Pandas": https://pandas.pydata.org/docs/reference/index.html
+        - "Scipy": https://docs.scipy.org/doc/scipy/reference/index.html
+        
+    - Frontend:
+      - CS/Dev/Frontend/HTML.md
+      - CS/Dev/Frontend/CSS.md
+      - CS/Dev/Frontend/JavaScript.md
+      - CS/Dev/Frontend/electron.md
+
+    - Backend:
+      - CS/Dev/Backend/SQL.md
+      - CS/Dev/Backend/Nodejs.md
+      - CS/Dev/Backend/PHP.md
+    
     - "开源项目尝鲜":
       - CS/Dev/vtuber.md
       - CS/Dev/tampermonkey.md
@@ -621,9 +603,7 @@ nav:
     - Interest/Aesthetic/flower.md
     - Interest/Aesthetic/design.md
     - Interest/Aesthetic/powerpoint.md
-    - Interest/Aesthetic/Photography-base.md
-    #- Interest/Aesthetic/Photography-Landscape.md
-    #- Interest/Aesthetic/Photography-Portrait.md
+    - Interest/Aesthetic/Photography.md
 
   - "🎮游戏":
     - Interest/Game/fifa.md

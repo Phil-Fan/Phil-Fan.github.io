@@ -1,4 +1,6 @@
 # Transformer
+!!! info "Transformer"
+    继MLP、CNN、RNN后的第四大类架构
 
 <iframe src="https://arxiv.org/pdf/1706.03762" width="100%" height="600px" style="border: none;">
 This browser does not support PDFs
@@ -111,6 +113,13 @@ BN抹杀了不同特征之间的大小关系，但是保留了不同样本间的
 !!! note "为什么layer norm 在fn层之后？"
 
     [on layer normalization in the transformer architecture](https://dl.acm.org/doi/pdf/10.5555/3524938.3525913)
+
+
+Layer Norm 的新研究
+<iframe src="https://arxiv.org/pdf/1911.07013" width="100%" height="600px" style="border: none;">
+This browser does not support PDFs
+</iframe>
+
 
 
 
@@ -372,7 +381,27 @@ so when you don't know how to optimize BLEU, use BLEU as the reward function of 
 
 - [Parallel Scheduled Sampling](https://arxiv.org/abs/1906.04331) 
 
+## 应用 - 机器翻译
+
+### 数据集介绍
+Multi30K
+
+<iframe src="https://arxiv.org/pdf/1605.00459" width="100%" height="600px" style="border: none;">
+This browser does not support PDFs
+</iframe>
+
+### Metrics介绍
+
+
+
+
+
+
+
 ## 代码实战
+
+- [hyunwoongko/transformer: Transformer](https://github.com/hyunwoongko/transformer): PyTorch Implementation of "Attention Is All You Need"
+
 - [bentrevett/pytorch-seq2seq](https://github.com/bentrevett/pytorch-seq2seq/)
     Tutorials on implementing a few sequence-to-sequence (seq2seq) models with PyTorch and TorchText.
 
@@ -382,7 +411,7 @@ so when you don't know how to optimize BLEU, use BLEU as the reward function of 
 
 - [🤗 Transformers简介](https://huggingface.co/docs/transformers/main/zh/index): 库
 - [awesome-transformers](https://github.com/huggingface/transformers/blob/main/awesome-transformers.md): 示例
-
+- [Models — MindNLP 文档](https://mindnlpdocs.readthedocs.io/zh-cn/latest/api/models.html)
 ## 拓展
 ### Decoder - NAT
 
@@ -417,6 +446,10 @@ non-autoregressive model
 具体流程：首先将长句子分割为多个小句子，如长200，重叠长度为50.将分割后的数据集传入BERT，分别取每个句子的[CLS]表示句子的embedding，将来自相同长句子的embedding拼接，作为长句子的向量表示。最后，将长句子的向量表示传入LSTM+FC部分进行分类。
 
 除此之外，第二部分还可以用Transformer。
+
+
+
+
 
 
 ## Acknowledgement
