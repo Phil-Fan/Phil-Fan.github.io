@@ -1,0 +1,4228 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="PhilFan的笔记本" name="description"/>
+<meta content="PhilFan" name="author"/>
+<link href="https://www.philfan.cn/AI/LLM/02-Transformer.html" rel="canonical"/>
+<link href="01-Attention.html" rel="prev"/>
+<link href="03-GPTs.html" rel="next"/>
+<link href="../../logo.ico" rel="icon"/>
+<meta content="mkdocs-1.6.0, mkdocs-material-9.5.31" name="generator"/>
+<title>Transformer - PhilFan's Notebook</title>
+<link href="../../assets/stylesheets/main.3cba04c6.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1 7.775V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 0 1 0 2.474l-5.026 5.026a1.75 1.75 0 0 1-2.474 0l-6.25-6.25A1.752 1.752 0 0 1 1 7.775Zm1.5 0c0 .066.026.13.073.177l6.25 6.25a.25.25 0 0 0 .354 0l5.025-5.025a.25.25 0 0 0 0-.354l-6.25-6.25a.25.25 0 0 0-.177-.073H2.75a.25.25 0 0 0-.25.25ZM6 5a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"/></svg>');--md-admonition-icon--abstract:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.5 1.75v11.5c0 .138.112.25.25.25h3.17a.75.75 0 0 1 0 1.5H2.75A1.75 1.75 0 0 1 1 13.25V1.75C1 .784 1.784 0 2.75 0h8.5C12.216 0 13 .784 13 1.75v7.736a.75.75 0 0 1-1.5 0V1.75a.25.25 0 0 0-.25-.25h-8.5a.25.25 0 0 0-.25.25Zm13.274 9.537v-.001l-4.557 4.45a.75.75 0 0 1-1.055-.008l-1.943-1.95a.75.75 0 0 1 1.062-1.058l1.419 1.425 4.026-3.932a.75.75 0 1 1 1.048 1.074ZM4.75 4h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM4 7.75A.75.75 0 0 1 4.75 7h2a.75.75 0 0 1 0 1.5h-2A.75.75 0 0 1 4 7.75Z"/></svg>');--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/></svg>');--md-admonition-icon--tip:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.499.75a.75.75 0 0 1 1.5 0v.996C5.9 2.903 6.793 3.65 7.662 4.376l.24.202c-.036-.694.055-1.422.426-2.163C9.1.873 10.794-.045 12.622.26 14.408.558 16 1.94 16 4.25c0 1.278-.954 2.575-2.44 2.734l.146.508.065.22c.203.701.412 1.455.476 2.226.142 1.707-.4 3.03-1.487 3.898C11.714 14.671 10.27 15 8.75 15h-6a.75.75 0 0 1 0-1.5h1.376a4.484 4.484 0 0 1-.563-1.191 3.835 3.835 0 0 1-.05-2.063 4.647 4.647 0 0 1-2.025-.293.75.75 0 0 1 .525-1.406c1.357.507 2.376-.006 2.698-.318l.009-.01a.747.747 0 0 1 1.06 0 .748.748 0 0 1-.012 1.074c-.912.92-.992 1.835-.768 2.586.221.74.745 1.337 1.196 1.621H8.75c1.343 0 2.398-.296 3.074-.836.635-.507 1.036-1.31.928-2.602-.05-.603-.216-1.224-.422-1.93l-.064-.221c-.12-.407-.246-.84-.353-1.29a2.425 2.425 0 0 1-.507-.441 3.075 3.075 0 0 1-.633-1.248.75.75 0 0 1 1.455-.364c.046.185.144.436.31.627.146.168.353.305.712.305.738 0 1.25-.615 1.25-1.25 0-1.47-.95-2.315-2.123-2.51-1.172-.196-2.227.387-2.706 1.345-.46.92-.27 1.774.019 3.062l.042.19a.884.884 0 0 1 .01.05c.348.443.666.949.94 1.553a.75.75 0 1 1-1.365.62c-.553-1.217-1.32-1.94-2.3-2.768L6.7 5.527c-.814-.68-1.75-1.462-2.692-2.619a3.737 3.737 0 0 0-1.023.88c-.406.495-.663 1.036-.722 1.508.116.122.306.21.591.239.388.038.797-.06 1.032-.19a.75.75 0 0 1 .728 1.31c-.515.287-1.23.439-1.906.373-.682-.067-1.473-.38-1.879-1.193L.75 5.677V5.5c0-.984.48-1.94 1.077-2.664.46-.559 1.05-1.055 1.673-1.353V.75Z"/></svg>');--md-admonition-icon--success:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"/></svg>');--md-admonition-icon--question:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.92 6.085h.001a.749.749 0 1 1-1.342-.67c.169-.339.436-.701.849-.977C6.845 4.16 7.369 4 8 4a2.756 2.756 0 0 1 1.637.525c.503.377.863.965.863 1.725 0 .448-.115.83-.329 1.15-.205.307-.47.513-.692.662-.109.072-.22.138-.313.195l-.006.004a6.24 6.24 0 0 0-.26.16.952.952 0 0 0-.276.245.75.75 0 0 1-1.248-.832c.184-.264.42-.489.692-.661.103-.067.207-.132.313-.195l.007-.004c.1-.061.182-.11.258-.161a.969.969 0 0 0 .277-.245C8.96 6.514 9 6.427 9 6.25a.612.612 0 0 0-.262-.525A1.27 1.27 0 0 0 8 5.5c-.369 0-.595.09-.74.187a1.01 1.01 0 0 0-.34.398ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>');--md-admonition-icon--warning:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>');--md-admonition-icon--failure:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.344 2.343h-.001a8 8 0 0 1 11.314 11.314A8.002 8.002 0 0 1 .234 10.089a8 8 0 0 1 2.11-7.746Zm1.06 10.253a6.5 6.5 0 1 0 9.108-9.275 6.5 6.5 0 0 0-9.108 9.275ZM6.03 4.97 8 6.94l1.97-1.97a.749.749 0 0 1 1.275.326.749.749 0 0 1-.215.734L9.06 8l1.97 1.97a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L8 9.06l-1.97 1.97a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734L6.94 8 4.97 6.03a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018Z"/></svg>');--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M9.504.43a1.516 1.516 0 0 1 2.437 1.713L10.415 5.5h2.123c1.57 0 2.346 1.909 1.22 3.004l-7.34 7.142a1.249 1.249 0 0 1-.871.354h-.302a1.25 1.25 0 0 1-1.157-1.723L5.633 10.5H3.462c-1.57 0-2.346-1.909-1.22-3.004L9.503.429Zm1.047 1.074L3.286 8.571A.25.25 0 0 0 3.462 9H6.75a.75.75 0 0 1 .694 1.034l-1.713 4.188 6.982-6.793A.25.25 0 0 0 12.538 7H9.25a.75.75 0 0 1-.683-1.06l2.008-4.418.003-.006a.036.036 0 0 0-.004-.009l-.006-.006-.008-.001c-.003 0-.006.002-.009.004Z"/></svg>');--md-admonition-icon--bug:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M4.72.22a.75.75 0 0 1 1.06 0l1 .999a3.488 3.488 0 0 1 2.441 0l.999-1a.748.748 0 0 1 1.265.332.75.75 0 0 1-.205.729l-.775.776c.616.63.995 1.493.995 2.444v.327c0 .1-.009.197-.025.292.408.14.764.392 1.029.722l1.968-.787a.75.75 0 0 1 .556 1.392L13 7.258V9h2.25a.75.75 0 0 1 0 1.5H13v.5c0 .409-.049.806-.141 1.186l2.17.868a.75.75 0 0 1-.557 1.392l-2.184-.873A4.997 4.997 0 0 1 8 16a4.997 4.997 0 0 1-4.288-2.427l-2.183.873a.75.75 0 0 1-.558-1.392l2.17-.868A5.036 5.036 0 0 1 3 11v-.5H.75a.75.75 0 0 1 0-1.5H3V7.258L.971 6.446a.75.75 0 0 1 .558-1.392l1.967.787c.265-.33.62-.583 1.03-.722a1.677 1.677 0 0 1-.026-.292V4.5c0-.951.38-1.814.995-2.444L4.72 1.28a.75.75 0 0 1 0-1.06Zm.53 6.28a.75.75 0 0 0-.75.75V11a3.5 3.5 0 1 0 7 0V7.25a.75.75 0 0 0-.75-.75ZM6.173 5h3.654A.172.172 0 0 0 10 4.827V4.5a2 2 0 1 0-4 0v.327c0 .096.077.173.173.173Z"/></svg>');--md-admonition-icon--example:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M5 5.782V2.5h-.25a.75.75 0 0 1 0-1.5h6.5a.75.75 0 0 1 0 1.5H11v3.282l3.666 5.76C15.619 13.04 14.543 15 12.767 15H3.233c-1.776 0-2.852-1.96-1.899-3.458Zm-2.4 6.565a.75.75 0 0 0 .633 1.153h9.534a.75.75 0 0 0 .633-1.153L12.225 10.5h-8.45ZM9.5 2.5h-3V6c0 .143-.04.283-.117.403L4.73 9h6.54L9.617 6.403A.746.746 0 0 1 9.5 6Z"/></svg>');--md-admonition-icon--quote:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1.75 2.5h10.5a.75.75 0 0 1 0 1.5H1.75a.75.75 0 0 1 0-1.5Zm4 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5ZM2.5 7.75v6a.75.75 0 0 1-1.5 0v-6a.75.75 0 0 1 1.5 0Z"/></svg>');}</style>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Noto Serif SC";--md-code-font:"JetBrains Mono"}</style>
+<link href="../../css/heti.css" rel="stylesheet"/>
+<link href="../../style/css/custom.css" rel="stylesheet"/>
+<link href="../../style/css/counter.css" rel="stylesheet"/>
+<link href="../../style/css/toc.css" rel="stylesheet"/>
+<link href="../../style/css/flink.css" rel="stylesheet"/>
+<link href="https://cdn.tonycrane.cc/jbmono/jetbrainsmono.css" rel="stylesheet"/>
+<link href="https://cdn.tonycrane.cc/lxgw/lxgwscreen.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2QNP7S5RJ8"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2QNP7S5RJ8",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2QNP7S5RJ8",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+<script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+</head>
+<body data-md-color-accent="indigo" data-md-color-primary="blue" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#transformer">
+          跳转至
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="页眉" class="md-header__inner md-grid">
+<a aria-label="PhilFan's Notebook" class="md-header__button md-logo" data-md-component="logo" href="../.." title="PhilFan's Notebook">
+<img alt="logo" src="../../logo.ico"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            PhilFan's Notebook
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Transformer
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="blue" data-md-color-scheme="default" id="__palette_0" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="black" data-md-color-scheme="slate" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_0" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"></path></svg>
+</label>
+</form>
+<script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="搜索" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="搜索" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="查找" class="md-search__options">
+<button aria-label="清空当前内容" class="md-search__icon md-icon" tabindex="-1" title="清空当前内容" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+<div class="md-search__suggest" data-md-component="search-suggest"></div>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/Phil-Fan/Phil-Fan.github.io" title="前往仓库">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    Phil-Fan/Notes
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="标签" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../index.html">
+          
+  
+    
+  
+  Home
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../Math/signal.html">
+          
+  
+    
+  
+  Math
+
+        </a>
+</li>
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="https://github.com/mli/paper-reading">
+          
+  
+    
+  
+  AI
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../Robotics/Model/0-index.html">
+          
+  
+    
+  
+  Robotics
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../CS/DS/DataStructure.html">
+          
+  
+    
+  
+  CS
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../Class/%E9%A9%AC%E5%8E%9F.html">
+          
+  
+    
+  
+  Class
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../Tools/Efficiency/latex.html">
+          
+  
+    
+  
+  Tools
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../classes_in_zju.html">
+          
+  
+    
+  
+  生命因你而火热
+
+        </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="导航栏" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="PhilFan's Notebook" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="PhilFan's Notebook">
+<img alt="logo" src="../../logo.ico"/>
+</a>
+    PhilFan's Notebook
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/Phil-Fan/Phil-Fan.github.io" title="前往仓库">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    Phil-Fan/Notes
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_1" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../index.html">
+<span class="md-ellipsis">
+    Home
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_1_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+            Home
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../todo.html">
+<span class="md-ellipsis">
+    待办事项
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../friends.html">
+<span class="md-ellipsis">
+    友链
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+<span class="md-ellipsis">
+    Math
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+            Math
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Math/signal.html">
+<span class="md-ellipsis">
+    信号分析与处理
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+<span class="md-ellipsis">
+    基础知识
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_2">
+<span class="md-nav__icon md-icon"></span>
+            基础知识
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Math/%E4%B8%8D%E7%AD%89%E5%BC%8F.html">
+<span class="md-ellipsis">
+    不等式
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Math/information.html">
+<span class="md-ellipsis">
+    信息论
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Math/logic.html">
+<span class="md-ellipsis">
+    Logic
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Math/ODE.html">
+<span class="md-ellipsis">
+    ODE
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Math/ComplexFunction.html">
+<span class="md-ellipsis">
+    复变函数
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+<span class="md-ellipsis">
+    LA | 线性代数
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_3">
+<span class="md-nav__icon md-icon"></span>
+            LA | 线性代数
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Math/LinearAlgebra/00-intro.html">
+<span class="md-ellipsis">
+    导论与介绍
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Math/LinearAlgebra/00-review.html">
+<span class="md-ellipsis">
+    矩阵论复习
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Math/LinearAlgebra/01-basic.html">
+<span class="md-ellipsis">
+    01 | 基础
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Math/LinearAlgebra/02-1-calc.html">
+<span class="md-ellipsis">
+    02 | 矩阵运算
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Math/LinearAlgebra/02-2-derivative.html">
+<span class="md-ellipsis">
+    02 | 微分与积分
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Math/LinearAlgebra/03-relationship.html">
+<span class="md-ellipsis">
+    03 | 矩阵性质
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Math/LinearAlgebra/04-decomposition.html">
+<span class="md-ellipsis">
+    04 | 矩阵分解
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Math/LinearAlgebra/05-matrix_equation.html">
+<span class="md-ellipsis">
+    05 | 矩阵方程
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Math/LinearAlgebra/06-analyze.html">
+<span class="md-ellipsis">
+    06 | 特征分析
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+<span class="md-ellipsis">
+    Opt | 凸优化
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_4">
+<span class="md-nav__icon md-icon"></span>
+            Opt | 凸优化
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Math/Opt/Opt-0-intro.html">
+<span class="md-ellipsis">
+    凸优化
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Math/Opt/Opt-1-model.html">
+<span class="md-ellipsis">
+    01 | 定义与数学建模
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Math/Opt/Opt-2-%E6%97%A0%E7%BA%A6%E6%9D%9F-%E8%A7%A3%E6%9E%90%E6%B3%95.html">
+<span class="md-ellipsis">
+    02 | 无约束 解析解法
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Math/Opt/Opt-3-%E6%97%A0%E7%BA%A6%E6%9D%9F-%E6%95%B0%E5%80%BC%E6%B3%95.html">
+<span class="md-ellipsis">
+    03 | 无约束 数值解法
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Math/Opt/Opt-4-%E6%9C%89%E7%BA%A6%E6%9D%9F-%E8%A7%A3%E6%9E%90%E6%B3%95.html">
+<span class="md-ellipsis">
+    04 | 有约束 解析解法
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Math/Opt/Opt-5-%E6%9C%89%E7%BA%A6%E6%9D%9F-%E6%95%B0%E5%80%BC%E6%B3%95.html">
+<span class="md-ellipsis">
+    05 | 有约束 数值解法
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Math/Opt/Opt-6-else.html">
+<span class="md-ellipsis">
+    06 | 其他
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+<span class="md-ellipsis">
+    概率论
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_5_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_5">
+<span class="md-nav__icon md-icon"></span>
+            概率论
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Math/Statistic/00-intro.html">
+<span class="md-ellipsis">
+    概率与统计
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Math/Statistic/01-probability.html">
+<span class="md-ellipsis">
+    样本空间与概率
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Math/Statistic/02-Univariate_Random_Variable.html">
+<span class="md-ellipsis">
+    一维随机变量
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Math/Statistic/03-Multivariate_Random_Variable.html">
+<span class="md-ellipsis">
+    多维随机变量
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Math/Statistic/04-Numerical_Features.html">
+<span class="md-ellipsis">
+    随机变量的数字特征
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Math/Statistic/05-Special_Functions.html">
+<span class="md-ellipsis">
+    特殊函数
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Math/Statistic/06-Parameter_Estimation.html">
+<span class="md-ellipsis">
+    参数估计
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Math/Statistic/07-Hypothesis_Testing.html">
+<span class="md-ellipsis">
+    假设检验
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Math/Statistic/08-Goodness_of_Fit.html">
+<span class="md-ellipsis">
+    拟合优度
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Math/Statistic/09-Regression.html">
+<span class="md-ellipsis">
+    回归
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Math/Statistic/10-Multiple_Regression_and_Analysis_of_Variance.html">
+<span class="md-ellipsis">
+    多元回归分析
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Math/Statistic/11-anova.html">
+<span class="md-ellipsis">
+    方差分析 | ANOVA
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Math/Statistic/12-data_mining.html">
+<span class="md-ellipsis">
+    数据挖掘
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Math/Statistic/13-Survival_Analysis.html">
+<span class="md-ellipsis">
+    生存分析
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Math/Statistic/big_data_security%26privacy_protection.html">
+<span class="md-ellipsis">
+    大数据安全与隐私保护
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Math/Statistic/variable.html">
+<span class="md-ellipsis">
+    Variable
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+<span class="md-ellipsis">
+    SP | 随机过程
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_6_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_6">
+<span class="md-nav__icon md-icon"></span>
+            SP | 随机过程
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Math/StochasticProcess/00-Intro.html">
+<span class="md-ellipsis">
+    随机过程
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Math/StochasticProcess/01-Concept.html">
+<span class="md-ellipsis">
+    01 | 基本概念
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Math/StochasticProcess/02-Markov.html">
+<span class="md-ellipsis">
+    02 | 马尔可夫链
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Math/StochasticProcess/03-Possion.html">
+<span class="md-ellipsis">
+    03 | 泊松过程
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Math/StochasticProcess/04-Brown.html">
+<span class="md-ellipsis">
+    04 | 布朗运动
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Math/StochasticProcess/05-StationaryProcess.html">
+<span class="md-ellipsis">
+    05 | 平稳过程
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Math/StochasticProcess/06-review.html">
+<span class="md-ellipsis">
+    06 | 随机过程复习
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
+<span class="md-ellipsis">
+    OR | 运筹学
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_7_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_7">
+<span class="md-nav__icon md-icon"></span>
+            OR | 运筹学
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Math/OR/OR-00-index.html">
+<span class="md-ellipsis">
+    运筹学复习总结
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Math/OR/OR-01-programming.html">
+<span class="md-ellipsis">
+    规划论 | Mathematical Programming
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Math/OR/OR-03-graph.html">
+<span class="md-ellipsis">
+    图论 | Graph Theory
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Math/OR/OR-04-DP.html">
+<span class="md-ellipsis">
+    动态规划 | DP
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Math/OR/OR-05-1-GameTheory.html">
+<span class="md-ellipsis">
+    博弈论 | GameTheory
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Math/OR/OR-05-2-GameTheoryModel.html">
+<span class="md-ellipsis">
+    博弈论模型
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Math/OR/OR-06-QueuingTheory.html">
+<span class="md-ellipsis">
+    排队论 | Queuing Theory
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_8" id="__nav_2_8_label" tabindex="0">
+<span class="md-ellipsis">
+    ML | 机器学习
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_8_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_8">
+<span class="md-nav__icon md-icon"></span>
+            ML | 机器学习
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Math/ML/00-intro.html">
+<span class="md-ellipsis">
+    导论
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Math/ML/00-proof.html">
+<span class="md-ellipsis">
+    关键证明总结
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Math/ML/01-Metrics.html">
+<span class="md-ellipsis">
+    01 | 性能度量
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Math/ML/02-LinearRegression.html">
+<span class="md-ellipsis">
+    02 | Linear Regression
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Math/ML/03-DecisionTree.html">
+<span class="md-ellipsis">
+    03 | 决策树
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Math/ML/04-SVM.html">
+<span class="md-ellipsis">
+    04 | SVM
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Math/ML/05-Bayes.html">
+<span class="md-ellipsis">
+    05 | Bayes
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Math/ML/06-Clustering.html">
+<span class="md-ellipsis">
+    06 | 聚类
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Math/ML/07-DimensionalityReduction.html">
+<span class="md-ellipsis">
+    07 | 降维
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Math/ML/08-EnsembleLearning.html">
+<span class="md-ellipsis">
+    08 | 集成学习
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Math/ML/09-SparseRepresentation.html">
+<span class="md-ellipsis">
+    09 | 特征选择与稀疏学习
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Math/ML/10-ConceptLearning.html">
+<span class="md-ellipsis">
+    10 | 规则学习
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Math/ML/12-interpretable_models.html">
+<span class="md-ellipsis">
+    12 | Interpretable ML
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Math/ML/13-CasualInference.html">
+<span class="md-ellipsis">
+    13 | 因果推断
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+<span class="md-ellipsis">
+    AI
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+            AI
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+<span class="md-ellipsis">
+    学习资源
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_1_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_1">
+<span class="md-nav__icon md-icon"></span>
+            学习资源
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="https://github.com/mli/paper-reading">
+<span class="md-ellipsis">
+    论文阅读
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="https://datawhalechina.github.io/pumpkin-book/">
+<span class="md-ellipsis">
+    南瓜书
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="https://www.statlearning.com/">
+<span class="md-ellipsis">
+    ISLR
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="https://datawhalechina.github.io/statistical-learning-method-solutions-manual/">
+<span class="md-ellipsis">
+    统计学习方法习题解答
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="https://zh.d2l.ai/index.html/">
+<span class="md-ellipsis">
+    d2l
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+<span class="md-ellipsis">
+    ADV | 生成式模型
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_2">
+<span class="md-nav__icon md-icon"></span>
+            ADV | 生成式模型
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ADV/00-intro.html">
+<span class="md-ellipsis">
+    生成式模型
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ADV/01-Transformers.html">
+<span class="md-ellipsis">
+    Transformers
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ADV/02-FlowBased.html">
+<span class="md-ellipsis">
+    Flow-Based
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ADV/03-GAN.html">
+<span class="md-ellipsis">
+    GANS
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ADV/04-VAE.html">
+<span class="md-ellipsis">
+    VAE
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ADV/05-Diffusion.html">
+<span class="md-ellipsis">
+    Diffusion Model
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_3_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+<span class="md-ellipsis">
+    LLM | 大模型
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_3_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_3">
+<span class="md-nav__icon md-icon"></span>
+            LLM | 大模型
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="00-intro.html">
+<span class="md-ellipsis">
+    现状介绍
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="00-Settings.md">
+<span class="md-ellipsis">
+    None
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="01-Attention.html">
+<span class="md-ellipsis">
+    注意力机制
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    Transformer
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="02-Transformer.html">
+<span class="md-ellipsis">
+    Transformer
+  </span>
+</a>
+<nav aria-label="目录" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_1">
+<span class="md-ellipsis">
+      假设与归纳偏置
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#encoder-self-attention">
+<span class="md-ellipsis">
+      Encoder - Self Attention
+    </span>
+</a>
+<nav aria-label="Encoder - Self Attention" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#residual-connection">
+<span class="md-ellipsis">
+      residual connection
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#layer-norm">
+<span class="md-ellipsis">
+      Layer Norm
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#position-wise-feed-forward-network">
+<span class="md-ellipsis">
+      position-wise feed-forward network
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+<span class="md-ellipsis">
+      细节
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#-v-qv-vlow-rank-transformation">
+<span class="md-ellipsis">
+      - 把V的参数量= Q+V 即把V做low rank transformation
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#decoder-autoregressive">
+<span class="md-ellipsis">
+      Decoder - Autoregressive
+    </span>
+</a>
+<nav aria-label="Decoder - Autoregressive" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mask">
+<span class="md-ellipsis">
+      Mask
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+<span class="md-ellipsis">
+      长度
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#encoder-decoder">
+<span class="md-ellipsis">
+      Encoder-Decoder
+    </span>
+</a>
+<nav aria-label="Encoder-Decoder" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cross-attention">
+<span class="md-ellipsis">
+      Cross-attention
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+<span class="md-ellipsis">
+      训练
+    </span>
+</a>
+<nav aria-label="训练" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_5">
+<span class="md-ellipsis">
+      训练方法
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#optimizer">
+<span class="md-ellipsis">
+      Optimizer
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#regularization">
+<span class="md-ellipsis">
+      Regularization
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_6">
+<span class="md-ellipsis">
+      训练技巧
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#bleu">
+<span class="md-ellipsis">
+      BLEU
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#exposure-bias">
+<span class="md-ellipsis">
+      exposure bias
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#-">
+<span class="md-ellipsis">
+      应用 - 机器翻译
+    </span>
+</a>
+<nav aria-label="应用 - 机器翻译" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_7">
+<span class="md-ellipsis">
+      数据集介绍
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#metrics">
+<span class="md-ellipsis">
+      Metrics介绍
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_8">
+<span class="md-ellipsis">
+      代码实战
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_9">
+<span class="md-ellipsis">
+      拓展
+    </span>
+</a>
+<nav aria-label="拓展" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#decoder-nat">
+<span class="md-ellipsis">
+      Decoder - NAT
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_10">
+<span class="md-ellipsis">
+      超长文本
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#acknowledgement">
+<span class="md-ellipsis">
+      Acknowledgement
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="03-GPTs.html">
+<span class="md-ellipsis">
+    GPT
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="04-BERT.html">
+<span class="md-ellipsis">
+    BERT
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="05-Others.html">
+<span class="md-ellipsis">
+    Other
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="06-Tricks.html">
+<span class="md-ellipsis">
+    重点问题讨论
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="07-LongChain.html">
+<span class="md-ellipsis">
+    Long Chain
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+<span class="md-ellipsis">
+    DL | 深度学习
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_4">
+<span class="md-nav__icon md-icon"></span>
+            DL | 深度学习
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../DL/00-Lingo.html">
+<span class="md-ellipsis">
+    00 | 常见黑话
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../DL/01-MLP.html">
+<span class="md-ellipsis">
+    01 | 神经网络
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../DL/02-CNN.html">
+<span class="md-ellipsis">
+    02 | CNN 卷积神经网络
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../DL/03-Modern_CNN.html">
+<span class="md-ellipsis">
+    03 | 现代CNN
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../DL/04-RNN.html">
+<span class="md-ellipsis">
+    04 | RNN 循环神经网络
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../DL/05-Modern_RNN.html">
+<span class="md-ellipsis">
+    05 | 现代循环神经网络
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+<span class="md-ellipsis">
+    RL | 强化学习
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_5_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_5">
+<span class="md-nav__icon md-icon"></span>
+            RL | 强化学习
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../RL/RL-01.html">
+<span class="md-ellipsis">
+    强化学习 | Reinforcement Learning
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+<span class="md-ellipsis">
+    ML | 机器学习实践
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_6_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_6">
+<span class="md-nav__icon md-icon"></span>
+            ML | 机器学习实践
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ML/00-Review.html">
+<span class="md-ellipsis">
+    复习
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ML/01-kaggle.html">
+<span class="md-ellipsis">
+    Kaggle
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ML/02-process.html">
+<span class="md-ellipsis">
+    02 | 数据处理
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ML/03-training_method.html">
+<span class="md-ellipsis">
+    03 | 训练方法
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ML/04-parameters.html">
+<span class="md-ellipsis">
+    04 | 调参
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ML/05-trick.html">
+<span class="md-ellipsis">
+    05 | Tricks
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ML/Problem.html">
+<span class="md-ellipsis">
+    深度学习问题记录
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+<span class="md-ellipsis">
+    Robotics
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+            Robotics
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+<span class="md-ellipsis">
+    Model
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_1_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_1">
+<span class="md-nav__icon md-icon"></span>
+            Model
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Robotics/Model/0-index.html">
+<span class="md-ellipsis">
+    简介
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Robotics/Model/1-Basis.html">
+<span class="md-ellipsis">
+    1 空间描述与变换
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Robotics/Model/2-ForwardKinematics.html">
+<span class="md-ellipsis">
+    2 正向运动学
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Robotics/Model/3-InverseKinematics.html">
+<span class="md-ellipsis">
+    3 逆向运动学
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Robotics/Model/4-Mechanics.html">
+<span class="md-ellipsis">
+    4 瞬时运动学
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Robotics/Model/5-TrajectoryPlanning.html">
+<span class="md-ellipsis">
+    5 轨迹规划
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Robotics/Model/6-Dynamics.html">
+<span class="md-ellipsis">
+    6 动力学
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Robotics/Model/7-Control.html">
+<span class="md-ellipsis">
+    7 运动控制
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Robotics/Model/8-ForceControl.html">
+<span class="md-ellipsis">
+    8 力控制
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Robotics/Model/9-exp.html">
+<span class="md-ellipsis">
+    9 实验
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+<span class="md-ellipsis">
+    Control Theory
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_2">
+<span class="md-nav__icon md-icon"></span>
+            Control Theory
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_2_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2_1" id="__nav_4_2_1_label" tabindex="0">
+<span class="md-ellipsis">
+    自动控制
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_1_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_2_1">
+<span class="md-nav__icon md-icon"></span>
+            自动控制
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Robotics/Control/BASE-00-intro.html">
+<span class="md-ellipsis">
+    大纲
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Robotics/Control/BASE-01-model.html">
+<span class="md-ellipsis">
+    01 | 系统辨识与建模
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Robotics/Control/BASE-02-metrics.html">
+<span class="md-ellipsis">
+    02 | 性能分析
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Robotics/Control/BASE-03-adjust.html">
+<span class="md-ellipsis">
+    03 | 控制器矫正与设计
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_2_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2_2" id="__nav_4_2_2_label" tabindex="0">
+<span class="md-ellipsis">
+    现代控制 | 线性系统
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_2_2">
+<span class="md-nav__icon md-icon"></span>
+            现代控制 | 线性系统
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Robotics/Control/ADV-linear-00-intro.html">
+<span class="md-ellipsis">
+    现代控制理论
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_2_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2_3" id="__nav_4_2_3_label" tabindex="0">
+<span class="md-ellipsis">
+    现代控制 | 非线性系统
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_3_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_2_3">
+<span class="md-nav__icon md-icon"></span>
+            现代控制 | 非线性系统
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Robotics/Control/ADV-nonliear-00-intro.html">
+<span class="md-ellipsis">
+    非线性系统
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_2_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2_4" id="__nav_4_2_4_label" tabindex="0">
+<span class="md-ellipsis">
+    最优控制
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_4_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_2_4">
+<span class="md-nav__icon md-icon"></span>
+            最优控制
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Robotics/Control/OPT-00-intro.html">
+<span class="md-ellipsis">
+    最优控制
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_2_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2_5" id="__nav_4_2_5_label" tabindex="0">
+<span class="md-ellipsis">
+    控制方法
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_5_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_2_5">
+<span class="md-nav__icon md-icon"></span>
+            控制方法
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Robotics/Control/Method-00-intro.html">
+<span class="md-ellipsis">
+    经典控制方法
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Robotics/Control/Method-01-PID.html">
+<span class="md-ellipsis">
+    PID控制
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Robotics/Control/Method-02-LQR.html">
+<span class="md-ellipsis">
+    LQR控制
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Robotics/Control/Method-03-MPC.html">
+<span class="md-ellipsis">
+    MPC控制
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Robotics/Control/Method-04-%E9%98%BB%E6%8A%97%E5%AF%BC%E7%BA%B3.html">
+<span class="md-ellipsis">
+    阻抗导纳
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Robotics/Control/Method-05-%E6%99%BA%E8%83%BD%E6%8E%A7%E5%88%B6%E6%96%B9%E6%B3%95.html">
+<span class="md-ellipsis">
+    智能控制技术
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Robotics/Control/Method-Kalman.html">
+<span class="md-ellipsis">
+    Kalman Filter
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_2_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2_6" id="__nav_4_2_6_label" tabindex="0">
+<span class="md-ellipsis">
+    应用
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_6_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_2_6">
+<span class="md-nav__icon md-icon"></span>
+            应用
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Robotics/Control/ELSE-%E4%BE%9B%E9%85%8D%E7%94%B5.html">
+<span class="md-ellipsis">
+    供配电技术
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+<span class="md-ellipsis">
+    机器人技术
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_3">
+<span class="md-nav__icon md-icon"></span>
+            机器人技术
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Robotics/Robo/00-intro.html">
+<span class="md-ellipsis">
+    简介
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Robotics/Robo/01-Design.html">
+<span class="md-ellipsis">
+    1 | 设计
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Robotics/Robo/02-Mapping.html">
+<span class="md-ellipsis">
+    2 | 建图
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Robotics/Robo/03-Localization.html">
+<span class="md-ellipsis">
+    3 | 定位
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Robotics/Robo/04-Navigation.html">
+<span class="md-ellipsis">
+    4 | 导航
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Robotics/Robo/05-Planning.html">
+<span class="md-ellipsis">
+    5 | 规划
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Robotics/Robo/06-Detection.html">
+<span class="md-ellipsis">
+    6 | 传感与检测
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_3_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_3_8" id="__nav_4_3_8_label" tabindex="0">
+<span class="md-ellipsis">
+    无人机
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_3_8_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_3_8">
+<span class="md-nav__icon md-icon"></span>
+            无人机
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Robotics/Robo/Drone.html">
+<span class="md-ellipsis">
+    空中机器人
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Robotics/Robo/Drone_experiment.html">
+<span class="md-ellipsis">
+    无人机实验
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Robotics/Robo/Drone_explore.html">
+<span class="md-ellipsis">
+    dRehmFlight
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+<span class="md-ellipsis">
+    嵌入式
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_4">
+<span class="md-nav__icon md-icon"></span>
+            嵌入式
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Robotics/%E5%B5%8C%E5%85%A5%E5%BC%8F/Analog.html">
+<span class="md-ellipsis">
+    模电
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Robotics/%E5%B5%8C%E5%85%A5%E5%BC%8F/Digital.html">
+<span class="md-ellipsis">
+    数电
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_4_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_4_3" id="__nav_4_4_3_label" tabindex="0">
+<span class="md-ellipsis">
+    嵌入式系统
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_4_3_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_4_3">
+<span class="md-nav__icon md-icon"></span>
+            嵌入式系统
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Robotics/%E5%B5%8C%E5%85%A5%E5%BC%8F/EmbeddedSystem-intro.html">
+<span class="md-ellipsis">
+    0 | 简介
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Robotics/%E5%B5%8C%E5%85%A5%E5%BC%8F/EmbeddedSystem-digitalcircuit.html">
+<span class="md-ellipsis">
+    1 | 数电
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Robotics/%E5%B5%8C%E5%85%A5%E5%BC%8F/EmbeddedSystem-8051.html">
+<span class="md-ellipsis">
+    2 | C51
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Robotics/%E5%B5%8C%E5%85%A5%E5%BC%8F/EmbeddedSystem-8051-experiment.html">
+<span class="md-ellipsis">
+    3 | C51实验
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Robotics/%E5%B5%8C%E5%85%A5%E5%BC%8F/EmbeddedSystem-stm32.html">
+<span class="md-ellipsis">
+    4 | STM32
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_4_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_4_4" id="__nav_4_4_4_label" tabindex="0">
+<span class="md-ellipsis">
+    开发板使用
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_4_4_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_4_4">
+<span class="md-nav__icon md-icon"></span>
+            开发板使用
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Robotics/%E5%B5%8C%E5%85%A5%E5%BC%8F/Arduino.html">
+<span class="md-ellipsis">
+    Arduino
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Robotics/%E5%B5%8C%E5%85%A5%E5%BC%8F/RaspberryPi.html">
+<span class="md-ellipsis">
+    Raspberry Pi
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Robotics/%E5%B5%8C%E5%85%A5%E5%BC%8F/JetsonNano.html">
+<span class="md-ellipsis">
+    Jetson Orin Nano
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Robotics/%E5%B5%8C%E5%85%A5%E5%BC%8F/FPGA.html">
+<span class="md-ellipsis">
+    FPGA
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Robotics/%E5%B5%8C%E5%85%A5%E5%BC%8F/PcCtl.html">
+<span class="md-ellipsis">
+    计控
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Robotics/%E5%B5%8C%E5%85%A5%E5%BC%8F/PcCtl-PLC.html">
+<span class="md-ellipsis">
+    计控-PLC
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+<span class="md-ellipsis">
+    物联网
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_5_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_5">
+<span class="md-nav__icon md-icon"></span>
+            物联网
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Robotics/IOT/intro.html">
+<span class="md-ellipsis">
+    简介
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_5_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_5_2" id="__nav_4_5_2_label" tabindex="0">
+<span class="md-ellipsis">
+    通信协议
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_5_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_5_2">
+<span class="md-nav__icon md-icon"></span>
+            通信协议
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Robotics/IOT/Protocol.html">
+<span class="md-ellipsis">
+    嵌入式通信协议
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Robotics/IOT/Protocol-MQTT.html">
+<span class="md-ellipsis">
+    MQTT
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_5_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_5_3" id="__nav_4_5_3_label" tabindex="0">
+<span class="md-ellipsis">
+    通信技术
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_5_3_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_5_3">
+<span class="md-nav__icon md-icon"></span>
+            通信技术
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Robotics/IOT/Tech.html">
+<span class="md-ellipsis">
+    通信技术
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
+<span class="md-ellipsis">
+    实践记录
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_6_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_6">
+<span class="md-nav__icon md-icon"></span>
+            实践记录
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Robotics/%E5%B5%8C%E5%85%A5%E5%BC%8F/%E5%98%89%E7%AB%8B%E5%88%9B.html">
+<span class="md-ellipsis">
+    嘉立创
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Robotics/%E5%B5%8C%E5%85%A5%E5%BC%8F/%E7%84%8A%E6%8E%A5.html">
+<span class="md-ellipsis">
+    焊接指北
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Robotics/%E5%B5%8C%E5%85%A5%E5%BC%8F/Trial.html">
+<span class="md-ellipsis">
+    嵌入式小玩具
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Robotics/%E5%B5%8C%E5%85%A5%E5%BC%8F/%E5%A4%96%E8%AE%BE.html">
+<span class="md-ellipsis">
+    单片机外设使用
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+<span class="md-ellipsis">
+    CS
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+            CS
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+<span class="md-ellipsis">
+    DS | 数据结构
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_1_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_1">
+<span class="md-nav__icon md-icon"></span>
+            DS | 数据结构
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../CS/DS/DataStructure.html">
+<span class="md-ellipsis">
+    数据结构与算法
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../CS/DS/DataStructure-Tree.html">
+<span class="md-ellipsis">
+    第四章 Tree
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../CS/DS/DataStructure-Hash.html">
+<span class="md-ellipsis">
+    第五章 散列表与hash
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../CS/DS/DataStructure-Sorting.html">
+<span class="md-ellipsis">
+    第七章 Sorting
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5_1_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_1_5" id="__nav_5_1_5_label" tabindex="0">
+<span class="md-ellipsis">
+    搜索 | Search
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_1_5_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_5_1_5">
+<span class="md-nav__icon md-icon"></span>
+            搜索 | Search
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../CS/DS/Search/01-AI_history%26intro.html">
+<span class="md-ellipsis">
+    人工智能历史与引论
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../CS/DS/Search/02-UninformedSearch.html">
+<span class="md-ellipsis">
+    Uninformed Search
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../CS/DS/Search/03-InformedSearch.html">
+<span class="md-ellipsis">
+    启发式搜索
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../CS/DS/Search/04-OtherSearch.html">
+<span class="md-ellipsis">
+    对抗搜索
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+<span class="md-ellipsis">
+    OS | 操作系统
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_2">
+<span class="md-nav__icon md-icon"></span>
+            OS | 操作系统
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../CS/OS/00-intro.html">
+<span class="md-ellipsis">
+    操作系统
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+<span class="md-ellipsis">
+    CN | 计算机网络
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_3">
+<span class="md-nav__icon md-icon"></span>
+            CN | 计算机网络
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../CS/CN/00-intro.html">
+<span class="md-ellipsis">
+    00-简介
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../CS/CN/01-ApplicationLayer.html">
+<span class="md-ellipsis">
+    01-应用层
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../CS/CN/02-TransportLayer.html">
+<span class="md-ellipsis">
+    02-传输层
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../CS/CN/03-NetworkLayer.html">
+<span class="md-ellipsis">
+    03-网络层
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../CS/CN/04-LinkLayer.html">
+<span class="md-ellipsis">
+    04-链路层
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../CS/CN/05-PhysicalLayer.html">
+<span class="md-ellipsis">
+    05-物理层
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../CS/CN/06-security.html">
+<span class="md-ellipsis">
+    06-安全
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../CS/CN/07-%E9%97%AE%E9%A2%98%E6%8E%A2%E7%A9%B6.html">
+<span class="md-ellipsis">
+    07-问题探究
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+<span class="md-ellipsis">
+    CTF
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_4">
+<span class="md-nav__icon md-icon"></span>
+            CTF
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../CS/CTF/00-intro.html">
+<span class="md-ellipsis">
+    CTF 简介
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../CS/CTF/01-web.html">
+<span class="md-ellipsis">
+    Web
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../CS/CTF/02-misc.html">
+<span class="md-ellipsis">
+    MISC
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../CS/CTF/03-pwn.html">
+<span class="md-ellipsis">
+    PWN
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../CS/CTF/04-reverse.html">
+<span class="md-ellipsis">
+    Reverse
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../CS/CTF/05-crypto.html">
+<span class="md-ellipsis">
+    Crypto
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../CS/CTF/06-CPS.html">
+<span class="md-ellipsis">
+    信息物理系统安全
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="0">
+<span class="md-ellipsis">
+    Web3
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_5_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_5">
+<span class="md-nav__icon md-icon"></span>
+            Web3
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../CS/Web3/blockchain.html">
+<span class="md-ellipsis">
+    以太坊区块链基础
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../CS/Web3/contract.html">
+<span class="md-ellipsis">
+    Contract
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../CS/Web3/solidity.html">
+<span class="md-ellipsis">
+    Solidity
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_6" id="__nav_5_6_label" tabindex="0">
+<span class="md-ellipsis">
+    Dev
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_6_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_6">
+<span class="md-nav__icon md-icon"></span>
+            Dev
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../CS/Dev/DingBot.html">
+<span class="md-ellipsis">
+    主流IM机器人
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../CS/Dev/missing_knowledge.html">
+<span class="md-ellipsis">
+    missing knowledge
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../CS/Dev/rules.html">
+<span class="md-ellipsis">
+    常识
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../CS/Dev/CI-CD.html">
+<span class="md-ellipsis">
+    CI/CD
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5_6_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_6_5" id="__nav_5_6_5_label" tabindex="0">
+<span class="md-ellipsis">
+    Language
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_6_5_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_5_6_5">
+<span class="md-nav__icon md-icon"></span>
+            Language
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../CS/Dev/Language/%E6%B1%87%E7%BC%96.html">
+<span class="md-ellipsis">
+    汇编
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../CS/Dev/Language/C.html">
+<span class="md-ellipsis">
+    C程序设计基础
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../CS/Dev/Language/C%2B%2B.html">
+<span class="md-ellipsis">
+    C++
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../CS/Dev/Language/Python.html">
+<span class="md-ellipsis">
+    Python
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../CS/Dev/Language/Dart.html">
+<span class="md-ellipsis">
+    Dart &amp; Flutter
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../CS/Dev/Language/Python_Package.html">
+<span class="md-ellipsis">
+    Python Packages
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5_6_5_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_6_5_7" id="__nav_5_6_5_7_label" tabindex="0">
+<span class="md-ellipsis">
+    Python速查
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_6_5_7_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_5_6_5_7">
+<span class="md-nav__icon md-icon"></span>
+            Python速查
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="https://seaborn.pydata.org/api.html">
+<span class="md-ellipsis">
+    Seaborn
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="https://pandas.pydata.org/docs/reference/index.html">
+<span class="md-ellipsis">
+    Pandas
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="https://docs.scipy.org/doc/scipy/reference/index.html">
+<span class="md-ellipsis">
+    Scipy
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5_6_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_6_6" id="__nav_5_6_6_label" tabindex="0">
+<span class="md-ellipsis">
+    Frontend
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_6_6_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_5_6_6">
+<span class="md-nav__icon md-icon"></span>
+            Frontend
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../CS/Dev/Frontend/HTML.html">
+<span class="md-ellipsis">
+    HTML | 超文本标记语言
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../CS/Dev/Frontend/CSS.html">
+<span class="md-ellipsis">
+    CSS | 层叠样式表
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../CS/Dev/Frontend/JavaScript.html">
+<span class="md-ellipsis">
+    JavaScript
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../CS/Dev/Frontend/electron.html">
+<span class="md-ellipsis">
+    Electron
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5_6_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_6_7" id="__nav_5_6_7_label" tabindex="0">
+<span class="md-ellipsis">
+    Backend
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_6_7_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_5_6_7">
+<span class="md-nav__icon md-icon"></span>
+            Backend
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../CS/Dev/Backend/SQL.html">
+<span class="md-ellipsis">
+    SQL
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../CS/Dev/Backend/Nodejs.html">
+<span class="md-ellipsis">
+    NodeJS
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../CS/Dev/Backend/PHP.html">
+<span class="md-ellipsis">
+    PHP 备忘录
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5_6_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_6_8" id="__nav_5_6_8_label" tabindex="0">
+<span class="md-ellipsis">
+    开源项目尝鲜
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_6_8_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_5_6_8">
+<span class="md-nav__icon md-icon"></span>
+            开源项目尝鲜
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../CS/Dev/vtuber.html">
+<span class="md-ellipsis">
+    数字人
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../CS/Dev/tampermonkey.html">
+<span class="md-ellipsis">
+    油猴脚本
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+<span class="md-ellipsis">
+    Class
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+            Class
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Class/%E9%A9%AC%E5%8E%9F.html">
+<span class="md-ellipsis">
+    从零开始的马原复习
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Class/ITP-%E5%88%9B%E4%B8%9A%E8%90%A5%E9%94%80.html">
+<span class="md-ellipsis">
+    创业营销
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Class/ITP-Law.html">
+<span class="md-ellipsis">
+    创业法律实务
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_6_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6_4" id="__nav_6_4_label" tabindex="0">
+<span class="md-ellipsis">
+    Oral
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_6_4">
+<span class="md-nav__icon md-icon"></span>
+            Oral
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Class/English/00-intro-IELTS.html">
+<span class="md-ellipsis">
+    IELTS
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Class/English/01-Listening.html">
+<span class="md-ellipsis">
+    01 | Listening
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Class/English/02-Reading.html">
+<span class="md-ellipsis">
+    02 | Reading
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Class/English/03-Writing.html">
+<span class="md-ellipsis">
+    03 | Writing
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Class/English/04-Speaking-IELTS.html">
+<span class="md-ellipsis">
+    04 | Speaking-IELTS
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Class/English/04-Speaking-TOFEL.html">
+<span class="md-ellipsis">
+    04 | Speaking-TOFEL
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_6_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6_5" id="__nav_6_5_label" tabindex="0">
+<span class="md-ellipsis">
+    Finance
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_5_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_6_5">
+<span class="md-nav__icon md-icon"></span>
+            Finance
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Class/Fin/consulting.html">
+<span class="md-ellipsis">
+    Consulting
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Class/Fin/industry-analyze.html">
+<span class="md-ellipsis">
+    行业观察
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_6_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6_6" id="__nav_6_6_label" tabindex="0">
+<span class="md-ellipsis">
+    Books
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_6_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_6_6">
+<span class="md-nav__icon md-icon"></span>
+            Books
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Class/Books/The%20Innovator%60s%20Dilemma.html">
+<span class="md-ellipsis">
+    创新者的窘境
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Class/Books/Philosophy.html">
+<span class="md-ellipsis">
+    西方哲学编年史
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Class/Books/Philosophy-by-topic.html">
+<span class="md-ellipsis">
+    哲学思想
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+<span class="md-ellipsis">
+    Tools
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_7_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
+            Tools
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_7_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7_1" id="__nav_7_1_label" tabindex="0">
+<span class="md-ellipsis">
+    Efficiency
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_7_1_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_7_1">
+<span class="md-nav__icon md-icon"></span>
+            Efficiency
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Tools/Efficiency/latex.html">
+<span class="md-ellipsis">
+    Latex备忘录
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Tools/Efficiency/typst.html">
+<span class="md-ellipsis">
+    Typst
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Tools/Efficiency/Makefile.html">
+<span class="md-ellipsis">
+    Makefile
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Tools/Efficiency/markdown.html">
+<span class="md-ellipsis">
+    Markdown
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Tools/Efficiency/vim.html">
+<span class="md-ellipsis">
+    Vim
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_7_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7_2" id="__nav_7_2_label" tabindex="0">
+<span class="md-ellipsis">
+    Environment
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_7_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_7_2">
+<span class="md-nav__icon md-icon"></span>
+            Environment
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Tools/Environment/Mkdocs.html">
+<span class="md-ellipsis">
+    Mkdocs
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Tools/Environment/Docker.html">
+<span class="md-ellipsis">
+    Docker
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Tools/Environment/JekyII.html">
+<span class="md-ellipsis">
+    Jekyll
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Tools/Environment/Linux.html">
+<span class="md-ellipsis">
+    Linux 应用技术基础
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Tools/Environment/Python.html">
+<span class="md-ellipsis">
+    Python 相关配置
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Tools/Environment/ROS.html">
+<span class="md-ellipsis">
+    ROS 操作
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Tools/Environment/reveal.js.html">
+<span class="md-ellipsis">
+    Node.js
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Tools/Environment/MCP.html">
+<span class="md-ellipsis">
+    MCP
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_7_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7_3" id="__nav_7_3_label" tabindex="0">
+<span class="md-ellipsis">
+    Software
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_7_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_7_3">
+<span class="md-nav__icon md-icon"></span>
+            Software
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Tools/Software/Git.html">
+<span class="md-ellipsis">
+    Git
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Tools/Software/Calculator.html">
+<span class="md-ellipsis">
+    计算器
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Tools/Software/GDB.html">
+<span class="md-ellipsis">
+    gdb
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Tools/Software/Matlab.html">
+<span class="md-ellipsis">
+    MATLAB使用记录
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Tools/Software/Solidworks.html">
+<span class="md-ellipsis">
+    SolidWorks
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Tools/Software/Tableau.html">
+<span class="md-ellipsis">
+    Tableau
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Tools/Software/AdobeIllustrator.html">
+<span class="md-ellipsis">
+    Adobe Illustrator
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Tools/Software/AdobePhotoshop.html">
+<span class="md-ellipsis">
+    Adobe Photoshop
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Tools/Software/Web.html">
+<span class="md-ellipsis">
+    网络相关软件使用
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Tools/Software/Xcode.html">
+<span class="md-ellipsis">
+    IOS开发
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_7_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7_4" id="__nav_7_4_label" tabindex="0">
+<span class="md-ellipsis">
+    工作环境配置
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_7_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_7_4">
+<span class="md-nav__icon md-icon"></span>
+            工作环境配置
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Tools/Environment/settings-software.html">
+<span class="md-ellipsis">
+    如何复制Phil Fan的工作环境
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Tools/Environment/settings-pc.html">
+<span class="md-ellipsis">
+    主机
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Tools/Environment/settings-macos.html">
+<span class="md-ellipsis">
+    MacOS
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Tools/Environment/settings-windows.html">
+<span class="md-ellipsis">
+    Windows
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Tools/Environment/settings-linux.html">
+<span class="md-ellipsis">
+    Linux
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Tools/Environment/settings-linux-kali.html">
+<span class="md-ellipsis">
+    Kali Linux
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Tools/Environment/settings-server.html">
+<span class="md-ellipsis">
+    Server
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Tools/Environment/settings-router.html">
+<span class="md-ellipsis">
+    Router
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+<span class="md-ellipsis">
+    生命因你而火热
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_8_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_8">
+<span class="md-nav__icon md-icon"></span>
+            生命因你而火热
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../classes_in_zju.html">
+<span class="md-ellipsis">
+    🏫浙大
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Interest/bean_knowledge.html">
+<span class="md-ellipsis">
+    豆知識
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_8_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8_3" id="__nav_8_3_label" tabindex="0">
+<span class="md-ellipsis">
+    🏃运动
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_8_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_8_3">
+<span class="md-nav__icon md-icon"></span>
+            🏃运动
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Interest/Exercise/exercise-fit.html">
+<span class="md-ellipsis">
+    减脂
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Interest/Exercise/exercise-swimming.html">
+<span class="md-ellipsis">
+    游泳
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Interest/Exercise/exercise-tennis.html">
+<span class="md-ellipsis">
+    台球
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Interest/Exercise/dance.html">
+<span class="md-ellipsis">
+    舞蹈
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_8_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8_4" id="__nav_8_4_label" tabindex="0">
+<span class="md-ellipsis">
+    🥢食为天
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_8_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_8_4">
+<span class="md-nav__icon md-icon"></span>
+            🥢食为天
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Interest/Eat/eat.html">
+<span class="md-ellipsis">
+    中餐食谱
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Interest/Eat/eat-west.html">
+<span class="md-ellipsis">
+    西餐食谱
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Interest/Eat/eat-hangzhou.html">
+<span class="md-ellipsis">
+    杭州
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Interest/Eat/coffee.html">
+<span class="md-ellipsis">
+    Coffee
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_8_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8_5" id="__nav_8_5_label" tabindex="0">
+<span class="md-ellipsis">
+    🗺️出行
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_8_5_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_8_5">
+<span class="md-nav__icon md-icon"></span>
+            🗺️出行
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Interest/Travel/C-Driving.html">
+<span class="md-ellipsis">
+    Drive
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Interest/Travel/C-journey.html">
+<span class="md-ellipsis">
+    Journey
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Interest/Travel/C-J-%E6%B5%99%E6%B1%9F.html">
+<span class="md-ellipsis">
+    浙江
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Interest/Travel/C-J-%E5%9B%9B%E5%B7%9D.html">
+<span class="md-ellipsis">
+    四川
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_8_5_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8_5_5" id="__nav_8_5_5_label" tabindex="0">
+<span class="md-ellipsis">
+    日本
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_8_5_5_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_8_5_5">
+<span class="md-nav__icon md-icon"></span>
+            日本
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Interest/Travel/C-J-Japan.html">
+<span class="md-ellipsis">
+    JP
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_8_5_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8_5_6" id="__nav_8_5_6_label" tabindex="0">
+<span class="md-ellipsis">
+    马来西亚
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_8_5_6_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_8_5_6">
+<span class="md-nav__icon md-icon"></span>
+            马来西亚
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Interest/Travel/C-J-MY.html">
+<span class="md-ellipsis">
+    马来西亚
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Interest/Travel/C-J-MY-KK.html">
+<span class="md-ellipsis">
+    亚庇
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Interest/Travel/C-J-MY-KL.html">
+<span class="md-ellipsis">
+    吉隆坡
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_8_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8_6" id="__nav_8_6_label" tabindex="0">
+<span class="md-ellipsis">
+    🎶音乐
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_8_6_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_8_6">
+<span class="md-nav__icon md-icon"></span>
+            🎶音乐
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Interest/Music/00-Music_Theory.html">
+<span class="md-ellipsis">
+    乐理
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Interest/Music/01-Piano_Class.html">
+<span class="md-ellipsis">
+    钢琴——从小小白到入门
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Interest/Music/02-Piano_SelfSelect.html">
+<span class="md-ellipsis">
+    钢琴——从入门到开始
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Interest/Music/03-Pinao_Classic.html">
+<span class="md-ellipsis">
+    钢琴曲目欣赏
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_8_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8_7" id="__nav_8_7_label" tabindex="0">
+<span class="md-ellipsis">
+    🎨审美
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_8_7_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_8_7">
+<span class="md-nav__icon md-icon"></span>
+            🎨审美
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Interest/Aesthetic/flower.html">
+<span class="md-ellipsis">
+    鲜花购买与插花
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Interest/Aesthetic/design.html">
+<span class="md-ellipsis">
+    案例 | 有趣的设计idea
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Interest/Aesthetic/powerpoint.html">
+<span class="md-ellipsis">
+    PowerPoint
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Interest/Aesthetic/Photography.html">
+<span class="md-ellipsis">
+    摄影 - 基础知识
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_8_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8_8" id="__nav_8_8_label" tabindex="0">
+<span class="md-ellipsis">
+    🎮游戏
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_8_8_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_8_8">
+<span class="md-nav__icon md-icon"></span>
+            🎮游戏
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Interest/Game/fifa.html">
+<span class="md-ellipsis">
+    FIFA 19
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Interest/Game/MC.html">
+<span class="md-ellipsis">
+    MineCraft
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_8_9" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8_9" id="__nav_8_9_label" tabindex="0">
+<span class="md-ellipsis">
+    💡常识
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_8_9_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_8_9">
+<span class="md-nav__icon md-icon"></span>
+            💡常识
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Interest/CommonKnowledge/social_security.html">
+<span class="md-ellipsis">
+    社会保障
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Interest/CommonKnowledge/insurance_social_insurance.html">
+<span class="md-ellipsis">
+    社会保险
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Interest/CommonKnowledge/insurance_commercial_insurance.html">
+<span class="md-ellipsis">
+    商业保险
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Interest/CommonKnowledge/labour.html">
+<span class="md-ellipsis">
+    劳动
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Interest/CommonKnowledge/house.html">
+<span class="md-ellipsis">
+    住房
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Interest/CommonKnowledge/rent.html">
+<span class="md-ellipsis">
+    租房
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="目录" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_1">
+<span class="md-ellipsis">
+      假设与归纳偏置
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#encoder-self-attention">
+<span class="md-ellipsis">
+      Encoder - Self Attention
+    </span>
+</a>
+<nav aria-label="Encoder - Self Attention" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#residual-connection">
+<span class="md-ellipsis">
+      residual connection
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#layer-norm">
+<span class="md-ellipsis">
+      Layer Norm
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#position-wise-feed-forward-network">
+<span class="md-ellipsis">
+      position-wise feed-forward network
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+<span class="md-ellipsis">
+      细节
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#-v-qv-vlow-rank-transformation">
+<span class="md-ellipsis">
+      - 把V的参数量= Q+V 即把V做low rank transformation
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#decoder-autoregressive">
+<span class="md-ellipsis">
+      Decoder - Autoregressive
+    </span>
+</a>
+<nav aria-label="Decoder - Autoregressive" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mask">
+<span class="md-ellipsis">
+      Mask
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+<span class="md-ellipsis">
+      长度
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#encoder-decoder">
+<span class="md-ellipsis">
+      Encoder-Decoder
+    </span>
+</a>
+<nav aria-label="Encoder-Decoder" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cross-attention">
+<span class="md-ellipsis">
+      Cross-attention
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+<span class="md-ellipsis">
+      训练
+    </span>
+</a>
+<nav aria-label="训练" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_5">
+<span class="md-ellipsis">
+      训练方法
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#optimizer">
+<span class="md-ellipsis">
+      Optimizer
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#regularization">
+<span class="md-ellipsis">
+      Regularization
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_6">
+<span class="md-ellipsis">
+      训练技巧
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#bleu">
+<span class="md-ellipsis">
+      BLEU
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#exposure-bias">
+<span class="md-ellipsis">
+      exposure bias
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#-">
+<span class="md-ellipsis">
+      应用 - 机器翻译
+    </span>
+</a>
+<nav aria-label="应用 - 机器翻译" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_7">
+<span class="md-ellipsis">
+      数据集介绍
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#metrics">
+<span class="md-ellipsis">
+      Metrics介绍
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_8">
+<span class="md-ellipsis">
+      代码实战
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_9">
+<span class="md-ellipsis">
+      拓展
+    </span>
+</a>
+<nav aria-label="拓展" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#decoder-nat">
+<span class="md-ellipsis">
+      Decoder - NAT
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_10">
+<span class="md-ellipsis">
+      超长文本
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#acknowledgement">
+<span class="md-ellipsis">
+      Acknowledgement
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<a class="md-content__button md-icon" href="https://github.com/Phil-Fan/Phil-Fan.github.io/edit/master/docs/AI/LLM/02-Transformer.md" title="编辑此页">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
+</a>
+<a class="md-content__button md-icon" href="https://github.com/Phil-Fan/Phil-Fan.github.io/raw/master/docs/AI/LLM/02-Transformer.md" title="查看本页的源代码">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"></path></svg>
+</a>
+<div><h1 id="transformer">Transformer<a class="headerlink" href="#transformer" title="anchor link to this section for reference">¶</a></h1>
+<div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
+<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>3375<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 17H7V3h14m0-2H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2M3 5H1v16a2 2 0 0 0 2 2h16v-2H3m12.96-10.71-2.75 3.54-1.96-2.36L8.5 15h11l-3.54-4.71Z"></path></svg></span> <span>7<span class="heti-spacing"> </span></span>张图片 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>13<span class="heti-spacing"> </span></span>分钟</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Transformer</p>
+<p>继<span><span class="heti-spacing"> </span>MLP</span>、CNN、<span>RNN<span class="heti-spacing"> </span></span>后的第四大类架构</p>
+</div>
+<iframe height="600px" src="https://arxiv.org/pdf/1706.03762" style="border: none;" width="100%">
+This browser does not support PDFs
+</iframe>
+<p>在<span><span class="heti-spacing"> </span>NLP</span>，CV、<span>media<span class="heti-spacing"> </span></span>等领域都有着广泛的应用，让不同领域的任务都可以使用同一个模型，任何领域的研究者做出的突破，都可以更快速度地被其他领域所使用</p>
+<p>人对世界的感知是多模态的，可以使用<span class="heti-skip"><span class="heti-spacing"> </span>Transformer<span class="heti-spacing"> </span></span>来处理多模态信息</p>
+<h2 id="_1">假设与归纳偏置<a class="headerlink" href="#_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<p>对空间的假设很少，模型非常<span><span class="heti-spacing"> </span>simple</span>，可以<span class="heti-skip"><span class="heti-spacing"> </span>train<span class="heti-spacing"> </span></span>的参数很少。但抓取数据中信息的能力变差了，所以需要更多的数据，更大的模型。</p>
+<p>优点：</p>
+<ul>
+<li>可并行</li>
+<li>独立于卷积和循环，完全依赖于<span class="heti-skip"><span class="heti-spacing"> </span>attention<span class="heti-spacing"> </span></span>处理全局依赖，解决长距离依赖问题</li>
+<li>性能强</li>
+</ul>
+<p><span>LSTM<span class="heti-spacing"> </span></span>相比于单纯的前馈神经网络，首先具有理解文本的语序关系的能力（RNN<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。除此之外，又解决了<span class="heti-skip"><span class="heti-spacing"> </span>RNN<span class="heti-spacing"> </span></span>在处理长序列时发生的梯度消失和梯度爆炸的问题。</p>
+<p><span>Transformer<span class="heti-spacing"> </span></span>进一步解决了<span><span class="heti-spacing"> </span>RNN</span>、<span>LSTM<span class="heti-spacing"> </span></span>等模型的长距离依赖问题，能够理解更长的上下文语义。可以并行化，所要的训练时间更短。</p>
+<p>缺点：</p>
+<ul>
+<li>长度固定</li>
+<li>局部信息的获取不如<span class="heti-skip"><span class="heti-spacing"> </span>RNN<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>CNN<span class="heti-spacing"> </span></span>强：<span>Transformer<span class="heti-spacing"> </span></span>关注的全局关系，而<span class="heti-skip"><span class="heti-spacing"> </span>RNN<span class="heti-spacing"> </span></span>在计算过程中更关注局部，对距离更加敏感</li>
+</ul>
+<p><img alt="" src="assets/02-Transformer.assets/202507022301371.png"/></p>
+<blockquote>
+<p>图源<span><span class="heti-spacing"> </span>Attention is all you need</span></p>
+</blockquote>
+<p>编码器将输入的符号序列<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\((x_1, ..., x_n)\)</span><span class="heti-spacing"> </span></span>映射为连续表示序列<span><span class="heti-spacing"> </span><span class="arithmatex">\(z = (z_1, ..., z_n)\)</span></span>。给定<span><span class="heti-spacing"> </span><span class="arithmatex">\(z\)</span></span>，解码器会一次生成一个符号，最终生成输出序列<span><span class="heti-spacing"> </span><span class="arithmatex">\((y_1, ..., y_m)\)</span></span>（注意<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(m\)</span><span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(n\)</span><span class="heti-spacing"> </span></span>不一定相等<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。</p>
+<p>在每一步中，模型都是自回归的，即在生成下一个符号时，会将之前生成的符号作为额外的输入。</p>
+<h2 id="encoder-self-attention">Encoder - Self Attention<a class="headerlink" href="#encoder-self-attention" title="anchor link to this section for reference">¶</a></h2>
+<p>需求： 输入一个序列，输出一个序列</p>
+<p><span>Encoder<span class="heti-spacing"> </span></span>由六个相同层构成，每层都有两个子层：多头自注意力层和全连接的前馈神经网络层（Linear+relu+dropout+Linear<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。使用残差连接和层归一化连接两个子层。</p>
+<h3 id="residual-connection">residual connection<a class="headerlink" href="#residual-connection" title="anchor link to this section for reference">¶</a></h3>
+<div class="arithmatex">\[
+Output = LayerNorm(x + Sublayer(x))
+\]</div>
+<p>其中，<span><span class="arithmatex">\(x\)</span><span class="heti-spacing"> </span></span>是输入，<span><span class="arithmatex">\(\text{Sublayer}(x)\)</span><span class="heti-spacing"> </span></span>是对<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(x\)</span><span class="heti-spacing"> </span></span>应用的子层操作，如自注意力或前馈网络。残差连接有助于解决深度模型中的梯度消失问题，使得更深层次的模型训练成为可能。</p>
+<p>为了实现残差连接，需要让输入和输出具有相同的维度</p>
+<p>作用：同<span><span class="heti-spacing"> </span>resnet</span>，解决梯度消失，防止过拟合<span><span class="heti-spacing"> </span>;</span></p>
+<p>通过直接将输入加到子层的输出上，使得深层网络中的信号能够直接传递到较浅层，有助于缓解梯度消失问题。</p>
+<h3 id="layer-norm">Layer Norm<a class="headerlink" href="#layer-norm" title="anchor link to this section for reference">¶</a></h3>
+<p><span>BatchNorm<span class="heti-spacing"> </span></span>是对一个<span class="heti-skip"><span class="heti-spacing"> </span>batch-size<span class="heti-spacing"> </span></span>样本内的每个特征<strong>分别</strong>做归一化，<span>LayerNorm<span class="heti-spacing"> </span></span>是分别对每个样本的所有特征做归一化。</p>
+<p><img alt="" src="assets/02-Transformer.assets/202507030922846.png"/></p>
+<p><span>BN<span class="heti-spacing"> </span></span>抹杀了不同特征之间的大小关系，但是保留了不同样本间的大小关系；<span>LN<span class="heti-spacing"> </span></span>抹杀了不同样本间的大小关系，但是保留了一个样本内不同特征之间的大小关系。</p>
+<p><strong>layer normalization:</strong> 对每个样本进行归一化，计算<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(m_x\)</span><span class="heti-spacing"> </span></span>和<span><span class="heti-spacing"> </span><span class="arithmatex">\(\sigma_x\)</span></span>，然后归一化<span><span class="heti-spacing"> </span><span class="arithmatex">\(x_i' = \frac{x_i - m_x}{\sigma_x}\)</span></span></p>
+<p><strong>batch normalization:</strong> 对每个<span class="heti-skip"><span class="heti-spacing"> </span>feture<span class="heti-spacing"> </span></span>进行归一化</p>
+<div class="admonition note">
+<p class="admonition-title">为什么什么使用<span class="heti-skip"><span class="heti-spacing"> </span>layer norm<span class="heti-spacing"> </span></span>而不是<span><span class="heti-spacing"> </span>batch norm</span></p>
+<p>在时序模型当中，我们的样本长度可能会发生变化，使用<span class="heti-skip"><span class="heti-spacing"> </span>batch norm<span class="heti-spacing"> </span></span>计算均值和方差，在小批量的情况下，抖动会比较大</p>
+<p>另外在预测的时候，如果遇到了极端样本，需要计算全局的均值和方差，使用<span class="heti-skip"><span class="heti-spacing"> </span>batch norm<span class="heti-spacing"> </span></span>可能没有见过极端长的样本</p>
+<p><span>layer norm<span class="heti-spacing"> </span></span>不需要计算全局的均值和方差，<span>LN<span class="heti-spacing"> </span></span>是针对每个样本序列进行归一化，没有样本间依赖，对一个序列的不同特征维度进行归一化。</p>
+<p><span>CV<span class="heti-spacing"> </span></span>使用<span class="heti-skip"><span class="heti-spacing"> </span>BN<span class="heti-spacing"> </span></span>是因为认为通道维度的信息对<span class="heti-skip"><span class="heti-spacing"> </span>cv<span class="heti-spacing"> </span></span>方面有重要意义，如果对通道维度也归一化会造成不同通道信息一定的损失。<span>NLP<span class="heti-spacing"> </span></span>认为句子长短不一，且各<span class="heti-skip"><span class="heti-spacing"> </span>batch<span class="heti-spacing"> </span></span>之间的信息没有什么关系，因此只考虑句子内信息的归一化</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title"><span>BN<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>LN<span class="heti-spacing"> </span></span>的使用场景</p>
+<blockquote>
+<p>来自<a href="https://zhuanlan.zhihu.com/p/647813604">一文搞懂<span class="heti-skip"><span class="heti-spacing"> </span>Batch Normalization<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>Layer Normalization -<span class="heti-spacing"> </span></span>知乎</a></p>
+</blockquote>
+<p>在<span class="heti-skip"><span class="heti-spacing"> </span>BN<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>LN<span class="heti-spacing"> </span></span>都能使用的场景中，<span>BN<span class="heti-spacing"> </span></span>的效果一般优于<span><span class="heti-spacing"> </span>LN</span>，原因是基于不同数据，同一特征得到的归一化特征更不容易损失信息。但是有些场景是不能使用<span class="heti-skip"><span class="heti-spacing"> </span>BN<span class="heti-spacing"> </span></span>的，例如<span class="heti-skip"><span class="heti-spacing"> </span>batch size<span class="heti-spacing"> </span></span>较小或者序列问题中可以使用<span><span class="heti-spacing"> </span>LN</span>。这也就解答了<span class="heti-skip"><span class="heti-spacing"> </span>RNN<span class="heti-spacing"> </span></span>或<span class="heti-skip"><span class="heti-spacing"> </span>Transformer<span class="heti-spacing"> </span></span>为什么用<span><span class="heti-spacing"> </span>Layer Normalization</span>？</p>
+<p>首先<span class="heti-skip"><span class="heti-spacing"> </span>RNN<span class="heti-spacing"> </span></span>或<span class="heti-skip"><span class="heti-spacing"> </span>Transformer<span class="heti-spacing"> </span></span>解决的是序列问题，一个存在的问题是不同样本的序列长度不一致，而<span class="heti-skip"><span class="heti-spacing"> </span>Batch Normalization<span class="heti-spacing"> </span></span>需要对不同样本的同一位置特征进行标准化处理，所以无法应用；当然，输入的序列都要做<span class="heti-skip"><span class="heti-spacing"> </span>padding<span class="heti-spacing"> </span></span>补齐操作，但是补齐的位置填充的都是<span><span class="heti-spacing"> </span>0</span>，这些位置都是无意义的，此时的标准化也就没有意义了。</p>
+<p>其次上面说到，<span>BN<span class="heti-spacing"> </span></span>抹杀了不同特征之间的大小关系；<span>LN<span class="heti-spacing"> </span></span>是保留了一个样本内不同特征之间的大小关系，这对<span class="heti-skip"><span class="heti-spacing"> </span>NLP<span class="heti-spacing"> </span></span>任务是至关重要的。对于<span class="heti-skip"><span class="heti-spacing"> </span>NLP<span class="heti-spacing"> </span></span>或者序列任务来说，一条样本的不同特征，其实就是时序上的变化，这正是需要学习的东西自然不能做归一化抹杀，所以要用<span><span class="heti-spacing"> </span>LN</span>。</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">为什么<span class="heti-skip"><span class="heti-spacing"> </span>layer norm<span class="heti-spacing"> </span></span>在<span class="heti-skip"><span class="heti-spacing"> </span>fn<span class="heti-spacing"> </span></span>层之后？</p>
+<p><a href="https://dl.acm.org/doi/pdf/10.5555/3524938.3525913">on layer normalization in the transformer architecture</a></p>
+</div>
+<p><span>Layer Norm<span class="heti-spacing"> </span></span>的新研究</p>
+<iframe height="600px" src="https://arxiv.org/pdf/1911.07013" style="border: none;" width="100%">
+This browser does not support PDFs
+</iframe>
+<h3 id="position-wise-feed-forward-network">position-wise feed-forward network<a class="headerlink" href="#position-wise-feed-forward-network" title="anchor link to this section for reference">¶</a></h3>
+<p>相当于一个<span class="heti-skip"><span class="heti-spacing"> </span>MLP(<span class="heti-spacing"> </span></span>线性层<span class="heti-skip"><span class="heti-spacing"> </span>+ReLu+<span class="heti-spacing"> </span></span>线性层<span><span class="heti-spacing"> </span>)</span></p>
+<div class="arithmatex">\[
+FFN(x) = max(0, xW_1 + b_1)W_2 + b_2
+\]</div>
+<p><img alt="" src="assets/02-Transformer.assets/202507040928454.png"/>
+- <span class="arithmatex">\(x\)</span>: 512维</p>
+<ul>
+<li><span><span class="arithmatex">\(W_1\)</span>:<span class="heti-spacing"> </span></span>升维至<span><span class="heti-spacing"> </span>2048</span></li>
+</ul>
+<ul>
+<li><span><span class="arithmatex">\(W_2\)</span>:<span class="heti-spacing"> </span></span>降维至<span><span class="heti-spacing"> </span>512</span></li>
+</ul>
+<p><span>attention<span class="heti-spacing"> </span></span>层已经含有了想要的信息，进行<span class="heti-skip"><span class="heti-spacing"> </span>MLP<span class="heti-spacing"> </span></span>变换的目的是变换到想要的语义空间上去<span class="heti-skip"><span class="heti-spacing"> </span>.<span class="heti-spacing"> </span></span>它在每个位置上独立地作用于其输入，有助于增加模型的复杂度和表达能力。</p>
+<p>其中，<span>activation<span class="heti-spacing"> </span></span>指激活函数，<span>Transformer<span class="heti-spacing"> </span></span>最开始用是<span><span class="heti-spacing"> </span>ReLU</span>，</p>
+<p>之后的模型对这部分有改进，依次是：</p>
+<div class="arithmatex">\[
+ReLU \rightarrow GELU \rightarrow Swish(SiLU) \rightarrow SwiGLU
+\]</div>
+<p>现在主流的<span class="heti-skip"><span class="heti-spacing"> </span>LLM<span class="heti-spacing"> </span></span>比如<span><span class="heti-spacing"> </span>Llama</span>、<span>Qwen<span class="heti-spacing"> </span></span>大多采用<span><span class="heti-spacing"> </span>SwiGLU</span></p>
+<div class="admonition note">
+<p class="admonition-title">大模型的事实存储在<span class="heti-skip"><span class="heti-spacing"> </span>MLP<span class="heti-spacing"> </span></span>层当中</p>
+<p>详见<span class="heti-skip"><span class="heti-spacing"> </span>GPT<span class="heti-spacing"> </span></span>一节</p>
+</div>
+<h3 id="_2">细节<a class="headerlink" href="#_2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p><span>self-attention<span class="heti-spacing"> </span></span>层只需要学<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(W_Q,W_K,W_V\)</span><span class="heti-spacing"> </span></span>三个矩阵，参数数目是<span><span class="heti-spacing"> </span><span class="arithmatex">\(3*d_{model}\)</span></span></p>
+<p>对于相似的矩阵计算，使用<span class="heti-skip"><span class="heti-spacing"> </span>concat<span class="heti-spacing"> </span></span>化简表达</p>
+<h2 id="-v-qv-vlow-rank-transformation"><span>-<span class="heti-spacing"> </span></span>把<span class="heti-skip"><span class="heti-spacing"> </span>V<span class="heti-spacing"> </span></span>的参数量<span class="heti-skip"><span class="heti-spacing"> </span>= Q+V<span class="heti-spacing"> </span></span>即把<span class="heti-skip"><span class="heti-spacing"> </span>V<span class="heti-spacing"> </span></span>做<span><span class="heti-spacing"> </span>low rank transformation</span><a class="headerlink" href="#-v-qv-vlow-rank-transformation" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="decoder-autoregressive">Decoder - Autoregressive<a class="headerlink" href="#decoder-autoregressive" title="anchor link to this section for reference">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">什么叫做自回归</p>
+<p>过去时候的输出，作为现在的输入</p>
+<p>有点类似于最近图书馆里面的拼贴诗接龙游戏</p>
+</div>
+<p><img alt="" src="assets/02-Transformer.assets/202507030949023.png"/></p>
+<blockquote>
+<p>图源 李宏毅老师<span><span class="heti-spacing"> </span>ppt</span></p>
+</blockquote>
+<p>需要先给一个开始的信号 —— begin of sentence token，<span>decoder<span class="heti-spacing"> </span></span>会吐出一个<span class="heti-skip"><span class="heti-spacing"> </span>vocabulary size<span class="heti-spacing"> </span></span>的向量，然后通过<span class="heti-skip"><span class="heti-spacing"> </span>softmax<span class="heti-spacing"> </span></span>得到概率分布，然后选择概率最大的<span class="heti-skip"><span class="heti-spacing"> </span>token<span class="heti-spacing"> </span></span>作为输出</p>
+<p>然后把之前输出的<span class="heti-skip"><span class="heti-spacing"> </span>token<span class="heti-spacing"> </span></span>作为输入，继续输出，直到遇到结束的信号 —— end of sentence token</p>
+<blockquote>
+<p>vocabulary size： 需要提前想好你的数据量大小，取决于任务（比如翻译任务，你的<span class="heti-skip"><span class="heti-spacing"> </span>vocabulary<span class="heti-spacing"> </span></span>可以是常见的<span class="heti-skip"><span class="heti-spacing"> </span>3000<span class="heti-spacing"> </span></span>个汉字）</p>
+</blockquote>
+<h3 id="mask">Mask<a class="headerlink" href="#mask" title="anchor link to this section for reference">¶</a></h3>
+<p>Mask：不要让后面的<span class="heti-skip"><span class="heti-spacing"> </span>token<span class="heti-spacing"> </span></span>影响前面的，在<span class="heti-skip"><span class="heti-spacing"> </span>softmax<span class="heti-spacing"> </span></span>之前把左下角矩阵改成负无穷</p>
+<p>处理结果，在<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(t\)</span><span class="heti-spacing"> </span></span>时刻的值，只看<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(t-1\)</span><span class="heti-spacing"> </span></span>及之前的<span><span class="heti-spacing"> </span>Q</span>、K</p>
+<p><img alt="" src="assets/02-Transformer.assets/202507041132597.png" width="50%"/></p>
+<div class="admonition note">
+<p class="admonition-title">why masked</p>
+<p>让输入序列只看到过去的信息，而看不到未来的信息。</p>
+<ul>
+<li>对于<span class="heti-skip"><span class="heti-spacing"> </span>encoder<span class="heti-spacing"> </span></span>来说，所有<span class="heti-skip"><span class="heti-spacing"> </span>token<span class="heti-spacing"> </span></span>都是可见的，是并行处理的</li>
+<li>但是对于<span class="heti-skip"><span class="heti-spacing"> </span>decoder<span class="heti-spacing"> </span></span>来说，只能看到前面的<span><span class="heti-spacing"> </span>token</span>，所以需要<span><span class="heti-spacing"> </span>mask</span>。先有<span><span class="heti-spacing"> </span>a1</span>，然后有<span><span class="heti-spacing"> </span>a2</span>，然后有<span><span class="heti-spacing"> </span>a3</span>，然后有<span><span class="heti-spacing"> </span>a4</span>，需要把未来的<span class="heti-skip"><span class="heti-spacing"> </span>token<span class="heti-spacing"> </span></span>都<span class="heti-skip"><span class="heti-spacing"> </span>mask<span class="heti-spacing"> </span></span>掉</li>
+</ul>
+</div>
+<h3 id="_3">长度<a class="headerlink" href="#_3" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>使用<span class="heti-skip"><span class="heti-spacing"> </span>END<span class="heti-spacing"> </span></span>表示结束，<span>begin<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>end<span class="heti-spacing"> </span></span>是同一个符号</p>
+<p>如何输出<span class="heti-skip"><span class="heti-spacing"> </span>END<span class="heti-spacing"> </span></span>呢？</p>
+<h2 id="encoder-decoder">Encoder-Decoder<a class="headerlink" href="#encoder-decoder" title="anchor link to this section for reference">¶</a></h2>
+<h3 id="cross-attention">Cross-attention<a class="headerlink" href="#cross-attention" title="anchor link to this section for reference">¶</a></h3>
+<p>交互方式：
+Cross Self-attention，Decoder提供<span class="arithmatex">\(Q\)</span>，Encoder提供<span class="arithmatex">\(K\)</span>，<span class="arithmatex">\(V\)</span>。</p>
+<p><img alt="" src="assets/02-Transformer.assets/202507030934992.png" width="40%"/></p>
+<p><span>Query<span class="heti-spacing"> </span></span>来自下一个<span class="heti-skip"><span class="heti-spacing"> </span>attention<span class="heti-spacing"> </span></span>的输入 </p>
+<p>如果解码器的<span class="heti-skip"><span class="heti-spacing"> </span>Query<span class="heti-spacing"> </span></span>与编码器输出的<span class="heti-skip"><span class="heti-spacing"> </span>key<span class="heti-spacing"> </span></span>相似度较高，那么给予更高的<span><span class="heti-spacing"> </span>attention</span></p>
+<p>相当于根据解码器的输入，去挑选编码器中感兴趣的东西</p>
+<h2 id="_4">训练<a class="headerlink" href="#_4" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<p><span>Transformer<span class="heti-spacing"> </span></span>看起来模型比较复杂，但几乎没有什么可以调节的参数，大部分都是可以根据比例算的。</p>
+<p><img alt="" src="assets/02-Transformer.assets/202507022311529.png"/></p>
+<blockquote>
+<p>图源<span><span class="heti-spacing"> </span>Attention is all you need</span></p>
+</blockquote>
+<h3 id="_5">训练方法<a class="headerlink" href="#_5" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p><strong>teacher forcing</strong></p>
+<p>让<span class="heti-skip"><span class="heti-spacing"> </span>decoder<span class="heti-spacing"> </span></span>输出的<span class="heti-skip"><span class="heti-spacing"> </span>distribution<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>ground truth<span class="heti-spacing"> </span></span>的<span class="heti-skip"><span class="heti-spacing"> </span>distribution<span class="heti-spacing"> </span></span>越接近越好</p>
+<p><span>metrics<span class="heti-spacing"> </span></span>是<span><span class="heti-spacing"> </span>cross entropy</span>，和分类比较相似</p>
+<h3 id="optimizer">Optimizer<a class="headerlink" href="#optimizer" title="anchor link to this section for reference">¶</a></h3>
+<p>学习率预热策略通过逐渐增加学习率，直到达到一个最大值，然后可能会逐渐降低</p>
+<p>We used the Adam optimizer with <span class="arithmatex">\(\beta_1=0.9,\beta_2=0.98\)</span> and <span class="arithmatex">\(\epsilon=10^{-9}.\)</span> We varied the learning rate over the course of training, according to the formula:</p>
+<div class="arithmatex">\[
+lr=d_{\mathrm{model}}^{-0.5}\cdot\min\{step\_num^{-0.5},step\_num\cdot warmup\_steps^{-1.5}\}
+\]</div>
+<p>This corresponds to increasing the learning rate linearly for the first <code>warmup_steps</code> training steps, and decreasing it there after proportionally to the inverse square root of the step number. We used <code>warmup_steps=4000</code></p>
+<h3 id="regularization">Regularization<a class="headerlink" href="#regularization" title="anchor link to this section for reference">¶</a></h3>
+<ol>
+<li>
+<p>residual dropout, <span class="arithmatex">\(P_{drop} = 0.1\)</span>：在每个子层（<span>self-attention<span class="heti-spacing"> </span></span>和<span><span class="heti-spacing"> </span>feed-forward network</span>）的输出处添加<span><span class="heti-spacing"> </span>dropout</span>，丢弃率为<span><span class="heti-spacing"> </span>0.1</span>。这种<span class="heti-skip"><span class="heti-spacing"> </span>dropout<span class="heti-spacing"> </span></span>应用在残差连接之前，可以防止模型过拟合。具体来说：</p>
+<ul>
+<li>在<span class="heti-skip"><span class="heti-spacing"> </span>self-attention<span class="heti-spacing"> </span></span>层和<span class="heti-skip"><span class="heti-spacing"> </span>feed-forward<span class="heti-spacing"> </span></span>层的输出上应用<span><span class="heti-spacing"> </span>dropout</span></li>
+<li>然后再与该层的输入进行残差连接</li>
+</ul>
+</li>
+<li>
+<p>label smoothing：一种正则化技术，起源于<span><span class="heti-spacing"> </span>Inception v3</span>。传统的<span class="heti-skip"><span class="heti-spacing"> </span>one-hot<span class="heti-spacing"> </span></span>标签<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>如<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(y = [0,0,1,0]\)</span>)<span class="heti-spacing"> </span></span>要求模型输出完全确定的<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>或<span><span class="heti-spacing"> </span>1</span>，这可能导致过拟合。<span>Label smoothing<span class="heti-spacing"> </span></span>通过将标签值<span class="heti-skip"><span class="heti-spacing"> </span>"<span class="heti-spacing"> </span></span>软化<span><span class="heti-spacing"> </span>"</span>（如<span><span class="heti-spacing"> </span><span class="arithmatex">\(y' = [0.1,0.1,0.7,0.1]\)</span></span><heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，使模型学习到更平滑的分布。具体来说<span><span class="heti-spacing"> </span>:</span></p>
+<ul>
+<li>原始<span class="heti-skip"><span class="heti-spacing"> </span>one-hot<span class="heti-spacing"> </span></span>标签<span><span class="heti-spacing"> </span>: <span class="arithmatex">\(y = [0,0,1,0]\)</span></span> </li>
+<li>平滑后的标签<span><span class="heti-spacing"> </span>: <span class="arithmatex">\(y' = (1-\alpha)y + \alpha/K\)</span></span></li>
+</ul>
+<p>其中<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\alpha\)</span><span class="heti-spacing"> </span></span>是平滑参数<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>通常<span><span class="heti-spacing"> </span>0.1)</span>，<span><span class="arithmatex">\(K\)</span><span class="heti-spacing"> </span></span>是类别数。这样可以<span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span>防止模型过于自信，提高泛化能力，增强模型鲁棒性</p>
+</li>
+</ol>
+<h3 id="_6">训练技巧<a class="headerlink" href="#_6" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p><strong>参数共享</strong></p>
+<p>在<span class="heti-skip"><span class="heti-spacing"> </span>Transformer<span class="heti-spacing"> </span></span>模型中，特定层（如编码器中的多个相同层）之间或特定操作（如多头注意力中的头）之间共享参数，可以减少模型的总参数量，有助于减轻过拟合。</p>
+<p><strong>梯度裁剪</strong></p>
+<p>梯度裁剪通过设定一个阈值<span><span class="heti-spacing"> </span><span class="arithmatex">\(\theta\)</span></span>，将梯度向量<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(g\)</span><span class="heti-spacing"> </span></span>裁剪为：<span><span class="arithmatex">\(g^{\prime}=\min\left(1,\frac\theta{\|g\|}\right)g\)</span><span class="heti-spacing"> </span></span>这样做
+是为了防止在训练过程中出现梯度爆炸问题，确保模型的稳定训练。</p>
+<p><strong>copy mechanism</strong></p>
+<div class="highlight"><pre><span></span><code>User: hello, I'm John.
+Machine: hello, John, nice to meet you.
+</code></pre></div>
+<ul>
+<li>pointer network</li>
+</ul>
+<p><strong>Guided attention</strong></p>
+<blockquote>
+<p>训练<span><span class="heti-spacing"> </span>TTS</span>，读四遍“发财”是可以的，但是只读一遍“发财”是不行的</p>
+</blockquote>
+<p>要求机器按照某种特定的方式<span><span class="heti-spacing"> </span>attention</span>，需要有一些</p>
+<ul>
+<li>monotonic attention</li>
+<li>location-aware attention</li>
+</ul>
+<p><strong>Beam search</strong></p>
+<p><span>greedy decoding<span class="heti-spacing"> </span></span>不一定是最好的方法，因为可能错过最优解 </p>
+<p>而<span class="heti-skip"><span class="heti-spacing"> </span>beam search<span class="heti-spacing"> </span></span>是一种受限的宽度优先搜索，有一个超参数<span><span class="heti-spacing"> </span>beam width</span>，表示每次搜索的宽度</p>
+<p>每一个时刻，保留得分最高的<span class="heti-skip"><span class="heti-spacing"> </span>k<span class="heti-spacing"> </span></span>个序列，下一个时刻，使用这些序列继续生成</p>
+<blockquote>
+<p>有时候有用，有时候没用
+如果答案非常确定，那么beam search 可能表现不错。</p>
+<p>但是，如果答案不明确，那么<span class="heti-skip"><span class="heti-spacing"> </span>beam search<span class="heti-spacing"> </span></span>可能表现不好。</p>
+</blockquote>
+<h3 id="bleu">BLEU<a class="headerlink" href="#bleu" title="anchor link to this section for reference">¶</a></h3>
+<blockquote>
+<p>机器翻译的评价指标</p>
+</blockquote>
+<p>minimize cross entropy is not equivalent to maximize BLEU</p>
+<p>and using BLEU score as a metric is not a good idea because it's impossible to calc the derivative of BLEU</p>
+<p>so when you don't know how to optimize BLEU, use BLEU as the reward function of reinforcement learning</p>
+<h3 id="exposure-bias">exposure bias<a class="headerlink" href="#exposure-bias" title="anchor link to this section for reference">¶</a></h3>
+<p>推理的时候，<span>decoder<span class="heti-spacing"> </span></span>可能看到错误的东西</p>
+<p>但是在训练的过程中， 一直看到的是正确的结果</p>
+<p>即如何解决一步错，步步错的问题</p>
+<p><strong>scheduled sampling</strong></p>
+<p>合理的方法是给<span class="heti-skip"><span class="heti-spacing"> </span>decode<span class="heti-spacing"> </span></span>一些<span><span class="heti-spacing"> </span>noise</span>，让<span class="heti-skip"><span class="heti-spacing"> </span>decoder<span class="heti-spacing"> </span></span>看到一些错误的东西</p>
+<ul>
+<li><a href="https://arxiv.org/abs/1506.03099">Original Scheduled Sampling</a></li>
+</ul>
+<ul>
+<li><a href="https://arxiv.org/abs/1906.07651">Scheduled Sampling for Transformer</a></li>
+</ul>
+<ul>
+<li><a href="https://arxiv.org/abs/1906.04331">Parallel Scheduled Sampling</a> </li>
+</ul>
+<h2 id="-">应用<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>机器翻译<a class="headerlink" href="#-" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h3 id="_7">数据集介绍<a class="headerlink" href="#_7" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>Multi30K</p>
+<iframe height="600px" src="https://arxiv.org/pdf/1605.00459" style="border: none;" width="100%">
+This browser does not support PDFs
+</iframe>
+<h3 id="metrics"><span>Metrics<span class="heti-spacing"> </span></span>介绍<a class="headerlink" href="#metrics" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h2 id="_8">代码实战<a class="headerlink" href="#_8" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<ul>
+<li><a href="https://github.com/hyunwoongko/transformer">hyunwoongko/transformer: Transformer</a>: PyTorch Implementation of "Attention Is All You Need"</li>
+</ul>
+<ul>
+<li><a href="https://github.com/bentrevett/pytorch-seq2seq/">bentrevett/pytorch-seq2seq</a>
+    Tutorials on implementing a few sequence-to-sequence (seq2seq) models with PyTorch and TorchText.</li>
+</ul>
+<ul>
+<li><a href="https://github.com/jadore801120/attention-is-all-you-need-pytorch">jadore801120/attention-is-all-you-need-pytorch</a>: A PyTorch implementation of the Transformer model in "Attention is All You Need"</li>
+</ul>
+<ul>
+<li><a href="https://github.com/jayparks/transformer">jayparks/transformer</a>: A Pytorch Implementation of "Attention is All You Need" and "Weighted Transformer Network for Machine Translation"</li>
+</ul>
+<ul>
+<li><a href="https://huggingface.co/docs/transformers/main/zh/index">🤗 <span>Transformers<span class="heti-spacing"> </span></span>简介</a><span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span>库</li>
+<li><a href="https://github.com/huggingface/transformers/blob/main/awesome-transformers.md"><span>awesome-transformers<span class="heti-spacing"> </span></span></a><span>:<span class="heti-spacing"> </span></span>示例</li>
+<li><a href="https://mindnlpdocs.readthedocs.io/zh-cn/latest/api/models.html">Models — <span>MindNLP<span class="heti-spacing"> </span></span>文档</a></li>
+</ul>
+<h2 id="_9">拓展<a class="headerlink" href="#_9" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h3 id="decoder-nat">Decoder - NAT<a class="headerlink" href="#decoder-nat" title="anchor link to this section for reference">¶</a></h3>
+<p>non-autoregressive model</p>
+<p>长度如何决定：</p>
+<ul>
+<li>another predictor for output length</li>
+<li>输出一个超级长的序列，忽略<span class="heti-skip"><span class="heti-spacing"> </span>END<span class="heti-spacing"> </span></span>之后的<span><span class="heti-spacing"> </span>token</span></li>
+</ul>
+<p>优点：</p>
+<ul>
+<li>平行计算</li>
+<li>输出长度可控</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>效果不如<span><span class="heti-spacing"> </span>autoregressive model</span></li>
+<li>multi-modality</li>
+</ul>
+<h3 id="_10">超长文本<a class="headerlink" href="#_10" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p><a href="https://blog.csdn.net/valleria/article/details/105311340">基于<span class="heti-skip"><span class="heti-spacing"> </span>BERT<span class="heti-spacing"> </span></span>的超长文本分类模型<span class="heti-skip"><span class="heti-spacing"> </span>_valleria<span class="heti-spacing"> </span></span>的博客<span class="heti-skip"><span class="heti-spacing"> </span>-CSDN<span class="heti-spacing"> </span></span>博客<span class="heti-skip"><span class="heti-spacing"> </span>_<span class="heti-spacing"> </span></span>长文本分类</a></p>
+<p>基本思想：对数据进行有重叠的分割，这样分割之后的每句句子直接仍保留了一定的关联信息。
+模型由两部分构成，第一部分是fine-tune后的BERT，第二部分是由LSTM+FC层组成的混合模型。即，BERT只用来提取出句子的表示，而真正在做分类的是LSTM+FC部分。</p>
+<p>具体流程：首先将长句子分割为多个小句子，如长<span><span class="heti-spacing"> </span>200</span>，重叠长度为<span class="heti-skip"><span class="heti-spacing"> </span>50.<span class="heti-spacing"> </span></span>将分割后的数据集传入<span><span class="heti-spacing"> </span>BERT</span>，分别取每个句子的<span class="heti-skip"><span class="heti-spacing"> </span>[CLS]<span class="heti-spacing"> </span></span>表示句子的<span><span class="heti-spacing"> </span>embedding</span>，将来自相同长句子的<span class="heti-skip"><span class="heti-spacing"> </span>embedding<span class="heti-spacing"> </span></span>拼接，作为长句子的向量表示。最后，将长句子的向量表示传入<span class="heti-skip"><span class="heti-spacing"> </span>LSTM+FC<span class="heti-spacing"> </span></span>部分进行分类。</p>
+<p>除此之外，第二部分还可以用<span><span class="heti-spacing"> </span>Transformer</span>。</p>
+<h2 id="acknowledgement">Acknowledgement<a class="headerlink" href="#acknowledgement" title="anchor link to this section for reference">¶</a></h2>
+<iframe allowfullscreen="true" border="0" frameborder="no" framespacing="0" height="450px" scrolling="no" src="//player.bilibili.com/player.html?isOutside=true&amp;aid=577276749&amp;bvid=BV1wB4y1o7is&amp;cid=1303146845&amp;p=3&amp;autoplay=0" width="100%"></iframe>
+<iframe allowfullscreen="true" border="0" frameborder="no" framespacing="0" height="450px" scrolling="no" src="//player.bilibili.com/player.html?isOutside=true&amp;aid=577276749&amp;bvid=BV1wB4y1o7is&amp;cid=1303146955&amp;p=4&amp;autoplay=0" width="100%"></iframe>
+<iframe allowfullscreen="true" border="0" frameborder="no" framespacing="0" height="450px" scrolling="no" src="//player.bilibili.com/player.html?isOutside=true&amp;aid=506354287&amp;bvid=BV1pu411o7BE&amp;cid=432055065&amp;p=1&amp;autoplay=0" width="100%"></iframe>
+<iframe allowfullscreen="true" border="0" frameborder="no" framespacing="0" height="450px" scrolling="no" src="//player.bilibili.com/player.html?isOutside=true&amp;aid=113215035936825&amp;bvid=BV1aTxMehEjK&amp;cid=26046694390&amp;p=1&amp;autoplay=0" width="100%"></iframe></div>
+<aside class="md-source-file">
+<span class="md-source-file__fact">
+<span class="md-icon" title="最后更新">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
+</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年7月4日 22:06:05</span>
+</span>
+<span class="md-source-file__fact">
+<span class="md-icon" title="创建日期">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"></path></svg>
+</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年7月3日 10:00:48</span>
+</span>
+</aside>
+<form class="md-feedback" hidden="" name="feedback">
+<fieldset>
+<legend class="md-feedback__title">
+        Was this note helpful?
+      </legend>
+<div class="md-feedback__inner">
+<div class="md-feedback__list">
+<button class="md-feedback__icon md-icon" data-md-value="1" title="This page was helpful" type="submit">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m7 0c0 .8-.7 1.5-1.5 1.5S14 10.3 14 9.5 14.7 8 15.5 8s1.5.7 1.5 1.5m-5 7.73c-1.75 0-3.29-.73-4.19-1.81L9.23 14c.45.72 1.52 1.23 2.77 1.23s2.32-.51 2.77-1.23l1.42 1.42c-.9 1.08-2.44 1.81-4.19 1.81Z"></path></svg>
+</button>
+<button class="md-feedback__icon md-icon" data-md-value="0" title="This page could be improved" type="submit">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10m-6.5-4c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5-1.5-.7-1.5-1.5.7-1.5 1.5-1.5M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m2 4.5c1.75 0 3.29.72 4.19 1.81l-1.42 1.42C14.32 16.5 13.25 16 12 16s-2.32.5-2.77 1.23l-1.42-1.42C8.71 14.72 10.25 14 12 14Z"></path></svg>
+</button>
+</div>
+<div class="md-feedback__note">
+<div data-md-value="1" hidden="">
+              
+              
+                
+              
+              感谢支持~
+            </div>
+<div data-md-value="0" hidden="">
+              
+              
+                
+              
+              感谢指出，有任何问题可以直接评论~
+            </div>
+</div>
+</div>
+</fieldset>
+</form>
+</article>
+</div>
+<script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
+  回到页面顶部
+</button>
+</main>
+<footer class="md-footer">
+<nav aria-label="页脚" class="md-footer__inner md-grid">
+<a aria-label="上一页: 注意力机制" class="md-footer__link md-footer__link--prev" href="01-Attention.html">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</div>
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                上一页
+              </span>
+<div class="md-ellipsis">
+                注意力机制
+              </div>
+</div>
+</a>
+<a aria-label="下一页: GPT" class="md-footer__link md-footer__link--next" href="03-GPTs.html">
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                下一页
+              </span>
+<div class="md-ellipsis">
+                GPT
+              </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+<div class="md-copyright__highlight">
+      Copyright <span style="font-family:Arial;">©</span> 2025-2026 <a href="https://github.com/Phil-Fan" target="_blank">PhilFan</a>
+</div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+<div class="md-social">
+<a class="md-social__link" href="https://github.com/Phil-Fan" rel="noopener" target="_blank" title="PhilFan's Profile">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tracking", "navigation.tabs", "navigation.path", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.instant", "search.highlight", "search.suggest", "toc.follow", "content.code.annotate", "content.code.copy", "content.code.select", "content.tabs.link", "content.action.edit", "content.action.view"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+<script src="../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+<script src="../../style/javascripts/mathjax.js"></script>
+<script src="../../style/javascripts/toc.js"></script>
+<script src="../../style/javascripts/MathJax-3.2.2/es5/tex-mml-chtml.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+</body>
+</html>
