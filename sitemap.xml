@@ -6,12 +6,22 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://www.philfan.cn/changelog.html</loc>
+         <lastmod>2025-07-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://www.philfan.cn/classes_in_zju.html</loc>
          <lastmod>2025-07-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.philfan.cn/friends.html</loc>
+         <lastmod>2025-07-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/homepage.html</loc>
          <lastmod>2025-07-06</lastmod>
          <changefreq>daily</changefreq>
     </url>

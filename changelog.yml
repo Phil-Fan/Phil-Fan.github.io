@@ -1,0 +1,13 @@
+- "2025":
+  - "2025-07-06":
+    - function: 增加changelog
+  - "2025-07-04":
+    - newpage:
+        text: "[LLM]Transformer相关整理"
+        href: "/AI/LLM/"
+    - function: "重构逻辑，把AI作为一级目录"
+  - "2025-06-26":
+    - function: "增加mermaid支持，增加edit按钮"
+    - newpage:
+        text: "更新矩阵论笔记"
+        href: "/Math/LinearAlgebra/"
