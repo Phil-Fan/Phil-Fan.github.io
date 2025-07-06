@@ -56,6 +56,7 @@ theme:
     - content.tabs.link  # 支持内容中的标签链接
     - content.action.edit  # 支持编辑按钮 在页面右上角添加编辑按钮，跳转到源码仓库的对应文件
     - content.action.view  # 支持查看按钮 在页面右上角添加查看按钮，跳转到源码仓库的对应文件
+    - content.tooltips
 
 
   language: 'zh'
@@ -193,8 +194,10 @@ extra_javascript:
 # navigation: 注意左右下划线的写法
 nav:
 - Home: 
+  - homepage.md
   - index.md
   - todo.md
+  - changelog.md
   - "友链": friends.md
   
 
@@ -679,4 +682,7 @@ plugins:
       css_style:
         width: "50%"
 
+  # 支持changelog
+  # TonyCrane - https://github.com/TonyCrane/mkdocs-changelog-plugin
+  - changelog
   

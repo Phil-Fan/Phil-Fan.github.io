@@ -1,0 +1,50 @@
+{#-
+  This file was automatically generated - do not edit
+-#}
+{% extends "main.html" %}
+{% block tabs %}
+  {{ super() }}
+  <style>.md-header{position:initial}.md-main__inner{margin:0}.md-content{display:none}@media screen and (min-width:60em){.md-sidebar--secondary{display:none}}@media screen and (min-width:76.25em){.md-sidebar--primary{display:none}}</style>
+  <section class="mdx-container">
+    <div class="md-grid md-typeset">
+      <div class="mdx-hero">
+        <div class="mdx-hero__image">
+          <img src="style/images/hero.jpg" alt="" style="width: 100%; height: auto;" draggable="false">
+          <div style="text-align: right; font-size: 0.8em; margin-top: 4px; color: #666;">莫奈《昂蒂布的城堡》</div>
+        </div>
+        <div class="mdx-hero__content">
+          <h1>Technical documentation that just works</h1>
+          <p>{{ config.site_description }}. </p>
+          <div class="button-container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <a href="{{ page.next_page.url | url }}" title="进入笔记" class="md-button md-button--primary" style="display: grid; grid-template-columns: 20% 80%; align-items: center;">
+              <span class="twemoji" style="display: flex; align-items: center; justify-content: center;">
+                {% include ".icons/material/rocket-launch.svg" %}
+              </span>
+              <span style="display: flex; align-items: center; justify-content: center;">进入笔记</span>
+            </a>
+            <a href="{{ 'changelog.html' | url }}" title="更新日志" class="md-button" style="display: grid; grid-template-columns:20% 80%; align-items: center;">
+              <span class="twemoji" style="display: flex; align-items: center; justify-content: center;">
+                {% include ".icons/material/star.svg" %}
+              </span>
+              <span style="display: flex; align-items: center; justify-content: center;">更新日志</span>
+            </a>
+            <a href="{{ 'todo.html' | url }}" title="主页" class="md-button" style="display: grid; grid-template-columns: 20% 80%; align-items: center;">
+              <span class="twemoji" style="display: flex; align-items: center; justify-content: center;">
+                {% include ".icons/material/book-open-variant.svg" %}
+              </span>
+              <span style="display: flex; align-items: center; justify-content: center;">留言板</span>
+            </a>
+            <a href="{{ 'friends.html' | url }}" title="友情链接" class="md-button" style="display: grid; grid-template-columns: 20% 80%; align-items: center;">
+              <span class="twemoji" style="display: flex; align-items: center; justify-content: center;">
+                {% include ".icons/material/account-group.svg" %}
+              </span>
+              <span style="display: flex; align-items: center; justify-content: center;">朋友们</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
+{% block content %}{% endblock %}
+{% block footer %}{% endblock %}

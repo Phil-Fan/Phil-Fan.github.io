@@ -238,9 +238,9 @@ extra_javascript:
 !!! quote "这是 quote 类型的提示框"
 
 
-### 插件
+## 插件
 
-#### Github评论
+### Github评论
 
 - 安装[giscus](https://giscus.app/zh-CN)
 1. 安装 giscus GitHub App。这一步只需要在 GitHub 官网上点击安装即可。
@@ -432,6 +432,53 @@ lilypond -o output music.ly
 [Render LilyPond in Markdown](https://pianomanfrazier.com/post/lilypond-in-markdown/)
 
 [uliska/markdown-lilypond： 支持 LilyPond（符号软件）输入的 MkDocs 插件](https://github.com/uliska/markdown-lilypond)
+
+### changelog 
+
+[TonyCrane/mkdocs-changelog-plugin: A MkDocs plugin that create changelog in a page](https://github.com/TonyCrane/mkdocs-changelog-plugin?tab=readme-ov-file)
+
+
+在 mkdocs.yml 中启用插件：
+```yml
+plugins:
+    - changelog
+```
+changelog 从外部的 yaml 文件读取，默认在 docs/changelog.yml 中，可以通过 file 选项来选择其他位置：
+```yml
+plugins:
+  - changelog:
+      file: changelog.yml
+```
+按照格式编写 changelog yaml 文件（见下）
+在需要插入 changelog 的页面 meta 部分中添加：
+```yml
+changelog: True
+```
+在页面需要插入对应部分的位置添加：
+```
+{{ placeholder }}
+```
+
+
+```yml title="changelog.yml格式"
+- "placeholder1":
+  - "time1":
+    - "type": text
+    - "type": text
+- "placeholder":
+  - "time2":
+    - "type":
+        text: text
+        href: /link/to/page/
+    - "type":
+        text: text
+        href: /link/to/page/
+  - "time3":
+    - "type": text
+```
+
+示范
+[note/docs/changelog.yml at master · TonyCrane/note](https://github.com/TonyCrane/note/blob/master/docs/changelog.yml)
 
 ## 发布
 
