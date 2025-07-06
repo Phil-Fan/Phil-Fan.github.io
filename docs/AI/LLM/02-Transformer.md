@@ -132,6 +132,7 @@ FFN(x) = max(0, xW_1 + b_1)W_2 + b_2
 $$
 
 ![](assets/02-Transformer.assets/202507040928454.png)
+
 - $x$: 512维
 
 - $W_1$: 升维至2048
@@ -167,9 +168,7 @@ self-attention层只需要学$W_Q,W_K,W_V$三个矩阵，参数数目是 $3*d_{m
 
 对于相似的矩阵计算，使用concat化简表达
 
-
-- 把V的参数量= Q+V 即把V做low rank transformation
-- 
+把V的参数量= Q+V 即把V做low rank transformation
 
 
 
@@ -400,16 +399,31 @@ This browser does not support PDFs
 
 - [hyunwoongko/transformer: Transformer](https://github.com/hyunwoongko/transformer): PyTorch Implementation of "Attention Is All You Need"
 
-- [bentrevett/pytorch-seq2seq](https://github.com/bentrevett/pytorch-seq2seq/)
-    Tutorials on implementing a few sequence-to-sequence (seq2seq) models with PyTorch and TorchText.
-
 - [jadore801120/attention-is-all-you-need-pytorch](https://github.com/jadore801120/attention-is-all-you-need-pytorch): A PyTorch implementation of the Transformer model in "Attention is All You Need"
+### Transformers库
 
-- [jayparks/transformer](https://github.com/jayparks/transformer): A Pytorch Implementation of "Attention is All You Need" and "Weighted Transformer Network for Machine Translation"
+Transformers是由Hugging Face开发的一个自然语言处理库，提供了数千个预训练模型，支持多种深度学习框架如PyTorch、TensorFlow等。它的主要特点包括：
+
+- 易用性：提供简单的API接口，几行代码就能完成复杂的NLP任务
+- 灵活性：支持多种深度学习框架，可以根据需要选择
+- 完整性：包含了从预处理到模型训练的完整工具链
+- 开源社区：有活跃的开源社区支持，持续更新维护
+
+主要功能：
+
+- 文本分类、序列标注、问答系统等常见NLP任务
+- 支持多语言预训练模型
+- 提供模型训练和微调的工具
+- 包含数据处理和评估的完整pipeline
 
 - [🤗 Transformers简介](https://huggingface.co/docs/transformers/main/zh/index): 库
+- [Hello! · Transformers快速入门](https://transformers.run/)
 - [awesome-transformers](https://github.com/huggingface/transformers/blob/main/awesome-transformers.md): 示例
+
+### MindNLP
+
 - [Models — MindNLP 文档](https://mindnlpdocs.readthedocs.io/zh-cn/latest/api/models.html)
+
 ## 拓展
 ### Decoder - NAT
 

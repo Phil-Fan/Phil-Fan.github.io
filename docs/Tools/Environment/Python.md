@@ -2,8 +2,6 @@
 
 ## conda
 
-
-
 [conda换地址](https://blog.csdn.net/chengjinpei/article/details/119835339)
 
 

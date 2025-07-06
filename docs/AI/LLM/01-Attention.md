@@ -35,6 +35,7 @@ CNN只考虑卷积核的感受野，而attention考虑整个序列
 
 attention也可以说是特殊的CNN，相当于CNN的receptive filed是learn出来的
 
+
 <iframe src="https://arxiv.org/pdf/1911.03584" width="100%" height="600px" style="border: none;">
 This browser does not support PDFs
 </iframe>
@@ -600,7 +601,7 @@ This browser does not support PDFs
 
 
 <iframe src="https://arxiv.org/pdf/2103.03404" width="100%" height="600px" style="border: none;">
-Attention is not all you need
+This browser does not support PDFs
 </iframe>
 
 
@@ -618,7 +619,7 @@ Attention is not all you need
 
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=1154246338&bvid=BV1TZ421j7Ke&cid=1530196453&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"></iframe>
 
-<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=1353986541&bvid=BV13z421U7cs&cid=1525102356&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"></iframe>
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=577276749&bvid=BV1wB4y1o7is&cid=1303146692&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"></iframe>
 
 
-<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=1154246338&bvid=BV1TZ421j7Ke&cid=1530196453&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"></iframe>
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=577276749&bvid=BV1wB4y1o7is&cid=1303146918&p=2&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"></iframe>

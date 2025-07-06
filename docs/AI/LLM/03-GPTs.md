@@ -1,7 +1,7 @@
 # GPT
 
 
-!!! note "主要介绍一下decoder技术路线的模型，以GPT系列为主"
+!!! note "主要介绍一下decoder-only技术路线的模型，以GPT系列为主"
 
 
 

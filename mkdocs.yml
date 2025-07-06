@@ -282,13 +282,6 @@ nav:
 
 
 - AI: 
-    - "学习资源":
-        - 论文阅读: https://github.com/mli/paper-reading
-        - 南瓜书: https://datawhalechina.github.io/pumpkin-book/
-        - ISLR: https://www.statlearning.com/
-        - 统计学习方法习题解答: https://datawhalechina.github.io/statistical-learning-method-solutions-manual/
-        - d2l: https://zh.d2l.ai/index.html/
-    
 
     - "ADV | 生成式模型":
         - AI/ADV/00-intro.md
@@ -308,6 +301,7 @@ nav:
         - AI/LLM/05-Others.md
         - AI/LLM/06-Tricks.md
         - AI/LLM/07-LongChain.md
+        - AI/LLM/08-Manba.md
 
     - "DL | 深度学习":
         - AI/DL/00-Lingo.md
@@ -329,6 +323,14 @@ nav:
         - AI/ML/04-parameters.md
         - AI/ML/05-trick.md
         - AI/ML/Problem.md
+
+    - "学习资源":
+        - 论文阅读: https://github.com/mli/paper-reading
+        - 南瓜书: https://datawhalechina.github.io/pumpkin-book/
+        - ISLR: https://www.statlearning.com/
+        - 统计学习方法习题解答: https://datawhalechina.github.io/statistical-learning-method-solutions-manual/
+        - d2l: https://zh.d2l.ai/index.html/
+    
 
 
 
