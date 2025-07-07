@@ -1,7 +1,6 @@
 ---
 title: 留言板
 comments: true
-statistics: True
 ---
 
 # 欢迎来到PhilFan的笔记本

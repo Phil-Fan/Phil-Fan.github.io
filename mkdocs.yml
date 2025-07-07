@@ -195,10 +195,10 @@ extra_javascript:
 nav:
 - Home: 
   - homepage.md
-  - index.md
-  - todo.md
-  - changelog.md
-  - "友链": friends.md
+  - 留言版: index.md
+  - 待办事项: todo.md
+  - 更新记录: changelog.md
+  - 友链: friends.md
   
 
 - Math:
@@ -296,7 +296,6 @@ nav:
 
     - "LLM | 大模型":
         - AI/LLM/00-intro.md
-        - AI/LLM/00-Settings.md
         - AI/LLM/01-Attention.md
         - AI/LLM/02-Transformer.md
         - AI/LLM/03-GPTs.md
@@ -305,6 +304,7 @@ nav:
         - AI/LLM/06-Tricks.md
         - AI/LLM/07-LongChain.md
         - AI/LLM/08-Manba.md
+        - AI/LLM/exp.md
 
     - "DL | 深度学习":
         - AI/DL/00-Lingo.md
