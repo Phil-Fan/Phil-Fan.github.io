@@ -3,6 +3,9 @@
 
 [Mkdocs Material使用记录 - shafish.cn](https://shafish.cn/blog/mkdocs/#%E5%9B%9B%E9%83%A8%E7%BD%B2)
 
+
+
+- index.md 会放到小标题下的第一个页面
 ## Markdown
 
 

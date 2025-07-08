@@ -4,8 +4,6 @@
 !!! note "主要介绍一下decoder-only技术路线的模型，以GPT系列为主"
 
 
-
-
 ## 发展历程与chitchat
 
 
@@ -458,50 +456,39 @@ power law：不需要过度训练
 
 ## GPT-4
 
+- 对抗式的程式：给模型找茬
 
 
 
 
-## Interpretability
-
-词汇存在高维向量当中，向量的方向可以编码不同的含义
-
-![](assets/03-GPTs.assets/202507040930043.png)
-
-transformer大部分的参数在MLP层当中（约占用2/3的参数，GPT3 - 12亿）
-
-![](assets/03-GPTs.assets/202507040940946.png)
-
-第一个线性层可以使用行视角，视作嵌入空间中的方向
-
-ReLU 类似于与门，只有最终结果为正数时，才会输出
-
-第二个线性层，可以使用列视角，如果某个列向量学习到了“篮球”的概念，同时对应的向量又被激活
+- 为了align 使用了RLHF。但是模型 的能力不是通过RLHF提升的，而是通过堆数据堆算力得出的。RLHF是让模型让我们喜欢的方式输出
 
 
-![](assets/03-GPTs.assets/202507040938039.png)
+predictable scaling
+- 不可能一遍遍调参数，因为参数太多，调不动
+- 重构了infra，大模型在训练之前就可以预测结果
+
+大模型特有的涌现的能力
+
+推理能力
+
+```text
+Question: David has the option to play a game where David has a 94 percent chance of losing 50 dollars and a 6 percent chance of earning 5 dollars. David plays the game and ends up earning 5 dollars. Did David make the right decision? Choose Y or N.
+```
+- 数学能力
+- AP
+- 高中英语
+- Uniform Bar Exam
+
+**多模态输入**
+
+system message：
 
 
-在$N$维空间当中，如果使用正交基表示一个概念，那么最多只能表示$N$个概念
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=909292221&bvid=BV1vM4y1U7b5&cid=1077132050&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=100% height=450px></iframe>
 
-johnson-lindenstrauss lemma 告诉我们，如果使用非正交基，那么可以表示更多的概念，尤其是在高维空间当中。能表示的概念数量与维数$n$成指数分布
 
-这也说明，某个概念并不是单纯由一个单元激活，而是由多个单元激活（superposition）
-
-<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=113215035936825&bvid=BV1aTxMehEjK&cid=26046694390&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height=450px></iframe>
-
-### 拓展阅读
-芝加哥大学victor veitch 的论文
-
-Anthropic Transformer circuit
-
-[Toy Models of Superposition](https://transformer-circuits.pub/2022/toy_model/index.html)
-
-[Towards Monosemanticity: Decomposing Language Models With Dictionary Learning](https://transformer-circuits.pub/2023/monosemantic-features/index.html)
-
-- RLHF
-- scaling law
-
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=482861185&bvid=BV1XT411v7c9&cid=1034951682&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=100% height=450px></iframe>
 
 ## Acknowledgement
 

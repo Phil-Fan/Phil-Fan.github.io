@@ -894,43 +894,6 @@ C.NULL EOF	 D.1 0 EOF
     
 ```
 
-
-
-## **十一、基础算法**
-
-- 质数判断
-
-  O(n) 遍历判断
-
-  O(nlogn) 素数筛/埃氏筛
-
-- GCD
-
-  ```c
-  int gcd(int x , int y){
-  	return y ? gcd(y,x%y) : x;
-  }
-  ```
-
-- ==排序算法==
-
-  - 桶排序
-  - 快速排序
-  - 归并排序
-  - 选择排序
-
   
 
-- 二分算法
-
-  注意二分板子的打法，注意+1问题
-
-  ```c
-  int l = 0 , r = Count -1 , mid = (l+r) / 2;
-  while(l < r){ 
-      mid = (l+r) / 2;
-      if(value <= a[mid])     r = mid;
-      else                    l = mid + 1;
-  }
-  ```
 

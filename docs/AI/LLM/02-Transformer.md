@@ -421,9 +421,15 @@ Transformers是由Hugging Face开发的一个自然语言处理库，提供了�
 - [Hello! · Transformers快速入门](https://transformers.run/)
 - [awesome-transformers](https://github.com/huggingface/transformers/blob/main/awesome-transformers.md): 示例
 
-### MindNLP
 
-- [Models — MindNLP 文档](https://mindnlpdocs.readthedocs.io/zh-cn/latest/api/models.html)
+fine-tuning
+- [Using 🤗 Transformers for the first time | Pytorch](https://www.kaggle.com/code/shreydan/using-transformers-for-the-first-time-pytorch)
+
+
+
+
+
+
 
 ## 拓展
 ### Decoder - NAT

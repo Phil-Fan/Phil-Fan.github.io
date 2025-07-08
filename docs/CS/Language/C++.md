@@ -664,6 +664,52 @@ class Derived : public List<A>{
 
 
 
+### `vector`
+
+```c++
+# initialization
+vector<int> a;
+vector<int> v(n); //length = n
+vector<int> v(n); //length = n, all element is equavalent to 1
+
+v.front();
+v.back();
+v.popback();
+v.pushback();
+v.size();
+v.clear();
+v.begin();
+v.end();
+v.empty();
+
+# sort
+sort(a.begin()+1,a.end())
+
+```
+
+
+
+```c++
+# iterate
+vector<int> v;
+vector<int>::iterator it = v.begin();
+
+vector<int>::iterator it;
+for(it = vi.begin(); it != vi.end();it ++)
+	cout << *it << " ";
+//vi.end()指向尾元素地址的下一个地址
+
+// 或者
+auto it = vi.begin();
+while (it != vi.end()) {
+    cout << *it << "\n";
+    it++;
+}
+vector<int> a(n);
+for (auto &x: a) {
+    cin >> x; // 可以进行输入，注意加引用
+}
+```
 
 
 ## 运算符的重载

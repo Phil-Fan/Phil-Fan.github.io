@@ -193,9 +193,10 @@ extra_javascript:
 
 # navigation: 注意左右下划线的写法
 nav:
-- Home: 
-  - homepage.md
-  - 留言版: index.md
+
+- Home:
+  - index.md
+  - 留言板: board.md
   - 待办事项: todo.md
   - 更新记录: changelog.md
   - 友链: friends.md
@@ -212,7 +213,7 @@ nav:
         - Math/ComplexFunction.md
 
     - LA | 线性代数:
-        - Math/LinearAlgebra/00-intro.md
+        - Math/LinearAlgebra/index.md
         - Math/LinearAlgebra/00-review.md
         - Math/LinearAlgebra/01-basic.md
         - Math/LinearAlgebra/02-1-calc.md
@@ -221,9 +222,10 @@ nav:
         - Math/LinearAlgebra/04-decomposition.md
         - Math/LinearAlgebra/05-matrix_equation.md
         - Math/LinearAlgebra/06-analyze.md
+        - Math/LinearAlgebra/Project.md
 
     - Opt | 凸优化:
-        - Math/Opt/Opt-0-intro.md
+        - Math/Opt/index.md
         - Math/Opt/Opt-1-model.md
         - Math/Opt/Opt-2-无约束-解析法.md
         - Math/Opt/Opt-3-无约束-数值法.md
@@ -232,7 +234,7 @@ nav:
         - Math/Opt/Opt-6-else.md
 
     - 概率论:
-        - Math/Statistic/00-intro.md
+        - Math/Statistic/index.md
         - Notebook page: Math/Statistic/01-probability.ipynb
         - Notebook page: Math/Statistic/02-Univariate_Random_Variable.ipynb
         - Notebook page: Math/Statistic/03-Multivariate_Random_Variable.ipynb
@@ -250,7 +252,7 @@ nav:
         - Math/Statistic/variable.md
 
     - SP | 随机过程:
-        - Math/StochasticProcess/00-Intro.md
+        - Math/StochasticProcess/index.md
         - Math/StochasticProcess/01-Concept.md
         - Math/StochasticProcess/02-Markov.md
         - Math/StochasticProcess/03-Possion.md
@@ -259,7 +261,7 @@ nav:
         - Math/StochasticProcess/06-review.md
 
     - OR | 运筹学:
-        - Math/OR/OR-00-index.md
+        - Math/OR/index.md
         - Math/OR/OR-01-programming.md
         - Math/OR/OR-03-graph.md
         - Math/OR/OR-04-DP.md
@@ -268,7 +270,7 @@ nav:
         - Math/OR/OR-06-QueuingTheory.md
 
     - ML | 机器学习:
-        - Math/ML/00-intro.md
+        - Math/ML/index.md
         - Math/ML/00-proof.md
         - Math/ML/01-Metrics.md
         - Math/ML/02-LinearRegression.md
@@ -287,7 +289,7 @@ nav:
 - AI: 
 
     - "ADV | 生成式模型":
-        - AI/ADV/00-intro.md
+        - AI/ADV/index.md
         - AI/ADV/01-Transformers.md
         - AI/ADV/02-FlowBased.md
         - AI/ADV/03-GAN.md
@@ -295,12 +297,12 @@ nav:
         - AI/ADV/05-Diffusion.md
 
     - "LLM | 大模型":
-        - AI/LLM/00-intro.md
+        - AI/LLM/index.md
         - AI/LLM/01-Attention.md
         - AI/LLM/02-Transformer.md
         - AI/LLM/03-GPTs.md
         - AI/LLM/04-BERT.md
-        - AI/LLM/05-Others.md
+        - AI/LLM/05-Llama.md
         - AI/LLM/06-Tricks.md
         - AI/LLM/07-LongChain.md
         - AI/LLM/08-Manba.md
@@ -313,6 +315,8 @@ nav:
         - AI/DL/03-Modern_CNN.md
         - AI/DL/04-RNN.md
         - AI/DL/05-Modern_RNN.md
+        - AI/DL/transfer_learning.md
+        - AI/DL/Problem.md
       
     - "RL | 强化学习":
         - AI/RL/RL-01.md
@@ -325,7 +329,6 @@ nav:
         - AI/ML/03-training_method.md
         - AI/ML/04-parameters.md
         - AI/ML/05-trick.md
-        - AI/ML/Problem.md
 
     - "学习资源":
         - 论文阅读: https://github.com/mli/paper-reading
@@ -339,7 +342,7 @@ nav:
 
 - Robotics:
   - Model:
-    - 简介: Robotics/Model/0-index.md
+    - Robotics/Model/index.md
     - 1 空间描述与变换: Robotics/Model/1-Basis.md
     - 2 正向运动学: Robotics/Model/2-ForwardKinematics.md
     - 3 逆向运动学: Robotics/Model/3-InverseKinematics.md
@@ -429,16 +432,33 @@ nav:
 
 - "CS":
 
+  - Language:
+    - CS/Language/C.md
+    - CS/Language/C++.md
+    - CS/Language/Python.md
+    - Notebook page: CS/Language/Python_Package.ipynb
+    - "Python速查":
+      - "Seaborn": https://seaborn.pydata.org/api.html
+      - "Pandas": https://pandas.pydata.org/docs/reference/index.html
+      - "Scipy": https://docs.scipy.org/doc/scipy/reference/index.html
+
+  - Algorithm:
+    - CS/Algorithm/01-Math.md
+    - CS/Algorithm/02-Sorting.md
+    - CS/Algorithm/03-1-UninformedSearch.md
+    - CS/Algorithm/03-2-InformedSearch.md
+    - CS/Algorithm/03-3-OtherSearch.md
+    - CS/Algorithm/04-Divide.md
+    - CS/Algorithm/05-DP.md
+
   - "DS | 数据结构":
-    - CS/DS/DataStructure.md
-    - CS/DS/DataStructure-Tree.md
-    - CS/DS/DataStructure-Hash.md
-    - CS/DS/DataStructure-Sorting.md
-    - "搜索 | Search": 
-      - CS/DS/Search/01-AI_history&intro.md
-      - CS/DS/Search/02-UninformedSearch.md     
-      - CS/DS/Search/03-InformedSearch.md       
-      - CS/DS/Search/04-OtherSearch.md
+    - CS/DS/00-intro.md
+    - CS/DS/01-list.md
+    - CS/DS/02-queue.md
+    - CS/DS/03-stack.md
+    - CS/DS/05-tree.md
+    - CS/DS/06-graph.md
+    - CS/DS/07-Hash.md
   
   - "OS | 操作系统":
     - CS/OS/00-intro.md
@@ -472,18 +492,6 @@ nav:
     - CS/Dev/missing_knowledge.md
     - CS/Dev/rules.md
     - CS/Dev/CI-CD.md
-    
-    - Language:
-      - CS/Dev/Language/汇编.md
-      - CS/Dev/Language/C.md
-      - CS/Dev/Language/C++.md
-      - CS/Dev/Language/Python.md
-      - CS/Dev/Language/Dart.md
-      - Notebook page: CS/Dev/Language/Python_Package.ipynb
-      - "Python速查":
-        - "Seaborn": https://seaborn.pydata.org/api.html
-        - "Pandas": https://pandas.pydata.org/docs/reference/index.html
-        - "Scipy": https://docs.scipy.org/doc/scipy/reference/index.html
         
     - Frontend:
       - CS/Dev/Frontend/HTML.md
@@ -546,6 +554,7 @@ nav:
     - Tools/Environment/ROS.md
     - Tools/Environment/reveal.js.md
     - Tools/Environment/MCP.md
+    - Tools/Environment/Dart.md
 
   - Software:
     - Tools/Software/Git.md
@@ -576,6 +585,7 @@ nav:
   - "🏃运动":
     - Interest/Exercise/exercise-fit.md
     - Interest/Exercise/exercise-swimming.md
+    - Interest/Exercise/exercise-running.md
     - Interest/Exercise/exercise-tennis.md
     - Interest/Exercise/dance.md
 

@@ -62,10 +62,10 @@ CV tasks:
 - instance segmentation
 
 active security threats
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240919152147.png)
+![](assets/01-attack.assets/20240919152147.png)
 
 passive security threats
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240919152207.png)
+![](assets/01-attack.assets/20240919152207.png)
 
 Evasion/adversarial example attacks: adversary crafts
 adversarial examples that evade detection (spam email marked as ham)

@@ -1,4 +1,4 @@
-# 第五章 散列表与hash
+# 散列表与hash
 
 address = H [key] 
 

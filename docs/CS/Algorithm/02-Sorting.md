@@ -1,4 +1,4 @@
-# 第七章 Sorting
+# Sorting
 
 ![image-20230101230057146](https://zjushine-picgo.oss-cn-hangzhou.aliyuncs.com/img/image-20230101230057146.png)
 

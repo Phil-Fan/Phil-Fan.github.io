@@ -297,6 +297,74 @@
 ## 本地环境配置
 !!! attention "本章节是本地环境的部署，如果您想使用在线环境or配环境苦手，请跳过"
 
+
+### Texlive | Linux 的 `LaTeX `环境
+
+[CTAN/systems/texlive/Images/ | 清华大学开源软件镜像站](https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/Images/)
+
+
+```shell title="验证md5"
+md5sum texlive2025.iso
+```
+
+```shell title="挂载"
+sudo mkdir /mnt/texlive
+sudo mount /mnt/d/texlive2025.iso /mnt/texlive
+```
+
+```shell
+sudo /mnt/texlive/install-tl
+```
+
+输入`C`进入自定义安装
+
+输入不想安装的包的代号
+
+```text
+deghijkstuvwxyznoABCEHIKLMNS
+```
+
+输入`R`返回主界面
+
+输入`I`开始安装，精简版本大概十几分钟
+
+
+
+
+```shell title="如果缺少包，可以手动安装"
+tlmgr install <package>
+```
+
+```shell title="弹出并删除/mnt/texlive"
+sudo umount /mnt/texlive	
+sudo rm -r /mnt/texlive
+```
+
+```shell title="添加环境变量"
+vi ~/.bashrc
+# Add TeX Live to the PATH, MANPATH, INFOPATH
+export PATH=/usr/local/texlive/2025/bin/x86_64-linux:$PATH
+export MANPATH=/usr/local/texlive/2025/texmf-dist/doc/man:$MANPATH
+export INFOPATH=/usr/local/texlive/2025/texmf-dist/doc/info:$INFOPATH
+```
+
+```shell title="source"
+source ~/.bashrc
+```
+
+```shell title="验证"
+tex -v
+```
+
+```shell title="刷新字体缓存"
+sudo cp /usr/local/texlive/2025/texmf-var/fonts/conf/texlive-fontconfig.conf /etc/fonts/conf.d/09-texlive.conf
+sudo fc-cache -fsv
+```
+
+
+[TeX Live 2025 安装教程（Windows/WSL/Linux） - Eslzzyl - 博客园](https://www.cnblogs.com/eslzzyl/p/17358405.html)
+[TeX Live宏包集合和自定义安装 - 知乎](https://zhuanlan.zhihu.com/p/133984428)
+
 ### `TexLive` | windows 的 `LaTeX `环境
 
 #### Texlive 安装
@@ -311,7 +379,6 @@ This browser does not support PDFs
 [Installing TeX Live over the Internet - TeX Users Group (tug.org)](https://www.tug.org/texlive/acquire-netinstall.html)
 
 [CTAN | ZJU Mirror](https://mirror.zju.edu.cn/docs/CTAN/)
-
 
 
 
@@ -389,8 +456,7 @@ If you can see this document with the title, sections, and the equation above, t
 
 ### MacTex ｜ MacOS 上的LaTeX环境
 
-> 参考资料： [macOS 配置 LaTeX—MacTeX+TeXstudio/VS Code - 知乎](https://zhuanlan.zhihu.com/p/407527454)
-
+mac 上安装mactex非常方便
 
 ```shell title="brew安装mactex"
 brew install mactex --cask
@@ -439,6 +505,20 @@ brew install mactex --cask
 \end{document}
 ```
 
+
+```shell title="安装字体"
+brew install font-awesome
+```
+
+```shell title="更新texlive"
+sudo tlmgr update --self
+```
+
+```shell title="安装字体"
+sudo tlmgr install fandol
+```
+
+> 参考资料： [macOS 配置 LaTeX—MacTeX+TeXstudio/VS Code - 知乎](https://zhuanlan.zhihu.com/p/407527454)
 
 
 ### `LaTeX` + `Latex Workshop` + VScode

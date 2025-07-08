@@ -283,7 +283,7 @@ $$
 
 
 
-这里我使用了[这个教程](https://zhuanlan.zhihu.com/p/524487313)中的代码，在Kaggle上的[BBC News Classification](https://www.kaggle.com/competitions/learn-ai-bbc/submissions)数据集上进行了实验。
+这里我改编了[这个教程](https://zhuanlan.zhihu.com/p/524487313)中的代码，在Kaggle上的[BBC News Classification](https://www.kaggle.com/competitions/learn-ai-bbc/submissions)数据集上进行了实验。
 
 使用的是`bert-base-cased`模型
 
@@ -369,3 +369,5 @@ DistilBERT: DistilBERT是一种轻量化的BERT模型，通过剪枝和蒸馏技
 - [李沐论文精读_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1PL411M7eQ/?spm_id_from=333.337.search-card.all.click&vd_source=8b7a5460b512357b2cf80ce1cefc69f5)评论区 用户 fdhyhtt 的笔记，“DASOU讲AI”，“不是李老师_”等用户的评论
 - 李rumor - [【NLP】Google BERT模型原理详解 - 知乎](https://zhuanlan.zhihu.com/p/46652512)
 - VoidOc - [【深度学习】BERT详解 - 知乎](https://zhuanlan.zhihu.com/p/130913995)
+- [tomohideshibata/BERT-related-papers: BERT-related papers](https://github.com/tomohideshibata/BERT-related-papers)
+- [BERT相关面试题（不定期更新） - 知乎](https://zhuanlan.zhihu.com/p/151412524)

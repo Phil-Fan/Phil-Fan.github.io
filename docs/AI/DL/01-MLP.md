@@ -41,7 +41,7 @@ o It is therefore preferred than sigmoid
 - Tanh is a scaled sigmoid: $tanh(x) = 2 * \sigma(2x) − 1$
 ### ReLU
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240919153409.png)
+)
 ReLU is fast to compute
 
 - Compared to sigmoid, tanh
@@ -56,7 +56,8 @@ ReLU is fast to compute
 导数非0的区域更大
 
 ### Leaky ReLU
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240919153444.png)
+- [  ] 绘制图像
+
 
 
 
