@@ -6,6 +6,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://www.philfan.cn/board.html</loc>
+         <lastmod>2025-07-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://www.philfan.cn/changelog.html</loc>
          <lastmod>2025-07-08</lastmod>
          <changefreq>daily</changefreq>
@@ -21,17 +26,12 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.philfan.cn/homepage.html</loc>
-         <lastmod>2025-07-08</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://www.philfan.cn/todo.html</loc>
          <lastmod>2025-07-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.philfan.cn/AI/ADV/00-intro.html</loc>
+         <loc>https://www.philfan.cn/AI/ADV/index.html</loc>
          <lastmod>2025-07-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -161,12 +161,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://www.philfan.cn/AI/DL/Problem.html</loc>
+         <lastmod>2025-07-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://www.philfan.cn/AI/DL/transfer_learning.html</loc>
          <lastmod>2025-07-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.philfan.cn/AI/LLM/00-intro.html</loc>
+         <loc>https://www.philfan.cn/AI/LLM/index.html</loc>
          <lastmod>2025-07-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -191,7 +196,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.philfan.cn/AI/LLM/05-Others.html</loc>
+         <loc>https://www.philfan.cn/AI/LLM/05-Llama.html</loc>
          <lastmod>2025-07-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -256,11 +261,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.philfan.cn/AI/ML/Problem.html</loc>
-         <lastmod>2025-07-08</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://www.philfan.cn/AI/Market/firm.html</loc>
          <lastmod>2025-07-08</lastmod>
          <changefreq>daily</changefreq>
@@ -292,6 +292,41 @@
     </url>
     <url>
          <loc>https://www.philfan.cn/Blog/destiny.html</loc>
+         <lastmod>2025-07-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/CS/Algorithm/01-Math.html</loc>
+         <lastmod>2025-07-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/CS/Algorithm/02-Sorting.html</loc>
+         <lastmod>2025-07-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/CS/Algorithm/03-1-UninformedSearch.html</loc>
+         <lastmod>2025-07-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/CS/Algorithm/03-2-InformedSearch.html</loc>
+         <lastmod>2025-07-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/CS/Algorithm/03-3-OtherSearch.html</loc>
+         <lastmod>2025-07-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/CS/Algorithm/04-Divide.html</loc>
+         <lastmod>2025-07-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/CS/Algorithm/05-DP.html</loc>
          <lastmod>2025-07-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -371,42 +406,37 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.philfan.cn/CS/DS/DataStructure-Hash.html</loc>
+         <loc>https://www.philfan.cn/CS/DS/00-intro.html</loc>
          <lastmod>2025-07-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.philfan.cn/CS/DS/DataStructure-Sorting.html</loc>
+         <loc>https://www.philfan.cn/CS/DS/01-list.html</loc>
          <lastmod>2025-07-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.philfan.cn/CS/DS/DataStructure-Tree.html</loc>
+         <loc>https://www.philfan.cn/CS/DS/02-queue.html</loc>
          <lastmod>2025-07-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.philfan.cn/CS/DS/DataStructure.html</loc>
+         <loc>https://www.philfan.cn/CS/DS/03-stack.html</loc>
          <lastmod>2025-07-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.philfan.cn/CS/DS/Search/01-AI_history%26intro.html</loc>
+         <loc>https://www.philfan.cn/CS/DS/05-tree.html</loc>
          <lastmod>2025-07-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.philfan.cn/CS/DS/Search/02-UninformedSearch.html</loc>
+         <loc>https://www.philfan.cn/CS/DS/06-graph.html</loc>
          <lastmod>2025-07-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.philfan.cn/CS/DS/Search/03-InformedSearch.html</loc>
-         <lastmod>2025-07-08</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://www.philfan.cn/CS/DS/Search/04-OtherSearch.html</loc>
+         <loc>https://www.philfan.cn/CS/DS/07-Hash.html</loc>
          <lastmod>2025-07-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -476,32 +506,22 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.philfan.cn/CS/Dev/Language/C%2B%2B.html</loc>
+         <loc>https://www.philfan.cn/CS/Language/C%2B%2B.html</loc>
          <lastmod>2025-07-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.philfan.cn/CS/Dev/Language/C.html</loc>
+         <loc>https://www.philfan.cn/CS/Language/C.html</loc>
          <lastmod>2025-07-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.philfan.cn/CS/Dev/Language/Dart.html</loc>
+         <loc>https://www.philfan.cn/CS/Language/Python.html</loc>
          <lastmod>2025-07-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.philfan.cn/CS/Dev/Language/Python.html</loc>
-         <lastmod>2025-07-08</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://www.philfan.cn/CS/Dev/Language/Python_Package.html</loc>
-         <lastmod>2025-07-08</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://www.philfan.cn/CS/Dev/Language/%E6%B1%87%E7%BC%96.html</loc>
+         <loc>https://www.philfan.cn/CS/Language/Python_Package.html</loc>
          <lastmod>2025-07-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -876,7 +896,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.philfan.cn/Math/LinearAlgebra/00-intro.html</loc>
+         <loc>https://www.philfan.cn/Math/LinearAlgebra/index.html</loc>
          <lastmod>2025-07-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -921,12 +941,12 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.philfan.cn/Math/LinearAlgebra/EXP-.html</loc>
+         <loc>https://www.philfan.cn/Math/LinearAlgebra/Project.html</loc>
          <lastmod>2025-07-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.philfan.cn/Math/ML/00-intro.html</loc>
+         <loc>https://www.philfan.cn/Math/ML/index.html</loc>
          <lastmod>2025-07-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -996,7 +1016,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.philfan.cn/Math/OR/OR-00-index.html</loc>
+         <loc>https://www.philfan.cn/Math/OR/index.html</loc>
          <lastmod>2025-07-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -1031,7 +1051,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.philfan.cn/Math/Opt/Opt-0-intro.html</loc>
+         <loc>https://www.philfan.cn/Math/Opt/index.html</loc>
          <lastmod>2025-07-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -1066,7 +1086,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.philfan.cn/Math/Statistic/00-intro.html</loc>
+         <loc>https://www.philfan.cn/Math/Statistic/index.html</loc>
          <lastmod>2025-07-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -1146,7 +1166,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.philfan.cn/Math/StochasticProcess/00-Intro.html</loc>
+         <loc>https://www.philfan.cn/Math/StochasticProcess/index.html</loc>
          <lastmod>2025-07-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -1276,7 +1296,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.philfan.cn/Robotics/Model/0-index.html</loc>
+         <loc>https://www.philfan.cn/Robotics/Model/index.html</loc>
          <lastmod>2025-07-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -1482,6 +1502,11 @@
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/Efficiency/vim.html</loc>
+         <lastmod>2025-07-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/Tools/Environment/Dart.html</loc>
          <lastmod>2025-07-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
