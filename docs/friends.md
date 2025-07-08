@@ -106,4 +106,15 @@ comments: true
     </a>
 </div>
 
+
+<div class="flink-list-item">
+    <a href="https://note.hobbitqia.cc" title="hobbitqia" target="_blank">
+        <div class="flink-item-icon">
+            <img src="https://avatars.githubusercontent.com/u/89443407?v=4" alt="hobbitqia">
+        </div>
+        <div class="flink-item-name">hobbitqia</div>
+        <div class="flink-item-desc">hobbitqia的笔记本</div>
+    </a>
+</div>
+
 </div>

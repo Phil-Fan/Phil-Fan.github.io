@@ -206,7 +206,7 @@ $d_k$ 是Q和K的维度，因为Q和K的维度是相同的，在论文中是$d_k
     \end{aligned}
     $$
     
-    ![](assets/01-Attention.assets/202507041239000.png){width=50%}
+    ![](assets/01-Attention.assets/202507041239000.png)
 
 
     加法形式是先加、后tanh、再和V矩阵相乘，相当于一个完整的隐层。

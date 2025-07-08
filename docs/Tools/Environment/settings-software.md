@@ -129,8 +129,8 @@
 [Zotero 中文社区 | Zotero 中文维护小组](https://zotero-chinese.com/)
 
 - [windingwind/zotero-better-notes](https://github.com/windingwind/zotero-better-notes/tree/master?tab=readme-ov-file#-install): Everything about note management. All in Zotero.
-
-
+- [MuiseDestiny/zotero-gpt: GPT Meet Zotero.](https://github.com/MuiseDestiny/zotero-gpt)
+- [windingwind/zotero-pdf-translate](https://github.com/windingwind/zotero-pdf-translate/releases):在设置中可以设置翻译的API
 
 ## vscode
 ### 使用

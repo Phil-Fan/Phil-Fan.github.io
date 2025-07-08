@@ -243,6 +243,7 @@ Query来自下一个attention的输入
 
 ## 训练
 
+### 参数数量
 Transformer看起来模型比较复杂，但几乎没有什么可以调节的参数，大部分都是可以根据比例算的。
 
 ![](assets/02-Transformer.assets/202507022311529.png)

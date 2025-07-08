@@ -37,6 +37,23 @@ Transformer-based models are shown in non-grey colors:
 
 ### tokenizer
 
+### NER任务
+
+进行NER任务，选取经典的BIO标注数据，总共有三类实体，人物，地点，组织。那么对于Bert模型来说需要进行的分类一共有
+```
+O
+B-PER
+I-PER
+B-ORG
+I-ORG
+B-LOC
+I-LOC
+X
+[CLS]
+[SEP]
+```
+这是由于在做英文tokenize分词处理的时候有可能会出现[“do”, “ing”]这种情况，这时候为了避免冗余，tag只会加到第一个词上，所以后面的都使用X这个label来表示。
+
 ## 应用领域
 
 ### 机器翻译

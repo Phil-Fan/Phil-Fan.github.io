@@ -669,6 +669,8 @@ plugins:
   # 支持jupyter notebook
   - mkdocs-jupyter:
       execute: true
+      execute_ignore:
+        - "*.py"
       kernel_name: python3
       theme: dark
       include_source: True
