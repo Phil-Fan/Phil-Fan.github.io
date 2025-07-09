@@ -5,12 +5,10 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="PhilFan的笔记本" name="description"/>
 <meta content="PhilFan" name="author"/>
-<link href="https://www.philfan.cn/CS/Language/Python_Package.html" rel="canonical"/>
-<link href="Python.html" rel="prev"/>
-<link href="../Algorithm/01-Math.html" rel="next"/>
+<link href="https://www.philfan.cn/CS/Language/cs61a.html" rel="canonical"/>
 <link href="../../logo.ico" rel="icon"/>
 <meta content="mkdocs-1.6.0, mkdocs-material-9.5.31" name="generator"/>
-<title>Python Packages - PhilFan's Notebook</title>
+<title>Cs61a - PhilFan's Notebook</title>
 <link href="../../assets/stylesheets/main.3cba04c6.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1 7.775V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 0 1 0 2.474l-5.026 5.026a1.75 1.75 0 0 1-2.474 0l-6.25-6.25A1.752 1.752 0 0 1 1 7.775Zm1.5 0c0 .066.026.13.073.177l6.25 6.25a.25.25 0 0 0 .354 0l5.025-5.025a.25.25 0 0 0 0-.354l-6.25-6.25a.25.25 0 0 0-.177-.073H2.75a.25.25 0 0 0-.25.25ZM6 5a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"/></svg>');--md-admonition-icon--abstract:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.5 1.75v11.5c0 .138.112.25.25.25h3.17a.75.75 0 0 1 0 1.5H2.75A1.75 1.75 0 0 1 1 13.25V1.75C1 .784 1.784 0 2.75 0h8.5C12.216 0 13 .784 13 1.75v7.736a.75.75 0 0 1-1.5 0V1.75a.25.25 0 0 0-.25-.25h-8.5a.25.25 0 0 0-.25.25Zm13.274 9.537v-.001l-4.557 4.45a.75.75 0 0 1-1.055-.008l-1.943-1.95a.75.75 0 0 1 1.062-1.058l1.419 1.425 4.026-3.932a.75.75 0 1 1 1.048 1.074ZM4.75 4h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM4 7.75A.75.75 0 0 1 4.75 7h2a.75.75 0 0 1 0 1.5h-2A.75.75 0 0 1 4 7.75Z"/></svg>');--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/></svg>');--md-admonition-icon--tip:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.499.75a.75.75 0 0 1 1.5 0v.996C5.9 2.903 6.793 3.65 7.662 4.376l.24.202c-.036-.694.055-1.422.426-2.163C9.1.873 10.794-.045 12.622.26 14.408.558 16 1.94 16 4.25c0 1.278-.954 2.575-2.44 2.734l.146.508.065.22c.203.701.412 1.455.476 2.226.142 1.707-.4 3.03-1.487 3.898C11.714 14.671 10.27 15 8.75 15h-6a.75.75 0 0 1 0-1.5h1.376a4.484 4.484 0 0 1-.563-1.191 3.835 3.835 0 0 1-.05-2.063 4.647 4.647 0 0 1-2.025-.293.75.75 0 0 1 .525-1.406c1.357.507 2.376-.006 2.698-.318l.009-.01a.747.747 0 0 1 1.06 0 .748.748 0 0 1-.012 1.074c-.912.92-.992 1.835-.768 2.586.221.74.745 1.337 1.196 1.621H8.75c1.343 0 2.398-.296 3.074-.836.635-.507 1.036-1.31.928-2.602-.05-.603-.216-1.224-.422-1.93l-.064-.221c-.12-.407-.246-.84-.353-1.29a2.425 2.425 0 0 1-.507-.441 3.075 3.075 0 0 1-.633-1.248.75.75 0 0 1 1.455-.364c.046.185.144.436.31.627.146.168.353.305.712.305.738 0 1.25-.615 1.25-1.25 0-1.47-.95-2.315-2.123-2.51-1.172-.196-2.227.387-2.706 1.345-.46.92-.27 1.774.019 3.062l.042.19a.884.884 0 0 1 .01.05c.348.443.666.949.94 1.553a.75.75 0 1 1-1.365.62c-.553-1.217-1.32-1.94-2.3-2.768L6.7 5.527c-.814-.68-1.75-1.462-2.692-2.619a3.737 3.737 0 0 0-1.023.88c-.406.495-.663 1.036-.722 1.508.116.122.306.21.591.239.388.038.797-.06 1.032-.19a.75.75 0 0 1 .728 1.31c-.515.287-1.23.439-1.906.373-.682-.067-1.473-.38-1.879-1.193L.75 5.677V5.5c0-.984.48-1.94 1.077-2.664.46-.559 1.05-1.055 1.673-1.353V.75Z"/></svg>');--md-admonition-icon--success:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"/></svg>');--md-admonition-icon--question:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.92 6.085h.001a.749.749 0 1 1-1.342-.67c.169-.339.436-.701.849-.977C6.845 4.16 7.369 4 8 4a2.756 2.756 0 0 1 1.637.525c.503.377.863.965.863 1.725 0 .448-.115.83-.329 1.15-.205.307-.47.513-.692.662-.109.072-.22.138-.313.195l-.006.004a6.24 6.24 0 0 0-.26.16.952.952 0 0 0-.276.245.75.75 0 0 1-1.248-.832c.184-.264.42-.489.692-.661.103-.067.207-.132.313-.195l.007-.004c.1-.061.182-.11.258-.161a.969.969 0 0 0 .277-.245C8.96 6.514 9 6.427 9 6.25a.612.612 0 0 0-.262-.525A1.27 1.27 0 0 0 8 5.5c-.369 0-.595.09-.74.187a1.01 1.01 0 0 0-.34.398ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>');--md-admonition-icon--warning:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>');--md-admonition-icon--failure:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.344 2.343h-.001a8 8 0 0 1 11.314 11.314A8.002 8.002 0 0 1 .234 10.089a8 8 0 0 1 2.11-7.746Zm1.06 10.253a6.5 6.5 0 1 0 9.108-9.275 6.5 6.5 0 0 0-9.108 9.275ZM6.03 4.97 8 6.94l1.97-1.97a.749.749 0 0 1 1.275.326.749.749 0 0 1-.215.734L9.06 8l1.97 1.97a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L8 9.06l-1.97 1.97a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734L6.94 8 4.97 6.03a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018Z"/></svg>');--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M9.504.43a1.516 1.516 0 0 1 2.437 1.713L10.415 5.5h2.123c1.57 0 2.346 1.909 1.22 3.004l-7.34 7.142a1.249 1.249 0 0 1-.871.354h-.302a1.25 1.25 0 0 1-1.157-1.723L5.633 10.5H3.462c-1.57 0-2.346-1.909-1.22-3.004L9.503.429Zm1.047 1.074L3.286 8.571A.25.25 0 0 0 3.462 9H6.75a.75.75 0 0 1 .694 1.034l-1.713 4.188 6.982-6.793A.25.25 0 0 0 12.538 7H9.25a.75.75 0 0 1-.683-1.06l2.008-4.418.003-.006a.036.036 0 0 0-.004-.009l-.006-.006-.008-.001c-.003 0-.006.002-.009.004Z"/></svg>');--md-admonition-icon--bug:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M4.72.22a.75.75 0 0 1 1.06 0l1 .999a3.488 3.488 0 0 1 2.441 0l.999-1a.748.748 0 0 1 1.265.332.75.75 0 0 1-.205.729l-.775.776c.616.63.995 1.493.995 2.444v.327c0 .1-.009.197-.025.292.408.14.764.392 1.029.722l1.968-.787a.75.75 0 0 1 .556 1.392L13 7.258V9h2.25a.75.75 0 0 1 0 1.5H13v.5c0 .409-.049.806-.141 1.186l2.17.868a.75.75 0 0 1-.557 1.392l-2.184-.873A4.997 4.997 0 0 1 8 16a4.997 4.997 0 0 1-4.288-2.427l-2.183.873a.75.75 0 0 1-.558-1.392l2.17-.868A5.036 5.036 0 0 1 3 11v-.5H.75a.75.75 0 0 1 0-1.5H3V7.258L.971 6.446a.75.75 0 0 1 .558-1.392l1.967.787c.265-.33.62-.583 1.03-.722a1.677 1.677 0 0 1-.026-.292V4.5c0-.951.38-1.814.995-2.444L4.72 1.28a.75.75 0 0 1 0-1.06Zm.53 6.28a.75.75 0 0 0-.75.75V11a3.5 3.5 0 1 0 7 0V7.25a.75.75 0 0 0-.75-.75ZM6.173 5h3.654A.172.172 0 0 0 10 4.827V4.5a2 2 0 1 0-4 0v.327c0 .096.077.173.173.173Z"/></svg>');--md-admonition-icon--example:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M5 5.782V2.5h-.25a.75.75 0 0 1 0-1.5h6.5a.75.75 0 0 1 0 1.5H11v3.282l3.666 5.76C15.619 13.04 14.543 15 12.767 15H3.233c-1.776 0-2.852-1.96-1.899-3.458Zm-2.4 6.565a.75.75 0 0 0 .633 1.153h9.534a.75.75 0 0 0 .633-1.153L12.225 10.5h-8.45ZM9.5 2.5h-3V6c0 .143-.04.283-.117.403L4.73 9h6.54L9.617 6.403A.746.746 0 0 1 9.5 6Z"/></svg>');--md-admonition-icon--quote:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1.75 2.5h10.5a.75.75 0 0 1 0 1.5H1.75a.75.75 0 0 1 0-1.5Zm4 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5ZM2.5 7.75v6a.75.75 0 0 1-1.5 0v-6a.75.75 0 0 1 1.5 0Z"/></svg>');}</style>
@@ -23,6 +21,7 @@
 <link href="../../style/css/counter.css" rel="stylesheet"/>
 <link href="../../style/css/toc.css" rel="stylesheet"/>
 <link href="../../style/css/flink.css" rel="stylesheet"/>
+<link href="../../style/css/card.css" rel="stylesheet"/>
 <link href="https://cdn.tonycrane.cc/jbmono/jetbrainsmono.css" rel="stylesheet"/>
 <link href="https://cdn.tonycrane.cc/lxgw/lxgwscreen.css" rel="stylesheet"/>
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
@@ -35,9 +34,6 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#python-packages">
-          跳转至
-        </a>
 </div>
 <div data-md-component="announce">
 <aside class="md-banner">
@@ -79,7 +75,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Python Packages
+              Cs61a
             
           </span>
 </div>
@@ -154,7 +150,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../Math/signal.html">
+<a class="md-tabs__link" href="../../Math/Signal.md">
           
   
     
@@ -183,7 +179,7 @@
 
         </a>
 </li>
-<li class="md-tabs__item md-tabs__item--active">
+<li class="md-tabs__item">
 <a class="md-tabs__link" href="C.html">
           
   
@@ -313,9 +309,9 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../Math/signal.html">
+<a class="md-nav__link" href="../../Math/Signal.md">
 <span class="md-ellipsis">
-    信号分析与处理
+    None
   </span>
 </a>
 </li>
@@ -367,6 +363,24 @@
     复变函数
   </span>
 </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_6" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../Math/Calculus/index.html">
+<span class="md-ellipsis">
+    微积分
+  </span>
+</a>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_6_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_2_6">
+<span class="md-nav__icon md-icon"></span>
+            微积分
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -1364,12 +1378,16 @@
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_4_2_1" type="checkbox"/>
-<label class="md-nav__link" for="__nav_4_2_1" id="__nav_4_2_1_label" tabindex="0">
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../Robotics/Control/BASE/index.html">
 <span class="md-ellipsis">
     自动控制
   </span>
+</a>
+<label class="md-nav__link" for="__nav_4_2_1" id="__nav_4_2_1_label" tabindex="0">
 <span class="md-nav__icon md-icon"></span>
 </label>
+</div>
 <nav aria-expanded="false" aria-labelledby="__nav_4_2_1_label" class="md-nav" data-md-level="3">
 <label class="md-nav__title" for="__nav_4_2_1">
 <span class="md-nav__icon md-icon"></span>
@@ -1377,28 +1395,21 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../Robotics/Control/BASE-00-intro.html">
-<span class="md-ellipsis">
-    大纲
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../Robotics/Control/BASE-01-model.html">
+<a class="md-nav__link" href="../../Robotics/Control/BASE/01-Model.html">
 <span class="md-ellipsis">
     01 | 系统辨识与建模
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../Robotics/Control/BASE-02-metrics.html">
+<a class="md-nav__link" href="../../Robotics/Control/BASE/02-Metrics.html">
 <span class="md-ellipsis">
     02 | 性能分析
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../Robotics/Control/BASE-03-adjust.html">
+<a class="md-nav__link" href="../../Robotics/Control/BASE/03-Adjust.html">
 <span class="md-ellipsis">
     03 | 控制器矫正与设计
   </span>
@@ -1422,7 +1433,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../Robotics/Control/ADV-linear-00-intro.html">
+<a class="md-nav__link" href="../../Robotics/Control/ADV/linear-00-intro.html">
 <span class="md-ellipsis">
     现代控制理论
   </span>
@@ -1446,7 +1457,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../Robotics/Control/ADV-nonliear-00-intro.html">
+<a class="md-nav__link" href="../../Robotics/Control/ADV/nonliear-00-intro.html">
 <span class="md-ellipsis">
     非线性系统
   </span>
@@ -1457,36 +1468,34 @@
 </li>
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_4_2_4" type="checkbox"/>
-<label class="md-nav__link" for="__nav_4_2_4" id="__nav_4_2_4_label" tabindex="0">
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../Robotics/Control/Opt/index.html">
 <span class="md-ellipsis">
     最优控制
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
+</a>
+</div>
 <nav aria-expanded="false" aria-labelledby="__nav_4_2_4_label" class="md-nav" data-md-level="3">
 <label class="md-nav__title" for="__nav_4_2_4">
 <span class="md-nav__icon md-icon"></span>
             最优控制
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../Robotics/Control/OPT-00-intro.html">
-<span class="md-ellipsis">
-    最优控制
-  </span>
-</a>
-</li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_4_2_5" type="checkbox"/>
-<label class="md-nav__link" for="__nav_4_2_5" id="__nav_4_2_5_label" tabindex="0">
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../Robotics/Control/Method/index.html">
 <span class="md-ellipsis">
     控制方法
   </span>
+</a>
+<label class="md-nav__link" for="__nav_4_2_5" id="__nav_4_2_5_label" tabindex="0">
 <span class="md-nav__icon md-icon"></span>
 </label>
+</div>
 <nav aria-expanded="false" aria-labelledby="__nav_4_2_5_label" class="md-nav" data-md-level="3">
 <label class="md-nav__title" for="__nav_4_2_5">
 <span class="md-nav__icon md-icon"></span>
@@ -1494,49 +1503,42 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../Robotics/Control/Method-00-intro.html">
-<span class="md-ellipsis">
-    经典控制方法
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../Robotics/Control/Method-01-PID.html">
+<a class="md-nav__link" href="../../Robotics/Control/Method/01-PID.html">
 <span class="md-ellipsis">
     PID控制
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../Robotics/Control/Method-02-LQR.html">
+<a class="md-nav__link" href="../../Robotics/Control/Method/02-LQR.html">
 <span class="md-ellipsis">
     LQR控制
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../Robotics/Control/Method-03-MPC.html">
+<a class="md-nav__link" href="../../Robotics/Control/Method/03-MPC.html">
 <span class="md-ellipsis">
     MPC控制
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../Robotics/Control/Method-04-%E9%98%BB%E6%8A%97%E5%AF%BC%E7%BA%B3.html">
+<a class="md-nav__link" href="../../Robotics/Control/Method/04-%E9%98%BB%E6%8A%97%E5%AF%BC%E7%BA%B3.html">
 <span class="md-ellipsis">
-    阻抗导纳
+    阻抗导纳 | Impedance/Admittance Control
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../Robotics/Control/Method-05-%E6%99%BA%E8%83%BD%E6%8E%A7%E5%88%B6%E6%96%B9%E6%B3%95.html">
+<a class="md-nav__link" href="../../Robotics/Control/Method/05-Intelligent.html">
 <span class="md-ellipsis">
-    智能控制技术
+    智能控制技术 | Intelligent Control
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../Robotics/Control/Method-Kalman.html">
+<a class="md-nav__link" href="../../Robotics/Control/Method/06-KalmanFilter.html">
 <span class="md-ellipsis">
     Kalman Filter
   </span>
@@ -1574,25 +1576,22 @@
 </li>
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_4_3" type="checkbox"/>
-<label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../Robotics/Robo/index.html">
 <span class="md-ellipsis">
     机器人技术
   </span>
+</a>
+<label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
 <span class="md-nav__icon md-icon"></span>
 </label>
+</div>
 <nav aria-expanded="false" aria-labelledby="__nav_4_3_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_4_3">
 <span class="md-nav__icon md-icon"></span>
             机器人技术
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../Robotics/Robo/00-intro.html">
-<span class="md-ellipsis">
-    简介
-  </span>
-</a>
-</li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../Robotics/Robo/01-Design.html">
 <span class="md-ellipsis">
@@ -1945,29 +1944,29 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
-<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
 <span class="md-ellipsis">
     CS
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="true" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_5">
 <span class="md-nav__icon md-icon"></span>
             CS
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_5_1" type="checkbox"/>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5_1" type="checkbox"/>
 <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
 <span class="md-ellipsis">
     Language
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="true" aria-labelledby="__nav_5_1_label" class="md-nav" data-md-level="2">
+<nav aria-expanded="false" aria-labelledby="__nav_5_1_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_5_1">
 <span class="md-nav__icon md-icon"></span>
             Language
@@ -1987,35 +1986,136 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="Python.html">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5_1_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="Python/index.html">
 <span class="md-ellipsis">
     Python
   </span>
 </a>
+<label class="md-nav__link" for="__nav_5_1_3" id="__nav_5_1_3_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_5_1_3_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_5_1_3">
+<span class="md-nav__icon md-icon"></span>
+            Python
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="Python/01-Expression.html">
+<span class="md-ellipsis">
+    表达式 Expression
+  </span>
+</a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<a class="md-nav__link md-nav__link--active" href="Python_Package.html">
+<li class="md-nav__item">
+<a class="md-nav__link" href="Python/02-Statement.html">
+<span class="md-ellipsis">
+    Statement
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="Python/03-FuntionAbstraction.html">
+<span class="md-ellipsis">
+    函数 Function
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="Python/04-DataAbstraction.html">
+<span class="md-ellipsis">
+    数据 Data Abstraction
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="Python/05-Object.html">
+<span class="md-ellipsis">
+    对象 Object
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="Python/06-File.html">
+<span class="md-ellipsis">
+    文件
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="Python/07-Project.html">
+<span class="md-ellipsis">
+    项目
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="Python/Python_Package.html">
 <span class="md-ellipsis">
     Python Packages
   </span>
 </a>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_5_1_5" type="checkbox"/>
-<label class="md-nav__link" for="__nav_5_1_5" id="__nav_5_1_5_label" tabindex="0">
+<li class="md-nav__item">
+<a class="md-nav__link" href="https://pythontutor.com/">
 <span class="md-ellipsis">
-    Python速查
+    可视化运行工具
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="https://lyvelf.github.io/cs61a-fa24-backup/index.html">
+<span class="md-ellipsis">
+    CS61A 24fall
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="https://composingprograms.netlify.app/">
+<span class="md-ellipsis">
+    CS61A教材
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5_1_3_13" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_1_3_13" id="__nav_5_1_3_13_label" tabindex="0">
+<span class="md-ellipsis">
+    手册
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="false" aria-labelledby="__nav_5_1_5_label" class="md-nav" data-md-level="3">
-<label class="md-nav__title" for="__nav_5_1_5">
+<nav aria-expanded="false" aria-labelledby="__nav_5_1_3_13_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_5_1_3_13">
 <span class="md-nav__icon md-icon"></span>
-            Python速查
+            手册
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="https://pyloong.github.io/pythonic-project-guidelines/">
+<span class="md-ellipsis">
+    Python工程化开发指南
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="http://getpython3.com/diveintopython3/index.html">
+<span class="md-ellipsis">
+    Dive Into Python 3
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="https://docs.python-guide.org/">
+<span class="md-ellipsis">
+    Hitchhiker's Guide
+  </span>
+</a>
+</li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="https://seaborn.pydata.org/api.html">
 <span class="md-ellipsis">
@@ -2036,6 +2136,9 @@
     Scipy
   </span>
 </a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -2201,25 +2304,22 @@
 </li>
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_5_5" type="checkbox"/>
-<label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="0">
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../CN/index.html">
 <span class="md-ellipsis">
     CN | 计算机网络
   </span>
+</a>
+<label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="0">
 <span class="md-nav__icon md-icon"></span>
 </label>
+</div>
 <nav aria-expanded="false" aria-labelledby="__nav_5_5_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_5_5">
 <span class="md-nav__icon md-icon"></span>
             CN | 计算机网络
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../CN/00-intro.html">
-<span class="md-ellipsis">
-    00-简介
-  </span>
-</a>
-</li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../CN/01-ApplicationLayer.html">
 <span class="md-ellipsis">
@@ -2575,14 +2675,32 @@
 </li>
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_6_4" type="checkbox"/>
-<label class="md-nav__link" for="__nav_6_4" id="__nav_6_4_label" tabindex="0">
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../Class/Physics/index.html">
+<span class="md-ellipsis">
+    大学物理
+  </span>
+</a>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_6_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_6_4">
+<span class="md-nav__icon md-icon"></span>
+            大学物理
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_6_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6_5" id="__nav_6_5_label" tabindex="0">
 <span class="md-ellipsis">
     Oral
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="false" aria-labelledby="__nav_6_4_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_6_4">
+<nav aria-expanded="false" aria-labelledby="__nav_6_5_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_6_5">
 <span class="md-nav__icon md-icon"></span>
             Oral
           </label>
@@ -2633,15 +2751,15 @@
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_6_5" type="checkbox"/>
-<label class="md-nav__link" for="__nav_6_5" id="__nav_6_5_label" tabindex="0">
+<input class="md-nav__toggle md-toggle" id="__nav_6_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6_6" id="__nav_6_6_label" tabindex="0">
 <span class="md-ellipsis">
     Finance
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="false" aria-labelledby="__nav_6_5_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_6_5">
+<nav aria-expanded="false" aria-labelledby="__nav_6_6_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_6_6">
 <span class="md-nav__icon md-icon"></span>
             Finance
           </label>
@@ -2664,15 +2782,15 @@
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_6_6" type="checkbox"/>
-<label class="md-nav__link" for="__nav_6_6" id="__nav_6_6_label" tabindex="0">
+<input class="md-nav__toggle md-toggle" id="__nav_6_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6_7" id="__nav_6_7_label" tabindex="0">
 <span class="md-ellipsis">
     Books
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="false" aria-labelledby="__nav_6_6_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_6_6">
+<nav aria-expanded="false" aria-labelledby="__nav_6_7_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_6_7">
 <span class="md-nav__icon md-icon"></span>
             Books
           </label>
@@ -3443,12 +3561,13 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/Phil-Fan/Phil-Fan.github.io/edit/master/docs/CS/Language/Python_Package.ipynb" title="编辑此页">
+<a class="md-content__button md-icon" href="https://github.com/Phil-Fan/Phil-Fan.github.io/edit/master/docs/CS/Language/cs61a.ipynb" title="编辑此页">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
-<a class="md-content__button md-icon" href="https://github.com/Phil-Fan/Phil-Fan.github.io/raw/master/docs/CS/Language/Python_Package.ipynb" title="查看本页的源代码">
+<a class="md-content__button md-icon" href="https://github.com/Phil-Fan/Phil-Fan.github.io/raw/master/docs/CS/Language/cs61a.ipynb" title="查看本页的源代码">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"></path></svg>
 </a>
+<h1>Cs61a</h1>
 <script>
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
@@ -3885,40 +4004,8 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </style>
 <!-- End of mermaid configuration --><div class="jupyter-wrapper">
 <div class="jp-Notebook" data-jp-theme-light="false" data-jp-theme-name="JupyterLab Dark">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="python-packages">Python Packages<a class="anchor-link" href="#python-packages">¶</a></h1>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="numpy">numpy<a class="anchor-link" href="#numpy">¶</a></h1>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="">随机数生成<a class="anchor-link" href="#"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=b6bcf488">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -3936,74 +4023,38 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="c1">#对纯数字的list进行数学运算，用array</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
-<span class="n">d</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">sum_naturals</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""返回前 n 个自然数的和。</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">d</span><span class="p">))</span>
+<span class="sd">    &gt;&gt;&gt; sum_naturals(10)</span>
+<span class="sd">    55</span>
+<span class="sd">    &gt;&gt;&gt; sum_naturals(100)</span>
+<span class="sd">    5050</span>
+<span class="sd">    """</span>
+    <span class="n">total</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
+    <span class="k">while</span> <span class="n">k</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">:</span>
+        <span class="n">total</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="n">total</span> <span class="o">+</span> <span class="n">k</span><span class="p">,</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">2</span>
+    <span class="k">return</span> <span class="n">total</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-1"><span>#<span class="heti-spacing"> </span></span>对纯数字的<span class="heti-skip"><span class="heti-spacing"> </span>list<span class="heti-spacing"> </span></span>进行数学运算，用<span><span class="heti-spacing"> </span>array</span>
-import numpy as np
-a = [1,2,3,4]
-d=np.array(a)
+<div class="clipboard-copy-txt" id="cell-1">def sum_naturals(n):
+    """返回前 n 个自然数的和。
 
-print(d+1)
-print(d*2)
-print(sum(d))</div>
+    &gt;&gt;&gt; sum_naturals(10)
+    55
+    &gt;&gt;&gt; sum_naturals(100)
+    5050
+    """
+    total, k = 0, 1
+    while k &lt;= n:
+        total, k = total + k, k + 2
+    return total</div>
 </div>
 </div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>[2 3 4 5]
-[2 4 6 8]
-10
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>生成数组可以用</p>
-<ul>
-<li><code>np.random.randint(start, end, (shape))</code></li>
-<li><code>np.random.randn(shape)</code>生成正态分布的随机数</li>
-<li><code>np.arange(start, end, step)</code>生成等差数列</li>
-<li><code>np.repeat()</code>重复数组</li>
-<li><code>np.random.seed(23)</code> 设置随机数种子</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><span>!!! note "H(head)&amp;T(Tail)<span class="heti-spacing"> </span></span>代表硬币的正反面<span><span class="heti-spacing"> </span>"</span></p>
 </div>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=355bfbed">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -4021,15 +4072,13 @@ print(sum(d))</div>
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># 连续两次掷有4个面的骰子</span>
-<span class="n">sample</span><span class="o">=</span><span class="mi">1000</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">sample</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">doctest</span><span class="w"> </span><span class="kn">import</span> <span class="n">testmod</span><span class="p">,</span><span class="n">run_docstring_examples</span>
+
+<span class="n">testmod</span><span class="p">()</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-2"><span>#<span class="heti-spacing"> </span></span>连续两次掷有<span class="heti-skip"><span class="heti-spacing"> </span>4<span class="heti-spacing"> </span></span>个面的骰子
-sample=1000
-x = np.random.randint(1,5,size=(2,sample))
-print(x)</div>
+<div class="clipboard-copy-txt" id="cell-2">from doctest import testmod,run_docstring_examples
+
+testmod()</div>
 </div>
 </div>
 </div>
@@ -4041,16 +4090,40 @@ print(x)</div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>[[2 4 2 ... 1 1 2]
- [1 3 4 ... 3 2 2]]
+<pre>**********************************************************************
+File "__main__", line 4, in __main__.sum_naturals
+Failed example:
+    sum_naturals(10)
+Expected:
+    55
+Got:
+    25
+**********************************************************************
+File "__main__", line 6, in __main__.sum_naturals
+Failed example:
+    sum_naturals(100)
+Expected:
+    5050
+Got:
+    2500
+**********************************************************************
+1 items had failures:
+   2 of   2 in __main__.sum_naturals
+***Test Failed*** 2 failures.
 </pre>
+</div>
+</div>
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[2]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>TestResults(failed=2, attempted=2)</pre>
 </div>
 </div>
 </div>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=6da8aad8">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -4068,12 +4141,9 @@ print(x)</div>
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="c1"># 默认范围是0到1</span>
-<span class="n">y</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="n">run_docstring_examples</span><span class="p">(</span><span class="n">sum_naturals</span><span class="p">,</span><span class="nb">globals</span><span class="p">(),</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-3"><span>y = np.random.rand(5) #<span class="heti-spacing"> </span></span>默认范围是<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>到<span><span class="heti-spacing"> </span>1</span>
-y
-</div>
+<div class="clipboard-copy-txt" id="cell-3">run_docstring_examples(sum_naturals,globals(),True)</div>
 </div>
 </div>
 </div>
@@ -4082,28 +4152,42 @@ y
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>array([0.56946414, 0.16120771, 0.41891346, 0.72194467, 0.68975405])</pre>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Finding tests in NoName
+Trying:
+    sum_naturals(10)
+Expecting:
+    55
+**********************************************************************
+File "__main__", line 4, in NoName
+Failed example:
+    sum_naturals(10)
+Expected:
+    55
+Got:
+    25
+Trying:
+    sum_naturals(100)
+Expecting:
+    5050
+**********************************************************************
+File "__main__", line 6, in NoName
+Failed example:
+    sum_naturals(100)
+Expected:
+    5050
+Got:
+    2500
+</pre>
 </div>
 </div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>与<code>shuffle</code>不同的是，<code>permutation</code>不会改变原数组</p>
 </div>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=95a61757">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -4121,15 +4205,35 @@ y
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="c1"># 打乱顺序</span>
-<span class="n">y</span>
-<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="c1"># 打乱顺序,</span>
-<span class="n">y</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">pair</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get</span><span class="p">(</span><span class="n">index</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">index</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">x</span>
+        <span class="k">elif</span> <span class="n">index</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">y</span>
+    <span class="k">return</span> <span class="n">get</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">select</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">i</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">p</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">pair</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">select</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">select</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-4"><span>np.random.shuffle(y) #<span class="heti-spacing"> </span></span>打乱顺序
-y
-np.random.permutation(y) # 打乱顺序,
-y</div>
+<div class="clipboard-copy-txt" id="cell-4">def pair(x,y):
+    def get(index):
+        if index == 0:
+            return x
+        elif index == 1:
+            return y
+    return get
+
+def select(p,i):
+    return p(i)
+
+p = pair(1,2)
+print(select(p,0))
+print(select(p,1))</div>
 </div>
 </div>
 </div>
@@ -4138,17 +4242,19 @@ y</div>
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[4]:</div>
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>array([0.68975405, 0.41891346, 0.56946414, 0.72194467, 0.16120771])</pre>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>1
+2
+</pre>
 </div>
 </div>
 </div>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=90dd0575">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -4166,13 +4272,15 @@ y</div>
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
-<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="c1"># 只对第一维度进行打乱</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">functools</span><span class="w"> </span><span class="kn">import</span> <span class="n">reduce</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">my_add</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+<span class="n">reduce</span><span class="p">(</span><span class="n">my_add</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-5">import numpy as np
-arr = np.arange(9).reshape((3, 3))
-np.random.permutation(arr) # 只对第一维度进行打乱</div>
+<div class="clipboard-copy-txt" id="cell-5">from functools import reduce
+def my_add(x, y):
+    return x + y
+reduce(my_add, [1,2,3,4,5])</div>
 </div>
 </div>
 </div>
@@ -4184,66 +4292,19 @@ np.random.permutation(arr) # 只对第一维度进行打乱</div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[5]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>array([[6, 7, 8],
-       [0, 1, 2],
-       [3, 4, 5]])</pre>
+<pre>15</pre>
 </div>
 </div>
 </div>
 </div>
 </div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="">矩阵<a class="anchor-link" href="#"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="">生成矩阵<a class="anchor-link" href="#"><span><span class="heti-spacing"> </span>¶</span></a></h3><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
-<span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]])</span> <span class="c1">## 注意这里的两个方括号</span>
-
-
-<span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>  <span class="c1">## 全1矩阵       </span>
-<span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>  <span class="c1">## 全0矩阵</span>
-<span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span> <span class="c1">## 注意这里的两层括号</span>
-
-<span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="c1">## 单位阵</span>
-
-<span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span> <span class="c1">## 对角阵</span>
-
-<span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">()</span>
-
-<span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">()</span>
-</pre></div>
-<div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">start</span><span class="p">,</span><span class="n">end</span><span class="p">,(</span><span class="n">shape</span><span class="p">))</span>
-<span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">3</span><span class="p">))</span> <span class="c1"># 随机对角阵</span>
-<span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)))</span>
-</pre></div>
-<div class="highlight"><pre><span></span><span class="c1">#数组的修改</span>
-<span class="n">res</span><span class="p">[:,</span> <span class="n">j</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span> <span class="n">切片</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=1a5f716c">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
 <clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-6">
@@ -4256,992 +4317,11 @@ np.random.permutation(arr) # 只对第一维度进行打乱</div>
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="n">a</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">,::</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>  <span class="c1"># 切片的应用</span>
+<div class="highlight-ipynb hl-python"><pre><span></span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-6">import numpy as np
-a=np.array(np.random.randint(10,size=(3,4)))
-print(a)
-a[1,::-2]  # 切片的应用</div>
+<div class="clipboard-copy-txt" id="cell-6"></div>
 </div>
 </div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>[[1 8 6 7]
- [7 2 8 6]
- [3 6 5 3]]
-</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[6]:</div>
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>array([6, 2])</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="">矩阵运算<a class="anchor-link" href="#"><span><span class="heti-spacing"> </span>¶</span></a></h3><p><code>@</code> 做矩阵乘法</p>
-<p><code>*</code> 做点乘<span class="heti-skip"><span class="heti-spacing"> </span>-&gt;<span class="heti-spacing"> </span></span>对应相乘</p>
-<p><code>matrix.T </code> 转置</p>
-<div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">)</span>
-</pre></div>
-<p><span>array<span class="heti-spacing"> </span></span>在维度是<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>的时候<span class="heti-skip"><span class="heti-spacing"> </span>(1<span class="heti-spacing"> </span></span>行向量<span class="heti-skip"><span class="heti-spacing"> </span>or1<span class="heti-spacing"> </span></span>列向量<span><span class="heti-spacing"> </span>)</span>，会自动转置，所以容易出现神奇错误，最好初始化的时候规定好</p>
-<div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">lib</span><span class="o">.</span><span class="n">stride_tricks</span><span class="o">.</span><span class="n">as_strided</span><span class="p">(</span><span class="n">source_list</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="n">shape</span><span class="p">,</span> <span class="n">strides</span><span class="o">=</span><span class="n">stride</span><span class="p">)</span>
-<span class="c1"># stride 是数组在各个维度所对应的距离A</span>
-<span class="n">np</span><span class="o">.</span><span class="n">tensordot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)])</span>
-<span class="c1"># </span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="">广播机制<a class="anchor-link" href="#"><span><span class="heti-spacing"> </span>¶</span></a></h3><ul>
-<li>最神奇的机制：广播机制（还没有完全学会）</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="">方程求解<a class="anchor-link" href="#"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="CodeMirror cm-s-jupyter">
-<div class="zeroclipboard-container">
-<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-7">
-<div>
-<span class="notice" hidden="">Copied!</span>
-<svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
-<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z" fill="currentColor" fill-rule="evenodd"></path>
-<path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z" fill="currentColor" fill-rule="evenodd"></path>
-</svg>
-</div>
-</clipboard-copy>
-</div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">)))</span>
-<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">)))</span>
-<span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-
-<span class="c1"># 求解 Ax = b</span>
-<span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
-<span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">A</span><span class="p">)</span><span class="nd">@b</span> <span class="c1">## 更慢</span>
-</pre></div>
-<div class="clipboard-copy-txt" id="cell-7">b = np.array(np.random.randint(20,size=(4,1)))
-A = np.array(np.random.randint(20,size=(4,4)))
-np.linalg.inv(A)
-
-# 求解 Ax = b
-np.linalg.solve(A,b)
-np.linalg.inv(A)@b ## 更慢</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[7]:</div>
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>array([[ 0.91859649],
-       [ 0.79719298],
-       [-0.88982456],
-       [ 0.15859649]])</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="">矩阵分解<a class="anchor-link" href="#"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="">时间测量<a class="anchor-link" href="#"><span><span class="heti-spacing"> </span>¶</span></a></h3><p>在命令前面加上 <code>%timeit</code> 可以获得多次运行命令的时间</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="meshgrid"><span>meshgrid<span class="heti-spacing"> </span></span>生成网格坐标<a class="anchor-link" href="#meshgrid"><span><span class="heti-spacing"> </span>¶</span></a></h3><div class="highlight"><pre><span></span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-</pre></div>
-<ul>
-<li><code>*xi</code>：一个或多个一维数组，表示坐标轴上的点。如果只传入一个数组，则默认为<span class="heti-skip"><span class="heti-spacing"> </span>x<span class="heti-spacing"> </span></span>轴上的点，并会生成一个与该数组形状相同的<span class="heti-skip"><span class="heti-spacing"> </span>y<span class="heti-spacing"> </span></span>轴数组。</li>
-<li><code>indexing</code>：可选参数，用于指定网格的索引方式。默认为<span><span class="heti-spacing"> </span>'xy'</span>，表示使用笛卡尔坐标系；也可以设置为<span><span class="heti-spacing"> </span>'ij'</span>，表示使用矩阵坐标系。</li>
-<li><code>sparse</code>：可选参数，用于指定是否生成稀疏网格。默认为<span><span class="heti-spacing"> </span>False</span>，表示生成密集网格；如果设置为<span><span class="heti-spacing"> </span>True</span>，则只生成网格的行和列索引，而不生成完整的网格。</li>
-<li><a href="https://zhuanlan.zhihu.com/p/33579211"><span>Python-Numpy<span class="heti-spacing"> </span></span>模块<span class="heti-skip"><span class="heti-spacing"> </span>Meshgrid<span class="heti-spacing"> </span></span>函数<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>知乎</a></li>
-</ul>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="CodeMirror cm-s-jupyter">
-<div class="zeroclipboard-container">
-<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-8">
-<div>
-<span class="notice" hidden="">Copied!</span>
-<svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
-<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z" fill="currentColor" fill-rule="evenodd"></path>
-<path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z" fill="currentColor" fill-rule="evenodd"></path>
-</svg>
-</div>
-</clipboard-copy>
-</div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-
-<span class="c1"># 生成二维网格</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>  <span class="c1"># x 轴上的点</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>  <span class="c1"># y 轴上的点</span>
-<span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-</pre></div>
-<div class="clipboard-copy-txt" id="cell-8">import numpy as np
-
-# 生成二维网格
-x = np.linspace(-5, 5, 100)  # x 轴上的点
-y = np.linspace(-5, 5, 100)  # y 轴上的点
-X, Y = np.meshgrid(x, y)</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="CodeMirror cm-s-jupyter">
-<div class="zeroclipboard-container">
-<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-9">
-<div>
-<span class="notice" hidden="">Copied!</span>
-<svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
-<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z" fill="currentColor" fill-rule="evenodd"></path>
-<path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z" fill="currentColor" fill-rule="evenodd"></path>
-</svg>
-</div>
-</clipboard-copy>
-</div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="n">a</span><span class="o">=</span><span class="p">[[</span><span class="s1">'a'</span><span class="p">,</span><span class="s1">'a'</span><span class="p">,</span><span class="s1">'a'</span><span class="p">],[</span><span class="s1">'b'</span><span class="p">,</span><span class="s1">'b'</span><span class="p">,</span><span class="s1">'b'</span><span class="p">]]</span> <span class="c1">## 2个成员</span>
-<span class="n">b</span><span class="o">=</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]]</span> <span class="c1">## 3个成员</span>
-<span class="c1">## 纵向展开</span>
-<span class="nb">print</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">]),</span><span class="s1">'</span><span class="se">\n</span><span class="s1"> Dimension: '</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">])</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="c1">## 横向展开</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">]),</span><span class="s1">'</span><span class="se">\n</span><span class="s1"> Dimension: '</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">])</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="c1">## 网格展开</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dstack</span><span class="p">([</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">]),</span><span class="s1">'</span><span class="se">\n</span><span class="s1"> Dimension: '</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">dstack</span><span class="p">([</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">])</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-</pre></div>
-<div class="clipboard-copy-txt" id="cell-9">import numpy as np
-a=[['a','a','a'],['b','b','b']] ## 2个成员
-b=[[1,2,3],[1,2,3]] ## 3个成员
-## 纵向展开
-print (np.vstack([a,b]),'\n Dimension: ',np.vstack([a,b]).shape)
-## 横向展开
-print(np.hstack([a,b]),'\n Dimension: ',np.hstack([a,b]).shape)
-## 网格展开
-print(np.dstack([a,b]),'\n Dimension: ',np.dstack([a,b]).shape)</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>[['a' 'a' 'a']
- ['b' 'b' 'b']
- ['1' '2' '3']
- ['1' '2' '3']] 
- Dimension:  (4, 3)
-[['a' 'a' 'a' '1' '2' '3']
- ['b' 'b' 'b' '1' '2' '3']] 
- Dimension:  (2, 6)
-[[['a' '1']
-  ['a' '2']
-  ['a' '3']]
-
- [['b' '1']
-  ['b' '2']
-  ['b' '3']]] 
- Dimension:  (2, 3, 2)
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="">图像处理<a class="anchor-link" href="#"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<ul>
-<li>把图片按照卷积核进行分割成多维的数组</li>
-</ul>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="CodeMirror cm-s-jupyter">
-<div class="zeroclipboard-container">
-<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-10">
-<div>
-<span class="notice" hidden="">Copied!</span>
-<svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
-<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z" fill="currentColor" fill-rule="evenodd"></path>
-<path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z" fill="currentColor" fill-rule="evenodd"></path>
-</svg>
-</div>
-</clipboard-copy>
-</div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_feature_map</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">kh</span><span class="p">,</span> <span class="n">kw</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span><span class="c1">#向量化处理</span>
-<span class="w">    </span><span class="sd">'''</span>
-<span class="sd">    :param X:</span>
-<span class="sd">    :param kh: height of kernel</span>
-<span class="sd">    :param kw: width of kernel</span>
-<span class="sd">    :param s: stride</span>
-<span class="sd">    :return: 按k*k大小分割好的数组</span>
-<span class="sd">    '''</span>
-    <span class="n">N</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">W</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span>
-    <span class="n">oh</span> <span class="o">=</span> <span class="p">(</span><span class="n">H</span> <span class="o">-</span> <span class="n">kh</span><span class="p">)</span> <span class="o">//</span> <span class="n">s</span> <span class="o">+</span> <span class="mi">1</span>
-    <span class="n">ow</span> <span class="o">=</span> <span class="p">(</span><span class="n">W</span> <span class="o">-</span> <span class="n">kw</span><span class="p">)</span> <span class="o">//</span> <span class="n">s</span> <span class="o">+</span> <span class="mi">1</span>
-    <span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">oh</span><span class="p">,</span> <span class="n">ow</span><span class="p">,</span> <span class="n">kh</span><span class="p">,</span> <span class="n">kw</span><span class="p">)</span>  <span class="c1">#切割形状</span>
-    <span class="n">stride</span> <span class="o">=</span> <span class="p">(</span><span class="o">*</span><span class="n">X</span><span class="o">.</span><span class="n">strides</span><span class="p">[:</span><span class="mi">2</span><span class="p">],</span> <span class="n">X</span><span class="o">.</span><span class="n">strides</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="n">s</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">strides</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">s</span><span class="p">,</span> <span class="o">*</span><span class="n">X</span><span class="o">.</span><span class="n">strides</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:])</span><span class="c1">#切割方式</span>
-    <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">lib</span><span class="o">.</span><span class="n">stride_tricks</span><span class="o">.</span><span class="n">as_strided</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="n">shape</span><span class="p">,</span> <span class="n">strides</span><span class="o">=</span><span class="n">stride</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">A</span>
-</pre></div>
-<div class="clipboard-copy-txt" id="cell-10"><span>def get_feature_map(self, X, kh, kw, s):#<span class="heti-spacing"> </span></span>向量化处理
-    '''
-    :param X:
-    :param kh: height of kernel
-    :param kw: width of kernel
-    :param s: stride
-    :return: 按k*k大小分割好的数组
-    '''
-    N, C, H, W = X.shape
-    oh = (H - kh) // s + 1
-    ow = (W - kw) // s + 1
-    shape = (N, C, oh, ow, kh, kw)  #切割形状
-    stride = (*X.strides[:2], X.strides[-2] * s, X.strides[-1] * s, *X.strides[-2:])#切割方式
-    A = np.lib.stride_tricks.as_strided(X, shape=shape, strides=stride)
-    return A</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="pandas">pandas<a class="anchor-link" href="#pandas">¶</a></h1>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="dataframe">Dataframe<a class="anchor-link" href="#dataframe">¶</a></h2><ul>
-<li>表格</li>
-<li>读入和写出</li>
-<li>处理<span><span class="heti-spacing"> </span>csv,xls,json,sql</span></li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="">创建表格<a class="anchor-link" href="#"><span><span class="heti-spacing"> </span>¶</span></a></h3><ul>
-<li>从字典创建</li>
-<li><span>zip<span class="heti-spacing"> </span></span>创建</li>
-</ul>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="CodeMirror cm-s-jupyter">
-<div class="zeroclipboard-container">
-<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-11">
-<div>
-<span class="notice" hidden="">Copied!</span>
-<svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
-<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z" fill="currentColor" fill-rule="evenodd"></path>
-<path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z" fill="currentColor" fill-rule="evenodd"></path>
-</svg>
-</div>
-</clipboard-copy>
-</div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">mode</span><span class="o">.</span><span class="n">chained_assignment</span> <span class="o">=</span> <span class="kc">None</span> <span class="c1"># 防止出现SettingWithCopyWarning</span>
-<span class="n">l1</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
-<span class="n">l2</span><span class="o">=</span><span class="p">[</span><span class="mi">21</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mi">22</span><span class="p">,</span><span class="mi">19</span><span class="p">]</span>
-<span class="n">l3</span><span class="o">=</span><span class="p">[</span><span class="s1">'Adam'</span><span class="p">,</span><span class="s1">'Bob'</span><span class="p">,</span><span class="s1">'Cinda'</span><span class="p">,</span><span class="s1">'David'</span><span class="p">]</span>
-
-<span class="n">dict3</span><span class="o">=</span><span class="p">{</span><span class="s1">'ID'</span><span class="p">:</span><span class="n">l1</span><span class="p">,</span><span class="s1">'Age'</span><span class="p">:</span><span class="n">l2</span><span class="p">,</span><span class="s1">'Name'</span><span class="p">:</span><span class="n">l3</span><span class="p">}</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">dict3</span><span class="p">)</span>
-<span class="n">df</span>
-</pre></div>
-<div class="clipboard-copy-txt" id="cell-11">import pandas as pd
-pd.options.mode.chained_assignment = None # 防止出现SettingWithCopyWarning
-l1=[1,2,3,4]
-l2=[21,18,22,19]
-l3=['Adam','Bob','Cinda','David']
-
-dict3={'ID':l1,'Age':l2,'Name':l3}
-df = pd.DataFrame(dict3)
-df</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[11]:</div>
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
-<div>
-<style scoped="">
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th></th>
-<th>ID</th>
-<th>Age</th>
-<th>Name</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>0</th>
-<td>1</td>
-<td>21</td>
-<td>Adam</td>
-</tr>
-<tr>
-<th>1</th>
-<td>2</td>
-<td>18</td>
-<td>Bob</td>
-</tr>
-<tr>
-<th>2</th>
-<td>3</td>
-<td>22</td>
-<td>Cinda</td>
-</tr>
-<tr>
-<th>3</th>
-<td>4</td>
-<td>19</td>
-<td>David</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="CodeMirror cm-s-jupyter">
-<div class="zeroclipboard-container">
-<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-12">
-<div>
-<span class="notice" hidden="">Copied!</span>
-<svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
-<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z" fill="currentColor" fill-rule="evenodd"></path>
-<path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z" fill="currentColor" fill-rule="evenodd"></path>
-</svg>
-</div>
-</clipboard-copy>
-</div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># 简化写法</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">l1</span><span class="p">,</span> <span class="n">l2</span><span class="p">,</span><span class="n">l3</span><span class="p">)),</span>
-               <span class="n">columns</span> <span class="o">=</span><span class="p">[</span><span class="s1">'ID'</span><span class="p">,</span> <span class="s1">'Age'</span><span class="p">,</span> <span class="s1">'Name'</span><span class="p">])</span>
-<span class="n">df</span>
-</pre></div>
-<div class="clipboard-copy-txt" id="cell-12"><span>#<span class="heti-spacing"> </span></span>简化写法
-df = pd.DataFrame(list(zip(l1, l2,l3)),
-               columns =['ID', 'Age', 'Name'])
-df</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[12]:</div>
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
-<div>
-<style scoped="">
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th></th>
-<th>ID</th>
-<th>Age</th>
-<th>Name</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>0</th>
-<td>1</td>
-<td>21</td>
-<td>Adam</td>
-</tr>
-<tr>
-<th>1</th>
-<td>2</td>
-<td>18</td>
-<td>Bob</td>
-</tr>
-<tr>
-<th>2</th>
-<td>3</td>
-<td>22</td>
-<td>Cinda</td>
-</tr>
-<tr>
-<th>3</th>
-<td>4</td>
-<td>19</td>
-<td>David</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="">读入读出<a class="anchor-link" href="#"><span><span class="heti-spacing"> </span>¶</span></a></h3><div class="highlight"><pre><span></span><span class="n">hang</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"hang.csv"</span><span class="p">,</span><span class="n">delimiter</span><span class="o">=</span><span class="s2">";"</span><span class="p">,</span> <span class="n">quotechar</span><span class="o">=</span><span class="s1">'"'</span><span class="p">)</span>
-
-<span class="n">hang</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="c1"># 前5行</span>
-<span class="n">hang</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="c1"># 后5行</span>
-
-<span class="n">hang</span><span class="o">.</span><span class="n">dtypes</span> <span class="c1"># 所有字段的格式</span>
-<span class="n">hang</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
-
-<span class="n">hang</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span> <span class="c1"># 把所有有关数字的信息做一个整理</span>
-</pre></div>
-<div class="highlight"><pre><span></span><span class="c1"># 保存到excel</span>
-<span class="n">hang</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="s2">"hang.xlsx"</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s2">"weather"</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1"># 转换成excel</span>
-<span class="c1"># 从excel读取</span>
-<span class="n">hang</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">"hang.xlsx"</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s2">"weather"</span><span class="p">)</span>
-<span class="n">hang</span> 
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="">表格操作<a class="anchor-link" href="#"><span><span class="heti-spacing"> </span>¶</span></a></h3><div class="highlight"><pre><span></span><span class="n">table</span><span class="p">[</span><span class="s1">'name'</span><span class="p">]</span> <span class="c1"># 选择一列</span>
-<span class="nb">type</span><span class="p">(</span><span class="n">table</span><span class="p">[</span><span class="s1">'name'</span><span class="p">])</span>
-</pre></div>
-<div class="highlight"><pre><span></span><span class="n">reduce</span><span class="o">=</span><span class="n">hang</span><span class="p">[[</span><span class="s1">'time'</span><span class="p">,</span><span class="s1">'T'</span><span class="p">]]</span> <span class="c1"># 选取某一列</span>
-<span class="n">reduce</span><span class="p">[</span><span class="n">reduce</span><span class="p">[</span><span class="s2">"T"</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">35</span><span class="p">]</span>
-<span class="n">reduce</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">9</span><span class="p">:</span><span class="mi">14</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="c1"># 先选行，后选列</span>
-<span class="n">reduce</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">reduce</span><span class="p">[</span><span class="s2">"T"</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">35</span><span class="p">,</span> <span class="s2">"time"</span><span class="p">]</span>
-</pre></div>
-<div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-<span class="n">df</span><span class="o">.</span><span class="n">var</span><span class="p">()</span>
-<span class="n">df</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
-<span class="n">df</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
-</pre></div>
-<div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
-<span class="n">df</span><span class="o">.</span><span class="n">values</span><span class="p">()</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="">表格合并<a class="anchor-link" href="#"><span><span class="heti-spacing"> </span>¶</span></a></h3><ul>
-<li>merge</li>
-<li>concat</li>
-</ul>
-<div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">sub3</span><span class="p">,</span> <span class="n">sub4</span><span class="p">,</span>
-        <span class="n">how</span><span class="o">=</span><span class="s1">'left'</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s1">'time'</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="s1">'time'</span><span class="p">)</span>
-</pre></div>
-<div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">sub1</span><span class="p">,</span> <span class="n">sub2</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">sub1</span><span class="p">,</span> <span class="n">sub2</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="">简单绘图<a class="anchor-link" href="#"><span><span class="heti-spacing"> </span>¶</span></a></h3><div class="highlight"><pre><span></span><span class="n">hang</span><span class="p">[</span><span class="s1">'P'</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
-<span class="p">(</span><span class="n">hang</span><span class="p">[</span><span class="s1">'Tx'</span><span class="p">]</span><span class="o">-</span><span class="n">hang</span><span class="p">[</span><span class="s1">'Tn'</span><span class="p">])</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">hist</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="">时间信息画图<a class="anchor-link" href="#"><span><span class="heti-spacing"> </span>¶</span></a></h3><pre><code>reduce["time"]=pd.to_datetime(reduce["time"],dayfirst=True)
-reduce
-</code></pre>
-<div class="highlight"><pre><span></span><span class="n">reduce</span><span class="p">[</span><span class="s2">"month"</span><span class="p">]</span><span class="o">=</span><span class="n">reduce</span><span class="p">[</span><span class="s1">'time'</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span>
-<span class="n">reduce</span><span class="p">[</span><span class="s1">'year'</span><span class="p">]</span><span class="o">=</span><span class="n">reduce</span><span class="p">[</span><span class="s1">'time'</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span>
-<span class="n">reduce</span><span class="p">[</span><span class="s1">'hour'</span><span class="p">]</span><span class="o">=</span><span class="n">reduce</span><span class="p">[</span><span class="s1">'time'</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">hour</span>
-</pre></div>
-<div class="highlight"><pre><span></span><span class="n">reduce</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">"month"</span><span class="p">,</span><span class="s2">"year"</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="matplotlib-seaborn">matplotlib &amp; seaborn<a class="anchor-link" href="#matplotlib-seaborn">¶</a></h1>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><a href="https://seaborn.pydata.org/">seaborn: statistical data visualization — seaborn 0.13.2 documentation</a></p>
-<p>statistical data visualization
-Seaborn is a Python data visualization library based on matplotlib. It provides a high-level interface for drawing attractive and informative statistical graphics.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="">直方图<a class="anchor-link" href="#"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [13]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="CodeMirror cm-s-jupyter">
-<div class="zeroclipboard-container">
-<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-13">
-<div>
-<span class="notice" hidden="">Copied!</span>
-<svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
-<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z" fill="currentColor" fill-rule="evenodd"></path>
-<path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z" fill="currentColor" fill-rule="evenodd"></path>
-</svg>
-</div>
-</clipboard-copy>
-</div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># A和B约定见面，各自将迟到0-1小时。先来者等待15分钟后将离开。</span>
-<span class="c1"># A和B见到的概率多大？</span>
-
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">collections</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
-
-<span class="n">ab</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">10000</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">ab</span><span class="p">)</span>
-
-<span class="n">f</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
-
-<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">ab</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">stat</span><span class="o">=</span><span class="s1">'probability'</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">ab</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">stat</span><span class="o">=</span><span class="s1">'probability'</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">ab</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">ab</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">stat</span><span class="o">=</span><span class="s1">'probability'</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">'yellow'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span> <span class="c1"># 调整子图之间的间距</span>
-</pre></div>
-<div class="clipboard-copy-txt" id="cell-13"><span># A<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>B<span class="heti-spacing"> </span></span>约定见面，各自将迟到<span class="heti-skip"><span class="heti-spacing"> </span>0-1<span class="heti-spacing"> </span></span>小时。先来者等待<span class="heti-skip"><span class="heti-spacing"> </span>15<span class="heti-spacing"> </span></span>分钟后将离开。
-# A和B见到的概率多大？
-
-import numpy as np
-import collections
-import matplotlib.pyplot as plt
-import seaborn as sns
-
-ab = np.random.rand(2,10000)
-print(ab)
-
-f, axs = plt.subplots(1,3)
-
-sns.histplot(ab[0],stat='probability',ax=axs[0])
-sns.histplot(ab[1],stat='probability',ax=axs[1])
-sns.histplot(ab[0]-ab[1],stat='probability',ax=axs[2],color='yellow')
-plt.tight_layout() # 调整子图之间的间距</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>[[0.97072585 0.56551357 0.67547126 ... 0.6002731  0.30917771 0.72165508]
- [0.61297589 0.47538313 0.04626076 ... 0.80184972 0.69343252 0.94139745]]
-</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedImage jp-OutputArea-output" tabindex="0">
-<img alt="No description has been provided for this image" class="" src="data:image/png;base64,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"/>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><code>discrete</code> 参数在 <code>sns.histplot</code> 函数中的作用是指定数据是否为离散型数据。设置<span class="heti-skip"><span class="heti-spacing"> </span>discrete=True<span class="heti-spacing"> </span></span>会使得直方图的每个条形对应一个离散值，而不是一个连续的区间</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="">概率分布<a class="anchor-link" href="#"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [14]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="CodeMirror cm-s-jupyter">
-<div class="zeroclipboard-container">
-<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-14">
-<div>
-<span class="notice" hidden="">Copied!</span>
-<svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
-<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z" fill="currentColor" fill-rule="evenodd"></path>
-<path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z" fill="currentColor" fill-rule="evenodd"></path>
-</svg>
-</div>
-</clipboard-copy>
-</div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># 从分布的积分图形得到概率</span>
-<span class="n">f</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-
-<span class="n">sns</span><span class="o">.</span><span class="n">ecdfplot</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">ab</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">ab</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span><span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">)</span> <span class="c1"># cumulative distribution function</span>
-<span class="n">x_special</span> <span class="o">=</span> <span class="mf">0.25</span>
-
-<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">axs</span><span class="o">.</span><span class="n">get_lines</span><span class="p">():</span>
-    <span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">get_data</span><span class="p">()</span>
-    <span class="n">ind</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argwhere</span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="n">x_special</span><span class="p">)[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># first index where x is larger than x_special</span>
-    <span class="n">axs</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">x_special</span><span class="p">,</span><span class="n">y</span><span class="p">[</span><span class="n">ind</span><span class="p">],</span> <span class="sa">f</span><span class="s1">' </span><span class="si">{</span><span class="n">y</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">'</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">'left'</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">'top'</span><span class="p">)</span> <span class="c1"># maybe color=line.get_color()</span>
-<span class="n">axs</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x_special</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">'--'</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'#cfcfcf'</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-<div class="clipboard-copy-txt" id="cell-14"><span>#<span class="heti-spacing"> </span></span>从分布的积分图形得到概率
-f, axs = plt.subplots(1)
-
-sns.ecdfplot(abs(ab[0]-ab[1]),ax=axs) # cumulative distribution function
-x_special = 0.25
-
-for line in axs.get_lines():
-    x,y = line.get_data()
-    ind = np.argwhere(x &gt; x_special)[0,0]  # first index where x is larger than x_special
-    axs.text(x_special,y[ind], f' {y[ind]:.4f}', ha='left', va='top') # maybe color=line.get_color()
-axs.axvline(x_special, linestyle='--', color='#cfcfcf', lw=2, alpha=0.75)
-plt.show()</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedImage jp-OutputArea-output" tabindex="0">
-<img alt="No description has been provided for this image" class="" src="data:image/png;base64,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"/>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="seaborn">seaborn<a class="anchor-link" href="#seaborn">¶</a></h1><p><a href="https://www.jianshu.com/p/4b6222a62947"><span>seaborn<span class="heti-spacing"> </span></span>常见绘图学习总结（分布图） <span>-<span class="heti-spacing"> </span></span>简书</a></p>
-<p><a href="https://blog.csdn.net/qq_40195360/article/details/86605860"><span>Seaborn<span class="heti-spacing"> </span></span>常见绘图总结<span class="heti-skip"><span class="heti-spacing"> </span>_seaborn<span class="heti-spacing"> </span></span>绘图总结<span class="heti-skip"><span class="heti-spacing"> </span>csdn-CSDN<span class="heti-spacing"> </span></span>博客</a></p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="relational-plot"><span>relational Plot |<span class="heti-spacing"> </span></span>关系图<a class="anchor-link" href="#relational-plot"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="scatter-plot"><span>Scatter Plot |<span class="heti-spacing"> </span></span>散点图<a class="anchor-link" href="#scatter-plot"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="lineplot">lineplot<a class="anchor-link" href="#lineplot">¶</a></h3>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="jointplot">jointplot<a class="anchor-link" href="#jointplot">¶</a></h3><ul>
-<li><code>x</code>,<code>y</code>：代表待分析的成对变量，有两种模式，第一种模式：在参数<span class="heti-skip"><span class="heti-spacing"> </span>data<span class="heti-spacing"> </span></span>传入数据框时，x、<span>y<span class="heti-spacing"> </span></span>均传入字符串，指代数据框中的变量名；第二种模式：在参数<span class="heti-skip"><span class="heti-spacing"> </span>data<span class="heti-spacing"> </span></span>为<span class="heti-skip"><span class="heti-spacing"> </span>None<span class="heti-spacing"> </span></span>时，x、<span>y<span class="heti-spacing"> </span></span>直接传入两个一维数组，不依赖数据框</li>
-<li><code>data</code>：与上一段中的说明相对应，代表数据框，默认为<span><span class="heti-spacing"> </span>None</span></li>
-<li><code>kind</code>：字符型变量，用于控制展示成对变量相关情况的主图中的样式</li>
-<li><code>color</code>：控制图像中对象的色彩</li>
-<li><code>height</code>：控制图像为正方形时的边长</li>
-<li><code>ratio</code>：<span>int<span class="heti-spacing"> </span></span>型，调节联合图与边缘图的相对比例，越大则边缘图越矮，默认为<span><span class="heti-spacing"> </span>5</span></li>
-<li><code>space</code>：<span>int<span class="heti-spacing"> </span></span>型，用于控制联合图与边缘图的空白大小</li>
-<li><code>xlim</code>,<code>ylim</code>：设置<span class="heti-skip"><span class="heti-spacing"> </span>x<span class="heti-spacing"> </span></span>轴与<span class="heti-skip"><span class="heti-spacing"> </span>y<span class="heti-spacing"> </span></span>轴显示范围</li>
-<li><code>joint_kws</code>,<code>marginal_kws</code>,<code>annot_kws</code>：传入参数字典来分别精细化控制每个组件</li>
-</ul>
-<p><a href="https://blog.csdn.net/sunghosts/article/details/109972183">详解<span class="heti-skip"><span class="heti-spacing"> </span>seaborn<span class="heti-spacing"> </span></span>中的<span><span class="heti-spacing"> </span>kdeplot</span>、rugplot、<span>distplot<span class="heti-spacing"> </span></span>与<span class="heti-skip"><span class="heti-spacing"> </span>jointplot_seaborn.kdeplot-CSDN<span class="heti-spacing"> </span></span>博客</a></p>
-<p><a href="https://blog.csdn.net/hustlei/article/details/123091236"><span>Seaborn<span class="heti-spacing"> </span></span>系列<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>三<span><span class="heti-spacing"> </span>)</span>：分布统计绘图<span class="heti-skip"><span class="heti-spacing"> </span>(distribution)_displot-CSDN<span class="heti-spacing"> </span></span>博客</a></p>
-<h2 id="distplot">distplot<a class="anchor-link" href="#distplot">¶</a></h2><h2 id="kdeplot">kdeplot<a class="anchor-link" href="#kdeplot">¶</a></h2><h2 id="rugplot">rugplot<a class="anchor-link" href="#rugplot">¶</a></h2>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="sklearn">sklearn<a class="anchor-link" href="#sklearn">¶</a></h1><p>安装方法，注意名字不是<span><span class="heti-spacing"> </span>sklearn</span></p>
-<div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>scikit-learn
-</pre></div>
-<div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>statsmodels<span class="w"> </span>-i<span class="w"> </span>https://pypi.tuna.tsinghua.edu.cn/simple/
-</pre></div>
-<p><a href="https://pypi.org/project/statsmodels/#files">statsmodels · PyPI</a></p>
-<p>这个库执行需要翻墙，而且很容易连接不上</p>
 </div>
 </div>
 </div>
@@ -5256,13 +4336,13 @@ plt.show()</div>
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年7月8日 22:48:38</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年7月9日 15:31:20</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年8月8日 17:16:51</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年7月9日 15:31:20</span>
 </span>
 </aside>
 <form class="md-feedback" hidden="" name="feedback">
@@ -5309,34 +4389,6 @@ plt.show()</div>
 </button>
 </main>
 <footer class="md-footer">
-<nav aria-label="页脚" class="md-footer__inner md-grid">
-<a aria-label="上一页: Python" class="md-footer__link md-footer__link--prev" href="Python.html">
-<div class="md-footer__button md-icon">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
-</div>
-<div class="md-footer__title">
-<span class="md-footer__direction">
-                上一页
-              </span>
-<div class="md-ellipsis">
-                Python
-              </div>
-</div>
-</a>
-<a aria-label="下一页: 数论基础" class="md-footer__link md-footer__link--next" href="../Algorithm/01-Math.html">
-<div class="md-footer__title">
-<span class="md-footer__direction">
-                下一页
-              </span>
-<div class="md-ellipsis">
-                数论基础
-              </div>
-</div>
-<div class="md-footer__button md-icon">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
-</div>
-</a>
-</nav>
 <div class="md-footer-meta md-typeset">
 <div class="md-footer-meta__inner md-grid">
 <div class="md-copyright">
