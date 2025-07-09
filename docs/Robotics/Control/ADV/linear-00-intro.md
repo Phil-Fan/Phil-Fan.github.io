@@ -6,125 +6,136 @@ comments: true
 
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241025103426.png)
 
-!!! note "资源汇总"
-    === "学习路径"
-        - DR_CAN [现代控制理论系列课程](https://www.bilibili.com/video/BV1yx411u7iX/)+王崇卫笔记
-        - 课本阅读
-        - 作业题目
-        - 课件
-        - 历年题目
+## Acknowledgement
 
-    === "资料合集"
-        通过百度网盘分享的文件：现代控制理论
-
-        链接：https://pan.baidu.com/s/1YUCIKVOh5ZZdMgX8pZrZ4A?pwd=92t1 
-
-        提取码：92t1
-        
-        ```
-        ./
-        │  现代控制理论.svg
-        │  现代控制理论.xmind
-        │
-        ├─01-作业
-        │      01周作业参考答案.pdf
-        │      02周作业参考答案.pdf
-        │      03周作业参考答案.pdf
-        │      05周作业－答案.pdf
-        │      06周作业参考答案.pdf
-        │      07周作业参考答案(1).pdf
-        │      08周作业参考答案.pdf
-        │
-        ├─02-实验
-        │  ├─Matlab
-        │  │      experiment1_1.m
-        │  │      experiment1_2.m
-        │  │      experiment1_3.m
-        │  │      matlab 实验参考指导书_1.pdf
-        │  │      matlab 实验参考指导书_2.pdf
-        │  │      Matlab实验1.pdf
-        │  │      matlab实验.docx
-        │  │      Matlab实验2.pdf
-        │  │      matlab实验.docx
-        │  │      Untitled.m
-        │  │      Untitled2.m
-        │  │      Untitled3.m
-        │  │      实验一代码.rar
-        │  │      实验二代码.rar
-        │  │
-        │  └─线下
-        │          二阶系统瞬态响应分析.docx
-        │          实验1 控制系统典型环节的模拟（24版）.pdf
-        │          实验2 二阶系统的瞬态响应分析（24版）.pdf
-        │          实验3 线性系统的频率特性的测试（24版）.pdf
-        │          控制系统典型环节的模拟.docx
-        │          线性系统的频率特性测试.docx
-        │
-        ├─03-PPT1
-        │      Feedback Control of Dynamic Sys - Gene F. Franklin.pdf
-        │      Linear Control System Analysis and Design.pdf
-        │      modern control systems 13th Richard C.Dorf.pdf
-        │      第7章-1-采样过程.pdf
-        │      第7章-2-Z变换.pdf
-        │      第7章-3-差分方程&脉冲传递函数.pdf
-        │      第7章-4-状态空间&关系.pdf
-        │      第7章-5-稳定性与性能.pdf
-        │      第7章-6-离散系统设计.pdf
-        │      第8章-1-状态空间简介.pdf
-        │      第8章-2-能控性与能观性.pdf
-        │      第8章-3-线性变换与标准型.pdf
-        │      第8章-4-状态反馈.pdf
-        │      第8章-5-状态反馈-2.pdf
-        │      第8章-6-状态观测器.pdf
-        │      第9章-1-非线性控制系统.pdf
-        │      第9章-2-Lyapunov稳定性.pdf
-        │
-        ├─04-PPT2
-        │      CHAP7-1-20240911(1).pdf
-        │      CHAP7-2-20240914.pdf
-        │      CHAP7-3-20240918.pdf
-        │      CHAP7-4-20240920.pdf
-        │      CHAP7-5-20240925.pdf
-        │      CHAP7-6-20240927.pdf
-        │      CHAP7-7-20240929.pdf
-        │      课件8-1.pdf
-        │      课件8-2-1.pdf
-        │      课件8-2-2.pdf
-        │      课件8-3.pdf
-        │      课件8-4.pdf
-        │      课件8-5.pdf
-        │      课件8-6.pdf
-        │
-        └─05-A4
-                A4_Healor.pdf
-                A4_PhilFan.pdf
-                A4_追风Holy.pdf
-                现代控制理论_A4.pdf
-        ```
+<div class="card file-block" markdown="1">
+<div class="file-icon"><img src="style/images/xmind.svg" style="height: 3em;"></div>
+<div class="file-body">
+<div class="file-title">现代控制理论复习思维导图</div>
+<div class="file-meta">133KB / 2024-11-05 </div>
+</div>
+<a class="down-button" target="_blank" href="ADV_CTL.xmind" markdown="1">:fontawesome-solid-download: 下载</a>
+</div>
 
 
-    === "历年卷"
-        - [2024-2025 秋 回忆卷 现控](https://www.cc98.org/topic/6025323/1#1)
-        - [2023-2024 秋冬 回忆卷](https://www.cc98.org/topic/5748670)
-        - [2023-2024 秋 回忆卷](https://www.cc98.org/topic/5748295)
-        - [2022-2023 秋 回忆卷](https://www.cc98.org/topic/5454547)
-        - [2021-2022 秋 回忆卷](https://www.cc98.org/topic/5197292)
-        - [2019-2020 春夏 回忆卷](https://www.cc98.org/topic/4960302/1#1)
-        - [2019-2020 春夏 回忆卷](https://www.cc98.org/topic/4856718)
-        - [2020 回忆卷](https://www.cc98.org/topic/5040332)
 
-    === "A4"
-        - [A4 梁毅浩](https://www.cc98.org/topic/5197981)
-        - [A4 Healor](https://www.cc98.org/topic/5826788)
-        - [A4 Rainbow0](https://www.cc98.org/topic/5658322)
-        - [现代控制理论A4&资料分享 - 追风Holy](https://www.cc98.org/topic/6025482/1#7)
+通过百度网盘分享的文件：现代控制理论
 
-    === "其他资料"
-        ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240922170358.png)
-        [awslasasd](https://github.com/awslasasd/Modern-control-principles/tree/main)的仓库中也比较详细
-        - [现代控制理论重点概念梳理 - 知乎](https://www.zhihu.com/column/c_1131936304564453376)<br>
-        - [现代控制理论-重点知识汇总\_现代控制理论知识点总结-CSDN博客](https://blog.csdn.net/qq_31274209/article/details/105156993)<br>
-        - [控制理论——一小时从劝退到入门 - 知乎](https://zhuanlan.zhihu.com/p/683044170)<br>
+链接：https://pan.baidu.com/s/1YUCIKVOh5ZZdMgX8pZrZ4A?pwd=92t1 
+
+提取码：92t1
+
+```
+./
+│  现代控制理论.svg
+│  现代控制理论.xmind
+│
+├─01-作业
+│      01周作业参考答案.pdf
+│      02周作业参考答案.pdf
+│      03周作业参考答案.pdf
+│      05周作业－答案.pdf
+│      06周作业参考答案.pdf
+│      07周作业参考答案(1).pdf
+│      08周作业参考答案.pdf
+│
+├─02-实验
+│  ├─Matlab
+│  │      experiment1_1.m
+│  │      experiment1_2.m
+│  │      experiment1_3.m
+│  │      matlab 实验参考指导书_1.pdf
+│  │      matlab 实验参考指导书_2.pdf
+│  │      Matlab实验1.pdf
+│  │      matlab实验.docx
+│  │      Matlab实验2.pdf
+│  │      matlab实验.docx
+│  │      Untitled.m
+│  │      Untitled2.m
+│  │      Untitled3.m
+│  │      实验一代码.rar
+│  │      实验二代码.rar
+│  │
+│  └─线下
+│          二阶系统瞬态响应分析.docx
+│          实验1 控制系统典型环节的模拟（24版）.pdf
+│          实验2 二阶系统的瞬态响应分析（24版）.pdf
+│          实验3 线性系统的频率特性的测试（24版）.pdf
+│          控制系统典型环节的模拟.docx
+│          线性系统的频率特性测试.docx
+│
+├─03-PPT1
+│      Feedback Control of Dynamic Sys - Gene F. Franklin.pdf
+│      Linear Control System Analysis and Design.pdf
+│      modern control systems 13th Richard C.Dorf.pdf
+│      第7章-1-采样过程.pdf
+│      第7章-2-Z变换.pdf
+│      第7章-3-差分方程&脉冲传递函数.pdf
+│      第7章-4-状态空间&关系.pdf
+│      第7章-5-稳定性与性能.pdf
+│      第7章-6-离散系统设计.pdf
+│      第8章-1-状态空间简介.pdf
+│      第8章-2-能控性与能观性.pdf
+│      第8章-3-线性变换与标准型.pdf
+│      第8章-4-状态反馈.pdf
+│      第8章-5-状态反馈-2.pdf
+│      第8章-6-状态观测器.pdf
+│      第9章-1-非线性控制系统.pdf
+│      第9章-2-Lyapunov稳定性.pdf
+│
+├─04-PPT2
+│      CHAP7-1-20240911(1).pdf
+│      CHAP7-2-20240914.pdf
+│      CHAP7-3-20240918.pdf
+│      CHAP7-4-20240920.pdf
+│      CHAP7-5-20240925.pdf
+│      CHAP7-6-20240927.pdf
+│      CHAP7-7-20240929.pdf
+│      课件8-1.pdf
+│      课件8-2-1.pdf
+│      课件8-2-2.pdf
+│      课件8-3.pdf
+│      课件8-4.pdf
+│      课件8-5.pdf
+│      课件8-6.pdf
+│
+└─05-A4
+        A4_Healor.pdf
+        A4_PhilFan.pdf
+        A4_追风Holy.pdf
+        现代控制理论_A4.pdf
+```
+
+
+=== "学习路径"
+    - DR_CAN [现代控制理论系列课程](https://www.bilibili.com/video/BV1yx411u7iX/)+王崇卫笔记
+    - 课本阅读
+    - 作业题目
+    - 课件
+    - 历年题目
+
+=== "历年卷"
+    - [2024-2025 秋 回忆卷 现控](https://www.cc98.org/topic/6025323/1#1)
+    - [2023-2024 秋冬 回忆卷](https://www.cc98.org/topic/5748670)
+    - [2023-2024 秋 回忆卷](https://www.cc98.org/topic/5748295)
+    - [2022-2023 秋 回忆卷](https://www.cc98.org/topic/5454547)
+    - [2021-2022 秋 回忆卷](https://www.cc98.org/topic/5197292)
+    - [2019-2020 春夏 回忆卷](https://www.cc98.org/topic/4960302/1#1)
+    - [2019-2020 春夏 回忆卷](https://www.cc98.org/topic/4856718)
+    - [2020 回忆卷](https://www.cc98.org/topic/5040332)
+
+=== "A4"
+    - [A4 梁毅浩](https://www.cc98.org/topic/5197981)
+    - [A4 Healor](https://www.cc98.org/topic/5826788)
+    - [A4 Rainbow0](https://www.cc98.org/topic/5658322)
+    - [现代控制理论A4&资料分享 - 追风Holy](https://www.cc98.org/topic/6025482/1#7)
+
+=== "其他资料"
+    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240922170358.png)
+    [awslasasd](https://github.com/awslasasd/Modern-control-principles/tree/main)的仓库中也比较详细
+    - [现代控制理论重点概念梳理 - 知乎](https://www.zhihu.com/column/c_1131936304564453376)<br>
+    - [现代控制理论-重点知识汇总\_现代控制理论知识点总结-CSDN博客](https://blog.csdn.net/qq_31274209/article/details/105156993)<br>
+    - [控制理论——一小时从劝退到入门 - 知乎](https://zhuanlan.zhihu.com/p/683044170)<br>
 
 
 ## 课程感想

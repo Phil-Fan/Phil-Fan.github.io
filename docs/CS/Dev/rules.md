@@ -20,7 +20,130 @@
 
 
 ## 开源
+
+[Choose an open source license | Choose a License](https://choosealicense.com/)
+
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240714184808.png)
 
 [x-lab 课程 第一讲](https://xlab2017.yuque.com/staff-kbz9wp/ut3q7i/uipcr0gbxd7d3kvx?singleDoc)
+
+
+
+## 现代C++开发框架与工具
+
+### 1. 核心框架
+| 框架名称 | 用途 | 特点 |
+|---------|------|------|
+| **Qt** | GUI/跨平台应用 | 信号槽机制、丰富的UI组件 |
+| **Boost** | 通用库集合 | 智能指针、多线程、算法等 |
+| **STL** | 标准模板库 | 容器、算法、迭代器 |
+| **Abseil** | Google基础库 | 补充STL功能 |
+| **Catch2** | 单元测试 | 简单易用的测试框架 |
+
+### 2. 构建工具链
+- **CMake**：跨平台构建系统
+- **Conan**：C++包管理器
+- **vcpkg**：微软C++库管理工具
+- **Bazel**：Google开源的构建工具
+
+### 3. 开发工具
+- **CLion**：专业C++ IDE
+- **VSCode + C++插件**：轻量级开发环境
+- **GDB/LLDB**：调试工具
+
+## Python开发框架与工具
+
+### 1. 核心框架
+| 框架名称 | 用途 | 特点 |
+|---------|------|------|
+| **Django** | 全栈Web开发 | "包含电池"哲学、ORM |
+| **Flask** | 轻量级Web框架 | 灵活、可扩展 |
+| **FastAPI** | 现代API开发 | 异步支持、自动文档 |
+| **PyQt/PySide** | GUI开发 | Qt的Python绑定 |
+| **Scrapy** | 网络爬虫 | 高性能爬取框架 |
+
+### 2. 数据科学栈
+- **NumPy/Pandas**：数据处理
+- **Matplotlib/Seaborn**：数据可视化
+- **PyTorch/TensorFlow**：深度学习
+- **Jupyter**：交互式笔记本
+
+### 3. 开发工具
+- **PyCharm**：专业Python IDE
+- **Poetry**：依赖管理和打包工具
+- **Pytest**：单元测试框架
+- **Black**：代码格式化工具
+
+## 学习路线建议
+
+### C++学习路线
+1. **基础阶段**（1-2个月）
+   - C++11/14/17核心语法
+   - STL标准库使用
+   - CMake基础构建
+
+2. **中级阶段**（2-3个月）
+   - Boost常用组件
+   - 多线程编程
+   - 内存管理优化
+
+3. **高级阶段**（3-6个月）
+   - 模板元编程
+   - 现代C++设计模式
+   - 性能分析与优化
+
+4. **专业方向选择**
+   - GUI开发：Qt框架
+   - 游戏开发：Unreal Engine
+   - 高频交易：低延迟编程
+
+### Python学习路线
+1. **基础阶段**（1个月）
+   - Python核心语法
+   - 常用标准库
+   - 虚拟环境管理
+
+2. **中级阶段**（2-3个月）
+   - Web开发（Django/Flask）
+   - 数据处理（Pandas/NumPy）
+   - 自动化脚本编写
+
+3. **高级阶段**（3-6个月）
+   - 异步编程（asyncio）
+   - 性能优化（Cython）
+   - 架构设计
+
+4. **专业方向选择**
+   - 数据科学：PyData生态
+   - 机器学习：PyTorch/TensorFlow
+   - DevOps：自动化运维
+## 现代项目开发实践
+
+### 典型C++项目结构
+```
+my_project/
+├── CMakeLists.txt
+├── include/
+│   └── my_lib.h
+├── src/
+│   └── my_lib.cpp
+├── tests/
+│   └── test_my_lib.cpp
+└── third_party/  # 外部依赖
+```
+
+### 典型Python项目结构
+```
+my_project/
+├── pyproject.toml  # Poetry配置
+├── src/
+│   └── my_package/
+│       ├── __init__.py
+│       └── module.py
+├── tests/
+│   └── test_module.py
+└── .github/  # CI/CD配置
+```
+
+掌握这些框架和工具后，您将能够高效地开发现代化C++和Python应用程序。建议从一个小型项目开始实践，逐步积累经验。
 

@@ -214,6 +214,134 @@ h = g(3)
 w = h(5)
 ```
 
+### `map()`- apply to all
+
+- `map(f, sq)` 
+
+  函数将函数`f`作用到可枚举量`sq`的每个元素上去，并返回结果组成的`map`对象，`map`对象本身是一个可枚举量
+
+```py
+print(list(map(lambda x: x ** 2, [1, 2, 3, 4, 5]))) 
+# 使⽤ lambda 匿名函数
+print(list(map(lambda x, y: x + y, [1, 3, 5, 7, 9], [2, 4, 6, 8, 10])))
+# 提供了两个列表，对相同位置的列表数据进⾏相加
+```
+
+### `filter()` - keep if
+
+- `filter(f, sq)` 函数的作用是对于`sq`的每个元素`s`，返回所有`f(s)`为`True` 的`s`组成的`filter`对象，`filter`对象对象本身是一个可枚举量
+
+```py
+def is_even(x):
+    return x % 2 == 0
+
+filter(is_even, range(5))
+```
+
+- 把`map()`和`filter()`合起来
+
+```py
+map(square, filter(is_even, range(5)))
+```
+
+### `reduce()` - 所有元素二元操作
+
+- `reduce(f, sq)` 函数接受一个二元操作函数 `f(x,y)`，并对于序列 `sq` 做累进计算
+- 这里`f(x,y)`的`x`是累计值，而`y`是当前值，即序列中的一个元素
+
+
+
+```python title="reduce函数实现"
+def reduce(function, sequence, initial=_initial_missing):
+    """
+    reduce(function, iterable[, initial], /) -> value
+
+    Apply a function of two arguments cumulatively to the items of an iterable, from left to right.
+
+    This effectively reduces the iterable to a single value.  If initial is present,
+    it is placed before the items of the iterable in the calculation, and serves as
+    a default when the iterable is empty.
+
+    For example, reduce(lambda x, y: x+y, [1, 2, 3, 4, 5])
+    calculates ((((1 + 2) + 3) + 4) + 5).
+    """
+
+    it = iter(sequence)
+
+    if initial is _initial_missing:
+        try:
+            value = next(it)
+        except StopIteration:
+            raise TypeError(
+                "reduce() of empty iterable with no initial value") from None
+    else:
+        value = initial
+
+    for element in it:
+        value = function(value, element)
+
+    return value
+```
+
+
+例子
+
+
+```python
+from functools import reduce
+def my_add(x, y):
+    return x + y
+reduce(my_add, [1,2,3,4,5])
+
+##
+from functools import reduce
+s1 = reduce(lambda x, y: x+y, map(lambda x: x**2, range(1,10)))
+print(s1)
+```
+
+
+```python title="make_repeater"
+from functools import reduce
+
+def make_repeater(f, n):
+    """Returns the function that computes the nth application of f."""
+    >>> add_three = make_repeater(increment, 3)
+    >>> add_three(5)
+    8
+    >>> make_repeater(triple, 5)(1) # 3 * (3 * (3 * (3 * (3 * 1))))
+    243
+    >>> make_repeater(square, 2)(5) # square(square(5))
+    625
+    >>> make_repeater(square, 3)(5) # square(square(square(5)))
+    390625
+    """
+    return lambda x: reduce(lambda acc, _: f(acc), range(n), x)
+```
+
+
+
+
+
+
+
+
+### `sorted()`
+
+- `sorted()`函数对字符串，列表，元组，字典等对象进行排序操作
+- 同样是对列表操作，`list`的`sort()`⽅法是对已经存在的列表进⾏操作
+- ⽽内建函数`sorted()`返回的是⼀个新的`list`，原来的`list`不会被修改
+
+sorted函数语法
+
+```python
+sorted(iterable ,key=None, reverse=False)
+```
+
+- `iterable` -- 序列，如字符串，列表，元组等
+- `key` -- ⽤来进⾏⽐较的函数，这个函数只有⼀个参数，参数的值就是取⾃于可迭代对象中的一个元素，函数返回在这个元素上的一个计算结果来作排序，通常当元素本身是一个复合类型（如列表、字典）时，取其中的某个元素
+- reverse-- 排序规则
+  - `reverse = True` 降序
+  - `reverse = False` 升序（默认）
 
 ### currying  柯理化
 

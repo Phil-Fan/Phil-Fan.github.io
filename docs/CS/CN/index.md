@@ -57,13 +57,21 @@ comments: true
 
 
 
----
 
 !!! abstract
 	本笔记基于USTC郑烇老师《计算机网络》课程<br>
 	USTC计网 + 头歌实践平台<br>
 	电院计网 + 光电计网<br>
 
+
+<div class="card file-block" markdown="1">
+<div class="file-icon"><img src="style/images/xmind.svg" style="height: 3em;"></div>
+<div class="file-body">
+<div class="file-title">计网复习思维导图</div>
+<div class="file-meta">132KB / 2025-01-28</div>
+</div>
+<a class="down-button" target="_blank" href="CN.xmind" markdown="1">:fontawesome-solid-download: 下载</a>
+</div>
 
 
 ![Intro部分思维导图](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/Intro.png)

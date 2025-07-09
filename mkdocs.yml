@@ -178,6 +178,7 @@ extra_css:
   - style/css/toc.css
   - style/css/flink.css
   # source: https://tonycrane.cc/
+  - style/css/card.css # 用于卡片样式 todo: 稍作修改
   - https://cdn.tonycrane.cc/jbmono/jetbrainsmono.css
   - https://cdn.tonycrane.cc/lxgw/lxgwscreen.css
 
@@ -203,7 +204,7 @@ nav:
   
 
 - Math:
-    - Math/signal.md
+    - Math/Signal.md
 
     - 基础知识:
         - Math/不等式.md
@@ -211,6 +212,8 @@ nav:
         - Math/logic.md
         - Math/ODE.md
         - Math/ComplexFunction.md
+        - 微积分:
+          - Math/Calculus/index.md
 
     - LA | 线性代数:
         - Math/LinearAlgebra/index.md
@@ -355,34 +358,35 @@ nav:
 
   - Control Theory:
     - 自动控制:
-      - Robotics/Control/BASE-00-intro.md
-      - Robotics/Control/BASE-01-model.md
-      - Robotics/Control/BASE-02-metrics.md
-      - Robotics/Control/BASE-03-adjust.md
+      - Robotics/Control/BASE/index.md
+      - Robotics/Control/BASE/01-Model.md
+      - Robotics/Control/BASE/02-Metrics.md
+      - Robotics/Control/BASE/03-Adjust.md
+      
 
     - 现代控制 | 线性系统:
-      - Robotics/Control/ADV-linear-00-intro.md
+      - Robotics/Control/ADV/linear-00-intro.md
 
     - 现代控制 | 非线性系统:
-      - Robotics/Control/ADV-nonliear-00-intro.md
+      - Robotics/Control/ADV/nonliear-00-intro.md
 
     - 最优控制:
-      - Robotics/Control/OPT-00-intro.md
+      - Robotics/Control/Opt/index.md
 
     - 控制方法:
-      - Robotics/Control/Method-00-intro.md
-      - Robotics/Control/Method-01-PID.md
-      - Robotics/Control/Method-02-LQR.md
-      - Robotics/Control/Method-03-MPC.md
-      - Robotics/Control/Method-04-阻抗导纳.md
-      - Robotics/Control/Method-05-智能控制方法.md
-      - Robotics/Control/Method-Kalman.md
+      - Robotics/Control/Method/index.md
+      - Robotics/Control/Method/01-PID.md
+      - Robotics/Control/Method/02-LQR.md
+      - Robotics/Control/Method/03-MPC.md
+      - Robotics/Control/Method/04-阻抗导纳.md
+      - Robotics/Control/Method/05-Intelligent.md
+      - Robotics/Control/Method/06-KalmanFilter.md
 
     - 应用:
       - Robotics/Control/ELSE-供配电.md
 
   - 机器人技术:
-    - 简介: Robotics/Robo/00-intro.md
+    - 简介: Robotics/Robo/index.md
     - 1 | 设计: Robotics/Robo/01-Design.md
     - 2 | 建图: Robotics/Robo/02-Mapping.md
     - 3 | 定位: Robotics/Robo/03-Localization.md
@@ -445,13 +449,18 @@ nav:
       - CS/Language/Python/05-Object.md
       - CS/Language/Python/06-File.md
       - CS/Language/Python/07-Project.md
-      - CS61A教材: https://composingprograms.netlify.app/
-      - Dive Into Python 3: http://getpython3.com/diveintopython3/index.html
       - Notebook page: CS/Language/Python/Python_Package.ipynb
-      - Python Tutor: https://pythontutor.com/
-      - Seaborn: https://seaborn.pydata.org/api.html
-      - Pandas: https://pandas.pydata.org/docs/reference/index.html
-      - Scipy: https://docs.scipy.org/doc/scipy/reference/index.html
+      - 可视化运行工具: https://pythontutor.com/
+      - CS61A 24fall: https://lyvelf.github.io/cs61a-fa24-backup/index.html
+      - CS61A教材: https://composingprograms.netlify.app/
+      
+      - 手册:
+        - Python工程化开发指南: https://pyloong.github.io/pythonic-project-guidelines/
+        - Dive Into Python 3: http://getpython3.com/diveintopython3/index.html
+        - Hitchhiker's Guide: https://docs.python-guide.org/
+        - Seaborn: https://seaborn.pydata.org/api.html
+        - Pandas: https://pandas.pydata.org/docs/reference/index.html
+        - Scipy: https://docs.scipy.org/doc/scipy/reference/index.html
 
   - Algorithm:
     - CS/Algorithm/01-Math.md
@@ -475,7 +484,7 @@ nav:
     - CS/OS/00-intro.md
 
   - "CN | 计算机网络":
-    - "00-简介": CS/CN/00-intro.md
+    - CS/CN/index.md
     - "01-应用层": CS/CN/01-ApplicationLayer.md
     - "02-传输层": CS/CN/02-TransportLayer.md
     - "03-网络层": CS/CN/03-NetworkLayer.md
@@ -523,7 +532,10 @@ nav:
   - Class/马原.md
   - Class/ITP-创业营销.md
   - Class/ITP-Law.md
-  
+
+  - "大学物理": 
+    - Class/Physics/index.md
+
   - Oral:
     - Class/English/00-intro-IELTS.md
     - Class/English/01-Listening.md

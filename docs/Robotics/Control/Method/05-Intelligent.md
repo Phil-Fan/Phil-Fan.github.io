@@ -2,7 +2,7 @@
 comments: true
 ---
 
-# 智能控制技术
+# 智能控制技术 | Intelligent Control
 
 !!! note "课程介绍"
       === "简介"

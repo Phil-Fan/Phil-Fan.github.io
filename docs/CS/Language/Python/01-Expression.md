@@ -1,14 +1,7 @@
 # 表达式 `Expression`
 
-
-
-
-
-
-- 乘法`*`
-
 - 幂次`**`
-- `a//b≡⌊a/b⌋
+- 整数除法 $a//b \equiv \lfloor a/b \rfloor$
 
 - 两种特殊的赋值：
 
@@ -16,63 +9,27 @@
 
   - 同步赋值：`a, b = 4, 5`
 
-  - a =6
-
-    b =7
-    a, b = b, a
-
-
-
-
+```python title="先计算出等号右边的值，再赋值给等号左边的变量"
+a = 6
+b = 7
+a, b = b, a
+```
 
 
 ## 输入输出
 
-- `print("面积是：", area)`
-- `print(a, end=', ')`
-  
-  - `print()`里的`end=`用来指定这次输出之后自动输出什么
-  - 默认是`\n`，表示要换一行
-- 如果要控制输出结果的小数点后的位数，就必须使用格式控制：
-  - `print(f"面积是：{area:.2f}")`
-  - 字符串前面的`f`表示格式字符串，其中的`{}`中的名字会被同名的变量的值所替换，`:`后面的内容表示输出的格式（可以省略）
-  - `.2f`表示小数点后保留两位小数的浮点数
-  
-- ### format格式化输出
-  ```py
-  print({:[fill][align][width]}.format(data))
-  
-  print("{:.3f}".format(s))
-  print(format(s, '.3f'))
-  ```
-  
-  `fill`：任意一个字符,比如 # 、 * 等,默认空格填充
-  `width`：字段宽度,如果未指定,那么字段宽度由内容确定,这种情况下的对齐选项没有意义
-  `data`：填充的数据
-  `align`：对齐方式
+### 输入
 
-```python
-a,b=map(int, input().split())
+```python title="常见的题目输入方式"
+a,b = map(int, input().split())
 
-a,b = input().split()  ## a,b是字符串类型
-
-a = [3,4,5]
-print(*a,sep="->",end = '\n')  #print的两个参数
-end=""##不换行
-print(f'{a:<4}')#左对齐
-
-print('67.2F'[-1]) -> F #取出最后一个字符
-
-print(f'{1.8*shuzhi+32:.2f}')   # 格式字符串的{}里可以做表达式计算
-
-
-### 一行输入
-list(map(int, input().split())
-     #如果数据中有浮点数，直接用int会出错
+list(map(int, input().split()))
+#如果数据中有浮点数，直接用int会出错
 
 a = tuple(int(item) for item in input().split())
+```
      
-###多行 每行不确定
+```python title="多行 每行不确定"
 lst = []
 while True:
   m = list(map(int, input().split()))
@@ -80,8 +37,9 @@ while True:
   if -1 in m:
     lst.remove(-1)
     break
-     
-###多行输入
+```
+
+```python title="多行输入"
 while True:
     try:
         a = input().split()
@@ -95,6 +53,38 @@ for line in sys.stdin:
 print(int(a[0]) + int(a[1]))
 ```
 
+
+### 输出
+
+- `print("面积是：", area)`
+- `print(a, end=', ')`
+  
+  - `print()`里的`end=`用来指定这次输出之后自动输出什么
+  - 默认是`\n`，表示要换一行
+- 如果要控制输出结果的小数点后的位数，就必须使用格式控制：
+  - `print(f"面积是：{area:.2f}")`
+  - 字符串前面的`f`表示格式字符串，其中的`{}`中的名字会被同名的变量的值所替换，`:`后面的内容表示输出的格式（可以省略）
+  - `.2f`表示小数点后保留两位小数的浮点数
+  
+### format格式化输出
+```py
+print({:[fill][align][width]}.format(data))
+
+print("{:.3f}".format(s))
+print(format(s, '.3f'))
+```
+
+`fill`：任意一个字符,比如 # 、 * 等,默认空格填充
+`width`：字段宽度,如果未指定,那么字段宽度由内容确定,这种情况下的对齐选项没有意义
+`data`：填充的数据
+`align`：对齐方式
+
+```python
+a = [3,4,5]
+print(*a,sep="->",end = '\n')  # 解包输出
+print(f'{a:<4}')#左对齐
+print(f'{1.8*shuzhi+32:.2f}')   # 格式字符串的{}里可以做表达式计算
+```
 
 ## 中缀、前缀、后缀
 

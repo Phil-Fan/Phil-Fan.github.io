@@ -39,7 +39,14 @@
 
 PID部分也可以参照[PID - Youtube](https://www.youtube.com/watch?v=UR0hOmjaHp0&list=PLUMWjy5jgHK1NC52DXXrriwihVrYZKqjk&index=28)
 
-
+<div class="card file-block" markdown="1">
+<div class="file-icon"><img src="style/images/xmind.svg" style="height: 3em;"></div>
+<div class="file-body">
+<div class="file-title">自控复习思维导图</div>
+<div class="file-meta">413KB / 2024-06-27</div>
+</div>
+<a class="down-button" target="_blank" href="BASE_CTL.xmind" markdown="1">:fontawesome-solid-download: 下载</a>
+</div>
 
 ## 复习顺序
 留给我的复习时间其实不多了，考完勾实嵌入式之后只有一天多一点点的时间了。但好在之前没有落课，所以我的主要任务就是将忘记的内容回忆起来+建立一个整体的知识框架。

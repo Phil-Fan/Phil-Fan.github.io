@@ -44,9 +44,14 @@
 
 
 
-<iframe src="./MatrixCookBook.pdf" width="100%" height="600px" style="border: none;">
-This browser does not support PDFs
-</iframe>
+<div class="card file-block" markdown="1">
+<div class="file-icon"><img src="style/images/pdf.svg" style="height: 3em;"></div>
+<div class="file-body">
+<div class="file-title">MatrixCookBook - Kaare & Michael</div>
+<div class="file-meta"> 249KB / Version: January 5, 2005</div>
+</div>
+<a class="down-button" target="_blank" href="MatrixCookBook.pdf" markdown="1">:fontawesome-solid-download: 下载</a>
+</div>
 
 
 ## TODO

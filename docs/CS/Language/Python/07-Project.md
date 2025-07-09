@@ -1,6 +1,24 @@
 # 项目
 
+
 ## 程序结构
+
+[Structuring Your Project — The Hitchhiker's Guide to Python](https://docs.python-guide.org/writing/structure/)
+
+
+- 源代码目录：存放项目的主要代码，通常命名为src或项目名称。
+- 测试目录：存放项目的测试代码，一般命名为tests。
+- 配置文件：如`config.py`或`.env`，用于存储项目的配置信息。
+- 依赖管理文件：如`requirements.txt`，列出项目所需的第三方库及其版本。
+- 脚本文件：如`main.py`，作为项目的入口点。
+
+
+[(1 封私信 / 6 条消息) Python项目脚手架 - 知乎](https://zhuanlan.zhihu.com/p/423280686)
+[各类Python项目的项目结构及代码组织最佳实践_python项目结构-CSDN博客](https://blog.csdn.net/captain5339/article/details/128017400)
+[Python 项目组织最佳实践：从脚本到大型项目的进化之路 - Piper蛋窝 - 博客园](https://www.cnblogs.com/piperliu/p/18634331)
+[Python项目结构：构建高效项目的秘诀 - 极客技术博客](https://geek-blogs.com/blog/python-project-structure/)
+
+## 多文件编程
 
 - 模块⽤于组织较⼤的Python项⽬
 - Python标准库拆分为多个模块，以便管理。
@@ -29,38 +47,11 @@
   - 如果模块作为主程序运⾏，`__name__`变量的值是 `__main__`
   - 如果模块被另⼀模块导⼊，`__name__`变量的值是 模块名
 
-  - 作为主程序运⾏（⽂件名factorial.py）
 
-## `sys`模块
 
-- 如果area.py和triangle.py上述两个⽂件在同⼀个⽬录下，通过Python运⾏主程序area.py,会引⽤triangle模块，执⾏函数area
-- 如不在同⼀⽬录，可⽤sys模块加⼊搜索路径后调⽤。
-- 模块的查找路径：`sys.path`
 
-- sys模块中的常⽤函数和其他重要对象
 
-  - `sys.argv`：命令行参数
-
-  - `sys.exit([arg])`：程序中间的退出，`arg=0`为正常退出
-
-  - `sys.getdefaultencoding()`：获取系统当前编码
-
-  - `sys.setdefaultencoding()`：设置系统默认编码
-
-  - `sys.getfilesystemencoding()`：获取⽂件系统使⽤的编码⽅式，Windows下返回'mbcs'，mac下返回'utf-8'
-
-  - `sys.path`：模块搜索路径的字符串列表
-
-  - `sys.platform`：获取当前系统平台
-
-  - `sys.stdin, sys.stdout, sys.stderr`： 变量包含与标准I/O流对应的流对象. 如果需要更好地控制输出,⽽`print`不能满⾜你的要求, 它们就是你所需要的. 你也可以替换它们, 这时候你就可以重定向输出和输⼊到其它设备, 或者以⾮标准的 ⽅式处理它们
-
-## 命令行参数
-
-- sys.argv[0] #程序的⽂件名
-- sys.argv[1] 第⼀个参数
-
-## 包
+### 包
 
 - 包是模块概念的⾃然扩展，旨在应付⼤型的项⽬
 - 模块把相关的函数、类和变量组织到⼀个⽂件中
@@ -70,3 +61,7 @@
 - 第⼀次加载包时，会执⾏`init.py`⽂件，完成初始化⼯作
 - 如果模块存在于包中，使⽤`import 包名.模块名`形式导⼊包中模块
 - ⽤以下形式调⽤函数：`包名.模块名.函数`
+## 命令行参数
+
+- sys.argv[0] #程序的⽂件名
+- sys.argv[1] 第⼀个参数

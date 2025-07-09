@@ -8,102 +8,37 @@
   - sets
   - dictionary
 
-## 序列
-### 定义
+!!! note "序列 `Sequence`"
 
-- 长度
-- 元素选择
-- 成员判断 (in, not in)
-- 切片
+    **定义**
 
-
-| 该程序的一部分 | 把有理数当作 | 仅使用 |
-| --- | --- | --- |
-| 使用有理数进行计算 | 整个数据值 | add_rational, mul_rational, rationals_are_equal, print_rational |
-| 创建有理数或操作有理数 | 分子和分母 | rational, numer, denom |
-| 为有理数实现选择器和构造器 | 二元列表 | 列表字面量和元素选择 |
-
-### 序列遍历
-- for循环
-- 解包
-- range
-
-### 序列处理
-- 列表推导式
-- 聚合（min，max，sum）
-- 高阶函数
+    - 长度
+    - 元素选择
+    - 成员判断 (in, not in)
+    - 切片
 
 
-#### `map()`- apply to all
+    | 该程序的一部分 | 把有理数当作 | 仅使用 |
+    | --- | --- | --- |
+    | 使用有理数进行计算 | 整个数据值 | add_rational, mul_rational, rationals_are_equal, print_rational |
+    | 创建有理数或操作有理数 | 分子和分母 | rational, numer, denom |
+    | 为有理数实现选择器和构造器 | 二元列表 | 列表字面量和元素选择 |
 
-- `map(f, sq)` 
+    **序列遍历**
 
-  函数将函数`f`作用到可枚举量`sq`的每个元素上去，并返回结果组成的`map`对象，`map`对象本身是一个可枚举量
+    - for循环
+    - 解包
+    - range
 
-```py
-print(list(map(lambda x: x ** 2, [1, 2, 3, 4, 5]))) 
-# 使⽤ lambda 匿名函数
-print(list(map(lambda x, y: x + y, [1, 3, 5, 7, 9], [2, 4, 6, 8, 10])))
-# 提供了两个列表，对相同位置的列表数据进⾏相加
-```
+    **序列处理**
 
-#### `filter()` - keep if
+    - 列表推导式
+    - 聚合（min，max，sum）
+    - 高阶函数
 
-- `filter(f, sq)` 函数的作用是对于`sq`的每个元素`s`，返回所有`f(s)`为`True` 的`s`组成的`filter`对象，`filter`对象对象本身是一个可枚举量
 
-```py
-def is_even(x):
-    return x % 2 == 0
+    **序列抽象**
 
-filter(is_even, range(5))
-```
-
-- 把`map()`和`filter()`合起来
-
-```py
-map(square, filter(is_even, range(5)))
-```
-
-#### `reduce()` - 所有元素二元操作
-
-- `reduce(f, sq)` 函数接受一个二元操作函数 `f(x,y)`，并对于序列 `sq` 做累进计算
-- 这里`f(x,y)`的`x`是累计值，而`y`是当前值，即序列中的一个元素
-
-```py
-from functools import reduce
-def my_add(x, y):
-    return x + y
-reduce(my_add, [1,2,3,4,5])
-
-##
-from functools import reduce
-s1 = reduce(lambda x, y: x+y, map(lambda x: x**2, range(1,10)))
-print(s1)
-```
-
-#### `sorted()`
-
-- `sorted()`函数对字符串，列表，元组，字典等对象进行排序操作
-- 同样是对列表操作，`list`的`sort()`⽅法是对已经存在的列表进⾏操作
-- ⽽内建函数`sorted()`返回的是⼀个新的`list`，原来的`list`不会被修改
-
-sorted函数语法
-
-```python
-sorted(iterable ,key=None, reverse=False)
-```
-
-- `iterable` -- 序列，如字符串，列表，元组等
-- `key` -- ⽤来进⾏⽐较的函数，这个函数只有⼀个参数，参数的值就是取⾃于可迭代对象中的一个元素，函数返回在这个元素上的一个计算结果来作排序，通常当元素本身是一个复合类型（如列表、字典）时，取其中的某个元素
-- reverse-- 排序规则
-  - `reverse = True` 降序
-  - `reverse = False` 升序（默认）
-
-#### `lazy sequence processing`
-
-在惰性序列处理中，序列的元素并不立即全部计算或生成，而是在需要时逐个生成。这种方式可以节省计算资源和内存，并提高程序的性能，特别是在处理大型数据集时效果显著。
-
-### 序列抽象
 
 ## 列表 `List`
 
@@ -521,7 +456,10 @@ set3 = {3,4,5}
 venn3([set1,set2,set3],  ('set1', 'set2','set3'))
 plt.show()
 ```
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240808125300.png)
+
+
+
+
 
 ```py
 ##挑选名单
@@ -649,6 +587,13 @@ d1[(3,9)]
 
 ## 迭代器 `Iterator`
 
+Python迭代器遵循两个核心方法：
+
+- `__iter__()`: 返回迭代器对象本身
+
+- `__next__()`: 返回下一个元素，没有元素时抛出StopIteration
+
+
 ### `iter`
 
 可使用`iter`函数的：序列、容器、`iter`本身
@@ -659,10 +604,84 @@ s = iter(r)
 next(s)
 ```
 
-### `Built-in iterators`
+
+
+### 内置迭代器
+
+
+```python title="序列迭代器"
+# 列表
+for item in [1, 2, 3]:
+    print(item)
+
+# 字符串
+for char in "hello":
+    print(char)
+```
+
+```python title="字典迭代器"
+d = {'a': 1, 'b': 2}
+
+# 键迭代
+for key in d:
+    print(key)
+
+# 值迭代
+for value in d.values():
+    print(value)
+
+# 键值对迭代
+for k, v in d.items():
+    print(k, v)
+```
+
+```python title="文件迭代器"
+with open('data.txt') as f:
+    for line in f:  # 文件对象本身就是行迭代器
+        print(line.strip())
+```
+
+```python title="enumerate迭代器"
+for index, value in enumerate(['a', 'b', 'c']):
+    print(index, value)
+# 输出:
+# 0 a
+# 1 b
+# 2 c
+```
+
+```python title="zip迭代器"
+names = ['Alice', 'Bob']
+ages = [25, 30]
+for name, age in zip(names, ages):
+    print(name, age)
+# 输出:
+# Alice 25
+# Bob 30
+```
+
+### 高级迭代器
 
 - `map` `zip` `filter`
-- 
+
+
+```python title="map迭代器"
+# 惰性计算
+squares = map(lambda x: x**2, [1, 2, 3])
+print(list(squares))  # [1, 4, 9]
+```
+
+```python title="filter迭代器"
+evens = filter(lambda x: x % 2 == 0, [1, 2, 3, 4])
+print(list(evens))  # [2, 4]
+```
+
+```python title="reversed迭代器"
+for i in reversed(range(5)):
+    print(i)  # 4, 3, 2, 1, 0
+```
+
+
 
 ### `itertools`模块
 
@@ -705,7 +724,7 @@ cards = it.product(suits, ranks)
 print(*cards)
 ```
 
-## 生成器`Generator`
+## 生成器 `Generator`
 
 
 
@@ -713,16 +732,20 @@ print(*cards)
 
 preserve newly created environment for later call
 
-
-
 when `next` is called, execution resumes where it left off
 
 ```
-def letter_generator():
-	current = 'a'
-	while current <= 'd':
-	yield current
-	current = chr(ord(current) + 1)
+def simple_generator():
+    print("开始")
+    yield 1
+    print("继续")
+    yield 2
+    print("结束")
+
+gen = simple_generator()  # 创建生成器对象(不执行函数体)
+print(next(gen))  # 输出"开始"，然后返回1
+print(next(gen))  # 输出"继续"，然后返回2
+print(next(gen))  # 输出"结束"，然后抛出StopIteration
 ```
 
 ### 生成器表达式
@@ -763,3 +786,50 @@ print(next(generator))  # 输出：1
 ```
 
 生成器函数执行到 `yield` 关键字，函数会暂停执行并将生成的值返回给调用者。函数的状态会被保留，以便在下一次调用 `next()` 方法时可以继续执行。当函数执行结束或遇到 `return` 语句时，生成器对象会引发 `StopIteration` 异常，表示序列已经生成完毕。
+
+
+
+### 应用
+
+
+```python title="处理大型文件"
+def read_large_file(file_path):
+    with open(file_path) as f:
+        for line in f:
+            yield line.strip()
+
+# 逐行处理，不一次性加载整个文件
+for line in read_large_file("huge_file.txt"):
+    process(line)
+```
+
+```python title="无限序列"
+def infinite_sequence():
+    num = 0
+    while True:
+        yield num
+        num += 1
+
+for i in infinite_sequence():
+    if i > 100:
+        break
+    print(i)
+```
+
+```python title="数据管道"
+def pipeline(data):
+    # 第一阶段处理
+    processed = (x.upper() for x in data if x.strip())
+    # 第二阶段处理
+    filtered = (x for x in processed if not x.startswith("A"))
+    yield from filtered  # Python 3.3+语法
+
+data = ["apple", " banana", "orange", " pear"]
+print(list(pipeline(data)))  # [' BANANA', 'ORANGE', ' PEAR']
+```
+
+
+### 优点
+
+- 节省内存，惰性求值
+- 可以实现协程和异步编程

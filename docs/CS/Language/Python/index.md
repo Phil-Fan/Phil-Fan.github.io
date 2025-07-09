@@ -1,15 +1,12 @@
 # Python
 
-- `random`库函数
 
-```python
-import random
-random.random()
-random.randint(a, b)
-random.choice(lst)
-random.shuffle(lst)
-random.seed(x)
-```
+## Acknowledgement
+
+
+
+
+
 
 
 

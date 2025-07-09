@@ -11,6 +11,14 @@ comments: true
 
 ![咖啡](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/%E5%92%96%E5%95%A1.png)
 
+<div class="card file-block" markdown="1">
+<div class="file-icon"><img src="style/images/xmind.svg" style="height: 3em;"></div>
+<div class="file-body">
+<div class="file-title">咖啡分析思维导图</div>
+<div class="file-meta">372KB / 2025-03-21</div>
+</div>
+<a class="down-button" target="_blank" href="coffee.xmind" markdown="1">:fontawesome-solid-download: 下载</a>
+</div>
 
 
 ## 咖啡豆
