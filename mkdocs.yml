@@ -435,12 +435,23 @@ nav:
   - Language:
     - CS/Language/C.md
     - CS/Language/C++.md
-    - CS/Language/Python.md
-    - Notebook page: CS/Language/Python_Package.ipynb
-    - "Python速查":
-      - "Seaborn": https://seaborn.pydata.org/api.html
-      - "Pandas": https://pandas.pydata.org/docs/reference/index.html
-      - "Scipy": https://docs.scipy.org/doc/scipy/reference/index.html
+    
+    - "Python":
+      - CS/Language/Python/index.md
+      - CS/Language/Python/01-Expression.md
+      - CS/Language/Python/02-Statement.md
+      - CS/Language/Python/03-FuntionAbstraction.md
+      - CS/Language/Python/04-DataAbstraction.md
+      - CS/Language/Python/05-Object.md
+      - CS/Language/Python/06-File.md
+      - CS/Language/Python/07-Project.md
+      - CS61A教材: https://composingprograms.netlify.app/
+      - Dive Into Python 3: http://getpython3.com/diveintopython3/index.html
+      - Notebook page: CS/Language/Python/Python_Package.ipynb
+      - Python Tutor: https://pythontutor.com/
+      - Seaborn: https://seaborn.pydata.org/api.html
+      - Pandas: https://pandas.pydata.org/docs/reference/index.html
+      - Scipy: https://docs.scipy.org/doc/scipy/reference/index.html
 
   - Algorithm:
     - CS/Algorithm/01-Math.md
