@@ -2,14 +2,13 @@
 ## 资料
 
 <div class="card file-block" markdown="1">
-<div class="file-icon"><img src="style/images/xmind.svg" style="height: 3em;"></div>
+<div class="file-icon"><img src="/style/images/xmind.svg" style="height: 3em;"></div>
 <div class="file-body">
 <div class="file-title">信号复习思维导图</div>
 <div class="file-meta">373KB / 2024-06-24 </div>
 </div>
 <a class="down-button" target="_blank" href="Signal.xmind" markdown="1">:fontawesome-solid-download: 下载</a>
 </div>
-
 
 **[资料百度网盘下载链接](https://pan.baidu.com/s/1s6AzmpB0alH-DD3e80_VGg?pwd=CC98)**
 

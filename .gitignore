@@ -3,7 +3,6 @@
 .vscode/
 **/.vscode/
 /.obsidian/
-*/.git/
 .DS_Store
 **/.DS_Store
 .DS_Store?

@@ -205,7 +205,6 @@ nav:
 
 - Math:
     - Math/Signal.md
-
     - 基础知识:
         - Math/不等式.md
         - Math/information.md
@@ -214,7 +213,7 @@ nav:
         - Math/ComplexFunction.md
         - 微积分:
           - Math/Calculus/index.md
-
+    
     - LA | 线性代数:
         - Math/LinearAlgebra/index.md
         - Math/LinearAlgebra/00-review.md
@@ -298,6 +297,7 @@ nav:
         - AI/ADV/03-GAN.md
         - AI/ADV/04-VAE.md
         - AI/ADV/05-Diffusion.md
+        - AI/ADV/Bayes.md
 
     - "LLM | 大模型":
         - AI/LLM/index.md

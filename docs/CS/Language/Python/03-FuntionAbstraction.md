@@ -599,9 +599,7 @@ fetch_data("https://example.com/data")  # 成功
 fetch_data("https://example.com/fail")  # 重试 3 次后报错
 ```
 
-
 ## 常见函数
-
 ### `zip`函数
 
 - `zip()`函数⽤于将可迭代的对象作为参数，将对象中对应的元素打包成一个元组，然后返回由这些元组组成的列表或迭代器
@@ -610,12 +608,88 @@ fetch_data("https://example.com/fail")  # 重试 3 次后报错
 
 - 参数说明：iterable -- ⼀个或多个序列返回值：* 返回元组列表
 
-```py
-##字典键值互换
-d={'blue':500,'red':100,'white':300}
-d1=dict(zip(d.values(),d.keys()))
-print(d1)
+`zip()` 是 Python 中非常实用的内置函数，用于将多个可迭代对象（如列表、元组等）的元素按位置配对组合。以下是几个常见的使用案例：
+
+```python title="并行遍历多个列表"
+names = ["Alice", "Bob", "Charlie"]
+scores = [85, 92, 78]
+
+for name, score in zip(names, scores):
+    print(f"{name}: {score}")
+
+# 输出：
+# Alice: 85
+# Bob: 92
+# Charlie: 78
 ```
+
+
+```python title="将两个列表合并为字典"
+keys = ["a", "b", "c"]
+values = [1, 2, 3]
+d = dict(zip(keys, values))
+print(d)  # {'a': 1, 'b': 2, 'c': 3}
+```
+
+
+```python title="转置二维矩阵"
+matrix = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+transposed = list(zip(*matrix))
+print(transposed)  # [(1, 4, 7), (2, 5, 8), (3, 6, 9)]
+```
+
+
+```python title="按最短列表截断"
+long = [1, 2, 3, 4, 5]
+short = ["a", "b", "c"]
+result = list(zip(long, short))
+print(result)  # [(1, 'a'), (2, 'b'), (3, 'c')]
+```
+
+
+```python title="与enumerate结合使用"
+names = ["Alice", "Bob", "Charlie"]
+for i, (name, score) in enumerate(zip(names, scores)):
+    print(f"{i}: {name} -> {score}")
+# 输出：
+# 0: Alice -> 85
+# 1: Bob -> 92
+# 2: Charlie -> 78
+```
+
+
+```python title="解压（Unzip）数据"
+pairs = [("a", 1), ("b", 2), ("c", 3)]
+letters, numbers = zip(*pairs)
+print(letters)  # ('a', 'b', 'c')
+print(numbers)  # (1, 2, 3)
+```
+
+
+```python title="批量计算（如元素级运算）"
+vector1 = [1, 2, 3]
+vector2 = [4, 5, 6]
+
+sums = [x + y for x, y in zip(vector1, vector2)]
+print(sums)  # [5, 7, 9]
+```
+
+        
+```python title="处理不等长列表时填充默认值"
+from itertools import zip_longest
+
+long = [1, 2, 3, 4]
+short = ["a", "b"]
+
+result = list(zip_longest(long, short, fillvalue="NULL"))
+print(result)  # [(1, 'a'), (2, 'b'), (3, 'NULL'), (4, 'NULL')]
+```
+
+
 
 ### `eval()`和`exec()`函数
 
@@ -632,3 +706,91 @@ while True:
         break
     exec(line)
 ```
+
+
+## 递归注意点
+
+
+
+```python title="interleaved_sum"
+def interleaved_sum(n, odd_func, even_func):
+    """Compute the sum odd_func(1) + even_func(2) + odd_func(3) + ..., up
+    to n.
+
+    >>> identity = lambda x: x
+    >>> square = lambda x: x * x
+    >>> triple = lambda x: x * 3
+    >>> interleaved_sum(5, identity, square) # 1   + 2*2 + 3   + 4*4 + 5
+    29
+    >>> interleaved_sum(5, square, identity) # 1*1 + 2   + 3*3 + 4   + 5*5
+    41
+    >>> interleaved_sum(4, triple, square)   # 1*3 + 2*2 + 3*3 + 4*4
+    32
+    >>> interleaved_sum(4, square, triple)   # 1*1 + 2*3 + 3*3 + 4*3
+    28
+    >>> from construct_check import check
+    >>> check(HW_SOURCE_FILE, 'interleaved_sum', ['While', 'For', 'Mod']) # ban loops and %
+    True
+    >>> check(HW_SOURCE_FILE, 'interleaved_sum', ['BitAnd', 'BitOr', 'BitXor']) # ban bitwise operators, don't worry about these if you don't know what they are
+    True
+    """
+    def inter(k,state):
+        if k > n:
+            return 0
+        elif state == True:
+            return odd_func(k) + inter(k+1,not state)
+        else:
+            return even_func(k) + inter(k+1,not state)
+    return inter(1,True)
+```
+
+
+This question demonstrates that it's possible to write recursive functions without assigning them a name in the global frame.
+
+```python title="make_anonymous_factorial"
+from operator import sub, mul
+
+def make_anonymous_factorial():
+    """Return the value of an expression that computes factorial.
+
+    >>> make_anonymous_factorial()(5)
+    120
+    >>> from construct_check import check
+    >>> # ban any assignments or recursion
+    >>> check(HW_SOURCE_FILE, 'make_anonymous_factorial',
+    ...     ['Assign', 'AnnAssign', 'AugAssign', 'NamedExpr', 'FunctionDef', 'Recursion'])
+    True
+    """
+    return (lambda f: lambda x: f(f,x))(lambda f,x: 1 if x == 1 else mul(x,f(f,sub(x,1))))
+```
+
+
+
+Python 中，lambda 函数不能自引用，因为它没有名字，所以不能写成 lambda x: ... factorial(x-1)。
+
+我们就要用一种技巧：把函数自身作为参数传进去，这样它就能"递归"了。
+
+
+```python
+return (lambda f: lambda x: f(f, x))(
+           lambda f, x: 1 if x == 1 else mul(x, f(f, sub(x, 1)))
+       )
+```
+
+第一层：构造递归环境
+
+```python
+(lambda f: lambda x: f(f, x))
+```
+
+这个是一个函数，它接受一个函数 f，并返回一个函数 lambda x: f(f, x)。它的作用是：把 f 自己传给自己，这样 f(f, x) 就能模拟递归。
+
+第二层：实际的阶乘逻辑
+```python
+lambda f, x: 1 if x == 1 else mul(x, f(f, sub(x, 1)))
+```
+这个函数接受两个参数：
+
+- `f`：就是“自己”
+- `x`：就是要计算阶乘的数字
+

@@ -65,7 +65,7 @@ comments: true
 
 
 <div class="card file-block" markdown="1">
-<div class="file-icon"><img src="style/images/xmind.svg" style="height: 3em;"></div>
+<div class="file-icon"><img src="/style/images/xmind.svg" style="height: 3em;"></div>
 <div class="file-body">
 <div class="file-title">计网复习思维导图</div>
 <div class="file-meta">132KB / 2025-01-28</div>
