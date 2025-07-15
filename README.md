@@ -61,6 +61,9 @@ mkdocs serve
 - [x] 做封面
 - [ ] 做一个简洁的icon
 - [ ] 换一个好看的UI
+- [ ] 基于百度地图做一个旅行地图，或者基于jVectorMap（风险：与地图相关的bug很多）
+  - [ ] [HelloWuJiaYi/jVectorMap-Footprint: jVectorMap 足迹地图](https://github.com/HelloWuJiaYi/jVectorMap-Footprint)
+  - [ ] [jVectorMap入门使用教程 | 有点东西](https://www.youdiandongxi.com/article/jVectorMap-use.html)
 
 
 ## Show your support

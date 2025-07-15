@@ -204,7 +204,6 @@ nav:
   
 
 - Math:
-    - Math/Signal.md
     - 基础知识:
         - Math/不等式.md
         - Math/information.md
@@ -213,7 +212,7 @@ nav:
         - Math/ComplexFunction.md
         - 微积分:
           - Math/Calculus/index.md
-    
+    - Math/signal.md
     - LA | 线性代数:
         - Math/LinearAlgebra/index.md
         - Math/LinearAlgebra/00-review.md

@@ -75,11 +75,11 @@ Breed是一个适用于多种路由器的Bootloader（引导加载程序）：
     路由器就像一台小电脑，它的存储器（类似于硬盘）有时会出现坏掉的区域，这些坏掉的区域叫做"坏块"。坏块主要是由于频繁更新系统、电压不稳定或者硬件本身老化等原因造成的。
 
     如果路由器出现坏块，可能会导致路由器无法正常开机、系统不稳定等问题。遇到这种情况，我们可以先用检测工具看看坏块的数量，如果坏块太多的话就需要考虑换新路由器了。平时使用时，尽量不要频繁更新系统，并且要使用稳定的电源，这样可以减少坏块产生的机会。
-
+    
     ```html title="NAND坏块检查"
     http://192.168.31.1/cgi-bin/luci/;stok=CCCCCCCCCCC/api/misystem/set_config_iotdev?bssid=Xiaomi&user_id=longdike&ssid=%0A%5B%20-z%20%22%24(dmesg%20%7C%20grep%20ESMT)%22%20%5D%20%26%26%20B%3D%22Toshiba%22%20%7C%7C%20B%3D%22ESMT%22%0Auci%20set%20wireless.%24(uci%20show%20wireless%20%7C%20awk%20-F%20'.'%20'%2Fwl1%2F%20%7Bprint%20%242%7D').ssid%3D%22%24B%20%24(dmesg%20%7C%20awk%20'%2FBad%2F%20%7Bprint%20%245%7D')%22%0A%2Fetc%2Finit.d%2Fnetwork%20restart%0A
     ```
-
+    
     运行代码后，你路由器的2.4g WiFi名称会改名成：比如  "ESMT"，"Toshiba"，"Toshiba 90 768"。 90和768是坏块。 如果ESMT或者Toshiba后面没数字，那恭喜你，没有坏块！！！
 
 
@@ -106,7 +106,7 @@ http://192.168.31.1/cgi-bin/luci/;stok=CCCCCCCCCCCCCCCC/api/misystem/set_config_
 
 需要断电，按住reset不动在开电10秒后松开reset。这样才能进入Breed后台。等到蓝色灯光闪烁的时候
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250318100853158.png)
+![](assets/settings-router.assets/20250318100853158.png)
 
 
 !!! note "这里应该需要一个有网口的电脑"
@@ -208,21 +208,171 @@ IPv6 是 **互联网协议的第六版**，用于替代 IPv4，解决地址耗�
 !!! note "反向代理，其实是代理服务器代理了目标服务器，去和客户端进行交互。"
 
 [终于有人把正向代理和反向代理解释的明明白白了！-腾讯云开发者社区-腾讯云](https://cloud.tencent.com/developer/article/1418457)
-### ZJU-Rule
-[新的ZJU-Rule解决方案 - CC98论坛](https://www.cc98.org/topic/5769136/1#1)
+
+
+
+### ZJU-Rule + ZJU-Connect
+
+> [新的ZJU-Rule解决方案 - CC98论坛](https://www.cc98.org/topic/5769136/1#1)
+> [Mythologyli/zju-connect: ZJU RVPN 客户端的 Go 语言实现](https://github.com/Mythologyli/ZJU-Connect)
 
 
 原ZJU-Rule的公共服务已经停止了，但是我们仍然可以使用一些基于[subconverter](https://github.com/tindy2013/subconverter)的公共订阅转换  
 
 **请注意，使用公共的订阅转换服务不能保证节点信息不被泄漏**  
 
-下面以 [acl4ssr](https://acl4ssr-sub.github.io/) 为例介绍具体怎么使用：  
-
-1. 打开订阅转换网页  
+1. 打开订阅转换网页 (以 [acl4ssr](https://acl4ssr-sub.github.io/) 为例)
 2. 在远程配置（**不是后端地址**）输入`https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/config/ZJU.ini`，并点击下拉栏中的地址  
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250503215349.png)
+  ![](assets/settings-router.assets/20250503215349.png)
 3. 如果用 [acl4ssr](https://acl4ssr-sub.github.io/) 的话，有个后端地址选项，并不是所有后端口可用，自己试试看  
-4. 剩下的用法就和正常订阅转换没啥区别了
+4. 在订阅链接位置处粘贴订阅链接，如果需要配置ZJU-Connect，需要在最后一行加入`tg://socks?server=127.0.0.1&port=1080&remarks=ZJU Connect`，然后在规则配置界面选择`ZJU-Connect`
+
+```shell title="示例,填在订阅链接的位置"
+ss://aes-256-gcm:password@1.1.1.1:443#测试节点 
+ssr://MTI3LjAuMC4xOjEyMzQ6YXV0aF9zaGExOnJjNC1tZDU6dGxzMS4yX3RpY2tldF9hdXRoOnZWMk5EVXpNdw 
+vmess://eyJhZGQiOiIxLjEuMS4xIiwicG9ydCI6NDQzLCJpZCI6IjEyMzQ1Njc4LWFiY2QtMTIzNC1hYmNkIn0=   
+tg://socks?server=127.0.0.1&port=1080&remarks=ZJU Connect
+```
+
+![image-20250715010941873](assets/settings-router.assets/image-20250715010941873.png)
+
+
+```
+你的设备 → TUN 虚拟网卡 → Clash（规则匹配,ZJU-Rule） → SOCKS5/V2Ray 代理(ZJU-Connect) → 目标网站
+```
+
+
+
+
+!!! note "Some Protocols"
+
+    === "SS（Shadowsocks）"
+          - **特点**：简单高效，无混淆，易被封锁。  
+          - **格式**：  
+          ```shell title="格式"
+          ss://加密方式:密码@服务器IP:端口#备注  
+          ```
+          ```shell title="示例"
+          ss://aes-256-gcm:password@1.1.1.1:443#测试节点  
+          ```
+    
+    === "SSR（ShadowsocksR）"
+          - **特点**：支持混淆和协议插件，抗封锁更强。  
+          - **格式**：  
+          ```shell title="格式"
+          ssr://Base64编码(IP:端口:协议:加密:混淆:密码/?参数)  
+          ```
+    
+          ```shell title="示例"
+          ssr://MTI3LjAuMC4xOjEyMzQ6YXV0aF9zaGExOnJjNC1tZDU6dGxzMS4yX3RpY2tldF9hdXRoOnZWMk5EVXpNdw  
+          ```
+    
+    === "VMess（V2Ray协议）"
+          - **特点**：动态端口，抗封锁强，配置复杂。  
+          - **格式**： 
+    
+          ```shell title="格式"
+          vmess://Base64编码({"add":"IP","port":"443","id":"UUID"})  
+          ```
+    
+          ```shell title="示例"
+          vmess://eyJhZGQiOiIxLjEuMS4xIiwicG9ydCI6NDQzLCJpZCI6IjEyMzQ1Njc4LWFiY2QtMTIzNC1hYmNkIn0=  
+          ```
+
+
+ZJU-Connect 服务配置[zju-connect/docs/service.md at main · Mythologyli/zju-connect](https://github.com/Mythologyli/zju-connect/blob/main/docs/service.md)
+
+[PlistEdit Pro - Advanced Mac plist and JSON editor](https://www.fatcatsoftware.com/plisteditpro/)
+
+
+### Subconverter
+**Subconverter** 是一个开源工具（GitHub项目：[tindy2013/subconverter](https://github.com/tindy2013/subconverter)），主要用于 **订阅链接转换**，常见于科学上网场景。  
+
+**核心功能**：
+- **订阅格式转换**：  
+  支持不同代理客户端（如 Clash、Surge、Quantumult、Shadowrocket）的订阅格式互转。
+  ```
+  V2Ray订阅 → Clash订阅
+  ```
+- **规则合并/自定义**：  可合并多个订阅，或添加自定义规则（如去广告、分流）。  
+- **远程订阅缓存**：  避免频繁请求原始订阅链接，提高访问速度。  
+
+
+Subconverter 的工作原理
+```
+用户请求 → Subconverter 服务器 → 获取原始订阅 → 转换格式 → 返回给用户
+```
+1. **输入订阅链接**：  
+   - 支持 `vmess://`、`ss://`、`trojan://` 等协议。  
+2. **规则处理**：  
+   - 根据配置文件（`pref.ini`、`rule.txt`）修改规则。  
+3. **输出目标格式**：  
+   - 生成 Clash/Surge 等客户端的配置文件。  
+
+**关键技术点**：
+- **模板引擎**：使用 Jinja2 等模板生成不同客户端的配置文件。  
+- **缓存机制**：减少对原始订阅的频繁请求。  
+
+
+### Clash（代理工具）
+Clash 是一个开源的网络代理工具，支持多种代理协议（如 HTTP、SOCKS5、VMess、Trojan 等），常用于科学上网或流量管理。
+
+核心功能：
+
+- 规则分流（如国内直连、国外走代理）。
+- 支持订阅多个代理节点。
+- 提供 RESTful API 进行动态控制。
+
+
+### TUN/TAP（虚拟网络设备）
+**TUN/TAP** 是操作系统提供的虚拟网络设备：
+- **TUN（隧道模式）**：处理 **IP 层（三层）** 数据包（如 VPN）。
+- **TAP（以太网模式）**：处理 **数据链路层（二层）** 数据包（如虚拟网卡）。
+
+在 **Clash** 中，`TUN Mode` 可以让所有流量（包括系统全局流量）经过 Clash 代理，而无需手动配置每个应用的代理。
+
+
+### 上下游（Upstream/Downstream）
+在网络流量转发中：
+- **上游（Upstream）**：指 **流量来源**，比如你的本地设备（Clash 客户端）。
+- **下游（Downstream）**：指 **流量去向**，比如代理服务器（SOCKS5/HTTP 代理、VPN 等）。
+
+**在 Clash 中的关系**：
+```
+你的设备（上游） → Clash（规则匹配） → 代理服务器（下游）
+```
+- Clash 根据规则决定流量是直连（Direct）还是转发到代理服务器（Proxy）。
+
+
+### SOCKS5（代理协议）
+**SOCKS5** 是一种网络代理协议，比 HTTP 代理更底层，支持：
+- TCP/UDP 流量转发。
+- 认证（用户名/密码）。
+- 适用于游戏、BT 下载、全局代理等。
+
+**与 HTTP 代理的区别**：
+| 特性       | SOCKS5               | HTTP 代理           |
+|------------|----------------------|---------------------|
+| 协议层级   | 传输层（TCP/UDP）    | 应用层（HTTP/HTTPS）|
+| 支持 UDP   | ✅                   | ❌                  |
+| 适用场景   | 全局代理、游戏       | 浏览器网页访问      |
+
+**在 Clash 中的应用**：
+- Clash 可以作为 SOCKS5 服务器，供其他设备（如手机、游戏机）连接。
+- 也可以使用外部 SOCKS5 代理作为下游（如 `socks5://127.0.0.1:1080`）。
+
+1. **Clash + TUN 模式**（全局代理）：
+
+```
+你的设备 → TUN 虚拟网卡 → Clash（规则匹配） → SOCKS5/V2Ray 代理 → 目标网站
+```
+
+2. **反向代理 + SOCKS5**（内网穿透）：
+
+```
+用户访问 [https://your-domain.com] → Nginx（反向代理）→ 本地 SOCKS5（Clash）→ 目标服务
+```
+
 
 
 ## 静态路由
@@ -250,6 +400,5 @@ IPv6 是 **互联网协议的第六版**，用于替代 IPv4，解决地址耗�
 
 对于不同的静态路由，可以为它们配置不同的优先级。优先级值越小表示静态路由的优先级越高。配置到达相同目的地的多条静态路由，如果指定相同的优先级，则可实现负载分担；如果指定不同优先级，则可以实现路由备份。
 
-![image-20240307090222479](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240307090222479.png)
 
 
