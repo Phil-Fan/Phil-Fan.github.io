@@ -396,7 +396,6 @@ nav:
     - 无人机:
       - Robotics/Robo/Drone.md
       - Robotics/Robo/Drone_experiment.md
-      - Robotics/Robo/Drone_explore.md
 
   
   - "嵌入式":
@@ -428,7 +427,6 @@ nav:
   - "实践记录":
     - Robotics/嵌入式/嘉立创.md
     - Robotics/嵌入式/焊接.md
-    - Robotics/嵌入式/Trial.md
     - Robotics/嵌入式/外设.md
 
 

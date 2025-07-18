@@ -21,7 +21,7 @@
         - workload：
 
 <div class="card file-block" markdown="1">
-<div class="file-icon"><img src="style/images/xmind.svg" style="height: 3em;"></div>
+<div class="file-icon"><img src="/style/images/xmind.svg" style="height: 3em;"></div>
 <div class="file-body">
 <div class="file-title">机器学习思维导图</div>
 <div class="file-meta">506KB / 2025-05-21</div>

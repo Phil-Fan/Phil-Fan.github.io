@@ -46,7 +46,7 @@
 
 [GICS® - Global Industry Classification Standard - MSCI](https://www.msci.com/our-solutions/indexes/gics)
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/GICS-infographic-final.svg)
+![](assets/industry-analyze.assets/GICS-infographic-final.svg)
 
 ## 数据&信息搜集
 - 各大咨询公司公众号

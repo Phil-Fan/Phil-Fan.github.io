@@ -2,7 +2,7 @@
 
 ## 简介
 - 公益组织的起点是社会问题
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240825105823.png)
+![](assets/industry-welfare.assets/20240825105823.png)
 
 !!! note "常见误区"
     免费不是公益组织的特点
@@ -25,26 +25,26 @@ NPO（Non-Profit Organization）非营利组织，是指不以营利为目的，
 公益是舶来品，慈善不是
 
 ## 发展历史
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240825110728.png)
+![](assets/industry-welfare.assets/20240825110728.png)
 
 
 ## 在做什么
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240825111630.png)
+![](assets/industry-welfare.assets/20240825111630.png)
 
 组织架构
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240825111828.png)
+![](assets/industry-welfare.assets/20240825111828.png)
 
 资金哪里来
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240825112209.png)
+![](assets/industry-welfare.assets/20240825112209.png)
 
 ## 案例
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240825140335.png)
+![](assets/industry-welfare.assets/20240825140335.png)
 项目交付回顾
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240825141008.png)
+![](assets/industry-welfare.assets/20240825141008.png)
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240825141601.png)
+![](assets/industry-welfare.assets/20240825141601.png)
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240825141933.png)
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/4fa89db9a3c5bf94e05bcb5931dc0d6.png)
+![](assets/industry-welfare.assets/20240825141933.png)
+![](assets/industry-welfare.assets/4fa89db9a3c5bf94e05bcb5931dc0d6.png)

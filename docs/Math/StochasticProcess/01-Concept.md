@@ -34,13 +34,13 @@ $X(t)$ ，为 $t$ 的函数。（所有随机变量取到可能出现的值）
 
 ??? note "如何理解协方差"
     [如何直观地理解「协方差矩阵」？ - 知乎](https://zhuanlan.zhihu.com/p/37609917)
-    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250427223326.png)
+    ![](assets/01-Concept.assets/20250427223326.png)
 
     协方差：用与均值面积正负来刻画相关性(一三象限是正相关，二四象限是负相关)
-
+    
     把原点看作$(\bar{x},\bar{y})$，那么$\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})$就可以理解为这些矩形的面积了
     > 图片出自[如何通俗地解释协方差｜马同学图解数学\_哔哩哔哩\_bilibili](https://www.bilibili.com/video/BV1gY4y187TL/)
-
+    
     <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=640953390&bvid=BV1gY4y187TL&cid=584782501&p=1&t=142&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=60% height=400px></iframe>
 
 
@@ -95,19 +95,19 @@ $\{X(t),t\in T\}$是一随机过程，对任意整数$n\geq1$及
 !!! note "设 $X(t) = A + Bt$, $t \geq 0$。这里随机变量 $A$ 和 $B$ 服从相同的 0-1 分布，$P(A = 1) = p \in (0, 1)$。若 $E[A(B - 1)] = 0$。则该过程的所有样本函数"
 
     选项：
-
+    
     A. 有两条，且分别为 $x_1(t) = 1 + t$, $x_2(t) = 0$。
-
+    
     B. 有四条，且分别为 $x_1(t) = 1 + t$, $x_2(t) = 0$, $x_3(t) = t$, $x_4(t) = 1$。
-
+    
     C. 有三条，且分别为 $x_1(t) = 1 + t$, $x_2(t) = 0$, $x_3(t) = t$。
-
+    
     D. 有三条，且分别为 $x_1(t) = 1 + t$, $x_2(t) = 0$, $x_3(t) = 1$。
-
+    
     ---
-
+    
     答案：A
-
+    
     通过条件$E[A(B - 1)] = 0$，可以知道A和B并不独立
 
 
@@ -125,34 +125,34 @@ $\{X(t),t\in T\}$是一随机过程，对任意整数$n\geq1$及
     &(C)\mu_{X}(s)+\mu_{X}(t)=\mu_{X}(s+t)\\
     &(D)R_{X}(s,t)=\mu_{X}(s)\mu_{X}(t)\end{aligned}
     $$
-
+    
     ---
     那为什么有时候说 $C_{XY}(s, t) \neq C_{YX}(s, t)$？
-
+    
     这是因为在**随机过程**中，$C_{XY}(s, t)$ 的两个维度含义不同：
-
+    
     * $C_{XY}(s, t) = \mathrm{Cov}(X(s), Y(t))$
     * $C_{YX}(s, t) = \mathrm{Cov}(Y(s), X(t))$
-
+    
     你可以看到这两个表达式不是简单地交换了变量，而是**交换了变量和时间索引的位置**。
 
 !!! example "设随机过程 $X(t)=At+B$ ，其中 $A$、$B$ 独立同分布，$P(A=1)=0.6$ ，$P(A=-1)=0.4$ 。"
 
     (1) $X(t)$ 的所有样本函数为 $X(t)=t+1$ ；$X(t)=-t+1$ ；$X(t)=t-1$ ；$X(t)=-t-1$
-
+    
     (2) $X(1)=A+B$ 的分布律为 $P[X(1)=0]=0.48$ ； $P[X(1)=2]=0.36$ ；$P[X(1)=-2]=0.16$
-
+    
     (3) { $X(t);t∈T$ } 的均值函数为 $E[X(t)]=tE(A)+E(B)=0.2t+0.2$ 
-
+    
     (4) 自相关函数为 
-
+    
     $$
     \begin{aligned}
     R_X(t_1,t_2)&=E[X(t_1)X(t_2)]=E[(At_1+B)(At_2+B)]\\
     &=t_1t_2E(A^2)+(t_1+t_2)E(AB)+E(B^2)=t_1t_2+0.04(t_1+t_2)+1
     \end{aligned}
     $$
-
+    
     （求$E^2(A)$应该直接带定义，比用方差和均值求方便一点）
 
 
@@ -160,17 +160,17 @@ $\{X(t),t\in T\}$是一随机过程，对任意整数$n\geq1$及
 !!! example "随机相位正弦波 $X(t) = \alpha \cos(\beta t + \theta)$，$-\infty < t < +\infty$,其中，$\alpha, \beta$ 为常数，$\theta$ 是在 $[0, 2\pi]$ 上均匀分布的随机变量，求 $X(t)$ 的均值函数、方差函数、相关函数、协方差函数"
 
     解：
-
+    
     $\theta$ 的概率密度为
-
+    
     $f(\theta) = \begin{cases} \frac{1}{2\pi}, & 0 \leq \theta \leq 2\pi \\ 0, & \text{其他} \end{cases}$
-
+    
     均值函数为：
-
+    
     $$
     E(X(t)) = \int_{-\infty}^{+\infty} X(t) f(\theta) \, \mathrm{d}\theta = \int_{0}^{2\pi} \alpha \cos(\beta t + \theta) \frac{1}{2\pi} \, \mathrm{d}\theta = 0
     $$
-
+    
     $$
     \begin{align*}
     R(s, t) &= E(X(s) X(t)) = \int_{-\infty}^{+\infty} X(t) X(s) f(\theta) \, \mathrm{d}\theta\\
@@ -185,13 +185,13 @@ $\{X(t),t\in T\}$是一随机过程，对任意整数$n\geq1$及
 !!! example "设随机过程$X(t)=V\cdot t$,其中$V$是在(0,1)上服从均匀分布的随机变量"
 
     求过程$X(t)$的均值和自相关函数
-
+    
     解：
-
+    
     已知随机变量$V$的概率密度为：
-
+    
     $f(v)=\begin{cases}1,v\in(0,1)\\0,\text{其他}\end{cases}$
-
+    
     $$
     \begin{aligned}
     &E\big(X(t)\big)=\int_{-\infty}^{+\infty}x(t)f(v)\:\mathrm{d}v=\int_{0}^{1}vt\:\mathrm{d}v=\frac{t}{2}\\
@@ -203,19 +203,19 @@ $\{X(t),t\in T\}$是一随机过程，对任意整数$n\geq1$及
 !!! example "设两个连续时间的随机相位信号,$X(t)=\sin(w_{0}t+\Phi)$,$Y(t)=\cos(w_{0}t+\Phi)$,其中$w_0$为常数，$\Phi$在$(-\pi,\pi)$上服从均匀分布，求互协方差函数。"
 
     解：首先求两个信号的均值：
-
+    
     $E(X(t))=E(\sin(w_{0}t+\Phi))=\int_{-\pi}^{\pi}\sin(w_{0}t+\Phi)\frac{1}{2\pi}\mathrm{d}\varphi=0$
-
+    
     $E(Y(t))=E(\cos(w_{0}t+\Phi))=\int_{-\pi}^{n}\cos(w_{0}t+\Phi)\frac{1}{2\pi}\mathrm{d}\varphi=0$
-
+    
     互协方差函数为：
-
+    
     $$
     C_{XY}(t_{1},t_{2})=R_{XY}(t_{1},t_{2})-E(X(t_{1}))E(Y(t_{2}))=R_{XY}(t_{1},t_{2})
     $$
-
+    
     其中：
-
+    
     $$
     \begin{aligned}
     R_{XY}(t_{1},t_{2})&=E(X(t_{1})Y(t_{2}))=E(\sin(w_{0}t_{1}+\Phi)\cos(w_{0}t_{2}+\Phi))\\
@@ -231,7 +231,7 @@ $\{X(t),t\in T\}$是一随机过程，对任意整数$n\geq1$及
 
     设随机过程$X(t)$的均值与自相关函数为
     $m_{X}= 5\sin t$ , $R_{X}( t, s) = 3\mathrm{e} ^{- 0. 5( s- t) ^{2}}$ 试求$Y(t)=X^\prime(t)$的均值和自相关函数
-
+    
     $$
     \begin{aligned}&E\big(Y(t)\big)=\frac{\mathrm{d}}{\mathrm{d}t}E\big(X(t)\big)=5\cos t\\&R_{Y}(t,s)=\frac{\partial^2}{\partial s\:\partial t}R_X(t,s)\end{aligned}
     $$
@@ -252,30 +252,30 @@ $\{X(t),t\in T\}$是一随机过程，对任意整数$n\geq1$及
     设 $X(t) = At^B$，其中 $A \sim N(1,1)$，$P(B=1) = P(B=2) = 0.5$，$A$ 和 $B$ 相互独立。计算：
 
     (1) 随机过程 $\{X(t); t \geq 0\}$ 的均值函数和自相关函数；
-
+    
     (2) $P(X(2) < 4)$；
-
+    
     (3) $P(X(1) > 1, X(2) < 4)$。
-
+    
     ---
-
+    
     **答案：**
-
+    
     (1) 均值函数和自相关函数：
-
+    
     $$
     \mu_X(t) = \frac{t + t^2}{2}
     $$
-
+    
     $$
     R_X(s, t) = ts + t^2s^2
     $$
-
+    
     (2) 
     $$
     P(X(2) < 4) = P(B=1)P(A < 2) + P(B=2)P(A < 1) = 0.67
     $$
-
+    
     (3) 
     $$
     P(X(1) > 1, X(2) < 4) = P(B=1)P(1 < A < 2) + P(B=2)P(A > 1, A < 1) = 0.17
@@ -287,22 +287,22 @@ $\{X(t),t\in T\}$是一随机过程，对任意整数$n\geq1$及
     其中 $A \sim N(1, 2),\ B \sim N(0, 2)$，且 $A, B$ 独立。
 
     求：
-
+    
     1. 自相关函数 $R_X(s,t)$
     2. $X\left(\dfrac{3\pi}{4}\right)$ 的分布
-
+    
     ---
-
+    
     答案：
-
+    
     3. 自相关函数：
-
+    
     $$
     R_X(s,t) = 3\cos s \cos t + 2\sin s \sin t
     $$
-
+    
     4. 分布：
-
+    
     $$
     X\left(\dfrac{3\pi}{4}\right) \sim N\left(-\dfrac{\sqrt{2}}{2},\ 2\right)
     $$
@@ -315,25 +315,25 @@ $\{X(t),t\in T\}$是一随机过程，对任意整数$n\geq1$及
 !!! example "通过投掷一个硬币定义一个随机过程:$X(t)=\begin{cases} \cos\pi t, 出现正面 \\ 2t, 出现反面 \end{cases}$(1) $F\left(\frac{1}{2},x\right), F(1,x)$(2) $F\left(\frac{1}{2},1,x,y\right)$"
 
     解:
-
+    
     === "(1)"
-
+    
         $F\left(\frac{1}{2},x\right)$ 相当于是求 $X\left(\frac{1}{2}\right)$ 的分布函数，这里要注意 $X\left(\frac{1}{2}\right)$ 已经是一个随机变量
-
+    
         $X\left(\frac{1}{2}\right)=\begin{cases} \cos\frac{\pi}{2}, 出现正面 \\ 1, 出现反面 \end{cases}$
-
+    
         | $X\left(\frac{1}{2}\right)$ | 0 | 1 |
         | --- | --- | --- |
         |  | $\frac{1}{2}$ | $\frac{1}{2}$ |
-
+    
         $F\left(\frac{1}{2},x\right)=P\left\{X\left(\frac{1}{2}\right)<x\right\}=\begin{cases} 0, -\infty < x \leq 0 \\ \frac{1}{2}, 0 < x \leq 1 \\ 1, 1 < x < +\infty \end{cases}$
-
+    
     === "(2)"
-
+    
         $F\left(\frac{1}{2},1,x,y\right)=P\left\{X\left(\frac{1}{2}\right)<x,X(1)<y\right\}$
-
+    
         先求 $X(\frac{1}{2}), X(1)$ 的联合分布律:
-
+    
         | $X(\frac{1}{2})$ | $X(1) = -1$ | $X(1) = 2$ |
         |------------------|--------------|-------------|
         | $0$              | $\frac{1}{4}$ | $\frac{1}{4}$ |
@@ -346,25 +346,25 @@ $\{X(t),t\in T\}$是一随机过程，对任意整数$n\geq1$及
     (2) 求 $(X(1),X(2))$ 的联合分布律及 $X(2)$ 的边际分布律； 
     
     (3) 求 $\{X(t);t≥0\}$ 的均值函数和自相关函数。
-
+    
     --- 
     答案
-
+    
     5 (1) 
     - $x_{1}(t)=t+1$
     - $x_{2}(t)=t-1$
     - $x_{3}(t)=-t+1$
     - $x_{4}(t)=-t-1$。
-
+    
     (2)
-
+    
     | $X(1)$ $\backslash$ $X(2)$ | -3 | -1 | 1 | 3 |
     | --- | --- | --- | --- | --- |
     | -2 | 0.16 | 0 | 0 | 0 |
     | 0 | 0 | 0.24 | 0.24 | 0 |
     | 2 | 0 | 0 | 0 | 0.36 |
     | $P(X(2)=j)$ | 0.16 | 0.24 | 0.24 | 0.36 |
-
+    
     (3) 
     - $E[X(t)]=EAt+EB=0.2t+0.2$
     - $E[X(t)X(s)]=EA^{2}ts+E(AB)(s+t)+E(B^{2})=ts+0.04(t+s)+1$。
@@ -375,19 +375,19 @@ $\{X(t),t\in T\}$是一随机过程，对任意整数$n\geq1$及
 !!! note "下列关于随机过程的叙述正确的有"
 
     A. 二阶矩过程的自相关函数一定不小于自协方差函数。
-
+    
     B. 二阶矩过程的均值函数一定存在。
-
+    
     C. 对于随机过程 $\{X(t); -\infty<t<\infty\}$ 中给定的 $t$，$X(t)$ 是随机变量。
-
+    
     D. 若对任意 $t\in(-\infty,\infty)$，$X(t)$ 服从正态分布，则 $\{X(t); -\infty<t<\infty\}$ 是正态过程。
-
+    
     --- 
-
+    
     A. 二阶矩没有什么限制，虽然自协方差需要减两个均值，但是均值不一定是正数，这一点需要格外注意
-
+    
     D. 若随机过程 ${X(t),\ t \in T}$ 中，任取有限个时刻 $t_1, t_2, \cdots, t_n$，对应的随机向量 $(X(t_1), X(t_2), \cdots, X(t_n))$ 服从多元正态分布，则称其为**正态过程**。
-
+    
     需要联合分布也服从正态
 
 
@@ -398,24 +398,24 @@ $\{X(t),t\in T\}$是一随机过程，对任意整数$n\geq1$及
     ---
     **答案**
     - N(0,3)，N(0,7)，是，因为它们是二元联合正态分布且协方差为0。
-
+    
     ---
     **解析**
     📌 求 $X(0) + X(1)$ 的分布
-
+    
     * $\mathbb{E}[X(0) + X(1)] = 0 + 0 = 0$
     * 协方差函数和自相关函数是一样的，因为均值是0
     * 方差：$\mathrm{Var}(X(0) + X(1)) = \mathrm{Var}(X(0)) + \mathrm{Var}(X(1)) + 2\mathrm{Cov}(X(0), X(1))= 1 + 3 + 2(1.5) = 4 + 3 = 7$
 
 
     📌 问题：$X(1)$ 与 $X(-1)$ 独立吗？
-
+    
     先注意：题目最初只说 $t \geq 0$，但这里又问了 $X(-1)$，我们暂时延拓过程到实数轴上，继续看协方差：
-
+    
     $$
     \mathrm{Cov}(X(1), X(-1)) = R_X(1, -1) = 1 - 1 + 0 = 0
     $$
-
+    
     又因为 $X(t)$ 是**高斯过程**（正态过程），而高斯过程中**零协方差 ⇒ 独立性**（只在联合正态情形成立）
 
 
@@ -423,26 +423,26 @@ $\{X(t),t\in T\}$是一随机过程，对任意整数$n\geq1$及
 !!! example "设 $\{X(t); t \geq 0\}$ 是正态过程，$E[X(t)] = 2t$，$Cov(X(t), X(s)) = ts + 4$"
 
     (1) $X(t)$ 服从 $\underline{\qquad\qquad\qquad\qquad}$ 分布。  
-
+    
     (2) $X(t) - X(s)$ 服从 $\underline{\qquad\qquad\qquad\qquad}$ 分布。  
-
+    
     (3) $Cov(X(t+1) - X(t),\ X(s+1) - X(s)) = \underline{\qquad}$。  
-
+    
     (4) 令 $Y(t) = X(t+1) - X(t)$，随机过程 $\{Y(t); t \geq 0\}$ 是宽平稳过程吗？为什么？$\underline{\qquad\qquad\qquad\qquad}$ 
-
+    
     ---
     **答案与推导**
-
+    
     (1) $X(t)$ 服从 $N(2t,\, 4 + t^2)$
-
+    
     - 均值 $E[X(t)] = 2t$
     - 方差 $Cov(X(t), X(t)) = t^2 + 4$
-
+    
     (2) $X(t) - X(s)$ 服从 $N(2(t-s),\, (t-s)^2)$
-
+    
     - 均值 $E[X(t) - X(s)] = 2t - 2s = 2(t-s)$
     - 方差：
-
+    
       $$
       \begin{aligned}
       Var(X(t) - X(s)) &= Cov(X(t)-X(s), X(t)-X(s)) \\
@@ -451,11 +451,11 @@ $\{X(t),t\in T\}$是一随机过程，对任意整数$n\geq1$及
       &= (t-s)^2
       \end{aligned}
       $$
-
+    
     (3) $Cov(X(t+1) - X(t),\ X(s+1) - X(s)) = 1$
-
+    
     - 计算：
-  
+      
       $$
       \begin{aligned}
       &Cov(X(t+1)-X(t),\ X(s+1)-X(s)) \\
@@ -464,10 +464,10 @@ $\{X(t),t\in T\}$是一随机过程，对任意整数$n\geq1$及
       &= 1
       \end{aligned}
       $$
-
+    
     (4) 是，因为 $Y(t)$
     首先因为$X(t)$是正态过程，线性组合仍然是二阶矩过程
-
+    
     - 均值 $\mu_t = 2$ 是常数
     - 协方差 $C_Y(t, t+\tau) = 1$
     - 自相关函数$R_Y(t,t+\tau) = C_Y(t,t+\tau) +\mu_t\mu_{t+\tau} = 1+2\times2 = 5$

@@ -271,7 +271,7 @@
    - SOP：有些学生不是素食者。（Some students are not vegetarians.）
    - SIP：有些学生是素食者。（Some students are vegetarians.） 这个推理也是错误的，因为从"有些学生不是素食者"并不能推出"有些学生是素食者"。这可能是因为有些学生既不是素食者也不是非素食者，或者所有学生都不是素食者。
 
-![image-20240327202452690](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240327202452690.png)
+
 
 
 

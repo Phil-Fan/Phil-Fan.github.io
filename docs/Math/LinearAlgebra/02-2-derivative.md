@@ -509,7 +509,7 @@ $$
 - $\mathbf{H(f)}$不定，鞍点：特征值有正有负
 - $\mathbf{H(f)}$不可逆，无法判断：特征值有0
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/b05544056c037bc56f9070e45533f02.jpg" alt="b05544056c037bc56f9070e45533f02" style="zoom: 33%;" />
+<img src="assets/02-2-derivative.assets/b05544056c037bc56f9070e45533f02.jpg" alt="b05544056c037bc56f9070e45533f02" style="zoom: 33%;" />
 
 
 

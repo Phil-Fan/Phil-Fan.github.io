@@ -99,6 +99,7 @@ Acknowledgement
 - 先从比较独立的部分开始：滤波器部分直接听老师上课讲，非常清楚，看完之后把课件例题和课本例题做掉。这部分重点掌握一下：几种设计方法的优缺点（可能会考简答）。巴特沃斯的设计方法：归一化、阶数$n$的计算，反归一化等。
 - 系统分析和信号处理部分其实可以放在第二个复习。大部分是自控或是常微分的内容，这部分题型也比较固定，掌握课本课件的例题其实就差不多了。重点关注一下z变换（正反）是怎么变，收敛域问题。
   
+
 （1-2天）
 - 自己看书看到DFT之前，重点理解傅里叶变换的各种性质、连续周期函数的傅里叶变换（下面笔记中列了）、时频域采样定理（非常非常重要）、从正交分解的角度理解各个变换
 - DFT和FFT部分可以找几个b站视频看一下速成一下，先明白怎么使用，再看zj的智云
@@ -120,7 +121,7 @@ Acknowledgement
 
 ## 信号分类 + 连续信号分析
 
-![连续信号](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/%25E8%25BF%259E%25E7%25BB%25AD%25E4%25BF%25A1%25E5%258F%25B7.svg)
+![连续信号](assets/signal.assets/%25E8%25BF%259E%25E7%25BB%25AD%25E4%25BF%25A1%25E5%258F%25B7.svg)
 
 模拟信号和数字信号的定义
 
@@ -214,10 +215,11 @@ $$
 ### 常见信号的傅里叶变换
 
 各种常见信号傅里叶变换需要记住
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240620212932.png)
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240620212944.png)
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240620213012.png)
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240620213040.png)
+![](assets/signal.assets/20240620212932.png)
+![](assets/signal.assets/20240620212944.png)
+![](assets/signal.assets/20240620213012.png)
+![](assets/signal.assets/20240620213040.png)
+
 - $cos(\omega_0 t)$频谱搬移
 - 门函数的表达 $u(t) - u(t-t_0)$
 
@@ -230,17 +232,16 @@ $$
 
 需要注意直流分量的处理:如果有直流分量，那么只能使用积分变换解决
 
-
 !!! note "例题"
-    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240620190744.png)
-    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240620190731.png)
+    ![](assets/signal.assets/20240620190744.png)
+    ![](assets/signal.assets/20240620190731.png)
 
     $$
     y(t) = t(u(t)-u(t-1))
     $$
-
+    
     因为$tu(t)=0$,$tu(t-1)$只能在$t=1$处取值
-
+    
     $$
     \begin{align*}
         y'(t) &= (u(t)-u(t-1)) + t(\delta(t)-\delta(t-1))\\
@@ -284,14 +285,14 @@ $$
 !!! note "例子:求周期为$T_0$的周期性冲激串$\delta_T(t)$的傅里叶变换。"
 
     **课本P42,P43**
-
+    
     $$
     \begin{align*}
     \delta_T(t)&= \mathop{\sum}\limits_{n=-\infty}^{\infty}\delta(t-nT_0)\\
     \delta_T(t)&= \mathop{\sum}\limits_{n=-\infty}^{\infty}X(n\omega_0)e^{jn\omega_0t}
     \end{align*}
     $$
-
+    
     又因为在一个周期内
     $X(n\omega_0) = \frac{1}{T_0} \int^\frac{T_0}{2}_{-\frac{T_0}{2}} \delta_T(t)e^{-jn\omega_0 t} = \frac{1}{T_0}$
     **所以可以求得**
@@ -308,7 +309,7 @@ $$
 
 ## 离散信号的分析
 
-![离散信号](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/%E7%A6%BB%E6%95%A3%E4%BF%A1%E5%8F%B7.svg)
+![离散信号](assets/signal.assets/%E7%A6%BB%E6%95%A3%E4%BF%A1%E5%8F%B7.svg)
 
 **常见离散信号、信号的时域计算**
 关于信号卷积、相关性和反卷积，可以看[这一篇](https://zhuanlan.zhihu.com/p/196786958)
@@ -405,7 +406,7 @@ x((n-m))_NR_N(n) \stackrel{DFT}{\rightarrow} X(k) e^{-j k \frac{2\pi}{N}m}
 $$
 
 !!! note "题目"
-    ![DFT-question](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240620192017.png)
+    ![DFT-question](assets/signal.assets/20240620192017.png)
 
     实数序列，根据共轭对称性,$X(k) = X^*(N-k)$
     ![answer](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240620194102.png)
@@ -496,14 +497,15 @@ N点序列FFT运算
 - 连续周期信号：时域正周期截断
 
 !!! note "历年题"
-    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240620191142.png)
+    ![](assets/signal.assets/20240620191142.png)
     
-    **是一个频率向数字角频率转换的过程。**
 
+    **是一个频率向数字角频率转换的过程。**
+    
     - FFT进行计算，先得补零至$2^{10}=1024$个点
     - $k\cdot \frac{2\pi}{N} = \frac{2\pi f}{f_s} = \Omega$
     - 带入后求解得$k = 40$,若求频谱，则求$X(40)$
-
+    
     其中，频率分辨率$\Delta f = \frac{f_s}{N}$,$f_s$可以算出最高频率，$N$可以算出来频谱间距
 
 [FFT频谱分析（补零、频谱泄露、栅栏效应、加窗、细化、频谱混叠、插值），Matlab、C语言代码\_fft发生频率畸变-CSDN博客](https://blog.csdn.net/szm1234/article/details/121636961)
@@ -549,13 +551,12 @@ $$
 
 - 终值定理 $\lim\limits_{n\rightarrow\infty}x(n) = \lim\limits_{z-\rightarrow 1}[(z-1)X(z)]$
 
-
 !!! note "一个很巧妙的题"
-    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/21e71365034176015b05ccec5ccc345.png)
+    ![](assets/signal.assets/21e71365034176015b05ccec5ccc345.png)
     
 
     思路：一开始没有看明白答案在干什么。后来看题才发现，题目中给出了$y(n)$的所有情况，只是没有用分段函数的方法给出而已。知道了这个点之后，这个题就不难了。
-
+    
     $$
     \begin{align*}
         Y(z)&=\sum_{n=-\infty}^{\infty}y(n)z^{-n}\\
@@ -833,12 +834,11 @@ $$
 
 ## 滤波器
 
-![模拟滤波器](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/%E6%A8%A1%E6%8B%9F%E6%BB%A4%E6%B3%A2%E5%99%A8.png)
+![模拟滤波器](assets/signal.assets/filter-1.png)
 
 
 
-![数字滤波器](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/%E6%95%B0%E5%AD%97%E6%BB%A4%E6%B3%A2%E5%99%A8.png)
-
+![数字滤波器](assets/signal.assets/222.png)
 
 **冲激响应不变法**
 

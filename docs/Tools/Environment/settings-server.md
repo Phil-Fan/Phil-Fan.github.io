@@ -319,6 +319,15 @@ ssh -p 6000 <client_username>@<server_ip>
 这个时候应该就可以配置成功了
 
 
+```shell title="开放端口"
+sudo firewall-cmd --zone=public --add-port=7000/tcp --permanent
+sudo firewall-cmd --zone=public --add-port=7500/tcp --permanent
+sudo firewall-cmd --zone=public --add-port=6000/tcp --permanent
+
+sudo firewall-cmd --reload
+```
+
+
 !!! note "如果报错了试着使用su权限运行一下，说不定可以"
 
 

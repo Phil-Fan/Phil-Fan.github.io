@@ -4,16 +4,16 @@
 ### 灯具
 一般Auto挡位就可以了。特殊操作的时候开启双闪
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/3b2f24cf42da64986bbf6f8e6da9d88.jpg)
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/7994c3c58965b7825452e28edb1c756.jpg)
+![](assets/C-Driving.assets/3b2f24cf42da64986bbf6f8e6da9d88.jpg)
+![](assets/C-Driving.assets/7994c3c58965b7825452e28edb1c756.jpg)
 
 ### 空调
 **AC - Air Conditioner**
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/5adba0d461a3d7d8909583955035d1c.jpg)
+![](assets/C-Driving.assets/5adba0d461a3d7d8909583955035d1c.jpg)
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/53450d9393e35af77baef427cf6bfcc.jpg)
+![](assets/C-Driving.assets/53450d9393e35af77baef427cf6bfcc.jpg)
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/9c545933236a599144d34e6cd0c24d8.jpg)
+![](assets/C-Driving.assets/9c545933236a599144d34e6cd0c24d8.jpg)
 
 
 ### 加油
@@ -44,7 +44,7 @@
 ### 市区Tip
 
 1. **打转向！！！** : 任何操作都要先打转向灯。
-   
+  
 2. **注意行人、摩托车、外卖** : 市区内行人和自行车较多，驾驶时要格外小心，注意避让。尤其转弯的时候，特别小心。要右转的时候先观察后面有没有送外卖的和行人、摩托车等。
 
 3. **降低车速**: 在市区行驶时，保持较低的车速，有助于更好地应对突发情况。
@@ -75,18 +75,18 @@
 
 5. **内饰 (Interior)**: 包括座椅、仪表盘、方向盘、空调系统等，直接影响驾驶和乘坐的舒适度。
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/43dc28b2957956128ec34fe4a22df9a.jpg)
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/f14d38e1fc4efadc4dced36a593dce6.jpg)
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/87e3ae37ea87a7df7118c2fac21f2ea.jpg)
+![](assets/C-Driving.assets/43dc28b2957956128ec34fe4a22df9a.jpg)
+![](assets/C-Driving.assets/f14d38e1fc4efadc4dced36a593dce6.jpg)
+![](assets/C-Driving.assets/87e3ae37ea87a7df7118c2fac21f2ea.jpg)
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/87e3ae37ea87a7df7118c2fac21f2ea.jpg)
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/3ff6418d1ee25f2179d0bad1a562dc2.jpg)
+![](assets/C-Driving.assets/87e3ae37ea87a7df7118c2fac21f2ea-20250715171740599.jpg)
+![](assets/C-Driving.assets/3ff6418d1ee25f2179d0bad1a562dc2.jpg)
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/d04285a35b0b44771fbec330aa59687.jpg)
+![](assets/C-Driving.assets/d04285a35b0b44771fbec330aa59687.jpg)
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/918cb66286ac986ea58c534276c7156.jpg)
+![](assets/C-Driving.assets/918cb66286ac986ea58c534276c7156.jpg)
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/908aa78fa06ec7681638c8155d6545d.jpg)
+![](assets/C-Driving.assets/908aa78fa06ec7681638c8155d6545d.jpg)
 
 ## 养护
 ### 保险
@@ -143,63 +143,10 @@
 
 5. **使用手机罚款**: 驾驶时使用手机会分散注意力，属于违法行为，会被罚款和扣分。
 
-
-## 车企与常见型号
-汽车等级源于德国大众对车辆的一种等级分类方式，并不是专业的规范，仅仅当时大家威自身制订战略营销时，制订的一套标准值，之后被普遍应用，汽车等级一般分：**A00级、A0级、A级、B级、C级、及其D级**六个等级。
-
-
-### A00——微型汽车
-
-**1、宏光MINI EV**
-
-3.28-9.99万元
-
-宏光MINI EV是上汽通用五菱旗下五菱品牌的首款四座新能源车，定位为人民的代步车，聚焦短途便捷出行场景。宏光MINIEV采用双门设计，营造出萌的视觉效果，外形辨识度较高，整车尺寸为2917/1493/1621毫米，轴距达到1940毫米，车身小巧，驾驶灵活，让出行更轻松高效，免除“停车难”的困扰。
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240814195205.png)
-
-
-**2、长安Lumin**
-
-4.99-6.99万元
-
-长安Lumin是基于长安EPA0平台打造的一款微型纯电动车。
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240814195222.png)
-
-**3、吉利熊猫**
-
-3.69~4.99万元
-
-吉利熊猫是一辆微型车，吉利熊猫的造型融入了国宝“大熊猫”的造型元素，熊猫采用了吉利的全新车标，采用四门设计，熊猫符合国内的消费习惯。从车身的尺寸来看，熊猫的内部空间有着不错的表现，205升的后备箱空间也非常适宜家用。熊猫采用1.0L和1.3L两种排量发动机，最大功率能够达到63千瓦，对于一款微型轿车来讲，吉利熊猫有着较高的动力表现
-
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240814195302.png)
-### A0——小型轿车
-（威驰、名爵3、飞度、起亚K2）
-
-### A——紧凑型轿车
-（轩逸、大众朗逸、轩逸、本田思域）
-
-### B级——中大型车
-（本田雅阁、丰田凯美瑞、奔驰C级、宝马三系）
-
-### C级——中大型车
-（宝马5系、奥迪A6L、奔驰E级、凯迪拉克汽车CT6）
-
-### D级——大型客车
-（宝马7系、奔驰S级、劳斯来斯、宾利车）。
-
-
-### SUV车
-全称是SportUtilityVehicle，中文意思是运动型多用途汽车。主要是指那些设计前卫、造型新颖的四轮驱动越野车。SUV一般前悬架是轿车型的独立悬架，后悬架既可以是独立悬架也可是非独立悬架，离地间隙较大，在一定程度上既有轿车的舒适性又有越野车的越野性能。由于带有MPV式的座椅多组合功能，使车辆既可载人又可载货，适用范围广。
-### MPV
-MPV的全称是Multi-PurposeVehicle，即多用途汽车。它集轿车、旅行车和厢式货车的功能于一身，车内每个座椅都可调整，并有多种组合的方式，例如可将中排座椅靠背翻下即可变为桌台，前排座椅可作180度旋转等。近年来，MPV趋向于小型化，并出现了所谓的S-MPV，S是小 Small　的意思。S-MPV车长一般在4.2—4.3m之间，车身紧凑，一般为5-7座。
-
-### RV
-RV是英文RecreationalVehicles的缩写，即娱乐、休闲汽车。它最早起源于美国，主要是为了适应美国家庭用车追求个性、休闲的需求，多为家庭的第二辆车。在国外，RV并没有什么明确具体的定义和分类标准，多是指一些轻型的运动型汽车。
-
-## 电车
+## 
 
 
 ## 浙江
 ### 高速分布
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240814141905.png)
+![](assets/C-Driving.assets/20240814141905.png)
 

@@ -13,7 +13,7 @@
 
 3. 市场领导者可以通过收购或建立附属公司来解决创新者的窘境。
 
-![img](https://pic2.zhimg.com/80/v2-48a6ecec47a34001f99becaca6f06b09_1440w.webp)
+![img](assets/The Innovator`s Dilemma.assets/v2-48a6ecec47a34001f99becaca6f06b09_1440w.webp)
 
 ## 句子摘抄
 良好的管理导致企业失去领先地位

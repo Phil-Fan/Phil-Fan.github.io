@@ -7,7 +7,7 @@ https://www.mca.gov.cn/images3/www/file/201711/1509495881341.pdf
 
 
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240929215423.png)
+![](assets/industry-finance.assets/20240929215423.png)
 
 
 银行业：呈现以政府为主导、审批严格的特征，其金融机构主要围绕融资、贷款展开业务，由存款性金融机构与非存款性金融机构组成。其中存款性金融机构包括银行、信用社、财务公司等；非存款性金融机构包括交易平台（货币经纪）、融资中介（融资租赁、保理、典当）、资产管理中介（信托、理财子公司）、消费中介（消费金融、汽车金融）与金融资产管理公司、金融资产投资公司等。
@@ -35,13 +35,13 @@ https://www.investor.org.cn/learning_center/gmjytx/bk/kj/202302/P020230228549608
 金融交易场所：证券交易所、银行间市场、商品期货交易所、金融期货交易所、黄金交易所、大宗商品交易中心、贵金属交易所、金融资产交易中心、中证登、中信登、货币经纪公司等等。这些分别对应的是各种金融产品的市场化交易。
 
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250309154448711.png)
+![](assets/industry-finance.assets/20250309154448711.png)
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250309154524839.png)
+![](assets/industry-finance.assets/20250309154524839.png)
 2018年银监会和保监会合并，职能也相应合并
 
 - 银行是核心
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250309154825957.png)
+![](assets/industry-finance.assets/20250309154825957.png)
 
 
 
@@ -102,15 +102,15 @@ https://www.investor.org.cn/learning_center/gmjytx/bk/kj/202302/P020230228549608
 
 ### 主要参与者
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250309155732099.png)
-监管机构：证监会（正部级，国务院直属机构）
+![](assets/industry-finance.assets/20250309155732099.png)
+监管机构：证监会（正部级，国务院直属机构)
 
 
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=1252419664&bvid=BV1wJ4m1j7Df&cid=1483221140&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=450px height=600px></iframe>
 
 #### 券商
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250309155809896.png)
+![](assets/industry-finance.assets/20250309155809896.png)
 
 **中信证券为行业内最大的公司**
 
@@ -122,8 +122,8 @@ https://www.investor.org.cn/learning_center/gmjytx/bk/kj/202302/P020230228549608
     - **外资券商**：高盛高华、摩根大通证券（跨境并购、衍生品）。
 
 === "企业的注册资本划分"
-    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250309155929122.png)
-    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250309160054206.png)
+    ![](assets/industry-finance.assets/20250309155929122.png)
+    ![](assets/industry-finance.assets/20250309160054206.png)
     - 其中，注册资本**大于100亿元**的企业有中信证券、海通证券、中国银河、申万宏源等;
     - 注册资本在**50-100亿元之间**的企业主要有国泰君安、华泰证券、中信建投以及广发证券等;
     - 注册资本在**50亿元以下**的企业有光大证券、浙商证券、国元证券、财达证券等。
@@ -167,10 +167,10 @@ https://www.investor.org.cn/learning_center/gmjytx/bk/kj/202302/P020230228549608
 
 !!! info "常见黑话"
     - 一级二级（是否上市，上市后有很强的信息披露）
- 
+
     - 买方卖方
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250309161757622.png)
+![](assets/industry-finance.assets/20250309161757622.png)
 
 
 

@@ -414,12 +414,17 @@ kill -9 <pid>
 netstat -ano | find "端口号"
 ```
 例如，检查80端口：
+
 ```shell
 netstat -ano | find "80"
 ```
 
 ```shell title="查看占用"
-netstat -tulpen | grep <port>
+sudo netstat -tulpen | grep <port>
+```
+
+```shell title="解除占用"
+sudo kill -9 <pid>
 ```
 
 

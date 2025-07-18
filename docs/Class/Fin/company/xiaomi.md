@@ -2,7 +2,7 @@
 
 > 放一下之前做小米的调研时候找到的一些资料
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/202506272219084.png)
+![](assets/xiaomi.assets/202506272219084.png)
 
 
 
