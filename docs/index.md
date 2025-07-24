@@ -12,6 +12,7 @@ hide:
     - navigation.indexes
     - navigation.sections
     - navigation.tabs
+    - navigation.search
     - navigation.expand
     - navigation.instant
 ---
