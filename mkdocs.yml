@@ -533,11 +533,13 @@ nav:
   - "大学物理": 
     - Class/Physics/index.md
 
-  - Oral:
+  - English:
     - Class/English/00-intro-IELTS.md
     - Class/English/01-Listening.md
     - Class/English/02-Reading.md
     - Class/English/03-Writing.md
+    - Class/English/03-Writing1.md
+    - Class/English/03-Writing2.md
     - Class/English/04-Speaking-IELTS.md
     - Class/English/04-Speaking-TOFEL.md
 

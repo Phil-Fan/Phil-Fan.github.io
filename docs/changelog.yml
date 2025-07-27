@@ -1,4 +1,8 @@
 - "2025":
+  - "2025-07-27":
+    - newpage:
+        text: "[IELTS] 写作笔记"
+        href: "Class/English/03-Writing.html"
   - "2025-07-10":
     - newpage: "重构部分python笔记"
     - function: 增加卡片样式

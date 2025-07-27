@@ -45,7 +45,7 @@
 
 
 <div class="card file-block" markdown="1">
-<div class="file-icon"><img src="style/images/pdf.svg" style="height: 3em;"></div>
+<div class="file-icon"><img src="/style/images/pdf.svg" style="height: 3em;"></div>
 <div class="file-body">
 <div class="file-title">MatrixCookBook - Kaare & Michael</div>
 <div class="file-meta"> 249KB / Version: January 5, 2005</div>
