@@ -544,6 +544,7 @@ nav:
     - Class/English/04-Speaking-TOFEL.md
     - "积累-短语": Class/English/phrase.md
     - "积累-句式": Class/English/sentence.md
+    - Notebook page: Class/English/train_log.ipynb
 
   - Finance:
     # - Class/Fin/invest.md
