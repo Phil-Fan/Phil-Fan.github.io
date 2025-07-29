@@ -2,14 +2,15 @@
 
 ## important points for spoken part
 
-fluency
-less stop
-ask for addtional information
-emotion
-extend your speech talk more
-be coherent
-get some time to think
-confident
+- fluency,be coherent
+  - less stop
+  - extend your speech talk more
+  - get some time to think
+  - confident
+- ask for addtional information
+- emotion
+
+
 
 Use discourse markers to construct a better and clearer structure, use a variety of expressions instead of repetitive words, make sure you try to reduce the chances of using filler words
 
@@ -224,7 +225,6 @@ whoever + 单三
 silence
 accommodation
 
-estate = 房地产
 yearly = every year
 
 i would like to

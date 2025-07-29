@@ -9,6 +9,13 @@
 大作文35min
 小作文25min
 
+## 网站
+
+批改
+
+ielts9.me
+regrammar APP
+talkface
 
 
 
@@ -40,3 +47,20 @@
 ## Acknowledgement
 
 https://www.cc98.org/topic/5855810
+
+It is a topic of much debate that whether university students should devote all their time to their core subjects or expand their horizons by exploring additional disciplines. From my point of view, embracing an interdisciplinary approach yields substantial benefits, though there are certainly compelling reasons for focusing solely on one’s major area of study. 
+
+On the one hand, given students have limited time in university,taking extra subjects might distract them and deminish the time spent on the main subject.  Thus, it is not surprising that some students spare no efforts studying for a qualification, especially with the massive competition in the job market nowadays. The more time they spend on the main subjects, the less pressure they will feel.
+
+On the other hand, the most crucial thing in the era of AI is the ability to integrate knowledge from different fields, and convert them into productivity. If students take subjects in a wide range of fields, they can naturally  combine what they have learned to develop innovative solutions when facing challenges, which makes them outperform others. If I were the employer, with similar level of salary,I would definitely hire someone with a diverse background, who would bring creativity and broaden perspectives in my company. You never know when the addtional subjects may come in handy in the future. Maybe the philosophy you've grasped will help you overcome depreesion one day, or perhaps the management skill you've once felt boring play a significant role when you establish a startup. And most importantly, it is the university that we can learn something unrelated to our fixed route with almost no cost. 
+
+For conservative students, dedicating all time on the main subject appears advantageous. But if you have time and energy,why not put your eggs in different baskets?
+
+
+
+
+
+
+
+
+It is a highly debating topic that whether university students should take extra subjects in addition to core subjects. From my point of view, ,but chasing for a qualification 

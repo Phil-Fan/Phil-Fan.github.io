@@ -1,4 +1,21 @@
-# 易混淆短语
+# 短语
+
+## 写作表达
+
+- we reap what we sow
+- be obsessed with = abandon oneself to
+- great and profound
+
+## 口语表达
+
+- frankly speaking
+- totally beyond my expectation
+- bring new color to 
+
+
+
+
+## 易混淆
 
 | 短语                         | 含义      | 例句                                               |
 | -------------------------- | ------- | ------------------------------------------------ |

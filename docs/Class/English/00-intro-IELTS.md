@@ -2,6 +2,7 @@
 
 
 ## 分数
+[IELTS Score Calculator - 在线计算器](https://calculatorlib.com/zh/ielts-score-calculator?type=academic&listening=8.0&speaking=6.5&reading=8.5&writing=6.5)
 
 | Number of correct Listening answers | IELTS band score | Number of correct Reading answers (A) | IELTS band score | Number of correct Reading answers (G) | IELTS band score |
 |-------------------------------------|------------------|--------------------------------------|------------------|--------------------------------------|------------------|

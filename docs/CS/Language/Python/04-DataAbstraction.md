@@ -96,9 +96,9 @@ print([1,2] in [1,2,3])
 
   
 
-  增
+增
 
-- `append()`：在列表后面增加一个元素, 返回`None`
+- `append()`：在列表后面增加一个元素, **返回`None`**
 
 - `extend()`：把另一个列表的内容添加到列表的后面
 
@@ -110,9 +110,14 @@ print([1,2] in [1,2,3])
 
 - `copy()`：复制列表
 
-  
+```python title="一道例题"
+>>> s = [3,4,5]
+>>> s.extend([s.append(9), s.append(10)])
+>>> s
+[3, 4, 5, 9, 10, None, None]
+```
 
-  删
+删
 
 - `remove()`：删除第一次出现的那个元素，如果没有，则`TypeError`
 
@@ -122,18 +127,17 @@ print([1,2] in [1,2,3])
 
 - `[:]=[]`可以清空整个列表
 
-- `pop()`：弹出指定位置的元素，不指定则弹出最后一个。返回最后一个值
+- `pop()`：弹出指定位置的元素，不指定则弹出最后一个。**返回最后一个值**
 
-  ```python
-  ### 抛空一个表
-  line = input().split()
-  while line:
+```python title="抛空一个表"
+line = input().split()
+while line:
     print(line.pop())
-  ```
+```
 
   
 
-  查
+查
 
 - `index()`：查找第一次出现的位置 列表中不用字符串中的find函数; 查不到`ValueError`
 
@@ -146,12 +150,12 @@ print([1,2] in [1,2,3])
 - `min(),max()`
 
   
-  
-  改
-  
-  ```py
-  c.sort(key = a.index)
-  ```
+
+改
+
+```py
+c.sort(key = a.index)
+```
 
 
 
@@ -734,7 +738,7 @@ preserve newly created environment for later call
 
 when `next` is called, execution resumes where it left off
 
-```
+```python
 def simple_generator():
     print("开始")
     yield 1

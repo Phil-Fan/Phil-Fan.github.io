@@ -61,20 +61,20 @@ theme:
 
   language: 'zh'
   palette:
-    - media: "(prefers-color-scheme: light)"
-      scheme: default
-      primary: blue
-      toggle:
-        icon: material/weather-sunny
-        name: Switch to dark mode
-
-    # Palette toggle for dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
       primary: black
       toggle:
         icon: material/weather-night
         name: Switch to light mode
+
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: blue
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to dark mode
+    
 
   font:
     text: Noto Serif SC # Roboto
@@ -542,6 +542,8 @@ nav:
     - Class/English/03-Writing2.md
     - Class/English/04-Speaking-IELTS.md
     - Class/English/04-Speaking-TOFEL.md
+    - "积累-短语": Class/English/phrase.md
+    - "积累-句式": Class/English/sentence.md
 
   - Finance:
     # - Class/Fin/invest.md
