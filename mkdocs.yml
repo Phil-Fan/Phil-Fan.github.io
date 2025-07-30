@@ -296,7 +296,7 @@ nav:
         - AI/ADV/03-GAN.md
         - AI/ADV/04-VAE.md
         - AI/ADV/05-Diffusion.md
-        - AI/ADV/Bayes.md
+        - AI/ADV/06-Bayes.md
 
     - "LLM | 大模型":
         - AI/LLM/index.md
@@ -527,11 +527,9 @@ nav:
 
 - Class:
   - Class/马原.md
-  - Class/ITP-创业营销.md
   - Class/ITP-Law.md
-
-  - "大学物理": 
-    - Class/Physics/index.md
+  - Class/ITP-Marketing.md
+  - 大学物理: Class/Physics/index.md
 
   - English:
     - Class/English/00-intro-IELTS.md

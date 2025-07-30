@@ -1,50 +1,40 @@
 # 04 | Speaking-IELTS
 
-## important points for spoken part
+## Important Points for Spoken Part
 
-- fluency,be coherent
-  - less stop
-  - extend your speech talk more
-  - get some time to think
-  - confident
-- ask for addtional information
-- emotion
+1. Fluency and Coherence
+    - Minimize pauses and hesitations
+    - Extend your responses with relevant details and examples
+    - Use strategies to gain thinking time (e.g., rephrasing the question)
+    - Maintain a confident speaking manner
+
+2. Language Structure
+    - Use discourse markers to organize ideas clearly
+    - Employ varied vocabulary and expressions
+    - Avoid repetitive words and phrases
+    - Minimize filler words (um, uh, like)
+
+3. Interaction Skills
+    - Ask for clarification when needed
+    - Show engagement through appropriate responses
+    - Maintain natural conversation flow
+    - Use proper intonation and emphasis
+
+4. Emotional Expression
+    - Show enthusiasm when appropriate
+    - Use appropriate facial expressions
+    - Demonstrate interest in the topic
+    - Maintain positive body language
 
 
-
-Use discourse markers to construct a better and clearer structure, use a variety of expressions instead of repetitive words, make sure you try to reduce the chances of using filler words
-
-## abbreviation
-
-u = you
-r = are
-2 = too
-Me 2 = me tho = me too
-abt = about
-ppl = people
-idk = i don't know
-ntmy = nice to meet you 
-wby = wbu = what about u
-wyd = what you are doing
-btw = by the way 
-tbh = to be honest
-Gtg = got to go
-lmk = let me know
-lol = laugh out loud
-asap = as soon as possible
-ttyl = talk to you later
-ikr = I know Right
 
 
 
 ## Terms
 
 
-take a leap of faith
-let's face it
-i mean it
 
-## Pronunciation
+### Pronunciation
 
 letter
 
@@ -69,24 +59,63 @@ newspaper 重音在前
 small vacations
 
 like change 
-
 tied; interval refreshed
-
-
 
 study alone 
 
-
-
 job opportunities
-
-
 
 study by oneself 
 
+
+
+
+## 常用词汇
+quality
+equality
+redundant
+
+
+
+care about the quality
+
+reliability
+avoid doing sth
+prohibit/restrict/limit
+question/problem/topic
+hesitate
+
+
+
+## Vocabulary
+
+
+
 class is limited knowledge boundless
 
-themselves
+### idoms
+
+hands down: 毫无疑问、五体投地
+
+shout out to: 向某人致敬
+
+
+
+### 动词短语
+
+invite friends over
+snack on sth and do binge watching
+get into
+
+dive into
+
+end up
+
+strees me out
+
+get hooked on sth
+
+simultaneously
 
 
 
@@ -94,9 +123,35 @@ themselves
 
 
 
-# Vocabulary
+### terms
 
-## 连接词
+die hard fan
+steal the show: 抢尽风头,成为焦点
+
+top it off 更进一步
+home run: 本垒打、成功的事情
+
+take a leap of faith
+let's face it
+i mean it
+i have a sweet tooth
+mouthwatering
+appetizing
+leave bad taste in one's mouth
+bury oneseld in sand
+
+no one is an island
+
+put two and two together: 进行推理
+in a nutshell
+in a wise way
+
+falling apart
+in distant
+moreover
+in addition
+i would like to
+### 连接词
 
 for, but, and, so, as a result, consequently, moreover, therefore, in fact, additionally, however
 
@@ -159,26 +214,88 @@ at all
 - Then,
 - Finally / Lastly,
 
-## 常用词汇
-quality
-equality
-redundant
 
-no one is an island
-in a nutshell
-in a wise way
 
-synonym
-antonym
-care about the quality
+## 成长
+### 童年故事
 
-reliability
-avoid doing sth
-prohibit/restrict/limit
-question/problem/topic
-hesitate
+
+## 学业
+
+### 学年
+freshman - first year
+sophomore - second year  
+junior - third year
+senior - last year
+
+
+
+## 生活
+
+### 家庭
+nuclear family
+
+### 旅行
+
+### 品牌
+
+
+### 音乐
+
+
+### 书籍
+
+- genre 书籍的种类
+
+- fiction - 小说
+- short story - 短篇小说
+- textbook - 教科书
+- comic book/manga - 漫画
+- cookbook - 烹饪书
+- academic journal - 学术期刊
+
+introduce one book
+
+
+One of the most interesting non-fiction books I’ve read is The Lady Tasting Tea, written by David Salsburg. It’s a book about the history of statistics — but don’t worry, it’s not as boring as it sounds!
+
+It actually tells the story of how statistics became a powerful scientific tool. The title comes from a real event, where a woman claimed she could tell whether milk was poured into a cup before or after the tea. A statistician, Ronald Fisher, designed an experiment to test her claim — and that’s where modern experimental design started!
+
+What I really liked about this book is how it makes complex ideas easy to understand. It introduces big names in statistics, like Fisher, Neyman, and Pearson, but in a way that feels like storytelling rather than a textbook.
+
+Also, it helped me understand how statistics isn’t just about numbers — it’s about thinking critically, asking the right questions, and making decisions based on evidence.
+
+
+### 交通
+
+bumper to bumper : 车水马龙
+
+it is like killing two birds with one stone,用于描述交通
+
+
+
+
+
+
 
 ### 电影相关
+
+
+
+horror/thriller - 恐怖/惊悚片
+drama/romance/melodrama - 戏剧/爱情/情节剧
+comedy - 喜剧
+action - 动作片
+fantasy - 奇幻片
+sci-fi - 科幻片
+documentary - 纪录片
+animation/cartoon - 动画片
+musical - 音乐剧
+western - 西部片
+war - 战争片
+
+
+
 celebrity
 review/comment
 -related
@@ -189,54 +306,10 @@ pornographic
 
 vital roles/important role
 
-horror/thriller
-drama/romance/melodrama 
-comedy
-action
 
-fantasy
 ordinary people
 censorship
 sweat out liquids
 
-### 其他
-characteristic
-show gratitude
-fewer -> people
-tightness of the relationship
-it's the thought that counts
+## 环境
 
-subjects
-
-nuclear family
-falling apart
-in distant
-moreover
-in addition
-logroll = 商业互吹
-product
-
-is more likely
-
-enticing = 迷人的
-kinesthetic
-whoever + 单三
-
-silence
-accommodation
-
-yearly = every year
-
-i would like to
-
-product
-
-### 学年
-freshman - first year
-sophomore - second year  
-junior - third year
-senior - last year
-
-### 其他
-Preference
-Arrange

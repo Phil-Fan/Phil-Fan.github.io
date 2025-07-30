@@ -13,7 +13,26 @@
 - bring new color to 
 
 
+## abbreviation
 
+u = you
+r = are
+2 = too
+Me 2 = me tho = me too
+abt = about
+ppl = people
+idk = i don't know
+ntmy = nice to meet you 
+wby = wbu = what about u
+wyd = what you are doing
+btw = by the way 
+tbh = to be honest
+Gtg = got to go
+lmk = let me know
+lol = laugh out loud
+asap = as soon as possible
+ttyl = talk to you later
+ikr = I know Right
 
 ## 易混淆
 

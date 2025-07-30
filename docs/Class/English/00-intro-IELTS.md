@@ -1,5 +1,5 @@
 # IELTS
-
+目标分： 8 8.5 7 7
 
 ## 分数
 [IELTS Score Calculator - 在线计算器](https://calculatorlib.com/zh/ielts-score-calculator?type=academic&listening=8.0&speaking=6.5&reading=8.5&writing=6.5)
