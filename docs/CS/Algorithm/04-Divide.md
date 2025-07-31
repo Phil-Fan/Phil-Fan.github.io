@@ -18,6 +18,164 @@ while(l < r){
 }
 ```
 
+## 二分答案
+
+-  **二分答案有==三个步骤（难点）==**
+
+1. 判断这个题是否用到二分这种思想
+2. 写判断函数
+3. 写二分部分
+    - 板子1——最小值最大
+    - 板子2——最大值最小
+4. 分析问题，确定左右半段哪个是符合题意的区间，以及mid归属于哪一段
+5. 分析结果，选择两种板子
+ 
+
+```cpp
+mid = (l + r) / 2;
+r = mid, l = mid + 1; 		//板子1
+```
+
+```cpp
+mid = ( l + r + 1) / 2;
+l = mid; r = mid - 1;		//板子2
+```
+
+- 判断mid的算法==要不要加1==!!  判断错误就会出现死循环；
+（~~建议此步骤在草图画两个小圈圈代表最后两个数，把表达式带进去验证，就可以知道是要不要加1了~~ ）
+- 二分终止条件是`l == r；`		也是答案所在的位置
+
+
+
+
+!!! example "P1182 数列分段 Section II"
+
+    [网址](https://www.luogu.org/problem/P1182)
+
+    - 初始值是为1的，想想为什么？？
+    - 因为这种写法是类似于进位的，就是满了给定值，段数就++；所以初始值是1；
+
+    ```cpp
+    #include<iostream>
+    #include<cstdio>
+    #include<algorithm>//最大值最小 
+    using namespace std;
+    int a[100005];
+    int n,c,mx,tot;
+    int jud(int x){
+        int cnt = 1,sum=0;//cnt初始值为1，思考为什么 
+        for(int i = 1; i<= n; i++){
+            if(sum+a[i]>x){
+                cnt++,sum=a[i];
+            }
+            else  sum+=a[i];
+        }
+        return cnt;
+    }
+
+    int main(){
+        scanf("%d %d",&n,&c);
+        for(int i = 1; i <= n; i++){
+            scanf("%d",&a[i]);
+            mx=max(a[i],mx);
+            tot+=a[i];
+        }
+
+        int l = mx,r = tot;
+        while(l < r){
+            int mid = (l+r)/2;
+            if(jud(mid)>c)	l=mid+1;
+            else if(jud(mid)<=c)	r=mid; 
+        }
+        printf("%d",l);
+        return 0;
+    }
+    ```
+
+!!! example "P1873 砍树"
+
+    [网址](https://www.luogu.org/problem/P1873)
+
+    
+    ~~一个long long 引发的惨案~~ 
+    因为数据范围过大，所以要用long long ！！！
+    本蒟蒻多次70分后一气之下全部换成了long long
+    - 还有一点就是要学会用`#define` 来代替一些重复且无意义的代码，可以提高代码质量
+
+    ```cpp
+    #include<iostream>
+    #include<cstdio>
+    #include<algorithm>
+    #define ll long long
+    using namespace std;
+    ll a[1000005];
+    ll n,c,mx;
+    ll jud(ll x){					//砍了多少木头 
+        ll sum=0;
+        for(ll i = 1; i<= n; i++){
+            if(a[i]>x)	sum+=a[i]-x; 
+        }
+        return sum;
+    }
+
+    int main(){
+        scanf("%lld %lld",&n,&c);
+        for(int i = 1; i <= n; i++){
+            scanf("%lld",&a[i]);
+            mx=max(mx,a[i]); 
+        }
+    //	printf("%d\n",jud(mx));
+        ll l = 0,r = mx;
+        while(l < r){					//最小值最大模板
+            ll mid = (l+r+1)/2;
+            if(jud(mid)>=c)		l=mid;
+            else if(jud(mid)<c)	r=mid-1;
+        }
+        printf("%lld",l);
+        return 0;
+    }
+    ```
+
+
+
+!!! example "P2440 木材加工"
+
+    [网址](https://www.luogu.org/problem/P2440)
+
+    这个题需要注意一下二分部分的写法
+    各位大佬有更标准的解法告诉偶一下哦
+    ```cpp
+    #include<bits/stdc++.h>
+    #define ll long long
+    using namespace std;
+    int a[100005],n,c;
+    int jud(ll x){
+        int cnt = 0;
+        for(int i = 1; i <= n; i++)
+            cnt += a[i] / x;
+        return cnt;
+    }
+
+    int main(){
+        scanf("%d %d",&n,&c);
+        for(int i = 1; i <= n; i++){
+            scanf("%d",&a[i]);
+        }
+        int l = 0 , r = 210000000;
+        while(l < r-1){
+            int mid = (l+r)/2;
+            if(jud(mid)>=c)			l=mid;
+            else if(jud(mid)< c)	r= mid;
+        }
+        printf("%d",l);
+        return 0;
+    }
+    ```
+
+
+
+
+
 
 ## 经典问题 - 汉诺塔问题
 
@@ -148,3 +306,16 @@ def count_partitions(n, m):
         """
         return count_with_top(total,100)
     ```
+
+
+!!! example "P2386 放苹果"
+    本题是递归以及递推很经典的一道题
+    我们设f(int m,int n)为m个苹果放到n个盘子里面
+    这个我们分两种情况
+    ！
+
+    当前位置不放苹果那么方案数为f(m,n-1)
+    相当于把m个苹果压榨到了n-1个盘子里（空一个盘子给蔡徐坤）
+    第2种是该位置放苹果
+    那么方案数为f(m-n,n)
+    相当于每个盘子拿走一个方案数不变；

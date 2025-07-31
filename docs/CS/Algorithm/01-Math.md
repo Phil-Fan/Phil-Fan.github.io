@@ -2,19 +2,89 @@
 ## Acknowledgement
 [数论基础 - OI Wiki](https://oi-wiki.org/math/number-theory/basic/)
 
-- 质数判断
 
-  O(n) 遍历判断
+## 快速幂
 
-  O(nlogn) 素数筛/埃氏筛
+`pow ( a , b );` 太慢了
 
-- GCD
+所以需要快速幂，即更快地求出$a^b$
 
-  ```c
-  int gcd(int x , int y){
-  	return y ? gcd(y,x%y) : x;
-  }
-  ```
+基本思想是：
+把指数分解成2的幂的积的形式
+比如说，我们要求3 的 10次
+我们就可以转化为`3^2 * 3^8`;
+怎么知道是2 和 8 呢？？
+
+这里我们需要知道二进制
+10这个数在二进制中 是 1010；
+我们发现在第2位和第4位是有数的，说明1010变成10进制就要乘以位数的权
+
+这个时候问题就转化成了找二进制上是1的位数
+
+```cpp title="二进制的数位分离"
+while(p){
+    if(p & 1){
+    ??????
+    p >>= 1;
+}
+```
+~~显然与10进制数位分离一模一样~~
+
+
+```cpp title="快速幂"
+#include<bits/stdc++.h>
+using namespace std;
+int x,y;
+int quick(int n,int p){   //快速幂 板子
+	int ans = 1;int	tmp = n;
+	while(p){
+		if(p & 1){
+			ans *= tmp;
+		}
+		tmp *= tmp;
+		p >>= 1;
+	}
+	return ans; 
+}
+
+int main (){
+	scanf("%d %d",&x,&y);
+	printf("%d",quick(x,y));
+	return 0;
+}
+```
+
+??? example "例题 [Acwing 90. 64位整数乘法](https://www.acwing.com/problem/content/92/)"
+
+    ```cpp
+    #include<bits/stdc++.h>
+    #define ll long long
+    using namespace std;
+    ll x,y,r;
+    ll quick(ll n, ll p, ll r){
+        ll ans = 0;			//因为这里是加法，所以一开始是0；
+        ll tmp = n;			
+        while(p){			//如果没分完就继续循环
+            if(p & 1){//位运算--与	
+                ans = (ans + tmp) % r;//每次都要%r//注意这里是加法
+            }
+            tmp = (tmp * 2) % r;
+            p >>= 1;		//右移一位
+        }
+        return ans % r; 	//最后也要mod一下
+    }
+
+    int main (){
+        scanf("%lld %lld %lld",&x,&y,&r);
+        printf("%lld",quick(x,y,r));
+        return 0;
+    }
+    ```
+
+### 矩阵快速幂
+
+
+
 
 ## 整除
 
@@ -55,12 +125,227 @@ $$
 
 时，我们称$a$和$b$是互质的。互质的两个数的最大公约数是1。
 
+## 素数
+
+- 质数判断
+
+  O(n) 遍历判断
+
+  O(nlogn) 素数筛/埃氏筛
+
+
+ 1. 朴素算法
+ 2. 埃氏筛法
+ 3. 线性筛法（欧拉筛）
+ 4. P3383 【模板】线性筛素数
+
+### 朴素算法
+素数最朴素的算法了
+它的时间复杂度是`O(n*sqrt(n))`的
+```cpp
+bool prime (int x){
+	for(int i = 2; i <= x; i ++){
+		if(x % i ==0){
+			return 0;
+		}}
+	return 1;
+}
+```
+但是，这只适用于小数据的处理，所以我们需要改进算法
+
+### Eratosthenes（埃氏筛法）
+- **整数的唯一分解定理：**
+任何一个大于1的自然数 N，如果N不为质数，都可以唯一分解成有限个质数的乘积`N=P1 ^ a1 · P2 ^ a2 · P3 ^ a3 · … · Pn ^ an` ，这里P1<P2<P3<…<Pn均为质数，其诸指数 ai 是正整数。
+（：当然质数的话直接就是质数本身）
+
+- 埃氏筛法的思想：
+枚举每个素数，然后把他们的倍数都打上标记，从而达到筛出的目的
+**质数的倍数一定不是质数**
+
+时间复杂度是**O(nloglogn)**
+
+
+- 注意`j = i`可以做到一部分的优化作用
+```cpp
+for(int i = 1; i <= sqrt(n); i ++){		//循环一遍可以有倍数的	
+	if(b[i] == 1)	continue;			//如果不是质数或已经判断过，直接跳过 
+	for(int j = i; i * j <= n;j++){		//内层循环倍数 //pay attention to j = i; 
+		b[i*j] = 1;						//打上标记					
+	}			
+}	
+```
+但是这个算法在1e7左右还是不太好用，会TLE（~~哭晕~
+而且埃氏筛法还有一个缺陷 ：
+对于一个合数，有可能被筛多次。例如 30 = 2 * 15 = 3 * 10 = 5*6……
+那么如何确保每个合数只被筛选一次呢？我们只要用它的最小质因子来筛选即可，这便是欧拉筛法
+
+### 线性筛法（欧拉筛法）
+线性筛法是什么意思呢？
+就是我们在埃氏筛法中有个问题就是一个数可能被筛多次
+所以就造成了时间的浪费，所以算法就在这里做了改进
+
+基本思想：在埃氏筛法的基础上，让每个合数只被它的最小质因子筛选一次，以达到不重复的目的
+
+
+```cpp
+int prime[maxn];
+int visit[maxn];
+void Prime(){
+    mem(visit,0);
+    mem(prime, 0);
+    for (int i = 2;i <= maxn; i++) {
+        if (!visit[i]) {
+            prime[++prime[0]] = i;      //记录素数， 这个prime[0] 相当于 cnt，用来计数
+        }
+        for (int j = 1; j <= prime[0] && i*prime[j] <= maxn; j++) {
+        //j 循环枚举了当前位置已判定为素数的数，并且限制倍数和质数的和的乘积不大于最大数
+//            cout<<"  j = "<<j<<" prime["<<j<<"]"<<" = "<<prime[j]<<" i*prime[j] = "<<i*prime[j]<<endl;
+            visit[i*prime[j]] = 1;    //打标记
+            if (i % prime[j] == 0) {	//这一步比较重要，如果i%j==0，说明i 就不是最小的质因子，所以就跳出程序了；
+                break;
+            }
+        }
+    }
+}
+
+```
+
+
+- 还有[网友版本](https://blog.csdn.net/enjoy_pascal/article/details/80372454)的~
+```cpp
+void init() 
+{
+    memset(bz,1,sizeof(bz));
+    tot=0;
+    for (int i=2;i<MAXN;i++) 
+    {
+        if (bz[i])p[tot++]=i;
+        for (int j=0;j<tot && i*p[j]<=MAXN;j++) 
+        {
+            bz[i*p[j]]=0;
+            if (i%p[j]==0)break;
+        }
+    }
+}
+```
+
+
+
+!!! note "P3383 【模板】线性筛素数"
+
+    做个水题
+    [P3383 【模板】线性筛素数](https://www.luogu.org/problem/P3383)
+
+    ![在这里插入图片描述](https://i-blog.csdnimg.cn/blog_migrate/83978c18ca1332d2089af3151f607631.png)
+
+    裸题
+
+    === "AC code"
+
+        稍微注意一下0和1的特判
+        ```cpp
+        //Author:PhilFan;
+        #include<bits/stdc++.h>
+        #define MAXN 10000010
+        using namespace std;
+        int n,m,a[MAXN],p[MAXN],x;
+        void init(int n) 
+        {
+            memset(p,0,sizeof(p));
+            p[1]=1;  tot=0;
+            for (int i = 2;i <= n;i++) 
+            {
+                if(a[i]==0)	p[tot++]= i;
+                for (int j = 0;j < tot && i * p[j] <= n+5; j++) 
+                {
+                    a[i * p[j]] = 1;
+                    if (i % p[j] == 0)	break;
+                }
+            }
+        }
+            
+        int main()
+        {
+            scanf("%d %d",&n,&m);
+            init(n);
+            a[0]=1,a[1]=1;
+            for(int i = 1; i <= m; i++){
+                scanf("%d",&x);
+                if(a[x]==0){printf("Yes\n");}
+                else{printf("No\n");}
+                x=0;
+            }	
+            return 0;
+        }
+        ```
+
+
+!!! example "P1865 A % B Problem"
+
+    [网址](https://www.luogu.org/problem/P1865)
+
+
+    这道题是输出区间的质数，需要在线性筛法中加入一个前缀和的数组，因为不加的话会TLE一个点
+
+    ```cpp
+    //Author:PhilFan;
+    #include<bits/stdc++.h>
+    #define MAXN 10000010
+    using namespace std;
+    int n,m,a[MAXN],p[MAXN],b[MAXN],x,y,cnt;
+    void init(int n) 
+    {
+        memset(p,0,sizeof(p));
+        p[1]=1;  
+        int tot=0;
+        for (int i = 2;i <= n;i++) 
+        {
+            if(a[i]==0){
+                p[tot++]= i;
+                b[i]=b[i-1]+1;//前缀和数组   //如果有多的质数，数组++
+            }
+            else b[i]=b[i-1];//如果质数没有多，b[i]就和上一个一样
+            for (int j = 0;j < tot && i * p[j] <= n+5; j++) 
+            {
+                a[i * p[j]] = 1;
+                if (i % p[j] == 0)	break;
+            }
+        }
+    }
+        
+    int main()
+    {
+        scanf("%d %d",&m,&n);
+        a[0]=1,a[1]=1;
+        init(n);
+        for(int i = 1; i <= m; i++){
+            scanf("%d %d",&x,&y);
+            if(x<1||x>n||y<1||y>n){		//特判
+                printf("Crossing the line\n");
+            }
+            else{
+                cout<<b[y]-b[x-1]<<endl;	//x有可能也是质数，所以是x-1
+                x = 0 , y = 0;
+            }
+        }	
+        return 0;
+    }
+    ```
+
+
 
 ## gcd & lcm
 
 $$
 gcd(a,b) \times lcm(a,b) = a \times b
 $$
+
+
+```c
+int gcd(int x , int y){
+return y ? gcd(y,x%y) : x;
+}
+```
 
 ## 同余 (Congruence)
 

@@ -53,7 +53,7 @@
 - 不仅可以读取数值，还可以读取趋势
 - 趋势分为：上升、下降、波动
 
-![img](https://i0.hdslb.com/bfs/note/ca31ac2f4c2421e1b23244d4c0685597998eef64.jpg@690w_!web-note.webp)
+![img](assets/03-Writing1.assets/ca31ac2f4c2421e1b23244d4c0685597998eef64.jpg@690w_!web-note.webp)
 
 
 
@@ -61,13 +61,13 @@
 
 - 只能读取数值
 
-![img](https://i0.hdslb.com/bfs/note/9fe4aaec6f3b58d72291f738bd642728dd37f016.jpg@690w_!web-note.webp)
+![img](assets/03-Writing1.assets/9fe4aaec6f3b58d72291f738bd642728dd37f016.jpg@690w_!web-note.webp)
 
 ## 如何分段
 
 ## 
 
-![img](https://i0.hdslb.com/bfs/note/c2a67ecb363af57a45220f57104c9575e4a360a4.jpg@690w_!web-note.webp)
+![img](assets/03-Writing1.assets/c2a67ecb363af57a45220f57104c9575e4a360a4.jpg@690w_!web-note.webp)
 
 第一段为**改写段**进行同义复述句子数量看题目改
 
@@ -75,9 +75,9 @@
 
 第三段&第四段为**Detail细节段**,细节段分两段清晰一些
 
-![img](https://i0.hdslb.com/bfs/note/47e530c6bc379fcf6c6012c3425f6532ef861dad.jpg@690w_!web-note.webp)
+![img](assets/03-Writing1.assets/47e530c6bc379fcf6c6012c3425f6532ef861dad.jpg@690w_!web-note.webp)
 
-![img](https://i0.hdslb.com/bfs/note/6e0ff026dbbb46a3eab9859093a889c8d3c607a3.jpg@690w_!web-note.webp)
+![img](assets/03-Writing1.assets/6e0ff026dbbb46a3eab9859093a889c8d3c607a3.jpg@690w_!web-note.webp)
 
 
 

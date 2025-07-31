@@ -3,24 +3,28 @@
 ## Important Points for Spoken Part
 
 1. Fluency and Coherence
+    
     - Minimize pauses and hesitations
     - Extend your responses with relevant details and examples
     - Use strategies to gain thinking time (e.g., rephrasing the question)
     - Maintain a confident speaking manner
 
 2. Language Structure
+    
     - Use discourse markers to organize ideas clearly
     - Employ varied vocabulary and expressions
     - Avoid repetitive words and phrases
     - Minimize filler words (um, uh, like)
 
 3. Interaction Skills
+    
     - Ask for clarification when needed
     - Show engagement through appropriate responses
     - Maintain natural conversation flow
     - Use proper intonation and emphasis
 
 4. Emotional Expression
+    
     - Show enthusiasm when appropriate
     - Use appropriate facial expressions
     - Demonstrate interest in the topic
@@ -232,10 +236,40 @@ senior - last year
 
 ## 生活
 
+### 节日
+
+- lunar new year
+- mid-autumn festival
+- dragon boat festival
+- double ninth festival
+- double eleventh festival
+- double twelfth festival
+
+I'd like to say my birthday party.
+
+I just invite some friends over, you know, snack on some food and do binge watching, we even watch the big band theory for a whole season. for a introverted person like me, it's a great way to relax and have fun. After that, we went to a restaurant to have a mouthwatering meal.
+
+
+
+
 ### 家庭
 nuclear family
 
 ### 旅行
+
+不得不提及
+
+
+### 网站
+
+
+bilibili
+
+xiaolin 说
+
+讲解金融知识，比如比特币的知识，what make a good firm and the structrue of 
+
+
 
 ### 品牌
 
