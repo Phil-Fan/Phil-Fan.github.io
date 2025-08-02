@@ -529,6 +529,14 @@ nav:
       - CS/Dev/vtuber.md
       - CS/Dev/tampermonkey.md
 
+- Research:
+  - Research/index.md
+  - Research/01-Idea.md
+  - Research/02-Reading.md
+
+
+
+
 - Class:
   - Class/马原.md
   - Class/ITP-Law.md
@@ -604,7 +612,14 @@ nav:
     - Tools/Environment/settings-linux-kali.md
     - Tools/Environment/settings-server.md
     - Tools/Environment/settings-router.md
-  
+
+- Project:
+  - Project/index.md
+  - Project/balance_car.md
+  - Project/wand.md
+  - Project/dRehmFlight.md
+  - Project/music_quiz.md
+  - Project/matlab.md
 
 - "生命因你而火热":
   - "🏫浙大": classes_in_zju.md

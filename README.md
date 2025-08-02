@@ -50,10 +50,11 @@ mkdocs serve
 - [x] jupyter notebook下 数学公式渲染错误
 - [ ] jupyter notebook下不同的block标题会从0开始记录
 - [x] 公式在不翻墙的情况下加载太慢
-- [ ] 插入pdf的时候，在vscode当中会跳下载页面
+- [x] 插入pdf的时候，在vscode当中会跳下载页面
 - [x] 表情emoji出错
 - [x] 图床配置出错
 - [ ] safari 网页渲染有误
+- [ ] 浅色模式下，banner有颜色问题
 
 ### enhancement
 - [x] 加一个有意思的插件

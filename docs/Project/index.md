@@ -22,8 +22,23 @@ comments: true
 
 此外，learing in public也是一个我想坚持的点，如果你有任何建议或想法，欢迎在评论区留言并联系我。
 
+## Philosophy
+
+1. be cool
+2. be simple
+
+
+## Todo
+
+- [ ] 完善各个文档，标注来源和过程
+
+
 ## 项目列表
 
-- [dRehmFlight](dRehmFlight.md)
-- [平衡车](balance_car.md)
-- [魔杖](wand.md)
+- [x] [平衡车](balance_car.md)
+- [x] [魔杖](wand.md)
+- [ ] [dRehmFlight](dRehmFlight.md)
+- [ ] [music_quiz](music_quiz.md)
+
+
+## Ideas

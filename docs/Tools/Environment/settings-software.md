@@ -30,6 +30,10 @@
 - [Pixea](https://apps.apple.com/cn/app/pixea/id1507782672?mt=12)
 - 网络：clashx Pro；下载工具 [Downie](https://www.downie.cn/)
 - [Scroll Reverser for macOS](https://pilotmoon.com/scrollreverser/): 反向滚动鼠标和触控板
+- Markdown: typora
+```shell
+echo 'alias typora="open -a Typora"' >> ~/.zshrc
+```
 
 - windows 虚拟机 [Parallels Desktop](https://www.parallels.cn/products/desktop/trial/)，可以找一个tb店解锁
 - [waydabber/BetterDisplay](https://github.com/waydabber/BetterDisplay?tab=readme-ov-file)：没钱上4K显示器的解决方案，Unlock your displays on your Mac! Flexible HiDPI scaling

@@ -1,9 +1,183 @@
 # Python 相关配置
 
+
+
+## pip
+
+
+查看某个包所有的版本
+```shell
+pip index versions <package>
+```
+
+安装指定版本的包
+
+```shell
+pip install <package>==<version>
+```
+
+!!! note "windows使用命令行调用不同版本的python"
+
+    在系统路径path（高级系统系统设置——环境变量）中加入python.exe所在目录（打开文件所在位置——属性——打开文件所在位置）（因为是快捷方式，所以需要先找到快捷方式所在目录，再找到原exe文件所在位置）
+
+    **注：应考虑到优先级的问题，将想要通过命令行直接进入的python版本所对应的路径放在上面**
+
+
+### pip换源
+
+
+```shell title="临时换源"
+pip install package_name -i https://pypi.tuna.tsinghua.edu.cn/simple 
+```
+
+```shell title="清华源 永久换源"
+pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+```
+
+!!! bug "WARNING: The repository located at mirrors.aliyun.com is not a trusted or secure host and is being ignored. If this repository is available via HTTPS we recommend you use HTTPS instead, otherwise you may silence this warning and allow it anyway with '--trusted-host mirrors.aliyun.com'."
+    在大多数情况下，这个警告表示pip无法验证镜像源的SSL证书。可能的原因包括：
+
+    SSL证书问题： 镜像源的SSL证书过期、自签名或存在其他问题。
+    网络问题： 在某些网络环境中（特别是公司网络或学校网络），中间人攻击(MITM)防御机制可能会导致证书验证失败。
+    
+    [已解决WARNING: The repository located at mirrors.aliyun.com is not a trusted or secure host异常的正确解决方法，亲测\_the repository located at mirrors, aliyun, com is -CSDN博客](https://blog.csdn.net/FMC_WBL/article/details/136143632)
+
+
+### pip 导出环境
+
+1. 导出结果含有路径
+导出结果会存在路径，生成的requirements.txt文件在当前目录下。
+```shell
+pip freeze > requirements.txt
+```
+
+1. 导出不带路径的
+生成的requirements.txt文件在当前目录下。
+```shell
+pip list --format=freeze > requirement.txt
+```
+生成requirements.txt，pip freeze会将当前PC环境下所有的安装包都进行生成,再进行安装的时候会全部安装很多没有的包.此方法要注意。
+
+安装requirements文件的pip源的包
+```shell
+pip install -r requirements.txt
+```
+
+
+## uv
+[安装 | uv 中文文档](https://uv.doczh.com/getting-started/installation/#shell)
+
+[uv：新一代 Python 虚拟环境管理工具 - CC98论坛](http://www-cc98-org-s.webvpn.zju.edu.cn:8001/topic/6240772)
+
+[Python 包管理工具 uv 使用教程 - 知乎](https://zhuanlan.zhihu.com/p/1888904532131575259)
+
+### uv 简介
+
+uv 是一个用 Rust 编写的 Python 包安装器和解析器，旨在提供比 pip 更快的包安装体验。它完全兼容 pip，但提供了显著的性能改进。
+
+主要特点：
+
+1. **极快的安装速度**
+   - 比 pip 快 10-100 倍
+   - 并行下载和安装
+   - 优化的依赖解析
+
+2. **完全兼容性**
+   - 支持所有 pip 命令
+   - 兼容 requirements.txt
+   - 支持 wheel 和 source 分发
+
+3. **现代化特性**
+   - 原生支持虚拟环境
+   - 内置缓存系统
+   - 更好的错误处理
+
+### 安装 uv
+
+```shell
+wget -qO- https://astral.sh/uv/install.sh | sh
+```
+
+
+```shell
+pip install uv
+```
+
+```shell
+uv pip install -r requirements.txt
+```
+
+```shell title="配置uv缓存目录"
+vi ~/.bashrc
+export UV_CACHE_DIR=/data/cache
+```
+### 换源
+
+```
+unset http_proxy && unset https_proxy
+```
+
+```shell title="换源"
+export UV_DEFAULT_INDEX="https://mirrors.aliyun.com/pypi/simple"
+```
+
+```shell title="换源,修改pyproject.toml"
+[[tool.uv.index]]
+url = "https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple"
+default = true
+ 
+[tool.uv.pip]
+index-url = "https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple"
+```
+
+
+### uv使用
+```shell
+# 查看uv版本
+uv --version
+```
+
+
+```shell
+source .venv/bin/activate
+```
+
+
+
+```shell
+# 下载库
+uv pip install <package>
+
+# 下载库并指定版本
+uv pip install <package>==<version>
+
+# 卸载
+uv pip uninstall <package>
+
+# 查看已安装的库
+uv pip list
+```
+
+### 从conda迁移
+
+```shell title="导出依赖文件 requirements.txt"
+conda list -e > requirements.txt
+```
+
+```shell title="使用uv pip 管理依赖"
+uv pip install -r requirements.txt
+```
+
+```shell title="使用uv项目作为管理"
+uv add -r requirements.txt
+```
+
+
+
+
 ## conda
 
-[conda换地址](https://blog.csdn.net/chengjinpei/article/details/119835339)
-
+### 下载与安装
 
 清华镜像地址：`https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/`
 
@@ -42,6 +216,19 @@ bash Miniconda3-py39_24.7.1-0-Linux-aarch64.sh
 
 ### conda的环境变量配置
 在安装目录下的`\Scripts`文件夹下
+
+### 换源
+
+[conda换地址](https://blog.csdn.net/chengjinpei/article/details/119835339)
+
+```shell title="conda换源"
+conda config --add channels conda-forge
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/linux-64/
+conda config --set show_channel_urls yes
+```
 
 
 
@@ -115,126 +302,6 @@ conda env create -f freeze.yml
 
 
 
-## pip
-
-
-查看某个包所有的版本
-```shell
-pip index versions <package>
-```
-
-安装指定版本的包
-
-```shell
-pip install <package>==<version>
-```
-
-!!! note "windows使用命令行调用不同版本的python"
-
-    在系统路径path（高级系统系统设置——环境变量）中加入python.exe所在目录（打开文件所在位置——属性——打开文件所在位置）（因为是快捷方式，所以需要先找到快捷方式所在目录，再找到原exe文件所在位置）
-
-    **注：应考虑到优先级的问题，将想要通过命令行直接进入的python版本所对应的路径放在上面**
-
-
-### pip换源
-
-
-```shell title="临时换源"
-pip install package_name -i https://pypi.tuna.tsinghua.edu.cn/simple 
-```
-
-```shell title="清华源 永久换源"
-pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
-```
-
-!!! bug "WARNING: The repository located at mirrors.aliyun.com is not a trusted or secure host and is being ignored. If this repository is available via HTTPS we recommend you use HTTPS instead, otherwise you may silence this warning and allow it anyway with '--trusted-host mirrors.aliyun.com'."
-    在大多数情况下，这个警告表示pip无法验证镜像源的SSL证书。可能的原因包括：
-
-    SSL证书问题： 镜像源的SSL证书过期、自签名或存在其他问题。
-    网络问题： 在某些网络环境中（特别是公司网络或学校网络），中间人攻击(MITM)防御机制可能会导致证书验证失败。
-    
-    [已解决WARNING: The repository located at mirrors.aliyun.com is not a trusted or secure host异常的正确解决方法，亲测\_the repository located at mirrors, aliyun, com is -CSDN博客](https://blog.csdn.net/FMC_WBL/article/details/136143632)
-
-
-### pip 导出环境
-
-1. 导出结果含有路径
-导出结果会存在路径，生成的requirements.txt文件在当前目录下。
-```shell
-pip freeze > requirements.txt
-```
-
-1. 导出不带路径的
-生成的requirements.txt文件在当前目录下。
-```shell
-pip list --format=freeze > requirement.txt
-```
-生成requirements.txt，pip freeze会将当前PC环境下所有的安装包都进行生成,再进行安装的时候会全部安装很多没有的包.此方法要注意。
-
-安装requirements文件的pip源的包
-```shell
-pip install -r requirements.txt
-```
-
-
-
-
-
-
-
-## uv
-
-### uv 简介
-
-uv 是一个用 Rust 编写的 Python 包安装器和解析器，旨在提供比 pip 更快的包安装体验。它完全兼容 pip，但提供了显著的性能改进。
-
-主要特点：
-
-1. **极快的安装速度**
-   - 比 pip 快 10-100 倍
-   - 并行下载和安装
-   - 优化的依赖解析
-
-2. **完全兼容性**
-   - 支持所有 pip 命令
-   - 兼容 requirements.txt
-   - 支持 wheel 和 source 分发
-
-3. **现代化特性**
-   - 原生支持虚拟环境
-   - 内置缓存系统
-   - 更好的错误处理
-
-### 安装 uv
-
-```shell
-pip install uv
-```
-
-```shell
-uv pip install -r requirements.txt
-```
-
-uv使用
-```shell
-# 查看uv版本
-uv --version
-
-# 查看uv帮助
-uv help
-
-# 下载库
-uv pip install <package>
-
-# 下载库并指定版本
-uv pip install <package>==<version>
-
-# 卸载
-uv pip uninstall <package>
-
-# 查看已安装的库
-uv pip list
-```
 
 ## python调试方法
 

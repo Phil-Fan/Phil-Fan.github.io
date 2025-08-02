@@ -6,6 +6,10 @@
 - be obsessed with = abandon oneself to
 - great and profound
 
+
+get (one's) kicks
+To seek out, indulge in, or enjoy something fun or pleasurable.
+
 ## 口语表达
 
 - frankly speaking

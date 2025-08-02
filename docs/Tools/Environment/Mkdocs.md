@@ -483,6 +483,13 @@ changelog: True
 示范
 [note/docs/changelog.yml at master · TonyCrane/note](https://github.com/TonyCrane/note/blob/master/docs/changelog.yml)
 
+
+### 解析xmind
+
+[OpenFiles.online](https://openfiles.online/)
+[在浏览器中解析和渲染 XMind 文件 | 文森的主站](https://liangwensen.com/blog/parse-and-render-xmind-file-in-browser)
+
+
 ## 发布
 
 发布也遇到了好几个坑

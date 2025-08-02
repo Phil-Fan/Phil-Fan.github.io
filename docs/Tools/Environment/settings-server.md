@@ -2,6 +2,46 @@
 
 !!! note "备忘记录一些实验室服务器和云服务器的操作，以linux为主"
 
+## AutoDL
+
+### 清理缓存
+
+以下两个是可以直接删除，不影响系统运行的目录，所以首先直接删除。如果未能释放空间，继续查看下文
+```shell
+du -sh /root/miniconda3/pkgs/ && rm -rf /root/miniconda3/pkgs/*      # conda的历史包
+du -sh /root/.local/share/Trash && rm -rf /root/.local/share/Trash   # jupyterlab的回收站
+```
+以下目录是可能占用较大空间，但需要您根据实际情况清理的目录：
+```shell
+du -sh /tmp/         #查看/tmp占用的空间大小
+du -sh /root/.cache  #查看/root/.cache占用的空间大小
+```
+
+### 无法加载Hugging Face
+
+```shell title="在终端中执行"
+source /etc/network_turbo
+```
+
+```python title="在代码头部加入"
+import subprocess
+import os
+
+result = subprocess.run('bash -c "source /etc/network_turbo && env | grep proxy"', shell=True, capture_output=True, text=True)
+output = result.stdout
+for line in output.splitlines():
+    if '=' in line:
+        var, value = line.split('=', 1)
+        os.environ[var] = value
+```
+
+```shell title="取消代理"
+unset http_proxy && unset https_proxy
+```
+
+
+
+
 
 
 
@@ -683,45 +723,4 @@ taskkill /PID 进程号 -F -T
 
 个人用户抬头只能是个人
 
-## AutoDL
 
-```shell title="创建虚拟环境"
-conda create -n tf python=3.7           # 构建一个虚拟环境，名为：tf
-conda init bash && source /root/.bashrc # 更新bashrc中的环境变量
-conda activate tf                       # 切换到创建的虚拟环境：tf
-```
-### 无法加载Hugging Face
-
-=== "实测成功的方法"
-
-    ```python title="在代码头部加入"
-    import os
-    os.environ['HF_ENDPOINT'] = 'https://hf-mirror.com'
-    ```
-
-    ```shell title="在终端中执行"
-    pip install -U huggingface_hub
-    export HF_ENDPOINT=https://hf-mirror.com
-    source ~/.bashrc
-    ```
-    
-    (优点是不需要改代码，非常简单易操作。缺点就是镜像网站下载较慢)
-
-=== "另外的方法"
-
-    ```python title="在代码头部加入"
-    import subprocess
-    import os
-    
-    result = subprocess.run('bash -c "source /etc/network_turbo && env | grep proxy"', shell=True, capture_output=True, text=True)
-    output = result.stdout
-    for line in output.splitlines():
-        if '=' in line:
-            var, value = line.split('=', 1)
-            os.environ[var] = value
-    ```
-    如果启用学术资源加速后遇到SSL证书验证错误，可以禁用证书验证，在程序开头再添加以下代码
-    ```python
-    import os
-    os.environ['CURL_CA_BUNDLE'] = ''
-    ```
