@@ -67,6 +67,27 @@ mkdocs serve
   - [ ] [jVectorMap入门使用教程 | 有点东西](https://www.youdiandongxi.com/article/jVectorMap-use.html)
 
 
+
+```html
+<iframe src="xxx.pdf" width="100%" height="600px" style="border: none;">
+This browser does not support PDFs
+</iframe>
+```
+
+
+```html
+<div class="card file-block" markdown="1">
+<div class="file-icon"><img src="/style/images/xmind.svg" style="height: 3em;"></div>
+<div class="file-body">
+<div class="file-title">思维导图</div>
+<div class="file-meta">xxxxKB / 2024-01-10</div>
+</div>
+<a class="down-button" target="_blank" href="xxx.xmind" markdown="1">:fontawesome-solid-download: 下载</a>
+</div>
+```
+
+
+
 ## Show your support
 
 Give a ⭐️ if this project helped you!

@@ -143,6 +143,9 @@ source .venv/bin/activate
 ```
 
 
+### uv pip管理
+
+和pip是一样的
 
 ```shell
 # 下载库
@@ -156,6 +159,11 @@ uv pip uninstall <package>
 
 # 查看已安装的库
 uv pip list
+```
+
+
+```shell title="生成requirements.txt"
+uv pip freeze > requirements.txt
 ```
 
 ### 从conda迁移

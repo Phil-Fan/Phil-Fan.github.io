@@ -1,4 +1,13 @@
 - "2025":
+  - "2025-08-02":
+    - newpage:
+        text: "增加论文研读页面"
+        href: "Research/Papers/index.html"
+  - "2025-07-29": 
+    - newpage:
+        text: "更新 IELTS 刷题记录"
+        href: "Class/English/train_log.html"
+
   - "2025-07-27":
     - newpage:
         text: "[IELTS] 写作笔记"

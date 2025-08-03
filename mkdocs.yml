@@ -152,10 +152,10 @@ extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/Phil-Fan
-      name: PhilFan's Profile
+      name: PhilFan's GitHub
 
     - icon: fontawesome/brands/zhihu
-      link: https://www.zhihu.com/people/phil-19-80-55
+      link: https://www.zhihu.com/people/phil.fan
       name: PhilFan's Zhihu
 
   analytics:
@@ -342,6 +342,7 @@ nav:
         - ISLR: https://www.statlearning.com/
         - 统计学习方法习题解答: https://datawhalechina.github.io/statistical-learning-method-solutions-manual/
         - d2l: https://zh.d2l.ai/index.html/
+        - vLLM手册: https://docs.vllm.com.cn/en/latest/index.html
     
 
 
@@ -456,6 +457,7 @@ nav:
       - CS61A教材: https://composingprograms.netlify.app/
       
       - 手册:
+        - Google styleguide: https://ggdocs.cn/styleguide/pyguide.html
         - Python工程化开发指南: https://pyloong.github.io/pythonic-project-guidelines/
         - Dive Into Python 3: http://getpython3.com/diveintopython3/index.html
         - Hitchhiker's Guide: https://docs.python-guide.org/
@@ -471,6 +473,9 @@ nav:
     - CS/Algorithm/03-3-OtherSearch.md
     - CS/Algorithm/04-Divide.md
     - CS/Algorithm/05-DP.md
+    - CS/Algorithm/05-背包.md
+    - CS/Algorithm/06-并查集.md
+    - CS/Algorithm/number.md
 
   - "DS | 数据结构":
     - CS/DS/00-intro.md
@@ -533,6 +538,10 @@ nav:
   - Research/index.md
   - Research/01-Idea.md
   - Research/02-Reading.md
+  - 论文研读:
+    - Research/Papers/index.md
+    - Research/Papers/NICGSlowDown.md
+    - Research/Papers/VerboseImages.md
 
 
 
@@ -550,6 +559,7 @@ nav:
     - Class/English/03-Writing.md
     - Class/English/03-Writing1.md
     - Class/English/03-Writing2.md
+    - Class/English/03-Writing3-exp.md
     - Class/English/04-Speaking-IELTS.md
     - Class/English/04-Speaking-TOFEL.md
     - "积累-短语": Class/English/phrase.md

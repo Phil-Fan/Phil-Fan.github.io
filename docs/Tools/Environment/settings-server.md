@@ -17,6 +17,10 @@ du -sh /tmp/         #查看/tmp占用的空间大小
 du -sh /root/.cache  #查看/root/.cache占用的空间大小
 ```
 
+```bash
+export HF_HOME=/root/autodl-tmp/huggingface
+```
+
 ### 无法加载Hugging Face
 
 ```shell title="在终端中执行"
@@ -38,6 +42,8 @@ for line in output.splitlines():
 ```shell title="取消代理"
 unset http_proxy && unset https_proxy
 ```
+
+
 
 
 
