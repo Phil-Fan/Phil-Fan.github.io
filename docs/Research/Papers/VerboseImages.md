@@ -1,4 +1,4 @@
-# VerboseImages
+# VerboseImages [ICLR24]
 
 <iframe src="https://arxiv.org/pdf/2401.11170" width="100%" height="600px" style="border: none;">
 This browser does not support PDFs

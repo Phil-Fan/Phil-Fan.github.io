@@ -1,10 +1,19 @@
-# NICGSlowDown
+# NICGSlowDown [CVPR22]
+
+- paper: [NICGSlowDown](https://arxiv.org/pdf/2203.15859)
+- code:[SeekingDream/CVPR22_NICGSlowDown](https://github.com/SeekingDream/CVPR22_NICGSlowDown)
 
 <iframe src="https://arxiv.org/pdf/2203.15859" width="100%" height="600px" style="border: none;">
 This browser does not support PDFs
 </iframe>
 
+
+
 ## 论文思维导图
+
+![论文解析树](assets/NICGSlowDown.assets//NICGSlowDown.svg)
+
+
 
 <div class="card file-block" markdown="1">
 <div class="file-icon"><img src="/style/images/xmind.svg" style="height: 3em;"></div>
@@ -15,9 +24,46 @@ This browser does not support PDFs
 <a class="down-button" target="_blank" href="NICGSlowDown.xmind" markdown="1">:fontawesome-solid-download: 下载</a>
 </div>
 
+
 ## 论文笔记
 
-### EOS依赖损失
+核心过程
+
+![0001](assets/NICGSlowDown.assets/0001.jpg)
+
+### 主要算法
+
+input：
+
+- a benign input image $x$
+- the victim NICG model $F$
+- a pre-defined perturbation threshold $\epsilon$
+- and the maximum iteration number $T$
+
+output
+
+- a adversarial examples $x'$
+
+![image-20250804135640798](assets/NICGSlowDown.assets/image-20250804135640798.png)
+
+### 转换方法
+
+为了达到adversarial examples $x'$不被区分的结果，有了下面的box constraints
+
+$$
+||x+\delta||\in [0,1]^n
+$$
+
+但是直接优化$\delta$很难，所以这里使用了一个转换方法
+
+$$
+\delta = \frac{1}{2} \left( \text{tanh}(\omega)+1 \right) - x
+$$
+
+因为 $tanh(\cdot) \in [-1,1]$，所以可以满足约束，把优化变量转化成了$\omega$
+
+
+### loss1 $\mathcal{L}_{EOS}$
 
 这个损失函数 \(\mathcal{L}_{eos}\) 是 **EOS（End-of-Sequence）依赖损失**，主要用于 **序列生成任务**（如机器翻译、文本摘要、图像描述生成等），其核心目标是 **控制模型生成序列的终止行为**，确保模型在合适的位置正确预测序列结束符（如 `<EOS>`）。
 
@@ -78,7 +124,7 @@ $$
 
 
 
-### 依赖损失
+### loss2 依赖损失 $\mathcal{L}_{dep}$
 
 
 这个损失函数 $\mathcal{L}_{dep}$ 是 **依赖损失（Dependency Loss）**，主要用于衡量 **模型预测的置信度与其实际表现之间的偏差**。它的设计目的是让模型在预测时更加 **校准（Calibrated）**，即预测概率应与真实正确性相匹配。以下是详细解析：
@@ -88,14 +134,13 @@ $$
 \mathcal{L}_{dep} = \frac{1}{n} \sum^n_{i=1} \left\{ l_i^{o_i} - \mathbb{E}_{k \sim p_i} \left[ l_i^k \right] \right\}
 $$
 
-- **符号定义**：
-  - $n$：样本数量。
-  - $i$：第 $i$ 个样本。
-  - $o_i$：样本 $i$ 的真实标签（Ground Truth）。
-  - $p_i$：模型对样本 $i$ 的预测概率分布（所有类别的概率）。
-  - $l_i^{o_i}$：模型对 **真实标签 $o_i$** 的预测概率（即 $p_i^{o_i}$）。
-  - $l_i^k$：模型对 **类别 $k$** 的预测概率（即 $p_i^k$）。
-  - $\mathbb{E}_{k \sim p_i}$：对类别 $k$ 按概率分布 $p_i$ 的期望。
+- $n$：样本数量。
+- $i$：第 $i$ 个样本。
+- $o_i$：样本 $i$ 的真实标签（Ground Truth）。
+- $p_i$：模型对样本 $i$ 的预测概率分布（所有类别的概率）。
+- $l_i^{o_i}$：模型对 **真实标签 $o_i$** 的预测概率（即 $p_i^{o_i}$）。
+- $l_i^k$：模型对 **类别 $k$** 的预测概率（即 $p_i^k$）。
+- $\mathbb{E}_{k \sim p_i}$：对类别 $k$ 按概率分布 $p_i$ 的期望。
 
 ---
 
@@ -112,18 +157,18 @@ $$
 !!! example "计算示例"
 
     假设一个 3 分类问题，某样本的真实标签为 $o_i=1$，模型预测概率分布为：
-
+    
     $$
     p_i = [0.1, 0.7, 0.2]
     $$
-
+    
     - **第一项 $l_i^{o_i}$**：$p_i^{o_i} = 0.7$。
     - **第二项 $\mathbb{E}_{k \sim p_i} l_i^k$**：
-
+    
     $$
     0.1 \times 0.1 + 0.7 \times 0.7 + 0.2 \times 0.2 = 0.54
     $$
-
+    
     - **单样本损失**：
     
     $$
@@ -133,7 +178,7 @@ $$
     - **最终损失**：对所有样本取平均。
 
 
-### 扰动损失
+### loss3 扰动损失 $\mathcal{L}_{per}$
 $$
 \mathcal{L}_{per} = 
 \begin{cases} 
@@ -150,13 +195,10 @@ $$
 - **$\|\cdot\|$**：范数计算（如 L1、L2 等）。
 
 
-**(1) 约束扰动范围**
+**约束扰动范围**
+
 - 当扰动 $\delta$ **不超过阈值 $\epsilon$** 时，损失为 0，不进行惩罚。
 - 当扰动 $\delta$ **超过阈值 $\epsilon$** 时，损失为 $\|\delta - \epsilon\|$，惩罚超出部分。
-
-**(2) 对抗攻击中的意义**
-- **攻击者视角**：希望生成有效的对抗样本，但需保证扰动不可见（避免被检测到）。
-- **防御者视角**：限制扰动大小可提升模型的鲁棒性，防止对抗样本偏离原始数据分布。
 
 
 ## 代码复现 - 准备工作
@@ -199,7 +241,139 @@ create_input_files(
 ```
 
 
+
 ## 代码复现 - 结果展示
+
+论文中使用了两个数据集、两个model
+
+这里因为设备限制，也为了节省时间，我只尝试了第一个dataset `Flickr8k`
+
+![image-20250804134742365](assets/NICGSlowDown.assets/image-20250804134742365.png)
+
+
+
+### Metrics - Table2
+
+这里用的是论文中提到的Metrics， 即`I-loop`,`I_Latency`(CPU,GPU)
+
+
+$$
+\begin{gathered}
+\mathrm{I-Loop}=\frac{\mathrm{Loop}(x^{\prime})-\mathrm{Loop}(x)}{\mathrm{Loop}(x)}\times100\%\\\mathrm{I-Latency}=\frac{\mathrm{Latency}(x^{\prime})-\mathrm{Latency}(x)}{\mathrm{Latency}(x)}\times100\%
+\end{gathered}
+$$
+
+
+![image-20250804125843212](assets/NICGSlowDown.assets/image-20250804125843212.png)
+
+可能由于使用硬件不同，复现效果和原论文数据有一定差别，但是SlowDown的效果还是可以体现的
+
+下图是原论文的数据图
+
+![image-20250804134905582](assets/NICGSlowDown.assets/image-20250804134905582.png)
+
+### 图片 - 原文Fig6
+
+![image-20250804141856988](assets/NICGSlowDown.assets/image-20250804141856988.png)
+
+我选择了部分数据集中的图片展示，可以发现对抗攻击样本和原始图片肉眼不可分
+
+L2_flickr8k_googlenet_rnn
+
+![image-20250804125551076](assets/NICGSlowDown.assets/image-20250804125551076.png)
+
+![image-20250804125636739](assets/NICGSlowDown.assets/image-20250804125636739.png)
+
+L2_flickr8k_resnext_lstm
+
+![image-20250804125740871](assets/NICGSlowDown.assets/image-20250804125740871.png)
+
+![image-20250804125729114](assets/NICGSlowDown.assets/image-20250804125729114.png)
+
+![image-20250804125700103](assets/NICGSlowDown.assets/image-20250804125700103.png)
+
+Linf_flickr8k_googlenet_rnn
+
+![image-20250804125924540](assets/NICGSlowDown.assets/image-20250804125924540.png)
+
+![image-20250804125906954](assets/NICGSlowDown.assets/image-20250804125906954.png)
+
+Linf_flickr8k_resnext_lstm
+
+![image-20250804130000216](assets/NICGSlowDown.assets/image-20250804130000216.png)
+
+![image-20250804130012659](assets/NICGSlowDown.assets/image-20250804130012659.png)
+
+
+### Norm of Pertubation - Table3
+
+论文中Table3
+
+主要论证average perturbation size
+
+复现结果与论文结果较为接近
+
+| Subject | Norm | PGD         | CW          | Quantize    | Gaussian    | JPEG        | TVM         | SlowDown    |
+| ------- | ---- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- |
+| A       | L2   | 39.97904814 | 0.031572578 | 162.2170346 | 38.00815206 | 162.5883692 | 0.504508379 | 5.232429061 |
+| A       | Linf | 0.030000001 | 0.034108425 | 0.989821747 | 0.029954669 | 0.944367203 | 0.001945466 | 0.021404715 |
+| B       | L2   | 39.98188388 | 0.042649064 | 162.2420903 | 38.00864502 | 162.5883692 | 0.504508379 | 4.580114361 |
+| B       | Linf | 0.029999993 | 0.035503504 | 0.989768272 | 0.029944356 | 0.944367203 | 0.001945466 | 0.040621143 |
+
+![image-20250804134942943](assets/NICGSlowDown.assets/image-20250804134942943.png)
+
+
+### Bleu值 - Table4
+
+Subject-B  Linf这个效果不是很好，其他数值较为接近
+
+| Subject | Norm | Ori  | Adv  | Decrease |
+| ------- | ---- | ---- | ---- | -------- |
+| A       | L2   | 0.11 | 0.00 | 100.00   |
+| A       | Linf | 0.11 | 0.01 | 94.58    |
+| B       | L2   | 0.11 | 0.01 | 89.12    |
+| B       | Linf | 0.11 | 0.03 | 68.75    |
+
+![image-20250804135104396](assets/NICGSlowDown.assets/image-20250804135104396.png)
+
+
+
+### HyperPerameters - Table5
+
+这里是使用了不同的$\lambda$
+
+
+$$
+\mathcal{L}_{deg}=\mathcal{L}_{eos}+\lambda\mathcal{L}_{dep}
+$$
+在代码`slowdown.py`中，是初始化的这一句
+
+```python
+self.coeff = config['coeff']
+```
+
+在`generate_adv.py`的config中设置`coeff`这个参数实现
+
+```python
+config = {
+        'lr': 0.001,
+        'beams': 1,
+        'coeff': 100,
+        'max_len': 60,
+        'max_iter': 1000,
+        'max_per': MAX_PER_DICT[attack_name]
+    }
+```
+
+这里重复实验应该可以得到数据，由于时间原因没有复现这一个表格
+
+![image-20250804135152106](assets/NICGSlowDown.assets/image-20250804135152106.png)
+
+
+
+
+
+
 
 
 
@@ -390,10 +564,55 @@ CUDA_VISIBLE_DEVICES=$1 python train.py --config=flickr8k_googlenet_rnn.json
    - 依赖：训练好的模型
    - 输出：损失函数研究结果（保存在 `study/` 目录）
 
+### metrics测量方法
+
+主要需要测量三个主要的metrics
+
+对于每个样本，记录了以下信息：
+
+- `device_res[0]`: CUDA设备上的执行时间（运行5次的总时间）
+- `device_res[1]`: CPU设备上的执行时间（运行1次的时间）
+- `device_res[2]`: 预测的序列长度（`pred_len`）
+
+
+其中代码里面计算的时候gpu运行5次的总时长，cpu运行1次的总时长
+
+```python title="test_latency.py"
+for device in DEVICE_LIST:
+    encoder = encoder.to(device).eval()
+    decoder = decoder.to(device).eval()
+    img = img.to(device)
+    max_iter = ITER_DICT[device]
+    t1 = time.time()
+    for _ in range(max_iter):
+        pred_len = prediction_len_batch(img, encoder, decoder, word_map, max_length, device)
+    t2 = time.time()
+    device_res.append(t2 - t1)
+    device_res.append(pred_len[0])
+    res.append(device_res)
+```
+
+
+```python title="captionAPI.py"
+def prediction_len_batch(imgs, encoder, decoder, word_map, max_length, device):
+  ···
+  return [get_seq_len(seq, word_map) for seq in seqs]
+```
+
+对于每个序列，通过 `get_seq_len` 计算从开始到 `<end>` 标记之间的词数
+
+而`prediction_len_batch`返回的是一个batch当中每个样本的预测序列长度。
+
+在实验中，`batch=1`,所以`pred_len[0]`是序列的长度
+
+
+
+
+
 ### 参数说明
 
 1. **task参数**：选择要测试的模型：
-     
+  
    - 0: coco_mobilenet_rnn
    - 1: coco_resnet_lstm
    - 2: flickr8k_googlenet_rnn
@@ -420,7 +639,6 @@ CUDA_VISIBLE_DEVICES=$1 python train.py --config=flickr8k_googlenet_rnn.json
 这个库当中的attack方法使用了继承的方法，即先谢了一个attack的基类，定义了几种attack的基础方法。
 
 **然后再用继承的方法，写出了不同的attack方法。**
-
 
 
 ### `train.py` - 训练出NICG model
@@ -593,8 +811,9 @@ torch.save(
 )
 ```
 
+### `loss_impact.py` - 参数影响分析
 
-### loss_impact.py - 参数影响分析
+对应论文的Table5
 
 1. **主要功能**：
    - 研究不同损失函数对对抗攻击效果的影响
@@ -696,6 +915,95 @@ while len(complete_seqs) < batch_size:
   - `seq_scores` 存储每个词的概率分数（用于计算对抗损失）。
 8. **终止条件**：
   - 如果生成 `<end>` 或超过 `max_length`，则停止解码。
+
+
+
+### `distribution.py`
+
+- **输入**：从`latency/`目录加载不同攻击方法（`L2`和`Linf`）的延迟测试结果（`.latency`文件）。
+- **处理**：将原始（`ori_res`）和对抗（`adv_res`）的延迟数据合并，并重新组织为结构化格式。
+- **输出**：保存为CSV文件到`dist/`目录，文件命名格式为`____dist____{task_name}_{attack_name}.csv`。
+
+=== "数据加载"
+    ```python
+    latency_res = torch.load(latency_file)  # 加载.latency文件
+    ori_res, adv_res = latency_res         # 解包原始和对抗结果
+    ```
+
+    - 假设`ori_res`和`adv_res`是列表，每个元素代表一个样本的延迟测量值（例如不同层的推理时间）。
+
+
+=== "数据合并"
+
+
+    ```python
+    for ori, adv in zip(ori_res, adv_res):
+       tmp = np.array(ori + adv).reshape([1, -1])  # 将ori和adv拼接为一行
+       res.append(tmp)
+    res = np.concatenate(res, axis=0)              # 堆叠所有样本
+    ```
+    
+    - 每个样本的原始和对抗数据被拼接为一行（例如`ori`有3个值，`adv`有4个值，则合并后为7列）。
+
+
+=== "输出示例"
+
+    - 如果`ori_res[0] = [t1, t2, t3]`，`adv_res[0] = [t4, t5, t6, t7]`，则合并后的一行为`[t1, t2, t3, t4, t5, t6, t7]`。
+
+
+
+### `collect_latency.py`
+
+根据原始数据计算metrics
+
+```
+0.15, 0.12, 0.18, 0.20, 0.10, 0.05, 0.30  # 循环延迟平均增加（攻击类型1-6，最后一列是类型0）
+0.10, 0.08, 0.12, 0.15, 0.05, 0.02, 0.25  # CPU延迟平均增加
+0.20, 0.15, 0.25, 0.30, 0.12, 0.08, 0.40  # GPU延迟平均增加
+0.50, 0.40, 0.60, 0.70, 0.30, 0.20, 0.80  # 循环延迟最大增加
+0.30, 0.25, 0.35, 0.40, 0.20, 0.15, 0.50  # CPU延迟最大增加
+0.60, 0.50, 0.70, 0.80, 0.40, 0.30, 0.90  # GPU延迟最大增加
+```
+
+- **每行含义**：
+  1-3行：平均延迟增加（循环、CPU、GPU）。
+  4-6行：最大延迟增加（循环、CPU、GPU）。
+- **每列含义**：
+  前6列：攻击类型1-6的结果，最后一列：攻击类型0的结果。
+
+
+
+### `acc.py`
+
+计算bleu值
+
+
+
+### `pertubation.py`
+
+计算Table-3，也就是算average perturbation size
+
+输出到`PerRes`目录
+
+1. 每个模型的单独结果文件 (`task_name + '_' + attack_name + '.csv'`)：
+```python
+final_res = np.concatenate([delta_list[:, 1:], delta_list[:, 0:1]], axis=1)
+```
+这个文件的格式是：
+- 每行代表一个样本
+- 有7列，对应7种攻击方法的扰动值
+- 特别注意：列的顺序是 [1,2,3,4,5,6,0]，把第0种攻击方法的结果放到最后一列
+
+2. 最终的平均结果文件 (`average.csv`)：
+```python
+all_res = np.concatenate(all_res, axis=1)
+```
+这个文件包含了：
+- 每个元素是 `(final_res < MAX_PER_DICT[attack_name]).mean(0)`
+- 表示扰动小于阈值的样本比例
+- 对每个模型和每种攻击类型都有一个这样的统计值
+- 
+
 ### 几个loss的实现
 
 
