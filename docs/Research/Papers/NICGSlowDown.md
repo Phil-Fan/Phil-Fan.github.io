@@ -1,7 +1,9 @@
 # NICGSlowDown [CVPR22]
 
-- paper: [NICGSlowDown](https://arxiv.org/pdf/2203.15859)
-- code:[SeekingDream/CVPR22_NICGSlowDown](https://github.com/SeekingDream/CVPR22_NICGSlowDown)
+
+[![citation](https://img.shields.io/badge/dynamic/json?label=citation&style=social&logo=googlescholar&query=citationCount&url=https%3A%2F%2Fapi.semanticscholar.org%2Fgraph%2Fv1%2Fpaper%2F61ea0a87eab0029de9f4f6032108cb8d94cca3ac%3Ffields%3DcitationCount)](https://www.semanticscholar.org/paper/Inducing-High-Energy-Latency-of-Large-Models-with-Gao-Bai/61ea0a87eab0029de9f4f6032108cb8d94cca3ac) [![GitHub Repo stars](https://img.shields.io/github/stars/SeekingDream/CVPR22_NICGSlowDown)](https://github.com/SeekingDream/CVPR22_NICGSlowDown) 
+
+
 
 <iframe src="https://arxiv.org/pdf/2203.15859" width="100%" height="600px" style="border: none;">
 This browser does not support PDFs
@@ -304,6 +306,10 @@ Linf_flickr8k_resnext_lstm
 
 ![image-20250804130012659](assets/NICGSlowDown.assets/image-20250804130012659.png)
 
+### Distribution
+
+[:fontawesome-solid-code:   pdf&cdf](./assets/NICGSlowDown.assets/NICGSlowDown_pdf&cdf.ipynb){: .md-button .md-button--primary }
+
 
 ### Norm of Pertubation - Table3
 
@@ -535,6 +541,10 @@ with torch.no_grad():
 
 
 1. **训练阶段**：
+
+
+
+
 ```bash
 CUDA_VISIBLE_DEVICES=$1 python train.py --config=flickr8k_googlenet_rnn.json
 ```

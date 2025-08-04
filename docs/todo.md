@@ -22,7 +22,7 @@ He who hesitates is lost
     - [ ] 把智能家居魔杖丰富一下<br>
     - [ ] 路由器配置openwrt<br>
     - [ ] 找一个开源项目写中文文档build with bombs?
-    - [ ] 学习一下limu怎么引用论文，把这个[Semantic Scholar - Academic Graph API](https://api.semanticscholar.org/api-docs/graph)搞到文档里面
+    - [x] 学习一下limu怎么引用论文，把这个[Semantic Scholar - Academic Graph API](https://api.semanticscholar.org/api-docs/graph)搞到文档里面
 
 
     

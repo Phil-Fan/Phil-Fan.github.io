@@ -1,11 +1,15 @@
 # VerboseImages [ICLR24]
 
+[![citation](https://img.shields.io/badge/dynamic/json?label=citation&style=social&logo=googlescholar&query=citationCount&url=https%3A%2F%2Fapi.semanticscholar.org%2Fgraph%2Fv1%2Fpaper%2F61ea0a87eab0029de9f4f6032108cb8d94cca3ac%3Ffields%3DcitationCount)](https://www.semanticscholar.org/paper/Inducing-High-Energy-Latency-of-Large-Models-with-Gao-Bai/61ea0a87eab0029de9f4f6032108cb8d94cca3ac) [![GitHub Repo stars](https://img.shields.io/github/stars/KuofengGao/Verbose_Images)](https://github.com/KuofengGao/Verbose_Images) 
+
+
+
+
+
 <iframe src="https://arxiv.org/pdf/2401.11170" width="100%" height="600px" style="border: none;">
 This browser does not support PDFs
 </iframe>
 
-
-[KuofengGao/Verbose_Images: [ICLR 2024] Inducing High Energy-Latency of Large Vision-Language Models with Verbose Images](https://github.com/KuofengGao/Verbose_Images?tab=readme-ov-file)
 
 ## 论文思维导图
 
@@ -17,12 +21,116 @@ This browser does not support PDFs
 </div>
 <a class="down-button" target="_blank" href="VerboseImages.xmind" markdown="1">:fontawesome-solid-download: 下载</a>
 </div>
+ICLR 好多实验啊、、
 
+![VerboseImages](assets/VerboseImages.assets/VerboseImages.png)
 
 ## 论文笔记
 
+### previous
 
-## 代码复现 - 实验结果
+NICGSlowDown不行的原因
+
+- failure case: image-language model
+- train for lstm&cnn&rnn not VLM
+- VLM对于同一个输入，输出也可能不同（sampling policies）；但是NICGSlowDown 优化特定输出token的对率
+
+
+
+
+
+![image-20250804214551732](assets/VerboseImages.assets/image-20250804214551732.png)
+
+总的loss function为
+$$
+\min_{\boldsymbol{x}^{\prime}}\lambda_1\times\mathcal{L}_1(\boldsymbol{x}^{\prime})+\lambda_2\times\mathcal{L}_2(\boldsymbol{x}^{\prime})+\lambda_3\times\mathcal{L}_3(\boldsymbol{x}^{\prime}),\quad s.t.\left||\boldsymbol{x}^{\prime}-\boldsymbol{x}|\right|_p\leq\epsilon
+$$
+
+
+### $\mathcal{L}_1$ - delayed EOS loss 
+
+$$
+\mathcal{L}_1(\boldsymbol{x}^{\prime})=\frac{1}{N}\sum_{i=1}^Nf_i^\mathrm{EOS}\left(\boldsymbol{x}^{\prime}\right)
+$$
+
+因为不知道什么时候结束，所以优化所有位置上EOS的概率
+
+### $\mathcal{L}_2$ - Enhancing output uncertainty 
+
+$$
+\mathcal{L}_2(\boldsymbol{x}^{\prime})=\sum_{i=1}^ND_{\mathrm{KL}}\left(f_i\left(\boldsymbol{x}^{\prime}\right),\mathcal{U}\right)
+$$
+
+### $\mathcal{L}_3$ - Improving token diversity 
+
+- $[g_1(x'),g_2(x'), \cdots g_n(x')]$ 表示所有生成的token的隐藏状态的拼接矩阵，**增加隐藏状态矩阵的秩**会得到 **更多样化的token隐藏状态** 。
+- 由于秩优化困难，使用 **核范数(nuclear norm)作为近似** ，并定义了相应的 **token多样性损失函数** 
+  
+$$
+\mathcal{L}_3(\boldsymbol{x}^\prime)=-||[g_1(\boldsymbol{x}^\prime);g_2(\boldsymbol{x}^\prime);\cdots;g_N(\boldsymbol{x}^\prime)]||_*
+$$
+
+
+通过这种方式，可以在优化过程中间接促进token的多样性，从而实现增加能量和延迟成本的目标。
+
+
+
+
+### trick1 - PGD
+
+an iterative optimization technique that updates the solution by taking steps in the direction of the negative gradient while projecting the result back onto the feasible set
+
+### trick2 $\lambda,m$ - temporal weight adjustment algorithm
+
+**时间权重调整算法**
+$$
+\begin{aligned}&\lambda_1(t)=||\mathcal{L}_2(\boldsymbol{x}_{t-1}^{\prime})||_1\:/\:||\mathcal{L}_1(\boldsymbol{x}_{t-1}^{\prime})||_1\:/\:\mathcal{T}_1(t),\\&\lambda_2(t)=||\mathcal{L}_2(\boldsymbol{x}_{t-1}^{\prime})||_1\:/\:||\mathcal{L}_2(\boldsymbol{x}_{t-1}^{\prime})||_1\:/\:\mathcal{T}_2(t),\\&\lambda_3(t)=||\mathcal{L}_2(\boldsymbol{x}_{t-1}^{\prime})||_1\:/\:||\mathcal{L}_3(\boldsymbol{x}_{t-1}^{\prime})||_1\:/\:\mathcal{T}_3(t)
+\end{aligned}
+$$
+
+ temporal decay functions are set as:
+
+$$
+\mathcal{T}_1(t)=a_1\times\ln(t)+b_1\\
+\mathcal{T}_2(t)=a_2\times\ln(t)+b_2\\
+\mathcal{T}_3(t)=a_3\times\ln(t)+b_3
+$$
+
+此外，引入动量值 m 到权重的更新过程中
+
+
+
+### 评价1 -  GradCAM
+
+a gradient-based visualization technique that generates attention maps highlighting the relevant regions in the input images
+
+![image-20250804220529126](assets/VerboseImages.assets/image-20250804220529126.png)
+
+### 评价2 - CHAIR
+
+**CHAIR（Caption Hallucination Assessment with Image Relevance）** 是一种用于评估**图像描述生成模型**中**幻觉现象**的指标。
+
+
+- **图像描述生成任务**要求模型根据输入图像生成自然语言描述。然而，模型有时会生成**与图像内容不符**的描述，即**幻觉现象**。
+
+
+$CHAIR_i$ - Instance-level CHAIR，反映了模型在**实例级别**上的幻觉程度
+
+$$
+CHAIR_i = \frac{\text{幻觉对象实例的数量}}{\text{总对象实例的数量}}
+$$
+
+$CHAIR_s$ - Sentence-level CHAIR
+
+$$
+CHAIR_s = \frac{\text{包含幻觉对象的句子数量}}{\text{总句子数量}}
+$$
+
+
+
+
+
+## 代码复现 - 部分结果
 
 
 ### first trial
@@ -44,6 +152,47 @@ This browser does not support PDFs
 ```
 
 
+
+
+
+![image-20250804220104948](assets/VerboseImages.assets/image-20250804220104948.png)
+
+
+
+### Distribution
+
+![image-20250804220116470](assets/VerboseImages.assets/image-20250804220116470.png)
+
+### Chair
+
+![image-20250804220134095](assets/VerboseImages.assets/image-20250804220134095.png)
+
+
+
+### ablation Exp
+
+![image-20250804220331424](assets/VerboseImages.assets/image-20250804220331424.png)
+
+
+
+
+
+### 黑盒攻击
+
+![image-20250804220405115](assets/VerboseImages.assets/image-20250804220405115.png)
+
+### 其他任务
+
+![image-20250804220423481](assets/VerboseImages.assets/image-20250804220423481.png)
+
+
+
+
+
+
+
+
+
 ## 代码复现 - 准备工作
 
 ### 服务器
@@ -54,6 +203,34 @@ AudoDL 的 RTX 3090
 ```bash title="学术资源加速"
 source /etc/network_turbo
 ```
+
+!!! note "论文中用的是A100 40GB"
+
+
+
+
+
+### 模型
+
+| Name         |                               |      |      |
+| ------------ | ----------------------------- | ---- | ---- |
+| BLIP         | encoder-decoder model in 224M |      |      |
+| BLIP-2       | OPT-2.7B LM                   |      |      |
+| InstructBLIP | Vicuna-7B LM                  |      |      |
+| MiniGPT-4    | Vicuna-7B LM                  |      |      |
+
+### Metrics
+
+using NVIDIA Management Library (NVML)
+
+- energy consumption
+- latency time
+- the length of generated sequences
+- response time cost
+
+
+
+
 
 ### 数据集下载
 
@@ -124,6 +301,7 @@ uv pip install -r requirements.txt
 库当中的requirement.txt不能直接使用，所以我解决了一些问题，然后记录在了下面
 
 ??? note "修改版本"
+
     ```txt title="requirement.txt"
     accelerate==1.9.0
     addict==2.4.0
@@ -423,7 +601,7 @@ pip install open3d
 ```shell
 pip install -U spacy==3.6.0
 pip install numpy==1.26.4
-pip install thinc==8.2.5
+pip install thinc==8.1.8
 ```
 
 **peft与transformers库**
@@ -458,7 +636,6 @@ pip install huggingface_hub==0.25.2 -i https://pypi.tuna.tsinghua.edu.cn/simple
 [script got killed while running · Issue #2 · KuofengGao/Verbose_Images](https://github.com/KuofengGao/Verbose_Images/issues/2)
 
 但我还没有遇到这个问题
-
 
 
 

@@ -12,6 +12,17 @@
 
 [Markdown 教程-常见Markdown错误和解决方法 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/672261576)
 
+### 图标 Badge
+
+[![GitHub Repo stars](https://img.shields.io/github/stars/Phil-Fan/Phil-Fan.github.io)](https://github.com/Phil-Fan/Phil-Fan.github.io) 
+
+- [Badge制作指北——手把手教你制作Badge - 少数派](https://sspai.com/post/81310)
+- [Static Badge | Shields.io](https://shields.io/badges)
+- [Simple Icons](https://simpleicons.org/)
+- [Semantic Scholar - Academic Graph API](https://api.semanticscholar.org/api-docs/graph#tag/Paper-Data)
+- [Google Scholar API | Scrape Google Scholar - SerpApi](https://serpapi.com/google-scholar-api)
+
+
 ### 方块
 ```markdown
 !!! info
