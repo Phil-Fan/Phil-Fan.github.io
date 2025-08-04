@@ -1361,7 +1361,22 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://www.philfan.cn/Research/Papers/OverThink.html</loc>
+         <lastmod>2025-08-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://www.philfan.cn/Research/Papers/VerboseImages.html</loc>
+         <lastmod>2025-08-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/Research/Papers/Zero_Query_Adversarial_Attack.html</loc>
+         <lastmod>2025-08-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/Research/Papers/assets/NICGSlowDown.assets/NICGSlowDown_pdf%26cdf.html</loc>
          <lastmod>2025-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
