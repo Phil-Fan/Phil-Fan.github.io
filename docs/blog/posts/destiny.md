@@ -1,4 +1,11 @@
 ---
+comments: true
+authors:
+  - Phil-Fan
+categories:
+  - Feelings
+tags:
+  - thoughts
 date:
   created: 2025-08-07
 nostatistics: true

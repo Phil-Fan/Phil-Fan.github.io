@@ -2,7 +2,7 @@
 date:
   created: 2025-08-07
   updated: 2025-08-07
-readtime: 15
+readtime: 1
 pin: true
 categories:
   - Feelings

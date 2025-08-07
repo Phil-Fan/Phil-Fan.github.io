@@ -202,7 +202,7 @@ extra_javascript:
 hooks:
   # 在blog页面中添加社交分享功能
   - hooks/socialmedia.py
-  
+
 
 # navigation: 注意左右下划线的写法
 nav:
@@ -572,43 +572,6 @@ nav:
     - Research/Papers/NICGSlowDown.md
     - Research/Papers/VerboseImages.md
     - Research/Papers/OverThink.md
-    
-
-- Class:
-  - Class/马原.md
-  - Class/ITP-Law.md
-  - Class/ITP-Marketing.md
-  - 大学物理: Class/Physics/index.md
-
-  - English:
-    - Class/English/00-intro-IELTS.md
-    - Class/English/01-Listening.md
-    - Class/English/02-Reading.md
-    - Class/English/03-Writing.md
-    - Class/English/03-Writing1.md
-    - Class/English/03-Writing2.md
-    - Class/English/03-Writing3-exp.md
-    - Class/English/04-Speaking-IELTS.md
-    - Class/English/04-Speaking-TOFEL.md
-    - "积累-短语": Class/English/phrase.md
-    - "积累-句式": Class/English/sentence.md
-    - Notebook page: Class/English/train_log.ipynb
-
-  - Finance:
-    # - Class/Fin/invest.md
-    # - Class/Fin/invest-stock.md
-    - Class/Fin/consulting.md
-    - Class/Fin/industry-analyze.md
-    # - Class/Fin/industry-finance.md
-    # - Class/Fin/industry-welfare.md
-    # - "微观经济学":
-      # - Class/Fin/micro/intro.md
-  
-  - Books:
-    - Class/Books/The Innovator`s Dilemma.md 
-    - Class/Books/Philosophy.md
-    - Class/Books/Philosophy-by-topic.md
-
 
 - Tools:
   - Efficiency:
@@ -653,6 +616,20 @@ nav:
 
 - Project:
   - Project/index.md
+  - Project/website.md
+  - 英语能力训练:
+    - Class/English/00-intro-IELTS.md
+    - Class/English/01-Listening.md
+    - Class/English/02-Reading.md
+    - Class/English/03-Writing.md
+    - Class/English/03-Writing1.md
+    - Class/English/03-Writing2.md
+    - Class/English/03-Writing3-exp.md
+    - Class/English/04-Speaking-IELTS.md
+    - Class/English/04-Speaking-TOFEL.md
+    - "积累-短语": Class/English/phrase.md
+    - "积累-句式": Class/English/sentence.md
+    - Notebook page: Class/English/train_log.ipynb
   - Project/balance_car.md
   - Project/wand.md
   - Project/dRehmFlight.md
@@ -660,8 +637,30 @@ nav:
   - Project/matlab.md
 
 - "生命因你而火热":
-  - "🏫浙大": classes_in_zju.md
+  - index.md
   - Interest/bean_knowledge.md
+
+  - "🏫浙大课程":
+    - Class/classes_in_zju.md
+    - Class/马原.md
+    
+    
+    - 大学物理: 
+      - Class/Physics/index.md
+
+    - Finance:
+      - Class/ITP-Law.md
+      - Class/ITP-Marketing.md
+      # - Class/Fin/invest.md
+      # - Class/Fin/invest-stock.md
+      - Class/Fin/consulting.md
+      - Class/Fin/industry-analyze.md
+      # - Class/Fin/industry-finance.md
+      # - Class/Fin/industry-welfare.md
+      # - "微观经济学":
+        # - Class/Fin/micro/intro.md
+
+
   - "🏃运动":
     - Interest/Exercise/exercise-fit.md
     - Interest/Exercise/exercise-swimming.md
@@ -709,6 +708,11 @@ nav:
     - Interest/Game/fifa.md
     - Interest/Game/MC.md
 
+  - "📚阅读":
+    - Class/Books/The Innovator`s Dilemma.md 
+    - Class/Books/Philosophy.md
+    - Class/Books/Philosophy-by-topic.md
+
   - "💡常识":
     - Interest/CommonKnowledge/social_security.md
     - Interest/CommonKnowledge/insurance_social_insurance.md
@@ -717,12 +721,10 @@ nav:
     - Interest/CommonKnowledge/house.md
     - Interest/CommonKnowledge/rent.md
 
-  - Blog:
-    - blog/index.md
-    - blog/tags.md
+- Blog:
+  - blog/index.md
+  - blog/tags.md
 
-hooks:
-  - hooks/socialmedia.py
 
 
 plugins:
@@ -790,6 +792,9 @@ plugins:
         - "$"
         - ">"
 
+
+  # blog 功能 下面这个仓库有template
+  # https://github.com/mkdocs-material/create-blog/tree/main
   - blog:
       blog_toc: true
       archive_date_format: MMMM yyyy

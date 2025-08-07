@@ -8,8 +8,12 @@
         href: "blog/rss.xml"
     - function:
         text: "增加钩子函数，在blog页面中添加社交分享功能"
+    - function:
+        text: "增加termynal，可以动态显示terminal"
+        href: "Tools/Environment/Mkdocs.html"
     - refactor:
         text: "重构LLM相关笔记"
+
   - "2025-08-04":
     - function:
         text: "增加Badge功能"
