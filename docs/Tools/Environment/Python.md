@@ -71,6 +71,8 @@ pip install -r requirements.txt
 
 [Python 包管理工具 uv 使用教程 - 知乎](https://zhuanlan.zhihu.com/p/1888904532131575259)
 
+[【保姆级喂饭教程】uv教程一文讲透：安装，创建，配置，工具，命令-CSDN博客](https://blog.csdn.net/AlienProgrammer/article/details/149743804)
+
 ### uv 简介
 
 uv 是一个用 Rust 编写的 Python 包安装器和解析器，旨在提供比 pip 更快的包安装体验。它完全兼容 pip，但提供了显著的性能改进。
@@ -107,6 +109,8 @@ pip install uv
 uv pip install -r requirements.txt
 ```
 
+### 目录设置
+
 ```shell title="配置uv缓存目录"
 vi ~/.bashrc
 export UV_CACHE_DIR=/data/cache
@@ -137,9 +141,33 @@ index-url = "https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple"
 uv --version
 ```
 
+```shell
+uv init
+```
+
+```shell
+uv venv
+```
+
+```shell
+uv add <package>
+uv add <package>==<version>
+```
+
 
 ```shell
 source .venv/bin/activate
+```
+
+### 管理
+
+
+```
+uv
+```
+
+```shell
+uv sync
 ```
 
 

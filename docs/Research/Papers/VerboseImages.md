@@ -1,3 +1,8 @@
+---
+status: new
+comments: True
+---
+
 # VerboseImages [ICLR24]
 
 [![citation](https://img.shields.io/badge/dynamic/json?label=citation&style=social&logo=googlescholar&query=citationCount&url=https%3A%2F%2Fapi.semanticscholar.org%2Fgraph%2Fv1%2Fpaper%2F61ea0a87eab0029de9f4f6032108cb8d94cca3ac%3Ffields%3DcitationCount)](https://www.semanticscholar.org/paper/Inducing-High-Energy-Latency-of-Large-Models-with-Gao-Bai/61ea0a87eab0029de9f4f6032108cb8d94cca3ac) [![GitHub Repo stars](https://img.shields.io/github/stars/KuofengGao/Verbose_Images)](https://github.com/KuofengGao/Verbose_Images) 
@@ -21,6 +26,7 @@ This browser does not support PDFs
 </div>
 <a class="down-button" target="_blank" href="VerboseImages.xmind" markdown="1">:fontawesome-solid-download: 下载</a>
 </div>
+
 ICLR 好多实验啊、、
 
 ![VerboseImages](assets/VerboseImages.assets/VerboseImages.png)
@@ -42,6 +48,7 @@ NICGSlowDown不行的原因
 ![image-20250804214551732](assets/VerboseImages.assets/image-20250804214551732.png)
 
 总的loss function为
+
 $$
 \min_{\boldsymbol{x}^{\prime}}\lambda_1\times\mathcal{L}_1(\boldsymbol{x}^{\prime})+\lambda_2\times\mathcal{L}_2(\boldsymbol{x}^{\prime})+\lambda_3\times\mathcal{L}_3(\boldsymbol{x}^{\prime}),\quad s.t.\left||\boldsymbol{x}^{\prime}-\boldsymbol{x}|\right|_p\leq\epsilon
 $$
@@ -83,12 +90,14 @@ an iterative optimization technique that updates the solution by taking steps in
 ### trick2 $\lambda,m$ - temporal weight adjustment algorithm
 
 **时间权重调整算法**
+
+
 $$
 \begin{aligned}&\lambda_1(t)=||\mathcal{L}_2(\boldsymbol{x}_{t-1}^{\prime})||_1\:/\:||\mathcal{L}_1(\boldsymbol{x}_{t-1}^{\prime})||_1\:/\:\mathcal{T}_1(t),\\&\lambda_2(t)=||\mathcal{L}_2(\boldsymbol{x}_{t-1}^{\prime})||_1\:/\:||\mathcal{L}_2(\boldsymbol{x}_{t-1}^{\prime})||_1\:/\:\mathcal{T}_2(t),\\&\lambda_3(t)=||\mathcal{L}_2(\boldsymbol{x}_{t-1}^{\prime})||_1\:/\:||\mathcal{L}_3(\boldsymbol{x}_{t-1}^{\prime})||_1\:/\:\mathcal{T}_3(t)
 \end{aligned}
 $$
 
- temporal decay functions are set as:
+temporal decay functions are set as:
 
 $$
 \mathcal{T}_1(t)=a_1\times\ln(t)+b_1\\
@@ -287,6 +296,9 @@ random_select_images(source, target, 1000)
 
 
 ## 代码复现 - 问题解决
+
+!!! note "这篇作者其实没有把所有的代码放出来，只放了算法部分的demo，所以想要复现所有set的话，需要花费一定时间。感觉作者不是很厚道啊xs"
+
 ### uv安装
 
 ```shell
@@ -625,6 +637,17 @@ pip install transformers==4.31.0
 
 ```shell
 pip install huggingface_hub==0.25.2 -i https://pypi.tuna.tsinghua.edu.cn/simple
+```
+
+
+### 
+
+```
+vi lavis/configs/models/blip2/blip2_instruct_vicuna7b.yaml
+```
+
+```yml title "修改成下面的样子"
+llm_model: "lmsys/vicuna-7b-v1.5"
 ```
 
 

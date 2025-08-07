@@ -5,9 +5,27 @@ comments: true
 
 # 友链
 
-加友链请评论捏～
+!!! info "加友链请按照下面的格式评论或给我发[邮件](mailto:hw.phil.fan@gmail.com)～"
+    ```text
+    昵称：
+    头像链接：
+    友链描述：
+    邮箱地址：
+    个性签名：
+    ```
 
-附带你头像的链接、id名称和个性签名～
+    同时我的友链是
+
+    ```text
+    昵称： PhilFan
+    头像图片链接：https://avatars.githubusercontent.com/u/56161071?v=4
+    网站图片： [链接](https://github.com/Phil-Fan/Phil-Fan.github.io/blob/master/docs/logo.ico)
+    友链描述： PhilFan's Notebook
+    邮箱地址： hw.phil.fan@gmail.com
+    个性签名： 
+    ```
+
+
 
 <div class="flink-list">
 
@@ -40,6 +58,17 @@ comments: true
         <div class="flink-item-name">Tenktau</div>
         <div class="flink-item-desc">Sidere mens eadem mutato.</div>
     </a> -->
+</div>
+
+
+<div class="flink-list-item">
+    <a href="https://blog.weichky.com" title="Weichky's Blog" target="_blank">
+        <div class="flink-item-icon">
+            <img src="https://assets.weichky.com/imgs/favicon.png" alt="Weichky's Blog">
+        </div>
+        <div class="flink-item-name">Weichky's Blog</div>
+        <div class="flink-item-desc">物不可穷也，故受之以未济。</div>
+    </a>
 </div>
 
 </div>

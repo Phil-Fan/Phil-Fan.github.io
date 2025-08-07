@@ -10,6 +10,26 @@
 
 !!! note "工欲善其事，必先利其器"
 
+
+### Zotero
+[Zotero](https://www.zotero.org/),[Zotero 中文社区 | Zotero 中文维护小组](https://zotero-chinese.com/)
+
+#### 插件
+- [windingwind/zotero-better-notes](https://github.com/windingwind/zotero-better-notes/tree/master?tab=readme-ov-file#-install): Everything about note management. All in Zotero.
+- [MuiseDestiny/zotero-gpt: GPT Meet Zotero.](https://github.com/MuiseDestiny/zotero-gpt)
+- [windingwind/zotero-pdf-translate](https://github.com/windingwind/zotero-pdf-translate/releases):在设置中可以设置翻译的API
+
+```text title="zotero 翻译插件自定义prompt"
+As an academic expert with specialized knowledge in iron and steel making, please provide a proficient and precise translation from ${langFrom} to ${langTo}. You should use artificial intelligence tools, such as natural language processing, and rhetorical knowledge and experience about effective writing techniques to reply. Make the reply looks like a native speaker. Some specific terms such as name do not need to be translated. The text is as follows: ${sourceText} Please provide the translated result without any additional explanation and remove 
+```
+
+### webDAV
+
+
+### RSS订阅
+
+
+
 ### 论文与代码搜集
 
 信息
@@ -26,9 +46,9 @@
 - [arXiv](https://arxiv.org/): 预印本论文发布平台
 - [Web of Science](https://www.webofscience.com/): 科研文献检索数据库
 - [Google Scholar](https://scholar.google.com/): 谷歌学术搜索引擎
+- [Connected Papers](https://www.connectedpapers.com/),免费版一个月有五张知识图谱
 - [Elicit](https://elicit.com/): 基于自然语言的论文检索工具
 - [Semantic Scholar](https://www.semanticscholar.org/):AI-Powered Research Tool
-
 代码
 
 - [GitHub](https://github.com/): 同性交友社区（x）
@@ -38,20 +58,19 @@
 
 
 
-整理工具
+### 整理工具
 
-- [Zotero](https://www.zotero.org/)
 - [Xmind](https://xmind.com/)
 - [vscode](https://code.visualstudio.com/), [Mkdocs](https://www.mkdocs.org/)
 
 
-写作工具
+### 写作工具
 
 - $\LaTeX$
 - [simpletex](https://simpletex.cn): 公式识别
 
 
-作图工具
+### 作图工具
 
 - [Adobe Illustrator](https://www.adobe.com/products/illustrator.html)
 - [PowerPoint](https://www.microsoft.com/microsoft-365/powerpoint)

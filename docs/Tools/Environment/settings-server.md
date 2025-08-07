@@ -4,6 +4,12 @@
 
 ## AutoDL
 
+```bash
+export HF_HOME=/root/autodl-tmp/.huggingface/
+export HF_ENDPOINT=https://hf-mirror.com
+source /root/autodl-tmp/src/.venv/bin/activate
+```
+
 ### 清理缓存
 
 以下两个是可以直接删除，不影响系统运行的目录，所以首先直接删除。如果未能释放空间，继续查看下文
@@ -17,15 +23,22 @@ du -sh /tmp/         #查看/tmp占用的空间大小
 du -sh /root/.cache  #查看/root/.cache占用的空间大小
 ```
 
-```bash
-export HF_HOME=/root/autodl-tmp/huggingface
-```
+
+
+
 
 ### 无法加载Hugging Face
 
 ```shell title="在终端中执行"
 source /etc/network_turbo
 ```
+
+
+```
+export HF_ENDPOINT=https://hf-mirror.com
+huggingface-cli download --resume-download InstantX/InstantID --local-dir checkpoints
+```
+
 
 ```python title="在代码头部加入"
 import subprocess
@@ -44,7 +57,80 @@ unset http_proxy && unset https_proxy
 ```
 
 
+## huggingface
 
+[Hugging Face Forums - Hugging Face Community Discussion](https://discuss.huggingface.co/)
+
+
+[OSError: We couldn‘t connect to ‘https://huggingface.co‘ to load this file, couldn‘t find it(亲测有效)\_checkout your internet connection or see how to ru-CSDN博客](https://blog.csdn.net/l8947943/article/details/143099409)
+
+
+
+1. 科学上网，访问该网址
+通过全局代理的方式，实现模型的下载。
+
+1. 使用镜像网址
+国内huggingface镜像地址：https://hf-mirror.com/
+往下翻，直接可看到使用教程。主要有四种解决方式。最直接的方式就是一个个下载使用。
+
+1. 在代码中增加设置
+import os
+os.environ['HF_ENDPOINT'] = 'https://hf-mirror.com'
+
+
+### Llama 模型申请
+
+1. 搜索并选择模型
+   - 填写信息申请使用，不要写亚洲国家
+
+2. 查看申请状态
+   - 点击头像，进入 **"Settings"**
+   - 左侧菜单选择 **"Gated Repositories"**
+   - 查看申请状态，状态变为 ACCEPTED 即表示通过
+   - 通常审批时间在半小时左右
+
+3. 获取 Access Token
+   - 在 "Settings" 页面，点击左侧的 **"Access Tokens"**
+   - 点击 "Create new token" 按钮
+   - Read权限
+
+```shell title="设置环境变量"
+export HF_TOKEN=your_huggingface_token
+```
+
+### 下载模型
+
+=== "方法1"
+
+    ```shell
+    pip install -U "huggingface_hub[cli]
+    ```
+    
+    ```shell
+    hf download <model_name>
+    ```
+
+=== "方法2"
+
+    ```shell
+    apt install git-lfs -y
+    git lfs install
+    cd <folder_path>
+    git clone https://huggingface.co/<model_name>
+    ```
+
+
+
+
+### 使用modelscope下载
+
+```shell
+pip install modelscope
+```
+
+```shell
+modelscope download <model_name> --local_dir ./dir
+```
 
 
 

@@ -154,9 +154,15 @@ extra:
       link: https://github.com/Phil-Fan
       name: PhilFan's GitHub
 
+    - icon: fontawesome/brands/google
+      link: mailto:hw.phil.fan@gmail.com
+      name: PhilFan's Gmail
+
     - icon: fontawesome/brands/zhihu
       link: https://www.zhihu.com/people/phil.fan
       name: PhilFan's Zhihu
+
+    
 
   analytics:
     provider: google
@@ -301,21 +307,40 @@ nav:
         - AI/ADV/04-VAE.md
         - AI/ADV/05-Diffusion.md
         - AI/ADV/06-Bayes.md
+    - "LLM | Models":
+        - AI/LLM/Models/index.md
+        - AI/LLM/Models/01-Attention.md
+        - AI/LLM/Models/02-Transformer.md
+        - AI/LLM/Models/03-GPTs.md
+        - AI/LLM/Models/04-BERT.md
+        - AI/LLM/Models/05-Llama.md
+        - AI/LLM/Models/06-Manba.md
 
-    - "LLM | 大模型":
-        - AI/LLM/index.md
-        - AI/LLM/01-Attention.md
-        - AI/LLM/02-Transformer.md
-        - AI/LLM/03-GPTs.md
-        - AI/LLM/04-BERT.md
-        - AI/LLM/05-Llama.md
-        - AI/LLM/06-Tricks.md
-        - AI/LLM/07-LongChain.md
-        - AI/LLM/08-Manba.md
-        - AI/LLM/exp.md
+    - "LLM | Engineer Roadmap":
+        - AI/LLM/Engineer/index.md
+        - AI/LLM/Engineer/01-LLMs.md
+        - AI/LLM/Engineer/02-Vectorize.md
+        - AI/LLM/Engineer/03-RAG.md
+        - AI/LLM/Engineer/04-Agents.md
+        - AI/LLM/Engineer/04-2-LongChain.md
+        - AI/LLM/Engineer/05-1-Deployment.md
+        - AI/LLM/Engineer/05-2-vllm.md
+        - AI/LLM/Engineer/06-InferOptimization.md
+        - AI/LLM/Engineer/07-Evaluation.md
+
+    - "LLM | Scientist Roadmap":
+        - AI/LLM/Sci/index.md
+        - AI/LLM/Sci/00-Lingo.md
+        - AI/LLM/Sci/Focus.md
+        - AI/LLM/Sci/01-Task&Datasets.md
+        - AI/LLM/Sci/02-PreTrain.md
+        - AI/LLM/Sci/03-PostTrain.md
+        - AI/LLM/Sci/04-SFT.md
+        - AI/LLM/Sci/05-Alignment.md
+        - AI/LLM/Sci/06-Evaluation.md
+        - AI/LLM/Sci/07-Quantization.md
 
     - "DL | 深度学习":
-        - AI/DL/00-Lingo.md
         - AI/DL/01-MLP.md
         - AI/DL/02-CNN.md
         - AI/DL/03-Modern_CNN.md
