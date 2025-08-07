@@ -1,3 +1,8 @@
+---
+status: happy
+comments: True
+---
+
 # Latex备忘录
 
 !!! attention "本文写于2024年，有些信息可能有些过时，请注意甄别"

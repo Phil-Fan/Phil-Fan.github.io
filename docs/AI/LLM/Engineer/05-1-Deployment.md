@@ -1,5 +1,9 @@
+---
+status: new
+comments: True
+--- 
 # 05 | Deployment
-
+!!! note "正在施工中👷.. "
 ## 1. Local Deployment
 
 ### vLLM

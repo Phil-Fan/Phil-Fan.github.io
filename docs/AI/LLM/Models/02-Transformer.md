@@ -1,3 +1,7 @@
+---
+status: new
+comments: True
+--- 
 # Transformer
 !!! info "Transformer"
     继MLP、CNN、RNN后的第四大类架构

@@ -1,6 +1,7 @@
 ---
 title: 留言板
 comments: true
+status: happy
 ---
 
 # 友链
@@ -10,8 +11,8 @@ comments: true
     昵称：
     头像链接：
     友链描述：
-    邮箱地址：
     个性签名：
+    邮箱地址：[选填]
     ```
 
     同时我的友链是
@@ -22,7 +23,7 @@ comments: true
     网站图片： [链接](https://github.com/Phil-Fan/Phil-Fan.github.io/blob/master/docs/logo.ico)
     友链描述： PhilFan's Notebook
     邮箱地址： hw.phil.fan@gmail.com
-    个性签名： 
+    个性签名： Learn, Build, Share
     ```
 
 

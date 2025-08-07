@@ -1,4 +1,15 @@
 - "2025":
+  - "2025-08-07":
+    - function:
+        text: "增加blog功能"
+        href: "blog/index.html"
+    - function:
+        text: "增加rss功能"
+        href: "blog/rss.xml"
+    - function:
+        text: "增加钩子函数，在blog页面中添加社交分享功能"
+    - refactor:
+        text: "重构LLM相关笔记"
   - "2025-08-04":
     - function:
         text: "增加Badge功能"
@@ -25,13 +36,13 @@
   - "2025-07-08":
     - newpage:
         text: "[LLM] BERT 学习笔记"
-        href: "AI/LLM/04-BERT.html"
+        href: "AI/LLM/Models/04-BERT.html"
   - "2025-07-06":
     - function: 增加changelog
   - "2025-07-04":
     - newpage:
         text: "[LLM]Transformer相关整理"
-        href: "/AI/LLM/02-Transformer.html"
+        href: "/AI/LLM/Models/02-Transformer.html"
     - function: "重构逻辑，把AI作为一级目录"
   - "2025-06-26":
     - function: "增加mermaid支持，增加edit按钮"

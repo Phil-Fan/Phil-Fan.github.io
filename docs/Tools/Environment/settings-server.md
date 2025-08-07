@@ -101,7 +101,7 @@ export HF_TOKEN=your_huggingface_token
 ### 下载模型
 
 === "方法1"
-
+   
     ```shell
     pip install -U "huggingface_hub[cli]
     ```
@@ -124,12 +124,20 @@ export HF_TOKEN=your_huggingface_token
 
 ### 使用modelscope下载
 
+<!-- termynal -->
 ```shell
-pip install modelscope
+> pip install modelscope
+---> 100%
+Installed
 ```
 
+<br>
+
+<!-- termynal -->
 ```shell
-modelscope download <model_name> --local_dir ./dir
+> modelscope download <model_name> --local_dir ./dir
+---> 100%
+Downloaded
 ```
 
 

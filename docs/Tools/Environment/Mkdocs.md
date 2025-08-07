@@ -22,6 +22,55 @@
 - [Semantic Scholar - Academic Graph API](https://api.semanticscholar.org/api-docs/graph#tag/Paper-Data)
 - [Google Scholar API | Scrape Google Scholar - SerpApi](https://serpapi.com/google-scholar-api)
 
+### RSS
+
+<!-- termynal -->
+```shell
+> pip install mkdocs-rss-plugin
+---> 100%
+Installed
+``` 
+
+```yml
+site_description: required. Used as feed mandatory channel description.
+site_name: required. Used as feed mandatory channel title and items source URL label.
+site_url: required. Used to build feed items URLs.
+
+plugins:
+  - rss
+```
+
+
+
+
+### Blog
+
+### termynal
+
+作用：动态显示终端窗口
+
+<!-- termynal -->
+```shell
+> pip install termynal
+---> 100%
+Installed
+```
+
+
+
+### git-committers
+[byrnereese/mkdocs-git-committers-plugin: A mkdocs plugin for displaying the last commit and a list of a file's contributors.](https://github.com/byrnereese/mkdocs-git-committers-plugin)
+
+不过目前仓库暂时只有我一个人，所以这个暂时用不到
+
+```yml
+plugins:
+  - git-committers:
+      repository: johndoe/my-docs
+      branch: master
+      token: !!python/object/apply:os.getenv ["MKDOCS_GIT_COMMITTERS_APIKEY"]
+```
+
 
 ### 方块
 ```markdown
@@ -56,9 +105,11 @@
 
 [mkdocs-jupyter/demo/mkdocs.yml at main · danielfrg/mkdocs-jupyter](https://github.com/danielfrg/mkdocs-jupyter/blob/main/demo/mkdocs.yml)
 
-
+<!-- termynal -->
 ```shell
-pip install mkdocs-jupyter
+> pip install mkdocs-jupyter
+---> 100%
+Installed
 ```
 
 
