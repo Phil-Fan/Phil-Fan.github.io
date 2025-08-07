@@ -563,7 +563,7 @@ nav:
 
 - Research:
   - Research/index.md
-  - Research/01-Idea.md
+  - Research/01-Preliminaries.md
   - Research/02-Reading.md
   - 论文研读:
     - Research/Papers/index.md
@@ -637,7 +637,7 @@ nav:
   - Project/matlab.md
 
 - "生命因你而火热":
-  - index.md
+  - Interest/index.md
   - Interest/bean_knowledge.md
 
   - "🏫浙大课程":
