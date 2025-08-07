@@ -8,8 +8,10 @@
 <link href="https://www.philfan.cn/Math/ML/08-EnsembleLearning.html" rel="canonical"/>
 <link href="07-DimensionalityReduction.html" rel="prev"/>
 <link href="09-SparseRepresentation.html" rel="next"/>
+<link href="../../feed_rss_created.xml" rel="alternate" title="RSS 订阅" type="application/rss+xml"/>
+<link href="../../feed_rss_updated.xml" rel="alternate" title="已更新内容的 RSS 订阅" type="application/rss+xml"/>
 <link href="../../logo.ico" rel="icon"/>
-<meta content="mkdocs-1.6.0, mkdocs-material-9.5.31" name="generator"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.5.31" name="generator"/>
 <title>08 | 集成学习 - PhilFan's Notebook</title>
 <link href="../../assets/stylesheets/main.3cba04c6.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
@@ -19,13 +21,12 @@
 <style>:root{--md-text-font:"Noto Serif SC";--md-code-font:"JetBrains Mono"}</style>
 <link href="../../css/timeline.css" rel="stylesheet"/>
 <link href="../../css/heti.css" rel="stylesheet"/>
-<link href="../../style/css/custom.css" rel="stylesheet"/>
-<link href="../../style/css/counter.css" rel="stylesheet"/>
 <link href="../../style/css/toc.css" rel="stylesheet"/>
 <link href="../../style/css/flink.css" rel="stylesheet"/>
 <link href="../../style/css/card.css" rel="stylesheet"/>
 <link href="https://cdn.tonycrane.cc/jbmono/jetbrainsmono.css" rel="stylesheet"/>
 <link href="https://cdn.tonycrane.cc/lxgw/lxgwscreen.css" rel="stylesheet"/>
+<link href="../../termynal.css" rel="stylesheet"/>
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2QNP7S5RJ8"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2QNP7S5RJ8",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2QNP7S5RJ8",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
@@ -314,6 +315,7 @@
 <span class="md-ellipsis">
     友链
   </span>
+<span class="md-status md-status--happy"></span>
 </a>
 </li>
 </ul>
@@ -1103,6 +1105,7 @@
 <span class="md-ellipsis">
     Transformer
   </span>
+<span class="md-status md-status--new"></span>
 </a>
 </li>
 <li class="md-nav__item">
@@ -1117,6 +1120,7 @@
 <span class="md-ellipsis">
     BERT
   </span>
+<span class="md-status md-status--new"></span>
 </a>
 </li>
 <li class="md-nav__item">
@@ -1187,6 +1191,7 @@
 <span class="md-ellipsis">
     Long Chain
   </span>
+<span class="md-status md-status--new"></span>
 </a>
 </li>
 <li class="md-nav__item">
@@ -1194,6 +1199,7 @@
 <span class="md-ellipsis">
     05 | Deployment
   </span>
+<span class="md-status md-status--new"></span>
 </a>
 </li>
 <li class="md-nav__item">
@@ -1201,6 +1207,7 @@
 <span class="md-ellipsis">
     vLLM
   </span>
+<span class="md-status md-status--new"></span>
 </a>
 </li>
 <li class="md-nav__item">
@@ -1208,13 +1215,15 @@
 <span class="md-ellipsis">
     06 | Infer Optimization
   </span>
+<span class="md-status md-status--new"></span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../AI/LLM/Engineer/07-Evaluation.html">
 <span class="md-ellipsis">
-    LLM 评估与监控
+    07 | LLM 评估与监控
   </span>
+<span class="md-status md-status--new"></span>
 </a>
 </li>
 </ul>
@@ -1278,6 +1287,7 @@
 <span class="md-ellipsis">
     04 | SFT
   </span>
+<span class="md-status md-status--new"></span>
 </a>
 </li>
 <li class="md-nav__item">
@@ -2954,6 +2964,20 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../Research/Papers/SpongeExamples.html">
+<span class="md-ellipsis">
+    SpongeExamples
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Research/Papers/Zero_Query_Adversarial_Attack.html">
+<span class="md-ellipsis">
+    Zero-Query Adversarial Attack on Black-box Automatic Speech Recognition Systems
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../Research/Papers/NICGSlowDown.html">
 <span class="md-ellipsis">
     NICGSlowDown [CVPR22]
@@ -2967,6 +2991,13 @@
     VerboseImages [ICLR24]
   </span>
 <span class="md-status md-status--new"></span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Research/Papers/OverThink.html">
+<span class="md-ellipsis">
+    OverThink: Slowdown Attacks on Reasoning LLMs
+  </span>
 </a>
 </li>
 </ul>
@@ -3220,6 +3251,7 @@
 <span class="md-ellipsis">
     Latex备忘录
   </span>
+<span class="md-status md-status--happy"></span>
 </a>
 </li>
 <li class="md-nav__item">
@@ -3964,6 +3996,82 @@
 </ul>
 </nav>
 </li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_10_10" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../blog/index.html">
+<span class="md-ellipsis">
+    Blog
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_10_10" id="__nav_10_10_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_10_10_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_10_10">
+<span class="md-nav__icon md-icon"></span>
+            Blog
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../blog/tags.html">
+<span class="md-ellipsis">
+    Tag index for the blog
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_10_10_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_10_10_3" id="__nav_10_10_3_label" tabindex="0">
+<span class="md-ellipsis">
+    归档
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_10_10_3_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_10_10_3">
+<span class="md-nav__icon md-icon"></span>
+            归档
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../blog/archive/2025.html">
+<span class="md-ellipsis">
+    八月 2025
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_10_10_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_10_10_4" id="__nav_10_10_4_label" tabindex="0">
+<span class="md-ellipsis">
+    分类
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_10_10_4_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_10_10_4">
+<span class="md-nav__icon md-icon"></span>
+            分类
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../blog/category/feelings.html">
+<span class="md-ellipsis">
+    Feelings
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
 </ul>
 </nav>
 </li>
@@ -4065,6 +4173,7 @@
 <li>个体学习器强依赖关系，采用串行式的方法：boosting</li>
 <li>个体学习期不存在强依赖关系，并行化的方法<span><span class="heti-spacing"> </span>:bagging,RF</span></li>
 </ul>
+<!--more-->
 <h2 id="boosting-adaboost">boosting - AdaBoost<a class="headerlink" href="#boosting-adaboost" title="anchor link to this section for reference">¶</a></h2>
 <p><a href="https://zhuanlan.zhihu.com/p/41536315">通俗易懂理解——<span>Adaboost<span class="heti-spacing"> </span></span>算法原理<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>知乎</a></p>
 <h3 id="training-error-bound">📌Training Error Bound<a class="headerlink" href="#training-error-bound" title="anchor link to this section for reference">¶</a></h3>
@@ -4261,6 +4370,7 @@ Z_t = 2 \sqrt{\epsilon_t (1 - \epsilon_t)} \leq e^{-2\gamma_t^2} \quad \text{其
 <script src="../../style/javascripts/toc.js"></script>
 <script src="../../style/javascripts/MathJax-3.2.2/es5/tex-mml-chtml.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<script src="../../termynal.js"></script>
 <script src="../../assets/javascripts/custom.9e5da760.min.js"></script>
 </body>
 </html>
