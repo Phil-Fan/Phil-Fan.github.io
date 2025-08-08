@@ -121,7 +121,7 @@ Acknowledgement
 
 ## 信号分类 + 连续信号分析
 
-![连续信号](assets/signal.assets/%25E8%25BF%259E%25E7%25BB%25AD%25E4%25BF%25A1%25E5%258F%25B7.svg)
+![连续信号](assets/signal.assets/map1.svg)
 
 模拟信号和数字信号的定义
 
@@ -309,7 +309,7 @@ $$
 
 ## 离散信号的分析
 
-![离散信号](assets/signal.assets/%E7%A6%BB%E6%95%A3%E4%BF%A1%E5%8F%B7.svg)
+![离散信号](assets/signal.assets/dis.svg)
 
 **常见离散信号、信号的时域计算**
 关于信号卷积、相关性和反卷积，可以看[这一篇](https://zhuanlan.zhihu.com/p/196786958)

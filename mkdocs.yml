@@ -305,7 +305,7 @@ nav:
 
 
 - AI: 
-
+    - AI/index.md
     - "ADV | 生成式模型":
         - AI/ADV/index.md
         - AI/ADV/01-Transformers.md
@@ -469,7 +469,7 @@ nav:
 
 
 - "CS":
-
+  - CS/index.md
   - Language:
     - CS/Language/C.md
     - CS/Language/C++.md
@@ -729,7 +729,6 @@ nav:
 - Blog:
   - blog/index.md
   - blog/tags.md
-
 
 
 plugins:

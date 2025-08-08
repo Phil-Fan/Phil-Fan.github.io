@@ -108,9 +108,9 @@ comments: true
 - 加入料汁翻炒，加入香料翻炒
 
 
-![](assets/eat.assets/IMG_1608.jpeg)
+![](assets/eat.assets/IMG_1608.jpg)
 
-![](assets/eat.assets/IMG_1610.jpeg)
+![](assets/eat.assets/IMG_1610.jpg)
 
 第三阶段：炖煮
 
@@ -119,7 +119,7 @@ comments: true
 - 放入土豆和胡萝卜，小火慢炖20min。
 - 出锅前加盐调味
 
-![](assets/eat.assets/IMG_1612.jpeg)
+![](assets/eat.assets/IMG_1612.jpg)
 
 
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=114186487078644&bvid=BV1giQ9YzEna&cid=28941878702&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=600px height=450px></iframe>
@@ -165,10 +165,10 @@ comments: true
 
 再放少量油，下蒜末、姜片、小米辣、泡椒炒香，将牛肉回锅，放入鸡精和一小盖泡椒水，最后放入香菜炒软即可出锅。
 
-![](assets/eat.assets/2f8ef153a666bc37701359f23b0587ec.jpeg)
+![](assets/eat.assets/2f8ef153a666bc37701359f23b0587ec.jpg)
 
 
-![](assets/eat.assets/IMG_1081.jpeg)
+![](assets/eat.assets/IMG_1081.jpg)
 
 
 ### 虾仁
@@ -182,7 +182,7 @@ comments: true
 
 与青椒一起煎，需要注意放水的量，放太多水以后就收不了汁了
 
-![](assets/eat.assets/IMG_1083.jpeg)
+![](assets/eat.assets/IMG_1083.jpg)
 
 ### 秋葵鸡蛋
 > 教程来源 叮咚买菜
@@ -293,7 +293,7 @@ comments: true
 变式：番茄鸡蛋西兰花
 
 少油，放小块番茄，炒至糊状，倒入西兰花和炒过的鸡蛋
-![](assets/eat.assets/IMG_1082.jpeg)
+![](assets/eat.assets/IMG_1082.jpg)
 
 ### 清炒菠菜
 
@@ -310,9 +310,9 @@ comments: true
 4. 放蒜末和辣椒爆香，放豆角翻炒
 5. 适量调料
 
-![](assets/eat.assets/IMG_1132.jpeg)
+![](assets/eat.assets/IMG_1132.jpg)
 
-![](assets/eat.assets/ad393f3e90c68ca2cbd6c6e30d829ca8.jpeg)
+![](assets/eat.assets/ad393f3e90c68ca2cbd6c6e30d829ca8.jpg)
 
 ### 丝瓜炒鸡蛋
 
@@ -324,7 +324,7 @@ comments: true
 6. 加生抽、蚝油、淀粉水
 7. 出锅
 
-![](assets/eat.assets/20250403091130.png)
+![](assets/eat.assets/20250403091130.jpg)
 
 ### 香椿炒鸡蛋
 
@@ -352,7 +352,7 @@ comments: true
 6. 出锅的时候放一点葱花，放蒸鱼豉油
 
 第一版：
-![](assets/eat.assets/fee7d4415b8c6b1c13497dc999e0bf4d.jpeg)
+![](assets/eat.assets/fee7d4415b8c6b1c13497dc999e0bf4d.jpg)
 
 第二版：
 
