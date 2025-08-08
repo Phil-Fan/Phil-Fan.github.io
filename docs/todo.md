@@ -10,17 +10,23 @@ He who hesitates is lost
 
 ## 学习计划
 
+更新计划：
+- [ ] Mkdocs 配置文档
+- [ ] Git实操+文档详细
+- [ ] 学习illustator 进行科研作图
+- [ ] 路由器配置openwrt
+- [ ] 把智能家居魔杖丰富一下
+
+
 !!! note "正在学习的内容"
     - 统计学习；整理一下机器学习的笔记；大数据分析的笔记整理 <br>
     - 生成式模型论文阅读与笔记整理
     - 非线性控制 & 最优控制
     - CS61A的题目刷完
-    - 学习illustator 进行科研作图
     
 
 !!! tip "短期想要做的"
-    - [ ] 把智能家居魔杖丰富一下<br>
-    - [ ] 路由器配置openwrt<br>
+    - [ ] dRehmFlight
     - [ ] 找一个开源项目写中文文档build with bombs?
     - [x] 学习一下limu怎么引用论文，把这个[Semantic Scholar - Academic Graph API](https://api.semanticscholar.org/api-docs/graph)搞到文档里面
 

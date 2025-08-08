@@ -72,6 +72,17 @@ status: happy
     </a>
 </div>
 
+<div class="flink-list-item">
+    <a href="https://slowist-lee.github.io/notebook/" title="Slowist's Notebook" target="_blank">
+        <div class="flink-item-icon">
+            <img src="https://slowist-lee.github.io/navigation/images/slowist-logo.jpg" alt="Slowist's Notebook">
+        </div>
+        <div class="flink-item-name">Slowist's Notebook</div>
+        <div class="flink-item-desc">Follow My Heart!( ง `ω´ )۶</div>
+    </a>
+</div>
+
+
 </div>
 
 

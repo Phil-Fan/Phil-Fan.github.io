@@ -6,13 +6,52 @@
 
 
 - index.md 会放到小标题下的第一个页面
-## Markdown
+
+## Markdown相关功能
 
 
 
-[Markdown 教程-常见Markdown错误和解决方法 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/672261576)
+### 提示块
+
+
+!!! failure "这是 failure 类型的提示框" 
+	注意`extension`不要拼成`extention`！！
+
+!!! bug "这是 bug 类型的提示框" 
+    发现一个 bug，请尽快修复！
+
+!!! tip "tip"
+
+!!! note "note"
+
+!!! question "这是 question 类型的提示框"
+    这是一个问题，请回答！
+
+!!! warning "这是 warning 类型的提示框"
+    注意！注意！注意！
+
+!!! success "这是 success 类型的提示框"
+    恭喜你，完成了一个任务！
+
+!!! example "这是 example 类型的提示框"
+
+!!! info "这是 info 类型的提示框"
+
+!!! abstract "这是 abstract 类型的提示框"
+
+!!! quote "这是 quote 类型的提示框"
+
+
+
+### 列表
+```
+- [x] finished
+- [ ] not finished
+```
 
 ### 图标 Badge
+
+其实是一个图片
 
 [![GitHub Repo stars](https://img.shields.io/github/stars/Phil-Fan/Phil-Fan.github.io)](https://github.com/Phil-Fan/Phil-Fan.github.io) 
 
@@ -21,6 +60,71 @@
 - [Simple Icons](https://simpleicons.org/)
 - [Semantic Scholar - Academic Graph API](https://api.semanticscholar.org/api-docs/graph#tag/Paper-Data)
 - [Google Scholar API | Scrape Google Scholar - SerpApi](https://serpapi.com/google-scholar-api)
+
+
+
+### 代码块
+[Code blocks(代码块) - Material for MkDocs](https://wdk-docs.github.io/mkdocs-material-docs/reference/code-blocks/#annotations-with-numbers)
+
+`hl_lines="2 3"` 高亮行
+
+`linenums="1"` 显示行号
+
+`title="bubble_sort.py"` 显示文件名字
+
+
+### 嵌入b站视频
+
+
+1.打开B站的视频
+2.点击“分享”按钮，获取“嵌入代码”：B站视频的下一行，点击“分享”按钮，下方弹出分享页面。
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241031230641.png)
+
+禁用方法很简单，就是在视频 url 链接最后加上 autoplay=0。例如：
+
+```html title="禁止自动播放"
+<iframe src="//player.bilibili.com/player.html?aid=951910057&bvid=BV1zs4y177sv&cid=1078968085&page=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="500" height="300"> </iframe>
+```
+
+??? info "参数用途"
+
+    | 参数用途                         | 参数名      | 使用方法          |
+    |----------------------------------|-------------|-------------------|
+    | 是否自动播放(默认否)            | `autoplay`    | 1: 开启, 0: 关闭  |
+    | 默认弹幕开关(默认开启)          | `danmaku`    | 1: 开启, 0: 关闭  |
+    | 是否默认静音(默认否)            | `muted`       | 1: 开启, 0: 关闭  |
+    | 一键静音按钮是否显示(默认不显示) | `hasMuteButton` | 1: 开启, 0: 关闭  |
+    | 视频封面下方是否显示播放量弹幕量等信息(默认显示) | `hideCoverInfo` | 1: 开启, 0: 关闭  |
+    | 是否隐藏弹幕按钮(默认不隐藏)    | `hideDanmakuButton` | 1: 开启, 0: 关闭 |
+    | 是否隐藏全屏按钮(默认显示)      | `noFullScreenButton` | 1: 开启, 0: 关闭 |
+    | 是否开始记忆播放(默认开启)      | `fw`          | 1: 开启, 0: 关闭  |
+    | 默认开始时间(默认0)             | `t`           | 直接填写数值, 单位秒 |
+    | 是否显示高清(默认否)            | `highQuality` | 1: 开启, 0: 关闭 (貌似是无用的, 各位可以试试) |
+
+### 嵌套列表
+
+> 来自 [解决 mkdocs 不支持无序列表嵌套 - SegmentFault 思否](https://segmentfault.com/a/1190000042842937)
+
+安装 `mdx_truly_sane_lists` 
+
+```shell
+pip install mdx_truly_sane_lists
+```
+
+然后在 `mkdoc.yml` 的 `markdown_extensions` 添加 `mdx_truly_sane_lists` 就好了
+
+
+### mermaid支持
+
+
+
+
+## Mkdocs插件使用记录
+
+
+### Blog
+
 
 ### RSS
 
@@ -41,9 +145,6 @@ plugins:
 ```
 
 
-
-
-### Blog
 
 ### termynal
 
@@ -72,30 +173,10 @@ plugins:
 ```
 
 
-### 方块
-```markdown
-!!! info
-
-!!! inline info ""
-```
-
-### 列表
-```
-- [x] finished
-- [ ] not finished
-```
 
 
 
 
-### 代码块
-[Code blocks(代码块) - Material for MkDocs](https://wdk-docs.github.io/mkdocs-material-docs/reference/code-blocks/#annotations-with-numbers)
-
-`hl_lines="2 3"` 高亮行
-
-`linenums="1"` 显示行号
-
-`title="bubble_sort.py"` 显示文件名字
 
 
 ### Jupyter Notebook
@@ -164,146 +245,6 @@ plugins:
 </div>
 ```
 
-### 嵌入b站视频
-
-
-1.打开B站的视频
-2.点击“分享”按钮，获取“嵌入代码”：B站视频的下一行，点击“分享”按钮，下方弹出分享页面。
-
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241031230641.png)
-
-禁用方法很简单，就是在视频 url 链接最后加上 autoplay=0。例如：
-
-```html title="禁止自动播放"
-<iframe src="//player.bilibili.com/player.html?aid=951910057&bvid=BV1zs4y177sv&cid=1078968085&page=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="500" height="300"> </iframe>
-```
-
-
-| 参数用途                         | 参数名      | 使用方法          |
-|----------------------------------|-------------|-------------------|
-| 是否自动播放(默认否)            | `autoplay`    | 1: 开启, 0: 关闭  |
-| 默认弹幕开关(默认开启)          | `danmaku`    | 1: 开启, 0: 关闭  |
-| 是否默认静音(默认否)            | `muted`       | 1: 开启, 0: 关闭  |
-| 一键静音按钮是否显示(默认不显示) | `hasMuteButton` | 1: 开启, 0: 关闭  |
-| 视频封面下方是否显示播放量弹幕量等信息(默认显示) | `hideCoverInfo` | 1: 开启, 0: 关闭  |
-| 是否隐藏弹幕按钮(默认不隐藏)    | `hideDanmakuButton` | 1: 开启, 0: 关闭 |
-| 是否隐藏全屏按钮(默认显示)      | `noFullScreenButton` | 1: 开启, 0: 关闭 |
-| 是否开始记忆播放(默认开启)      | `fw`          | 1: 开启, 0: 关闭  |
-| 默认开始时间(默认0)             | `t`           | 直接填写数值, 单位秒 |
-| 是否显示高清(默认否)            | `highQuality` | 1: 开启, 0: 关闭 (貌似是无用的, 各位可以试试) |
-
-
-## Mathjax 
-
-
-[mkdocs-material/docs/plugins/privacy.md 在 master ·squidfunk/mkdocs-材料](https://github.com/squidfunk/mkdocs-material/blob/master/docs/plugins/privacy.md)
-
-jupyter 遇到了单行公式无法显示的问题
-[Local MathJax with mkdocs-jupyter · squidfunk/mkdocs-material · Discussion #7134](https://github.com/squidfunk/mkdocs-material/discussions/7134)
-
-
-Steps to reproduce
-
-Download MathJax:
-```shell
-wget https://github.com/mathjax/MathJax/archive/refs/tags/3.2.2.zip
-unzip 3.2.2.zip "MathJax-3.2.2/es5/*" -d docs/assets/javascripts/
-```
-Create mathjax.js:
-```js title="mathjax.js"
-window.MathJax = {
-    tex: {
-      inlineMath: [['$', '$'], ['\\(', '\\)']],
-    //   displayMath: [ ['$$', '$$'], ['\[', '\]'] ],
-      processEscapes: true,
-      processEnvironments: true
-    },
-    options: {
-    //   ignoreHtmlClass: ".*|",
-    //   processHtmlClass: "arithmatex"
-    }
-  };
-  document$.subscribe(() => { 
-    MathJax.startup.output.clearCache()
-    MathJax.typesetClear()
-    MathJax.texReset()
-    MathJax.typesetPromise()
-  })
-```
-
-Adapt nbconvert:, removing implicit load of Mathjax (see here)
-
-```shell title="remove mathjax"
-sed -i 's#https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS_CHTML-full,Safe##g' venv/lib/python3.12/site-packages/nbconvert/exporters/html.py
-```
-
-这一步如果在虚拟环境下面，自己找到对应的路径进行修改
-```yml title="static.yml"
-- name: Modify nbconvert HTML exporter
-        run: sed -i 's#https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS_CHTML-full,Safe##g' $(python -c "import nbconvert; print(nbconvert.__file__.replace('__init__.py', 'exporters/html.py'))")
-```
-
-Adjust mkdocs.yml:
-```yml title="mkdocs.yml" 
-plugins:
-    - privacy
-    - mkdocs-jupyter
-
-extra_javascript:
-  - assets/javascripts/mathjax.js
-  - assets/javascripts/MathJax-3.2.2/es5/tex-mml-chtml.js
-```
-
-## 配置
-
-### Commands
-
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
-
-??? note "安装代码" 
-	```Shell
-    pip install mkdocs
-    pip install mkdocs-material
-    pip install mkdocs-material-extensions
-    pip install mkdocs-git-revision-date-localized-plugin
-    pip install mkdocs-statistics-plugin
-    pip install mkdocs-heti-plugin
-	```
-
-
-
-!!! failure "这是 failure 类型的提示框" 
-	注意`extension`不要拼成`extention`！！
-
-!!! bug "这是 bug 类型的提示框" 
-    发现一个 bug，请尽快修复！
-
-!!! tip "tip"
-
-!!! note "note"
-
-!!! question "这是 question 类型的提示框"
-    这是一个问题，请回答！
-
-!!! warning "这是 warning 类型的提示框"
-    注意！注意！注意！
-
-!!! success "这是 success 类型的提示框"
-    恭喜你，完成了一个任务！
-
-!!! example "这是 example 类型的提示框"
-
-!!! info "这是 info 类型的提示框"
-
-!!! abstract "这是 abstract 类型的提示框"
-
-!!! quote "这是 quote 类型的提示框"
-
-
-## 插件
 
 ### Github评论
 
@@ -412,92 +353,6 @@ plugins:
 [mkdocs-material集成评论系统 - 知识库 (geodoer.github.io)](https://geodoer.github.io/Z-工具/博客相关工具/mkdocs/mkdocs-material/评论系统/#commentshtml)
 [为Mkdocs网站添加评论系统（以giscus为例）\_giscus mkdocs-CSDN博客](https://blog.csdn.net/m0_63203517/article/details/133819706)
 
-
-### 图床的配置与更换
-
-原先配置的时候使用的是gitee的仓库配置
-
-但在发布网站后发现所有的图片都无法显示
-
-#### 原因
-
-[查询资料](https://blog.csdn.net/qq_45173404/article/details/123759688)后发现是Gitee防盗链的原因
-
->发现图片请求的过程与上面不同，请求头中多了一个`Referer`字段，也就是我自己的gitee地址。
->应该是Gitee添加了防盗链机制，当我们通过直接访问存储在Gitee上的图片时，Http请求头没有Referer字段，所以被Gitee服务器当作黑名单而拒绝响应。而前面我们通过Gitee Page部署的Hexo博客请求时，由于代码都托管在Gitee上，在加载所有图片的时候都附加了Referer字段指向Gitee，相当于被Gitee服务器看作白名单因而可以访问。
-
-
-#### 解决办法
-
-将图像存储更改为阿里云OSS，根据[教程](https://zhuanlan.zhihu.com/p/104152479)做出以下操作
-
-- 购买阿里云oss服务
-- 创建用户，记录id和密码
-- 将图床中的所有图片迁移到阿里云当中
-- 更换picgo中服务
-- 更换`.md`中所有图片的链接
-
-
-picgo中的设置如下
-
-1. 设定`keyid`，就是创建用户的`AccessKey ID`，
-2. `KeySecret` 就是`AccessKeySecret`
-3. 存储空间名就是创建Bucket的名字，存储区域也是创建时设定的， 忘记的可以通过Bucket概览查看，如下图所示：
-4. 存储路径默认设置img/即可
-5. 如果自己有已经备案的域名，可以填写设定自定义域名，如果没有不填即可。
-
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240813014140.png)
-
-#### 图床的迁移
-
-[利用 PicGo 快速迁移 Gitee 图床外链图片到服务器-腾讯云开发者社区-腾讯云](https://cloud.tencent.com/developer/article/1975652)
-
-
-[替换的工具 - 时光](https://blog.shiguang666.eu.org/2024/10/15/6b65681b29d7/#%E4%B8%80%E3%80%81%E9%9C%80%E6%B1%82%E6%8F%8F%E8%BF%B0)
-
-[jarvanstack/markpic: 一键下载 markdown 中图片, 并通过 picgo 上传图片到图床并替换链接](https://github.com/jarvanstack/markpic)
-### 解决列表无法嵌套的问题
-
-> 来自 [解决 mkdocs 不支持无序列表嵌套 - SegmentFault 思否](https://segmentfault.com/a/1190000042842937)
-
-安装 `mdx_truly_sane_lists` 
-
-```shell
-pip install mdx_truly_sane_lists
-```
-
-然后在 `mkdoc.yml` 的 `markdown_extensions` 添加 `mdx_truly_sane_lists` 就好了
-
-
-
-### 显示音乐符号
-
-关于安装lilypond
-
-LilyPond (荷花池) 是一个音乐雕版软件，致力产生最高质量的乐谱。它把传统音乐雕版印刷的美学，呈现在计算机打印的乐谱上。LilyPond 是自由软件，也是 GNU Project 的一部分。
-
-[Download (LilyPond – 人人的乐谱软件)](https://lilypond.org/download.zh.html)
-
-下载之后，是没有安装的，但是需要将其添加到环境变量中.win菜单搜索`查看高级环境设置`,在path中添加`lilypond\bin\`的路径
-
-编译
-
-```shell
-lilypond -o output music.ly
-```
-
-[LilyPond 学习手册: LilyPond — 学习手册](https://lilypond.org/doc/v2.23/Documentation/learning/index)
-
-
-
-[关于在 Markdown 中描述音乐符号](https://blog.twofei.com/1425/)
-[Lilypond in Markdown](https://lilypond-in-markdown.netlify.app/)
-
-
-[Render LilyPond in Markdown](https://pianomanfrazier.com/post/lilypond-in-markdown/)
-
-[uliska/markdown-lilypond： 支持 LilyPond（符号软件）输入的 MkDocs 插件](https://github.com/uliska/markdown-lilypond)
-
 ### changelog 
 
 [TonyCrane/mkdocs-changelog-plugin: A MkDocs plugin that create changelog in a page](https://github.com/TonyCrane/mkdocs-changelog-plugin?tab=readme-ov-file)
@@ -551,8 +406,126 @@ changelog: True
 [OpenFiles.online](https://openfiles.online/)
 [在浏览器中解析和渲染 XMind 文件 | 文森的主站](https://liangwensen.com/blog/parse-and-render-xmind-file-in-browser)
 
+### git-revision
 
-## 发布
+
+### statistics
+使用统计插件
+
+
+
+
+### heti
+
+
+
+### mkdocs-video
+
+### minify
+有bug
+
+
+
+
+## 配置
+
+### Commands
+
+* `mkdocs new [dir-name]` - Create a new project.
+* `mkdocs serve` - Start the live-reloading docs server.
+* `mkdocs build` - Build the documentation site.
+* `mkdocs -h` - Print help message and exit.
+
+??? note "安装代码" 
+	```Shell
+    pip install mkdocs
+    pip install mkdocs-material
+    pip install mkdocs-material-extensions
+    pip install mkdocs-git-revision-date-localized-plugin
+    pip install mkdocs-statistics-plugin
+    pip install mkdocs-heti-plugin
+	```
+### Overrides
+
+#### 主页
+
+#### banner位置
+
+
+### social links
+
+
+### nav配置
+
+### hooks
+
+
+### Mathjax 
+
+
+[mkdocs-material/docs/plugins/privacy.md 在 master ·squidfunk/mkdocs-材料](https://github.com/squidfunk/mkdocs-material/blob/master/docs/plugins/privacy.md)
+
+jupyter 遇到了单行公式无法显示的问题
+[Local MathJax with mkdocs-jupyter · squidfunk/mkdocs-material · Discussion #7134](https://github.com/squidfunk/mkdocs-material/discussions/7134)
+
+
+Steps to reproduce
+
+Download MathJax:
+```shell
+wget https://github.com/mathjax/MathJax/archive/refs/tags/3.2.2.zip
+unzip 3.2.2.zip "MathJax-3.2.2/es5/*" -d docs/assets/javascripts/
+```
+Create mathjax.js:
+```js title="mathjax.js"
+window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+    //   displayMath: [ ['$$', '$$'], ['\[', '\]'] ],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+    //   ignoreHtmlClass: ".*|",
+    //   processHtmlClass: "arithmatex"
+    }
+  };
+  document$.subscribe(() => { 
+    MathJax.startup.output.clearCache()
+    MathJax.typesetClear()
+    MathJax.texReset()
+    MathJax.typesetPromise()
+  })
+```
+
+Adapt nbconvert:, removing implicit load of Mathjax (see here)
+
+```shell title="remove mathjax"
+sed -i 's#https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS_CHTML-full,Safe##g' venv/lib/python3.12/site-packages/nbconvert/exporters/html.py
+```
+
+这一步如果在虚拟环境下面，自己找到对应的路径进行修改
+```yml title="static.yml"
+- name: Modify nbconvert HTML exporter
+        run: sed -i 's#https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS_CHTML-full,Safe##g' $(python -c "import nbconvert; print(nbconvert.__file__.replace('__init__.py', 'exporters/html.py'))")
+```
+
+Adjust mkdocs.yml:
+```yml title="mkdocs.yml" 
+plugins:
+    - privacy
+    - mkdocs-jupyter
+
+extra_javascript:
+  - assets/javascripts/mathjax.js
+  - assets/javascripts/MathJax-3.2.2/es5/tex-mml-chtml.js
+```
+### 查看与编辑代码
+
+### 颜色主题
+
+
+## 部署
 
 发布也遇到了好几个坑
 
@@ -597,5 +570,85 @@ jobs:
 
 - 设置自定义域名
 将域名填入`CNAME`文件中，然后打开仓库的设置界面，在cumtom domain 中设置好自己的域名
+
+
+## Deprecated
+
+
+### 图床的配置与更换
+
+原先配置的时候使用的是gitee的仓库配置
+
+但在发布网站后发现所有的图片都无法显示
+
+#### 原因
+
+[查询资料](https://blog.csdn.net/qq_45173404/article/details/123759688)后发现是Gitee防盗链的原因
+
+>发现图片请求的过程与上面不同，请求头中多了一个`Referer`字段，也就是我自己的gitee地址。
+>应该是Gitee添加了防盗链机制，当我们通过直接访问存储在Gitee上的图片时，Http请求头没有Referer字段，所以被Gitee服务器当作黑名单而拒绝响应。而前面我们通过Gitee Page部署的Hexo博客请求时，由于代码都托管在Gitee上，在加载所有图片的时候都附加了Referer字段指向Gitee，相当于被Gitee服务器看作白名单因而可以访问。
+
+
+#### 解决办法
+
+将图像存储更改为阿里云OSS，根据[教程](https://zhuanlan.zhihu.com/p/104152479)做出以下操作
+
+- 购买阿里云oss服务
+- 创建用户，记录id和密码
+- 将图床中的所有图片迁移到阿里云当中
+- 更换picgo中服务
+- 更换`.md`中所有图片的链接
+
+
+picgo中的设置如下
+
+1. 设定`keyid`，就是创建用户的`AccessKey ID`，
+2. `KeySecret` 就是`AccessKeySecret`
+3. 存储空间名就是创建Bucket的名字，存储区域也是创建时设定的， 忘记的可以通过Bucket概览查看，如下图所示：
+4. 存储路径默认设置img/即可
+5. 如果自己有已经备案的域名，可以填写设定自定义域名，如果没有不填即可。
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240813014140.png)
+
+#### 图床的迁移
+
+[利用 PicGo 快速迁移 Gitee 图床外链图片到服务器-腾讯云开发者社区-腾讯云](https://cloud.tencent.com/developer/article/1975652)
+
+
+[替换的工具 - 时光](https://blog.shiguang666.eu.org/2024/10/15/6b65681b29d7/#%E4%B8%80%E3%80%81%E9%9C%80%E6%B1%82%E6%8F%8F%E8%BF%B0)
+
+[jarvanstack/markpic: 一键下载 markdown 中图片, 并通过 picgo 上传图片到图床并替换链接](https://github.com/jarvanstack/markpic)
+
+
+
+
+### 显示音乐符号
+
+关于安装lilypond
+
+LilyPond (荷花池) 是一个音乐雕版软件，致力产生最高质量的乐谱。它把传统音乐雕版印刷的美学，呈现在计算机打印的乐谱上。LilyPond 是自由软件，也是 GNU Project 的一部分。
+
+[Download (LilyPond – 人人的乐谱软件)](https://lilypond.org/download.zh.html)
+
+下载之后，是没有安装的，但是需要将其添加到环境变量中.win菜单搜索`查看高级环境设置`,在path中添加`lilypond\bin\`的路径
+
+编译
+
+```shell
+lilypond -o output music.ly
+```
+
+[LilyPond 学习手册: LilyPond — 学习手册](https://lilypond.org/doc/v2.23/Documentation/learning/index)
+
+
+
+[关于在 Markdown 中描述音乐符号](https://blog.twofei.com/1425/)
+[Lilypond in Markdown](https://lilypond-in-markdown.netlify.app/)
+
+
+[Render LilyPond in Markdown](https://pianomanfrazier.com/post/lilypond-in-markdown/)
+
+[uliska/markdown-lilypond： 支持 LilyPond（符号软件）输入的 MkDocs 插件](https://github.com/uliska/markdown-lilypond)
+
 
 

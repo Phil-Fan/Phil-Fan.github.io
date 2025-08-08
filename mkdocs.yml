@@ -161,6 +161,11 @@ extra:
       link: https://www.zhihu.com/people/phil.fan
       name: PhilFan's Zhihu
 
+    - icon: fontawesome/brands/bilibili
+      link: https://space.bilibili.com/1000000000000000000
+      name: PhilFan's Bilibili
+
+
     
 
   analytics:
