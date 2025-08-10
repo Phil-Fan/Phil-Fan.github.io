@@ -1,4 +1,8 @@
 - "2025":
+  - "2025-08-10":
+    - function:
+        text: "增加git-committers功能"
+        href: "https://github.com/Phil-Fan/Phil-Fan.github.io"
   - "2025-08-07":
     - function:
         text: "增加blog功能"

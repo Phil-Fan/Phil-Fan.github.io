@@ -707,10 +707,14 @@ nav:
       # - Class/Fin/invest-stock.md
       - Class/Fin/consulting.md
       - Class/Fin/industry-analyze.md
-      # - Class/Fin/industry-finance.md
-      # - Class/Fin/industry-welfare.md
+      - Class/Fin/industry-finance.md
+      - Class/Fin/industry-welfare.md
       # - "微观经济学":
         # - Class/Fin/micro/intro.md
+      - 公司与掌舵人:
+        - Class/Fin/company/luckin.md
+        - Class/Fin/company/mixue.md
+        - Class/Fin/company/xiaomi.md
 
 
   - "🏃运动":
@@ -730,11 +734,8 @@ nav:
     - Interest/Travel/C-Driving.md
     - Interest/Travel/C-journey.md
     - Interest/Travel/C-J-浙江.md
-    # - Interest/Travel/C-J-江西.md
     - Interest/Travel/C-J-四川.md
-    # - Interest/Travel/C-J-安徽.md
-    #- 香港: 
-     # - Interest/Travel/C-J-HK.md
+    - Interest/Travel/C-J-安徽.md
     - 日本: 
       - Interest/Travel/C-J-Japan.md
     - 马来西亚: 
@@ -866,4 +867,10 @@ plugins:
       use_git: true
       use_material_blog: true
       use_material_social_cards: true
+
+  # https://github.com/ojacques/mkdocs-git-committers-plugin-2
+  - git-committers:
+      repository: Phil-Fan/Phil-Fan.github.io
+      branch: master
+      token: !!python/object/apply:os.getenv ["MKDOCS_GIT_COMMITTERS_APIKEY"]
   
