@@ -14,8 +14,17 @@
 
 
 THU
+
 [Han Qiu (邱寒)](https://qiuhan.info//publications/)
 
+[徐恪 | thucsnet](http://thucsnet.com/index.php/xuke-chinese/)
+
+[Qi Li (李琦) - NISL@THU](https://netsec.ccert.edu.cn/chs/people/qli/)
 
 Cambridge
+
 [Ross Anderson's Home Page](https://www.cl.cam.ac.uk/archive/rja14/)
+
+University of Central Florida
+
+[Fan Yao](http://fan-yao.com/)

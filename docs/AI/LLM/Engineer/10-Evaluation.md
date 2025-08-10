@@ -6,6 +6,37 @@ status: new
 
 !!! note "正在施工中👷.. "
 
+```toml title="本项目用到的pyproject.toml"
+[project]
+name = "code"
+version = "0.1.0"
+description = "my repos of using vllm and relating tools"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "datasets>=4.0.0",
+    "evalscope[app,perf,vlmeval]>=0.16.3",
+    "lmcache>=0.3.3",
+    "nixl>=0.4.1",
+    "nvitop>=1.5.2",
+    "nvitop-exporter>=1.5.2",
+    "pandas>=2.3.1",
+    "swanlab>=0.6.8",
+    "vllm>=0.10.0",
+]
+
+[[tool.uv.index]]
+url = "https://mirrors.aliyun.com/pypi/simple"
+default = true
+ 
+[tool.uv.pip]
+index-url = "https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple"
+```
+
+## 工具链
+
+vllm + Prometheus + Grafana
+
 
 ## Benchmark 基准测试
 
@@ -84,9 +115,16 @@ python3 vllm/benchmarks/benchmark_throughput.py \
 SGLang 框架提供的基准测试工具，用于评估 SGLang 应用的性能表现。
 
 
-### EvalScope
+### evalscope
 
 来自 ModelScope 的评估工具，提供全面的模型评估能力。
+
+#### VLM
+
+
+
+
+
 
 ### GenAI-Perf
 
@@ -102,29 +140,23 @@ SGLang 框架提供的基准测试工具，用于评估 SGLang 应用的性能�
 
 ## 监控工具
 
-### GPU 监控
-
-#### nvitop
+### nvitop-exporter
 
 nvitop 是一个实时监控 GPU 各项核心指标的工具，支持终端交互式查看。
 
-**主要功能：**
-- 实时 GPU 利用率监控
-- 显存占用情况
-- GPU 温度监控
-- 进程级别的 GPU 使用情况
-- 终端交互式界面
-
-#### nvitop-exporter
+nvitop-exporter
 
 将 GPU 指标转换为 Prometheus 兼容格式的工具，通过 HTTP 接口暴露数据。
 
-**主要功能：**
-- GPU 指标数据转换
-- Prometheus 格式输出
-- HTTP 接口暴露
-- 与监控系统集成
+```shell
+uv pip install --upgrade nvitop nvitop-exporter
+```
 
+```shell
+nvitop-exporter --bind 0.0.0.0 --port 5050
+```
+
+会在`5050/metrics`下面把gpu的信息列出来，可以使用prometheus记性数据采集
 
 ### Prometheus
 
@@ -137,7 +169,47 @@ Prometheus 是一个开源的监控和告警系统，用于数据采集与存储
 - 服务发现
 - 高可用性支持
 
+[Download | Prometheus](https://prometheus.io/download/)
 
+!!! note "AutoDL因为本身就是docker环境搭建的，所以不支持运行docker"
+
+```shell
+tar -xvf prometheus-3.5.0.linux-amd64.tar 
+```
+
+
+
+```yml title="prometheus.yml" hl_lines="18 24"
+# 全局配置项，适用于所有 job
+global:
+  # 设置 Prometheus 抓取目标指标的时间间隔
+  scrape_interval: 15s      # 每 15 秒抓取一次数据（默认是 1 分钟）
+
+  # 设置评估告警规则的时间间隔
+  evaluation_interval: 15s  # 每 15 秒检查一次告警规则（默认是 1 分钟）
+
+  # 设置每次抓取目标的最大超时时间
+  scrape_timeout: 10s       # 默认也是 10 秒
+
+# 抓取目标配置
+scrape_configs:
+  # 第一个 job：监控 vllm 推理服务
+  - job_name: 'vllm'        # job 名称，Prometheus 中标签为 job="vllm"
+    static_configs:
+      - targets:
+          - '0.0.0.0:8080'  # vllm 服务的地址和端口，更改为你的服务端口
+
+  # 第二个 job：GPU 监控（使用 nvitop-exporter）
+  - job_name: 'gpu-monitoring'  # job 名称，用于标识 GPU 指标来源
+    static_configs:
+      - targets:
+          - '0.0.0.0:5050'  # nvitop-exporter 默认监听在 5050 端口
+```
+
+
+```shell title="运行，默认使用路径下的prometheus.yml配置"
+./prometheus
+```
 
 ## 可视化工具
 
@@ -151,6 +223,65 @@ Grafana 是一个开源的数据可视化和监控平台。
 - 仪表盘定制
 - 告警通知
 - 用户权限管理
+
+
+缺点：
+
+- 数据抓取时间间隔15s 较长，不适用于时间精度要求较高的任务
+
+=== "ubuntu"
+
+    这种方法autodl用不了
+    
+    ```shell title="安装"
+    sudo apt-get install -y adduser libfontconfig1 musl
+    wget https://dl.grafana.com/enterprise/release/grafana-enterprise_12.0.0_amd64.deb
+    sudo dpkg -i grafana-enterprise_12.0.0_amd64.deb
+    ```
+
+=== "直接下载"
+
+    ```shell
+    wget https://dl.grafana.com/enterprise/release/grafana-enterprise-12.0.0.linux-amd64.tar.gz
+    tar -zxvf grafana-enterprise-12.0.0.linux-amd64.tar.gz
+    ```
+
+```shell
+cd grafana-v12.0.0/bin/
+./grafana server
+```
+
+会在3000端口开一个服务
+
+登陆进去之后使用 账户密码都是admin admin登陆
+    
+
+添加`prometheus`数据源
+
+![image-20250808185014660](assets/07-Evaluation.assets/image-20250808185014660.png)
+
+在URL处填入网址，其他可以不变。
+
+```text
+http://localhost:9090/
+```
+
+![image-20250808185117465](assets/07-Evaluation.assets/image-20250808185117465.png)
+
+
+
+打开Dashboard
+
+1. 在“指标”选项卡下，选择您的 Prometheus 数据源（右下角）。
+2. 在“查询”字段中输入任何 Prometheus 表达式，同时使用“指标”字段通过自动补全查找指标。
+3. 要格式化时间序列的图例名称，请使用“图例格式”输入。例如，要仅显示返回查询结果的 method 和 status 标签（用破折号分隔），您可以使用图例格式字符串 {{method}} - {{status}}。
+4. 调整其他图表设置，直到您有一个可用的图表。
+
+![image-20250808185335923](assets/07-Evaluation.assets/image-20250808185335923.png)
+
+抓取的time interval是15s，而且不能更改，所以grafana测量得到的数据粒度不高
+
+
 
 ### Streamlit
 
@@ -172,6 +303,25 @@ Streamlit 是一个用于快速构建数据应用的 Python 库。
 - 告警管理
 - 可视化展示
 
+### SwanLab
+
+SwanLab 是一个轻量级的实验跟踪工具。优点：国产团队，国内访问比较方便
+
+**主要功能：**
+- 实验记录
+- 指标可视化
+- 模型比较
+- 简单易用
+
+```shell
+pip install swanlab
+```
+
+```shell
+swanlab login
+```
+
+
 ### TensorBoard
 
 TensorBoard 是 TensorFlow 的可视化工具，也可用于其他深度学习框架。
@@ -191,16 +341,6 @@ WandB 是一个用于机器学习实验跟踪的平台。
 - 模型版本控制
 - 性能指标跟踪
 - 团队协作
-
-### SwanLab
-
-SwanLab 是一个轻量级的实验跟踪工具。
-
-**主要功能：**
-- 实验记录
-- 指标可视化
-- 模型比较
-- 简单易用
 
 
 ## 相关资源

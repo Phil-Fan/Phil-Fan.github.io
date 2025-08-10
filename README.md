@@ -48,7 +48,7 @@ mkdocs serve
 
 ### 目前网页bug
 - [x] jupyter notebook下 数学公式渲染错误
-- [ ] jupyter notebook下不同的block标题会从0开始记录
+- [x] jupyter notebook下不同的block标题会从0开始记录
 - [x] 公式在不翻墙的情况下加载太慢
 - [x] 插入pdf的时候，在vscode当中会跳下载页面
 - [x] 表情emoji出错
@@ -57,11 +57,18 @@ mkdocs serve
 - [ ] 浅色模式下，banner有颜色问题
 
 ### enhancement
-- [x] 加一个有意思的插件
-- [x] 把图片迁移到本地，并想办法便于管理
+- [x] 把图片迁移到本地
+  - [ ] 并想办法便于管理
 - [x] 做封面
+  - [ ] 做一个动态的封面
+- [ ] 做一个自动编号的插件/css
 - [ ] 做一个简洁的icon
-- [ ] 换一个好看的UI
+- [ ] 加入动态图标
+- [ ] 网站备案
+- [ ] notebook放到 note.philfan.cn
+- [ ] 新建一个简历 cv.philfan.cn
+- [ ] 新建一个资源站 resource.philfan.cn
+- [ ] social card是什么
 - [ ] 基于百度地图做一个旅行地图，或者基于jVectorMap（风险：与地图相关的bug很多）
   - [ ] [HelloWuJiaYi/jVectorMap-Footprint: jVectorMap 足迹地图](https://github.com/HelloWuJiaYi/jVectorMap-Footprint)
   - [ ] [jVectorMap入门使用教程 | 有点东西](https://www.youdiandongxi.com/article/jVectorMap-use.html)

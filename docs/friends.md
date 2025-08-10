@@ -18,12 +18,13 @@ status: happy
     同时我的友链是
 
     ```text
-    昵称： PhilFan
-    头像图片链接：https://avatars.githubusercontent.com/u/56161071?v=4
-    网站图片： [链接](https://github.com/Phil-Fan/Phil-Fan.github.io/blob/master/docs/logo.ico)
-    友链描述： PhilFan's Notebook
-    邮箱地址： hw.phil.fan@gmail.com
-    个性签名： Learn, Build, Share
+    Name: PhilFan
+    Avatar:https://avatars.githubusercontent.com/u/56161071?v=4
+    Link: www.philfan.cn
+    Desc： Learn, Build, Share
+
+    Logo: [链接](https://github.com/Phil-Fan/Phil-Fan.github.io/blob/master/docs/logo.ico)
+    Email： hw.phil.fan@gmail.com
     ```
 
 
@@ -155,6 +156,18 @@ status: happy
         </div>
         <div class="flink-item-name">hobbitqia</div>
         <div class="flink-item-desc">hobbitqia的笔记本</div>
+    </a>
+</div>
+
+
+
+<div class="flink-list-item">
+    <a href="https://xuangu-fang.github.io/" title="hobbitqia" target="_blank">
+        <div class="flink-item-icon">
+            <img src="https://pic1.zhimg.com/v2-fab0b4cf2e99a38926358c675370e6fb_xll.jpg?source=32738c0c&needBackground=1" alt="方轩固">
+        </div>
+        <div class="flink-item-name">方轩固(Shikai Fang)方老师</div>
+        <div class="flink-item-desc">博学之审问之慎思之明辨之笃行之</div>
     </a>
 </div>
 

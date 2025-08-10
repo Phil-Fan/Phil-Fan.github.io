@@ -4,6 +4,7 @@
 
 [pengsida/learning_research: 本人的科研经验](https://github.com/pengsida/learning_research?tab=readme-ov-file)
 
+limu [博士这五年 - 知乎](https://zhuanlan.zhihu.com/p/25099638)
 
 
 ## 工具
@@ -73,6 +74,7 @@ As an academic expert with specialized knowledge in iron and steel making, pleas
 ### 作图工具
 
 - [Adobe Illustrator](https://www.adobe.com/products/illustrator.html)
+- [excalidraw](https://excalidraw.com): 绘图网站 andrej karpathy 也在用
 - [PowerPoint](https://www.microsoft.com/microsoft-365/powerpoint)
 - [Keynote](https://www.apple.com/keynote/)
 - [Draw.io](https://app.diagrams.net/)

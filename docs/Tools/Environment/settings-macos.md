@@ -263,14 +263,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 ```
 
 ```shell
-#编辑配置文件
-vim ~/.zshrc
-
-#在最后一行增加下面的代码
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 
-
-#退出编辑后执行使配置生效
-source ~/.zshrc 
+echo "source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ~/.zshrc && source ~/.zshrc 
 ```
 
 ### spectacle： 窗口移动

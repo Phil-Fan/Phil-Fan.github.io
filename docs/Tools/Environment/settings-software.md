@@ -4,22 +4,26 @@
 - 浏览器：[Edge](https://www.microsoft.com/zh-cn/edge/download)，chorme
 - 日程: ~~[滴答清单(付费)](https://dida365.com/download?language=zh_CN)~~ 苹果自带日历
 - 多媒体：[VLC media player](https://www.videolan.org/vlc/index.zh_CN.html),QQ影音，[PicGo（图床）](https://github.com/Molunerfinn/PicGo/releases)
-- 思维导图: [Xmind(付费)](https://xmind.cn/download/)，xmind zen 绿色版；首选项设置 深色主题 `alt+s`:概要 `ctrl + l`:方程
+- 思维导图: [Xmind(付费)](https://xmind.cn/download/)；首选项设置 深色主题 `alt+s`:概要 `ctrl + l`:方程
 
 - 即时通讯：[TIM](https://tim.qq.com/download.html)，[WeChat](https://weixin.qq.com/)，[飞书](https://www.feishu.cn/download/)，[腾讯会议](https://meeting.tencent.com/download/)，[钉钉](https://page.dingtalk.com/wow/z/dingtalk/simple/ddhomedownload#/),[微信文件传输网页版](https://filehelper.weixin.qq.com/)
 - PDF阅读：Adobe Acrobat(adobe处下载)
 - Markdown: [Typora](https://typoraio.cn/)
-- 云同步(付费)：[百度网盘](https://pan.baidu.com/download#win)、[阿里网盘](https://www.alipan.com/)
+- 云同步(付费)：[百度网盘](https://pan.baidu.com/download#win)、[阿里网盘](https://www.alipan.com/)，坚果云WebDav
 - 翻译：[欧陆词典](https://www.eudic.net/v4/en/app/download),欧陆词典文件[词典下载网站](https://forum.freemdict.com/tag/%EF%BB%BF英语/l/hot)
-- 音乐：[QQ音乐](https://y.qq.com/download/index.html)
-- 远程：[TeamViewer](https://www.teamviewer.com/en/download/) 全平台体验不错
+- 音乐：[QQ音乐](https://y.qq.com/download/index.html), Apple Music
+- 远程：[ToDesk](https://www.todesk.com/)
 - 压缩：[Bandzip](https://www.bandisoft.com/bandizip/)
 - 其他：[logi option+](https://www.logitech.com/zh-cn/setup/ergosetup/logi-options.html)
 - 公式识别：[SimpleTex](https://simpletex.cn/)  优化得不错
+- RSS阅读器: [Folo](https://folo.is/?new_locale=zh-cn)
+- LLM: [Cherry Studio](https://www.cherry-ai.com/)
+- 邮件: Gmail
+- 密码管理: Apple 密码管理
 
 
 ### macos
-- 开发工具iTerm2：[iTerm2 - macOS Terminal Replacement](https://iterm2.com/)<br>教程：[iTerm2安装配置使用指南——保姆级 - 知乎](https://zhuanlan.zhihu.com/p/550022490)
+- 开发工具iTerm2：[iTerm2 - macOS Terminal Replacement](https://iterm2.com/)<br>教程：[iTerm2安装配置使用指南——保姆级 - 知乎](https://zhuanlan.zhihu.com/p/550022490); oh-my-zsh(with several plugins)
 - [Raycast - Your shortcut to everything](https://www.raycast.com/) 替代聚焦
   - command +k 显示
   - [能少一个是一个：我用 Raycast 替代了这些应用 - 少数派](https://sspai.com/post/72540)
@@ -28,7 +32,8 @@
   - 可以用于替代[Rectangle Mac](https://rectangleapp.com/)：窗口管理，[SpaceLauncher](https://spacelauncherapp.com/)：空格为主的热键,[sip](https://sipapp.io/)：color picker,[Drafts | Where Text Starts](https://getdrafts.com/),[AppCleaner](https://freemacsoft.net/appcleaner/)
 - ibar: 菜单栏隐藏
 - [Pixea](https://apps.apple.com/cn/app/pixea/id1507782672?mt=12)
-- 网络：clashx Pro；下载工具 [Downie](https://www.downie.cn/)
+- 网络：clashx Pro
+- 下载工具 [Downie](https://www.downie.cn/)
 - [Scroll Reverser for macOS](https://pilotmoon.com/scrollreverser/): 反向滚动鼠标和触控板
 - Markdown: typora
 ```shell
@@ -46,7 +51,6 @@ echo 'alias typora="open -a Typora"' >> ~/.zshrc
     4. [xmac](https://xmac.app/)
     5. [macwk](https://macwk.cn/)
    
-- [Fliqlo](https://fliqlo.com/)：翻盖时钟屏保，Mac的经典屏保
 
 !!! note "注意macos没有签名时候需要手动信任"
     ```shell

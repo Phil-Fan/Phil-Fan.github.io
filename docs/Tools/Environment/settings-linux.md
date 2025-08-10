@@ -1298,3 +1298,27 @@ sudo vim /etc/hosts
 127.0.1.1       xxxx
 ```
 
+### dpkg: error processing package ***
+
+[原文链接](https://blog.csdn.net/dou3516/article/details/105120221)
+
+```text title="报错信息"
+dpkg: error processing package ***
+
+subprocess installed post-installation script returned error exit status 127
+```
+
+这主要是由于不完全安装导致的。解决方式是删除或编辑安装信息文件。
+
+```shell title="粗暴方法一：删除所有信息之后update" hl_lines="1-2"
+sudo mv /var/lib/dpkg/info/ /var/lib/dpkg/info_old/
+sudo mkdir /var/lib/dpkg/info/
+sudo apt-get update
+```
+
+```shell
+sudo apt-get install ***
+```
+
+
+

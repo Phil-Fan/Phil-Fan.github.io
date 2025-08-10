@@ -7,15 +7,15 @@ comments: True
 
 !!! note "正在施工中👷.. "
 
-## 1. Flash Attention
 
-在nvidia-smi中可以看到所有GPU的利用率会直接冲到100%，直到这个超卡的请求全部生成完，才会恢复正常。这不就是典型的优先prefill暂停decode么，解决办法就是chunked prefill size啊，deepseek都告诉你了。
 
-## 2. Key-value cache
+
+## Key-value cache
 - Key-value cache
 
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=1006179366&bvid=BV1kx4y1x7bu&cid=1616577437&p=1&autoplay=0&high_quality=1&danmaku=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"></iframe>
 
-什么是 KV Cache？
+### 原理
 在 Transformer 模型（如 LLaMA、GPT）中，模型会对之前输入的内容进行“记忆”，这种“记忆”被保存在一个叫 KV Cache（Key-Value Cache） 的地方。
 
 为什么需要它？
@@ -52,9 +52,31 @@ sequenceDiagram
     Decoder->>Proxy: 返回结果
     Proxy->>Client: 发送响应
 ```
-## 3. Speculative decoding
-- Speculative decoding
 
+
+
+## Paged Attention
+### 为什么需要
+
+### 原理
+
+
+
+
+## Flash Attention
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=1706279420&bvid=BV1UT421k7rA&cid=1625114922&p=1&autoplay=0&high_quality=1&danmaku=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"></iframe>
+### 为什么需要
+
+在nvidia-smi中可以看到所有GPU的利用率会直接冲到100%，直到这个超卡的请求全部生成完，才会恢复正常。这不就是典型的优先prefill暂停decode么，解决办法就是chunked prefill size啊，deepseek都告诉你了。
+
+
+
+
+
+## LLM in flash
+
+
+## StreamLLM
 
 
 

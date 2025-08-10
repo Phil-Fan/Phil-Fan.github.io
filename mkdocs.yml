@@ -333,7 +333,19 @@ nav:
         - AI/LLM/Engineer/05-1-Deployment.md
         - AI/LLM/Engineer/05-2-vllm.md
         - AI/LLM/Engineer/06-InferOptimization.md
-        - AI/LLM/Engineer/07-Evaluation.md
+        - AI/LLM/Engineer/06-GPU.md
+        - AI/LLM/Engineer/07-Scheduling.md
+        - AI/LLM/Engineer/08-LongInfer.md
+        - AI/LLM/Engineer/09-Sampling.md
+        - AI/LLM/Engineer/10-Evaluation.md
+
+        - 工具手册:
+          - "[部署] OpenAI API": https://platform.openai.com/docs/overview
+          - "[部署] vLLM手册": https://docs.vllm.com.cn/en/latest/index.html
+          - "[测试] evalscope": https://evalscope.readthedocs.io/zh-cn/latest/index.html
+          - "[监控] Prometheus": https://prometheus.ac.cn/docs/prometheus/latest/getting_started/#required-for-focus
+          - "[监控] Grafana": https://grafana.org.cn/docs/grafana/latest/
+          - "[可视化] Swandb": https://docs.swanlab.cn/guide_cloud/general/what-is-swanlab.html
 
     - "LLM | Scientist Roadmap":
         - AI/LLM/Sci/index.md
@@ -368,13 +380,38 @@ nav:
         - AI/ML/04-parameters.md
         - AI/ML/05-trick.md
 
+    - "CV | 计算机视觉":
+        - 基础知识:
+            - AI/CV/00-1-intro.md
+            - AI/CV/00-2-format.md
+            - AI/CV/00-3-color.md
+            - AI/CV/00-4-base.md
+            - AI/CV/00-5-camera.md
+        
+        - Tasks: 
+            - AI/CV/01-classification.md
+            - AI/CV/02-Image-location.md
+            - AI/CV/03-face-Recognition.md
+            - AI/CV/03-Object-Recognition.md
+            - AI/CV/04-Segmentation.md
+            - AI/CV/05-3D.md
+            - AI/CV/06-motion_estimation.md
+            - AI/CV/HumanPoseEstimation.md
+        
+        - 工具:
+            - AI/CV/OpenCV.md
+
+
     - "学习资源":
         - 论文阅读: https://github.com/mli/paper-reading
         - 南瓜书: https://datawhalechina.github.io/pumpkin-book/
         - ISLR: https://www.statlearning.com/
         - 统计学习方法习题解答: https://datawhalechina.github.io/statistical-learning-method-solutions-manual/
         - d2l: https://zh.d2l.ai/index.html/
-        - vLLM手册: https://docs.vllm.com.cn/en/latest/index.html
+        - AI Infra: https://infrasys-ai.github.io/aiinfra-docs/00Summary/README.html
+        - ML-SYS: https://github.com/zhaochenyang20/Awesome-ML-SYS-Tutorial/tree/main
+
+        
     
 
 
@@ -570,6 +607,13 @@ nav:
   - Research/index.md
   - Research/01-Preliminaries.md
   - Research/02-Reading.md
+  - Research/03-mind.md
+  - Research/04-communication.md
+  - Research/05-experiment.md
+  - Research/06-writing.md
+  - Research/07-rebuttal.md
+  - Research/08-presentation.md
+
   - 论文研读:
     - Research/Papers/index.md
     - Research/Papers/SpongeExamples.md
@@ -577,6 +621,7 @@ nav:
     - Research/Papers/NICGSlowDown.md
     - Research/Papers/VerboseImages.md
     - Research/Papers/OverThink.md
+    - Research/Papers/Engogrio.md
 
 - Tools:
   - Efficiency:
@@ -618,6 +663,8 @@ nav:
     - Tools/Environment/settings-linux-kali.md
     - Tools/Environment/settings-server.md
     - Tools/Environment/settings-router.md
+    - Tools/Environment/settings-content.md
+    - Tools/Environment/settings-website.md
 
 - Project:
   - Project/index.md
