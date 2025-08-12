@@ -1,7 +1,12 @@
-# Engorgio prompt
+---
+status: new
+comments: True
+---
+# engorgio prompt
 
 an engorgio prompt makes large language model babble on
-
+[![citation](https://img.shields.io/badge/dynamic/json?label=citation&style=social&logo=googlescholar&query=citationCount&url=https%3A%2F%2Fapi.semanticscholar.org%2Fgraph%2Fv1%2Fpaper%2F2bb2e5feff389c505d07f380498ab5615b08ebc9%3Ffields%3DcitationCount)](https://www.semanticscholar.org/paper/An-Engorgio-Prompt-Makes-Large-Language-Model-on-Dong-Zhang/2bb2e5feff389c505d07f380498ab5615b08ebc9)
+[![GitHub Repo stars](https://img.shields.io/github/stars/jianshuod/Engorgio-prompt)](https://github.com/jianshuod/Engorgio-prompt) 
 
 
 ## 算法设计

@@ -27,5 +27,10 @@ jobs:
     
       - name: Modify nbconvert HTML exporter
         run: sed -i 's#https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS_CHTML-full,Safe##g' $(python -c "import nbconvert; print(nbconvert.__file__.replace('__init__.py', 'exporters/html.py'))")
-          
+        
+      - shell: bash
+        env:
+          GITHUB_TOKEN: ${{ secrets.MKDOCS_GIT_COMMITTERS_APIKEY }}
+        run: export MKDOCS_GIT_COMMITTERS_APIKEY=$GITHUB_TOKEN
+        
       - run: mkdocs gh-deploy --force

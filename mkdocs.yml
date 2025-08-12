@@ -617,11 +617,15 @@ nav:
   - 论文研读:
     - Research/Papers/index.md
     - Research/Papers/SpongeExamples.md
-    - Research/Papers/Zero_Query_Adversarial_Attack.md
-    - Research/Papers/NICGSlowDown.md
-    - Research/Papers/VerboseImages.md
+    - Research/Papers/LLMEffiChecker.md
     - Research/Papers/OverThink.md
     - Research/Papers/Engogrio.md
+    - Research/Papers/NICGSlowDown.md
+    - Research/Papers/VerboseImages.md
+    - Research/Papers/Zero_Query_Adversarial_Attack.md
+    - Research/Papers/BitHydra.md
+    
+    
 
 - Tools:
   - Efficiency:
@@ -869,7 +873,10 @@ plugins:
       use_material_social_cards: true
 
   # https://github.com/ojacques/mkdocs-git-committers-plugin-2
+  # get your secret key from https://github.com/settings/personal-access-tokens/new
+  # export MKDOCS_GIT_COMMITTERS_APIKEY=your_secret_key
   - git-committers:
+      enabled: true
       repository: Phil-Fan/Phil-Fan.github.io
       branch: master
       token: !!python/object/apply:os.getenv ["MKDOCS_GIT_COMMITTERS_APIKEY"]
