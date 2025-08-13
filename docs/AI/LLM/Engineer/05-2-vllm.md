@@ -37,6 +37,22 @@ Installed
 ### LMcache
 [LMCache - vLLM --- LMCache - vLLM](https://docs.vllm.ai/en/stable/examples/others/lmcache.html#1-disaggregated-prefill-in-vllm-v1)
 
+```mermaid
+sequenceDiagram
+    participant Client
+    participant Proxy
+    participant Prefiller
+    participant Decoder
+    
+    Client->>Proxy: 发送请求
+    Proxy->>Prefiller: 转发到预填充器(GPU 0)
+    Prefiller->>Prefiller: 生成KV Cache
+    Prefiller->>Decoder: 传输KV Cache
+    Decoder->>Decoder: 执行解码(GPU 1)
+    Decoder->>Proxy: 返回结果
+    Proxy->>Client: 发送响应
+```
+
 
 <!-- termynal -->
 
