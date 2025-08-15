@@ -24,6 +24,18 @@ Installed
 ```
 
 
+> RuntimeError: Failed to find C compiler. Please specify via CC environment variable or set triton.knobs.build.impl.
+
+```shell title="linux"
+sudo apt update
+sudo apt install build-essential  # Installs gcc, g++, make, etc.
+```
+
+```shell
+pip install triton
+```
+
+
 ## 使用
 
 

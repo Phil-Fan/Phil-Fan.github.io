@@ -140,6 +140,95 @@ SGLang 框架提供的基准测试工具，用于评估 SGLang 应用的性能�
 
 ## 监控工具
 
+
+
+### **PyTorch Profiler**
+[PyTorch Profiler 介绍——全新且改进的性能工具——PyTorch - PyTorch 深度学习库](https://pytorch.ac.cn/blog/introducing-pytorch-profiler-the-new-and-improved-performance-tool/)
+* **简介**：PyTorch 官方提供的 Profiler，可分析 CPU/GPU 时间、内存使用、操作调用图等。
+* **特点**：
+
+  * 支持 **TensorBoard** 可视化。
+  * 能追踪 **前向、反向和优化步骤**。
+  * 支持 **CUDA、CPU、NPU 等设备**。
+* **典型用法**：
+
+  ```python
+  import torch
+  import torch.profiler
+
+  with torch.profiler.profile(
+      activities=[torch.profiler.ProfilerActivity.CPU, 
+                  torch.profiler.ProfilerActivity.CUDA],
+      record_shapes=True,
+      with_stack=True
+  ) as prof:
+      model(input)
+
+  print(prof.key_averages().table(sort_by="cuda_time_total"))
+  prof.export_chrome_trace("trace.json")
+  ```
+* **用途**：找出耗时操作（如 `einsum`、卷积等）、分析显存占用。
+
+
+### TensorFlow Profiler
+
+* **简介**：TensorFlow 内置 Profiler，可分析训练过程的计算图、操作耗时、内存使用等。
+* **特点**：
+
+  * 与 **TensorBoard** 集成，可生成 **时间线（Trace View）**。
+  * 支持 GPU 计算分析和 **kernel-level profiling**。
+* **典型用法**：
+
+  ```python
+  import tensorflow as tf
+
+  logdir = "./logs"
+  tf.profiler.experimental.start(logdir)
+  model.fit(dataset, epochs=1)
+  tf.profiler.experimental.stop()
+  ```
+* **用途**：优化 TF 模型训练速度、GPU 利用率、查看算子瓶颈。
+
+
+### NVIDIA Nsight Systems / Nsight Compute
+
+* **简介**：NVIDIA 官方提供的 GPU 性能分析工具。
+* **特点**：
+
+  * **Nsight Systems**：宏观分析（时间线、CPU/GPU 交互、API 调用）。
+  * **Nsight Compute**：微观分析（单个 CUDA kernel 的利用率、寄存器使用、内存带宽）。
+* **用途**：分析 GPU 核心利用率、核函数瓶颈、内存访问模式。
+* **适合场景**：GPU 优化、卷积、Transformer 等大模型计算优化。
+
+
+### DeepSpeed Flops Profiler
+
+[监控 - DeepSpeed - DeepSpeed 深度学习库](https://deepspeed.org.cn/tutorials/monitor/)
+
+[Flops 性能分析器 - DeepSpeed - DeepSpeed 深度学习库](https://deepspeed.org.cn/tutorials/flops-profiler/)
+
+* **简介**：DeepSpeed 提供的 FLOPs 及性能分析工具。
+* **特点**：
+
+  * 可统计 **每层操作的 FLOPs** 和显存消耗。
+  * 支持 **模型并行、数据并行** 配置。
+  * 提供 step-by-step latency 和 GPU utilization。
+* **典型用法**：
+
+  ```python
+  from deepspeed.profiling.flops_profiler import get_model_profile
+  macs, params, flops_dict = get_model_profile(model, input_size=(1, 3, 224, 224))
+  ```
+* **用途**：量化计算量，优化模型结构，评估硬件效率。
+
+
+### Other Profilers
+
+* **PyTorch Lightning Profiler**：适用于 Lightning 框架，简单统计训练步骤耗时。
+* **cProfile / line\_profiler**：Python 通用 Profiler，可分析 CPU 代码瓶颈。
+* **TorchMetrics + Memory Profiler**：辅助工具，用于显存、梯度消耗分析。
+
+
 ### nvitop-exporter
 
 nvitop 是一个实时监控 GPU 各项核心指标的工具，支持终端交互式查看。
@@ -163,6 +252,7 @@ nvitop-exporter --bind 0.0.0.0 --port 5050
 Prometheus 是一个开源的监控和告警系统，用于数据采集与存储。
 
 **主要功能：**
+
 - 时序数据存储
 - 数据查询语言
 - 告警规则配置

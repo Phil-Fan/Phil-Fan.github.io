@@ -7,41 +7,7 @@ comments: true
 
 !!! attention "本文图片部分来源为小红书帖子，右下角有博主的号码"
 
-## question
 
-1. 蒜蓉粉丝娃娃菜怎么做粉丝才可以更入味
-2. 如何把握加水的量
-
-
-## 食材选购
-
-
-### 牛肉部位（潮汕&西餐）
-
-牛小排=匙皮
-牛腩排=匙仁
-眼肉盖  /眼肉侧唇=吊龙伴
-眼肉/上脑/西冷=一整条吊龙
-菲力=牛里脊
-板腱=匙柄
-牛后胸=肥胼
-
-![](assets/eat.assets/IMG_1233.jpeg)
-
-![](assets/eat.assets/IMG_1234.jpeg)
-
-
-## 食材处理
-
-### 切成想要的形状
-
-
-### 肉的纹理
-
-
-### 活虾处理
-
-去虾线
 
 
 ## 准备学的菜
@@ -56,8 +22,6 @@ comments: true
 土匪猪肝
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=1356530394&bvid=BV1wz421q7aJ&cid=25697783269&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=600px height=450px></iframe>
 
-水煮肉片
-<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=113076405797308&bvid=BV1DQHbejEo2&cid=25727795846&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=600px height=450px></iframe>
 
 
 ## 主菜
@@ -79,6 +43,10 @@ comments: true
 
 
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=607507467&bvid=BV1i84y1a77w&cid=958251711&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=600px height=450px></iframe>
+
+![df195e923c0d3fdc3c63c5987d548278](assets/eat.assets/df195e923c0d3fdc3c63c5987d548278.JPG)
+
+
 
 ### 红烧肉
 
@@ -119,13 +87,22 @@ comments: true
 - 放入土豆和胡萝卜，小火慢炖20min。
 - 出锅前加盐调味
 
-![](assets/eat.assets/IMG_1612.jpg)
+
 
 
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=114186487078644&bvid=BV1giQ9YzEna&cid=28941878702&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=600px height=450px></iframe>
 
+做过的照片
 
-### 红烧鲳鱼
+![](assets/eat.assets/IMG_1612.jpg)
+
+![fd92a0c690560f9a1b8bd3e34eb8a237](assets/eat.assets/fd92a0c690560f9a1b8bd3e34eb8a237.JPG)
+
+
+
+
+
+### 红烧鱼
 
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=594243666&bvid=BV1Xq4y1t73T&cid=513174128&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=600px height=450px></iframe>
 
@@ -151,6 +128,18 @@ comments: true
 鱼捞出，剩余的汤汁勾入水淀粉，熬至粘稠
 撒入葱花点缀
 
+![IMG_3353](assets/eat.assets/IMG_3353.JPG)
+
+![IMG_3289](assets/eat.assets/IMG_3289.JPG)
+
+### 水煮肉片/鱼片
+
+
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=113076405797308&bvid=BV1DQHbejEo2&cid=25727795846&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=600px height=450px></iframe>
+
+
+
+![image-20250815214034992](assets/eat.assets/image-20250815214034992.png)
 
 ## 炒菜 - 荤
 
@@ -358,9 +347,12 @@ comments: true
 
 ![](assets/eat.assets/6a8946f6dd2ca9430d347e8990549b44.jpg)
 
+![b3948d299093faa0fd82778936b9a725](assets/eat.assets/b3948d299093faa0fd82778936b9a725.JPG)
 
+![IMG_3439](assets/eat.assets/IMG_3439.JPG)
 
 ### 蒜蓉粉丝娃娃菜
+
 - 食材：娃娃菜、粉丝、蒜末、葱末、辣椒
 - 调味：生抽2勺、蚝油1勺、盐少许、白糖1勺、清水1勺、辣椒、葱末
 
@@ -426,9 +418,24 @@ comments: true
 ### 椰子牛肉火锅
 ![](assets/eat.assets/IMG_1235.jpeg)
 
-
 ## 面食 & 主食
+
+
+
+### 包子
+
+![IMG_2887](assets/eat.assets/IMG_2887.JPG)
+
+### 炒河捞
+
+![image-20250815214054013](assets/eat.assets/image-20250815214054013.png)
+
+### 炒饭
+
+![image-20250815214006028](assets/eat.assets/image-20250815214006028.png)
+
 ### 番茄菜疙瘩
+
 1. 菠菜焯水10秒钟，变软即可，切成小段。
 2. 西红柿切成小块。
 3. 菠菜中打入一个鸡蛋，加入面粉，放一丢丢水，揉成面团。

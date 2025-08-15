@@ -5,6 +5,167 @@
     另外也是为了在特殊环境下，可以迅速的切换到另一台设备进行工作，不至于项目停滞。
 
 
+## 终端 & Powershell
+
+快捷打开终端
+1. `win + R`，输入`cmd`
+2. `win + X`，选择`Windows Terminal`
+
+常用命令
+
+1. 删除文件：`del` 文件名
+2. 查看ip命令：`ipconfig`
+3. 清屏：  `clear`    (cmd窗口清屏用cls)
+4. 查看列表(list)：`ls`  （cmd窗口用dir） 
+5. 切换目录：`cd xxx`    直接切换到xxx文件夹
+6. 切换盘符：`d:`    切换到D盘；`cd /d D:\Code`直接切换到D盘下的Code文件夹；但要注意，如果是在C盘下，直接输入`cd /d`是无法切换的
+
+??? failure "无法加载WindowsPowerShell\profile.ps1"
+    [完美解决无法加载文件 WindowsPowerShell\profile.ps1系统编译问题-CSDN博客](https://blog.csdn.net/weixin_41194129/article/details/140538410)
+    1. 按`Win + X` 键,`Windows PowerShell (Admin)`
+    2. 使用命令 `Get-ExecutionPolicy -List`
+    3. 更改执行策略：为了允许运行脚本，你可以将执行策略更改为 RemoteSigned 或 Unrestricted。
+    ```shell
+    Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+    ```
+    如果你需要为所有用户设置执行策略，可以使用 -Scope LocalMachine 参数：
+    ```shell
+    Set-ExecutionPolicy RemoteSigned -Scope LocalMachine
+    ```
+    4. 选择`Y`确认更改
+    5. 重新打开终端
+    6. 验证执行策略是否更改成功
+    ```shell title="路径改为本地报错时候显示的路径"
+    Get-Item "C:\Users\Administrator\Documents\WindowsPowerShell\profile.ps1" | Format-List * -Force
+    ```
+
+### 修改、查看、清除文件信息
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241115001953.png)
+
+有时候想要修改文件信息，但是GUI界面没有这样的操作
+
+打开终端界面
+
+[Get-ItemProperty](https://learn.microsoft.com/en-us/powershell/module/Microsoft.PowerShell.Management/get-itemproperty?view=powershell-5.1)
+```shell title="查看文件信息"
+Get-ItemProperty -Path <path> -Name <property_name>
+
+Get-ItemProperty -Path <path> | Format-List * -Force
+```
+
+[Set-ItemProperty](https://learn.microsoft.com/en-us/powershell/module/Microsoft.PowerShell.Management/Set-ItemProperty?view=powershell-5.1)
+
+```shell title="修改文件信息"
+Set-ItemProperty -Path <path> -Name <property_name> -Value <value>
+```
+- `CreationTime` 创建时间
+- `LastWriteTime` 最后修改时间
+- `LastAccessTime` 最后访问时间
+
+[Remove-ItemProperty](https://learn.microsoft.com/en-us/powershell/module/Microsoft.PowerShell.Management/remove-itemproperty?view=powershell-5.1)
+
+```shell title="清除文件信息"
+Clear-ItemProperty -Path <path> -Name <property_name>
+```
+
+
+### 查看MAC/机器码
+cmd 打开终端
+```shell
+ipconfig/all
+```
+
+
+### 查看用户
+
+```shell
+net user
+```
+
+### wget
+[GNU Wget 1.21.4 for Windows](https://eternallybored.org/misc/wget/)
+
+放在`c:/Windows/System32`文件夹下
+
+### nc (netcat)
+[netcat 1.11 for Win32/Win64](https://eternallybored.org/misc/netcat/)
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241118214327.png)
+
+
+### 查看系统架构
+`win+R`输入`cmd`，输入`wmic os get osarchitecture`查看系统架构
+
+或者输入`dxdiag`查看系统信息
+
+或者输入`systeminfo`查看,系统类型字段就可以看出来了
+
+### 环境变量
+
+#### python
+如果设置了环境变量，却打不开python，可以尝试将python的路径放在最前面
+
+#### 如何用命令行直接打开软件
+
+省流：建立一个文件夹保存快捷方式，将文件夹路径添加到PATH环境变量
+
+首先你要创建一个文件夹，存储程序的快捷方式
+
+
+
+- 右键点击计算机图标，选择属性，选择高级系统设置，高级->选择环境变量
+
+- 编辑用户变量下的PATH复制存储快捷方式文件夹的路径
+
+备注：快捷方式可以自定义名称，在CMD中输入名称就行了
+
+![在这里插入图片描述](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20201221085949893.png)
+
+高级系统设置 - 环境变量
+
+![image-20240422084315579](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240422084315579.png)
+
+
+## WSL
+
+### 安装
+
+```shell title="powershell"
+Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
+Enable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform
+```
+第一个结束不要重启，第二个结束一起重启
+
+
+```shell title="同样的效果"
+dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+```
+
+访问 程序和功能 子菜单 `打开或关闭Windows功能`，勾选`适用于Linux的Windows子系统`和`虚拟机平台`
+
+
+```shell title="cmd更新wsl"
+wsl --update
+```
+
+```shell title="cmd更新wsl"
+wsl --set-default-version 2
+```
+
+```shell title="cmd更新wsl"
+wsl --set-version <distro> <version>
+```
+
+
+[Ubuntu 20.04.6 LTS - Windows官方下载 | 微软应用商店 | Microsoft Store](https://apps.microsoft.com/detail/9mttcl66cpxj?hl=zh-cn&gl=US)
+
+点击安装，等待安装完成
+
+
+打开cmd，打开ubuntu的标签，设置用户名和密码，可以进入子系统
+
+
 ## windows系统设置
 
 ### win+G 录屏
@@ -16,15 +177,6 @@ xGameBar对我来说没什么用，但是虚拟机中需要使用到这个快捷
 
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240706192241.png)
 
-### 搜狗输入法
-
-搜狗输入法老是出现快捷键冲突或是占用热键的情况
-
-所以进入设置界面 - 按键 - ban掉系统功能快捷键
-
-![在这里插入图片描述](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20201218111624799.png)
-
-![image-20240619085926633](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240619085926633.png)
 ### 驯服自带输入法
 [词库转换工具下载 imewlconverter](https://github.com/studyzy/imewlconverter/releases/tag/v3.1.1)
 
@@ -290,126 +442,6 @@ cmd /c mklink /D "%USERPROFILE%\.vscode" "D:\.vscode\"
 
 找到电脑设置、系统、存储，去里面查看C盘安装了哪些大软件，用geek卸载了安装到其他盘。
 
-
-## 终端 & Powershell
-
-快捷打开终端
-1. `win + R`，输入`cmd`
-2. `win + X`，选择`Windows Terminal`
-
-常用命令
-
-1. 删除文件：`del` 文件名
-2. 查看ip命令：`ipconfig`
-3. 清屏：  `clear`    (cmd窗口清屏用cls)
-4. 查看列表(list)：`ls`  （cmd窗口用dir） 
-5. 切换目录：`cd xxx`    直接切换到xxx文件夹
-6. 切换盘符：`d:`    切换到D盘；`cd /d D:\Code`直接切换到D盘下的Code文件夹；但要注意，如果是在C盘下，直接输入`cd /d`是无法切换的
-
-??? failure "无法加载WindowsPowerShell\profile.ps1"
-    [完美解决无法加载文件 WindowsPowerShell\profile.ps1系统编译问题-CSDN博客](https://blog.csdn.net/weixin_41194129/article/details/140538410)
-    1. 按`Win + X` 键,`Windows PowerShell (Admin)`
-    2. 使用命令 `Get-ExecutionPolicy -List`
-    3. 更改执行策略：为了允许运行脚本，你可以将执行策略更改为 RemoteSigned 或 Unrestricted。
-    ```shell
-    Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
-    ```
-    如果你需要为所有用户设置执行策略，可以使用 -Scope LocalMachine 参数：
-    ```shell
-    Set-ExecutionPolicy RemoteSigned -Scope LocalMachine
-    ```
-    4. 选择`Y`确认更改
-    5. 重新打开终端
-    6. 验证执行策略是否更改成功
-    ```shell title="路径改为本地报错时候显示的路径"
-    Get-Item "C:\Users\Administrator\Documents\WindowsPowerShell\profile.ps1" | Format-List * -Force
-    ```
-
-### 修改、查看、清除文件信息
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241115001953.png)
-
-有时候想要修改文件信息，但是GUI界面没有这样的操作
-
-打开终端界面
-
-[Get-ItemProperty](https://learn.microsoft.com/en-us/powershell/module/Microsoft.PowerShell.Management/get-itemproperty?view=powershell-5.1)
-```shell title="查看文件信息"
-Get-ItemProperty -Path <path> -Name <property_name>
-
-Get-ItemProperty -Path <path> | Format-List * -Force
-```
-
-[Set-ItemProperty](https://learn.microsoft.com/en-us/powershell/module/Microsoft.PowerShell.Management/Set-ItemProperty?view=powershell-5.1)
-
-```shell title="修改文件信息"
-Set-ItemProperty -Path <path> -Name <property_name> -Value <value>
-```
-- `CreationTime` 创建时间
-- `LastWriteTime` 最后修改时间
-- `LastAccessTime` 最后访问时间
-
-[Remove-ItemProperty](https://learn.microsoft.com/en-us/powershell/module/Microsoft.PowerShell.Management/remove-itemproperty?view=powershell-5.1)
-
-```shell title="清除文件信息"
-Clear-ItemProperty -Path <path> -Name <property_name>
-```
-
-
-### 查看MAC/机器码
-cmd 打开终端
-```shell
-ipconfig/all
-```
-
-
-### 查看用户
-
-```shell
-net user
-```
-
-### wget
-[GNU Wget 1.21.4 for Windows](https://eternallybored.org/misc/wget/)
-
-放在`c:/Windows/System32`文件夹下
-
-### nc (netcat)
-[netcat 1.11 for Win32/Win64](https://eternallybored.org/misc/netcat/)
-
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241118214327.png)
-
-
-### 查看系统架构
-`win+R`输入`cmd`，输入`wmic os get osarchitecture`查看系统架构
-
-或者输入`dxdiag`查看系统信息
-
-或者输入`systeminfo`查看,系统类型字段就可以看出来了
-
-### 环境变量
-
-#### python
-如果设置了环境变量，却打不开python，可以尝试将python的路径放在最前面
-
-#### 如何用命令行直接打开软件
-
-省流：建立一个文件夹保存快捷方式，将文件夹路径添加到PATH环境变量
-
-首先你要创建一个文件夹，存储程序的快捷方式
-
-
-
-- 右键点击计算机图标，选择属性，选择高级系统设置，高级->选择环境变量
-
-- 编辑用户变量下的PATH复制存储快捷方式文件夹的路径
-
-备注：快捷方式可以自定义名称，在CMD中输入名称就行了
-
-![在这里插入图片描述](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20201221085949893.png)
-
-高级系统设置 - 环境变量
-
-![image-20240422084315579](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240422084315579.png)
 
 
 ## edge

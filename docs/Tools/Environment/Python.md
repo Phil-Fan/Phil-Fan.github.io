@@ -96,10 +96,13 @@ uv 是一个用 Rust 编写的 Python 包安装器和解析器，旨在提供比
 
 ### 安装 uv
 
-```shell
+```shell title="linux"
 wget -qO- https://astral.sh/uv/install.sh | sh
 ```
 
+```shell title="windows"
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+```
 
 ```shell
 pip install uv

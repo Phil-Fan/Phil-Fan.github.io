@@ -359,6 +359,12 @@ nav:
         - AI/LLM/Sci/06-Evaluation.md
         - AI/LLM/Sci/07-Quantization.md
 
+        - 工具手册:
+          - "[训练] Pytorch": https://pytorch.org/docs/stable/index.html
+          - "[训练] DeepSpeed": https://deepspeed.org.cn/
+          - "[性能] NVTX ": https://nvidia.github.io/NVTX/python/reference.html
+          - "[性能] Nsight System": https://developer.nvidia.com/nsight-systems
+
     - "DL | 深度学习":
         - AI/DL/01-MLP.md
         - AI/DL/02-CNN.md
@@ -410,6 +416,7 @@ nav:
         - d2l: https://zh.d2l.ai/index.html/
         - AI Infra: https://infrasys-ai.github.io/aiinfra-docs/00Summary/README.html
         - ML-SYS: https://github.com/zhaochenyang20/Awesome-ML-SYS-Tutorial/tree/main
+        - LLM-interview: https://wdndev.github.io/llm_interview_note/
 
         
     
