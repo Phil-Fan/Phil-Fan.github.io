@@ -332,6 +332,7 @@ nav:
         - AI/LLM/Engineer/04-2-LongChain.md
         - AI/LLM/Engineer/05-1-Deployment.md
         - AI/LLM/Engineer/05-2-vllm.md
+        - AI/LLM/Engineer/05-3-SGlang.md
         - AI/LLM/Engineer/06-InferOptimization.md
         - AI/LLM/Engineer/06-GPU.md
         - AI/LLM/Engineer/07-Scheduling.md
@@ -361,6 +362,7 @@ nav:
 
         - 工具手册:
           - "[训练] Pytorch": https://pytorch.org/docs/stable/index.html
+          - "[训练] CUDA": https://docs.nvidia.com/cuda/cuda-installation-guide-linux/
           - "[训练] DeepSpeed": https://deepspeed.org.cn/
           - "[性能] NVTX ": https://nvidia.github.io/NVTX/python/reference.html
           - "[性能] Nsight System": https://developer.nvidia.com/nsight-systems
@@ -626,7 +628,7 @@ nav:
     - Research/Papers/SpongeExamples.md
     - Research/Papers/LLMEffiChecker.md
     - Research/Papers/OverThink.md
-    - Research/Papers/Engogrio.md
+    - Research/Papers/Engorgio.md
     - Research/Papers/NICGSlowDown.md
     - Research/Papers/VerboseImages.md
     - Research/Papers/Zero_Query_Adversarial_Attack.md
@@ -657,6 +659,7 @@ nav:
     - Tools/Software/Git.md
     - Tools/Software/Calculator.md
     - Tools/Software/GDB.md
+    - Tools/Software/NV.md
     - Tools/Software/Matlab.md
     - Tools/Software/Solidworks.md
     - Tools/Software/Tableau.md
@@ -672,6 +675,7 @@ nav:
     - Tools/Environment/settings-windows.md
     - Tools/Environment/settings-linux.md
     - Tools/Environment/settings-linux-kali.md
+    - Tools/Environment/settings-wsl.md
     - Tools/Environment/settings-server.md
     - Tools/Environment/settings-router.md
     - Tools/Environment/settings-content.md

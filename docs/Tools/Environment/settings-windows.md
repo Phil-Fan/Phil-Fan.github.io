@@ -126,44 +126,7 @@ net user
 ![image-20240422084315579](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240422084315579.png)
 
 
-## WSL
 
-### 安装
-
-```shell title="powershell"
-Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
-Enable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform
-```
-第一个结束不要重启，第二个结束一起重启
-
-
-```shell title="同样的效果"
-dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
-dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
-```
-
-访问 程序和功能 子菜单 `打开或关闭Windows功能`，勾选`适用于Linux的Windows子系统`和`虚拟机平台`
-
-
-```shell title="cmd更新wsl"
-wsl --update
-```
-
-```shell title="cmd更新wsl"
-wsl --set-default-version 2
-```
-
-```shell title="cmd更新wsl"
-wsl --set-version <distro> <version>
-```
-
-
-[Ubuntu 20.04.6 LTS - Windows官方下载 | 微软应用商店 | Microsoft Store](https://apps.microsoft.com/detail/9mttcl66cpxj?hl=zh-cn&gl=US)
-
-点击安装，等待安装完成
-
-
-打开cmd，打开ubuntu的标签，设置用户名和密码，可以进入子系统
 
 
 ## windows系统设置

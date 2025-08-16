@@ -606,6 +606,90 @@ sudo chown -R username:groupname folder
 [Linux chown命令教程：如何改变文件或目录的所有者和组(附案例详解和注意事项)\_chown修改文件所有者-CSDN博客](https://blog.csdn.net/u012964600/article/details/135845447)
 
 
+## Q & A
+### 注意删除不可恢复，所以删除尽可能谨慎
+
+```shell
+mv ./file_need_to_delete ./file_need_to_delete_backup
+touch ./file_need_to_delete
+```
+
+### sudo 下的PATH环境变量
+> 摘自[修改或定义sudo下的PATH环境变量 - ItsukiFujii](https://www.cnblogs.com/YukiNote/p/11375292.html)
+
+
+Linux在普通用户权限下，可以使用sudo去执行相关的命令，但是有时候会提示：`Command not found`
+
+这是因为由于安全考虑，sudo执行用一个程序时会在新的，最小化环境中执行，即使在环境变量`PATH`中设置了路径也找不到，因为在sudo执行下，采用默认的`PATH`变量使用。
+
+
+```shell title="解决方法1"
+export PATH="/path/to/your/command:$PATH"
+```
+将`/etc/sudoers`文件，中的`Defaults env_reset`改为`Defaults !env_reset`取消采用默认PATH变量，然后在.bashrc中最后添加`alias sudo='sudo env PATH=$PATH'`，这样sudo执行命令是就会使用系统的PATH变量，而不是默认PATH变量
+
+
+
+```shell title="解决方法2"
+sudo vim /etc/sudoers
+Defaults !env_reset
+```
+
+```shell
+vim ~/.bashrc
+alias sudo='sudo env PATH=$PATH'
+```
+
+
+
+
+### sh: 0: getcwd() failed: No such file or directory
+    一般来说是因为你 cd 到了某个目录之后 rm 了这个目录，这时去执行某些 service 脚本的时候就会报 get cwd 错误。 只需要 cd 到任何一个实际存在的目录下再执行就好了
+
+### Could not load the Qt platform plugin “xcb“
+
+经过一番深入的探索，最终找到了一个有效的解决方案，即通过以下命令安装所有与libxcb相关的库：
+```shell
+sudo apt install libxcb-*
+```
+这条命令会安装所有以libxcb为前缀的库，确保系统中所有与XCB相关的依赖项都被正确安装。这一步成功解决了Qt无法加载xcb插件的问题，程序也顺利启动并运行。这表明，问题的根源在于某些关键的XCB依赖项缺失，而通过这种“一网打尽”的方式，我们可以确保所有相关的依赖项都得到满足。
+
+### sudo: 无法解析主机：xxxxxx
+原因：修改了主机的ubuntu设备名称，后面没有配置好hosts文件，导致linux无法解析到您的主机地址
+
+
+解决方案：就是配置一下hosts文件就可以解决，具体操作如下：
+```shell
+sudo vim /etc/hosts
+```
+把下面的数字后面的xxxx修改成你现在的设备名称保存就可以了。
+
+```
+127.0.1.1       xxxx
+```
+
+### dpkg: error processing package ***
+
+[原文链接](https://blog.csdn.net/dou3516/article/details/105120221)
+
+```text title="报错信息"
+dpkg: error processing package ***
+
+subprocess installed post-installation script returned error exit status 127
+```
+
+这主要是由于不完全安装导致的。解决方式是删除或编辑安装信息文件。
+
+```shell title="粗暴方法一：删除所有信息之后update" hl_lines="1-2"
+sudo mv /var/lib/dpkg/info/ /var/lib/dpkg/info_old/
+sudo mkdir /var/lib/dpkg/info/
+sudo apt-get update
+```
+
+```shell
+sudo apt-get install ***
+```
+
 
 ## 装机 - 系统配置
 ### 换源
@@ -1270,55 +1354,6 @@ nutstore help
 
 打开`.vmx`文件，修改` virtualHW.version = "19"`一行至` virtualHW.version = "16"` 
 
-
-## Q & A
-
-### sh: 0: getcwd() failed: No such file or directory
-    一般来说是因为你 cd 到了某个目录之后 rm 了这个目录，这时去执行某些 service 脚本的时候就会报 get cwd 错误。 只需要 cd 到任何一个实际存在的目录下再执行就好了
-
-### Could not load the Qt platform plugin “xcb“
-
-经过一番深入的探索，最终找到了一个有效的解决方案，即通过以下命令安装所有与libxcb相关的库：
-```shell
-sudo apt install libxcb-*
-```
-这条命令会安装所有以libxcb为前缀的库，确保系统中所有与XCB相关的依赖项都被正确安装。这一步成功解决了Qt无法加载xcb插件的问题，程序也顺利启动并运行。这表明，问题的根源在于某些关键的XCB依赖项缺失，而通过这种“一网打尽”的方式，我们可以确保所有相关的依赖项都得到满足。
-
-### sudo: 无法解析主机：xxxxxx
-原因：修改了主机的ubuntu设备名称，后面没有配置好hosts文件，导致linux无法解析到您的主机地址
-
-
-解决方案：就是配置一下hosts文件就可以解决，具体操作如下：
-```shell
-sudo vim /etc/hosts
-```
-把下面的数字后面的xxxx修改成你现在的设备名称保存就可以了。
-
-```
-127.0.1.1       xxxx
-```
-
-### dpkg: error processing package ***
-
-[原文链接](https://blog.csdn.net/dou3516/article/details/105120221)
-
-```text title="报错信息"
-dpkg: error processing package ***
-
-subprocess installed post-installation script returned error exit status 127
-```
-
-这主要是由于不完全安装导致的。解决方式是删除或编辑安装信息文件。
-
-```shell title="粗暴方法一：删除所有信息之后update" hl_lines="1-2"
-sudo mv /var/lib/dpkg/info/ /var/lib/dpkg/info_old/
-sudo mkdir /var/lib/dpkg/info/
-sudo apt-get update
-```
-
-```shell
-sudo apt-get install ***
-```
 
 
 

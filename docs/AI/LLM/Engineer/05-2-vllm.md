@@ -8,9 +8,6 @@ comments: True
 
 [vLLM - vLLM 文档](https://docs.vllm.com.cn/en/latest/index.html)
 
-
-
-
 ## 安装
 
 <!-- termynal -->
@@ -24,16 +21,17 @@ Installed
 ```
 
 
-> RuntimeError: Failed to find C compiler. Please specify via CC environment variable or set triton.knobs.build.impl.
+!!! error "RuntimeError: Failed to find C compiler. Please specify via CC environment variable or set triton.knobs.build.impl."
 
-```shell title="linux"
-sudo apt update
-sudo apt install build-essential  # Installs gcc, g++, make, etc.
-```
 
-```shell
-pip install triton
-```
+    ```shell title="linux"
+    sudo apt update
+    sudo apt install build-essential
+    ```
+
+    ```shell
+    pip install triton
+    ```
 
 
 ## 使用
