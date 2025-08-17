@@ -118,15 +118,26 @@ uv pip install -r requirements.txt
 vi ~/.bashrc
 export UV_CACHE_DIR=/data/cache
 ```
+
+### 更换python版本
+
+```shell
+uv python install 3.11
+uv venv --python 3.11
+```
+
 ### 换源
 
-```
-unset http_proxy && unset https_proxy
-```
 
 ```shell title="换源"
 export UV_DEFAULT_INDEX="https://mirrors.aliyun.com/pypi/simple"
 ```
+
+
+!!! note "网络环境"
+    ```shell
+    unset http_proxy && unset https_proxy
+    ```
 
 ```shell title="换源,修改pyproject.toml"
 [[tool.uv.index]]

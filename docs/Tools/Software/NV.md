@@ -424,6 +424,14 @@ to change the paranoid level to 1.
 
 ## Nsight Compute
 
+!!! note "Acknowledgements"
+    使用教程：
+
+    - [【教程向】如何在wsl2上使用Nsight compute CLI进行profiling - 知乎](https://zhuanlan.zhihu.com/p/706903160)
+
+
+
+
 ### roofline Analysis
 
 

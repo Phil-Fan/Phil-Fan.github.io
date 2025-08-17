@@ -128,11 +128,9 @@ pip install mdx_truly_sane_lists
 
 ### RSS
 
-<!-- termynal -->
+
 ```shell
-> pip install mkdocs-rss-plugin
----> 100%
-Installed
+pip install mkdocs-rss-plugin
 ``` 
 
 ```yml
@@ -150,11 +148,8 @@ plugins:
 
 作用：动态显示终端窗口
 
-<!-- termynal -->
 ```shell
-> pip install termynal
----> 100%
-Installed
+pip install termynal
 ```
 
 
@@ -186,11 +181,8 @@ plugins:
 
 [mkdocs-jupyter/demo/mkdocs.yml at main · danielfrg/mkdocs-jupyter](https://github.com/danielfrg/mkdocs-jupyter/blob/main/demo/mkdocs.yml)
 
-<!-- termynal -->
 ```shell
-> pip install mkdocs-jupyter
----> 100%
-Installed
+pip install mkdocs-jupyter
 ```
 
 

@@ -1,6 +1,29 @@
 # Server
 
 !!! note "备忘记录一些实验室服务器和云服务器的操作，以linux为主"
+
+## 最常用指令
+
+```shell title="huggingface"
+export HF_ENDPOINT=https://hf-mirror.com
+```
+
+```shell title="uv 安装"
+wget -qO- https://astral.sh/uv/install.sh | sh
+```
+
+```shell title="uv换源"
+export UV_DEFAULT_INDEX="https://mirrors.aliyun.com/pypi/simple"
+```
+
+```shell title="autodl网络加速"
+source /etc/network_turbo
+```
+
+```shell title="取消代理"
+unset http_proxy && unset https_proxy
+```
+
 ## zsh配置
 
 ```shell title="安装oh-my-zsh"
@@ -149,20 +172,14 @@ export HF_TOKEN=your_huggingface_token
 
 ### 使用modelscope下载
 
-<!-- termynal -->
 ```shell
-> pip install modelscope
----> 100%
-Installed
+pip install modelscope
 ```
 
 <br>
 
-<!-- termynal -->
 ```shell
-> modelscope download <model_name> --local_dir ./dir
----> 100%
-Downloaded
+modelscope download <model_name> --local_dir ./dir
 ```
 
 

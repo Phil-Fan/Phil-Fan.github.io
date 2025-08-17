@@ -10,14 +10,12 @@ comments: True
 
 ## 安装
 
-<!-- termynal -->
+
 
 ```shell title="安装"
 > uv venv --python 3.12 --seed
 > source .venv/bin/activate
 > uv pip install vllm --torch-backend=auto
----> 100%
-Installed
 ```
 
 
@@ -64,7 +62,7 @@ sequenceDiagram
 ```
 
 
-<!-- termynal -->
+
 
 ```shell
 > uv venv --python 3.12 --seed
@@ -76,7 +74,7 @@ Installed
 
 <br>
 
-<!-- termynal -->
+
 
 
 ```shell
@@ -85,8 +83,6 @@ Installed
 > uv pip install vllm
 > uv pip install pandas
 > uv pip install datasets
----> 100%
-Installed
 ```
 
 ```shell

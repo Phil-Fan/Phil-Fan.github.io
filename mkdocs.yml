@@ -854,10 +854,10 @@ plugins:
 
   # https://github.com/termynal/termynal.py
   # A lightweight and modern animated terminal window. Built for mkdocs.
-  - termynal:
-      prompt_literal_start:
-        - "$"
-        - ">"
+  # - termynal:
+  #     prompt_literal_start:
+  #       - "$"
+        # - ">"
 
 
   # blog 功能 下面这个仓库有template

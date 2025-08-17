@@ -39,7 +39,7 @@ wsl --set-version <distro> <version>
 ### 系统换源
 
 
-### ssh设置
+### SSH - wsl基础配置
 
 > 参考[【linux】SSH 连接 WSL2 本地环境的完整步骤](https://blog.csdn.net/2201_75772333/article/details/147534639)
 
@@ -56,20 +56,44 @@ sudo vim /etc/ssh/sshd_config
 
 搜索下面的内容，更改或取消注释
 
+这样设置可以同时监听22和2222端口，方便使用
+
 ```text title="ssh 配置"
 Port 22
+Port 2222
 ListenAddress 0.0.0.0
 PasswordAuthentication yes
 PermitRootLogin yes
 ```
 
 ```shell title="ssh 启动"
-sudo service ssh start
+sudo systemctl start ssh
+```
+
+
+```shell title="ssh 重启"
+sudo systemctl restart ssh
 ```
 
 ```shell title="ssh 状态"
-ps -e | grep sshd
-> pid  ? 00:00:00 sshd
+systemctl status ssh
+```
+
+```shell title="确认是2222端口"
+sudo ss -tlnp | grep ssh
+
+netstat -tlnp | grep ssh
+```
+
+
+你应该能看到 `0.0.0.0:2222` 或 `[::]:2222`。
+
+```shell title="ssh 连接"
+ssh -p 2222 <user>@<host>
+```
+
+```shell title="ssh 免密登陆"
+ssh-copy-id -p 2222 <user>@<host>
 ```
 
 !!! note "开机自启"
@@ -83,28 +107,145 @@ ps -e | grep sshd
 !!! note "免密登陆"
 
     下面是配置免密登陆的步骤
-
+    
     ```shell title="powershell生成密钥"
     ssh-keygen -t ed25519 -C "wsl-ssh-key"
     ```
-
+    
     ```shell title="ssh 查看密钥"
     cat ~\.ssh\id_ed25519.pub
     ```
-
+    
     复制输出的内容（以 `ssh-ed25519` 开头的一行）
-
+    
     在 WSL2 中粘贴到 `~/.ssh/authorized_keys`：
-
+    
     ```shell title="ssh 粘贴公钥"
     mkdir ~/.ssh
     echo "粘贴的公钥内容" >> ~/.ssh/authorized_keys
     chmod 600 ~/.ssh/authorized_keys
     ```
 
+### SSH - windows 转发
+
+
+1. WSL IP 
+
+在 WSL 里执行：
+
+```shell title="WSL IP"
+ip addr show eth0
+```
+
+你会看到类似：
+
+```shell title="WSL IP"
+inet 172.22.183.12/20 brd 172.22.191.255 scope global eth0
+```
+
+这里的 `172.22.183.12` 就是 WSL 的内部 IP。
+⚠️ 注意：WSL 重启后，这个 IP 会变化。
+
+
+确认 Windows 主机 IP, 在 Windows PowerShell 里运行：
+
+```shell
+ipconfig
+```
+
+找到你要让别人访问的网络接口（例如 Wi-Fi 或 Ethernet），记下 IPv4 地址，比如 `192.168.1.100`。
+
+
+2. Windows 上配置端口转发
+
+
+在 Windows PowerShell（管理员权限）里执行：
+
+```shell title="Windows 上配置端口转发"
+netsh interface portproxy add v4tov4 listenport=2222 listenaddress=0.0.0.0 connectport=2222 connectaddress=<WSL_IP>
+```
+
+替换 `<WSL_IP>` 为上一步查到的 WSL IP（例如 `172.22.183.12`）。
+
+这个命令意思是：当别人访问 `Windows_IP:2222`，流量会被转发到 `WSL_IP:2222`。
+
+也可以使用defender防火墙添加规则
+
+![image-20250817114056593](assets/settings-wsl.assets/image-20250817114056593.png)
 
 
 
+3. 开放防火墙
+
+```shell title="开放防火墙"
+netsh advfirewall firewall add rule name="OpenSSH WSL 2222" dir=in action=allow protocol=TCP localport=2222
+```
+
+4. 测试连接
+
+在另一台机器上执行：
+
+```bash title="ssh 连接"
+ssh -p 2222 user@192.168.1.100
+```
+
+这里 `192.168.1.100` 是 Windows 主机的局域网 IP。
+
+
+后台自动运行的 PowerShell 脚本，它会定时检查 WSL 的 IP 是否变化，如果变了就自动更新 Windows 的端口转发规则
+
+```powershell title="WSL 端口转发后台守护脚本"
+# WSL 端口转发后台守护脚本
+# 保存为 wsl-portproxy-daemon.ps1 并用 PowerShell 管理员身份运行
+
+$listenPort = 2222   # Windows 对外暴露的端口
+$connectPort = 2222  # WSL 内部 sshd 端口
+$interval = 30       # 检查间隔（秒）
+
+function Get-WslIP {
+    try {
+        $ip = wsl hostname -I 2>$null
+        if ($ip) {
+            return $ip.Trim().Split(" ")[0]
+        }
+    } catch {
+        return $null
+    }
+    return $null
+}
+
+$lastIP = ""
+
+Write-Host "🚀 WSL 端口转发守护进程启动 (每 $interval 秒检查一次)" -ForegroundColor Cyan
+
+while ($true) {
+    $wslIP = Get-WslIP
+    if ($wslIP -and $wslIP -ne $lastIP) {
+        Write-Host "✅ 检测到 WSL IP: $wslIP"
+
+        # 删除旧规则
+        netsh interface portproxy delete v4tov4 listenport=$listenPort listenaddress=0.0.0.0 2>$null | Out-Null
+
+        # 添加新规则
+        netsh interface portproxy add v4tov4 listenport=$listenPort listenaddress=0.0.0.0 connectport=$connectPort connectaddress=$wslIP
+
+        Write-Host "🔄 已更新端口转发规则: Windows:0.0.0.0:$listenPort → WSL:$wslIP:$connectPort" -ForegroundColor Green
+
+        $lastIP = $wslIP
+    }
+    Start-Sleep -Seconds $interval
+}
+```
+
+1. 将脚本保存为 `wsl-portproxy-daemon.ps1`。
+
+2. 用 管理员权限 启动 PowerShell。
+
+3. 运行它会在后台循环运行，每隔 30 秒检查一次 WSL IP，若变化就自动更新转发规则。
+
+```shell title="运行脚本"
+powershell.exe -ExecutionPolicy Bypass -File .\wsl-portproxy-daemon.ps1
+```
 
 
 
@@ -156,11 +297,11 @@ export PATH="/usr/local/cuda-12.9/bin:$PATH"
     [CUDA Installation Guide for Linux — Installation Guide for Linux 13.0 documentation](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#post-installation-actions)
 
     In addition, when using the runfile installation method, the `LD_LIBRARY_PATH` variable needs to contain `/usr/local/cuda-13.0/lib64` on a 64-bit system and `/usr/local/cuda-13.0/lib` for the 32 bit compatibility:
-
+    
     ```shell title="添加路径"
     $ export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/cuda-13.0/lib64
     ```
-
+    
     Note that the above paths change when using a custom install path with the runfile installation method.
 
 
