@@ -25,7 +25,6 @@
 <link href="style/css/card.css" rel="stylesheet"/>
 <link href="https://cdn.tonycrane.cc/jbmono/jetbrainsmono.css" rel="stylesheet"/>
 <link href="https://cdn.tonycrane.cc/lxgw/lxgwscreen.css" rel="stylesheet"/>
-<link href="termynal.css" rel="stylesheet"/>
 <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2QNP7S5RJ8"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2QNP7S5RJ8",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2QNP7S5RJ8",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
@@ -1186,6 +1185,13 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="AI/LLM/Engineer/05-3-SGlang.html">
+<span class="md-ellipsis">
+    SGlang
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="AI/LLM/Engineer/06-InferOptimization.html">
 <span class="md-ellipsis">
     06 | Infer Optimization
@@ -1230,15 +1236,15 @@
 </a>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_3_4_15" type="checkbox"/>
-<label class="md-nav__link" for="__nav_3_4_15" id="__nav_3_4_15_label" tabindex="0">
+<input class="md-nav__toggle md-toggle" id="__nav_3_4_16" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_4_16" id="__nav_3_4_16_label" tabindex="0">
 <span class="md-ellipsis">
     工具手册
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="false" aria-labelledby="__nav_3_4_15_label" class="md-nav" data-md-level="3">
-<label class="md-nav__title" for="__nav_3_4_15">
+<nav aria-expanded="false" aria-labelledby="__nav_3_4_16_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_4_16">
 <span class="md-nav__icon md-icon"></span>
             工具手册
           </label>
@@ -1372,6 +1378,58 @@
     07 | Quantization
   </span>
 </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_5_11" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_5_11" id="__nav_3_5_11_label" tabindex="0">
+<span class="md-ellipsis">
+    工具手册
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_5_11_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_5_11">
+<span class="md-nav__icon md-icon"></span>
+            工具手册
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="https://pytorch.org/docs/stable/index.html">
+<span class="md-ellipsis">
+    [训练] Pytorch
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="https://docs.nvidia.com/cuda/cuda-installation-guide-linux/">
+<span class="md-ellipsis">
+    [训练] CUDA
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="https://deepspeed.org.cn/">
+<span class="md-ellipsis">
+    [训练] DeepSpeed
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="https://nvidia.github.io/NVTX/python/reference.html">
+<span class="md-ellipsis">
+    [性能] NVTX 
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="https://developer.nvidia.com/nsight-systems">
+<span class="md-ellipsis">
+    [性能] Nsight System
+  </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -1751,6 +1809,13 @@
 <a class="md-nav__link" href="https://github.com/zhaochenyang20/Awesome-ML-SYS-Tutorial/tree/main">
 <span class="md-ellipsis">
     ML-SYS
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="https://wdndev.github.io/llm_interview_note/">
+<span class="md-ellipsis">
+    LLM-interview
   </span>
 </a>
 </li>
@@ -3266,10 +3331,11 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="Research/Papers/Engogrio.md">
+<a class="md-nav__link" href="Research/Papers/Engorgio.html">
 <span class="md-ellipsis">
-    None
+    engorgio prompt
   </span>
+<span class="md-status md-status--new"></span>
 </a>
 </li>
 <li class="md-nav__item">
@@ -3491,6 +3557,13 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="Tools/Software/NV.html">
+<span class="md-ellipsis">
+    NVIDIA Toolkit
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="Tools/Software/Matlab.html">
 <span class="md-ellipsis">
     MATLAB使用记录
@@ -3595,6 +3668,13 @@
 <a class="md-nav__link" href="Tools/Environment/settings-linux-kali.html">
 <span class="md-ellipsis">
     Kali Linux
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="Tools/Environment/settings-wsl.html">
+<span class="md-ellipsis">
+    WSL
   </span>
 </a>
 </li>
@@ -4510,7 +4590,6 @@
 <script src="style/javascripts/toc.js"></script>
 <script src="style/javascripts/MathJax-3.2.2/es5/tex-mml-chtml.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
-<script src="termynal.js"></script>
 <script src="assets/javascripts/custom.9e5da760.min.js"></script>
 </body>
 </html>
