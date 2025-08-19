@@ -1,4 +1,8 @@
 - "2025":
+  - "2025-08-19":
+    - function:
+        text: "通过hook函数自动生成友链页面"
+        href: "friends.html"
   - "2025-08-10":
     - function:
         text: "增加git-committers功能"
