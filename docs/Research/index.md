@@ -6,6 +6,13 @@
 
 limu [博士这五年 - 知乎](https://zhuanlan.zhihu.com/p/25099638)
 
+[Principles of Effective Research – Michael Nielsen](https://michaelnielsen.org/blog/principles-of-effective-research/)
+
+[An Opinionated Guide to ML Research](http://joschu.net/blog/opinionated-guide-ml-research.html)
+
+[You and Your Research, by Richard Hamming - Sam Altman](https://blog.samaltman.com/you-and-your-research)
+
+[A Survival Guide to a PhD](https://karpathy.github.io/2016/09/07/phd/)
 
 ## 工具
 

@@ -173,17 +173,57 @@ uv add <package>==<version>
 source .venv/bin/activate
 ```
 
-### 管理
+### 工作空间
+可以使用子文件夹的方式
+
+比如采用 `src-layout` 的结构
+
+```shell
+.
+├── README.md
+├── main.py
+├── pyproject.toml
+├── src/
+│   ├── service_a/
+│   │   ├── README.md
+│   │   └── main.py
+│   └── service_b/
+│       ├── README.md
+│       ├── main.py
+│       └── pyproject.toml
+└── uv.lock
+```
+
+首先在根目录下
+
+```shell
+uv init
+```
+
+然后切换到子文件夹
+
+```shell
+cd src/service_a
+uv init service_a
+```
+
+然后在对应的文件夹添加依赖即可
 
 
-```
-uv
-```
+- 共享依赖管理：工作区内的所有子项目共享同一个虚拟环境和锁文件（uv.lock），确保依赖一致性。
+- 独立配置：每个子项目可定义自己的 pyproject.toml，但通过工作区根目录的配置统一协调。
+
+
+如果要运行的时候，先添加根目录的依赖    
 
 ```shell
 uv sync
 ```
 
+```shell
+uv run xxxx.py
+```
+这个时候会自动安装需要的依赖
 
 ### uv pip管理
 

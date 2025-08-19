@@ -181,6 +181,7 @@ netsh interface portproxy add v4tov4 listenport=2222 listenaddress=0.0.0.0 conne
 netsh advfirewall firewall add rule name="OpenSSH WSL 2222" dir=in action=allow protocol=TCP localport=2222
 ```
 
+
 4. 测试连接
 
 在另一台机器上执行：

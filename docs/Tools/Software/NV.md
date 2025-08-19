@@ -359,6 +359,8 @@ nsys profile -d 30 -o result --export=sqlite,json python train.py
 
 #### 无法连接GPU
 
+
+
 遇到的问题是`CUDA device 0: Unified Memory cannot be traced on devices that don't support peer-to-peer transfers.Please verify that SLI/NVLink is functioning properly.`且GPU没有抓取到信息
 
 ![image-20250816230828474](assets/NV.assets/image-20250816230828474.png)
@@ -381,29 +383,91 @@ nvidia-smi
 
 最后找到了官方论坛上关于这个问题的讨论，[Nsight system error : Unified Memory cannot be traced on devices that don't support peer-to-peer transfers  - NVIDIA Developer Forums](https://forums.developer.nvidia.com/t/nsight-system-error-unified-memory-cannot-be-traced-on-devices-that-dont-support-peer-to-peer-transfers/294742/2)
 
+[Segfaults during Deep Learning Profiling [BUG?] - Nsight Systems / Profiling Linux Targets - NVIDIA Developer Forums](https://forums.developer.nvidia.com/t/segfaults-during-deep-learning-profiling-bug/273984)
+
+[Nsys doesn't show cuda kernel and memory data - Nsight Systems / Profiling Linux Targets - NVIDIA Developer Forums](https://forums.developer.nvidia.com/t/nsys-doesnt-show-cuda-kernel-and-memory-data/315536/9)
+
 给出了下面的解决方法
 
 
-```
-mkdir -p "$(dirname ~/.nsys-rep")" && echo 'CuptiUseRawGpuTimestamps=false' >> ~/.nsys-rep
-```
-
-但是由于我的`nsys -z`结果是
-
-```
-/home/user/.config/NVIDIA Corporation/nsys-config.ini
+```shell title="find ini"
+$ nsys -z
+/home/liuyis/.config/NVIDIA Corporation/nsys-config.ini
 ```
 
-其中路径当中含有空格，所以直接运行创建不了,我尝试使用了
-
+Create the config.ini file if it does not already exist. Note the path might have a space in it so it needs to be wrapped by quotes
+```shell title="create ini"
+mkdir -p "/home/liuyis/.config/NVIDIA Corporation"
+touch "/home/liuyis/.config/NVIDIA Corporation/nsys-config.ini"
 ```
-mkdir "NVIDIA\ Corporation" && cd NVIDIA\ Corporation/
-echo 'CuptiUseRawGpuTimestamps=false' >> nsys-config.ini
+
+Add a line in the config file:`CuptiUseRawGpuTimestamps=false`
+
+```shell title="add line"
+echo "CuptiUseRawGpuTimestamps=false" > "/home/liuyis/.config/NVIDIA Corporation/nsys-config.ini"
 ```
 
 但是没有解决问题
+#### 无法打开vllm
+[[Bug]: nsys cann't open the file · Issue #19903 · vllm-project/vllm](https://github.com/vllm-project/vllm/issues/19903)
 
-#### 无法连接CUDA API
+[[Bug]: Failed profiling vllm (both offline and server) with Nsight Systems · Issue #20178 · vllm-project/vllm](https://github.com/vllm-project/vllm/issues/20178)
+
+#### 无法显示CUDA信息
+
+[[Perf][Spec Decode] EAGLE Kernel Fusion + Synchronization Overhead Reduction by leo-cf-tian · Pull Request #20078 · vllm-project/vllm](https://github.com/vllm-project/vllm/pull/20078)
+
+[[Bug]: nsys profiler failed to collect CUDA events on vLLM 0.9.2 · Issue #20959 · vllm-project/vllm](https://github.com/vllm-project/vllm/issues/20959)
+
+[Missing CUDA runtime events from nsys report - Nsight Systems / Profiling Linux Targets - NVIDIA Developer Forums](https://forums.developer.nvidia.com/t/missing-cuda-runtime-events-from-nsys-report/330296)
+
+[Nsys 无法捕获 cuda 信息 - Nsight Systems / Profiling DRIVE Targets - NVIDIA 开发者论坛 --- Nsys cannot capture cuda information - Nsight Systems / Profiling DRIVE Targets - NVIDIA Developer Forums](https://forums.developer.nvidia.com/t/nsys-cannot-capture-cuda-information/330762)
+
+
+[[Core] Nsys can't capture any information · Issue #42139 · ray-project/ray](https://github.com/ray-project/ray/issues/42139#issuecomment-2141724352)
+
+
+[[Bug]: vLLM with ray backend and enable nsight can't get perf metrics due to connection issue · Issue #7830 · vllm-project/vllm](https://github.com/vllm-project/vllm/issues/7830)
+
+#### 多进程只有主线程显示CUDA信息
+
+[[Bug]: nsys cannot track the cuda kernel called by the process except rank 0 · Issue #5132 · vllm-project/vllm](https://github.com/vllm-project/vllm/issues/5132)
+
+
+--event-sample=system-wide 
+
+Not really, this only enables the “event sampling” feature, which indirectly enabled the “CPU sampling” feature and that’s why you can see the background Python process and the callstack in my screenshot. However, for trace features like CUDA trace, OSRT trace, there is no system-wide support and the process has to be launched by Nsys.
+
+Nsys does not support attaching to running processes. You’ll need to launch the process through Nsys, i.e. something like `nsys profile --trace=osrt,cuda <the background app that run CUDA workload>`
+
+
+#### 多卡无法显示CUDA信息
+
+
+[[Misc]: nsys profile can not show CUDA HW on all devices · Issue #10708 · vllm-project/vllm](https://github.com/vllm-project/vllm/issues/10708)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[[misc] nsys profile output kernel classifier and visualizer by gracehonv · Pull Request #22971 · vllm-project/vllm](https://github.com/vllm-project/vllm/pull/22971)
+
+
+
+
+
+
 
 
 

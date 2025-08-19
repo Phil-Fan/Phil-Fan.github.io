@@ -21,6 +21,8 @@ He who hesitates is lost
 !!! note "正在学习的内容"
     - 统计学习；整理一下机器学习的笔记；大数据分析的笔记整理 <br>
     - 生成式模型论文阅读与笔记整理
+    - NJU OS
+    - MLSys 课程
     - 非线性控制 & 最优控制
     - CS61A的题目刷完
     
@@ -57,3 +59,8 @@ He who hesitates is lost
     🎱 台球4连杆<br>
     🧑‍🍳 每周尝试一道新的菜（✅完成）
 
+
+加一下友链
+
+[Mkdocs中文教程](https://wcowin.work/Mkdocs-Wcowin/)
+[pyheight/ttk-file-explorer: 📂 Lightweight Windows File Explorer (ttkbootstrap-powered · tkinter-based · MkDocs-documented) | 轻量级 Windows 文件管理器（ttkbootstrap 开发 · 基于 tkinter · MkDocs 文档系统）](https://github.com/pyheight/ttk-file-explorer)

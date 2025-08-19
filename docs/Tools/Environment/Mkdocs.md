@@ -1,11 +1,85 @@
 # Mkdocs
+
+
+
+
+## Mkdocs原理
+
+
+
+
+
+## Acknowledgement
+
+这里放一些好的资源和博客
+
 [material文档](https://squidfunk.github.io/mkdocs-material/)
 
 [Mkdocs Material使用记录 - shafish.cn](https://shafish.cn/blog/mkdocs/#%E5%9B%9B%E9%83%A8%E7%BD%B2)
 
+## Build From Scratch
 
 
-- index.md 会放到小标题下的第一个页面
+
+
+
+### 本地部署
+
+
+
+
+
+### Github-Pages
+
+发布也遇到了好几个坑
+
+[GitHub Pages 文档自动化部署 - MkDocs - Arisa | Blog](https://blog.arisa.moe/blog/2022/220407-github-pages/#vcs)
+
+[github pages绑定域名-腾讯云开发者社区-腾讯云 (tencent.com)](https://cloud.tencent.com/developer/article/1454059)
+
+- 编写`workflow`文件
+
+在仓库上方有actions选项，点击new workflow，我这里选择了自己编写的workflow文件，貌似也有针对Mkdocs的模板
+
+```yml
+name: deploy
+
+on:
+  push:
+    branches:
+      - master
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0    # for mkdocs-git-revision-date-localized-plugin
+      - uses: actions/setup-python@v4
+        with:
+          python-version: 3.x
+      - run: pip install -r requirements.txt
+      - name: Create CNAME file
+        run: echo "www.philfan.cn" > docs/CNAME   # Adjust the path if your configuration is different
+      - run: mkdocs gh-deploy --force
+```
+
+- 设置deploy from branch
+
+![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240707225202.png)
+
+### 自定义域名
+
+- 设置自定义域名
+  将域名填入`CNAME`文件中，然后打开仓库的设置界面，在cumtom domain 中设置好自己的域名
+
+
+
+
 
 ## Markdown相关功能
 
@@ -73,7 +147,7 @@
 `title="bubble_sort.py"` 显示文件名字
 
 
-### 嵌入b站视频
+### 嵌入b站/youtube视频
 
 
 1.打开B站的视频
@@ -117,21 +191,175 @@ pip install mdx_truly_sane_lists
 
 ### mermaid支持
 
+## 个性配置 —— Mkdocs DIY
+
+### Commands
+
+* `mkdocs new [dir-name]` - Create a new project.
+* `mkdocs serve` - Start the live-reloading docs server.
+* `mkdocs build` - Build the documentation site.
+* `mkdocs -h` - Print help message and exit.
+
+??? note "安装代码" 
+	```Shell
+    pip install mkdocs
+    pip install mkdocs-material
+    pip install mkdocs-material-extensions
+    pip install mkdocs-git-revision-date-localized-plugin
+    pip install mkdocs-statistics-plugin
+    pip install mkdocs-heti-plugin
+	```
+
+### 页面组织
+
+- index.md 会放到小标题下的第一个页面
 
 
+### Overrides
 
-## Mkdocs插件使用记录
+#### 主页
 
+#### banner位置
+
+
+### social links
+
+
+### nav配置
+
+### hooks
+
+
+### Mathjax 
+
+
+[mkdocs-material/docs/plugins/privacy.md 在 master ·squidfunk/mkdocs-材料](https://github.com/squidfunk/mkdocs-material/blob/master/docs/plugins/privacy.md)
+
+jupyter 遇到了单行公式无法显示的问题
+[Local MathJax with mkdocs-jupyter · squidfunk/mkdocs-material · Discussion #7134](https://github.com/squidfunk/mkdocs-material/discussions/7134)
+
+
+Steps to reproduce
+
+Download MathJax:
+
+```shell
+wget https://github.com/mathjax/MathJax/archive/refs/tags/3.2.2.zip
+unzip 3.2.2.zip "MathJax-3.2.2/es5/*" -d docs/assets/javascripts/
+```
+
+Create mathjax.js:
+
+```js title="mathjax.js"
+window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+    //   displayMath: [ ['$$', '$$'], ['\[', '\]'] ],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+    //   ignoreHtmlClass: ".*|",
+    //   processHtmlClass: "arithmatex"
+    }
+  };
+  document$.subscribe(() => { 
+    MathJax.startup.output.clearCache()
+    MathJax.typesetClear()
+    MathJax.texReset()
+    MathJax.typesetPromise()
+  })
+```
+
+Adapt nbconvert:, removing implicit load of Mathjax (see here)
+
+```shell title="remove mathjax"
+sed -i 's#https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS_CHTML-full,Safe##g' venv/lib/python3.12/site-packages/nbconvert/exporters/html.py
+```
+
+这一步如果在虚拟环境下面，自己找到对应的路径进行修改
+
+```yml title="static.yml"
+- name: Modify nbconvert HTML exporter
+        run: sed -i 's#https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS_CHTML-full,Safe##g' $(python -c "import nbconvert; print(nbconvert.__file__.replace('__init__.py', 'exporters/html.py'))")
+```
+
+Adjust mkdocs.yml:
+
+```yml title="mkdocs.yml" 
+plugins:
+    - privacy
+    - mkdocs-jupyter
+
+extra_javascript:
+  - assets/javascripts/mathjax.js
+  - assets/javascripts/MathJax-3.2.2/es5/tex-mml-chtml.js
+```
+
+### 查看与编辑代码
+
+### 颜色主题
+
+
+## 锦上添花 —— Plugins
 
 ### Blog
 
+blog 功能 下面这个仓库有[template](https://github.com/mkdocs-material/create-blog/tree/main)
+
+1. 首先在docs文件夹下放一个blog目录，下面是一个目录的样例
+
+```shell
+docs/blog
+├── author
+│   └── team.md
+├── posts ---------------------------------- 放所有的博文
+│   ├── drafts ----------------------------- drafts目录下是所有的草稿
+│   │   └── draft.md
+│   └── helloworld.md
+├── index.md
+└── tags.md
+```
+
+2. 配置一下`mkdocs.yml`，具体的配置可以看这个[Basic blogs - Material for MkDocs](https://squidfunk.github.io/mkdocs-material/tutorials/blogs/basic/)
+
+```yml
+- blog:
+    blog_toc: true
+    archive_date_format: MMMM yyyy
+    # authors_profiles: true
+    pagination_per_page: 5
+```
 
 ### RSS
+
+**RSS (Really Simple Syndication / RDF Site Summary / Rich Site Summary)**
+ 是一种基于 XML 的内容分发格式，常用于网站内容的聚合与订阅。
+
+简单来说：
+
+- 网站提供 **RSS Feed**（订阅源），里面包含文章标题、摘要、链接、发布时间等信息。
+- 用户用 **RSS 阅读器**（如 Feedly、Inoreader、Tiny Tiny RSS 等）订阅这些源，就能在一个地方集中看到多个网站的更新，而不用逐个打开网站。
+
+工作原理
+
+1. 网站生成一个 RSS 文件（通常是 `.xml` 格式），例如：`https://example.com/feed.xml`
+2. RSS 阅读器定期抓取这个文件。
+3. 阅读器解析 XML，把文章列表显示给用户。
+4. 用户可以在阅读器中点击链接，跳转到原网站查看全文。
+
+
+
+配置方法
+
+第一步，安装插件
 
 
 ```shell
 pip install mkdocs-rss-plugin
-``` 
+```
+
+第二步，在`mkdocs.yml`中加入以下信息
 
 ```yml
 site_description: required. Used as feed mandatory channel description.
@@ -144,20 +372,29 @@ plugins:
 
 
 
-### termynal
-
-作用：动态显示终端窗口
-
-```shell
-pip install termynal
-```
-
 
 
 ### git-committers
 [byrnereese/mkdocs-git-committers-plugin: A mkdocs plugin for displaying the last commit and a list of a file's contributors.](https://github.com/byrnereese/mkdocs-git-committers-plugin)
 
-不过目前仓库暂时只有我一个人，所以这个暂时用不到
+这个插件的作用是在页面底部显示该文档的贡献者，比较适合有多个作者的情况，我这个库目前暂时还只有我一个人qwq，觉得好玩还是放了一下。
+
+
+
+为了可以解决git-committers插件的token问题，需要设置环境变量，但是这种token不适宜明文传递，所以需要使用github的secret来存储
+
+所以第一步是在github的仓库中设置secret
+
+![image-20250817151216756](assets/Mkdocs.assets/image-20250817151216756.png)
+
+第二步是在github actions中设置环境变量
+
+```yml title="github actions"
+- name: Deploy with MkDocs
+    run: export MKDOCS_GIT_COMMITTERS_APIKEY=${{ secrets.MKDOCS_GIT_COMMITTERS_APIKEY }} && mkdocs gh-deploy --force
+```
+
+第三步是在mkdocs.yml中设置插件和token
 
 ```yml
 plugins:
@@ -166,7 +403,6 @@ plugins:
       branch: master
       token: !!python/object/apply:os.getenv ["MKDOCS_GIT_COMMITTERS_APIKEY"]
 ```
-
 
 
 
@@ -212,7 +448,7 @@ plugins:
       `JUPYTER_PLATFORM_DIRS=1` and then run `jupyter --paths`.
       The use of platformdirs will be the default in `jupyter_core` v6
     ```
-
+    
     [DeprecationWarning: Jupyter is migrating its paths to use standard platformdirs · Issue #148 · danielfrg/mkdocs-jupyter](https://github.com/danielfrg/mkdocs-jupyter/issues/148)
 
 
@@ -226,7 +462,7 @@ plugins:
     </p>
 </details>
 ```
-  
+
 
 ```html
 <div class="admonition success">
@@ -392,12 +628,6 @@ changelog: True
 示范
 [note/docs/changelog.yml at master · TonyCrane/note](https://github.com/TonyCrane/note/blob/master/docs/changelog.yml)
 
-
-### 解析xmind
-
-[OpenFiles.online](https://openfiles.online/)
-[在浏览器中解析和渲染 XMind 文件 | 文森的主站](https://liangwensen.com/blog/parse-and-render-xmind-file-in-browser)
-
 ### git-revision
 
 
@@ -416,152 +646,12 @@ changelog: True
 ### minify
 有bug
 
+### 解析xmind
 
+!!! todo "可以实现吗"
 
-
-## 配置
-
-### Commands
-
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
-
-??? note "安装代码" 
-	```Shell
-    pip install mkdocs
-    pip install mkdocs-material
-    pip install mkdocs-material-extensions
-    pip install mkdocs-git-revision-date-localized-plugin
-    pip install mkdocs-statistics-plugin
-    pip install mkdocs-heti-plugin
-	```
-### Overrides
-
-#### 主页
-
-#### banner位置
-
-
-### social links
-
-
-### nav配置
-
-### hooks
-
-
-### Mathjax 
-
-
-[mkdocs-material/docs/plugins/privacy.md 在 master ·squidfunk/mkdocs-材料](https://github.com/squidfunk/mkdocs-material/blob/master/docs/plugins/privacy.md)
-
-jupyter 遇到了单行公式无法显示的问题
-[Local MathJax with mkdocs-jupyter · squidfunk/mkdocs-material · Discussion #7134](https://github.com/squidfunk/mkdocs-material/discussions/7134)
-
-
-Steps to reproduce
-
-Download MathJax:
-```shell
-wget https://github.com/mathjax/MathJax/archive/refs/tags/3.2.2.zip
-unzip 3.2.2.zip "MathJax-3.2.2/es5/*" -d docs/assets/javascripts/
-```
-Create mathjax.js:
-```js title="mathjax.js"
-window.MathJax = {
-    tex: {
-      inlineMath: [['$', '$'], ['\\(', '\\)']],
-    //   displayMath: [ ['$$', '$$'], ['\[', '\]'] ],
-      processEscapes: true,
-      processEnvironments: true
-    },
-    options: {
-    //   ignoreHtmlClass: ".*|",
-    //   processHtmlClass: "arithmatex"
-    }
-  };
-  document$.subscribe(() => { 
-    MathJax.startup.output.clearCache()
-    MathJax.typesetClear()
-    MathJax.texReset()
-    MathJax.typesetPromise()
-  })
-```
-
-Adapt nbconvert:, removing implicit load of Mathjax (see here)
-
-```shell title="remove mathjax"
-sed -i 's#https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS_CHTML-full,Safe##g' venv/lib/python3.12/site-packages/nbconvert/exporters/html.py
-```
-
-这一步如果在虚拟环境下面，自己找到对应的路径进行修改
-```yml title="static.yml"
-- name: Modify nbconvert HTML exporter
-        run: sed -i 's#https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS_CHTML-full,Safe##g' $(python -c "import nbconvert; print(nbconvert.__file__.replace('__init__.py', 'exporters/html.py'))")
-```
-
-Adjust mkdocs.yml:
-```yml title="mkdocs.yml" 
-plugins:
-    - privacy
-    - mkdocs-jupyter
-
-extra_javascript:
-  - assets/javascripts/mathjax.js
-  - assets/javascripts/MathJax-3.2.2/es5/tex-mml-chtml.js
-```
-### 查看与编辑代码
-
-### 颜色主题
-
-
-## 部署
-
-发布也遇到了好几个坑
-
-[GitHub Pages 文档自动化部署 - MkDocs - Arisa | Blog](https://blog.arisa.moe/blog/2022/220407-github-pages/#vcs)
-
-[github pages绑定域名-腾讯云开发者社区-腾讯云 (tencent.com)](https://cloud.tencent.com/developer/article/1454059)
-
-- 编写`workflow`文件
-
-在仓库上方有actions选项，点击new workflow，我这里选择了自己编写的workflow文件，貌似也有针对Mkdocs的模板
-
-```yml
-name: deploy
-
-on:
-  push:
-    branches:
-      - master
-
-permissions:
-  contents: write
-
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0    # for mkdocs-git-revision-date-localized-plugin
-      - uses: actions/setup-python@v4
-        with:
-          python-version: 3.x
-      - run: pip install -r requirements.txt
-      - name: Create CNAME file
-        run: echo "www.philfan.cn" > docs/CNAME   # Adjust the path if your configuration is different
-      - run: mkdocs gh-deploy --force
-```
-
-- 设置deploy from branch
-
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240707225202.png)
-
-- 设置自定义域名
-将域名填入`CNAME`文件中，然后打开仓库的设置界面，在cumtom domain 中设置好自己的域名
+[OpenFiles.online](https://openfiles.online/)
+[在浏览器中解析和渲染 XMind 文件 | 文森的主站](https://liangwensen.com/blog/parse-and-render-xmind-file-in-browser)
 
 
 ## Deprecated
@@ -641,6 +731,14 @@ lilypond -o output music.ly
 [Render LilyPond in Markdown](https://pianomanfrazier.com/post/lilypond-in-markdown/)
 
 [uliska/markdown-lilypond： 支持 LilyPond（符号软件）输入的 MkDocs 插件](https://github.com/uliska/markdown-lilypond)
+
+### termynal
+
+作用：动态显示终端窗口
+
+```shell
+pip install termynal
+```
 
 
 

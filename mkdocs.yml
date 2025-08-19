@@ -207,6 +207,8 @@ extra_javascript:
 hooks:
   # 在blog页面中添加社交分享功能
   - hooks/socialmedia.py
+  # 从CSV文件自动生成友链页面
+  - hooks/friends.py
 
 
 # navigation: 注意左右下划线的写法
@@ -604,7 +606,6 @@ nav:
       - CS/Dev/Frontend/electron.md
 
     - Backend:
-      - CS/Dev/Backend/SQL.md
       - CS/Dev/Backend/Nodejs.md
       - CS/Dev/Backend/PHP.md
     
@@ -660,6 +661,7 @@ nav:
     - Tools/Software/Calculator.md
     - Tools/Software/GDB.md
     - Tools/Software/NV.md
+    - Tools/Software/SQL.md
     - Tools/Software/Matlab.md
     - Tools/Software/Solidworks.md
     - Tools/Software/Tableau.md
