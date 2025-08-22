@@ -51,7 +51,7 @@ comments: True
 ### 开启webui
 
 开启webui之后，操作比较简单，只需要选择对应的模型，修改参数，填写对应路径，即可进行训练
-![webui](assets/04-SFT.assets/webui.png)
+![webui](assets/04-SFT.assets/webui.webp)
 
 
 
@@ -66,7 +66,7 @@ comments: True
 
 可以中途切断，loss不需要太低
 
-![loss](assets/04-SFT.assets/loss.png)
+![loss](assets/04-SFT.assets/loss.webp)
 
 ```shell title="训练命令 基本是默认的参数"
 llamafactory-cli train \

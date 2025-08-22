@@ -106,7 +106,7 @@ http://192.168.31.1/cgi-bin/luci/;stok=CCCCCCCCCCCCCCCC/api/misystem/set_config_
 
 需要断电，按住reset不动在开电10秒后松开reset。这样才能进入Breed后台。等到蓝色灯光闪烁的时候
 
-![](assets/settings-router.assets/20250318100853158.png)
+![](assets/settings-router.assets/20250318100853158.webp)
 
 
 !!! note "这里应该需要一个有网口的电脑"
@@ -223,7 +223,7 @@ IPv6 是 **互联网协议的第六版**，用于替代 IPv4，解决地址耗�
 
 1. 打开订阅转换网页 (以 [acl4ssr](https://acl4ssr-sub.github.io/) 为例)
 2. 在远程配置（**不是后端地址**）输入`https://raw.githubusercontent.com/SubConv/ZJU-Rule/main/Clash/config/ZJU.ini`，并点击下拉栏中的地址  
-  ![](assets/settings-router.assets/20250503215349.png)
+  ![](assets/settings-router.assets/20250503215349.webp)
 3. 如果用 [acl4ssr](https://acl4ssr-sub.github.io/) 的话，有个后端地址选项，并不是所有后端口可用，自己试试看  
 4. 在订阅链接位置处粘贴订阅链接，如果需要配置ZJU-Connect，需要在最后一行加入`tg://socks?server=127.0.0.1&port=1080&remarks=ZJU Connect`，然后在规则配置界面选择`ZJU-Connect`
 
@@ -234,7 +234,7 @@ vmess://eyJhZGQiOiIxLjEuMS4xIiwicG9ydCI6NDQzLCJpZCI6IjEyMzQ1Njc4LWFiY2QtMTIzNC1h
 tg://socks?server=127.0.0.1&port=1080&remarks=ZJU Connect
 ```
 
-![image-20250715010941873](assets/settings-router.assets/image-20250715010941873.png)
+![image-20250715010941873](assets/settings-router.assets/image-20250715010941873.webp)
 
 
 ```

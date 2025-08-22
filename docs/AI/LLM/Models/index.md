@@ -1,7 +1,7 @@
 # 现状介绍
 
 
-![](assets/00-intro.assets/202507041718705.png)
+![](assets/00-intro.assets/202507041718705.webp)
 
 > 图源：[Harnessing the Power of LLMs in Practice: A Survey on ChatGPT and Beyond](https://arxiv.org/pdf/2304.13712)
 

@@ -16,11 +16,11 @@
 8. 看着黑暗但好吃：如果红酒偏酸、番茄罐头的味道盖不住酸味，又不想额外放糖，炖煮的中途可以放点桂圆或者荔枝hhh
 9. 出锅时撒点欧芹碎点缀，完美。
 
-![image-20250815213945599](assets/eat-west.assets/image-20250815213945599.png)
+![image-20250815213945599](assets/eat-west.assets/image-20250815213945599.webp)
 
 ## 鸡蛋
 
-![IMG_2989](assets/eat-west.assets/IMG_2989.JPG)
+![IMG_2989](assets/eat-west.assets/IMG_2989.webp)
 
 
 

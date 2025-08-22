@@ -21,7 +21,7 @@
 
 > 市场营销既是一种行为、一套制度，也是**创造、传播、传递和交换**对消费者、代理商、合作伙伴和全社会**有价值的供给**的过程
 
-<img src="assets/ITP-Marketing.assets/f398f55912ba3dfa0a3d04f4dacf745.png" alt="f398f55912ba3dfa0a3d04f4dacf745" style="zoom:50%;" />
+<img src="assets/ITP-Marketing.assets/f398f55912ba3dfa0a3d04f4dacf745.webp" alt="f398f55912ba3dfa0a3d04f4dacf745" style="zoom:50%;" />
 
 - 交易：供给和需求的匹配
 - 营销：让你关注在交易中得到什么而不是失去什么
@@ -42,7 +42,7 @@
 >
 > 需求：我想要且买得起的东西
 
-<img src="assets/ITP-Marketing.assets/996c04f21130754ed22504dfc700724.png" alt="996c04f21130754ed22504dfc700724" style="zoom: 33%;" />
+<img src="assets/ITP-Marketing.assets/996c04f21130754ed22504dfc700724.webp" alt="996c04f21130754ed22504dfc700724" style="zoom: 33%;" />
 
 马斯洛需求层次理论
 
@@ -74,9 +74,9 @@
 
 ### 营销理论和组合
 
-![474ca2f5b0c499548b56be7302dccaa](assets/ITP-Marketing.assets/474ca2f5b0c499548b56be7302dccaa.png)
+![474ca2f5b0c499548b56be7302dccaa](assets/ITP-Marketing.assets/474ca2f5b0c499548b56be7302dccaa.webp)
 
-![123314e681a6dc4e70d83796e4af3cf](assets/ITP-Marketing.assets/123314e681a6dc4e70d83796e4af3cf.png)
+![123314e681a6dc4e70d83796e4af3cf](assets/ITP-Marketing.assets/123314e681a6dc4e70d83796e4af3cf.webp)
 
 4R:关联(relevancy)、节省(retrenchment)、关系(relationship)和回报(reward)。
 
@@ -84,7 +84,7 @@
 
 
 
-![7377286817253286571ca85ba4d3733](assets/ITP-Marketing.assets/7377286817253286571ca85ba4d3733.png)
+![7377286817253286571ca85ba4d3733](assets/ITP-Marketing.assets/7377286817253286571ca85ba4d3733.webp)
 
 ## STP
 
@@ -110,7 +110,7 @@
 
 总结：**从需求和人出发，提供服务与产品，此时的服务与产品才是有价值的，才是可持续与平衡发展的生意。**
 
-![8eba1e247d009eb86a8d0ee77380a45](assets/ITP-Marketing.assets/8eba1e247d009eb86a8d0ee77380a45.png)
+![8eba1e247d009eb86a8d0ee77380a45](assets/ITP-Marketing.assets/8eba1e247d009eb86a8d0ee77380a45.webp)
 
 
 
@@ -157,7 +157,7 @@
 
 开发企业已有资源进行降维打击——需要营销
 
-![image-20240630091336106](assets/ITP-Marketing.assets/image-20240630091336106.png)
+![image-20240630091336106](assets/ITP-Marketing.assets/image-20240630091336106.webp)
 
 > **产品组合**
 >
@@ -189,12 +189,12 @@
 
 
 
-![image-20240630091545688](assets/ITP-Marketing.assets/image-20240630091545688.png)
+![image-20240630091545688](assets/ITP-Marketing.assets/image-20240630091545688.webp)
 
 
 
 !!! note "先成为先锋消费者，才能发现商机，才能成为先锋创业者"
-	<img src="assets/ITP-Marketing.assets/image-20240630092024979.png" alt="image-20240630092024979" style="zoom:50%;" />
+	<img src="assets/ITP-Marketing.assets/image-20240630092024979.webp" alt="image-20240630092024979" style="zoom:50%;" />
 
 
 
@@ -212,7 +212,7 @@
 
 一方能够向另一方提供的任何本质上是无形的活动或作业， 并且其结果不会导致任何所有权的产生。
 
-![image-20240630093500908](assets/ITP-Marketing.assets/image-20240630093500908.png)
+![image-20240630093500908](assets/ITP-Marketing.assets/image-20240630093500908.webp)
 
 无形性：服务无形，提供者有形
 
@@ -242,7 +242,7 @@
 
 ### 渠道 | Place
 
-![image-20240630095116333](assets/ITP-Marketing.assets/image-20240630095116333.png)
+![image-20240630095116333](assets/ITP-Marketing.assets/image-20240630095116333.webp)
 
 短渠道
 
@@ -308,7 +308,7 @@
 
 参考价格：上一次支付的价格、市场价、告知的价格
 
-![image-20240630094217847](assets/ITP-Marketing.assets/image-20240630094217847.png)
+![image-20240630094217847](assets/ITP-Marketing.assets/image-20240630094217847.webp)
 
 
 
@@ -337,7 +337,7 @@
 
 对整个链路的控制力减弱
 
-![](assets/ITP-Marketing.assets/20241026160138.png)
+![](assets/ITP-Marketing.assets/20241026160138.webp)
 
 ### 自营平台和大平台的区别和优劣
 

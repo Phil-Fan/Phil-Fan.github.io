@@ -41,7 +41,7 @@ Transformer进一步解决了RNN、LSTM等模型的长距离依赖问题，能�
 
 
 
-![](assets/02-Transformer.assets/202507022301371.png)
+![](assets/02-Transformer.assets/202507022301371.webp)
 > 图源 Attention is all you need
 
 
@@ -79,7 +79,7 @@ $$
 
 BatchNorm是对一个batch-size样本内的每个特征**分别**做归一化，LayerNorm是分别对每个样本的所有特征做归一化。
 
-![](assets/02-Transformer.assets/202507030922846.png)
+![](assets/02-Transformer.assets/202507030922846.webp)
 
 BN抹杀了不同特征之间的大小关系，但是保留了不同样本间的大小关系；LN抹杀了不同样本间的大小关系，但是保留了一个样本内不同特征之间的大小关系。
 
@@ -135,7 +135,7 @@ $$
 FFN(x) = max(0, xW_1 + b_1)W_2 + b_2
 $$
 
-![](assets/02-Transformer.assets/202507040928454.png)
+![](assets/02-Transformer.assets/202507040928454.webp)
 
 - $x$: 512维
 
@@ -187,7 +187,7 @@ self-attention层只需要学$W_Q,W_K,W_V$三个矩阵，参数数目是 $3*d_{m
     有点类似于最近图书馆里面的拼贴诗接龙游戏
 
 
-![](assets/02-Transformer.assets/202507030949023.png)
+![](assets/02-Transformer.assets/202507030949023.webp)
 > 图源 李宏毅老师ppt
 
 需要先给一个开始的信号 —— begin of sentence token，decoder会吐出一个vocabulary size的向量，然后通过softmax得到概率分布，然后选择概率最大的token作为输出
@@ -204,7 +204,7 @@ Mask：不要让后面的token影响前面的，在softmax之前把左下角矩�
 
 处理结果，在$t$时刻的值，只看$t-1$及之前的Q、K
 
-![](assets/02-Transformer.assets/202507041132597.png){width=50%}
+![](assets/02-Transformer.assets/202507041132597.webp){width=50%}
 
 !!! note "why masked"
 
@@ -234,7 +234,7 @@ Mask：不要让后面的token影响前面的，在softmax之前把左下角矩�
 交互方式：
 Cross Self-attention，Decoder提供$Q$，Encoder提供$K$，$V$。
 
-![](assets/02-Transformer.assets/202507030934992.png){width=40% }
+![](assets/02-Transformer.assets/202507030934992.webp){width=40% }
 
 
 Query来自下一个attention的输入 
@@ -250,7 +250,7 @@ Query来自下一个attention的输入
 ### 参数数量
 Transformer看起来模型比较复杂，但几乎没有什么可以调节的参数，大部分都是可以根据比例算的。
 
-![](assets/02-Transformer.assets/202507022311529.png)
+![](assets/02-Transformer.assets/202507022311529.webp)
 > 图源 Attention is all you need
 
 ### 训练方法
@@ -565,12 +565,12 @@ fine-tuning
 
 en2de训练结果
 
-<!-- ![image-20250706135450331](assets/00-Settings.assets/image-20250706135450331.png)
+<!-- ![image-20250706135450331](assets/00-Settings.assets/image-20250706135450331.webp)
 
 
 de2en训练结果
 
-![image-20250706135404376](assets/00-Settings.assets/image-20250706135404376.png) -->
+![image-20250706135404376](assets/00-Settings.assets/image-20250706135404376.webp) -->
 
 
 

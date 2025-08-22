@@ -32,7 +32,7 @@ This browser does not support PDFs
 
 ICLR 好多实验啊、、
 
-![VerboseImages](assets/VerboseImages.assets/VerboseImages.png)
+![VerboseImages](assets/VerboseImages.assets/VerboseImages.webp)
 
 ## 论文笔记
 
@@ -48,7 +48,7 @@ NICGSlowDown不行的原因
 
 
 
-![image-20250804214551732](assets/VerboseImages.assets/image-20250804214551732.png)
+![image-20250804214551732](assets/VerboseImages.assets/image-20250804214551732.webp)
 
 总的loss function为
 
@@ -116,7 +116,7 @@ $$
 
 a gradient-based visualization technique that generates attention maps highlighting the relevant regions in the input images
 
-![image-20250804220529126](assets/VerboseImages.assets/image-20250804220529126.png)
+![image-20250804220529126](assets/VerboseImages.assets/image-20250804220529126.webp)
 
 ### 评价2 - CHAIR
 
@@ -167,23 +167,23 @@ $$
 
 
 
-![image-20250804220104948](assets/VerboseImages.assets/image-20250804220104948.png)
+![image-20250804220104948](assets/VerboseImages.assets/image-20250804220104948.webp)
 
 
 
 ### Distribution
 
-![image-20250804220116470](assets/VerboseImages.assets/image-20250804220116470.png)
+![image-20250804220116470](assets/VerboseImages.assets/image-20250804220116470.webp)
 
 ### Chair
 
-![image-20250804220134095](assets/VerboseImages.assets/image-20250804220134095.png)
+![image-20250804220134095](assets/VerboseImages.assets/image-20250804220134095.webp)
 
 
 
 ### ablation Exp
 
-![image-20250804220331424](assets/VerboseImages.assets/image-20250804220331424.png)
+![image-20250804220331424](assets/VerboseImages.assets/image-20250804220331424.webp)
 
 
 
@@ -191,11 +191,11 @@ $$
 
 ### 黑盒攻击
 
-![image-20250804220405115](assets/VerboseImages.assets/image-20250804220405115.png)
+![image-20250804220405115](assets/VerboseImages.assets/image-20250804220405115.webp)
 
 ### 其他任务
 
-![image-20250804220423481](assets/VerboseImages.assets/image-20250804220423481.png)
+![image-20250804220423481](assets/VerboseImages.assets/image-20250804220423481.webp)
 
 
 

@@ -351,7 +351,7 @@ nsys profile -d 30 -o result --export=sqlite,json python train.py
 
 正常运行后，应该显示类似如下图的结果
 
-![image-20250816231533984](assets/NV.assets/image-20250816231533984.png)
+![image-20250816231533984](assets/NV.assets/image-20250816231533984.webp)
 
 #### 版本问题
 
@@ -363,7 +363,7 @@ nsys profile -d 30 -o result --export=sqlite,json python train.py
 
 遇到的问题是`CUDA device 0: Unified Memory cannot be traced on devices that don't support peer-to-peer transfers.Please verify that SLI/NVLink is functioning properly.`且GPU没有抓取到信息
 
-![image-20250816230828474](assets/NV.assets/image-20250816230828474.png)
+![image-20250816230828474](assets/NV.assets/image-20250816230828474.webp)
 
 我的使用环境是：在windows上运行Nsight System，使用ssh连接wsl虚拟机，进行连接
 

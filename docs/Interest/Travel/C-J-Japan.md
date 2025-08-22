@@ -17,17 +17,17 @@
     - [**地址**](https://maps.app.goo.gl/mcFh7bUSasXyvNKU9)：日本〒160-0021 Tokyo, Shinjuku City, Kabukicho, 1 Chome−6−14 第２ショーリビル 2F
 
 店内环境，比起国内烤肉店还是略挤
-![](assets/C-J-Japan.assets/20240825142659.png)
+![](assets/C-J-Japan.assets/20240825142659.webp)
 
 **爽吃和牛！！！**
 
-![](assets/C-J-Japan.assets/a5a26cc305b5be4cf445f30e9dfbbd8.jpg)
+![](assets/C-J-Japan.assets/a5a26cc305b5be4cf445f30e9dfbbd8.webp)
 
-![](assets/C-J-Japan.assets/9d41cea3d93bcbe1050c23a19fa76bc.jpg)
+![](assets/C-J-Japan.assets/9d41cea3d93bcbe1050c23a19fa76bc.webp)
 
-![](assets/C-J-Japan.assets/3c7f724f668d4480c89075ba1ee57ae.jpg)
+![](assets/C-J-Japan.assets/3c7f724f668d4480c89075ba1ee57ae.webp)
 
-![](assets/C-J-Japan.assets/313079cadb1362a6f907583b35e4dc7.jpg)
+![](assets/C-J-Japan.assets/313079cadb1362a6f907583b35e4dc7.webp)
 
 #### 叙叙苑
 
@@ -43,19 +43,19 @@
 
 小桌点餐，中午是定食。套餐里面肉和配菜都很好吃。午餐套餐价格3000yan-7000yan这个区间。猪肉套餐貌似便宜一些
 
-![](assets/C-J-Japan.assets/2c0c404963c52cb90c94ffe7557930f.jpg)
+![](assets/C-J-Japan.assets/2c0c404963c52cb90c94ffe7557930f.webp)
 
-![](assets/C-J-Japan.assets/45cbdf532de99e86810820711b508df.jpg)
+![](assets/C-J-Japan.assets/45cbdf532de99e86810820711b508df.webp)
 
-![](assets/C-J-Japan.assets/8943eae2282f29cbd3b46547a485294.jpg)
+![](assets/C-J-Japan.assets/8943eae2282f29cbd3b46547a485294.webp)
 
-![](assets/C-J-Japan.assets/c2b21b4581cdc6944ef32d21db50e19.jpg)
+![](assets/C-J-Japan.assets/c2b21b4581cdc6944ef32d21db50e19.webp)
 
 #### 路边店
 菜谱
-![](assets/C-J-Japan.assets/20240825141308.png)
-![](assets/C-J-Japan.assets/0ef49196d8f8c09071b6e43136ea037.jpg)
-![](assets/C-J-Japan.assets/23303d9a85d9f050b87f93b038a2214.jpg)
+![](assets/C-J-Japan.assets/20240825141308.webp)
+![](assets/C-J-Japan.assets/0ef49196d8f8c09071b6e43136ea037.webp)
+![](assets/C-J-Japan.assets/23303d9a85d9f050b87f93b038a2214.webp)
 
 
 
@@ -73,20 +73,20 @@
 #### 随便去的一家居酒屋
 
 菜单
-![](assets/C-J-Japan.assets/20240825134745.png)
-![](assets/C-J-Japan.assets/20240825134909.png)
+![](assets/C-J-Japan.assets/20240825134745.webp)
+![](assets/C-J-Japan.assets/20240825134909.webp)
 每家店的菜单差距都挺大的，可能当地人有的也看不太懂具体的菜名，所以相当于是开盲盒了。
 我们要了一个中文菜单hhh
 
-![](assets/C-J-Japan.assets/950de4153ac4006cd7e9746ac2c3583.jpg)
+![](assets/C-J-Japan.assets/950de4153ac4006cd7e9746ac2c3583.webp)
 
-![](assets/C-J-Japan.assets/941ccb3ca82848345731aed60a51088.jpg)
-
-
-![](assets/C-J-Japan.assets/dbfb86751b99bed8a7a67dd49339cd8.jpg)
+![](assets/C-J-Japan.assets/941ccb3ca82848345731aed60a51088.webp)
 
 
-![](assets/C-J-Japan.assets/e70be4b2fcf75be9b8179d4abd36fd0.jpg)
+![](assets/C-J-Japan.assets/dbfb86751b99bed8a7a67dd49339cd8.webp)
+
+
+![](assets/C-J-Japan.assets/e70be4b2fcf75be9b8179d4abd36fd0.webp)
 ### 面
 
 #### **油そば（油荞面）**
@@ -98,16 +98,16 @@
 
 这家真的超好吃，比起汤面我更喜欢吃拌面一点
 
-![](assets/C-J-Japan.assets/559a345c11a2db445fd99fba08ea9da.jpg)
+![](assets/C-J-Japan.assets/559a345c11a2db445fd99fba08ea9da.webp)
 
 先在门口排队，等待店员通知进去，在类似于一个售货机的地方点餐，然后拿着小票进去坐下。店员拿走小票，等着上菜就行了。
 
 点菜的话可以参考xhs点菜，先付款后取餐。
 
 
-![](assets/C-J-Japan.assets/1ea57ce8586b7df129d9c8a1f9e9404.jpg)
+![](assets/C-J-Japan.assets/1ea57ce8586b7df129d9c8a1f9e9404.webp)
 
-![](assets/C-J-Japan.assets/2153069fc4d3ddffb75f74caabe25d9.jpg)
+![](assets/C-J-Japan.assets/2153069fc4d3ddffb75f74caabe25d9.webp)
 
 最上面是分量，可以选小碗，大碗、超大碗。也可以选加辣版
 
@@ -118,11 +118,11 @@
 饺子比较硬，个人吃不习惯。
 
 
-![](assets/C-J-Japan.assets/c8d07a4f9d54dd081439a962883f792.jpg)
+![](assets/C-J-Japan.assets/c8d07a4f9d54dd081439a962883f792.webp)
 
-![](assets/C-J-Japan.assets/39cacaeb35054fbcce163782975558e.jpg)
+![](assets/C-J-Japan.assets/39cacaeb35054fbcce163782975558e.webp)
 
-![](assets/C-J-Japan.assets/ff6d0225221f5744a9dc362e0911a08.jpg)
+![](assets/C-J-Japan.assets/ff6d0225221f5744a9dc362e0911a08.webp)
 
 #### 一兰拉面
 朋友说感觉太咸了。
@@ -138,15 +138,15 @@
 不同颜色的盘子对应不同的价格，一般是100-500yan不等。
 
 **菜单**
-![](assets/C-J-Japan.assets/bb51ff3a55725e66b1e65fb92564bab.jpg)
-![](assets/C-J-Japan.assets/f3966ce01b389e00660dc68f6ff02c4.jpg)
+![](assets/C-J-Japan.assets/bb51ff3a55725e66b1e65fb92564bab.webp)
+![](assets/C-J-Japan.assets/f3966ce01b389e00660dc68f6ff02c4.webp)
 
 
-![](assets/C-J-Japan.assets/167836a9f577a0cd2e7207f71ac47a9.jpg)
+![](assets/C-J-Japan.assets/167836a9f577a0cd2e7207f71ac47a9.webp)
 
-![](assets/C-J-Japan.assets/a8ee426e0986c84d9845a93c27b1378.jpg)
+![](assets/C-J-Japan.assets/a8ee426e0986c84d9845a93c27b1378.webp)
 
-![](assets/C-J-Japan.assets/e9c8ca6ca9a8610e3fd066bee04df1d.jpg)
+![](assets/C-J-Japan.assets/e9c8ca6ca9a8610e3fd066bee04df1d.webp)
 
 味道还不错！
 
@@ -157,7 +157,7 @@
 !!! note "简介"
     - **官网：** [炸猪排和幸 Takumian 伊势丹新宿店|炸猪排和幸](https://wako-group.co.jp/shop/detai/shop_2031/)
     - **评分：** 3.20 [とんかつ和幸 匠庵 伊勢丹新宿店 - 新宿三丁目/とんかつ | 食べログ](https://tabelog.com/tokyo/A1304/A130401/13131322/)
-        ![](assets/C-J-Japan.assets/20240825132858.png)
+        ![](assets/C-J-Japan.assets/20240825132858.webp)
     - **地址**: https://maps.app.goo.gl/iygvipBjwwxPVuPW9
 
 
@@ -171,16 +171,16 @@
 
 味增汤很好喝。
 
-![](assets/C-J-Japan.assets/20240825133031.png)
+![](assets/C-J-Japan.assets/20240825133031.webp)
 
 类似这种座位
 
 菜单
-![](assets/C-J-Japan.assets/a16812d5328cb1edba1a37deeed3add.jpg)
+![](assets/C-J-Japan.assets/a16812d5328cb1edba1a37deeed3add.webp)
 
-![](assets/C-J-Japan.assets/20240825133135.png)
+![](assets/C-J-Japan.assets/20240825133135.webp)
 
-![](assets/C-J-Japan.assets/f306c911cfa6e546bae4204a02b3d60.jpg)
+![](assets/C-J-Japan.assets/f306c911cfa6e546bae4204a02b3d60.webp)
 
 ### 快餐
 快餐一般是自助点餐，桌上会有ipad，可以选择中文，然后自己点餐，付款后取餐。
@@ -191,7 +191,7 @@
 
 比较适合时间比较紧张，or不想排队or特别饿的时候，量大管饱
 
-![](assets/C-J-Japan.assets/20240825140750.png)
+![](assets/C-J-Japan.assets/20240825140750.webp)
 
 
 
@@ -201,10 +201,10 @@
 
 个人感觉所有的奶制品、雪糕都很好吃。如果教超也有就好了我的妈呀
 
-![](assets/C-J-Japan.assets/6640f9caa67a066c4e89c464111b1b7.jpg)
+![](assets/C-J-Japan.assets/6640f9caa67a066c4e89c464111b1b7.webp)
 好喝的牛奶就像这个名字一样好喝，比较浓，喝了不拉肚子（以前喝牛奶我会拉肚子
 
-![](assets/C-J-Japan.assets/20240825150547.png)
+![](assets/C-J-Japan.assets/20240825150547.webp)
 
 
 

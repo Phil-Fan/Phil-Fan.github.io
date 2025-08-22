@@ -35,7 +35,7 @@ This browser does not support PDFs
 
 核心过程
 
-![0001](assets/NICGSlowDown.assets/0001.jpg)
+![0001](assets/NICGSlowDown.assets/0001.webp)
 
 ### 主要算法
 
@@ -50,7 +50,7 @@ output
 
 - a adversarial examples $x'$
 
-![image-20250804135640798](assets/NICGSlowDown.assets/image-20250804135640798.png)
+![image-20250804135640798](assets/NICGSlowDown.assets/image-20250804135640798.webp)
 
 ### 转换方法
 
@@ -254,7 +254,7 @@ create_input_files(
 
 这里因为设备限制，也为了节省时间，我只尝试了第一个dataset `Flickr8k`
 
-![image-20250804134742365](assets/NICGSlowDown.assets/image-20250804134742365.png)
+![image-20250804134742365](assets/NICGSlowDown.assets/image-20250804134742365.webp)
 
 
 
@@ -270,45 +270,45 @@ $$
 $$
 
 
-![image-20250804125843212](assets/NICGSlowDown.assets/image-20250804125843212.png)
+![image-20250804125843212](assets/NICGSlowDown.assets/image-20250804125843212.webp)
 
 可能由于使用硬件不同，复现效果和原论文数据有一定差别，但是SlowDown的效果还是可以体现的
 
 下图是原论文的数据图
 
-![image-20250804134905582](assets/NICGSlowDown.assets/image-20250804134905582.png)
+![image-20250804134905582](assets/NICGSlowDown.assets/image-20250804134905582.webp)
 
 ### 图片 - 原文Fig6
 
-![image-20250804141856988](assets/NICGSlowDown.assets/image-20250804141856988.png)
+![image-20250804141856988](assets/NICGSlowDown.assets/image-20250804141856988.webp)
 
 我选择了部分数据集中的图片展示，可以发现对抗攻击样本和原始图片肉眼不可分
 
 L2_flickr8k_googlenet_rnn
 
-![image-20250804125551076](assets/NICGSlowDown.assets/image-20250804125551076.png)
+![image-20250804125551076](assets/NICGSlowDown.assets/image-20250804125551076.webp)
 
-![image-20250804125636739](assets/NICGSlowDown.assets/image-20250804125636739.png)
+![image-20250804125636739](assets/NICGSlowDown.assets/image-20250804125636739.webp)
 
 L2_flickr8k_resnext_lstm
 
-![image-20250804125740871](assets/NICGSlowDown.assets/image-20250804125740871.png)
+![image-20250804125740871](assets/NICGSlowDown.assets/image-20250804125740871.webp)
 
-![image-20250804125729114](assets/NICGSlowDown.assets/image-20250804125729114.png)
+![image-20250804125729114](assets/NICGSlowDown.assets/image-20250804125729114.webp)
 
-![image-20250804125700103](assets/NICGSlowDown.assets/image-20250804125700103.png)
+![image-20250804125700103](assets/NICGSlowDown.assets/image-20250804125700103.webp)
 
 Linf_flickr8k_googlenet_rnn
 
-![image-20250804125924540](assets/NICGSlowDown.assets/image-20250804125924540.png)
+![image-20250804125924540](assets/NICGSlowDown.assets/image-20250804125924540.webp)
 
-![image-20250804125906954](assets/NICGSlowDown.assets/image-20250804125906954.png)
+![image-20250804125906954](assets/NICGSlowDown.assets/image-20250804125906954.webp)
 
 Linf_flickr8k_resnext_lstm
 
-![image-20250804130000216](assets/NICGSlowDown.assets/image-20250804130000216.png)
+![image-20250804130000216](assets/NICGSlowDown.assets/image-20250804130000216.webp)
 
-![image-20250804130012659](assets/NICGSlowDown.assets/image-20250804130012659.png)
+![image-20250804130012659](assets/NICGSlowDown.assets/image-20250804130012659.webp)
 
 ### Distribution
 
@@ -330,7 +330,7 @@ Linf_flickr8k_resnext_lstm
 | B       | L2   | 39.98188388 | 0.042649064 | 162.2420903 | 38.00864502 | 162.5883692 | 0.504508379 | 4.580114361 |
 | B       | Linf | 0.029999993 | 0.035503504 | 0.989768272 | 0.029944356 | 0.944367203 | 0.001945466 | 0.040621143 |
 
-![image-20250804134942943](assets/NICGSlowDown.assets/image-20250804134942943.png)
+![image-20250804134942943](assets/NICGSlowDown.assets/image-20250804134942943.webp)
 
 
 ### Bleu值 - Table4
@@ -344,7 +344,7 @@ Subject-B  Linf这个效果不是很好，其他数值较为接近
 | B       | L2   | 0.11 | 0.01 | 89.12    |
 | B       | Linf | 0.11 | 0.03 | 68.75    |
 
-![image-20250804135104396](assets/NICGSlowDown.assets/image-20250804135104396.png)
+![image-20250804135104396](assets/NICGSlowDown.assets/image-20250804135104396.webp)
 
 
 
@@ -377,7 +377,7 @@ config = {
 
 这里重复实验应该可以得到数据，由于时间原因没有复现这一个表格
 
-![image-20250804135152106](assets/NICGSlowDown.assets/image-20250804135152106.png)
+![image-20250804135152106](assets/NICGSlowDown.assets/image-20250804135152106.webp)
 
 
 

@@ -30,7 +30,7 @@ BERT的名字来自于"Bidirectional Encoder Representations for Transformer"。
 
 这两个途径都是使用相同的目标函数，都是用一个单向的语言模型（说一句话，预测下一句话）。
 
-![image-20250707172023699](assets/04-BERT.assets/image-20250707172023699.png)
+![image-20250707172023699](assets/04-BERT.assets/image-20250707172023699.webp)
 
 而BERT是Transformer，所以对于下游任务不需要做那么多的调整。
 
@@ -72,7 +72,7 @@ NLP 问题被证明同图像一样，可以通过 finetune 在垂直领域取得
 
 在微调阶段，BERT首先使用预训练的参数初始化模型，所有参数都使用下游任务的标签数据进行微调，每个不同的下游任务都有单独的微调模型
 
-![image-20250707171751445](assets/04-BERT.assets/image-20250707171751445.png)
+![image-20250707171751445](assets/04-BERT.assets/image-20250707171751445.webp)
 
 - L: the number of layers
 - H: the hidden size
@@ -211,7 +211,7 @@ print(example_text)
 
 ### embedding
 
-![image-20250707171808632](assets/04-BERT.assets/image-20250707171808632.png)
+![image-20250707171808632](assets/04-BERT.assets/image-20250707171808632.webp)
 
 BERT的三个Embedding为什么直接相加 
 
@@ -250,11 +250,11 @@ $$
 
 
 
-![img](assets/04-BERT.assets/v2-859d9bfd39a39eccf9c9eb14c49402bd_1440w.jpg)
+![img](assets/04-BERT.assets/v2-859d9bfd39a39eccf9c9eb14c49402bd_1440w.webp)
 
 > 图片来源[保姆级教程，用PyTorch和BERT进行文本分类 - 知乎](https://zhuanlan.zhihu.com/p/524487313)
 
-![image-20250707211059233](assets/04-BERT.assets/image-20250707211059233.png)
+![image-20250707211059233](assets/04-BERT.assets/image-20250707211059233.webp)
 
 
 可以调整的参数和取值范围有：
@@ -304,7 +304,7 @@ $$
 
 
 
-![image-20250707232247160](assets/04-BERT.assets/image-20250707232247160.png)
+![image-20250707232247160](assets/04-BERT.assets/image-20250707232247160.webp)
 
 ```text title="训练过程"
 1192 149 149

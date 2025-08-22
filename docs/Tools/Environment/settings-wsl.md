@@ -172,7 +172,7 @@ netsh interface portproxy add v4tov4 listenport=2222 listenaddress=0.0.0.0 conne
 
 也可以使用defender防火墙添加规则
 
-![image-20250817114056593](assets/settings-wsl.assets/image-20250817114056593.png)
+![image-20250817114056593](assets/settings-wsl.assets/image-20250817114056593.webp)
 
 
 
@@ -260,11 +260,11 @@ powershell.exe -ExecutionPolicy Bypass -File .\wsl-portproxy-daemon.ps1
     
     === "Limitations"
     
-        ![image-20250816204530654](assets/settings-wsl.assets/image-20250816204530654.png)
+        ![image-20250816204530654](assets/settings-wsl.assets/image-20250816204530654.webp)
     
     === "Banned Features"
     
-        ![image-20250816204600671](assets/settings-wsl.assets/image-20250816204600671.png)
+        ![image-20250816204600671](assets/settings-wsl.assets/image-20250816204600671.webp)
 
 
 首先查看电脑支持的CUDA版本
@@ -275,7 +275,7 @@ nvidia-smi
 
 右上角是支持的cuda版本
 
-![image-20250816210945859](assets/settings-wsl.assets/image-20250816210945859.png)
+![image-20250816210945859](assets/settings-wsl.assets/image-20250816210945859.webp)
 
 根据[CUDA Toolkit 12.9 Downloads | NVIDIA Developer](https://developer.nvidia.com/cuda-12-9-0-download-archive?target_os=Linux&target_arch=x86_64&Distribution=WSL-Ubuntu&target_version=2.0&target_type=deb_local)，选择对应的版本
 

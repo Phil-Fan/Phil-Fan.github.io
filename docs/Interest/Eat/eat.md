@@ -44,7 +44,7 @@ comments: true
 
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=607507467&bvid=BV1i84y1a77w&cid=958251711&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=600px height=450px></iframe>
 
-![df195e923c0d3fdc3c63c5987d548278](assets/eat.assets/df195e923c0d3fdc3c63c5987d548278.JPG)
+![df195e923c0d3fdc3c63c5987d548278](assets/eat.assets/df195e923c0d3fdc3c63c5987d548278.webp)
 
 
 
@@ -76,9 +76,9 @@ comments: true
 - 加入料汁翻炒，加入香料翻炒
 
 
-![](assets/eat.assets/IMG_1608.jpg)
+![](assets/eat.assets/IMG_1608.webp)
 
-![](assets/eat.assets/IMG_1610.jpg)
+![](assets/eat.assets/IMG_1610.webp)
 
 第三阶段：炖煮
 
@@ -94,9 +94,9 @@ comments: true
 
 做过的照片
 
-![](assets/eat.assets/IMG_1612.jpg)
+![](assets/eat.assets/IMG_1612.webp)
 
-![fd92a0c690560f9a1b8bd3e34eb8a237](assets/eat.assets/fd92a0c690560f9a1b8bd3e34eb8a237.JPG)
+![fd92a0c690560f9a1b8bd3e34eb8a237](assets/eat.assets/fd92a0c690560f9a1b8bd3e34eb8a237.webp)
 
 
 
@@ -128,9 +128,9 @@ comments: true
 鱼捞出，剩余的汤汁勾入水淀粉，熬至粘稠
 撒入葱花点缀
 
-![IMG_3353](assets/eat.assets/IMG_3353.JPG)
+![IMG_3353](assets/eat.assets/IMG_3353.webp)
 
-![IMG_3289](assets/eat.assets/IMG_3289.JPG)
+![IMG_3289](assets/eat.assets/IMG_3289.webp)
 
 ### 水煮肉片/鱼片
 
@@ -139,7 +139,7 @@ comments: true
 
 
 
-![image-20250815214034992](assets/eat.assets/image-20250815214034992.png)
+![image-20250815214034992](assets/eat.assets/image-20250815214034992.webp)
 
 ## 炒菜 - 荤
 
@@ -154,30 +154,30 @@ comments: true
 
 再放少量油，下蒜末、姜片、小米辣、泡椒炒香，将牛肉回锅，放入鸡精和一小盖泡椒水，最后放入香菜炒软即可出锅。
 
-![](assets/eat.assets/2f8ef153a666bc37701359f23b0587ec.jpg)
+![](assets/eat.assets/2f8ef153a666bc37701359f23b0587ec.webp)
 
 
-![](assets/eat.assets/IMG_1081.jpg)
+![](assets/eat.assets/IMG_1081.webp)
 
 
 ### 虾仁
 
-![](assets/eat.assets/69a71d305f5b676bbfe4b635ff565da.jpg)
+![](assets/eat.assets/69a71d305f5b676bbfe4b635ff565da.webp)
 
-![](assets/eat.assets/628e47df37494bddcb483ccb1a31270.jpg)
+![](assets/eat.assets/628e47df37494bddcb483ccb1a31270.webp)
 
 炸
-![](assets/eat.assets/59de16961a3c59fb44fcbe28dbb182b.jpg)
+![](assets/eat.assets/59de16961a3c59fb44fcbe28dbb182b.webp)
 
 与青椒一起煎，需要注意放水的量，放太多水以后就收不了汁了
 
-![](assets/eat.assets/IMG_1083.jpg)
+![](assets/eat.assets/IMG_1083.webp)
 
 ### 秋葵鸡蛋
 > 教程来源 叮咚买菜
 
 
-![](assets/eat.assets/20250310134427589.png)
+![](assets/eat.assets/20250310134427589.webp)
 
 1. 秋葵洗净，不需要切，整只下沸水锅焯水，一分钟即可
 2. 捞出过凉，去除头尾，切斜片，
@@ -211,11 +211,11 @@ comments: true
 
 加入可乐、香叶、八角、桂皮，小火收汁
 
-![](assets/eat.assets/a1e82218e413946f14bf6a4f2f87291a.jpg)
+![](assets/eat.assets/a1e82218e413946f14bf6a4f2f87291a.webp)
 
 !!! question "怎么做颜色更加好看"
 
-![](assets/eat.assets/8ec0e18363aba3d20826d0a18005012.jpg)
+![](assets/eat.assets/8ec0e18363aba3d20826d0a18005012.webp)
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/587a06bde367c9b1249bcaa3d804d2e.jpg)
 
 ### 辣椒炒肉
@@ -233,7 +233,7 @@ comments: true
 2. 锅中放油，放入蒜末、小米辣炒香
 3. 放入五花肉炒至变色，放入料酒、生抽、蚝油、白糖、盐、鸡精翻炒均匀
 
-![](assets/eat.assets/c9000b183134d58263473ff5b0673135.jpg)
+![](assets/eat.assets/c9000b183134d58263473ff5b0673135.webp)
 
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=1156673175&bvid=BV1KZ421L7Pn&cid=1658966877&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=600px height=450px></iframe>
 
@@ -270,7 +270,7 @@ comments: true
 4. 锅中加适量清水和几滴食用油，水开后西兰花下锅煮一分钟捞出。
 5. 锅中倒油，炒香蒜末（油温不要太高，高了发苦），倒入料汁收汁，放入西兰花翻炒均匀，出锅前加淀粉水翻炒，再加一点油翻炒，出锅
 
-![清炒西兰花](assets/eat.assets/20250309141042087.png)
+![清炒西兰花](assets/eat.assets/20250309141042087.webp)
 
 
 !!! note "怎么可以更清淡一点"
@@ -282,7 +282,7 @@ comments: true
 变式：番茄鸡蛋西兰花
 
 少油，放小块番茄，炒至糊状，倒入西兰花和炒过的鸡蛋
-![](assets/eat.assets/IMG_1082.jpg)
+![](assets/eat.assets/IMG_1082.webp)
 
 ### 清炒菠菜
 
@@ -299,9 +299,9 @@ comments: true
 4. 放蒜末和辣椒爆香，放豆角翻炒
 5. 适量调料
 
-![](assets/eat.assets/IMG_1132.jpg)
+![](assets/eat.assets/IMG_1132.webp)
 
-![](assets/eat.assets/ad393f3e90c68ca2cbd6c6e30d829ca8.jpg)
+![](assets/eat.assets/ad393f3e90c68ca2cbd6c6e30d829ca8.webp)
 
 ### 丝瓜炒鸡蛋
 
@@ -313,7 +313,7 @@ comments: true
 6. 加生抽、蚝油、淀粉水
 7. 出锅
 
-![](assets/eat.assets/20250403091130.jpg)
+![](assets/eat.assets/20250403091130.webp)
 
 ### 香椿炒鸡蛋
 
@@ -341,15 +341,15 @@ comments: true
 6. 出锅的时候放一点葱花，放蒸鱼豉油
 
 第一版：
-![](assets/eat.assets/fee7d4415b8c6b1c13497dc999e0bf4d.jpg)
+![](assets/eat.assets/fee7d4415b8c6b1c13497dc999e0bf4d.webp)
 
 第二版：
 
-![](assets/eat.assets/6a8946f6dd2ca9430d347e8990549b44.jpg)
+![](assets/eat.assets/6a8946f6dd2ca9430d347e8990549b44.webp)
 
-![b3948d299093faa0fd82778936b9a725](assets/eat.assets/b3948d299093faa0fd82778936b9a725.JPG)
+![b3948d299093faa0fd82778936b9a725](assets/eat.assets/b3948d299093faa0fd82778936b9a725.webp)
 
-![IMG_3439](assets/eat.assets/IMG_3439.JPG)
+![IMG_3439](assets/eat.assets/IMG_3439.webp)
 
 ### 蒜蓉粉丝娃娃菜
 
@@ -362,7 +362,7 @@ comments: true
 3. 娃娃菜放入盘中，上面加入粉丝，把酱汁淋上，上锅隔水蒸20分钟即可。
 4. 出锅的时候撒上葱花，淋上热油。
 
-![蒜蓉粉丝娃娃菜1](assets/eat.assets/20250309141007341.png)
+![蒜蓉粉丝娃娃菜1](assets/eat.assets/20250309141007341.webp)
 ![蒜蓉粉丝娃娃菜2](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250309141025360.png)
 
 可以放一点虾
@@ -374,17 +374,17 @@ comments: true
 - 食材：基围虾7 - 8只、鸡蛋两个、葱花少许
 - 调味料：盐、料酒、生抽、黑胡椒碎
 
-![虾仁蒸蛋1](assets/eat.assets/20250309141132352.png)
-![虾仁蒸蛋2](assets/eat.assets/20250309141142229.png)
+![虾仁蒸蛋1](assets/eat.assets/20250309141132352.webp)
+![虾仁蒸蛋2](assets/eat.assets/20250309141142229.webp)
 
 
 
 
 ## 凉菜
 ### 凉拌黄瓜
-![凉拌黄瓜1](assets/eat.assets/20250309141151522.png)
-![凉拌黄瓜2](assets/eat.assets/20250309141159171.png)
-![凉拌黄瓜3](assets/eat.assets/20250309141210885.png)
+![凉拌黄瓜1](assets/eat.assets/20250309141151522.webp)
+![凉拌黄瓜2](assets/eat.assets/20250309141159171.webp)
+![凉拌黄瓜3](assets/eat.assets/20250309141210885.webp)
 
 ### 凉拌黑木耳
 1. 黑木耳浸泡。
@@ -393,9 +393,9 @@ comments: true
 4. 搅拌一下蘸料，浇在木耳上面。
 ### 调菠菜
 
-![](assets/eat.assets/20250310134209311.png)
-![](assets/eat.assets/20250310134245454.png)
-![](assets/eat.assets/20250310134304315.png)
+![](assets/eat.assets/20250310134209311.webp)
+![](assets/eat.assets/20250310134245454.webp)
+![](assets/eat.assets/20250310134304315.webp)
 
 
 ## 炸
@@ -416,7 +416,7 @@ comments: true
 [相关视频](https://www.xiaohongshu.com/explore/67b1ba1b000000002602ed4b?app_platform=ios&app_version=8.69.4&share_from_user_hidden=true&xsec_source=app_share&type=video&xsec_token=CB2WKvE8y85b22ACisZtUeaT0EQMxt1Rb4AnxZfbRT-zg=&author_share=1&xhsshare=WeixinSession&shareRedId=ODk2Qjg5OUA2NzUyOTgwNjc7OTk8OjtK&apptime=1740673071&share_id=df6449f87a4b44aaafe722c56032b922)
 
 ### 椰子牛肉火锅
-![](assets/eat.assets/IMG_1235.jpeg)
+![](assets/eat.assets/IMG_1235.webp)
 
 ## 面食 & 主食
 
@@ -424,15 +424,15 @@ comments: true
 
 ### 包子
 
-![IMG_2887](assets/eat.assets/IMG_2887.JPG)
+![IMG_2887](assets/eat.assets/IMG_2887.webp)
 
 ### 炒河捞
 
-![image-20250815214054013](assets/eat.assets/image-20250815214054013.png)
+![image-20250815214054013](assets/eat.assets/image-20250815214054013.webp)
 
 ### 炒饭
 
-![image-20250815214006028](assets/eat.assets/image-20250815214006028.png)
+![image-20250815214006028](assets/eat.assets/image-20250815214006028.webp)
 
 ### 番茄菜疙瘩
 
@@ -440,15 +440,15 @@ comments: true
 2. 西红柿切成小块。
 3. 菠菜中打入一个鸡蛋，加入面粉，放一丢丢水，揉成面团。
 
-![揉好的面团](assets/eat.assets/20250309141053866.png)
+![揉好的面团](assets/eat.assets/20250309141053866.webp)
 
 4. 封一层油，静置10分钟。
 5. 烧开水，下面疙瘩。
 
 6. 大量蒜末放油中炒香，放入番茄、番茄酱、生抽、蚝油、虾、糖，熬5分钟。
 
-![烹饪过程1](assets/eat.assets/20250309141106576.png)
-![烹饪过程2](assets/eat.assets/20250309141116734.png)
+![烹饪过程1](assets/eat.assets/20250309141106576.webp)
+![烹饪过程2](assets/eat.assets/20250309141116734.webp)
 
 ### 如何煮一碗nb的泡面
 

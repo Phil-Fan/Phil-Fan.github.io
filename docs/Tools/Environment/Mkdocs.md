@@ -398,7 +398,7 @@ plugins:
 
 所以第一步是在github的仓库中设置secret
 
-![image-20250817151216756](assets/Mkdocs.assets/image-20250817151216756.png)
+![image-20250817151216756](assets/Mkdocs.assets/image-20250817151216756.webp)
 
 第二步是在github actions中设置环境变量
 

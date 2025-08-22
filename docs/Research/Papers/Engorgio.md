@@ -36,7 +36,7 @@ an engorgio prompt makes large language model babble on
 
 
 
-![image-20250808225702942](assets/Engogrio.assets/image-20250808225702942.png)
+![image-20250808225702942](assets/Engogrio.assets/image-20250808225702942.webp)
 
 
 ### **1. 概率矩阵proxy distribution $\theta$是什么？**

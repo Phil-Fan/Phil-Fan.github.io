@@ -215,10 +215,10 @@ $$
 ### 常见信号的傅里叶变换
 
 各种常见信号傅里叶变换需要记住
-![](assets/signal.assets/20240620212932.png)
-![](assets/signal.assets/20240620212944.png)
-![](assets/signal.assets/20240620213012.png)
-![](assets/signal.assets/20240620213040.png)
+![](assets/signal.assets/20240620212932.webp)
+![](assets/signal.assets/20240620212944.webp)
+![](assets/signal.assets/20240620213012.webp)
+![](assets/signal.assets/20240620213040.webp)
 
 - $cos(\omega_0 t)$频谱搬移
 - 门函数的表达 $u(t) - u(t-t_0)$
@@ -233,8 +233,8 @@ $$
 需要注意直流分量的处理:如果有直流分量，那么只能使用积分变换解决
 
 !!! note "例题"
-    ![](assets/signal.assets/20240620190744.png)
-    ![](assets/signal.assets/20240620190731.png)
+    ![](assets/signal.assets/20240620190744.webp)
+    ![](assets/signal.assets/20240620190731.webp)
 
     $$
     y(t) = t(u(t)-u(t-1))
@@ -406,7 +406,7 @@ x((n-m))_NR_N(n) \stackrel{DFT}{\rightarrow} X(k) e^{-j k \frac{2\pi}{N}m}
 $$
 
 !!! note "题目"
-    ![DFT-question](assets/signal.assets/20240620192017.png)
+    ![DFT-question](assets/signal.assets/20240620192017.webp)
 
     实数序列，根据共轭对称性,$X(k) = X^*(N-k)$
     ![answer](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240620194102.png)
@@ -497,7 +497,7 @@ N点序列FFT运算
 - 连续周期信号：时域正周期截断
 
 !!! note "历年题"
-    ![](assets/signal.assets/20240620191142.png)
+    ![](assets/signal.assets/20240620191142.webp)
     
 
     **是一个频率向数字角频率转换的过程。**
@@ -552,7 +552,7 @@ $$
 - 终值定理 $\lim\limits_{n\rightarrow\infty}x(n) = \lim\limits_{z-\rightarrow 1}[(z-1)X(z)]$
 
 !!! note "一个很巧妙的题"
-    ![](assets/signal.assets/21e71365034176015b05ccec5ccc345.png)
+    ![](assets/signal.assets/21e71365034176015b05ccec5ccc345.webp)
     
 
     思路：一开始没有看明白答案在干什么。后来看题才发现，题目中给出了$y(n)$的所有情况，只是没有用分段函数的方法给出而已。知道了这个点之后，这个题就不难了。
@@ -834,11 +834,11 @@ $$
 
 ## 滤波器
 
-![模拟滤波器](assets/signal.assets/filter-1.png)
+![模拟滤波器](assets/signal.assets/filter-1.webp)
 
 
 
-![数字滤波器](assets/signal.assets/222.png)
+![数字滤波器](assets/signal.assets/222.webp)
 
 **冲激响应不变法**
 

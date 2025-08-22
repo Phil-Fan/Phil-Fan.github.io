@@ -348,7 +348,7 @@ cd grafana-v12.0.0/bin/
 
 添加`prometheus`数据源
 
-![image-20250808185014660](assets/07-Evaluation.assets/image-20250808185014660.png)
+![image-20250808185014660](assets/07-Evaluation.assets/image-20250808185014660.webp)
 
 在URL处填入网址，其他可以不变。
 
@@ -356,7 +356,7 @@ cd grafana-v12.0.0/bin/
 http://localhost:9090/
 ```
 
-![image-20250808185117465](assets/07-Evaluation.assets/image-20250808185117465.png)
+![image-20250808185117465](assets/07-Evaluation.assets/image-20250808185117465.webp)
 
 
 
@@ -367,7 +367,7 @@ http://localhost:9090/
 3. 要格式化时间序列的图例名称，请使用“图例格式”输入。例如，要仅显示返回查询结果的 method 和 status 标签（用破折号分隔），您可以使用图例格式字符串 {{method}} - {{status}}。
 4. 调整其他图表设置，直到您有一个可用的图表。
 
-![image-20250808185335923](assets/07-Evaluation.assets/image-20250808185335923.png)
+![image-20250808185335923](assets/07-Evaluation.assets/image-20250808185335923.webp)
 
 抓取的time interval是15s，而且不能更改，所以grafana测量得到的数据粒度不高
 

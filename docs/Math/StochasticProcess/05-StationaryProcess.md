@@ -288,10 +288,10 @@ $$
 
 
 各种常见信号傅里叶变换需要记住
-![](assets/05-StationaryProcess.assets/20240620212932-20250715171227650.png)
-![](assets/05-StationaryProcess.assets/20240620212944-20250715171230669.png)
-![](assets/05-StationaryProcess.assets/20240620213012-20250715171233460.png)
-![](assets/05-StationaryProcess.assets/20240620213040-20250715171236156.png)
+![](assets/05-StationaryProcess.assets/20240620212932-20250715171227650.webp)
+![](assets/05-StationaryProcess.assets/20240620212944-20250715171230669.webp)
+![](assets/05-StationaryProcess.assets/20240620213012-20250715171233460.webp)
+![](assets/05-StationaryProcess.assets/20240620213040-20250715171236156.webp)
 
 - $cos(\omega_0 t)$频谱搬移
 - 门函数的表达 $u(t) - u(t-t_0)$

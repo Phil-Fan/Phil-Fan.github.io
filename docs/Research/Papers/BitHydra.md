@@ -49,7 +49,7 @@ comments: True
 
 ## 流程
 
-![image-20250812212114592](assets/BitHydra.assets/image-20250812212114592.png)
+![image-20250812212114592](assets/BitHydra.assets/image-20250812212114592.webp)
 
 ### Significant Weight Identification
 设计EOS loss，找出EOS token当中对于loss影响最大的weight
@@ -114,7 +114,7 @@ $$
 
 
 
-![image-20250812211926596](assets/BitHydra.assets/image-20250812211926596.png)
+![image-20250812211926596](assets/BitHydra.assets/image-20250812211926596.webp)
 
 文章对比了 progreesive 和 one-shot search
 

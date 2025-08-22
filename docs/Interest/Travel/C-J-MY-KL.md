@@ -42,7 +42,7 @@
 
 我把这次去到的地方也放在了谷歌地图收藏夹中,可以访问[这个链接](https://maps.app.goo.gl/X5kxiDCcXFYyA9Xf8)查看
 
-![](assets/C-J-MY-KL.assets/20250124104115881.png)
+![](assets/C-J-MY-KL.assets/20250124104115881.webp)
 
 
 ## 住宿
@@ -61,19 +61,19 @@
 
 坐在沙发上可以看到双峰塔中的一座
 
-![](assets/C-J-MY-KL.assets/be124de55e95abac76ec2d41ba624f4.jpg)
+![](assets/C-J-MY-KL.assets/be124de55e95abac76ec2d41ba624f4.webp)
 
 不过这座中间的泳池不是免费开放的,需要额外交钱才可以使用
 
-![](assets/C-J-MY-KL.assets/c0f42ed12ee738791a569d725615327.jpg)
+![](assets/C-J-MY-KL.assets/c0f42ed12ee738791a569d725615327.webp)
 
-![](assets/C-J-MY-KL.assets/5d29656cd2a12d5edebb918a8a6c252.jpg)
+![](assets/C-J-MY-KL.assets/5d29656cd2a12d5edebb918a8a6c252.webp)
 
 在高楼大厦中游泳,也算是一种新奇的体验了
-![](assets/C-J-MY-KL.assets/515db41f10abb86bf946b2e3a25474f.jpg)
+![](assets/C-J-MY-KL.assets/515db41f10abb86bf946b2e3a25474f.webp)
 
 楼下有一个711 买东西还算方便
-![](assets/C-J-MY-KL.assets/17516cd6c40240dbe64a2bdacaad369.jpg)
+![](assets/C-J-MY-KL.assets/17516cd6c40240dbe64a2bdacaad369.webp)
 
 ??? note "放一下找过的其他酒店的链接"
     当时定的比较着急,另外其实还看了一些其他的地方
@@ -110,15 +110,15 @@
 
 上菜速度还是可以的,菜品水平也都很在线,感觉盲点也不会很踩雷
 
-![](assets/C-J-MY-KL.assets/00bc4ba260fb60e2c9eb470130a52f1.jpg)
+![](assets/C-J-MY-KL.assets/00bc4ba260fb60e2c9eb470130a52f1.webp)
 
 甜品印象都挺深刻的,榴莲煎蕊点了还想点
 
-![](assets/C-J-MY-KL.assets/a4f07022b55a6d40474b46d75c57356.jpg)
+![](assets/C-J-MY-KL.assets/a4f07022b55a6d40474b46d75c57356.webp)
 
 这家在Pavilion附近,离各个地方都挺近的.吃完可以在商场小逛一下
 
-![](assets/C-J-MY-KL.assets/20250125011115503.png)
+![](assets/C-J-MY-KL.assets/20250125011115503.webp)
 
 ### 新峰肉骨茶/阿喜肉骨茶
 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d18950.315953427315!2d101.68883734663345!3d3.143958741156563!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc362ee517b18d%3A0x4e08487469270423!2z5paw5bOw6IKJ6aqo6Iy2!5e0!3m2!1szh-CN!2s!4v1737686880227!5m2!1szh-CN!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -130,11 +130,11 @@
 
 我们吃了新峰,感觉口味挺淡的
 
-![](assets/C-J-MY-KL.assets/e2f73a3e6aa0655fd43a0fda96e04eb.jpg)
-![](assets/C-J-MY-KL.assets/1bea89e193e0e8f5bf1ff8026ee1a10.jpg)
-![](assets/C-J-MY-KL.assets/899a04252f131620bb21495196f1974.jpg)
+![](assets/C-J-MY-KL.assets/e2f73a3e6aa0655fd43a0fda96e04eb.webp)
+![](assets/C-J-MY-KL.assets/1bea89e193e0e8f5bf1ff8026ee1a10.webp)
+![](assets/C-J-MY-KL.assets/899a04252f131620bb21495196f1974.webp)
 
-![](assets/C-J-MY-KL.assets/20250125012020149.png)
+![](assets/C-J-MY-KL.assets/20250125012020149.webp)
 
 ### 热猫榴莲
 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d18950.315953427315!2d101.68883734663345!3d3.143958741156563!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc37d5ef2dc225%3A0x7bb0374ba72daec4!2zUmFpbmZvcmVzdCBNdXNhbmcgS2luZyBEdXJpYW4g54Ot5bim6Zuo5p6X54yr5bGx546L77yI54Ot54yr5qa06I6y77yJ5YiG6KGM!5e0!3m2!1szh-CN!2s!4v1737686818813!5m2!1szh-CN!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -143,7 +143,7 @@
 
 这边好一点的一斤 50马左右,老板说贵一点的会更甜一点
 
-![](assets/C-J-MY-KL.assets/20250124113629930.png)
+![](assets/C-J-MY-KL.assets/20250124113629930.webp)
 
 原本有四房,但是有一房是空壳! 可恶
 
@@ -153,8 +153,8 @@ Ashina老师吃不了太苦的,直接痛苦面具了
 
 lyana老师很喜欢,吃完一个又开了一个
 
-![](assets/C-J-MY-KL.assets/6d9e6733d0fd4e343f5f5566ef7e730.jpg)
-![](assets/C-J-MY-KL.assets/20250125012131528.png)
+![](assets/C-J-MY-KL.assets/6d9e6733d0fd4e343f5f5566ef7e730.webp)
+![](assets/C-J-MY-KL.assets/20250125012131528.webp)
 
 ### Mamam Place
 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d254963.11642012422!2d101.40688698671875!3d3.1477515999999945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc492e1f1b6c71%3A0x24a2571c314b64ca!2sMamam%20Place%20%40%20Lorong%20Raja%20Bot!5e0!3m2!1szh-CN!2s!4v1737686964526!5m2!1szh-CN!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -167,7 +167,7 @@ lyana老师很喜欢,吃完一个又开了一个
 
 lyana老师还找了一家榴莲自助,但是时间不够也没有去成
 
-![](assets/C-J-MY-KL.assets/20250125013029211.png)
+![](assets/C-J-MY-KL.assets/20250125013029211.webp)
 ### 海脚人
 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d254963.11642012422!2d101.40688698671875!3d3.1477515999999945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc37ce383e399f%3A0x52e53c76773154cf!2z5rW36ISa5Lq6!5e0!3m2!1szh-CN!2s!4v1737687100289!5m2!1szh-CN!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
@@ -177,13 +177,13 @@ lyana老师还找了一家榴莲自助,但是时间不够也没有去成
 
 不过味道还是很棒的,我觉得等一等还是值得的
 
-![](assets/C-J-MY-KL.assets/64ce613b0cae04e0ab3948b52d4f48e.jpg)
+![](assets/C-J-MY-KL.assets/64ce613b0cae04e0ab3948b52d4f48e.webp)
 
-![](assets/C-J-MY-KL.assets/62d1669235e537eac9384b5412cdfcb.jpg)
+![](assets/C-J-MY-KL.assets/62d1669235e537eac9384b5412cdfcb.webp)
 
 这两个汤我觉得非常神奇的上瘾,如果国内有类似的饭店一定还会想吃的
-![](assets/C-J-MY-KL.assets/d0694e89ad56c31d4ea69e16ba4753c.jpg)
-![](assets/C-J-MY-KL.assets/20250125012758445.png)
+![](assets/C-J-MY-KL.assets/d0694e89ad56c31d4ea69e16ba4753c.webp)
+![](assets/C-J-MY-KL.assets/20250125012758445.webp)
 
 ### 新九如新记牛肉面
 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d254963.11642012422!2d101.40688698671875!3d3.1477515999999945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc49d1bf6556d9%3A0x15d23ad577aaa78a!2z5paw5Lmd5aaC5paw6K6w54mb6IKJ6Z2i!5e0!3m2!1szh-CN!2s!4v1737687133161!5m2!1szh-CN!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -191,16 +191,16 @@ lyana老师还找了一家榴莲自助,但是时间不够也没有去成
 这家是司机推荐的一家小店.感觉挺普通的.
 
 如果顺路的话可以随便吃一点点
-![](assets/C-J-MY-KL.assets/fe5fb853d4597bff9932316f0e62668.jpg)
+![](assets/C-J-MY-KL.assets/fe5fb853d4597bff9932316f0e62668.webp)
 
-![](assets/C-J-MY-KL.assets/20250125012413567.png)
+![](assets/C-J-MY-KL.assets/20250125012413567.webp)
 
 ### 茨厂街附近的咖啡店
 
 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d18950.315953427315!2d101.68883734663345!3d3.143958741156563!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc49d03e8726cf%3A0x95a6ee21f8aa11bb!2sCafe%20ETC!5e0!3m2!1szh-CN!2s!4v1737686798427!5m2!1szh-CN!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 吉隆坡的中午还是非常热的,为了避暑我们去了这家咖啡店.
 
-![](assets/C-J-MY-KL.assets/e085a336528ff57a916b93cbe213679.jpg)
+![](assets/C-J-MY-KL.assets/e085a336528ff57a916b93cbe213679.webp)
 
 我和Ashina老师点的咖啡,感觉中规中矩
 
@@ -209,9 +209,9 @@ lyana老师还找了一家榴莲自助,但是时间不够也没有去成
 最搞笑的是Lyana点的"go for green",芹菜\青苹果\黄瓜等榨的汁,闻味道感觉就很奇怪
 
 Lyana老师碍于面子还是强忍着喝完了哈哈哈哈哈哈
-![](assets/C-J-MY-KL.assets/6aecbba35bf14659d96674177aa7549.jpg)
+![](assets/C-J-MY-KL.assets/6aecbba35bf14659d96674177aa7549.webp)
 
-![](assets/C-J-MY-KL.assets/20250125012533486.png)
+![](assets/C-J-MY-KL.assets/20250125012533486.webp)
 
 ### ICC PUDU
 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d254963.11642012422!2d101.40688698671875!3d3.1477515999999945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc36243c03ec4b%3A0xabc6c127472ea5a4!2sICC%20PUDU!5e0!3m2!1szh-CN!2s!4v1737687321746!5m2!1szh-CN!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -222,13 +222,13 @@ Lyana老师碍于面子还是强忍着喝完了哈哈哈哈哈哈
 
 ### 避雷 precious old china
 
-![](assets/C-J-MY-KL.assets/ca752c6453b2a643180f05ac4bf0773.jpg)
-![](assets/C-J-MY-KL.assets/5e2d8634d14ea83640e19bad9feb850.jpg)
-![](assets/C-J-MY-KL.assets/20250125011744259.png)
+![](assets/C-J-MY-KL.assets/ca752c6453b2a643180f05ac4bf0773.webp)
+![](assets/C-J-MY-KL.assets/5e2d8634d14ea83640e19bad9feb850.webp)
+![](assets/C-J-MY-KL.assets/20250125011744259.webp)
 
 ### 其他
 他乡遇蜜雪
-![](assets/C-J-MY-KL.assets/c092dd20a61eef033dd5c4339e5a552.jpg)
+![](assets/C-J-MY-KL.assets/c092dd20a61eef033dd5c4339e5a552.webp)
 
 
 ## 景点-KLCC区域
@@ -248,25 +248,25 @@ Lyana老师碍于面子还是强忍着喝完了哈哈哈哈哈哈
 
 (菜就多练!)
 
-![](assets/C-J-MY-KL.assets/efa1de8ce88cf9f51338a6a481bc60d.jpg)
+![](assets/C-J-MY-KL.assets/efa1de8ce88cf9f51338a6a481bc60d.webp)
 
-![](assets/C-J-MY-KL.assets/be31b48cc5560d0120799c2ca851407.jpg)
+![](assets/C-J-MY-KL.assets/be31b48cc5560d0120799c2ca851407.webp)
 
 在river of life 的地方拍到的夜景KL Tower 远处还可以看到一小角的双峰塔
-![](assets/C-J-MY-KL.assets/ac7511e30145e80d3c30bdf2a809f6a.jpg)
+![](assets/C-J-MY-KL.assets/ac7511e30145e80d3c30bdf2a809f6a.webp)
 
-![](assets/C-J-MY-KL.assets/20250125011244941.png)
+![](assets/C-J-MY-KL.assets/20250125011244941.webp)
 
 ### 双峰塔
 
 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d254963.11642012422!2d101.40688698671875!3d3.1477515999999945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc37d12d669c1f%3A0x9e3afdd17c8a9056!2z5ZCJ6ZqG5Z2h5Zu95rK55Y-M5bOw5aGU!5e0!3m2!1szh-CN!2s!4v1737687223500!5m2!1szh-CN!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
 双峰塔白天是平平无奇的,只有等晚上,灯光亮起的时候,才能看到它的美
-![](assets/C-J-MY-KL.assets/961a362b8ba7b1667ed2f95c4dd52cc.jpg)
+![](assets/C-J-MY-KL.assets/961a362b8ba7b1667ed2f95c4dd52cc.webp)
 
 从酒店步行走去双峰塔,越走近,就会越感受到这座塔的壮观
 
-![](assets/C-J-MY-KL.assets/fe5cab4ff360842c46d8b4a6696069c.jpg)
+![](assets/C-J-MY-KL.assets/fe5cab4ff360842c46d8b4a6696069c.webp)
 
 但是单纯手机的话其实还挺难拍出震撼的效果的。
 
@@ -274,7 +274,7 @@ Lyana老师碍于面子还是强忍着喝完了哈哈哈哈哈哈
 
 
 
-![](assets/C-J-MY-KL.assets/20250125012911734.png)
+![](assets/C-J-MY-KL.assets/20250125012911734.webp)
 ## 景点-独立广场区域
 ### 国家清真寺
 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d254963.11642012422!2d101.40688698671875!3d3.1477515999999945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc49cf64217f25%3A0xafe31372d22026fb!2z5Zu95a625riF55yf5a-6!5e0!3m2!1szh-CN!2s!4v1737687142793!5m2!1szh-CN!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -291,7 +291,7 @@ Lyana老师碍于面子还是强忍着喝完了哈哈哈哈哈哈
 
 感觉没什么意思,我们在这里吃到了吉隆坡最难吃的一家店 
 
-![](assets/C-J-MY-KL.assets/20250125011531822.png)
+![](assets/C-J-MY-KL.assets/20250125011531822.webp)
 
 ### 独立广场
 
@@ -336,10 +336,10 @@ Lyana老师碍于面子还是强忍着喝完了哈哈哈哈哈哈
 现代马来西亚的政治文化完全是围绕马哈蒂尔的,这就事实上形成了精英党,但是却不能够持续地像新加坡一样生产精英
 
 
-![](assets/C-J-MY-KL.assets/8f5412cc8508b98213ab6889ecc0901.jpg)
+![](assets/C-J-MY-KL.assets/8f5412cc8508b98213ab6889ecc0901.webp)
 
 
-![](assets/C-J-MY-KL.assets/20250125011411977.png)
+![](assets/C-J-MY-KL.assets/20250125011411977.webp)
 
 
 
@@ -355,11 +355,11 @@ Lyana老师碍于面子还是强忍着喝完了哈哈哈哈哈哈
 晚上的KL还是有点冷清的，街上很多飙摩托的，我们略微有些害怕，就打车回酒店了
 
 
-![](assets/C-J-MY-KL.assets/20250125011856538.png)
+![](assets/C-J-MY-KL.assets/20250125011856538.webp)
 ### 茨厂街
 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d254963.11642012422!2d101.40688698671875!3d3.1477515999999945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc49d1adb75745%3A0xa9f6f7fb4291fafd!2z6Iyo5Y6C6KGX5biC5Zy6!5e0!3m2!1szh-CN!2s!4v1737689556602!5m2!1szh-CN!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
-![](assets/C-J-MY-KL.assets/e4872e96629d27c6238c81bf14faad9.jpg)
+![](assets/C-J-MY-KL.assets/e4872e96629d27c6238c81bf14faad9.webp)
 
 这个街没什么新奇的，充斥着一大堆从广东或是义乌进来的Made in China
 
@@ -369,9 +369,9 @@ Lyana老师碍于面子还是强忍着喝完了哈哈哈哈哈哈
 
 我：？ 撂下眼镜转身就走了，身后老板急忙说：欸呀欸呀25马就可以。一笑，感觉再砍砍还能再砍一半
 
-![](assets/C-J-MY-KL.assets/88a74af87cdf3ca051f9fd76621ba82.jpg)
+![](assets/C-J-MY-KL.assets/88a74af87cdf3ca051f9fd76621ba82.webp)
 
-![](assets/C-J-MY-KL.assets/9ce886b41bd66bb614eab635c023a93.jpg)
+![](assets/C-J-MY-KL.assets/9ce886b41bd66bb614eab635c023a93.webp)
 
 
 ### 阿罗街
@@ -394,16 +394,16 @@ Lyana老师碍于面子还是强忍着喝完了哈哈哈哈哈哈
 
 学生票只要10马，但是需要出示一些证明（学生证、录取通知书甚至是邮箱也是可以的xs）
 
-![](assets/C-J-MY-KL.assets/20250124113053860.png)
+![](assets/C-J-MY-KL.assets/20250124113053860.webp)
 
 部分藏品
-![](assets/C-J-MY-KL.assets/20250124113040635.png)
+![](assets/C-J-MY-KL.assets/20250124113040635.webp)
 
 附近的景观
-![](assets/C-J-MY-KL.assets/20250124113110507.png)
+![](assets/C-J-MY-KL.assets/20250124113110507.webp)
 
 
-![](assets/C-J-MY-KL.assets/20250125012230377.png)
+![](assets/C-J-MY-KL.assets/20250125012230377.webp)
 
 ### 天后宫
 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d254963.11642012422!2d101.40688698671875!3d3.1477515999999945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc49f2773e27a9%3A0xdb9894ff096ce96c!2z5aSp5ZCO5a6r!5e0!3m2!1szh-CN!2s!4v1737686940918!5m2!1szh-CN!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -421,17 +421,17 @@ Lyana一搜到这个就说要去，翔哥和Ashina也很感兴趣
 
 我对求缘求签并不感兴趣，准确来讲是感觉自己并没有那种诚心，感觉拜也是徒劳；再加上浮潜的时候脚划了一个口子，走路的时候隐隐作痛，就坐在台阶上等他们三个去求签。
 
-![](assets/C-J-MY-KL.assets/8545554806b995b664a1c72fc89cafb.jpg)
+![](assets/C-J-MY-KL.assets/8545554806b995b664a1c72fc89cafb.webp)
 
 很奇怪的是，这里负一层是卖纪念品的，一楼还是一个类似于办红事的结婚大堂，真要去祭拜还得上二楼
-![](assets/C-J-MY-KL.assets/cd1716577036ff576015eb502a69f06.jpg)
+![](assets/C-J-MY-KL.assets/cd1716577036ff576015eb502a69f06.webp)
 
-![](assets/C-J-MY-KL.assets/f7ca7c77ef2b2ac172dd397575ee701.jpg)
+![](assets/C-J-MY-KL.assets/f7ca7c77ef2b2ac172dd397575ee701.webp)
 
 吹吹山风其实挺舒服的，这里也可以看到吉隆坡市的一些景观，我觉得还是值得一去的。但是当时去的时候我情绪有些低落，所以这个景点我主观体验一般般
 
 他们三个都对这里印象很高（一定是因为想要显灵吧（笑
-![](assets/C-J-MY-KL.assets/20250125013604608.png)
+![](assets/C-J-MY-KL.assets/20250125013604608.webp)
 
 
 ## 景点-武吉免等区域
@@ -444,19 +444,19 @@ Lyana一搜到这个就说要去，翔哥和Ashina也很感兴趣
 
 ### 武吉免登
 
-![](assets/C-J-MY-KL.assets/a5431fceb7aa4ae6a0a1c910dfa5f2b.jpg)
+![](assets/C-J-MY-KL.assets/a5431fceb7aa4ae6a0a1c910dfa5f2b.webp)
 
 可以选择找一些网红的打卡照片，比如说像麦当劳这个街道，因为黄色的斑马线那边很像是薯条一样，慢慢变火了。
-![](assets/C-J-MY-KL.assets/49e275f39eeda14423392372e9ba37a.jpg)
+![](assets/C-J-MY-KL.assets/49e275f39eeda14423392372e9ba37a.webp)
 
 走到电车站台的二楼，还可以拍到这个路口有电车经过的画面，我们去的时候，有一众扛着三角架的摄影师在等着拍这个画面。
 
 去的时候刚好是周末，地铁站附近有不知道名字的乐队在表演，周围聚拢了一大群人，非常热闹与沉浸，我其实还蛮喜欢其中的几首歌的，可惜不知道歌名。
 
 live就是最有感染力的！
-![](assets/C-J-MY-KL.assets/bb0605a6a54b46454c243b9d7fbc6f8.jpg)
+![](assets/C-J-MY-KL.assets/bb0605a6a54b46454c243b9d7fbc6f8.webp)
 
-![](assets/C-J-MY-KL.assets/20250125012641188.png)
+![](assets/C-J-MY-KL.assets/20250125012641188.webp)
 
 ## 景点-其他
 这两个景点由于时间原因没有前往
@@ -472,4 +472,4 @@ live就是最有感染力的！
 
 ## 其他
 
-![](assets/C-J-MY-KL.assets/37f4bac5682da6873de052c574903e8.jpg)
+![](assets/C-J-MY-KL.assets/37f4bac5682da6873de052c574903e8.webp)

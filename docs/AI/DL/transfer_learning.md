@@ -65,7 +65,7 @@ LORA: Low-rank Adaptation of Large Language Models
 
 问题2:对于微调的权重矩阵，更新在矩阵秩方面应该具有多大的表现力？更新应该如何表达
 
-![image-20250705161145578](assets/transfer_learning.assets/image-20250705161145578.png)
+![image-20250705161145578](assets/transfer_learning.assets/image-20250705161145578.webp)
 
 所以，LoRA可以视作是全量微调的简化版。只要有矩阵乘法存在的地方，我们就可以考虑使用LoRA
 
@@ -93,7 +93,7 @@ $$
 
 > LoRA 让模型 **保留原本的表达能力（$W_0 x$）**，同时**通过 $BAx$ 进行轻量级调整**。
 
-![image-20250705161451599](assets/transfer_learning.assets/image-20250705161451599.png){width=50%}
+![image-20250705161451599](assets/transfer_learning.assets/image-20250705161451599.webp){width=50%}
 
 初始化策略
 
@@ -146,7 +146,7 @@ $$\Theta = 2 \times L_{LoRA} \times d_{model} \times r$$
 - 并行训练多个LoRA模块，每个模块执行自己的任务，共享基础模型
 - LoRA模型是可加性的，model switching变成了tree traversal。Base model is only instantiated once.
 
-![image-20250705162108510](assets/transfer_learning.assets/image-20250705162108510.png)
+![image-20250705162108510](assets/transfer_learning.assets/image-20250705162108510.webp)
 
 ## SFT: Supervised Fine-tuning
 

@@ -26,23 +26,23 @@
 
 结构：一个核心词+多个修饰语
 
-![image-20250726224521980](assets/03-Writing1.assets/image-20250726224521980.png)
+![image-20250726224521980](assets/03-Writing1.assets/image-20250726224521980.webp)
 
 为什么要分修饰语：其实就是限定比较的组别和对象。需要从题目给定的数据当中找到比较维度
 
 ### 指令要求
 
-![img](assets/03-Writing1.assets/106752c28ad9ec346db91b3801c919f141ba9de1.jpg@690w_!web-note.webp)
+![img](assets/03-Writing1.assets/106752c28ad9ec346db91b3801c919f141ba9de1.webp)
 
 图表所有直观看到的内容features
 
-![img](assets/03-Writing1.assets/0b17dce22916adb7b819b1e6f004f0cdc5c85623.jpg@690w_!web-note.webp)
+![img](assets/03-Writing1.assets/0b17dce22916adb7b819b1e6f004f0cdc5c85623.webp)
 
 
 
 要做的三个动作：
 
-![img](assets/03-Writing1.assets/8e1b39f3af7b5c44c1c4a18abb85957a454e4026.jpg@690w_!web-note.webp)
+![img](assets/03-Writing1.assets/8e1b39f3af7b5c44c1c4a18abb85957a454e4026.webp)
 
 
 
@@ -53,7 +53,7 @@
 - 不仅可以读取数值，还可以读取趋势
 - 趋势分为：上升、下降、波动
 
-![img](assets/03-Writing1.assets/ca31ac2f4c2421e1b23244d4c0685597998eef64.jpg@690w_!web-note.webp)
+![img](assets/03-Writing1.assets/ca31ac2f4c2421e1b23244d4c0685597998eef64.webp)
 
 
 
@@ -61,13 +61,13 @@
 
 - 只能读取数值
 
-![img](assets/03-Writing1.assets/9fe4aaec6f3b58d72291f738bd642728dd37f016.jpg@690w_!web-note.webp)
+![img](assets/03-Writing1.assets/9fe4aaec6f3b58d72291f738bd642728dd37f016.webp)
 
 ## 如何分段
 
 ## 
 
-![img](assets/03-Writing1.assets/c2a67ecb363af57a45220f57104c9575e4a360a4.jpg@690w_!web-note.webp)
+![img](assets/03-Writing1.assets/c2a67ecb363af57a45220f57104c9575e4a360a4.webp)
 
 第一段为**改写段**进行同义复述句子数量看题目改
 
@@ -75,9 +75,9 @@
 
 第三段&第四段为**Detail细节段**,细节段分两段清晰一些
 
-![img](assets/03-Writing1.assets/47e530c6bc379fcf6c6012c3425f6532ef861dad.jpg@690w_!web-note.webp)
+![img](assets/03-Writing1.assets/47e530c6bc379fcf6c6012c3425f6532ef861dad.webp)
 
-![img](assets/03-Writing1.assets/6e0ff026dbbb46a3eab9859093a889c8d3c607a3.jpg@690w_!web-note.webp)
+![img](assets/03-Writing1.assets/6e0ff026dbbb46a3eab9859093a889c8d3c607a3.webp)
 
 
 
@@ -97,9 +97,9 @@
 
 
 
-![img](assets/03-Writing1.assets/77f7f7e28418db9b536e1e659cfcb136869d830c.jpg@690w_!web-note.webp)
+![img](assets/03-Writing1.assets/77f7f7e28418db9b536e1e659cfcb136869d830c.webp)
 
-![img](assets/03-Writing1.assets/c2dc455ff7bd4dc8d7c078933fba0d742bd7f4ea.jpg@690w_!web-note.webp)
+![img](assets/03-Writing1.assets/c2dc455ff7bd4dc8d7c078933fba0d742bd7f4ea.webp)
 
 改写方法：
 
@@ -121,15 +121,15 @@
 - 不一样的趋势
 - 差距很大
 
-![image-20250726232057048](assets/03-Writing1.assets/image-20250726232057048.png)
+![image-20250726232057048](assets/03-Writing1.assets/image-20250726232057048.webp)
 
 ### 统一的
 
-![image-20250726231924142](assets/03-Writing1.assets/image-20250726231924142.png)
+![image-20250726231924142](assets/03-Writing1.assets/image-20250726231924142.webp)
 
 ### 乱乱的
 
-![image-20250726232205227](assets/03-Writing1.assets/image-20250726232205227.png)
+![image-20250726232205227](assets/03-Writing1.assets/image-20250726232205227.webp)
 
 ### 注意
 
@@ -159,7 +159,7 @@ summerize the information by selecting and reporting the **main features**  and 
 
 什么叫做features？
 
-![image-20250726235929594](assets/03-Writing1.assets/image-20250726235929594.png)
+![image-20250726235929594](assets/03-Writing1.assets/image-20250726235929594.webp)
 
 !!! note "在做比较的时候要注意控制变量，一次只能比较一个变量"
 
@@ -173,9 +173,9 @@ summerize the information by selecting and reporting the **main features**  and 
 
 但是需要注意不是每一个比较维度切分出来都是可以的。不能切割只有两个项目
 
-![image-20250726234700779](assets/03-Writing1.assets/image-20250726234700779.png)
+![image-20250726234700779](assets/03-Writing1.assets/image-20250726234700779.webp)
 
-![image-20250726235219244](assets/03-Writing1.assets/image-20250726235219244.png)
+![image-20250726235219244](assets/03-Writing1.assets/image-20250726235219244.webp)
 
 
 

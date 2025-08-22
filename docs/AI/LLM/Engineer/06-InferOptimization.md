@@ -26,7 +26,7 @@ $$
 
 所以，我们只需要保存 $K_{old}$ 和 $V_{old}$ (因为只用到了KV)，就可以实现高效的增量生成。
 
-![image-20250812230838959](assets/06-InferOptimization.assets/image-20250812230838959.png)
+![image-20250812230838959](assets/06-InferOptimization.assets/image-20250812230838959.webp)
 
 
 值得注意的是，KV 缓存的大小通常和模型本身大小是同一级别，也是一种空间换时间的策略
@@ -49,7 +49,7 @@ pie
 
     每个页4K
     
-    ![image-20250813000031813](assets/06-InferOptimization.assets/image-20250813000031813.png)
+    ![image-20250813000031813](assets/06-InferOptimization.assets/image-20250813000031813.webp)
 
 
 
@@ -58,22 +58,22 @@ pie
 - 不预分配，按需调用
   
 - 按块Block分配内存，碎片更小
-    ![image-20250813000142399](assets/06-InferOptimization.assets/image-20250813000142399.png)
+    ![image-20250813000142399](assets/06-InferOptimization.assets/image-20250813000142399.webp)
 
 - 虚拟内存：逻辑内存是连续的，通过映射表链接到物理内存（实际分配不连续）；方便调用
 
-![image-20250813000330631](assets/06-InferOptimization.assets/image-20250813000330631.png)
+![image-20250813000330631](assets/06-InferOptimization.assets/image-20250813000330631.webp)
 
 
 ## Share KV Cache
 
 **copy on write**机制：引用大于1的时候，不能直接写入，必须拷贝一份，再写入
 
-![image-20250813001125290](assets/06-InferOptimization.assets/image-20250813001125290.png)
+![image-20250813001125290](assets/06-InferOptimization.assets/image-20250813001125290.webp)
 
 还可以优化 beam-search
 
-![image-20250813001154648](assets/06-InferOptimization.assets/image-20250813001154648.png)
+![image-20250813001154648](assets/06-InferOptimization.assets/image-20250813001154648.webp)
 
 
 
@@ -97,7 +97,7 @@ pie
 
 SRAM读取快，HBM读取慢
 
-![image-20250813002617202](assets/06-InferOptimization.assets/image-20250813002617202.png)
+![image-20250813002617202](assets/06-InferOptimization.assets/image-20250813002617202.webp)
 
 
 - Compute-bound: （数据等算力）
@@ -112,7 +112,7 @@ SRAM读取快，HBM读取慢
 
 ### 原始 Attention的实现
 
-<img src="assets/06-InferOptimization.assets/image-20250813143319708.png" alt="image-20250813143319708" style="zoom: 50%;" />
+<img src="assets/06-InferOptimization.assets/image-20250813143319708.webp" alt="image-20250813143319708" style="zoom: 50%;" />
 
 矩阵 $Q$, $K$, $V \in \mathbb{R}^{N\times d}$ 存储在 HBM。（$N$ 是序列长度，$d$ 是维度）
 
@@ -129,7 +129,7 @@ SRAM读取快，HBM读取慢
 
 
 
-<img src="assets/06-InferOptimization.assets/image-20250813142327972.png" alt="image-20250813142327972" style="zoom: 25%;" />
+<img src="assets/06-InferOptimization.assets/image-20250813142327972.webp" alt="image-20250813142327972" style="zoom: 25%;" />
 
 ### tiling **softmax**
 
@@ -141,7 +141,7 @@ SRAM读取快，HBM读取慢
 - 通过分块计算，融合多个操作，减少中间结果缓存
 - 反向传播等时候，重新计算结果
 
-![image-20250813002815635](assets/06-InferOptimization.assets/image-20250813002815635.png)
+![image-20250813002815635](assets/06-InferOptimization.assets/image-20250813002815635.webp)
 
 !!! note "**softmax**精度问题"
     $e$的指数项可能超过精度，比如65536
@@ -239,18 +239,18 @@ Q.shape[:-1] = (1, 1, 6)
 
 需要额外存储
 
-![image-20250813003529043](assets/06-InferOptimization.assets/image-20250813003529043.png)
+![image-20250813003529043](assets/06-InferOptimization.assets/image-20250813003529043.webp)
 
-![image-20250813153517030](assets/06-InferOptimization.assets/image-20250813153517030.png)
+![image-20250813153517030](assets/06-InferOptimization.assets/image-20250813153517030.webp)
 
-![image-20250813142311190](assets/06-InferOptimization.assets/image-20250813142311190.png)
+![image-20250813142311190](assets/06-InferOptimization.assets/image-20250813142311190.webp)
 
 
 ### 反向传播 recomputation
 
 前向的时候，会保存softmax统计值，$m$和$l$
 
-![image-20250813003543657](assets/06-InferOptimization.assets/image-20250813003543657.png)
+![image-20250813003543657](assets/06-InferOptimization.assets/image-20250813003543657.webp)
 
 
 
