@@ -1,21 +1,34 @@
 # Mkdocs
 
 
+## 我为什么选择Mkdocs
 
+在我看来mkdocs的构建形式其实是适合结构化的知识和文档的，很多时候是需要博主自己去把自己的知识梳理出一个树形的逻辑(nav)
+所以它和98这种以帖、标签、版面为主导的网页以及一些以帖为组织单元的博客网页（比如很多wordpress的模版）是有设计哲学的差别的
 
-## Mkdocs原理
+严格来讲或许叫它技术文档站可能更合适一点，当然从易用性来看，用pages托管的mkdocs部署服务比一众需要自己搭前后端的网站要简单不少，但是也有麻烦之处，比如写博文或者写随笔可能mkdocs并不是一个合适的选择（每次更新需要重新更新目录）。
 
+自己建站的话很大比起内容来讲精力有些时间可能更多会花在配置环境、增添属性上 doge，虽然mkdocs我也经常干这种事、、、
 
+## 有什么其他的工具?
 
+- [Notion](https://www.notion.so/)
+- [WordPress](https://wordpress.org/)
+- [Jekyll](https://jekyllrb.com/) 
+- [Hexo](https://hexo.io/) 
+- [Hugo](https://gohugo.io/) 
+- [VuePress](https://vuepress.vuejs.org/)
 
 
 ## Acknowledgement
 
 这里放一些好的资源和博客
 
-[material文档](https://squidfunk.github.io/mkdocs-material/)
+[Mkdocs Material文档](https://squidfunk.github.io/mkdocs-material/)
 
 [Mkdocs Material使用记录 - shafish.cn](https://shafish.cn/blog/mkdocs/#%E5%9B%9B%E9%83%A8%E7%BD%B2)
+
+[Mkdocs中文教程 - Wcowin](https://wcowin.work/Mkdocs-Wcowin/blog/MIT.html)
 
 ## Build From Scratch
 

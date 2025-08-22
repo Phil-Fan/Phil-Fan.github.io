@@ -62,7 +62,7 @@ npm run build
 ## 卸载
 
 ```
-sudo npm uninstall npm- g
+sudo npm uninstall npm -g
 ```
 
 ```shell

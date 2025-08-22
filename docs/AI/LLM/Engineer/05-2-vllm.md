@@ -36,6 +36,55 @@ comments: True
 
 
 
+### logger
+
+
+```json title="logger"
+{
+"formatters": {
+    "vllm": {
+    "class": "vllm.logging_utils.NewLineFormatter",
+    "datefmt": "%m-%d %H:%M:%S",
+    "format": "%(levelname)s %(asctime)s %(filename)s:%(lineno)d] %(message)s"
+    }
+},
+"handlers": {
+    "vllm": {
+    "class" : "logging.StreamHandler",
+    "formatter": "vllm",
+    "level": "DEBUG",
+    "stream": "ext://sys.stdout"
+    },
+    "file": {  
+    "class": "logging.FileHandler",
+    "formatter": "vllm",
+    "level": "DEBUG",
+    "filename": "/path/to/debug.log"
+    }
+},
+"loggers": {
+    "vllm": {
+    "handlers": ["vllm", "file"],
+    "level": "DEBUG",
+    "propagate": false
+    },
+    "vllm.example_noisy_logger": {
+    "propagate": false
+    }
+},
+"version": 1
+}
+```
+
+然后运行
+
+```shell
+VLLM_LOGGING_CONFIG_PATH=vllm_logging_config.json \
+vllm serve /path/to/model
+```
+
+## 源码理解
+
 
 
 

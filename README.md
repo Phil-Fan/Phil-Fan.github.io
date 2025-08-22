@@ -31,7 +31,7 @@ mkdocs serve
 
 ### How to build your own website
 
-1. 
+todo
 
 
 
@@ -94,15 +94,15 @@ This browser does not support PDFs
 ```
 
 
-
-## Show your support
-
-Give a ⭐️ if this project helped you!
-
-
 ## About Me
 
 
 👤 **PhilFan**
 
 * Github: [@Phil-Fan](https://github.com/Phil-Fan)
+
+## Show your support
+
+Give a ⭐️ if this project helped you!
+
+[![Star History Chart](https://api.star-history.com/svg?repos=Phil-Fan/Phil-Fan.github.io&type=Date)](https://www.star-history.com/#Phil-Fan/Phil-Fan.github.io&Date)

@@ -165,6 +165,7 @@ ipconfig
 netsh interface portproxy add v4tov4 listenport=2222 listenaddress=0.0.0.0 connectport=2222 connectaddress=<WSL_IP>
 ```
 
+
 替换 `<WSL_IP>` 为上一步查到的 WSL IP（例如 `172.22.183.12`）。
 
 这个命令意思是：当别人访问 `Windows_IP:2222`，流量会被转发到 `WSL_IP:2222`。
@@ -175,14 +176,14 @@ netsh interface portproxy add v4tov4 listenport=2222 listenaddress=0.0.0.0 conne
 
 
 
-3. 开放防火墙
+1. 开放防火墙
 
 ```shell title="开放防火墙"
 netsh advfirewall firewall add rule name="OpenSSH WSL 2222" dir=in action=allow protocol=TCP localport=2222
 ```
 
 
-4. 测试连接
+1. 测试连接
 
 在另一台机器上执行：
 

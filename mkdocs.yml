@@ -334,6 +334,7 @@ nav:
         - AI/LLM/Engineer/04-2-LongChain.md
         - AI/LLM/Engineer/05-1-Deployment.md
         - AI/LLM/Engineer/05-2-vllm.md
+        - AI/LLM/Engineer/05-2-vllm-code.md
         - AI/LLM/Engineer/05-3-SGlang.md
         - AI/LLM/Engineer/06-InferOptimization.md
         - AI/LLM/Engineer/06-GPU.md
@@ -389,6 +390,11 @@ nav:
         - AI/ML/03-training_method.md
         - AI/ML/04-parameters.md
         - AI/ML/05-trick.md
+    - "MLSys | 机器学习系统":
+        - AI/MLSys/index.md
+        - AI/MLSys/CUDA.md
+        - CMU10-414:
+          - AI/MLSys/CMU10_414/index.md
 
     - "CV | 计算机视觉":
         - 基础知识:
@@ -410,6 +416,7 @@ nav:
         
         - 工具:
             - AI/CV/OpenCV.md
+      
 
 
     - "学习资源":
@@ -638,6 +645,7 @@ nav:
     
 
 - Tools:
+  - Tools/index.md
   - Efficiency:
     - Tools/Efficiency/latex.md
     - Tools/Efficiency/typst.md
@@ -669,6 +677,7 @@ nav:
     - Tools/Software/AdobePhotoshop.md
     - Tools/Software/Web.md
     - Tools/Software/Xcode.md
+    - Tools/Software/CICD.md
 
   - "工作环境配置":
     - Tools/Environment/settings-software.md
@@ -893,4 +902,7 @@ plugins:
       repository: Phil-Fan/Phil-Fan.github.io
       branch: master
       token: !!python/object/apply:os.getenv ["MKDOCS_GIT_COMMITTERS_APIKEY"]
+      # 使用github secret 保存API KEY，防止明文传递
+      cache_dir: docs/style/
+      # 使用cache file，否则编译过久，且每次编译都会重新获取
   

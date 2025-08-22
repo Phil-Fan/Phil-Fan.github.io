@@ -7,7 +7,7 @@ status: happy
 # 友链
 
 
-受[ZJU CS - All Sum in One! | zju-cs-asio](https://isshikihugh.github.io/zju-cs-asio/)项目的启发，采用来自动化的友链的部署方法～
+受[ZJU CS - All Sum in One!](https://isshikihugh.github.io/zju-cs-asio/)项目的启发，采用来自动化的友链的部署方法～
 
 目前的构建方式是csv文件+hook函数
 
