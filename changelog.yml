@@ -1,4 +1,8 @@
 - "2025":
+  - "2025-08-23":
+    - function:
+        text: "增加修改图像为webp图片格式的脚本，减少体积"
+        href: "Tools/Environment/Mkdocs.html"
   - "2025-08-19":
     - function:
         text: "通过hook函数自动生成友链页面"
