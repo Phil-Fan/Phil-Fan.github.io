@@ -17,3 +17,10 @@
 
 
 [(6 条消息) 图解大模型计算加速系列：vLLM源码解析1，整体架构 - 知乎](https://zhuanlan.zhihu.com/p/691045737)
+
+
+speculative decoding
+
+
+chunked prefill
+

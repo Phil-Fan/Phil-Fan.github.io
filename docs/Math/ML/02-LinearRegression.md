@@ -264,7 +264,7 @@ $$
 \min \quad & ||\Delta A||^2_F\\
 s.t. \quad &\left[ A + \Delta A \right] x = b 
 \end{align*}
-$$
+$$  
 
 > underlying idea: 每个数据的误差不会特别大
 
@@ -596,11 +596,13 @@ CDF(累积分布函数)ofthe standard logistic distribution
 
 
 为什么loss function要取log
+
 - 为了方便求导
 - 取log使得连乘变成连加，不会丢失信息
 
 Assumptions behind logistic regression
-- l(a) = -\sum_{i\in I} \log(1+e^{-y_i a^T x_i})
+
+- $l(a) = -\sum_{i\in I} \log(1+e^{-y_i a^T x_i})$
 
 
 pros:
@@ -614,6 +616,10 @@ cons:
 
 
 对于分类问题，只关心分类正确的类的值
+
+
+
+
 
 
 

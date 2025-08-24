@@ -8,6 +8,8 @@
 # 改成
 # $1.webp
 
+# find . -type f -exec du -h {} + 2>/dev/null | sort -rh | head -n 40
+
 # 开启递归 glob
 setopt globstar null_glob
 

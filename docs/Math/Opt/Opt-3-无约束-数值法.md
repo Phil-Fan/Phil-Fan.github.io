@@ -51,25 +51,104 @@
 
 
 problem with GD
+
 - Slow at plateaus
 - get stuck at saddle points
-#### Mini-batch Gradient Descent
+
+#### mini-batch SGD
+- 批量梯度下降：使用全量样本$m$进行更新
+- Stochastic Gradient Descent (SGD) | 随机梯度下降指的是：使用单个样本进行更新
+- 而mini-batch就是这两者的折衷，使用一个小批量$B< m$ 进行更新
 
 
-#### Stochastic Gradient Descent | 随机梯度下降
-Although this method is very fast, it may cause significant fluctuations in the loss function
+$$
+X \in \mathbb{R}^{B \times n}, y \in {1,\dots,K}^{B}\\
+\theta := \theta - \frac{\alpha}{B} \sum_{i=1}^{B} \nabla_\theta L(h_\theta(x_i), y_i)
+$$
 
-#### Momentum
-Gradient descent with momentum uses the momentum of the
-gradient for parameter optimization
 
-Movement = Negative of Gradient + Momentum
-[优化算法之Gradient descent with momentum - 知乎](https://zhuanlan.zhihu.com/p/34240246)
+!!! question "如果将小批量的总损失替换为小批量损失的平均值，需要如何更改学习率？"
 
-#### Nesterov Accelerated Momentum
-[比Momentum更快：揭开Nesterov Accelerated Gradient的真面目 - 知乎](https://zhuanlan.zhihu.com/p/22810533)
+    如果将小批量的总损失替换为小批量损失的平均值，则需要将学习率乘以批量大小。
+    
+    这是因为在计算梯度时，我们使用了小批量中所有样本的信息。因此，如果我们将小批量的总损失替换为小批量损失的平均值，则相当于将每个样本的梯度除以批量大小。因此，我们需要将学习率乘以批量大小，以保持相同的更新步长
 
-#### Adam | Adaptive Moment Estimation
+
+
+
+
+#### **3. Momentum | 动量法**
+
+**公式**：
+
+$$
+v_t = \gamma v_{t-1} + \eta \nabla_\theta L(\theta)
+$$
+
+$$
+\theta \gets \theta - v_t
+$$
+
+**解释**：
+
+* $v_t$ 表示“速度”，$\gamma$ 是惯性系数（通常 0.9）。
+* 每次更新不仅看当前梯度，还参考之前的更新方向。
+* 优点：减少在陡峭方向的震荡，加速收敛。
+* 类比：小球滚下山，不只是顺着坡度走，还带上惯性，走得更顺畅。
+
+#### **4. Nesterov Accelerated Gradient (NAG)**
+
+**公式**：
+
+$$
+v_t = \gamma v_{t-1} + \eta \nabla_\theta L(\theta - \gamma v_{t-1})
+$$
+
+$$
+\theta \gets \theta - v_t
+$$
+
+**解释**：
+
+* 先用惯性“预估”未来位置 $(\theta - \gamma v_{t-1})$，再计算梯度。
+* 优点：比普通 Momentum 更快、更精准，避免走过头。
+* 类比：跑步时提前看前方路况，再调整速度和方向。
+
+
+#### **5. Adam | Adaptive Moment Estimation**
+
+* **公式**：
+
+$$
+m_t = \beta_1 m_{t-1} + (1-\beta_1) \nabla_\theta L(\theta)
+$$
+
+$$
+v_t = \beta_2 v_{t-1} + (1-\beta_2) (\nabla_\theta L(\theta))^2
+$$
+
+$$
+\hat{m}_t = \frac{m_t}{1-\beta_1^t}, \quad \hat{v}_t = \frac{v_t}{1-\beta_2^t}
+$$
+
+$$
+\theta \gets \theta - \eta \frac{\hat{m}_t}{\sqrt{\hat{v}_t} + \epsilon}
+$$
+
+* **解释**：
+
+  * $m_t$ 是梯度的一阶矩（均值），$v_t$ 是二阶矩（方差）。
+  * 每个参数都有自适应学习率，梯度大时步长小，梯度小步长大。
+  * 优点：收敛快，几乎适合所有任务。
+  * 缺点：有时泛化能力不如 SGD。
+  * 类比：开车时既看前方路坡度（梯度），又调节油门（自适应步长），稳又快。
+
+---
+
+如果你愿意，我可以帮你画一张 **“梯度下降算法收敛路径对比图”**，把 SGD / Momentum / NAG / Adam 的公式效果直观地画出来，记忆效果会更好。
+
+你希望我画吗？
+
 
 
 

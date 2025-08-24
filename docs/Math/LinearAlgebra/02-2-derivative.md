@@ -269,6 +269,9 @@ $$
 
 ### 一些规则
 
+
+!!! note "偷懒方法: pretend everything is a scalar, use the typical chain rule, and then rearrange/transpose matrices/vectors to make the size work"
+
 - 标量函数 
 
 $$

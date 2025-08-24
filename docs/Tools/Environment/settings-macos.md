@@ -16,6 +16,8 @@ mac默认使用zsh
 - shift + option + b：颜文字
 - 使用声调打字：tab
 
+- ctrl+⬆️：mission control
+
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=1851423987&bvid=BV1mW421w7Jw&cid=1457785582&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=100% height=600px></iframe>
 
 ```shell title="open Finder in terminal"

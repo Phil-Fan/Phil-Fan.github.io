@@ -291,7 +291,11 @@ nav:
 
     - ML | 机器学习:
         - Math/ML/index.md
-        - Math/ML/00-proof.md
+        - Math/ML/00-Loss.md
+        - Math/ML/00-Method.md
+        - Math/ML/00-Trick.md
+        - Math/ML/00-Proof.md
+        - Math/ML/00-Review.md
         - Math/ML/01-Metrics.md
         - Math/ML/02-LinearRegression.md
         - Math/ML/03-DecisionTree.md
@@ -304,6 +308,7 @@ nav:
         - Math/ML/10-ConceptLearning.md
         - Math/ML/12-interpretable_models.md
         - Math/ML/13-CasualInference.md
+        
 
 
 - AI: 
@@ -381,15 +386,7 @@ nav:
       
     - "RL | 强化学习":
         - AI/RL/RL-01.md
-
-
-    - "ML | 机器学习实践": 
-        - AI/ML/00-Review.md
-        - AI/ML/01-kaggle.md
-        - AI/ML/02-process.md
-        - AI/ML/03-training_method.md
-        - AI/ML/04-parameters.md
-        - AI/ML/05-trick.md
+   
     - "MLSys | 机器学习系统":
         - AI/MLSys/index.md
         - AI/MLSys/CUDA.md
