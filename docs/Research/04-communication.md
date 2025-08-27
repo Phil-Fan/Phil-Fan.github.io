@@ -6,7 +6,11 @@
 ## Don't be STUPID & Don't be SHY
 
 
-## How to use Email: some manners
+## Show up
+
+不要觉得自己做的太差，至少拿出一些output，与别人多沟通交流，这样导师和同学才可以给你反馈
+
+
 
 ## Learn in public, Build in public
 
@@ -22,3 +26,5 @@ build a small project and publish it on the internet
 
 ## 如何与同学交流
 
+
+## How to use Email: some manners

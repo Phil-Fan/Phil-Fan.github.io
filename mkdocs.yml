@@ -209,6 +209,8 @@ hooks:
   - hooks/socialmedia.py
   # 从CSV文件自动生成友链页面
   - hooks/friends.py
+  # toc页面，改编自https://github.com/TonyCrane/note/tree/master/hooks，效果还不稳定
+  - hooks/toc_manager.py
 
 
 # navigation: 注意左右下划线的写法
@@ -432,6 +434,7 @@ nav:
 
 
 - Robotics:
+  - Robotics/index.md
   - Model:
     - Robotics/Model/index.md
     - 1 空间描述与变换: Robotics/Model/1-Basis.md

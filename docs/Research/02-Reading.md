@@ -37,3 +37,6 @@ This browser does not support PDFs
 
 
 ## Be skeptical: 读论文如何防骗
+
+> 当你发自内心的觉得，这老师/paper讲得了啥？胡扯呢吧？这样你就具备了初级的科研能力。
+> -- Adam
