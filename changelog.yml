@@ -1,7 +1,7 @@
 - "2025":
   - "2025-08-27":
     - function:
-        text: "增加toc hook，改编自[TonyCrane/note](https://github.com/TonyCrane/note/tree/master/hooks)"
+        text: "增加toc hook，继承改编自[TonyCrane/note](https://github.com/TonyCrane/note/tree/master/hooks)"
   - "2025-08-23":
     - function:
         text: "增加修改图像为webp图片格式的脚本，减少体积"

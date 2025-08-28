@@ -21,8 +21,9 @@
 <style>:root{--md-text-font:"Noto Serif SC";--md-code-font:"JetBrains Mono"}</style>
 <link href="../css/timeline.css" rel="stylesheet"/>
 <link href="../css/heti.css" rel="stylesheet"/>
-<link href="../style/css/toc.css" rel="stylesheet"/>
 <link href="../style/css/flink.css" rel="stylesheet"/>
+<link href="../style/css/toc_extra.css" rel="stylesheet"/>
+<link href="../style/css/fold_toc.css" rel="stylesheet"/>
 <link href="../style/css/card.css" rel="stylesheet"/>
 <link href="https://cdn.tonycrane.cc/jbmono/jetbrainsmono.css" rel="stylesheet"/>
 <link href="https://cdn.tonycrane.cc/lxgw/lxgwscreen.css" rel="stylesheet"/>
@@ -4591,489 +4592,384 @@
         📚Reading
         💡CommonKnowledge</code></pre>
 <div class="index-item-wrapper">
-<!-- #https://github.com/TonyCrane/note/tree/master/hooks -->
-<div class="title-wrapper" style="margin: .5rem 0; padding: .25rem .5rem; border-radius: 6px; background: var(--md-code-bg-color); display:flex; align-items:center; gap:.5rem;">
-<button onclick="buttonHandler('0')" style="display:flex; align-items:center; border:none; background:none; cursor:pointer; font-size:1em; font-weight:600; color:var(--md-typeset-color);">
-<span class="twemoji" style="margin-right:6px; transition:transform .15s;"><svg viewbox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M12.78 6.22a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L3.22 7.28a.75.75 0 0 1 1.06-1.06L8 9.94l3.72-3.72a.75.75 0 0 1 1.06 0z" fill-rule="evenodd"></path></svg></span>
-            🎹 Music
+<!-- https://github.com/TonyCrane/note/blob/master/hooks/templates/toc.html -->
+<div class="title-wrapper">
+<button onclick="buttonHandler(0)">
+<span class="twemoji" style="margin-right: 4px; font-size: 0.8em;">
+<svg viewbox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M12.78 6.22a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L3.22 7.28a.75.75 0 0 1 1.06-1.06L8 9.94l3.72-3.72a.75.75 0 0 1 1.06 0z" fill-rule="evenodd"></path></svg>
+</span>🎹 Music
         </button>
 </div>
-<ul class="content-item-wrapper" style="list-style:none; padding-left:.75rem; margin:.25rem 0;">
-<li style="margin:.25rem 0; padding:.35rem .5rem; border-radius:6px; background:var(--md-code-bg-color); display:flex; align-items:center; gap:.75rem;">
-<a href="Music/03-Pinao_Classic.html" style="flex:1 1 auto; font-weight:500; color:var(--md-typeset-a-color); text-decoration:none; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;" target="_self">钢琴古典</a>
-<div class="item-main-content" style="display:flex; align-items:center; gap:.75rem; color:var(--md-default-fg-color--light); font-size:.85em; white-space:nowrap;">
-<span style="display:flex; align-items:center; gap:.25rem;">
-<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5z"></path></svg></span>
-                    2146
-                </span>
-<span style="display:flex; align-items:center; gap:.25rem;">
-<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13z"></path></svg></span>
-                    7 mins
-                </span>
-<span class="item-actions" style="opacity:.8;">1748015946</span>
+<ul class="content-item-wrapper">
+<li>
+<div class="item-primary"><a href="Music/03-Pinao_Classic.html" target="_self">钢琴古典</a></div>
+<div class="item-status"></div>
+<div class="item-main-content">
+<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5z"></path></svg></span> 2146 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13z"></path></svg></span> 7 mins
+            </div>
+<div class="item-metadata">
 </div>
+<div class="item-actions">1748015946</div>
 </li>
-<li style="margin:.25rem 0; padding:.35rem .5rem; border-radius:6px; background:var(--md-code-bg-color); display:flex; align-items:center; gap:.75rem;">
-<a href="Music/01-Piano_Class.html" style="flex:1 1 auto; font-weight:500; color:var(--md-typeset-a-color); text-decoration:none; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;" target="_self">钢琴课程</a>
-<div class="item-main-content" style="display:flex; align-items:center; gap:.75rem; color:var(--md-default-fg-color--light); font-size:.85em; white-space:nowrap;">
-<span style="display:flex; align-items:center; gap:.25rem;">
-<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5z"></path></svg></span>
-                    2673
-                </span>
-<span style="display:flex; align-items:center; gap:.25rem;">
-<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13z"></path></svg></span>
-                    9 mins
-                </span>
-<span class="item-actions" style="opacity:.8;">1746980385</span>
+<li>
+<div class="item-primary"><a href="Music/01-Piano_Class.html" target="_self">钢琴课程</a></div>
+<div class="item-status"></div>
+<div class="item-main-content">
+<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5z"></path></svg></span> 2673 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13z"></path></svg></span> 9 mins
+            </div>
+<div class="item-metadata">
 </div>
+<div class="item-actions">1746980385</div>
 </li>
-<li style="margin:.25rem 0; padding:.35rem .5rem; border-radius:6px; background:var(--md-code-bg-color); display:flex; align-items:center; gap:.75rem;">
-<a href="Music/00-Music_Theory.html" style="flex:1 1 auto; font-weight:500; color:var(--md-typeset-a-color); text-decoration:none; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;" target="_self">音乐理论</a>
-<div class="item-main-content" style="display:flex; align-items:center; gap:.75rem; color:var(--md-default-fg-color--light); font-size:.85em; white-space:nowrap;">
-<span style="display:flex; align-items:center; gap:.25rem;">
-<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5z"></path></svg></span>
-                    2979
-                </span>
-<span style="display:flex; align-items:center; gap:.25rem;">
-<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13z"></path></svg></span>
-                    10 mins
-                </span>
-<span class="item-actions" style="opacity:.8;">1746862829</span>
+<li>
+<div class="item-primary"><a href="Music/00-Music_Theory.html" target="_self">音乐理论</a></div>
+<div class="item-status"></div>
+<div class="item-main-content">
+<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5z"></path></svg></span> 2979 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13z"></path></svg></span> 10 mins
+            </div>
+<div class="item-metadata">
 </div>
+<div class="item-actions">1746862829</div>
 </li>
-<li style="margin:.25rem 0; padding:.35rem .5rem; border-radius:6px; background:var(--md-code-bg-color); display:flex; align-items:center; gap:.75rem;">
-<a href="Music/02-Piano_SelfSelect.html" style="flex:1 1 auto; font-weight:500; color:var(--md-typeset-a-color); text-decoration:none; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;" target="_self">钢琴自选</a>
-<div class="item-main-content" style="display:flex; align-items:center; gap:.75rem; color:var(--md-default-fg-color--light); font-size:.85em; white-space:nowrap;">
-<span style="display:flex; align-items:center; gap:.25rem;">
-<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5z"></path></svg></span>
-                    1246
-                </span>
-<span style="display:flex; align-items:center; gap:.25rem;">
-<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13z"></path></svg></span>
-                    4 mins
-                </span>
-<span class="item-actions" style="opacity:.8;">1746862829</span>
+<li>
+<div class="item-primary"><a href="Music/02-Piano_SelfSelect.html" target="_self">钢琴自选</a></div>
+<div class="item-status"></div>
+<div class="item-main-content">
+<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5z"></path></svg></span> 1246 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13z"></path></svg></span> 4 mins
+            </div>
+<div class="item-metadata">
 </div>
+<div class="item-actions">1746862829</div>
 </li>
 </ul>
-<div class="title-wrapper" style="margin: .5rem 0; padding: .25rem .5rem; border-radius: 6px; background: var(--md-code-bg-color); display:flex; align-items:center; gap:.5rem;">
-<button onclick="buttonHandler('1')" style="display:flex; align-items:center; border:none; background:none; cursor:pointer; font-size:1em; font-weight:600; color:var(--md-typeset-color);">
-<span class="twemoji" style="margin-right:6px; transition:transform .15s;"><svg viewbox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M12.78 6.22a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L3.22 7.28a.75.75 0 0 1 1.06-1.06L8 9.94l3.72-3.72a.75.75 0 0 1 1.06 0z" fill-rule="evenodd"></path></svg></span>
-            🍳 Eat
+<!-- https://github.com/TonyCrane/note/blob/master/hooks/templates/toc.html -->
+<div class="title-wrapper">
+<button onclick="buttonHandler(1)">
+<span class="twemoji" style="margin-right: 4px; font-size: 0.8em;">
+<svg viewbox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M12.78 6.22a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L3.22 7.28a.75.75 0 0 1 1.06-1.06L8 9.94l3.72-3.72a.75.75 0 0 1 1.06 0z" fill-rule="evenodd"></path></svg>
+</span>🍳 Eat
         </button>
 </div>
-<ul class="content-item-wrapper" style="list-style:none; padding-left:.75rem; margin:.25rem 0;">
-<li style="margin:.25rem 0; padding:.35rem .5rem; border-radius:6px; background:var(--md-code-bg-color); display:flex; align-items:center; gap:.75rem;">
-<a href="Eat/eat.html" style="flex:1 1 auto; font-weight:500; color:var(--md-typeset-a-color); text-decoration:none; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;" target="_self">中餐食谱</a>
-<div class="item-main-content" style="display:flex; align-items:center; gap:.75rem; color:var(--md-default-fg-color--light); font-size:.85em; white-space:nowrap;">
-<span style="display:flex; align-items:center; gap:.25rem;">
-<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5z"></path></svg></span>
-                    2432
-                </span>
-<span style="display:flex; align-items:center; gap:.25rem;">
-<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13z"></path></svg></span>
-                    8 mins
-                </span>
-<span class="item-actions" style="opacity:.8;">1755884853</span>
+<ul class="content-item-wrapper">
+<li>
+<div class="item-primary"><a href="Eat/eat.html" target="_self">中餐食谱</a></div>
+<div class="item-status"></div>
+<div class="item-main-content">
+<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5z"></path></svg></span> 2432 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13z"></path></svg></span> 8 mins
+            </div>
+<div class="item-metadata">
 </div>
+<div class="item-actions">1755884853</div>
 </li>
-<li style="margin:.25rem 0; padding:.35rem .5rem; border-radius:6px; background:var(--md-code-bg-color); display:flex; align-items:center; gap:.75rem;">
-<a href="Eat/eat-west.html" style="flex:1 1 auto; font-weight:500; color:var(--md-typeset-a-color); text-decoration:none; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;" target="_self">西餐食谱</a>
-<div class="item-main-content" style="display:flex; align-items:center; gap:.75rem; color:var(--md-default-fg-color--light); font-size:.85em; white-space:nowrap;">
-<span style="display:flex; align-items:center; gap:.25rem;">
-<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5z"></path></svg></span>
-                    457
-                </span>
-<span style="display:flex; align-items:center; gap:.25rem;">
-<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13z"></path></svg></span>
-                    2 mins
-                </span>
-<span class="item-actions" style="opacity:.8;">1755884853</span>
+<li>
+<div class="item-primary"><a href="Eat/eat-west.html" target="_self">西餐食谱</a></div>
+<div class="item-status"></div>
+<div class="item-main-content">
+<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5z"></path></svg></span> 457 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13z"></path></svg></span> 2 mins
+            </div>
+<div class="item-metadata">
 </div>
+<div class="item-actions">1755884853</div>
 </li>
-<li style="margin:.25rem 0; padding:.35rem .5rem; border-radius:6px; background:var(--md-code-bg-color); display:flex; align-items:center; gap:.75rem;">
-<a href="Eat/eat-hangzhou.html" style="flex:1 1 auto; font-weight:500; color:var(--md-typeset-a-color); text-decoration:none; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;" target="_self">杭州美食</a>
-<div class="item-main-content" style="display:flex; align-items:center; gap:.75rem; color:var(--md-default-fg-color--light); font-size:.85em; white-space:nowrap;">
-<span style="display:flex; align-items:center; gap:.25rem;">
-<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5z"></path></svg></span>
-                    695
-                </span>
-<span style="display:flex; align-items:center; gap:.25rem;">
-<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13z"></path></svg></span>
-                    2 mins
-                </span>
-<span class="item-actions" style="opacity:.8;">1755884853</span>
+<li>
+<div class="item-primary"><a href="Eat/eat-hangzhou.html" target="_self">杭州美食</a></div>
+<div class="item-status"></div>
+<div class="item-main-content">
+<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5z"></path></svg></span> 695 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13z"></path></svg></span> 2 mins
+            </div>
+<div class="item-metadata">
 </div>
+<div class="item-actions">1755884853</div>
 </li>
-<li style="margin:.25rem 0; padding:.35rem .5rem; border-radius:6px; background:var(--md-code-bg-color); display:flex; align-items:center; gap:.75rem;">
-<a href="Eat/coffee.html" style="flex:1 1 auto; font-weight:500; color:var(--md-typeset-a-color); text-decoration:none; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;" target="_self">咖啡文化</a>
-<div class="item-main-content" style="display:flex; align-items:center; gap:.75rem; color:var(--md-default-fg-color--light); font-size:.85em; white-space:nowrap;">
-<span style="display:flex; align-items:center; gap:.25rem;">
-<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5z"></path></svg></span>
-                    1219
-                </span>
-<span style="display:flex; align-items:center; gap:.25rem;">
-<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13z"></path></svg></span>
-                    4 mins
-                </span>
-<span class="item-actions" style="opacity:.8;">1752806341</span>
+<li>
+<div class="item-primary"><a href="Eat/coffee.html" target="_self">咖啡文化</a></div>
+<div class="item-status"></div>
+<div class="item-main-content">
+<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5z"></path></svg></span> 1219 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13z"></path></svg></span> 4 mins
+            </div>
+<div class="item-metadata">
 </div>
+<div class="item-actions">1752806341</div>
 </li>
 </ul>
-<div class="title-wrapper" style="margin: .5rem 0; padding: .25rem .5rem; border-radius: 6px; background: var(--md-code-bg-color); display:flex; align-items:center; gap:.5rem;">
-<button onclick="buttonHandler('2')" style="display:flex; align-items:center; border:none; background:none; cursor:pointer; font-size:1em; font-weight:600; color:var(--md-typeset-color);">
-<span class="twemoji" style="margin-right:6px; transition:transform .15s;"><svg viewbox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M12.78 6.22a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L3.22 7.28a.75.75 0 0 1 1.06-1.06L8 9.94l3.72-3.72a.75.75 0 0 1 1.06 0z" fill-rule="evenodd"></path></svg></span>
-            🏃 Exercise
+<!-- https://github.com/TonyCrane/note/blob/master/hooks/templates/toc.html -->
+<div class="title-wrapper">
+<button onclick="buttonHandler(2)">
+<span class="twemoji" style="margin-right: 4px; font-size: 0.8em;">
+<svg viewbox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M12.78 6.22a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L3.22 7.28a.75.75 0 0 1 1.06-1.06L8 9.94l3.72-3.72a.75.75 0 0 1 1.06 0z" fill-rule="evenodd"></path></svg>
+</span>🏃 Exercise
         </button>
 </div>
-<ul class="content-item-wrapper" style="list-style:none; padding-left:.75rem; margin:.25rem 0;">
-<li style="margin:.25rem 0; padding:.35rem .5rem; border-radius:6px; background:var(--md-code-bg-color); display:flex; align-items:center; gap:.75rem;">
-<a href="Exercise/exercise-running.html" style="flex:1 1 auto; font-weight:500; color:var(--md-typeset-a-color); text-decoration:none; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;" target="_self">跑步运动</a>
-<div class="item-main-content" style="display:flex; align-items:center; gap:.75rem; color:var(--md-default-fg-color--light); font-size:.85em; white-space:nowrap;">
-<span style="display:flex; align-items:center; gap:.25rem;">
-<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5z"></path></svg></span>
-                    260
-                </span>
-<span style="display:flex; align-items:center; gap:.25rem;">
-<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13z"></path></svg></span>
-                    1 mins
-                </span>
-<span class="item-actions" style="opacity:.8;">1749278490</span>
+<ul class="content-item-wrapper">
+<li>
+<div class="item-primary"><a href="Exercise/exercise-running.html" target="_self">跑步运动</a></div>
+<div class="item-status"></div>
+<div class="item-main-content">
+<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5z"></path></svg></span> 260 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13z"></path></svg></span> 1 mins
+            </div>
+<div class="item-metadata">
 </div>
+<div class="item-actions">1749278490</div>
 </li>
-<li style="margin:.25rem 0; padding:.35rem .5rem; border-radius:6px; background:var(--md-code-bg-color); display:flex; align-items:center; gap:.75rem;">
-<a href="Exercise/exercise-swimming.html" style="flex:1 1 auto; font-weight:500; color:var(--md-typeset-a-color); text-decoration:none; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;" target="_self">游泳运动</a>
-<div class="item-main-content" style="display:flex; align-items:center; gap:.75rem; color:var(--md-default-fg-color--light); font-size:.85em; white-space:nowrap;">
-<span style="display:flex; align-items:center; gap:.25rem;">
-<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5z"></path></svg></span>
-                    1369
-                </span>
-<span style="display:flex; align-items:center; gap:.25rem;">
-<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13z"></path></svg></span>
-                    5 mins
-                </span>
-<span class="item-actions" style="opacity:.8;">1744041736</span>
+<li>
+<div class="item-primary"><a href="Exercise/exercise-swimming.html" target="_self">游泳运动</a></div>
+<div class="item-status"></div>
+<div class="item-main-content">
+<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5z"></path></svg></span> 1369 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13z"></path></svg></span> 5 mins
+            </div>
+<div class="item-metadata">
 </div>
+<div class="item-actions">1744041736</div>
 </li>
-<li style="margin:.25rem 0; padding:.35rem .5rem; border-radius:6px; background:var(--md-code-bg-color); display:flex; align-items:center; gap:.75rem;">
-<a href="Exercise/exercise-fit.html" style="flex:1 1 auto; font-weight:500; color:var(--md-typeset-a-color); text-decoration:none; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;" target="_self">健身指南</a>
-<div class="item-main-content" style="display:flex; align-items:center; gap:.75rem; color:var(--md-default-fg-color--light); font-size:.85em; white-space:nowrap;">
-<span style="display:flex; align-items:center; gap:.25rem;">
-<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5z"></path></svg></span>
-                    1502
-                </span>
-<span style="display:flex; align-items:center; gap:.25rem;">
-<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13z"></path></svg></span>
-                    5 mins
-                </span>
-<span class="item-actions" style="opacity:.8;">1743826397</span>
+<li>
+<div class="item-primary"><a href="Exercise/exercise-fit.html" target="_self">健身指南</a></div>
+<div class="item-status"></div>
+<div class="item-main-content">
+<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5z"></path></svg></span> 1502 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13z"></path></svg></span> 5 mins
+            </div>
+<div class="item-metadata">
 </div>
+<div class="item-actions">1743826397</div>
 </li>
-<li style="margin:.25rem 0; padding:.35rem .5rem; border-radius:6px; background:var(--md-code-bg-color); display:flex; align-items:center; gap:.75rem;">
-<a href="Exercise/exercise-tennis.html" style="flex:1 1 auto; font-weight:500; color:var(--md-typeset-a-color); text-decoration:none; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;" target="_self">网球运动</a>
-<div class="item-main-content" style="display:flex; align-items:center; gap:.75rem; color:var(--md-default-fg-color--light); font-size:.85em; white-space:nowrap;">
-<span style="display:flex; align-items:center; gap:.25rem;">
-<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5z"></path></svg></span>
-                    194
-                </span>
-<span style="display:flex; align-items:center; gap:.25rem;">
-<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13z"></path></svg></span>
-                    1 mins
-                </span>
-<span class="item-actions" style="opacity:.8;">1743826397</span>
+<li>
+<div class="item-primary"><a href="Exercise/exercise-tennis.html" target="_self">网球运动</a></div>
+<div class="item-status"></div>
+<div class="item-main-content">
+<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5z"></path></svg></span> 194 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13z"></path></svg></span> 1 mins
+            </div>
+<div class="item-metadata">
 </div>
+<div class="item-actions">1743826397</div>
 </li>
-<li style="margin:.25rem 0; padding:.35rem .5rem; border-radius:6px; background:var(--md-code-bg-color); display:flex; align-items:center; gap:.75rem;">
-<a href="Exercise/dance.html" style="flex:1 1 auto; font-weight:500; color:var(--md-typeset-a-color); text-decoration:none; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;" target="_self">舞蹈艺术</a>
-<div class="item-main-content" style="display:flex; align-items:center; gap:.75rem; color:var(--md-default-fg-color--light); font-size:.85em; white-space:nowrap;">
-<span style="display:flex; align-items:center; gap:.25rem;">
-<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5z"></path></svg></span>
-                    24
-                </span>
-<span style="display:flex; align-items:center; gap:.25rem;">
-<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13z"></path></svg></span>
-                    0 mins
-                </span>
-<span class="item-actions" style="opacity:.8;">1743826397</span>
+<li>
+<div class="item-primary"><a href="Exercise/dance.html" target="_self">舞蹈艺术</a></div>
+<div class="item-status"></div>
+<div class="item-main-content">
+<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5z"></path></svg></span> 24 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13z"></path></svg></span> 0 mins
+            </div>
+<div class="item-metadata">
 </div>
+<div class="item-actions">1743826397</div>
 </li>
 </ul>
-<div class="title-wrapper" style="margin: .5rem 0; padding: .25rem .5rem; border-radius: 6px; background: var(--md-code-bg-color); display:flex; align-items:center; gap:.5rem;">
-<button onclick="buttonHandler('3')" style="display:flex; align-items:center; border:none; background:none; cursor:pointer; font-size:1em; font-weight:600; color:var(--md-typeset-color);">
-<span class="twemoji" style="margin-right:6px; transition:transform .15s;"><svg viewbox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M12.78 6.22a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L3.22 7.28a.75.75 0 0 1 1.06-1.06L8 9.94l3.72-3.72a.75.75 0 0 1 1.06 0z" fill-rule="evenodd"></path></svg></span>
-            🗺️ Travel
+<!-- https://github.com/TonyCrane/note/blob/master/hooks/templates/toc.html -->
+<div class="title-wrapper">
+<button onclick="buttonHandler(3)">
+<span class="twemoji" style="margin-right: 4px; font-size: 0.8em;">
+<svg viewbox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M12.78 6.22a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L3.22 7.28a.75.75 0 0 1 1.06-1.06L8 9.94l3.72-3.72a.75.75 0 0 1 1.06 0z" fill-rule="evenodd"></path></svg>
+</span>🗺️ Travel
         </button>
 </div>
-<ul class="content-item-wrapper" style="list-style:none; padding-left:.75rem; margin:.25rem 0;">
-<li style="margin:.25rem 0; padding:.35rem .5rem; border-radius:6px; background:var(--md-code-bg-color); display:flex; align-items:center; gap:.75rem;">
-<a href="Travel/C-J-MY-KK.html" style="flex:1 1 auto; font-weight:500; color:var(--md-typeset-a-color); text-decoration:none; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;" target="_self">马来西亚</a>
-<div class="item-main-content" style="display:flex; align-items:center; gap:.75rem; color:var(--md-default-fg-color--light); font-size:.85em; white-space:nowrap;">
-<span style="display:flex; align-items:center; gap:.25rem;">
-<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5z"></path></svg></span>
-                    6274
-                </span>
-<span style="display:flex; align-items:center; gap:.25rem;">
-<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13z"></path></svg></span>
-                    21 mins
-                </span>
-<span class="item-actions" style="opacity:.8;">1755884853</span>
+<ul class="content-item-wrapper">
+<li>
+<div class="item-primary"><a href="Travel/C-J-MY-KK.html" target="_self">马来西亚</a></div>
+<div class="item-status"></div>
+<div class="item-main-content">
+<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5z"></path></svg></span> 6274 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13z"></path></svg></span> 21 mins
+            </div>
+<div class="item-metadata">
 </div>
+<div class="item-actions">1755884853</div>
 </li>
-<li style="margin:.25rem 0; padding:.35rem .5rem; border-radius:6px; background:var(--md-code-bg-color); display:flex; align-items:center; gap:.75rem;">
-<a href="Travel/C-J-Japan.html" style="flex:1 1 auto; font-weight:500; color:var(--md-typeset-a-color); text-decoration:none; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;" target="_self">日本旅行</a>
-<div class="item-main-content" style="display:flex; align-items:center; gap:.75rem; color:var(--md-default-fg-color--light); font-size:.85em; white-space:nowrap;">
-<span style="display:flex; align-items:center; gap:.25rem;">
-<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5z"></path></svg></span>
-                    913
-                </span>
-<span style="display:flex; align-items:center; gap:.25rem;">
-<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13z"></path></svg></span>
-                    3 mins
-                </span>
-<span class="item-actions" style="opacity:.8;">1755884853</span>
+<li>
+<div class="item-primary"><a href="Travel/C-J-Japan.html" target="_self">日本旅行</a></div>
+<div class="item-status"></div>
+<div class="item-main-content">
+<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5z"></path></svg></span> 913 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13z"></path></svg></span> 3 mins
+            </div>
+<div class="item-metadata">
 </div>
+<div class="item-actions">1755884853</div>
 </li>
-<li style="margin:.25rem 0; padding:.35rem .5rem; border-radius:6px; background:var(--md-code-bg-color); display:flex; align-items:center; gap:.75rem;">
-<a href="Travel/C-J-%E6%B5%99%E6%B1%9F.html" style="flex:1 1 auto; font-weight:500; color:var(--md-typeset-a-color); text-decoration:none; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;" target="_self">浙江旅行</a>
-<div class="item-main-content" style="display:flex; align-items:center; gap:.75rem; color:var(--md-default-fg-color--light); font-size:.85em; white-space:nowrap;">
-<span style="display:flex; align-items:center; gap:.25rem;">
-<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5z"></path></svg></span>
-                    511
-                </span>
-<span style="display:flex; align-items:center; gap:.25rem;">
-<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13z"></path></svg></span>
-                    2 mins
-                </span>
-<span class="item-actions" style="opacity:.8;">1755884853</span>
+<li>
+<div class="item-primary"><a href="Travel/C-J-%E6%B5%99%E6%B1%9F.html" target="_self">浙江旅行</a></div>
+<div class="item-status"></div>
+<div class="item-main-content">
+<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5z"></path></svg></span> 511 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13z"></path></svg></span> 2 mins
+            </div>
+<div class="item-metadata">
 </div>
+<div class="item-actions">1755884853</div>
 </li>
-<li style="margin:.25rem 0; padding:.35rem .5rem; border-radius:6px; background:var(--md-code-bg-color); display:flex; align-items:center; gap:.75rem;">
-<a href="Travel/C-J-%E5%9B%9B%E5%B7%9D.html" style="flex:1 1 auto; font-weight:500; color:var(--md-typeset-a-color); text-decoration:none; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;" target="_self">四川旅行</a>
-<div class="item-main-content" style="display:flex; align-items:center; gap:.75rem; color:var(--md-default-fg-color--light); font-size:.85em; white-space:nowrap;">
-<span style="display:flex; align-items:center; gap:.25rem;">
-<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5z"></path></svg></span>
-                    156
-                </span>
-<span style="display:flex; align-items:center; gap:.25rem;">
-<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13z"></path></svg></span>
-                    1 mins
-                </span>
-<span class="item-actions" style="opacity:.8;">1755884853</span>
+<li>
+<div class="item-primary"><a href="Travel/C-J-%E5%9B%9B%E5%B7%9D.html" target="_self">四川旅行</a></div>
+<div class="item-status"></div>
+<div class="item-main-content">
+<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5z"></path></svg></span> 156 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13z"></path></svg></span> 1 mins
+            </div>
+<div class="item-metadata">
 </div>
+<div class="item-actions">1755884853</div>
 </li>
-<li style="margin:.25rem 0; padding:.35rem .5rem; border-radius:6px; background:var(--md-code-bg-color); display:flex; align-items:center; gap:.75rem;">
-<a href="Travel/C-Driving.html" style="flex:1 1 auto; font-weight:500; color:var(--md-typeset-a-color); text-decoration:none; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;" target="_self">自驾游</a>
-<div class="item-main-content" style="display:flex; align-items:center; gap:.75rem; color:var(--md-default-fg-color--light); font-size:.85em; white-space:nowrap;">
-<span style="display:flex; align-items:center; gap:.25rem;">
-<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5z"></path></svg></span>
-                    1898
-                </span>
-<span style="display:flex; align-items:center; gap:.25rem;">
-<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13z"></path></svg></span>
-                    6 mins
-                </span>
-<span class="item-actions" style="opacity:.8;">1755884853</span>
+<li>
+<div class="item-primary"><a href="Travel/C-Driving.html" target="_self">自驾游</a></div>
+<div class="item-status"></div>
+<div class="item-main-content">
+<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5z"></path></svg></span> 1898 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13z"></path></svg></span> 6 mins
+            </div>
+<div class="item-metadata">
 </div>
+<div class="item-actions">1755884853</div>
 </li>
 </ul>
-<div class="title-wrapper" style="margin: .5rem 0; padding: .25rem .5rem; border-radius: 6px; background: var(--md-code-bg-color); display:flex; align-items:center; gap:.5rem;">
-<button onclick="buttonHandler('4')" style="display:flex; align-items:center; border:none; background:none; cursor:pointer; font-size:1em; font-weight:600; color:var(--md-typeset-color);">
-<span class="twemoji" style="margin-right:6px; transition:transform .15s;"><svg viewbox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M12.78 6.22a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L3.22 7.28a.75.75 0 0 1 1.06-1.06L8 9.94l3.72-3.72a.75.75 0 0 1 1.06 0z" fill-rule="evenodd"></path></svg></span>
-            🎨 Aesthetic
+<!-- https://github.com/TonyCrane/note/blob/master/hooks/templates/toc.html -->
+<div class="title-wrapper">
+<button onclick="buttonHandler(4)">
+<span class="twemoji" style="margin-right: 4px; font-size: 0.8em;">
+<svg viewbox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M12.78 6.22a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L3.22 7.28a.75.75 0 0 1 1.06-1.06L8 9.94l3.72-3.72a.75.75 0 0 1 1.06 0z" fill-rule="evenodd"></path></svg>
+</span>🎨 Aesthetic
         </button>
 </div>
-<ul class="content-item-wrapper" style="list-style:none; padding-left:.75rem; margin:.25rem 0;">
-<li style="margin:.25rem 0; padding:.35rem .5rem; border-radius:6px; background:var(--md-code-bg-color); display:flex; align-items:center; gap:.75rem;">
-<a href="Aesthetic/Photography.html" style="flex:1 1 auto; font-weight:500; color:var(--md-typeset-a-color); text-decoration:none; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;" target="_self">摄影艺术</a>
-<div class="item-main-content" style="display:flex; align-items:center; gap:.75rem; color:var(--md-default-fg-color--light); font-size:.85em; white-space:nowrap;">
-<span style="display:flex; align-items:center; gap:.25rem;">
-<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5z"></path></svg></span>
-                    6
-                </span>
-<span style="display:flex; align-items:center; gap:.25rem;">
-<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13z"></path></svg></span>
-                    0 mins
-                </span>
-<span class="item-actions" style="opacity:.8;">1751622796</span>
+<ul class="content-item-wrapper">
+<li>
+<div class="item-primary"><a href="Aesthetic/Photography.html" target="_self">摄影艺术</a></div>
+<div class="item-status"></div>
+<div class="item-main-content">
+<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5z"></path></svg></span> 6 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13z"></path></svg></span> 0 mins
+            </div>
+<div class="item-metadata">
 </div>
+<div class="item-actions">1751622796</div>
 </li>
-<li style="margin:.25rem 0; padding:.35rem .5rem; border-radius:6px; background:var(--md-code-bg-color); display:flex; align-items:center; gap:.75rem;">
-<a href="Aesthetic/design.html" style="flex:1 1 auto; font-weight:500; color:var(--md-typeset-a-color); text-decoration:none; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;" target="_self">设计美学</a>
-<div class="item-main-content" style="display:flex; align-items:center; gap:.75rem; color:var(--md-default-fg-color--light); font-size:.85em; white-space:nowrap;">
-<span style="display:flex; align-items:center; gap:.25rem;">
-<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5z"></path></svg></span>
-                    162
-                </span>
-<span style="display:flex; align-items:center; gap:.25rem;">
-<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13z"></path></svg></span>
-                    1 mins
-                </span>
-<span class="item-actions" style="opacity:.8;">1743826397</span>
+<li>
+<div class="item-primary"><a href="Aesthetic/design.html" target="_self">设计美学</a></div>
+<div class="item-status"></div>
+<div class="item-main-content">
+<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5z"></path></svg></span> 162 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13z"></path></svg></span> 1 mins
+            </div>
+<div class="item-metadata">
 </div>
+<div class="item-actions">1743826397</div>
 </li>
-<li style="margin:.25rem 0; padding:.35rem .5rem; border-radius:6px; background:var(--md-code-bg-color); display:flex; align-items:center; gap:.75rem;">
-<a href="Aesthetic/flower.html" style="flex:1 1 auto; font-weight:500; color:var(--md-typeset-a-color); text-decoration:none; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;" target="_self">花卉艺术</a>
-<div class="item-main-content" style="display:flex; align-items:center; gap:.75rem; color:var(--md-default-fg-color--light); font-size:.85em; white-space:nowrap;">
-<span style="display:flex; align-items:center; gap:.25rem;">
-<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5z"></path></svg></span>
-                    1820
-                </span>
-<span style="display:flex; align-items:center; gap:.25rem;">
-<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13z"></path></svg></span>
-                    6 mins
-                </span>
-<span class="item-actions" style="opacity:.8;">1743826397</span>
+<li>
+<div class="item-primary"><a href="Aesthetic/flower.html" target="_self">花卉艺术</a></div>
+<div class="item-status"></div>
+<div class="item-main-content">
+<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5z"></path></svg></span> 1820 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13z"></path></svg></span> 6 mins
+            </div>
+<div class="item-metadata">
 </div>
+<div class="item-actions">1743826397</div>
 </li>
-<li style="margin:.25rem 0; padding:.35rem .5rem; border-radius:6px; background:var(--md-code-bg-color); display:flex; align-items:center; gap:.75rem;">
-<a href="Aesthetic/powerpoint.html" style="flex:1 1 auto; font-weight:500; color:var(--md-typeset-a-color); text-decoration:none; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;" target="_self">PPT设计</a>
-<div class="item-main-content" style="display:flex; align-items:center; gap:.75rem; color:var(--md-default-fg-color--light); font-size:.85em; white-space:nowrap;">
-<span style="display:flex; align-items:center; gap:.25rem;">
-<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5z"></path></svg></span>
-                    1150
-                </span>
-<span style="display:flex; align-items:center; gap:.25rem;">
-<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13z"></path></svg></span>
-                    4 mins
-                </span>
-<span class="item-actions" style="opacity:.8;">1743826397</span>
+<li>
+<div class="item-primary"><a href="Aesthetic/powerpoint.html" target="_self"><span>PPT<span class="heti-spacing"> </span></span>设计</a></div>
+<div class="item-status"></div>
+<div class="item-main-content">
+<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5z"></path></svg></span> 1150 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13z"></path></svg></span> 4 mins
+            </div>
+<div class="item-metadata">
 </div>
+<div class="item-actions">1743826397</div>
 </li>
 </ul>
-<div class="title-wrapper" style="margin: .5rem 0; padding: .25rem .5rem; border-radius: 6px; background: var(--md-code-bg-color); display:flex; align-items:center; gap:.5rem;">
-<button onclick="buttonHandler('5')" style="display:flex; align-items:center; border:none; background:none; cursor:pointer; font-size:1em; font-weight:600; color:var(--md-typeset-color);">
-<span class="twemoji" style="margin-right:6px; transition:transform .15s;"><svg viewbox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M12.78 6.22a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L3.22 7.28a.75.75 0 0 1 1.06-1.06L8 9.94l3.72-3.72a.75.75 0 0 1 1.06 0z" fill-rule="evenodd"></path></svg></span>
-            🎮 Game
+<!-- https://github.com/TonyCrane/note/blob/master/hooks/templates/toc.html -->
+<div class="title-wrapper">
+<button onclick="buttonHandler(5)">
+<span class="twemoji" style="margin-right: 4px; font-size: 0.8em;">
+<svg viewbox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M12.78 6.22a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L3.22 7.28a.75.75 0 0 1 1.06-1.06L8 9.94l3.72-3.72a.75.75 0 0 1 1.06 0z" fill-rule="evenodd"></path></svg>
+</span>🎮 Game
         </button>
 </div>
-<ul class="content-item-wrapper" style="list-style:none; padding-left:.75rem; margin:.25rem 0;">
-<li style="margin:.25rem 0; padding:.35rem .5rem; border-radius:6px; background:var(--md-code-bg-color); display:flex; align-items:center; gap:.75rem;">
-<a href="Game/MC.html" style="flex:1 1 auto; font-weight:500; color:var(--md-typeset-a-color); text-decoration:none; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;" target="_self">我的世界</a>
-<div class="item-main-content" style="display:flex; align-items:center; gap:.75rem; color:var(--md-default-fg-color--light); font-size:.85em; white-space:nowrap;">
-<span style="display:flex; align-items:center; gap:.25rem;">
-<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5z"></path></svg></span>
-                    82
-                </span>
-<span style="display:flex; align-items:center; gap:.25rem;">
-<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13z"></path></svg></span>
-                    0 mins
-                </span>
-<span class="item-actions" style="opacity:.8;">1744462587</span>
+<ul class="content-item-wrapper">
+<li>
+<div class="item-primary"><a href="Game/MC.html" target="_self">我的世界</a></div>
+<div class="item-status"></div>
+<div class="item-main-content">
+<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5z"></path></svg></span> 82 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13z"></path></svg></span> 0 mins
+            </div>
+<div class="item-metadata">
 </div>
+<div class="item-actions">1744462587</div>
 </li>
-<li style="margin:.25rem 0; padding:.35rem .5rem; border-radius:6px; background:var(--md-code-bg-color); display:flex; align-items:center; gap:.75rem;">
-<a href="Game/fifa.html" style="flex:1 1 auto; font-weight:500; color:var(--md-typeset-a-color); text-decoration:none; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;" target="_self">FIFA游戏</a>
-<div class="item-main-content" style="display:flex; align-items:center; gap:.75rem; color:var(--md-default-fg-color--light); font-size:.85em; white-space:nowrap;">
-<span style="display:flex; align-items:center; gap:.25rem;">
-<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5z"></path></svg></span>
-                    36
-                </span>
-<span style="display:flex; align-items:center; gap:.25rem;">
-<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13z"></path></svg></span>
-                    0 mins
-                </span>
-<span class="item-actions" style="opacity:.8;">1743826397</span>
+<li>
+<div class="item-primary"><a href="Game/fifa.html" target="_self"><span>FIFA<span class="heti-spacing"> </span></span>游戏</a></div>
+<div class="item-status"></div>
+<div class="item-main-content">
+<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5z"></path></svg></span> 36 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13z"></path></svg></span> 0 mins
+            </div>
+<div class="item-metadata">
 </div>
+<div class="item-actions">1743826397</div>
 </li>
 </ul>
-<div class="title-wrapper" style="margin: .5rem 0; padding: .25rem .5rem; border-radius: 6px; background: var(--md-code-bg-color); display:flex; align-items:center; gap:.5rem;">
-<button onclick="buttonHandler('6')" style="display:flex; align-items:center; border:none; background:none; cursor:pointer; font-size:1em; font-weight:600; color:var(--md-typeset-color);">
-<span class="twemoji" style="margin-right:6px; transition:transform .15s;"><svg viewbox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M12.78 6.22a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L3.22 7.28a.75.75 0 0 1 1.06-1.06L8 9.94l3.72-3.72a.75.75 0 0 1 1.06 0z" fill-rule="evenodd"></path></svg></span>
-            💡 CommonKnowledge
+<!-- https://github.com/TonyCrane/note/blob/master/hooks/templates/toc.html -->
+<div class="title-wrapper">
+<button onclick="buttonHandler(6)">
+<span class="twemoji" style="margin-right: 4px; font-size: 0.8em;">
+<svg viewbox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M12.78 6.22a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L3.22 7.28a.75.75 0 0 1 1.06-1.06L8 9.94l3.72-3.72a.75.75 0 0 1 1.06 0z" fill-rule="evenodd"></path></svg>
+</span>💡 CommonKnowledge
         </button>
 </div>
-<ul class="content-item-wrapper" style="list-style:none; padding-left:.75rem; margin:.25rem 0;">
-<li style="margin:.25rem 0; padding:.35rem .5rem; border-radius:6px; background:var(--md-code-bg-color); display:flex; align-items:center; gap:.75rem;">
-<a href="CommonKnowledge/social_security.html" style="flex:1 1 auto; font-weight:500; color:var(--md-typeset-a-color); text-decoration:none; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;" target="_self">社会保障</a>
-<div class="item-main-content" style="display:flex; align-items:center; gap:.75rem; color:var(--md-default-fg-color--light); font-size:.85em; white-space:nowrap;">
-<span style="display:flex; align-items:center; gap:.25rem;">
-<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5z"></path></svg></span>
-                    2062
-                </span>
-<span style="display:flex; align-items:center; gap:.25rem;">
-<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13z"></path></svg></span>
-                    7 mins
-                </span>
-<span class="item-actions" style="opacity:.8;">1743826397</span>
+<ul class="content-item-wrapper">
+<li>
+<div class="item-primary"><a href="CommonKnowledge/social_security.html" target="_self">社会保障</a></div>
+<div class="item-status"></div>
+<div class="item-main-content">
+<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5z"></path></svg></span> 2062 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13z"></path></svg></span> 7 mins
+            </div>
+<div class="item-metadata">
 </div>
+<div class="item-actions">1743826397</div>
 </li>
-<li style="margin:.25rem 0; padding:.35rem .5rem; border-radius:6px; background:var(--md-code-bg-color); display:flex; align-items:center; gap:.75rem;">
-<a href="CommonKnowledge/insurance_commercial_insurance.html" style="flex:1 1 auto; font-weight:500; color:var(--md-typeset-a-color); text-decoration:none; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;" target="_self">商业保险</a>
-<div class="item-main-content" style="display:flex; align-items:center; gap:.75rem; color:var(--md-default-fg-color--light); font-size:.85em; white-space:nowrap;">
-<span style="display:flex; align-items:center; gap:.25rem;">
-<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5z"></path></svg></span>
-                    1219
-                </span>
-<span style="display:flex; align-items:center; gap:.25rem;">
-<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13z"></path></svg></span>
-                    4 mins
-                </span>
-<span class="item-actions" style="opacity:.8;">1743826397</span>
+<li>
+<div class="item-primary"><a href="CommonKnowledge/insurance_commercial_insurance.html" target="_self">商业保险</a></div>
+<div class="item-status"></div>
+<div class="item-main-content">
+<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5z"></path></svg></span> 1219 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13z"></path></svg></span> 4 mins
+            </div>
+<div class="item-metadata">
 </div>
+<div class="item-actions">1743826397</div>
 </li>
-<li style="margin:.25rem 0; padding:.35rem .5rem; border-radius:6px; background:var(--md-code-bg-color); display:flex; align-items:center; gap:.75rem;">
-<a href="CommonKnowledge/insurance_social_insurance.html" style="flex:1 1 auto; font-weight:500; color:var(--md-typeset-a-color); text-decoration:none; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;" target="_self">社会保险</a>
-<div class="item-main-content" style="display:flex; align-items:center; gap:.75rem; color:var(--md-default-fg-color--light); font-size:.85em; white-space:nowrap;">
-<span style="display:flex; align-items:center; gap:.25rem;">
-<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5z"></path></svg></span>
-                    3799
-                </span>
-<span style="display:flex; align-items:center; gap:.25rem;">
-<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13z"></path></svg></span>
-                    13 mins
-                </span>
-<span class="item-actions" style="opacity:.8;">1743826397</span>
+<li>
+<div class="item-primary"><a href="CommonKnowledge/insurance_social_insurance.html" target="_self">社会保险</a></div>
+<div class="item-status"></div>
+<div class="item-main-content">
+<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5z"></path></svg></span> 3799 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13z"></path></svg></span> 13 mins
+            </div>
+<div class="item-metadata">
 </div>
+<div class="item-actions">1743826397</div>
 </li>
-<li style="margin:.25rem 0; padding:.35rem .5rem; border-radius:6px; background:var(--md-code-bg-color); display:flex; align-items:center; gap:.75rem;">
-<a href="CommonKnowledge/labour.html" style="flex:1 1 auto; font-weight:500; color:var(--md-typeset-a-color); text-decoration:none; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;" target="_self">劳动法规</a>
-<div class="item-main-content" style="display:flex; align-items:center; gap:.75rem; color:var(--md-default-fg-color--light); font-size:.85em; white-space:nowrap;">
-<span style="display:flex; align-items:center; gap:.25rem;">
-<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5z"></path></svg></span>
-                    61
-                </span>
-<span style="display:flex; align-items:center; gap:.25rem;">
-<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13z"></path></svg></span>
-                    0 mins
-                </span>
-<span class="item-actions" style="opacity:.8;">1743826397</span>
+<li>
+<div class="item-primary"><a href="CommonKnowledge/labour.html" target="_self">劳动法规</a></div>
+<div class="item-status"></div>
+<div class="item-main-content">
+<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5z"></path></svg></span> 61 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13z"></path></svg></span> 0 mins
+            </div>
+<div class="item-metadata">
 </div>
+<div class="item-actions">1743826397</div>
 </li>
-<li style="margin:.25rem 0; padding:.35rem .5rem; border-radius:6px; background:var(--md-code-bg-color); display:flex; align-items:center; gap:.75rem;">
-<a href="CommonKnowledge/house.html" style="flex:1 1 auto; font-weight:500; color:var(--md-typeset-a-color); text-decoration:none; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;" target="_self">房屋知识</a>
-<div class="item-main-content" style="display:flex; align-items:center; gap:.75rem; color:var(--md-default-fg-color--light); font-size:.85em; white-space:nowrap;">
-<span style="display:flex; align-items:center; gap:.25rem;">
-<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5z"></path></svg></span>
-                    37
-                </span>
-<span style="display:flex; align-items:center; gap:.25rem;">
-<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13z"></path></svg></span>
-                    0 mins
-                </span>
-<span class="item-actions" style="opacity:.8;">1743826397</span>
+<li>
+<div class="item-primary"><a href="CommonKnowledge/house.html" target="_self">房屋知识</a></div>
+<div class="item-status"></div>
+<div class="item-main-content">
+<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5z"></path></svg></span> 37 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13z"></path></svg></span> 0 mins
+            </div>
+<div class="item-metadata">
 </div>
+<div class="item-actions">1743826397</div>
 </li>
 </ul>
-<div class="title-wrapper" style="margin: .5rem 0; padding: .25rem .5rem; border-radius: 6px; background: var(--md-code-bg-color); display:flex; align-items:center; gap:.5rem;">
-<button onclick="buttonHandler('7')" style="display:flex; align-items:center; border:none; background:none; cursor:pointer; font-size:1em; font-weight:600; color:var(--md-typeset-color);">
-<span class="twemoji" style="margin-right:6px; transition:transform .15s;"><svg viewbox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M12.78 6.22a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L3.22 7.28a.75.75 0 0 1 1.06-1.06L8 9.94l3.72-3.72a.75.75 0 0 1 1.06 0z" fill-rule="evenodd"></path></svg></span>
-            🫘 Bean Knowledge
+<!-- https://github.com/TonyCrane/note/blob/master/hooks/templates/toc.html -->
+<div class="title-wrapper">
+<button onclick="buttonHandler(7)">
+<span class="twemoji" style="margin-right: 4px; font-size: 0.8em;">
+<svg viewbox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M12.78 6.22a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L3.22 7.28a.75.75 0 0 1 1.06-1.06L8 9.94l3.72-3.72a.75.75 0 0 1 1.06 0z" fill-rule="evenodd"></path></svg>
+</span>🫘 Bean Knowledge
         </button>
 </div>
-<ul class="content-item-wrapper" style="list-style:none; padding-left:.75rem; margin:.25rem 0;">
-<li style="margin:.25rem 0; padding:.35rem .5rem; border-radius:6px; background:var(--md-code-bg-color); display:flex; align-items:center; gap:.75rem;">
-<a href="bean_knowledge.html" style="flex:1 1 auto; font-weight:500; color:var(--md-typeset-a-color); text-decoration:none; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;" target="_self">豆知识</a>
-<div class="item-main-content" style="display:flex; align-items:center; gap:.75rem; color:var(--md-default-fg-color--light); font-size:.85em; white-space:nowrap;">
-<span style="display:flex; align-items:center; gap:.25rem;">
-<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5z"></path></svg></span>
-                    994
-                </span>
-<span style="display:flex; align-items:center; gap:.25rem;">
-<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13z"></path></svg></span>
-                    3 mins
-                </span>
-<span class="item-actions" style="opacity:.8;">1743826397</span>
+<ul class="content-item-wrapper">
+<li>
+<div class="item-primary"><a href="bean_knowledge.html" target="_self">豆知识</a></div>
+<div class="item-status"></div>
+<div class="item-main-content">
+<span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5z"></path></svg></span> 994 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13z"></path></svg></span> 3 mins
+            </div>
+<div class="item-metadata">
 </div>
+<div class="item-actions">1743826397</div>
 </li>
 </ul>
 </div>
@@ -5083,13 +4979,12 @@ function buttonHandler(i) {
     let button = document.getElementsByClassName("title-wrapper")[i].getElementsByTagName("button")[0];
     if (content.style.display == "none") {
         content.style.display = "block";
-        button.children[0].style.transform = "rotate(0deg)";
+        button.children[0].children[0].style.transform = "rotate(0deg)";
     } else {
         content.style.display = "none";
-        button.children[0].style.transform = "rotate(-90deg)";
+        button.children[0].children[0].style.transform = "rotate(-90deg)";
     }
 }
-
 function produce_time() {
     let time = document.getElementsByClassName("item-actions");
     for (let i = 0; i < time.length; i++) {

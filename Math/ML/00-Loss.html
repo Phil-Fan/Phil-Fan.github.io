@@ -21,8 +21,9 @@
 <style>:root{--md-text-font:"Noto Serif SC";--md-code-font:"JetBrains Mono"}</style>
 <link href="../../css/timeline.css" rel="stylesheet"/>
 <link href="../../css/heti.css" rel="stylesheet"/>
-<link href="../../style/css/toc.css" rel="stylesheet"/>
 <link href="../../style/css/flink.css" rel="stylesheet"/>
+<link href="../../style/css/toc_extra.css" rel="stylesheet"/>
+<link href="../../style/css/fold_toc.css" rel="stylesheet"/>
 <link href="../../style/css/card.css" rel="stylesheet"/>
 <link href="https://cdn.tonycrane.cc/jbmono/jetbrainsmono.css" rel="stylesheet"/>
 <link href="https://cdn.tonycrane.cc/lxgw/lxgwscreen.css" rel="stylesheet"/>
@@ -875,6 +876,13 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#_1">
+<span class="md-ellipsis">
+      交叉熵
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#softmax">
 <span class="md-ellipsis">
       softmax
@@ -883,23 +891,23 @@
 <nav aria-label="softmax" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_1">
+<a class="md-nav__link" href="#_2">
 <span class="md-ellipsis">
       为什么使用
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_2">
+<a class="md-nav__link" href="#_3">
 <span class="md-ellipsis">
-      梯度推导
+      代码实现
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_3">
+<a class="md-nav__link" href="#_4">
 <span class="md-ellipsis">
-      交叉熵
+      梯度推导
     </span>
 </a>
 </li>
@@ -911,14 +919,35 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#safe-softmax">
+<span class="md-ellipsis">
+      safe-softmax
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#parallel-softmax">
+<span class="md-ellipsis">
+      parallel-softmax
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#kl">
 <span class="md-ellipsis">
       KL散度
     </span>
 </a>
 </li>
-</ul>
-</nav>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#acknowledgement">
+<span class="md-ellipsis">
+      Acknowledgement
+    </span>
+</a>
 </li>
 </ul>
 </nav>
@@ -4673,6 +4702,13 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#_1">
+<span class="md-ellipsis">
+      交叉熵
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#softmax">
 <span class="md-ellipsis">
       softmax
@@ -4681,23 +4717,23 @@
 <nav aria-label="softmax" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_1">
+<a class="md-nav__link" href="#_2">
 <span class="md-ellipsis">
       为什么使用
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_2">
+<a class="md-nav__link" href="#_3">
 <span class="md-ellipsis">
-      梯度推导
+      代码实现
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_3">
+<a class="md-nav__link" href="#_4">
 <span class="md-ellipsis">
-      交叉熵
+      梯度推导
     </span>
 </a>
 </li>
@@ -4709,14 +4745,35 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#safe-softmax">
+<span class="md-ellipsis">
+      safe-softmax
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#parallel-softmax">
+<span class="md-ellipsis">
+      parallel-softmax
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#kl">
 <span class="md-ellipsis">
       KL散度
     </span>
 </a>
 </li>
-</ul>
-</nav>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#acknowledgement">
+<span class="md-ellipsis">
+      Acknowledgement
+    </span>
+</a>
 </li>
 </ul>
 </nav>
@@ -4733,7 +4790,7 @@
 </a>
 <div><h1 id="loss">Loss<a class="headerlink" href="#loss" title="anchor link to this section for reference">¶</a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>1204<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>5<span class="heti-spacing"> </span></span>分钟</p>
+<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>1724<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"></path></svg></span> <span>20<span class="heti-spacing"> </span></span>行代码 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 17H7V3h14m0-2H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2M3 5H1v16a2 2 0 0 0 2 2h16v-2H3m12.96-10.71-2.75 3.54-1.96-2.36L8.5 15h11l-3.54-4.71Z"></path></svg></span> <span>1<span class="heti-spacing"> </span></span>张图片 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>7<span class="heti-spacing"> </span></span>分钟</p>
 </div>
 <p>损失为什么求平均：更好调学习率，相当于学习率之和梯度有关，和<span class="heti-skip"><span class="heti-spacing"> </span>batch size<span class="heti-spacing"> </span></span>没有关系</p>
 <p>每次算梯度的时候要记得清零，不然会做累加</p>
@@ -4743,20 +4800,61 @@
 <p>离远点较远的时候，不一定希望有一个很大的梯度</p>
 <h3 id="l2-loss">l2 loss<a class="headerlink" href="#l2-loss" title="anchor link to this section for reference">¶</a></h3>
 <h3 id="huber-robust-loss">Huber Robust loss<a class="headerlink" href="#huber-robust-loss" title="anchor link to this section for reference">¶</a></h3>
+<h2 id="_1">交叉熵<a class="headerlink" href="#_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<p>信息论：</p>
+<p>信息量 ： 不确定<span><span class="heti-spacing"> </span>-</span>》确定的难度</p>
+<p>可以理解为惊异程度，不确定度更大，则信息量更大</p>
+<p>系统的熵</p>
+<div class="arithmatex">\[
+H[P] = \sum_j - P(j) \log P(j).
+\]</div>
+<div class="arithmatex">\[
+H(P):=E(P_f)\\
+=\sum_{i=1}^mp_i\cdot f(p_i)=\sum_{i=1}^mp_i(-\log_2p_i)=-\sum_{i=1}^mp_i\cdot\log_2p_i
+\]</div>
 <h2 id="softmax">softmax<a class="headerlink" href="#softmax" title="anchor link to this section for reference">¶</a></h2>
+<div class="arithmatex">\[
+P(y=i) = y_i = softmax(\vec{x})_i = \frac{e^{x_i}}{\sum_{j=1}^{n} e^{x_j}}
+\quad\text{for } i=1,\dots,n
+\]</div>
+<h3 id="_2">为什么使用<a class="headerlink" href="#_2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>什么是<span class="heti-skip"><span class="heti-spacing"> </span>max<span class="heti-spacing"> </span></span>我们都很清楚，那什么是<span class="heti-skip"><span class="heti-spacing"> </span>soft<span class="heti-spacing"> </span></span>呢？在梯度下降当中，直接使用<span><span class="heti-spacing"> </span>max</span>（hardmax）产生的问题是不可导。</p>
+<p>所以我们希望使用<span class="heti-skip"><span class="heti-spacing"> </span>softmax<span class="heti-spacing"> </span></span>来解决这个问题。</p>
+<p>所谓<span><span class="heti-spacing"> </span>soft</span>，就是通过<span class="heti-skip"><span class="heti-spacing"> </span>exp<span class="heti-spacing"> </span></span>让大数变得更大，让小数变得更小，再通过归一化让大数更接近于<span><span class="heti-spacing"> </span>1</span>。即我们不仅对硬分类感兴趣，还对软分类（概率）感兴趣</p>
 <ul>
-<li>不仅对硬分类感兴趣，还对软分类（概率）感兴趣</li>
+<li>线性有可能有负数，概率应该是非负的<span class="heti-skip"><span class="heti-spacing"> </span>-&gt;<span class="heti-spacing"> </span></span>使用指数的方式实现</li>
+<li>概率之和需要为<span class="heti-skip"><span class="heti-spacing"> </span>1 -&gt;<span class="heti-spacing"> </span></span>使用求和的方式实现</li>
 </ul>
-<p>直接使用实数对应不太合适，所以使用向量来代表分类</p>
-<h3 id="_1">为什么使用<a class="headerlink" href="#_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<ul>
-<li>线性有可能有负数，概率应该是非负的</li>
-<li>概率之和需要为<span><span class="heti-spacing"> </span>1</span></li>
-</ul>
-<h3 id="_2">梯度推导<a class="headerlink" href="#_2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p><strong>输入</strong>：一个向量（例如全连接层的输出）</p>
+<p><strong>输出</strong>：概率分布</p>
+<p><strong>约束</strong>：分类互斥，不能是多标签分类</p>
+<h3 id="_3">代码实现<a class="headerlink" href="#_3" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">torch</span> 
+<span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span> 
+<span class="n">x_softmax</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span>
+<span class="n">tensor</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x_softmax</span>
+<span class="n">tensor</span><span class="p">([</span><span class="mf">0.0900</span><span class="p">,</span> <span class="mf">0.2447</span><span class="p">,</span> <span class="mf">0.6652</span><span class="p">])</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">内置函数</span><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">torch.nn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nn</span> 
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> 
+                  <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> 
+                  <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]])</span>
+<span class="n">softmax_layer</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Softmax</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> 
+<span class="n">output</span> <span class="o">=</span> <span class="n">softmax_layer</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">output</span>
+<span class="n">tensor</span><span class="p">([[</span><span class="mf">0.0900</span><span class="p">,</span> <span class="mf">0.2447</span><span class="p">,</span> <span class="mf">0.6652</span><span class="p">],</span> 
+        <span class="p">[</span><span class="mf">0.0900</span><span class="p">,</span> <span class="mf">0.2447</span><span class="p">,</span> <span class="mf">0.6652</span><span class="p">],</span> 
+        <span class="p">[</span><span class="mf">0.0900</span><span class="p">,</span> <span class="mf">0.2447</span><span class="p">,</span> <span class="mf">0.6652</span><span class="p">]])</span>
+</code></pre></div>
+<h3 id="_4">梯度推导<a class="headerlink" href="#_4" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>给定输入<span><span class="heti-spacing"> </span><span class="arithmatex">\(\mathbf{x} = [x_1, x_2, \dots, x_n]\)</span></span>，<span>softmax<span class="heti-spacing"> </span></span>输出为：</p>
 <div class="arithmatex">\[
-\hat{y}_i = g(\cdot)= \frac{e^{x_i}}{\sum_{j=1}^{n} e^{x_j}}
+\hat{y}_i = softmax(\vec{x})_i = \frac{e^{x_i}}{\sum_{j=1}^{n} e^{x_j}}
 \quad\text{for } i=1,\dots,n
 \]</div>
 <p>分两种情况讨论：</p>
@@ -4774,25 +4872,27 @@ i \ne j \; \text{时}\qquad&amp;
 \]</div>
 <p>综上</p>
 <div class="arithmatex">\[
-\boxed{
-\frac{\partial \hat{y}_i}{\partial x_j} = \hat{y}_i (\delta_{ij} - \hat{y}_j)
-}
+\frac{\partial \hat{y}_i}{\partial x_j} = \begin{cases}\hat{y}_i(1 - \hat{y}_i) &amp; \text{if } i = j \\
+-\hat{y}_i \hat{y}_j &amp; \text{if } i \ne j\end{cases}
 \]</div>
-<p>其中<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\delta_{ij}\)</span><span class="heti-spacing"> </span></span>是<span><span class="heti-spacing"> </span>Kronecker delta</span>：<span class="arithmatex">\(\delta_{ij} =
-\begin{cases}
-1 &amp; \text{if } i = j \\
-0 &amp; \text{if } i \ne j
-\end{cases}\)</span></p>
 <p><strong>写成矩阵形式（Jacobian<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>：</strong></p>
-<p>记<span class="heti-skip"><span class="heti-spacing"> </span>softmax<span class="heti-spacing"> </span></span>输出为<span><span class="heti-spacing"> </span><span class="arithmatex">\(\mathbf{\hat{y}} = [\hat{y}_1, \dots, \hat{y}_n]^\top\)</span></span>，则：</p>
+<p>记<span class="heti-skip"><span class="heti-spacing"> </span>softmax<span class="heti-spacing"> </span></span>输入为<span><span class="heti-spacing"> </span><span class="arithmatex">\(\mathbf{X} = [x_1, \dots, x_n]^\top\)</span></span>，输出为<span><span class="heti-spacing"> </span><span class="arithmatex">\(\mathbf{\hat{Y}} = [\hat{y}_1, \dots, \hat{y}_n]^\top\)</span></span>，则：</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\mathbf{J}=\frac{\partial\mathbf{\hat{y}}}{\partial\mathbf{x}}&amp;=\begin{bmatrix}\frac{\partial \hat{y}_1}{\partial x_1}&amp;\frac{\partial \hat{y}_1}{\partial x_2}&amp;\cdots&amp;\frac{\partial \hat{y}_1}{\partial x_n}\\\frac{\partial \hat{y}_2}{\partial x_1}&amp;\frac{\partial \hat{y}_2}{\partial x_2}&amp;\cdots&amp;\frac{\partial \hat{y}_2}{\partial x_n}\\\vdots&amp;\vdots&amp;\ddots&amp;\vdots\\\frac{\partial \hat{y}_n}{\partial x_1}&amp;\frac{\partial \hat{y}_n}{\partial x_2}&amp;\cdots&amp;\frac{\partial \hat{y}_n}{\partial x_n}\end{bmatrix}_{n\times n}\\
+&amp;=\begin{bmatrix}\hat{y}_1-\hat{y}_1\hat{y}_1&amp;-\hat{y}_1\hat{y}_2&amp;\cdots&amp;-\hat{y}_1\hat{y}_n\\-\hat{y}_2\hat{y}_1&amp;\hat{y}_2-\hat{y}_2\hat{y}_2&amp;\cdots&amp;-\hat{y}_2\hat{y}_n\\\vdots&amp;\vdots&amp;\ddots&amp;\vdots\\-\hat{y}_n\hat{y}_1&amp;-\hat{y}_n\hat{y}_2&amp;\cdots&amp;\hat{y}_n-\hat{y}_n\hat{y}_n\end{bmatrix}\\
+&amp;=diag(\hat{Y})-\hat{Y} \hat{Y}^T
+\end{aligned}
+\]</div>
 <div class="arithmatex">\[
 \boxed{
-\mathbf{J}_{\text{softmax}} = \text{diag}(\mathbf{\hat{y}}) - \mathbf{\hat{y}} \mathbf{\hat{y}}^\top
+\mathbf{J}_{\text{softmax}} = \text{diag}(\mathbf{\hat{Y}}) - \mathbf{\hat{Y}} \mathbf{\hat{Y}}^\top
 }
 \]</div>
 <ul>
-<li><span><span class="arithmatex">\(\text{diag}(\mathbf{\hat{y}})\)</span><span class="heti-spacing"> </span></span>是对角矩阵，对角线为<span><span class="heti-spacing"> </span><span class="arithmatex">\(\hat{y}_i\)</span></span></li>
-<li><span><span class="arithmatex">\(\mathbf{\hat{y}} \mathbf{\hat{y}}^\top\)</span><span class="heti-spacing"> </span></span>是外积，得到一个<span class="heti-skip"><span class="heti-spacing"> </span>rank-1<span class="heti-spacing"> </span></span>矩阵</li>
+<li><span><span class="arithmatex">\(\mathbf{J}\)</span><span class="heti-spacing"> </span></span>是转置对称矩阵</li>
+<li><span><span class="arithmatex">\(\text{diag}(\mathbf{\hat{Y}})\)</span><span class="heti-spacing"> </span></span>是对角矩阵，对角线为<span><span class="heti-spacing"> </span><span class="arithmatex">\(\hat{y}_i\)</span></span></li>
+<li><span><span class="arithmatex">\(\mathbf{\hat{Y}} \mathbf{\hat{Y}}^\top\)</span><span class="heti-spacing"> </span></span>是外积，得到一个<span class="heti-skip"><span class="heti-spacing"> </span>rank1<span class="heti-spacing"> </span></span>矩阵</li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">梯度消失的推导</p>
@@ -4830,54 +4930,30 @@ i \ne j \; \text{时}\qquad&amp;
 \]</div>
 <p>也就是说，在输入的数量级很大时，梯度消失为<span><span class="heti-spacing"> </span>0</span>，造成参数更新困难。</p>
 </div>
-<h3 id="_3">交叉熵<a class="headerlink" href="#_3" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<p>信息论：</p>
-<p>信息量 ： 不确定<span><span class="heti-spacing"> </span>-</span>》确定的难度</p>
-<p>可以理解为惊异程度，不确定度更大，则信息量更大</p>
-<p>系统的熵</p>
-<div class="arithmatex">\[
-H[P] = \sum_j - P(j) \log P(j).
-\]</div>
-<div class="arithmatex">\[
-H(P):=E(P_f)\\
-=\sum_{i=1}^mp_i\cdot f(p_i)=\sum_{i=1}^mp_i(-\log_2p_i)=-\sum_{i=1}^mp_i\cdot\log_2p_i
-\]</div>
 <h3 id="softmax_1">交叉熵<span class="heti-skip"><span class="heti-spacing"> </span>+ softmax<span class="heti-spacing"> </span></span>的梯度推导<a class="headerlink" href="#softmax_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<ul>
-<li><span>softmax<span class="heti-spacing"> </span></span>函数记为：</li>
-</ul>
-<div class="arithmatex">\[
-g(\mathbf{x}) = \left[\frac{e^{x_1}}{\sum_k e^{x_k}}, \dots, \frac{e^{x_n}}{\sum_k e^{x_k}} \right]^\top = \hat{\mathbf{y}}
-\]</div>
-<div class="arithmatex">\[
-\frac{\partial \hat{y}_i}{\partial x_j} = \hat{y}_i (\delta_{ij} - \hat{y}_j)\qquad \delta_{ij} =
-\begin{cases}
-1 &amp; \text{if } i = j \\
-0 &amp; \text{if } i \ne j
-\end{cases}
-\]</div>
 <ul>
 <li>交叉熵损失函数定义为：</li>
 </ul>
 <div class="arithmatex">\[
 \mathcal{L}(\hat{\mathbf{y}}, \mathbf{y}) = -\sum_{i=1}^n y_i \log \hat{y}_i
 \]</div>
+<p>其中，<span><span class="arithmatex">\(y_i\)</span><span class="heti-spacing"> </span></span>是真实的标签，而<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\hat{y}_i\)</span><span class="heti-spacing"> </span></span>是预测的标签。</p>
+<p>如果<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(y\)</span><span class="heti-spacing"> </span></span>使用<span class="heti-skip"><span class="heti-spacing"> </span>one-hot<span class="heti-spacing"> </span></span>标签，相当于<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(y\)</span><span class="heti-spacing"> </span></span>是<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(n\)</span><span class="heti-spacing"> </span></span>维向量，其中只有<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(y_i\)</span><span class="heti-spacing"> </span></span>为<span><span class="heti-spacing"> </span>1</span>，其他为<span><span class="heti-spacing"> </span>0</span>，那么就可以把求和符合拿掉</p>
 <div class="arithmatex">\[
 \frac{\partial \mathcal{L}}{\partial \hat{\mathbf{y}}} = \left( -\frac{y_i}{\hat{y}_i} \right)
 \]</div>
-<ul>
-<li>整体函数组合为：</li>
-</ul>
-<div class="arithmatex">\[
-\boxed{y = \mathcal{L}(g(\mathbf{x}))}
-\]</div>
-<p>根据链式法则：</p>
+<p><img alt="image-20250828011842432" src="assets/00-Loss.assets/image-20250828011842432.png"/></p>
+<p>根据链式法则<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>有</p>
 <div class="arithmatex">\[
 \begin{aligned}
-\frac{\partial y}{\partial x_j}  &amp;=  \sum_i \frac{\partial \mathcal{L}}{\partial \hat{y}_i} \cdot \frac{\partial \hat{y}_i}{\partial x_j}\\
-&amp;= \sum_i \left( -\frac{y_i}{\hat{y}_i} \right) \cdot \left( \hat{y}_i (\delta_{ij} - \hat{y}_j) \right)\\
+\frac{\partial \mathcal{L}(g(\mathbf{x}))}{\partial x_j} &amp;= \sum_i \frac{\partial \mathcal{L}}{\partial \hat{y}_i} \cdot \frac{\partial \hat{y}_i}{\partial x_j}\\
+&amp;=  \sum_i \left( -\frac{y_i}{\hat{y}_i} \right) \cdot \left( \hat{y}_i (\delta_{ij} - \hat{y}_j) \right)\\
 &amp;= \sum_i \left( -y_i (\delta_{ij} - \hat{y}_j) \right)\\
-&amp;= -y_j + \hat{y}_j
+&amp;= \underbrace{-y_j +{\color{blue}y_j \hat{y}_j}}_{i=j} +\underbrace{{\color{blue}\sum_{i} y_i \hat{y}_j}}_{i\neq j} \\
+&amp;= -y_j + {\color{blue}\sum_i y_i \hat{y}_j} \quad \because\text{合并两项}\\
+&amp;= -y_j + \hat{y}_j \sum_i y_i \\
+&amp;= -y_j + \hat{y}_j \\
+&amp;= \hat{y}_j - y_j
 \end{aligned}
 \]</div>
 <p>即</p>
@@ -4890,18 +4966,31 @@ g(\mathbf{x}) = \left[\frac{e^{x_1}}{\sum_k e^{x_k}}, \dots, \frac{e^{x_n}}{\sum
 \nabla_{\mathbf{x}} \mathcal{L}(g(\mathbf{x})) = \hat{\mathbf{y}} - \mathbf{y}
 }
 \]</div>
-<h3 id="kl"><span>KL<span class="heti-spacing"> </span></span>散度<a class="headerlink" href="#kl" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="safe-softmax">safe-softmax<a class="headerlink" href="#safe-softmax" title="anchor link to this section for reference">¶</a></h3>
+<div class="arithmatex">\[
+\boxed{softmax(X + c) = softmax(X)}
+\]</div>
+<p>这里<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\mathbf{X}\)</span><span class="heti-spacing"> </span></span>是向量，<span><span class="arithmatex">\(c\)</span><span class="heti-spacing"> </span></span>是一个常数。</p>
+<div class="arithmatex">\[
+softmax(X + c)_i = \frac{e^{x_i + c}}{\sum_k e^{x_k + c}} = \frac{e^{x_i} \cdot e^c}{\sum_k e^{x_k} \cdot e^c} = \frac{e^{x_i}}{\sum_k e^{x_k}} = softmax(X)_i
+\]</div>
+<p>实际应用：为了防止溢出，事先把<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\mathbf{X}\)</span><span class="heti-spacing"> </span></span>减去最大值。最大值是有效数据，其他值溢不溢出可管不了，也不关心。</p>
+<h3 id="parallel-softmax">parallel-softmax<a class="headerlink" href="#parallel-softmax" title="anchor link to this section for reference">¶</a></h3>
+<h2 id="kl"><span>KL<span class="heti-spacing"> </span></span>散度<a class="headerlink" href="#kl" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p>交叉熵</p>
 <p>衡量两个概率的区别</p>
 <p>我们可以把交叉熵想象为“主观概率为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(Q\)</span><span class="heti-spacing"> </span></span>的观察者在看到根据概率<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(P\)</span><span class="heti-spacing"> </span></span>生成的数据时的预期惊异”。 </p>
 <p>（i）最大化观测数据的似然；
-（ii）最小化传达标签所需的惊异。</p></div>
+（ii）最小化传达标签所需的惊异。</p>
+<h2 id="acknowledgement">Acknowledgement<a class="headerlink" href="#acknowledgement" title="anchor link to this section for reference">¶</a></h2>
+<p><a href="https://zhuanlan.zhihu.com/p/37740860">反向传播之一：<span>softmax<span class="heti-spacing"> </span></span>函数<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>知乎</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/25723112">详解<span class="heti-skip"><span class="heti-spacing"> </span>softmax<span class="heti-spacing"> </span></span>函数以及相关求导过程<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>知乎</a></p></div>
 <aside class="md-source-file">
 <span class="md-source-file__fact">
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年8月24日 09:40:33</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年8月28日 13:58:48</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">
