@@ -189,8 +189,10 @@ extra:
 extra_css:
   # - style/css/custom.css
   # - style/css/counter.css
-  - style/css/toc.css
   - style/css/flink.css
+  # source: https://github.com/TonyCrane/note/tree/master/docs/css
+  - style/css/toc_extra.css # 用于实现toc插件
+  - style/css/fold_toc.css # 用于实现toc插件
   # source: https://tonycrane.cc/
   - style/css/card.css # 用于卡片样式 todo: 稍作修改
   - https://cdn.tonycrane.cc/jbmono/jetbrainsmono.css

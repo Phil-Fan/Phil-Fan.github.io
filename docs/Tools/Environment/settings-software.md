@@ -22,7 +22,7 @@
 - 密码管理: Apple 密码管理
 
 
-### macos
+### :fontawesome-brands-apple: MacOS
 - 开发工具iTerm2：[iTerm2 - macOS Terminal Replacement](https://iterm2.com/)<br>教程：[iTerm2安装配置使用指南——保姆级 - 知乎](https://zhuanlan.zhihu.com/p/550022490); oh-my-zsh(with several plugins)
 - [Raycast - Your shortcut to everything](https://www.raycast.com/) 替代聚焦
   - command +k 显示
@@ -58,7 +58,7 @@ echo 'alias typora="open -a Typora"' >> ~/.zshrc
     ``` 
 
 
-### windows
+### :fontawesome-brands-windows: windows
 
 - 图片： [bandView](https://www.bandisoft.com/bandiview/)，[honeycam(动图)](https://www.bandisoft.com/honeycam/)
 - 网络相关：[Clash for windows](https://www.clash.la/archives/748/),[v2rayN](https://github.com/2dust/v2rayN/releases),[下载 .NET 8.0 Desktop Runtime (v8.0.8) - Windows x64 Installer](https://dotnet.microsoft.com/zh-cn/download/dotnet/thank-you/runtime-desktop-8.0.8-windows-x64-installer?cid=getdotnetcore)
