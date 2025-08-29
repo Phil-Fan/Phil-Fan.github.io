@@ -227,6 +227,7 @@ nav:
   
 
 - Math:
+    - Math/index.md
     - 基础知识:
         - Math/不等式.md
         - Math/information.md
@@ -312,8 +313,6 @@ nav:
         - Math/ML/10-ConceptLearning.md
         - Math/ML/12-interpretable_models.md
         - Math/ML/13-CasualInference.md
-        
-
 
 - AI: 
     - AI/index.md

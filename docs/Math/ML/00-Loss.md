@@ -12,7 +12,20 @@
 有不平滑性，可能不稳定
 
 离远点较远的时候，不一定希望有一个很大的梯度
-### l2 loss
+
+
+
+## l2 loss（MSE）
+
+$$
+\mathcal{L}_{MSE} = \frac{1}{N} \sum_{i=1}^N (y_i - \hat{y}_i)^2
+$$
+
+- 优点：
+  - 求导容易
+- 缺点：
+  - 梯度下降开始很慢
+
 
 
 ### Huber Robust loss
@@ -20,28 +33,6 @@
 
 
 
-## 交叉熵
-
-
-
-信息论：
-
-信息量 ： 不确定-》确定的难度
-
-可以理解为惊异程度，不确定度更大，则信息量更大
-
-系统的熵
-
-$$
-H[P] = \sum_j - P(j) \log P(j).
-$$
-
-
-
-$$
-H(P):=E(P_f)\\
-=\sum_{i=1}^mp_i\cdot f(p_i)=\sum_{i=1}^mp_i(-\log_2p_i)=-\sum_{i=1}^mp_i\cdot\log_2p_i
-$$
 
 
 ## softmax
@@ -244,6 +235,12 @@ $$
 }
 $$
 
+### mini-batch softmax
+- one single softmax 计算量太大
+- 批处理
+- mini batch
+
+
 ### safe-softmax
 
 $$
@@ -262,20 +259,9 @@ $$
 
 
 
-
-## KL散度
-
-交叉熵
-
-衡量两个概率的区别
-
-我们可以把交叉熵想象为“主观概率为$Q$的观察者在看到根据概率$P$生成的数据时的预期惊异”。 
-
-（i）最大化观测数据的似然；
-（ii）最小化传达标签所需的惊异。
-
 ## Acknowledgement
 
 [反向传播之一：softmax函数 - 知乎](https://zhuanlan.zhihu.com/p/37740860)
 
 [详解softmax函数以及相关求导过程 - 知乎](https://zhuanlan.zhihu.com/p/25723112)
+

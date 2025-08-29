@@ -20,6 +20,11 @@
         - 课程教师：崔逸凡
         - workload：
 
+    === "CMU 10-414/714: Deep Learning Systems"
+
+        - 课程教师：J. Zico Kolter & Tianqi Chen(CMU)
+        - workload：
+
 <div class="card file-block" markdown="1">
 <div class="file-icon"><img src="/style/images/xmind.svg" style="height: 3em;"></div>
 <div class="file-body">
