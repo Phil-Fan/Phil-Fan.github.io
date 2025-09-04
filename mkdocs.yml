@@ -380,6 +380,7 @@ nav:
           - "[性能] Nsight System": https://developer.nvidia.com/nsight-systems
 
     - "DL | 深度学习":
+        - AI/DL/index.md
         - AI/DL/01-MLP.md
         - AI/DL/02-CNN.md
         - AI/DL/03-Modern_CNN.md
@@ -398,6 +399,7 @@ nav:
           - AI/MLSys/CMU10_414/index.md
 
     - "CV | 计算机视觉":
+        - AI/CV/index.md
         - 基础知识:
             - AI/CV/00-1-intro.md
             - AI/CV/00-2-format.md
@@ -458,6 +460,7 @@ nav:
       
 
     - 现代控制 | 线性系统:
+      - Robotics/Control/ADV/index.md
       - Robotics/Control/ADV/linear-00-intro.md
 
     - 现代控制 | 非线性系统:
@@ -540,6 +543,7 @@ nav:
       - CS/Language/Python/05-Object.md
       - CS/Language/Python/06-File.md
       - CS/Language/Python/07-Project.md
+      - CS/Language/Python/08-logger.md
       - Notebook page: CS/Language/Python/Python_Package.ipynb
       - 可视化运行工具: https://pythontutor.com/
       - CS61A 24fall: https://lyvelf.github.io/cs61a-fa24-backup/index.html
@@ -650,21 +654,29 @@ nav:
   - Tools/index.md
   - Efficiency:
     - Tools/Efficiency/latex.md
+    - Tools/Environment/reveal-md.md
     - Tools/Efficiency/typst.md
     - Tools/Efficiency/Makefile.md
     - Tools/Efficiency/markdown.md
     - Tools/Efficiency/vim.md
 
+
   - Environment:
-    - Tools/Environment/Mkdocs.md
+    - Mkdocs:
+      - Tools/Environment/Mkdocs.md
+      - Pymdown Extensions: https://facelessuser.github.io/pymdown-extensions/
+      - Mkdocs Material: https://squidfunk.github.io/mkdocs-material/
+      
     - Tools/Environment/Docker.md
-    - Tools/Environment/JekyII.md
-    - Tools/Environment/Linux.md
-    - Tools/Environment/Python.md
+    
     - Tools/Environment/ROS.md
-    - Tools/Environment/reveal.js.md
-    - Tools/Environment/MCP.md
+    - Tools/Environment/Python.md
     - Tools/Environment/Dart.md
+    - Tools/Environment/Java.md
+    - Tools/Environment/JavaScript.md
+    - Tools/Environment/JekyII.md
+    
+    - Tools/Environment/MCP.md
 
   - Software:
     - Tools/Software/Git.md
@@ -678,6 +690,7 @@ nav:
     - Tools/Software/AdobeIllustrator.md
     - Tools/Software/AdobePhotoshop.md
     - Tools/Software/Web.md
+    - Tools/Software/AI.md
     - Tools/Software/Xcode.md
     - Tools/Software/CICD.md
 
@@ -687,6 +700,13 @@ nav:
     - Tools/Environment/settings-macos.md
     - Tools/Environment/settings-windows.md
     - Tools/Environment/settings-linux.md
+    - Linux:
+      - Tools/Environment/Linux/index.md
+      - Tools/Environment/Linux/01-File.md
+      - Tools/Environment/Linux/02-Shell.md
+      - Tools/Environment/Linux/03-DataProcess.md
+      - Tools/Environment/Linux/04-User.md
+      - Tools/Environment/Linux/05-Admin.md
     - Tools/Environment/settings-linux-kali.md
     - Tools/Environment/settings-wsl.md
     - Tools/Environment/settings-server.md

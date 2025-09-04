@@ -1,6 +1,32 @@
 # NVIDIA Toolkit
 
-[TOC]
+## CUDA
+
+
+## TensorRT
+```
+tar -xzvf TensorRT-10.5.0.18.l4t.aarch64-gnu.cuda-12.6.tar.gz
+```
+
+通过上面命令解压之后，会得到一个`TensorRT-10.5.0.18`文件夹，然后执行如下两条命令：
+
+cd TensorRT-10.5.0.18/samples/sampleOnnxMNIST
+make
+会在 `/usr/local/TensoRT-10.5.0.18/targets/aarch64-linux-gnu/bin/` 文件夹下得到一个`sample_onnx_mnist`的可执行文件，我们运行它后，会提示不能链接到`libnvinfer.so.8`的库：
+
+运行sample_onnx_mnist出现缺库现象
+
+```shell
+export LD_LIBRARY_PATH=/usr/local/TensorRT-10.5.0.18/targets/aarch64-linux-gnu/lib:$LD_LIBRARY_PATH
+```
+
+这时候，我们通过命令export将tensorrt的库添加到环境变量中，再次运行sample_onnx_mnist，会得到如下输出即表明tensorrt安装成功
+
+## cuDNN
+
+## cuBLAS
+
+## cuSOLVER
 
 
 ## NVTX

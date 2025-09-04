@@ -77,7 +77,7 @@ $$
 
 
 
-#### **3. Momentum | 动量法**
+#### **Momentum | 动量法**
 
 **公式**：
 
@@ -96,7 +96,7 @@ $$
 * 优点：减少在陡峭方向的震荡，加速收敛。
 * 类比：小球滚下山，不只是顺着坡度走，还带上惯性，走得更顺畅。
 
-#### **4. Nesterov Accelerated Gradient (NAG)**
+#### **Nesterov Accelerated Gradient (NAG)**
 
 **公式**：
 
@@ -115,7 +115,7 @@ $$
 * 类比：跑步时提前看前方路况，再调整速度和方向。
 
 
-#### **5. Adam | Adaptive Moment Estimation**
+#### **Adam | Adaptive Moment Estimation**
 
 * **公式**：
 

@@ -57,17 +57,30 @@ todo
 - [ ] 浅色模式下，banner有颜色问题
 
 ### enhancement
-- [x] 把图片迁移到本地
-  - [ ] 并想办法便于管理
+
+
+UI/UX
+
 - [x] 做封面
   - [ ] 做一个动态的封面
 - [ ] 做一个自动编号的插件/css
 - [ ] 做一个简洁的icon
 - [ ] 加入动态图标
+
+网站与域名
+
 - [ ] 网站备案
 - [ ] notebook放到 note.philfan.cn
 - [ ] 新建一个简历 cv.philfan.cn
 - [ ] 新建一个资源站 resource.philfan.cn
+
+content
+
+- [x] 把图片迁移到本地？想清楚图片的管理方式
+  - [ ] 并想办法便于管理
+
+plugins
+
 - [ ] social card是什么
 - [ ] 基于百度地图做一个旅行地图，或者基于jVectorMap（风险：与地图相关的bug很多）
   - [ ] [HelloWuJiaYi/jVectorMap-Footprint: jVectorMap 足迹地图](https://github.com/HelloWuJiaYi/jVectorMap-Footprint)

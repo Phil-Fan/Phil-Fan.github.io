@@ -1054,39 +1054,6 @@ npm install --global yarn
 yarn --version
 ```
 
-### Java
-
-#### 默认java版本
-
-```shell
-export JAVA_HOME=/usr/jdk1.8.0_181 //jdk解压文件目录地址
-export PATH=$JAVA_HOME/bin:$PATH
-export CLASSPATH=$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
-```
-
-
-
-#### `.jar`文件打开方式
-
-1.双击打开
-
-2. 命令行打开x
-
-```shell
-java -jar xxx.jar
-```
-
-```shell title="后台执行"
-java -jar xxx.jar &
-```
-
-```shell title="不挂断执行"
-nohup java -jar test_jar-1.0-SNAPSHOT.jar &   
-```  
-
-nohup 意思是不挂断运行命令，当账户退出或终端关闭时，程序仍然运行。
-
-当用 nohup 命令运行jar包时，缺省情况下该应用的所有输出被重定向到nohup.out的文件中，除非另外指定了输出文件。
 
 
 

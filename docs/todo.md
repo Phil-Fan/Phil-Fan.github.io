@@ -11,11 +11,12 @@ He who hesitates is lost
 ## 学习计划
 
 更新计划：
+
 - [ ] Mkdocs 配置文档
 - [ ] Git实操+文档详细
 - [ ] 学习illustator 进行科研作图
 - [ ] 路由器配置openwrt
-- [ ] 把智能家居魔杖丰富一下
+- [ ] 
 
 
 
@@ -34,6 +35,7 @@ what to do:
     - CMU 10-414
     - cs231n
     - cs106L 两周
+    - CS294 deep reinforcement learning
     - 生成式模型论文阅读与笔记整理
     - 非线性控制 & 最优控制
     
@@ -41,7 +43,9 @@ what to do:
 
 !!! tip "短期想要做的"
     - [ ] dRehmFlight
-    - [ ] 找一个开源项目写中文文档build with bombs?
+    - [ ] 做一个diffusion相关的开源项目： build with bombs
+    - [ ] 把智能家居魔杖丰富一下
+    - [ ] tsp
     - [x] 学习一下limu怎么引用论文，把这个[Semantic Scholar - Academic Graph API](https://api.semanticscholar.org/api-docs/graph)搞到文档里面
 
 
@@ -50,17 +54,18 @@ what to do:
     📚 阅读《倾城之恋》<br>
     💪 健身目标：
         
-        - 体重降到70kg左右，体脂率降到15%左右（✅完成）<br>
+        - 体重降到65kg左右，体脂率降到15%左右<br>
         - 引体>10（✅完成）
         - 卧推60kg
         - 深蹲100kg（没达到qwq）<br>
     
     🏃 跑步目标：
-        
+        - 跑一次半马！
         - 1km 3'20
         - 3km 11'20 
         - 尝试长距离跑
         - 5km 22'<br>
+        
         
     🏊 游泳目标：
         
@@ -69,7 +74,6 @@ what to do:
     
     🎹 卡农、summer<br>
     🎱 台球4连杆<br>
-    🧑‍🍳 每周尝试一道新的菜（✅完成）
 
 
 加一下友链
