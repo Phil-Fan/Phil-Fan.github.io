@@ -19,3 +19,18 @@
 
 
 1. 矩阵运算比向量运算更加高效
+
+
+
+从线性假设到非线性假设，深度学习希望自动地从数据中学习到特征提取器
+
+
+
+- hypothesis space
+- loss function
+- optimization
+
+
+BP算法就是 chain rule + intelligent caching
+
+空间换时间

@@ -5,18 +5,32 @@ mac默认使用zsh
 
 ## 快捷键
 
-- 空格预览文件
-- 按住Comm
-- and+空格，打开“聚焦“
-- fn+backspace = del
-- command+q 退出应用程序
-- command + [ 返回上一级
-- command + ] 前往下一级
-- command + control + 空格 ： emoji
-- shift + option + b：颜文字
-- 使用声调打字：tab
+### System
+- ++space++ 预览文件
+- ++command+space++ 打开聚焦
+- ++ctrl+arrow-up++ mission control 
+- ++command+control+q++ 锁屏
 
-- ctrl+⬆️：mission control
+### Folder
+
+- ++command+bracket-left++ 返回上一级
+- ++command+bracket-right++ 前往下一级
+
+### Apps
+
+- ++command+q++ 退出应用程序
+
+
+把鼠标移动到 另一个显示器屏幕底部，然后继续往下推一点（类似“顶到屏幕边缘”再往下挤的动作）。
+
+几秒钟后，Dock 就会跳到你鼠标所在的那个显示器。
+
+### Typing
+
+- ++fn+backspace++ 在mac中等于 ++del++
+- ++command+control+space++  emoji
+- ++shift+option+b++ 颜文字
+- ++tab++ 使用声调打字 
 
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=1851423987&bvid=BV1mW421w7Jw&cid=1457785582&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=100% height=600px></iframe>
 

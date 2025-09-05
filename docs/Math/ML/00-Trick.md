@@ -1,4 +1,4 @@
-# 05 | Tricks
+# Tricks
 ## 正则化
 
 
