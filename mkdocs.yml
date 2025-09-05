@@ -213,6 +213,8 @@ hooks:
   - hooks/friends.py
   # toc页面，改编自https://github.com/TonyCrane/note/tree/master/hooks，效果还不稳定
   - hooks/toc_manager.py
+  # excalidraw 改编自
+  - hooks/excalidraw.py
 
 
 # navigation: 注意左右下划线的写法
@@ -652,31 +654,38 @@ nav:
 - Tools:
   - Tools/index.md
   - Efficiency:
-    - Tools/Efficiency/latex.md
-    - Tools/Environment/reveal-md.md
-    - Tools/Efficiency/typst.md
-    - Tools/Efficiency/Makefile.md
-    - Tools/Efficiency/markdown.md
-    - Tools/Efficiency/vim.md
-
-
-  - Environment:
+    - Tools/Efficiency/index.md
     - Mkdocs:
-      - Tools/Environment/Mkdocs.md
+      - Tools/Efficiency/Mkdocs.md
       - Pymdown Extensions: https://facelessuser.github.io/pymdown-extensions/
       - Mkdocs Material: https://squidfunk.github.io/mkdocs-material/
-      
-    - Tools/Environment/Docker.md
+    - Tools/Efficiency/latex.md
+    - Tools/Efficiency/typst.md
+    - Tools/Efficiency/markdown.md
+    - Tools/Efficiency/vim.md
+    - Tools/Efficiency/JekyII.md
+    - Tools/Efficiency/reveal-md.md
     
-    - Tools/Environment/ROS.md
-    - Tools/Environment/Python.md
-    - Tools/Environment/Dart.md
-    - Tools/Environment/Java.md
-    - Tools/Environment/JavaScript.md
-    - Tools/Environment/JekyII.md
-    
-    - Tools/Environment/MCP.md
 
+  - Environment:
+    
+    - Tools/Environment/Docker.md
+    - Tools/Environment/MCP.md
+    - Tools/Environment/ROS.md
+  
+  - Code:
+    - Tools/Language/index.md
+    - Tools/Language/Makefile.md
+    - Tools/Language/Python.md
+    
+    - Tools/Language/Java.md
+    - Tools/Language/JavaScript.md
+
+    - Tools/Language/Dart.md
+    - Tools/Language/Ruby.md
+
+
+      
   - Software:
     - Tools/Software/Git.md
     - Tools/Software/Calculator.md

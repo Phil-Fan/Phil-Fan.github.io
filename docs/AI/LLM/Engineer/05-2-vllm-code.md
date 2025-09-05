@@ -1,5 +1,21 @@
 # vLLM源码学习
 
+## Philosophy
+
+## Architecture
+
+## EngineCore
+
+
+## Scheduler
+
+![](./vllm_scheduler.excalidraw)
+
+
+## Executer
+
+
+## Acknowledgement
 
 
 [vLLM v1源码阅读 : 整体流程梳理（详细debug）-CSDN博客](https://blog.csdn.net/goodgood_UP/article/details/148114998)
@@ -16,11 +32,10 @@
 [vLLM V1 源码阅读 - 知乎](https://zhuanlan.zhihu.com/p/32045324831)
 
 
-[(6 条消息) 图解大模型计算加速系列：vLLM源码解析1，整体架构 - 知乎](https://zhuanlan.zhihu.com/p/691045737)
+[图解大模型计算加速系列：vLLM源码解析1，整体架构 - 知乎](https://zhuanlan.zhihu.com/p/691045737)
 
 
 speculative decoding
 
 
 chunked prefill
-

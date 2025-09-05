@@ -1,4 +1,4 @@
-# MacOS
+# :fontawesome-brands-apple: MacOS
 ## 基础
 mac默认使用zsh
 
@@ -105,27 +105,6 @@ brew install wget
 **Shift + Command + P** 打开设置，输入 `shell command` 找到`Shell Command: Install ‘code’ command in PATH`
 
 
-### xcode
-
-[Xcode on the Mac App Store](https://apps.apple.com/us/app/xcode/id497799835?mt=12)
-
-```shell
-xcode-select --install
-```
-
-显示 command line tools are already installed
-
-### ssh
-
-### git
-
-### jenkins
-[Jenkins](https://www.jenkins.io/)
-
-
-```shell
-brew install jenkins
-```
 ### paragon： NTFS读写
 
 在使用硬盘传数据的时候，老是报`错误代码 -50`，搜了一下才发现mac原生是不支持NTFS文件系统的
@@ -143,42 +122,6 @@ brew install jenkins
 [Paragon 驱动程序 | Seagate 中国](https://www.seagate.com/cn/zh/support/software/paragon/)
 
 
-### NVM
-
-[nvm-sh/nvm](https://github.com/nvm-sh/nvm): Node Version Manager - POSIX-compliant bash script to manage multiple active node.js versions
-
-
-```shell
-wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.2/install.sh | bash
-```
-
-```shell
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use # This loads nvm, without auto-using the default version
-```
-
-```shell title="验证"
-nvm -vx
-```
-
-### node
-
-使用NVM进行管理
-
-```shell
-nvm install stable
-```
-
-```shell
-npm install -g tldr
-npm install -g typescript
-npm install -g @vue/cli
-npm install -g vuepress
-npm install -g @angular/cli
-npm install -g eslint
-npm install -g gitbook-cli
-npm install -g lodash
-```
 
 
 
@@ -213,7 +156,6 @@ zju有企业账号，SSO登陆输入ZJU，验证登陆即可
 
 > 参考文章：[将 QQ 音乐的歌单导入 apple music - 知乎](https://zhuanlan.zhihu.com/p/666443150)
 
-### adobe系列
 
 ### bandzip
 
@@ -224,40 +166,12 @@ pluginkit -e "use" -i "com.bandisoft.mac.bandizip.findersyncextension"
 ```
 
 
-### gem
 
-```
-brew install gem
-```
 
-```shell
-brew install cocoapods
-```
-
-```shell title="verify"
-pod
-```
-
-```shell
-brew tap dart-lang/dart
-brew install dart
-brew tap flutter/flutter
-brew install flutter
-```
-
-```shell title="verify"
-flutter doctor
-```
 
 ## 效率工具
 
-### icloud 软件 + icloud书签实现edge和safari的同步
-
-rt，在windows上下载[icloud](https://icloud.en.uptodown.com/windows/download)软件，安装后登录icloud账号，再在edge上下载[icloud书签](https://microsoftedge.microsoft.com/addons/detail/icloud-%E4%B9%A6%E7%AD%BE/lbfbbhdljlmhnpbcdcajkdanonpgbhlh)插件，安装后登录icloud账号，即可实现edge和safari的同步
-
-### Aifred：better 聚焦
-
-[Mac效率神器Alfred系列教程---Alfred概述 - 知乎](https://zhuanlan.zhihu.com/p/33199992)
+### Raycast
 
 ### Iterm2：更nb的终端
 [iTerm2安装配置使用指南——保姆级 - 知乎](https://zhuanlan.zhihu.com/p/550022490)
@@ -282,48 +196,20 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 echo "source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ~/.zshrc && source ~/.zshrc 
 ```
 
-### spectacle： 窗口移动
-
-[Carthage/Carthage: A simple, decentralized dependency manager for Cocoa](https://github.com/Carthage/Carthage?tab=readme-ov-file#installing-carthage)
-
-```shell
-brew install carthage
-```
-
-[spectacle](https://github.com/eczarny/spectacle/releases/tag/1.2)
 
 下载release即可，需要安装一个环境，按步骤来即可
 
+### icloud 软件 + icloud书签实现edge和safari的同步
 
-### Vanilla： 隐藏菜单栏
+rt，在windows上下载[icloud](https://icloud.en.uptodown.com/windows/download)软件，安装后登录icloud账号，再在edge上下载[icloud书签](https://microsoftedge.microsoft.com/addons/detail/icloud-%E4%B9%A6%E7%AD%BE/lbfbbhdljlmhnpbcdcajkdanonpgbhlh)插件，安装后登录icloud账号，即可实现edge和safari的同步
 
-
-按住 Command 键同时拖动应用图标 进入相应区域，就完成了对应用图标的隐藏 / 显示设置，这要比 Bartender 便捷高效许多。
-
-[Vanilla，精简 Mac 菜单栏应用图标，小巧轻量还免费丨App+1 - 少数派](https://sspai.com/post/39036)
 
 ### [Scroll Reverser ](https://pilotmoon.com/scrollreverser/) 调整滚轮方向
 
-### Open in Terminal： finder打开终端
-
-[OpenInTerminal/Resources/README-Config.md at master · Ji4n1ng/OpenInTerminal](https://github.com/Ji4n1ng/OpenInTerminal/blob/master/Resources/README-Config.md)
-
-```shell title="输入这个指令，查找插件的uid"
-pluginkit -mAD -p com.apple.FinderSync -vvv
-```
-
-```shell title="把-u 后边的参数换成你显示的uid即可"
-pluginkit -e "use" -u "C21A713E-0EED-4E97-8DB2-5B9EA96A1F28"
-```
-
-需要在访达上面自定义工具栏，然后添加open in terminal
-
-在软件里面也可以设置快捷键打开
-
-## safari 使用指南
 
 
-## latex
+
+### latex
 
 
 ```shell
@@ -492,12 +378,5 @@ rm -rf ~/.condarc
 ```
 
 
-### vscode 的python环境
-安装插件
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240919133706.png)
-
-F1 -> Python: Select Interpreter -> 选择你的环境
-
-或者右下角有个环境选择，右键把选择编辑器勾上
 
 

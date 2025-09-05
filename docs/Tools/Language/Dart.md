@@ -1,5 +1,26 @@
 # Dart & Flutter
 
+## 安装
+
+```shell
+brew install cocoapods
+```
+
+```shell title="verify"
+pod
+```
+
+```shell
+brew tap dart-lang/dart
+brew install dart
+brew tap flutter/flutter
+brew install flutter
+```
+
+```shell title="verify"
+flutter doctor
+```
+
 ## 常用 Flutter 命令
 
 ### 环境与设备
