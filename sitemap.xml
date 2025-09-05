@@ -1485,7 +1485,15 @@
          <lastmod>2025-09-05</lastmod>
     </url>
     <url>
-         <loc>https://www.philfan.cn/Tools/Efficiency/Makefile.html</loc>
+         <loc>https://www.philfan.cn/Tools/Efficiency/index.html</loc>
+         <lastmod>2025-09-05</lastmod>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/Tools/Efficiency/JekyII.html</loc>
+         <lastmod>2025-09-05</lastmod>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/Tools/Efficiency/Mkdocs.html</loc>
          <lastmod>2025-09-05</lastmod>
     </url>
     <url>
@@ -1497,6 +1505,10 @@
          <lastmod>2025-09-05</lastmod>
     </url>
     <url>
+         <loc>https://www.philfan.cn/Tools/Efficiency/reveal-md.html</loc>
+         <lastmod>2025-09-05</lastmod>
+    </url>
+    <url>
          <loc>https://www.philfan.cn/Tools/Efficiency/typst.html</loc>
          <lastmod>2025-09-05</lastmod>
     </url>
@@ -1505,23 +1517,7 @@
          <lastmod>2025-09-05</lastmod>
     </url>
     <url>
-         <loc>https://www.philfan.cn/Tools/Environment/Dart.html</loc>
-         <lastmod>2025-09-05</lastmod>
-    </url>
-    <url>
          <loc>https://www.philfan.cn/Tools/Environment/Docker.html</loc>
-         <lastmod>2025-09-05</lastmod>
-    </url>
-    <url>
-         <loc>https://www.philfan.cn/Tools/Environment/Java.html</loc>
-         <lastmod>2025-09-05</lastmod>
-    </url>
-    <url>
-         <loc>https://www.philfan.cn/Tools/Environment/JavaScript.html</loc>
-         <lastmod>2025-09-05</lastmod>
-    </url>
-    <url>
-         <loc>https://www.philfan.cn/Tools/Environment/JekyII.html</loc>
          <lastmod>2025-09-05</lastmod>
     </url>
     <url>
@@ -1529,19 +1525,7 @@
          <lastmod>2025-09-05</lastmod>
     </url>
     <url>
-         <loc>https://www.philfan.cn/Tools/Environment/Mkdocs.html</loc>
-         <lastmod>2025-09-05</lastmod>
-    </url>
-    <url>
-         <loc>https://www.philfan.cn/Tools/Environment/Python.html</loc>
-         <lastmod>2025-09-05</lastmod>
-    </url>
-    <url>
          <loc>https://www.philfan.cn/Tools/Environment/ROS.html</loc>
-         <lastmod>2025-09-05</lastmod>
-    </url>
-    <url>
-         <loc>https://www.philfan.cn/Tools/Environment/reveal-md.html</loc>
          <lastmod>2025-09-05</lastmod>
     </url>
     <url>
@@ -1610,6 +1594,34 @@
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/Environment/Linux/05-Admin.html</loc>
+         <lastmod>2025-09-05</lastmod>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/Tools/Language/index.html</loc>
+         <lastmod>2025-09-05</lastmod>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/Tools/Language/Dart.html</loc>
+         <lastmod>2025-09-05</lastmod>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/Tools/Language/Java.html</loc>
+         <lastmod>2025-09-05</lastmod>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/Tools/Language/JavaScript.html</loc>
+         <lastmod>2025-09-05</lastmod>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/Tools/Language/Makefile.html</loc>
+         <lastmod>2025-09-05</lastmod>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/Tools/Language/Python.html</loc>
+         <lastmod>2025-09-05</lastmod>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/Tools/Language/Ruby.html</loc>
          <lastmod>2025-09-05</lastmod>
     </url>
     <url>
