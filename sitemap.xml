@@ -309,23 +309,7 @@
          <lastmod>2025-09-05</lastmod>
     </url>
     <url>
-         <loc>https://www.philfan.cn/AI/MLSys/CMU10_414/01.html</loc>
-         <lastmod>2025-09-05</lastmod>
-    </url>
-    <url>
          <loc>https://www.philfan.cn/AI/RL/RL-01.html</loc>
-         <lastmod>2025-09-05</lastmod>
-    </url>
-    <url>
-         <loc>https://www.philfan.cn/AI/SEC/01-attack.html</loc>
-         <lastmod>2025-09-05</lastmod>
-    </url>
-    <url>
-         <loc>https://www.philfan.cn/AI/SEC/02-whitebox.html</loc>
-         <lastmod>2025-09-05</lastmod>
-    </url>
-    <url>
-         <loc>https://www.philfan.cn/AI/SEC/03-blackbox.html</loc>
          <lastmod>2025-09-05</lastmod>
     </url>
     <url>
@@ -669,10 +653,6 @@
          <lastmod>2025-09-05</lastmod>
     </url>
     <url>
-         <loc>https://www.philfan.cn/Class/Fin/intro.html</loc>
-         <lastmod>2025-09-05</lastmod>
-    </url>
-    <url>
          <loc>https://www.philfan.cn/Class/Fin/invest-stock.html</loc>
          <lastmod>2025-09-05</lastmod>
     </url>
@@ -817,10 +797,6 @@
          <lastmod>2025-09-05</lastmod>
     </url>
     <url>
-         <loc>https://www.philfan.cn/Interest/Music/music_classification.html</loc>
-         <lastmod>2025-09-05</lastmod>
-    </url>
-    <url>
          <loc>https://www.philfan.cn/Interest/Travel/C-Driving.html</loc>
          <lastmod>2025-09-05</lastmod>
     </url>
@@ -941,15 +917,15 @@
          <lastmod>2025-09-05</lastmod>
     </url>
     <url>
+         <loc>https://www.philfan.cn/Math/ML/00-Proof.html</loc>
+         <lastmod>2025-09-05</lastmod>
+    </url>
+    <url>
          <loc>https://www.philfan.cn/Math/ML/00-Review.html</loc>
          <lastmod>2025-09-05</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Math/ML/00-Trick.html</loc>
-         <lastmod>2025-09-05</lastmod>
-    </url>
-    <url>
-         <loc>https://www.philfan.cn/Math/ML/00-proof.html</loc>
          <lastmod>2025-09-05</lastmod>
     </url>
     <url>
@@ -1210,10 +1186,6 @@
     </url>
     <url>
          <loc>https://www.philfan.cn/Research/08-presentation.html</loc>
-         <lastmod>2025-09-05</lastmod>
-    </url>
-    <url>
-         <loc>https://www.philfan.cn/Research/journel.html</loc>
          <lastmod>2025-09-05</lastmod>
     </url>
     <url>
@@ -1517,10 +1489,6 @@
          <lastmod>2025-09-05</lastmod>
     </url>
     <url>
-         <loc>https://www.philfan.cn/Tools/Environment/Docker.html</loc>
-         <lastmod>2025-09-05</lastmod>
-    </url>
-    <url>
          <loc>https://www.philfan.cn/Tools/Environment/MCP.html</loc>
          <lastmod>2025-09-05</lastmod>
     </url>
@@ -1602,6 +1570,10 @@
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/Language/Dart.html</loc>
+         <lastmod>2025-09-05</lastmod>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/Tools/Language/Docker.html</loc>
          <lastmod>2025-09-05</lastmod>
     </url>
     <url>
