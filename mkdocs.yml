@@ -665,13 +665,7 @@ nav:
     - Tools/Efficiency/vim.md
     - Tools/Efficiency/JekyII.md
     - Tools/Efficiency/reveal-md.md
-    
 
-  - Environment:
-    
-    - Tools/Environment/Docker.md
-    - Tools/Environment/MCP.md
-    - Tools/Environment/ROS.md
   
   - Code:
     - Tools/Language/index.md
@@ -683,6 +677,7 @@ nav:
 
     - Tools/Language/Dart.md
     - Tools/Language/Ruby.md
+    - Tools/Language/Docker.md
 
 
       
@@ -717,10 +712,13 @@ nav:
       - Tools/Environment/Linux/05-Admin.md
     - Tools/Environment/settings-linux-kali.md
     - Tools/Environment/settings-wsl.md
+    - Tools/Environment/ROS.md
     - Tools/Environment/settings-server.md
     - Tools/Environment/settings-router.md
     - Tools/Environment/settings-content.md
     - Tools/Environment/settings-website.md
+    - Tools/Environment/MCP.md
+    
 
 - Project:
   - Project/index.md
@@ -759,14 +757,15 @@ nav:
     - Finance:
       - Class/ITP-Law.md
       - Class/ITP-Marketing.md
-      # - Class/Fin/invest.md
-      # - Class/Fin/invest-stock.md
+      - Class/Fin/invest.md
+      - Class/Fin/invest-stock.md
+      - Class/Fin/quant.md
       - Class/Fin/consulting.md
       - Class/Fin/industry-analyze.md
       - Class/Fin/industry-finance.md
       - Class/Fin/industry-welfare.md
-      # - "微观经济学":
-        # - Class/Fin/micro/intro.md
+      - "微观经济学":
+        - Class/Fin/micro/intro.md
       - 公司与掌舵人:
         - Class/Fin/company/luckin.md
         - Class/Fin/company/mixue.md
@@ -829,6 +828,7 @@ nav:
     - Interest/CommonKnowledge/labour.md
     - Interest/CommonKnowledge/house.md
     - Interest/CommonKnowledge/rent.md
+    - Interest/CommonKnowledge/fund.md
 
 - Blog:
   - blog/index.md
@@ -928,7 +928,7 @@ plugins:
   # get your secret key from https://github.com/settings/personal-access-tokens/new
   # export MKDOCS_GIT_COMMITTERS_APIKEY=your_secret_key
   - git-committers:
-      enabled: true
+      enabled: false
       repository: Phil-Fan/Phil-Fan.github.io
       branch: master
       token: !!python/object/apply:os.getenv ["MKDOCS_GIT_COMMITTERS_APIKEY"]

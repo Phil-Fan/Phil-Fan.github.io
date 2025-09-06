@@ -59,6 +59,7 @@ def on_page_markdown(markdown, **kwargs):
         old_text = match.group(0)
         new_text = f'<excalidraw-renderer src="{excalidraw_path}"></excalidraw-renderer>'
         result = result.replace(old_text, new_text)
+        print(f"Replaced Excalidraw reference: {old_text} -> {new_text}")
     
     # 如果没有 excalidraw 引用，直接返回原始内容
     if not has_excalidraw:
