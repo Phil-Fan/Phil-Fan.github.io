@@ -1,17 +1,8 @@
-# 功能： 渲染.excalidraw文件，支持亮/暗色
-# 改编自 https://github.com/qdeli187/mkdocs-excalidraw/tree/v0.3.3
-# 下载 vscode excalidraw插件，可以实现vscode内编辑
-
-# 原代码遵循 Apache License 2.0，原作者 qdeli187，本代码同样遵循 Apache License
-
-# 本代码修改部分：移植成为hooks函数格式
-
 import re
 import os
 from pathlib import Path
 from bs4 import BeautifulSoup
-# pip install beautifulsoup4==4.13.5
-
+from urllib.parse import urljoin
 
 # 匹配 Markdown 中的 excalidraw 图片引用
 EXCALIDRAW_PATTERN = r'!\[.*?\]\((.*?\.excalidraw)\)'
@@ -29,6 +20,27 @@ def _load_renderer_js():
     )
     with open(js_path, 'r') as f:
         return f.read()
+
+def _get_url_path(page, excalidraw_path):
+    """
+    将文件路径转换为URL路径
+    """
+    # 如果是绝对路径，直接返回
+    if excalidraw_path.startswith('/'):
+        return excalidraw_path
+
+    # 获取当前页面的URL路径
+    page_url = page.url
+
+    # 如果页面在子目录中，需要考虑相对路径
+    if '/' in page_url:
+        page_dir = os.path.dirname(page_url)
+        # 确保路径使用正斜杠
+        excalidraw_path = excalidraw_path.replace('\\', '/')
+        return f'/{page_dir}/{excalidraw_path}' if page_dir else f'/{excalidraw_path}'
+    
+    # 页面在根目录
+    return f'/{excalidraw_path}'
 
 def on_page_markdown(markdown, **kwargs):
     """
@@ -49,17 +61,15 @@ def on_page_markdown(markdown, **kwargs):
         # 获取图片路径
         excalidraw_path = match.group(1)
         
-        # 构建相对于文档根目录的路径
-        if not excalidraw_path.startswith('/'):
-            # 如果是相对路径，转换为相对于文档根目录的路径
-            page_dir = os.path.dirname(page.file.src_path)
-            excalidraw_path = os.path.normpath(os.path.join(page_dir, excalidraw_path))
+        # 转换为URL路径
+        url_path = _get_url_path(page, excalidraw_path)
         
         # 替换为 excalidraw-renderer 标签
         old_text = match.group(0)
-        new_text = f'<excalidraw-renderer src="{excalidraw_path}"></excalidraw-renderer>'
+        new_text = f'<excalidraw-renderer src="{url_path}"></excalidraw-renderer>'
         result = result.replace(old_text, new_text)
-        print(f"Replaced Excalidraw reference: {old_text} -> {new_text}")
+
+        print(f"Replaced excalidraw reference: {old_text} with {new_text}")
     
     # 如果没有 excalidraw 引用，直接返回原始内容
     if not has_excalidraw:
@@ -96,4 +106,5 @@ def on_post_page(output, **kwargs):
     else:
         soup.extend([css_tag, js_tag, renderer_js])
     
+    # print("Excalidraw JS and CSS injected into the output.")
     return str(soup)

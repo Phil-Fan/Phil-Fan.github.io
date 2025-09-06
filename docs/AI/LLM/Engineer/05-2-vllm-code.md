@@ -9,7 +9,7 @@
 
 ## Scheduler
 
-![](./vllm_scheduler.excalidraw)
+![](assets/05-2-vllm-code.assets/vllm_scheduler.excalidraw)
 
 
 ## Executer
