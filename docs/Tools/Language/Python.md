@@ -391,7 +391,9 @@ conda env create -f freeze.yml
 ```
 
 
-
+```bash
+conda env update -f a.yaml --prune
+```
 
 ## python调试方法
 

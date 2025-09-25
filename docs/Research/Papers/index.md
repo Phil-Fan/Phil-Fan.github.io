@@ -37,6 +37,9 @@ University of Central Florida
 
 [Fan Yao](http://fan-yao.com/)
 
+SJTU
+
+[Homepage of Linfeng Zhang](http://www.zhanglinfeng.tech/)
 
 ## 其他
 

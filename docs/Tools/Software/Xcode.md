@@ -36,3 +36,15 @@ build
 
 
 ## 如何发布内测
+
+
+### 使用模拟器
+
+
+
+```shell title="打开模拟器"
+xcrun simctl list devices
+```
+```
+open -a Simulator
+```

@@ -396,7 +396,6 @@ sudo firewall-cmd --query-port=80/tcp
 
 
 
-
 ### 端口占用 - lsof
 
 ```shell

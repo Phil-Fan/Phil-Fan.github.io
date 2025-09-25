@@ -18,14 +18,58 @@
 
 
 
-**组合**有两种打开方式：
+- ++ctrl+g++ 编组
+- ++ctrl+shift+g++ 解除编组
+- ++ctrl+拖拽++ 复制
+- ++ctrl+shift+拖拽++ 对齐复制
+- ++Shift++，等比例缩放
+- ++ctrl+shift++，中心点等比例缩放
+- ++ctrl+shift+<++ 减小字号
+- ++ctrl+shift+>++ 增加字号
+- 图层 ++alt+f10++
 
-- 选中多个对象后，点击鼠标右键-组合-组合/取消组合
-- 选中多个对象后，**Ctrl + G**（组合）**Ctrl + Shift + G**（取消组合） 这里强烈推荐第二种！
+
+### 自定义工作栏
+
+在制作ppt的过程当中，我有以下两个痛点
+
+1. 经常使用的工具通常不在一级菜单栏，经常需要点好几个菜单才能找到想要的工具（比如下图的这个场景，我希望垂直居中三个图形，需要点好几个菜单）
+2. 忘记了选项在哪一个菜单，通常要在多个菜单中仔细翻找，才能找到想要的功能
+![](assets/powerpoint.assets/nufovv5m.webp)
+
+￼
+
+那么是否可以DIY一个清爽的工作区呢？
+
+我发现了PowerPoint是支持自定义工作区的，可以增删改图标和工具，甚至可以自定义一些宏来使用。（很可惜在wps里貌似没有找到这样的选项）
+
+经过一些ppt制作的过程，我迭代了一版我使用频率较高的工具，制作成了一个单独的工具栏，并隐藏了一些使用频率不高的菜单栏。
+
+如下图所示
+
+![](assets/powerpoint.assets/fa1vtajm.webp)
+
+这样设置以后其实抄图挺方便的，善用取色、对齐、虚线、线条粗细等工具就可以复刻大部分图了（我觉得最伟大的工具就是取色哈哈哈）
+
+Tips：结合一下常用的快捷键可以极大提升效率
+
+## 如何使用
+
+1. 下载下面提供的文件
+2. 按照下面的方式导入
+3. 如果你觉得菜单栏太少了，或者希望增删一些功能，请在Step3的设置区自行探索一下
+
+<div class="card file-block" markdown="1">
+<div class="file-icon"><img src="/style/images/ppt.svg" style="height: 3em;"></div>
+<div class="file-body">
+<div class="file-title">自定义工作栏</div>
+<div class="file-meta">5KB / 2025-09-22</div>
+</div>
+<a class="down-button" target="_blank" href="assets/powerpoint.assets/diy_tool.exportedUI" markdown="1">:fontawesome-solid-download: 下载</a>
+</div>
 
 
-
-**图层 Alt + F10**
+![](assets/powerpoint.assets/i1tqd30w.webp)
 
 ## 颜色
 
@@ -128,7 +172,7 @@
 
 [【PPT随记】你为什么不喜欢用微软雅黑？（已更新资源） - CC98论坛](https://www.cc98.org/topic/4979847)
 
-[[经验\]分享这几年我做PPT的一些经验（随缘更新中……） - CC98论坛](https://www.cc98.org/topic/4908962)
+[分享这几年我做PPT的一些经验（随缘更新中……） - CC98论坛](https://www.cc98.org/topic/4908962)
 
 [PPT制作经验分享 - CC98论坛](https://www.cc98.org/topic/4908897)
 

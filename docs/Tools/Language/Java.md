@@ -30,6 +30,108 @@ Java HotSpot(TM) 64-Bit Server VM (build 21.0.8+12-LTS-250, mixed mode, sharing)
 ```
 
 
+### MacOS
+
+
+
+```bash title="用 Homebrew 安装"
+# 安装 OpenJDK 17
+brew install openjdk@17
+
+# 安装 OpenJDK 21（可选）
+brew install openjdk@21
+
+# 其他版本（例如 Corretto 11，已经装过的话可跳过）
+brew install --cask corretto11
+```
+
+安装完成后，JDK 会放在：
+
+* Homebrew 默认目录：
+  `/opt/homebrew/opt/openjdk@17/libexec/openjdk.jdk/Contents/Home`
+* Amazon Corretto：
+  `/Library/Java/JavaVirtualMachines/amazon-corretto-11.jdk/Contents/Home`
+
+
+```bash title="系统自带查询（确认 JDK 安装情况）"
+/usr/libexec/java_home -V
+```
+
+会列出所有已安装的 JDK。
+
+
+```bash title="安装 jenv"
+brew install jenv
+```
+
+
+```bash title="把 jenv 添加到 shell 配置文件"
+echo 'export PATH="$HOME/.jenv/bin:$PATH"' >> ~/.zshrc
+echo 'eval "$(jenv init -)"' >> ~/.zshrc
+source ~/.zshrc
+```
+
+
+```bash title="把 JDK 添加到 jenv"
+jenv add /Library/Java/JavaVirtualMachines/amazon-corretto-11.jdk/Contents/Home
+jenv add /opt/homebrew/opt/openjdk@17/libexec/openjdk.jdk/Contents/Home
+```
+
+```bash title="查看 jenv 管理的版本"
+jenv versions
+```
+
+示例输出：
+
+```
+* system (set by /Users/you/.jenv/version)
+  11
+  11.0
+  11.0.26
+  corretto64-11.0.26
+  17
+  17.0
+  17.0.12
+  openjdk64-17.0.12
+```
+
+5️⃣ 切换 JDK 版本
+
+* **全局切换（对所有项目生效）**
+
+  ```bash
+  jenv global 17
+  ```
+
+* **本地切换（只对当前项目生效）**
+  进入项目目录后执行：
+
+  ```bash
+  jenv local 11
+  ```
+
+  会生成 `.java-version` 文件。
+
+* **临时切换（只在当前终端会话生效）**
+
+  ```bash
+  jenv shell 17
+  ```
+
+
+
+```bash title="验证"
+java -version
+javac -version
+```
+
+输出应该和 jenv 设置一致。
+
+
+
+
+这样就不用每次手动找路径了。
+
 
 
 

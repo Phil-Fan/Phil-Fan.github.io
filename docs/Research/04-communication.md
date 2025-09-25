@@ -12,6 +12,12 @@
 
 
 
+多参加 seminar
+
+- ACE Talk (Microsoft)
+- FAI Seminar (Bili)
+- ADSL Paper Reading (中科大)
+
 ## Learn in public, Build in public
 
 build a small project and publish it on the internet

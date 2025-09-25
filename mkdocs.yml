@@ -648,6 +648,10 @@ nav:
     - Research/Papers/VerboseImages.md
     - Research/Papers/Zero_Query_Adversarial_Attack.md
     - Research/Papers/BitHydra.md
+
+  - 资源:
+    - ADSL: https://adsl-rg.github.io/introduction.html
+    - FAI: http://www.fai-seminar.ac.cn
     
     
 
@@ -678,7 +682,7 @@ nav:
     - Tools/Language/Dart.md
     - Tools/Language/Ruby.md
     - Tools/Language/Docker.md
-
+    - Tools/Language/Android.md
 
       
   - Software:
@@ -718,6 +722,7 @@ nav:
     - Tools/Environment/settings-content.md
     - Tools/Environment/settings-website.md
     - Tools/Environment/MCP.md
+    - Tools/Environment/filebrowser.md
     
 
 - Project:

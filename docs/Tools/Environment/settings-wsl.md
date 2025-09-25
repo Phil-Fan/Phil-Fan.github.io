@@ -156,7 +156,7 @@ ipconfig
 找到你要让别人访问的网络接口（例如 Wi-Fi 或 Ethernet），记下 IPv4 地址，比如 `192.168.1.100`。
 
 
-2. Windows 上配置端口转发
+1. Windows 上配置端口转发
 
 
 在 Windows PowerShell（管理员权限）里执行：

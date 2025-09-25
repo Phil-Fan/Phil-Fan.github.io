@@ -21,6 +21,12 @@ brew install flutter
 flutter doctor
 ```
 
+
+```shell title="代理问题"
+export NO_PROXY=localhost,127.0.0.1,::1,192.168.0.0/16
+```
+
+
 ## 常用 Flutter 命令
 
 ### 环境与设备

@@ -182,7 +182,7 @@ pip install modelscope
 modelscope download <model_name> --local_dir ./dir
 ```
 
-
+modelscope download Qwen/Qwen2.5-VL-7B-Instruct --local_dir ./LLMs/Qwen2.5-VL-7B-Instruct
 
 
 

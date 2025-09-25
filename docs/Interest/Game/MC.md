@@ -70,10 +70,22 @@ nvcc --version
 ```
 
 ```
-dpkg -l | grep tensorrt
+dpkg -l | grep nvinfer
 ```
 
 [Get started with LWJGL 3 - LWJGL](https://www.lwjgl.org/guide#build-instructions)
+```
+ant -Dhttp.proxyHost=127.0.0.1 -Dhttp.proxyPort=7890 \
+    -Dhttps.proxyHost=127.0.0.1 -Dhttps.proxyPort=7890
+```
+
+```
+export LWJGL_BUILD_ARCH=arm64
+export LWJGL_BUILD_OUTPUT=/home/user/
+
+
+/home/usslab/Myfiles/lwjgl3/bin/libs/native/linux/arm64/org/lwjgl
+
 
 ### Related Resource
 

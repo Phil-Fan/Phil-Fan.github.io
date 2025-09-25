@@ -38,7 +38,10 @@ todo
 
 ## Contributing
 
-### Rules
+1. 如果想要
+2. 使用 `asset/{filename}.assets/{x}.{y}` 来存放图片，其中`x`是图片名，`y`是图片格式
+
+
 
 ## Todo
 
@@ -49,12 +52,16 @@ todo
 ### 目前网页bug
 - [x] jupyter notebook下 数学公式渲染错误
 - [x] jupyter notebook下不同的block标题会从0开始记录
+- [ ] jupyter不同块的标题在toc没有自动编号
 - [x] 公式在不翻墙的情况下加载太慢
 - [x] 插入pdf的时候，在vscode当中会跳下载页面
 - [x] 表情emoji出错
 - [x] 图床配置出错
 - [ ] safari 网页渲染有误
 - [ ] 浅色模式下，banner有颜色问题
+- [ ] git目录太大，不便分发和下载
+- [ ] Mathjax附带了很多文件，是否可以使用cdn上的
+- [ ] 测试环境搭建与部署
 
 ### enhancement
 
@@ -73,7 +80,7 @@ UI/UX
 - [ ] notebook放到 note.philfan.cn
 - [ ] 新建一个简历 cv.philfan.cn
 - [ ] 新建一个资源站 resource.philfan.cn
-
+- [ ] 百度爬虫[Vercel](https://vercel.com/phil-fans-projects)
 content
 
 - [x] 把图片迁移到本地？想清楚图片的管理方式

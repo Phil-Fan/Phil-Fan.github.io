@@ -4,6 +4,11 @@
 Todo: 补充完整，形成初步的方法论；找4-5个学长和老师迭代读论文的方法
 
 
+## 论文带读
+
+
+- [ADSL Paper Reading](https://adsl-rg.github.io/introduction.html)
+
 ## 读什么样的论文：论文几不读
 
 <iframe src="./CCF.pdf" width="100%" height="600px" style="border: none;">
