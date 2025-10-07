@@ -25,6 +25,10 @@ unset http_proxy && unset https_proxy
 ```
 
 ## zsh配置
+```shell title="安装zsh"
+sudo apt install zsh
+chsh -s /bin/zsh
+```
 
 ```shell title="安装oh-my-zsh"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"

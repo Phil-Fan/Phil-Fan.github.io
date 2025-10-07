@@ -14,16 +14,19 @@ github[filebrowser/filebrowser: 📂 Web File Browser](https://github.com/filebr
 
 ## 配置
 [Filebrowser 部署 | gobai's notes](https://blog.gocn.top/posts/filebrowser/)
+
 ```json
 {
   "port": 8080,
-  "baseURL": "",
+  "baseURL": "/files",
   "address": "0.0.0.0",
 
-  "log": "/var/lib/filebrowser/filebrowser/filebrowser.log",
-  "database": "/var/lib/filebrowser/filebrowser/filebrowser.db",
-  
-  "root": "/var/lib/filebrowser/EE_files",
+  "log": "/var/lib/filebrowser/filebrowser.log",
+  "database": "/var/lib/filebrowser/filebrowser.db",
+
+  "name": "Myproject",
+  "root": "/var/lib/filebrowser/Myproject",
+  "plugin": "",
   "allowCommands": true,
   "commands": [
     "ls",
@@ -31,12 +34,35 @@ github[filebrowser/filebrowser: 📂 Web File Browser](https://github.com/filebr
   ],
   "enableNewUser": false,
   "shell": "/bin/zsh",
-  "locale": "zh-cn"
+  "locale": "zh-cn",
+  "branding": {
+    "name": "Myproject",
+    "files": "/var/lib/filebrowser/Myproject/branding",
+    "disableExternal": true
 }
 ```
 
+```shell
+sudo ufw status      # Ubuntu
+sudo firewall-cmd --list-all  # CentOS
+```
+
+```shell title="放行8080端口"
+sudo ufw allow 8080/tcp
+```
+
+如果有端口已经占用
+
+```
+sudo lsof -i:8080
+```
+kill 掉对应的进程即可
+
+
 
 ### 配置服务
+
+`/etc/systemd/system/filebrowser.service`
 
 ```
 [Unit]
@@ -76,6 +102,75 @@ sudo systemctl status filebrowser
 
 可以使用url进行访问，但需要配置服务
 
+### 认证方式
+
+
+认证方式有三种
+```shell
+filebrowser config set --auth.method=json
+```
+```shell title="增加reCAPTCHA"
+filebrowser config set --auth.method=json \
+  --recaptcha.key site-key \
+  --recaptcha.secret private-key \
+  --recaptcha.host https://recaptcha.net
+```
+
+
+Proxy Header（代理头认证）
+
+描述：如果你通过 反向代理 登录用户，可以使用这个方式。代理在转发请求时，会在 HTTP header 里带上用户名，File Browser 读取 header 来识别用户。
+
+```shell
+filebrowser config set --auth.method=proxy --auth.header=X-My-Header
+```
+
+注意事项：
+
+- `X-My-Header` 是你的代理发送的 header 名称。
+- 非常信任代理：File Browser 会完全信任这个 header。
+- 如果代理被绕过或篡改，攻击者可能直接伪造 header 获取 admin 权限。
+
+No Authentication（无认证）
+
+描述：完全关闭认证，适合 私有网络或家用网络，无需登录即可访问。
+```shell
+filebrowser config set --auth.method=noauth
+```
 ## Custom
 
 [免费Favicon图标生成器 - 在线制作ICO、PNG、SVG网站图标 | Favicon.im](https://favicon.im/zh/generator)
+
+
+
+
+
+
+假设 /abs/path/to/my/dir 是你的品牌目录：
+
+
+```shell title="文件夹结构"
+/my-brand/
+  custom.css
+  img/
+    logo.svg
+    icons/
+      favicon.ico
+      favicon.svg
+```
+
+
+```shell
+filebrowser config set --branding.name "My Name" \
+  --branding.files "/abs/path/to/my/dir" \
+  --branding.disableExternal
+```
+
+
+## Debug
+
+```shell
+sudo tail -f /var/lib/filebrowser/filebrowser.log
+```
+
+

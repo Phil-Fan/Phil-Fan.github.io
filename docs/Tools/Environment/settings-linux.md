@@ -23,6 +23,10 @@ unzip name.zip -d 当前目录
 tar xvf name.tar 
 ```
 
+```shell title="如果是压缩包是.tar.gz后缀"
+tar -xzvf name.tar.gz -C /path/to/destination
+```
+
 
 ### 复制 scp
 

@@ -44,6 +44,8 @@ build
 
 ```shell title="打开模拟器"
 xcrun simctl list devices
+xcrun simctl create "iPhone 15" "iPhone 15" "iOS18.5"
+xcrun simctl boot 36291DE5-5BCF-4C05-A4E2-B1AE812D35C2
 ```
 ```
 open -a Simulator

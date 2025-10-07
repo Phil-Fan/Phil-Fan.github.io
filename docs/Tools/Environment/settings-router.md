@@ -23,6 +23,13 @@ L2TP 是 **第二层隧道协议**，主要用于 **VPN（虚拟专用网络）*
 - 支持 **PPP（点对点协议）**，可用于认证（如 PAP、CHAP）。
 - 性能比 **OpenVPN** 等协议更优，延迟较低。
 
+### 有线网配置
+
+参考
+
+- [[Linux]如何在Ubuntu上配置L2TP拨号以连接有线校园网 - CC98论坛](https://www.cc98.org/topic/5347389/1#1)
+- 
+
 
 
 
@@ -283,6 +290,8 @@ tg://socks?server=127.0.0.1&port=1080&remarks=ZJU Connect
 ZJU-Connect 服务配置[zju-connect/docs/service.md at main · Mythologyli/zju-connect](https://github.com/Mythologyli/zju-connect/blob/main/docs/service.md)
 
 [PlistEdit Pro - Advanced Mac plist and JSON editor](https://www.fatcatsoftware.com/plisteditpro/)
+
+
 
 
 ### Subconverter

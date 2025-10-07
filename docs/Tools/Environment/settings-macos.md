@@ -218,6 +218,16 @@ brew install mactex --cask
 
 等着就完事了
 
+## Gmail
+
+- `imap.gmail.com` DIRECT
+- `smtp.gmail.com` PROXY
+[mac邮件app无法接收Gmail邮件问题解决 | pxBang的个人博客](https://pxbang.github.io/2024/03/19/mac%E9%82%AE%E4%BB%B6app%E6%97%A0%E6%B3%95%E6%8E%A5%E6%94%B6Gmail%E9%82%AE%E4%BB%B6%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/)
+
+verge 上添加规则的方法：
+
+- 点击订阅
+- 右键 - 编辑规则
 
 ## 远程连接
 

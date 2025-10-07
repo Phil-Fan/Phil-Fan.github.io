@@ -29,7 +29,7 @@
 - 图层 ++alt+f10++
 
 
-### 自定义工作栏
+## 自定义工作栏
 
 在制作ppt的过程当中，我有以下两个痛点
 
@@ -53,7 +53,7 @@
 
 Tips：结合一下常用的快捷键可以极大提升效率
 
-## 如何使用
+### 如何使用
 
 1. 下载下面提供的文件
 2. 按照下面的方式导入
@@ -71,15 +71,49 @@ Tips：结合一下常用的快捷键可以极大提升效率
 
 ![](assets/powerpoint.assets/i1tqd30w.webp)
 
-## 颜色
+## 类Beamer模版分享
+
+Beamer画图还是太麻烦啦，如果有一些需要画图的场景还是ppt快捷一点
+
+我有一点路径依赖，之前用习惯了这个Beamer模版，就搞了一个差不多的ppt模版
+
+[下载链接 - 百度网盘](https://pan.baidu.com/s/15OrpVk_dAluFiWGVKpBznA?pwd=PHIL)
+
+另，前两天准备复试以及上学期两三个课用了这个模版，感觉用起来还可以
+
+![页面图](assets/powerpoint.assets/pq4hzuhv.webp)
+![页面图](assets/powerpoint.assets/s5v0krki.webp)
+
+
+
+**Feature**
+
+1. Beamer风格（Beamer可以理解为latex版的ppt），模版详见[光头不砍树 - Beamer模板 - CC98论坛](https://www.cc98.org/topic/6010737)（这个beamer我也做了一点点小小的贡献hhh，也是套娃上了）
+2. 使用“插钉子”方式（见蓝色方块），这样滑动滚轮的时候就不会切下一页，参考[菠萝雨凤梨 - 虽然很冷但蛮有用的知识 - CC98论坛](https://www.cc98.org/topic/5040791)；放了几个常用的色块，方便取色；使用表格做头栏，方便对齐
+3. 使用PPT母版管理页面，方便修改，有关PPT母版的使用详见 [菠萝雨凤梨 - 帮助你加速完成PPT的亿点技巧 - CC98论坛](https://www.cc98.org/topic/5069012)
+4. 中文我用的华文中宋or微软雅黑；西文就用了Times New Roman
+5. 内容上，我一般放一些项目的概述图、流程图（这部分就因人而异啦）
+6. 附录也放在谢谢老师后面，用来放回答问题时候的补充说明
+7. banner处也可以放一些透明背景的icon（比如项目logo，实验室logo等）
+
+![操作界面图](assets/powerpoint.assets/yo45yf1u.webp)
+![操作界面图](assets/powerpoint.assets/owymtk5s.webp)
+
+
+
+**Shortage**
+
+1. 幻灯片尺寸设置的较大（因为想画的图更清晰），所以最后做出来的复试ppt文件超过了100M
+2. 对于每一页的内容没有放太多样式或模版，都放的白纸（因为我就是手搓的🥲），这块可能需要自己画一下
+3. 没有放流程图之类的模版，蹲蹲大家的
 
 
 
 
 
+## 经验
 
-
-## 排版
+### 排版
 
 
 
@@ -99,7 +133,7 @@ Tips：结合一下常用的快捷键可以极大提升效率
 
 ![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/yv3l5mtz.jpg)
 
-## 字体
+### 字体
 
 衬线字体和非衬线字体
 
@@ -116,19 +150,11 @@ Tips：结合一下常用的快捷键可以极大提升效率
 - 非衬线字体往往用于较短的文字段落（比如PPT里的文字），这样会显得干净清楚，而且投影出来的效果好，适合观众阅读
 - 衬线字体往往用于大段落的文章，有较好的可读性；无论是word里老师推荐的字体，还是随便打开一本小说看到的印刷字体，基本都是宋体（如何分辨宋体——横细竖粗）
 
-## 动画
 
 
 
 
-
-## 背景图
-
-
-
-
-
-## 风格
+## 案例
 
 ### 毛玻璃
 
@@ -136,15 +162,15 @@ Tips：结合一下常用的快捷键可以极大提升效率
 
 ![img](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/ikbenmrr.jpg)
 
-## 手绘漫画
+### 手绘漫画
 
 ![image-20240414152111072](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240414152111072.png)
 
-## 竞赛风格
+### 竞赛风格
 
 ![image-20240414152150666](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240414152150666.png)
 
-## 学术风格
+### 学术风格
 
 
 
