@@ -3941,11 +3941,29 @@
       访问
     </span>
 </a>
+<nav aria-label="访问" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_6">
+<span class="md-ellipsis">
+      认证方式
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#custom">
 <span class="md-ellipsis">
       Custom
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#debug">
+<span class="md-ellipsis">
+      Debug
     </span>
 </a>
 </li>
@@ -4819,7 +4837,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../blog/archive/2025.html">
 <span class="md-ellipsis">
-    八月 2025
+    十月 2025
   </span>
 </a>
 </li>
@@ -4844,6 +4862,13 @@
 <a class="md-nav__link" href="../../blog/category/feelings.html">
 <span class="md-ellipsis">
     Feelings
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../blog/category/settings.html">
+<span class="md-ellipsis">
+    Settings
   </span>
 </a>
 </li>
@@ -4905,11 +4930,29 @@
       访问
     </span>
 </a>
+<nav aria-label="访问" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_6">
+<span class="md-ellipsis">
+      认证方式
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#custom">
 <span class="md-ellipsis">
       Custom
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#debug">
+<span class="md-ellipsis">
+      Debug
     </span>
 </a>
 </li>
@@ -4934,16 +4977,18 @@
 <p>github<a href="https://github.com/filebrowser/filebrowser">filebrowser/filebrowser: 📂 Web File Browser</a>
 <a href="https://github.com/maxant/filebrowser-docs/tree/master/cli">filebrowser-docs/cli at master · maxant/filebrowser-docs</a></p>
 <h2 id="_3">配置<a class="headerlink" href="#_3" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<p><a href="https://blog.gocn.top/posts/filebrowser/"><span>Filebrowser<span class="heti-spacing"> </span></span>部署<span><span class="heti-spacing"> </span>| gobai's notes</span></a>
-</p><div class="highlight"><pre><span></span><code><span class="p">{</span>
+<p><a href="https://blog.gocn.top/posts/filebrowser/"><span>Filebrowser<span class="heti-spacing"> </span></span>部署<span><span class="heti-spacing"> </span>| gobai's notes</span></a></p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">"port"</span><span class="p">:</span><span class="w"> </span><span class="mi">8080</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">"baseURL"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"baseURL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/files"</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0.0.0"</span><span class="p">,</span>
 
-<span class="w">  </span><span class="nt">"log"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/var/lib/filebrowser/filebrowser/filebrowser.log"</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">"database"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/var/lib/filebrowser/filebrowser/filebrowser.db"</span><span class="p">,</span>
-<span class="w">  </span>
-<span class="w">  </span><span class="nt">"root"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/var/lib/filebrowser/EE_files"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"log"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/var/lib/filebrowser/filebrowser.log"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"database"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/var/lib/filebrowser/filebrowser.db"</span><span class="p">,</span>
+
+<span class="w">  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Myproject"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"root"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/var/lib/filebrowser/Myproject"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"plugin"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">"allowCommands"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">"commands"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">    </span><span class="s2">"ls"</span><span class="p">,</span>
@@ -4951,10 +4996,24 @@
 <span class="w">  </span><span class="p">],</span>
 <span class="w">  </span><span class="nt">"enableNewUser"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">"shell"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/bin/zsh"</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">"locale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"zh-cn"</span>
+<span class="w">  </span><span class="nt">"locale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"zh-cn"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"branding"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Myproject"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"files"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/var/lib/filebrowser/Myproject/branding"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"disableExternal"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
 <span class="p">}</span>
 </code></pre></div>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>ufw<span class="w"> </span>status<span class="w">      </span><span class="c1"># Ubuntu</span>
+sudo<span class="w"> </span>firewall-cmd<span class="w"> </span>--list-all<span class="w">  </span><span class="c1"># CentOS</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">放行<span class="heti-skip"><span class="heti-spacing"> </span>8080<span class="heti-spacing"> </span></span>端口</span><pre><span></span><code>sudo<span class="w"> </span>ufw<span class="w"> </span>allow<span class="w"> </span><span class="m">8080</span>/tcp
+</code></pre></div>
+<p>如果有端口已经占用</p>
+<p></p><div class="highlight"><pre><span></span><code>sudo lsof -i:8080
+</code></pre></div>
+kill 掉对应的进程即可
 <h3 id="_4">配置服务<a class="headerlink" href="#_4" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p><code>/etc/systemd/system/filebrowser.service</code></p>
 <div class="highlight"><pre><span></span><code>[Unit]
 Description=File Browser Service
 After=network.target
@@ -4962,7 +5021,7 @@ After=network.target
 [Service]
 # 使用 filebrowser 用户运行
 &lt;div markdown="1" style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;"&gt;
-:material-circle-edit-outline: 约 111 个字 :fontawesome-solid-code: 22 行代码 :material-clock-time-two-outline: 预计阅读时间 1 分钟
+:material-circle-edit-outline: 约 302 个字 :fontawesome-solid-code: 49 行代码 :material-clock-time-two-outline: 预计阅读时间 2 分钟
 &lt;/div&gt;
 User=filebrowser
 Group=filebrowser
@@ -4990,14 +5049,53 @@ sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="
 </code></pre></div>
 <h2 id="_5">访问<a class="headerlink" href="#_5" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p>可以使用<span class="heti-skip"><span class="heti-spacing"> </span>url<span class="heti-spacing"> </span></span>进行访问，但需要配置服务</p>
+<h3 id="_6">认证方式<a class="headerlink" href="#_6" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>认证方式有三种
+</p><div class="highlight"><pre><span></span><code>filebrowser<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>--auth.method<span class="o">=</span>json
+</code></pre></div>
+<div class="highlight"><span class="filename">增加<span><span class="heti-spacing"> </span>reCAPTCHA</span></span><pre><span></span><code>filebrowser<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>--auth.method<span class="o">=</span>json<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--recaptcha.key<span class="w"> </span>site-key<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--recaptcha.secret<span class="w"> </span>private-key<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--recaptcha.host<span class="w"> </span>https://recaptcha.net
+</code></pre></div>
+<p>Proxy Header（代理头认证）</p>
+<p>描述：如果你通过 反向代理 登录用户，可以使用这个方式。代理在转发请求时，会在<span class="heti-skip"><span class="heti-spacing"> </span>HTTP header<span class="heti-spacing"> </span></span>里带上用户名，<span>File Browser<span class="heti-spacing"> </span></span>读取<span class="heti-skip"><span class="heti-spacing"> </span>header<span class="heti-spacing"> </span></span>来识别用户。</p>
+<div class="highlight"><pre><span></span><code>filebrowser<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>--auth.method<span class="o">=</span>proxy<span class="w"> </span>--auth.header<span class="o">=</span>X-My-Header
+</code></pre></div>
+<p>注意事项：</p>
+<ul>
+<li><code>X-My-Header</code> 是你的代理发送的<span class="heti-skip"><span class="heti-spacing"> </span>header<span class="heti-spacing"> </span></span>名称。</li>
+<li>非常信任代理：<span>File Browser<span class="heti-spacing"> </span></span>会完全信任这个<span><span class="heti-spacing"> </span>header</span>。</li>
+<li>如果代理被绕过或篡改，攻击者可能直接伪造<span class="heti-skip"><span class="heti-spacing"> </span>header<span class="heti-spacing"> </span></span>获取<span class="heti-skip"><span class="heti-spacing"> </span>admin<span class="heti-spacing"> </span></span>权限。</li>
+</ul>
+<p>No Authentication（无认证）</p>
+<p>描述：完全关闭认证，适合 私有网络或家用网络，无需登录即可访问。
+</p><div class="highlight"><pre><span></span><code>filebrowser<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>--auth.method<span class="o">=</span>noauth
+</code></pre></div>
 <h2 id="custom">Custom<a class="headerlink" href="#custom" title="anchor link to this section for reference">¶</a></h2>
-<p><a href="https://favicon.im/zh/generator">免费<span class="heti-skip"><span class="heti-spacing"> </span>Favicon<span class="heti-spacing"> </span></span>图标生成器<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>在线制作<span><span class="heti-spacing"> </span>ICO</span>、PNG、<span>SVG<span class="heti-spacing"> </span></span>网站图标<span><span class="heti-spacing"> </span>| Favicon.im</span></a></p></div>
+<p><a href="https://favicon.im/zh/generator">免费<span class="heti-skip"><span class="heti-spacing"> </span>Favicon<span class="heti-spacing"> </span></span>图标生成器<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>在线制作<span><span class="heti-spacing"> </span>ICO</span>、PNG、<span>SVG<span class="heti-spacing"> </span></span>网站图标<span><span class="heti-spacing"> </span>| Favicon.im</span></a></p>
+<p>假设<span class="heti-skip"><span class="heti-spacing"> </span>/abs/path/to/my/dir<span class="heti-spacing"> </span></span>是你的品牌目录：</p>
+<div class="highlight"><span class="filename">文件夹结构</span><pre><span></span><code>/my-brand/
+<span class="w">  </span>custom.css
+<span class="w">  </span>img/
+<span class="w">    </span>logo.svg
+<span class="w">    </span>icons/
+<span class="w">      </span>favicon.ico
+<span class="w">      </span>favicon.svg
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>filebrowser<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>--branding.name<span class="w"> </span><span class="s2">"My Name"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--branding.files<span class="w"> </span><span class="s2">"/abs/path/to/my/dir"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--branding.disableExternal
+</code></pre></div>
+<h2 id="debug">Debug<a class="headerlink" href="#debug" title="anchor link to this section for reference">¶</a></h2>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>tail<span class="w"> </span>-f<span class="w"> </span>/var/lib/filebrowser/filebrowser.log
+</code></pre></div></div>
 <aside class="md-source-file">
 <span class="md-source-file__fact">
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年9月25日 22:26:59</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年10月7日 13:58:05</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">
