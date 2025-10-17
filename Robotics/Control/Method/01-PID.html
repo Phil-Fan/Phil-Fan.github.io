@@ -5329,7 +5329,7 @@
 </div>
 <p><span>PID<span class="heti-spacing"> </span></span>控制是比例积分微分控制的简称，将偏差的比例<span><span class="heti-spacing"> </span>(P)</span>、积分<span class="heti-skip"><span class="heti-spacing"> </span>(I)<span class="heti-spacing"> </span></span>和微分<span class="heti-skip"><span class="heti-spacing"> </span>(D)<span class="heti-spacing"> </span></span>通过线性组合构成控制量。</p>
 <p>至今在全世界过程控制中用的<span class="heti-skip"><span class="heti-spacing"> </span>84%<span class="heti-spacing"> </span></span>仍是纯<span class="heti-skip"><span class="heti-spacing"> </span>PID<span class="heti-spacing"> </span></span>调节器，若改进型包含在内则超过<span><span class="heti-spacing"> </span>90%</span>。</p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/202505021358585.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__01-PID.assets__202505021358585.webp"/></p>
 <h2 id="_1">建模<a class="headerlink" href="#_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <h3 id="_2">连续系统<a class="headerlink" href="#_2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">时域形式</label><label for="__tabbed_1_2">频域形式</label></div>
@@ -5356,7 +5356,7 @@ G_c(s) = K_c \left( 1 + \frac{1}{\tau_I s} + \tau_D s \right)
 </div>
 </div>
 </div>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240925141821.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__01-PID.assets__20240925141821.webp"/></p>
 <h3 id="-pid">离散<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>位置式<span><span class="heti-spacing"> </span>PID</span><a class="headerlink" href="#-pid" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <div class="arithmatex">\[
 u(k) = K_c \left\{ e(k) + \frac{T_s}{\tau_I} \sum_{j=0}^{k} e(j) + \frac{\tau_D}{T_s} [e(k) - e(k-1)] \right\} + u_0
@@ -5437,21 +5437,21 @@ u(k)=u(k-1)+\Delta u(k)
 <h3 id="_4">结构形式<a class="headerlink" href="#_4" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ul>
 <li>并联式：<span class="arithmatex">\(G_c(s)=K_c(1+\frac{1}{\tau_Is}+\tau_Ds)\)</span>
-<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250502142631.png"/></li>
+<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__01-PID.assets__20250502142631.webp"/></li>
 </ul>
 <ul>
 <li>串联式：<span class="arithmatex">\(G_c(s)=K_c(1+\frac{1}{\tau_Is})(1+\tau_Ds)\)</span>
-<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250502142654.png"/></li>
+<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__01-PID.assets__20250502142654.webp"/></li>
 </ul>
 <h3 id="_5">可视化<a class="headerlink" href="#_5" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p><a href="https://www.longluo.me/blog/2023/05/05/pid/">智能控制系统的灵魂：深入研究<span class="heti-skip"><span class="heti-spacing"> </span>PID<span class="heti-spacing"> </span></span>控制器的算法逻辑<span><span class="heti-spacing"> </span>| Long Luo's Life Notes</span></a></p>
 <p>使用教程讲述了单级<span class="heti-skip"><span class="heti-spacing"> </span>PID<span class="heti-spacing"> </span></span>和串级<span class="heti-skip"><span class="heti-spacing"> </span>PID<span class="heti-spacing"> </span></span>的基本实现。可以动态调节参数对小球进行控制
 <a href="https://pid-simulator-web.skythinker.top/">PID Simulator</a>
-<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240925140315.png"/></p>
+<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__01-PID.assets__20240925140315.webp"/></p>
 <p><a href="https://www.longluo.me/projects/pid/"><span>PID<span class="heti-spacing"> </span></span>小球</a></p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240925143658.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__01-PID.assets__20240925143658.webp"/></p>
 <p><a href="https://www.longluo.me/projects/pidcart/"><span>PID Balancer | PID<span class="heti-spacing"> </span></span>平衡车</a>
-<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240925134951.png"/></p>
+<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__01-PID.assets__20240925134951.webp"/></p>
 <h2 id="_6">控制器分类<a class="headerlink" href="#_6" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <h3 id="p">P<a class="headerlink" href="#p" title="anchor link to this section for reference">¶</a></h3>
 <h3 id="pd">PD<a class="headerlink" href="#pd" title="anchor link to this section for reference">¶</a></h3>
@@ -5480,8 +5480,8 @@ u(k)=u(k-1)+\Delta u(k)
 <h4 id="kp">粗调<span><span class="heti-spacing"> </span>KP</span><a class="headerlink" href="#kp" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <ol>
 <li>先将积分、微分系数置零，这样系统就是纯比例控制。接着<strong>逐渐增大比例系数<span><span class="heti-spacing"> </span>P</span>，直至系统出现振荡</strong>；
-<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240925142009.png"/>
-<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240925142034.png"/>
+<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__01-PID.assets__20240925142009.webp"/>
+<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__01-PID.assets__20240925142034.webp"/>
 当然，看到上面这个现象，一定要先确认一下系统硬件是否出现问题，比如电机堵转，电压不稳等，先排除硬件问题。</li>
 </ol>
 <div class="admonition note">
@@ -5493,12 +5493,12 @@ u(k)=u(k-1)+\Delta u(k)
 </div>
 <ol>
 <li>我们可以看到上面比例系数过大，导致系统震荡，超调量很大。接着再逐渐减小比例系数，直至系统振荡消失。
-<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240925142217.png"/></li>
+<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__01-PID.assets__20240925142217.webp"/></li>
 </ol>
 <h4 id="kd">调整<span><span class="heti-spacing"> </span>Kd</span><a class="headerlink" href="#kd" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <ol>
 <li>为了抑制这个小幅度超调，我们<strong>逐步增加微分比例系数<span class="heti-skip"><span class="heti-spacing"> </span>D,<span class="heti-spacing"> </span></span>直至超调量基本消失</strong>，如果此时效果较较佳，就不用考虑引入积分环节。
-<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240925142312.png"/></li>
+<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__01-PID.assets__20240925142312.webp"/></li>
 </ol>
 <p>如上图我们可以看到引入微分环节之后，上升时间很短，超调量没有了，但是出现了静态误差。</p>
 <div class="admonition note">
@@ -5557,7 +5557,7 @@ u(k)=u(k-1)+\Delta u(k)
 </tbody>
 </table>
 <h3 id="_11">临界比例法<a class="headerlink" href="#_11" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250502143126.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__01-PID.assets__20250502143126.webp"/></p>
 <p>① 设置<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\tau_I = \infty\)</span><span class="heti-spacing"> </span></span>和<span><span class="heti-spacing"> </span><span class="arithmatex">\(\tau_D = 0\)</span></span>，去除积分与微分作用</p>
 <p>② 在纯比例作用下，<span><span class="arithmatex">\(K_c\)</span><span class="heti-spacing"> </span></span>从小到大逐一尝试，使系统产生等幅振荡</p>
 <p>③ 获得临界增益<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(K_{cu}\)</span><span class="heti-spacing"> </span></span>和临界振荡周期<span><span class="heti-spacing"> </span><span class="arithmatex">\(P_{cu}\)</span></span></p>
@@ -5769,7 +5769,7 @@ G_c(s) = \frac{\tau s + 1}{K} \cdot \frac{1}{(\tau_c + \theta) s} = \frac{\tau}{
 </div>
 <h3 id="imc"><span>IMC<span class="heti-spacing"> </span></span>整定方法<a class="headerlink" href="#imc" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>内模控制<span class="heti-skip"><span class="heti-spacing"> </span>( Internal Model Control,<span class="heti-spacing"> </span></span>简称<span class="heti-skip"><span class="heti-spacing"> </span>IMC)<span class="heti-spacing"> </span></span>是<span class="heti-skip"><span class="heti-spacing"> </span>1982<span class="heti-spacing"> </span></span>年由<span class="heti-skip"><span class="heti-spacing"> </span>Garcia<span class="heti-spacing"> </span></span>等人提出的，由于它的跟踪调节性能好，鲁棒性强，能消除不可测干扰的影响，设计比较简单，成了一种设计与分析控制系统的有力工具</p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/202505021518342.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__01-PID.assets__202505021518342.webp"/></p>
 <div class="admonition example">
 <p class="admonition-title"><span>IMC<span class="heti-spacing"> </span></span>整定</p>
 <div class="arithmatex">\[
@@ -5881,7 +5881,7 @@ u(k-1) + K_p (e(k) - e(k-1)) &amp; |e(k)| &gt; \Delta
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年7月10日 00:40:31</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年10月17日 20:24:06</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">

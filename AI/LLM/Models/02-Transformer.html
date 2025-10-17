@@ -5332,7 +5332,7 @@ This browser does not support PDFs
 <li>长度固定</li>
 <li>局部信息的获取不如<span class="heti-skip"><span class="heti-spacing"> </span>RNN<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>CNN<span class="heti-spacing"> </span></span>强：<span>Transformer<span class="heti-spacing"> </span></span>关注的全局关系，而<span class="heti-skip"><span class="heti-spacing"> </span>RNN<span class="heti-spacing"> </span></span>在计算过程中更关注局部，对距离更加敏感</li>
 </ul>
-<p><img alt="" src="assets/02-Transformer.assets/202507022301371.webp"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Models__assets__02-Transformer.assets__202507022301371.webp"/></p>
 <blockquote>
 <p>图源<span><span class="heti-spacing"> </span>Attention is all you need</span></p>
 </blockquote>
@@ -5351,7 +5351,7 @@ Output = LayerNorm(x + Sublayer(x))
 <p>通过直接将输入加到子层的输出上，使得深层网络中的信号能够直接传递到较浅层，有助于缓解梯度消失问题。</p>
 <h3 id="layer-norm">Layer Norm<a class="headerlink" href="#layer-norm" title="anchor link to this section for reference">¶</a></h3>
 <p><span>BatchNorm<span class="heti-spacing"> </span></span>是对一个<span class="heti-skip"><span class="heti-spacing"> </span>batch-size<span class="heti-spacing"> </span></span>样本内的每个特征<strong>分别</strong>做归一化，<span>LayerNorm<span class="heti-spacing"> </span></span>是分别对每个样本的所有特征做归一化。</p>
-<p><img alt="" src="assets/02-Transformer.assets/202507030922846.webp"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Models__assets__02-Transformer.assets__202507030922846.webp"/></p>
 <p><span>BN<span class="heti-spacing"> </span></span>抹杀了不同特征之间的大小关系，但是保留了不同样本间的大小关系；<span>LN<span class="heti-spacing"> </span></span>抹杀了不同样本间的大小关系，但是保留了一个样本内不同特征之间的大小关系。</p>
 <p><strong>layer normalization:</strong> 对每个样本进行归一化，计算<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(m_x\)</span><span class="heti-spacing"> </span></span>和<span><span class="heti-spacing"> </span><span class="arithmatex">\(\sigma_x\)</span></span>，然后归一化<span><span class="heti-spacing"> </span><span class="arithmatex">\(x_i' = \frac{x_i - m_x}{\sigma_x}\)</span></span></p>
 <p><strong>batch normalization:</strong> 对每个<span class="heti-skip"><span class="heti-spacing"> </span>feture<span class="heti-spacing"> </span></span>进行归一化</p>
@@ -5384,7 +5384,7 @@ This browser does not support PDFs
 <div class="arithmatex">\[
 FFN(x) = max(0, xW_1 + b_1)W_2 + b_2
 \]</div>
-<p><img alt="" src="assets/02-Transformer.assets/202507040928454.webp"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Models__assets__02-Transformer.assets__202507040928454.webp"/></p>
 <ul>
 <li><span><span class="arithmatex">\(x\)</span>: 512<span class="heti-spacing"> </span></span>维</li>
 </ul>
@@ -5415,7 +5415,7 @@ ReLU \rightarrow GELU \rightarrow Swish(SiLU) \rightarrow SwiGLU
 <p>过去时候的输出，作为现在的输入</p>
 <p>有点类似于最近图书馆里面的拼贴诗接龙游戏</p>
 </div>
-<p><img alt="" src="assets/02-Transformer.assets/202507030949023.webp"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Models__assets__02-Transformer.assets__202507030949023.webp"/></p>
 <blockquote>
 <p>图源 李宏毅老师<span><span class="heti-spacing"> </span>ppt</span></p>
 </blockquote>
@@ -5427,7 +5427,7 @@ ReLU \rightarrow GELU \rightarrow Swish(SiLU) \rightarrow SwiGLU
 <h3 id="mask">Mask<a class="headerlink" href="#mask" title="anchor link to this section for reference">¶</a></h3>
 <p>Mask：不要让后面的<span class="heti-skip"><span class="heti-spacing"> </span>token<span class="heti-spacing"> </span></span>影响前面的，在<span class="heti-skip"><span class="heti-spacing"> </span>softmax<span class="heti-spacing"> </span></span>之前把左下角矩阵改成负无穷</p>
 <p>处理结果，在<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(t\)</span><span class="heti-spacing"> </span></span>时刻的值，只看<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(t-1\)</span><span class="heti-spacing"> </span></span>及之前的<span><span class="heti-spacing"> </span>Q</span>、K</p>
-<p><img alt="" src="assets/02-Transformer.assets/202507041132597.webp" width="50%"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Models__assets__02-Transformer.assets__202507041132597.webp" width="50%"/></p>
 <div class="admonition note">
 <p class="admonition-title">why masked</p>
 <p>让输入序列只看到过去的信息，而看不到未来的信息。</p>
@@ -5443,14 +5443,14 @@ ReLU \rightarrow GELU \rightarrow Swish(SiLU) \rightarrow SwiGLU
 <h3 id="cross-attention">Cross-attention<a class="headerlink" href="#cross-attention" title="anchor link to this section for reference">¶</a></h3>
 <p>交互方式：
 Cross Self-attention，Decoder提供<span class="arithmatex">\(Q\)</span>，Encoder提供<span class="arithmatex">\(K\)</span>，<span class="arithmatex">\(V\)</span>。</p>
-<p><img alt="" src="assets/02-Transformer.assets/202507030934992.webp" width="40%"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Models__assets__02-Transformer.assets__202507030934992.webp" width="40%"/></p>
 <p><span>Query<span class="heti-spacing"> </span></span>来自下一个<span class="heti-skip"><span class="heti-spacing"> </span>attention<span class="heti-spacing"> </span></span>的输入 </p>
 <p>如果解码器的<span class="heti-skip"><span class="heti-spacing"> </span>Query<span class="heti-spacing"> </span></span>与编码器输出的<span class="heti-skip"><span class="heti-spacing"> </span>key<span class="heti-spacing"> </span></span>相似度较高，那么给予更高的<span><span class="heti-spacing"> </span>attention</span></p>
 <p>相当于根据解码器的输入，去挑选编码器中感兴趣的东西</p>
 <h2 id="_4">训练<a class="headerlink" href="#_4" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <h3 id="_5">参数数量<a class="headerlink" href="#_5" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p><span>Transformer<span class="heti-spacing"> </span></span>看起来模型比较复杂，但几乎没有什么可以调节的参数，大部分都是可以根据比例算的。</p>
-<p><img alt="" src="assets/02-Transformer.assets/202507022311529.webp"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Models__assets__02-Transformer.assets__202507022311529.webp"/></p>
 <blockquote>
 <p>图源<span><span class="heti-spacing"> </span>Attention is all you need</span></p>
 </blockquote>
@@ -5670,12 +5670,12 @@ pip<span class="w"> </span>install<span class="w"> </span>zh_core_web_sm-3.6.0-p
 <h4 id="_11">训练结果<a class="headerlink" href="#_11" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p>这里使用的是<span class="heti-skip"><span class="heti-spacing"> </span>Multi30K<span class="heti-spacing"> </span></span>数据集</p>
 <p><span>en2de<span class="heti-spacing"> </span></span>训练结果</p>
-<!-- ![image-20250706135450331](assets/00-Settings.assets/image-20250706135450331.webp)
+<!-- ![](assets/00-Settings.assets/image-20250706135450331.webp)
 
 
 de2en训练结果
 
-![image-20250706135404376](assets/00-Settings.assets/image-20250706135404376.webp) -->
+![](assets/00-Settings.assets/image-20250706135404376.webp) -->
 <h2 id="_12">拓展<a class="headerlink" href="#_12" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <h3 id="decoder-nat">Decoder - NAT<a class="headerlink" href="#decoder-nat" title="anchor link to this section for reference">¶</a></h3>
 <p>non-autoregressive model</p>
@@ -5710,7 +5710,7 @@ de2en训练结果
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年8月23日 01:47:33</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年10月17日 20:24:06</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">

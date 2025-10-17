@@ -4941,15 +4941,15 @@
 </tr>
 </tbody>
 </table>
-<p>拨打信息中心电话<span><span class="heti-spacing"> </span>0571-87951669</span>，问他们</p>
+<p>拨打信息中心电话<code>0571-87951669</code>，转<span><span class="heti-spacing"> </span>0</span></p>
 <ul>
 <li>你所在实验室的<span class="heti-skip"><span class="heti-spacing"> </span>IP<span class="heti-spacing"> </span></span>地址<code>$LOCAL_IP</code></li>
 <li>默认网关<code>$LOCAL_GW</code></li>
 <li>DNS<code>$DNS_SERVER</code></li>
 </ul>
 <h3 id="_2"><a class="toclink" href="../2025/10/07/linux-l2tp-vpn-%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%BD%91%E7%BB%9C%E8%B0%83%E8%AF%95.html#_2">二、常用工具安装</a></h3>
-<p>1️⃣ 安装网络基础工具包
-</p><div class="highlight"><span class="filename">安装网络基础工具包</span><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update
+<p>1️⃣ 安装网络基础工具包</p>
+<div class="highlight"><span class="filename">安装网络基础工具包</span><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update
 sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>net-tools<span class="w"> </span>-y
 </code></pre></div>
 <blockquote>
@@ -4968,23 +4968,33 @@ sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> <
 nslookup<span class="w"> </span>www.baidu.com
 traceroute<span class="w"> </span>www.google.com
 </code></pre></div>
+<div class="highlight"><pre><span></span><code>sudo apt install xl2tpd strongswan ppp -y
+</code></pre></div>
 <h3 id="l2tp"><a class="toclink" href="../2025/10/07/linux-l2tp-vpn-%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%BD%91%E7%BB%9C%E8%B0%83%E8%AF%95.html#l2tp">三、<span>L2TP<span class="heti-spacing"> </span></span>基础配置</a></h3>
+<div class="highlight"><span class="filename">配置<span class="heti-skip"><span class="heti-spacing"> </span>IP<span class="heti-spacing"> </span></span>地址</span><pre><span></span><code>sudo<span class="w"> </span>ip<span class="w"> </span>addr<span class="w"> </span>flush<span class="w"> </span>dev<span class="w"> </span>eth0
+sudo<span class="w"> </span>ip<span class="w"> </span>addr<span class="w"> </span>add<span class="w"> </span><span class="m">10</span>.15.192.59/24<span class="w"> </span>dev<span class="w"> </span>eth0
+sudo<span class="w"> </span>ip<span class="w"> </span>link<span class="w"> </span><span class="nb">set</span><span class="w"> </span>eth0<span class="w"> </span>up
+sudo<span class="w"> </span>ip<span class="w"> </span>route<span class="w"> </span>add<span class="w"> </span>default<span class="w"> </span>via<span class="w"> </span><span class="m">10</span>.15.192.1<span class="w"> </span>dev<span class="w"> </span>eth0
+</code></pre></div>
+<p><span>eth0<span class="heti-spacing"> </span></span>是网卡名称，需要根据实际情况修改。</p>
+<div class="highlight"><pre><span></span><code>ping<span class="w"> </span>-c<span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">10</span>.15.192.1
+</code></pre></div>
 <h4 id="1-l2tp"><a class="toclink" href="../2025/10/07/linux-l2tp-vpn-%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%BD%91%E7%BB%9C%E8%B0%83%E8%AF%95.html#1-l2tp">1️⃣ 编辑<span class="heti-skip"><span class="heti-spacing"> </span>L2TP<span class="heti-spacing"> </span></span>配置文件</a></h4>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>vi<span class="w"> </span>/etc/xl2tpd/xl2tpd.conf
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="k">[lac ZJU_VPN]</span>
-<span class="na">lns</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">$VPN_SERV</span>
+<span class="na">lns</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">10.5.1.7</span>
 <span class="na">redial</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span>
 <span class="na">redial timeout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">15</span>
 <span class="na">max redials</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">5</span>
 <span class="na">require pap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">no</span>
 <span class="na">require chap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span>
 <span class="na">require authentication</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">yes</span>
-<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">$USER_NAME@$SERVICE_TYPE</span>
+<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">$student_id@$SERVICE_TYPE</span>
 <span class="na">ppp debug</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">no</span>
 <span class="na">pppoptfile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">/etc/ppp/options.xl2tpd.zju</span>
 </code></pre></div>
-<p>浙大有<span class="heti-skip"><span class="heti-spacing"> </span>10<span class="heti-spacing"> </span></span>元<span class="heti-skip"><span class="heti-spacing"> </span>30<span class="heti-spacing"> </span></span>元<span class="heti-skip"><span class="heti-spacing"> </span>50<span class="heti-spacing"> </span></span>元三个档网费，分别对应的使用域是<span><span class="heti-spacing"> </span>a,c,d</span></p>
+<p><span>service_type<span class="heti-spacing"> </span></span>浙大有<span class="heti-skip"><span class="heti-spacing"> </span>10<span class="heti-spacing"> </span></span>元<span class="heti-skip"><span class="heti-spacing"> </span>30<span class="heti-spacing"> </span></span>元<span class="heti-skip"><span class="heti-spacing"> </span>50<span class="heti-spacing"> </span></span>元三个档网费，分别对应的使用域是<span><span class="heti-spacing"> </span>a,c,d</span></p>
 <h4 id="2-ppp"><a class="toclink" href="../2025/10/07/linux-l2tp-vpn-%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%BD%91%E7%BB%9C%E8%B0%83%E8%AF%95.html#2-ppp">2️⃣ 创建<span class="heti-skip"><span class="heti-spacing"> </span>PPP<span class="heti-spacing"> </span></span>选项文件</a></h4>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>vi<span class="w"> </span>/etc/ppp/options.xl2tpd.zju
 </code></pre></div>
@@ -5005,7 +5015,7 @@ traceroute<span class="w"> </span>www.google.com
 <span class="nb">echo</span><span class="w"> </span><span class="s2">"c ZJU_VPN"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>/var/run/xl2tpd/l2tp-control
 </code></pre></div>
 <p>拨号成功后，用以下命令查看新建的<span class="heti-skip"><span class="heti-spacing"> </span>PPP<span class="heti-spacing"> </span></span>接口：</p>
-<div class="highlight"><pre><span></span><code>ifconfig<span class="w"> </span><span class="nv">$PPP_DEV</span>
+<div class="highlight"><pre><span></span><code>ifconfig<span class="w"> </span>ppp0
 </code></pre></div>
 <h3 id="_4"><a class="toclink" href="../2025/10/07/linux-l2tp-vpn-%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%BD%91%E7%BB%9C%E8%B0%83%E8%AF%95.html#_4">五、路由配置原则</a></h3>
 <p><span>VPN<span class="heti-spacing"> </span></span>连接后需要手动调整路由，以保证：</p>
@@ -5015,6 +5025,8 @@ traceroute<span class="w"> </span>www.google.com
 </ol>
 <hr/>
 <h4 id="_5"><a class="toclink" href="../2025/10/07/linux-l2tp-vpn-%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%BD%91%E7%BB%9C%E8%B0%83%E8%AF%95.html#_5">✅ 推荐配置命令</a></h4>
+<div class="highlight"><pre><span></span><code>sudo ip route flush dev enP2p1s0
+</code></pre></div>
 <div class="highlight"><span class="filename">保证<span class="heti-skip"><span class="heti-spacing"> </span>VPN<span class="heti-spacing"> </span></span>服务器仍能通过原网关访问</span><pre><span></span><code>sudo<span class="w"> </span>route<span class="w"> </span>add<span class="w"> </span>-host<span class="w"> </span><span class="nv">$VPN_SERV</span><span class="w"> </span>gw<span class="w"> </span><span class="nv">$LOCAL_GW</span><span class="w"> </span>metric<span class="w"> </span><span class="m">1</span><span class="w"> </span>dev<span class="w"> </span><span class="nv">$ETH_DEV</span>
 </code></pre></div>
 <div class="highlight"><span class="filename">删除旧的默认网关</span><pre><span></span><code>sudo<span class="w"> </span>route<span class="w"> </span>del<span class="w"> </span>default<span class="w"> </span>gw<span class="w"> </span><span class="nv">$LOCAL_GW</span>

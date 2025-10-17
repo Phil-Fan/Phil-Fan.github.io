@@ -5354,9 +5354,9 @@
      - 根据积累的经验和知识进行在线推理，确定控制策略。<br/>
      - 在 <strong>精度和不确定性</strong> 之间 折中 <br/></p>
 <p><span>=== "<span class="heti-spacing"> </span></span>知识框架<span><span class="heti-spacing"> </span>"</span></p>
-<div class="highlight"><pre><span></span><code> ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241107134330.png)&lt;br&gt;
+<div class="highlight"><pre><span></span><code> ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__05-Intelligent.assets__20241107134330.webp)&lt;br&gt;
 
- ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241107135609.png)&lt;br&gt;
+ ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__05-Intelligent.assets__20241107135609.webp)&lt;br&gt;
 </code></pre></div>
 <p><span>=== "<span class="heti-spacing"> </span></span>作业<span><span class="heti-spacing"> </span>"</span>
      递阶控制、专家控制、模糊控制和神经网络控制各有一个小作业<br/>
@@ -5424,7 +5424,7 @@
 <li>数据驱动： 神经网络</li>
 </ul>
 <h2 id="hierarchical-control">递阶控制<span><span class="heti-spacing"> </span>| Hierarchical Control</span><a class="headerlink" href="#hierarchical-control" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241115112217.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__05-Intelligent.assets__20241115112217.webp"/></p>
 <iframe height="600px" src="https://wuhua.cug.edu.cn/__local/B/A1/9D/1850F4F1F9922A6F917E10E40B6_BDCC55BC_10D898.pdf" style="border: none;" width="100%">
 This browser does not support PDFs
 </iframe>
@@ -5445,7 +5445,7 @@ This browser does not support PDFs
 <p>智能控制系统的最低层级，要求具有很高的精度，并由控制理论进行控制。</p>
 <p>执行级为直接控制级，其各个控制器分别控制被控对象的一部分；</p>
 <p><strong>多级多目标结构</strong></p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241115115601.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__05-Intelligent.assets__20241115115601.webp"/></p>
 <ol>
 <li><strong>系统组成</strong>：系统由若干个可分的、相互关联的子系统组成。</li>
 <li><strong>决策单元排列</strong>：所有决策单元按一定支配关系递阶排列。</li>
@@ -5475,7 +5475,7 @@ R = K/T
 <div class="arithmatex">\[ 
 (MI):(DB) \rightarrow (R) 
 \]</div>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241115112758.png"/>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__05-Intelligent.assets__20241115112758.webp"/>
 - 若知识流量不变，增大数据库DB的熵将减少机器智能MI的熵。
 - 知识流R在信息理论意义上代表系统的工作能力。
 - 建立和执行任务期间，知识流量一般不变。</p>
@@ -5487,10 +5487,10 @@ R = K/T
 <p class="admonition-title">递阶智能控制的实质</p>
 <p>在结构上遵循精度随智能降低而提高（ IPDI ）的原理，寻求系统的正确决策与控制序列，能够使系统的总熵为最小。</p>
 </div>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241115113315.png"/></p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241115113452.png"/>
-<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241115113459.png"/>
-<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241115113510.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__05-Intelligent.assets__20241115113315.webp"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__05-Intelligent.assets__20241115113452.webp"/>
+<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__05-Intelligent.assets__20241115113459.webp"/>
+<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__05-Intelligent.assets__20241115113510.webp"/></p>
 <details class="example">
 <summary>智能机器人控制系统</summary>
 <p><strong>学习级（组织级）</strong>
@@ -5500,8 +5500,8 @@ R = K/T
 <p><strong>适应级（执行级）</strong>
 神经网络、作为机器人的控制器以适应
 技能级生成的控制参考信号。</p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241115113721.png"/>
-<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241115113755.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__05-Intelligent.assets__20241115113721.webp"/>
+<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__05-Intelligent.assets__20241115113755.webp"/></p>
 <p>协调级：<span>Petri<span class="heti-spacing"> </span></span>网翻译器；语言决策树
 组织级：Boltzmann机；语言决策树；自动机</p>
 </details>
@@ -5510,9 +5510,9 @@ R = K/T
 - 分级递阶控制
 - 分散控制
 - 自治性与协调性
-<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241115114228.png"/></p>
+<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__05-Intelligent.assets__20241115114228.webp"/></p>
 <h3 id="hw01-"><span>HW01-<span class="heti-spacing"> </span></span>递阶控制<a class="headerlink" href="#hw01-" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241115114628.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__05-Intelligent.assets__20241115114628.webp"/></p>
 <p>如图所示的多机器人协作系统由三个机器人组成，分别为两个悬挂移动式多关节机器人（<span>SMR1<span class="heti-spacing"> </span></span>和<span><span class="heti-spacing"> </span>SMR2</span>）和一个地面移动式多关节机器人（GMR<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。</p>
 <p><span>SMR1<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>SMR2<span class="heti-spacing"> </span></span>的主体是两个七关节式机器人，悬挂在一个固定在顶部的方形托架上，它们的移动支架都能够沿着悬挂导轨在方形托架的允许范围内移动。<span>GMR<span class="heti-spacing"> </span></span>的主体是六关节式机器人<span><span class="heti-spacing"> </span>HP3</span>，安装在一个轮式移动基座<span class="heti-skip"><span class="heti-spacing"> </span>PowerBot<span class="heti-spacing"> </span></span>上，能够在地面上随意移动。</p>
 <p>系统配置三级视觉系统，第一级为全局的外部三维点云相机，第二级为装在机械臂腕部的深度相机，第三级为装在机械臂手抓中心的摄像头。各机械臂均配备力矩传感器。</p>
@@ -5523,9 +5523,9 @@ R = K/T
 <h3 id="_5">概念<a class="headerlink" href="#_5" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>应用专家系统概念和技术，模拟人类专家的控制知识与经验而建造的控制系统，称为专家控制系统。</p>
 <p>专家系统的基本功能取决于它所含有的知识，因此，专家系统称为基于知识的系统（ knowledge based system ）</p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241115215810.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__05-Intelligent.assets__20241115215810.webp"/></p>
 <h3 id="_6">结构、类型与设计<a class="headerlink" href="#_6" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241107135241.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__05-Intelligent.assets__20241107135241.webp"/></p>
 <ol>
 <li>
 <p><strong>知识库</strong>：</p>
@@ -5557,7 +5557,7 @@ R = K/T
 <h3 id="pid">专家<span class="heti-skip"><span class="heti-spacing"> </span>PID<span class="heti-spacing"> </span></span>控制<a class="headerlink" href="#pid" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <h3 id="_7">应用<a class="headerlink" href="#_7" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <h3 id="hw02-"><span>HW02-<span class="heti-spacing"> </span></span>专家控制<a class="headerlink" href="#hw02-" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241115215028.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__05-Intelligent.assets__20241115215028.webp"/></p>
 <p>如图所示为车载倒立摆系统，一辆小车在水平轨道上移动，小车上有一个可绕固定点转动的倒立摆。控制小车在水平方向的移动可使摆杆维持直立不倒，这和手掌移动可使直立木棒不倒的现象类似。
 d
 忽略车轮与地面的摩擦力等阻力，可推导出车载倒立摆的动力学方程如下：</p>
@@ -5637,7 +5637,7 @@ F(k) = F(k-1) + K \left[ K_p \Delta \theta (k) + \frac{T}{T_i} \theta (k) + \fra
 <p>针对不同的初始夹角<span><span class="heti-spacing"> </span><span class="arithmatex">\(\theta(0)\)</span></span>，给出专家<span class="heti-skip"><span class="heti-spacing"> </span>PID<span class="heti-spacing"> </span></span>控制的结果<heti-adjacent class="heti-adjacent-half">。</heti-adjacent>（可能需要调整相关参数<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\theta_1, \theta_2, \theta_m\)</span><span class="heti-spacing"> </span></span>和<span><span class="heti-spacing"> </span><span class="arithmatex">\(K_s, K_b\)</span></span>）</p>
 </li>
 </ol>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241203120943.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__05-Intelligent.assets__20241203120943.webp"/></p>
 <h2 id="fuzzy-control">模糊控制<span><span class="heti-spacing"> </span>| Fuzzy Control</span><a class="headerlink" href="#fuzzy-control" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p>a fuzzy inference system is a form of artificial intelligence</p>
 <p>fuzzy logic is a way to encode this experience-based knowledge</p>
@@ -5645,16 +5645,16 @@ F(k) = F(k-1) + K \left[ K_p \Delta \theta (k) + \frac{T}{T_i} \theta (k) + \fra
 <p>有点像神经网络最后一层的<span class="heti-skip"><span class="heti-spacing"> </span>softmax<span class="heti-spacing"> </span></span>输出</p>
 <p>crisp input -&gt; fuzzifizcation -&gt; fuzzy variable -&gt; fuzzy rule -&gt; defuzzification -&gt; crisp output
 示例图片——小费与食物、服务的关系
-<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241128150916.png"/></p>
+<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__05-Intelligent.assets__20241128150916.webp"/></p>
 <p>优点：我们一开始不知道规则，但是可以通过数据来学习规则，就像训练神经网络一样，最后可以得到一个可解释性强的模型</p>
 <h3 id="_8">数学基础<a class="headerlink" href="#_8" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <h3 id="_9">原理与结构<a class="headerlink" href="#_9" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>在被控制对象的模糊模型的基础上 运用模糊控制器近似推理手段实现系统控制 。</p>
 <p>模糊模型是用模糊语言和规则描述的一个系统的动态特性及性能指标 。</p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241107135344.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__05-Intelligent.assets__20241107135344.webp"/></p>
 <h3 id="merbership-function">merbership function<a class="headerlink" href="#merbership-function" title="anchor link to this section for reference">¶</a></h3>
 <p>隶属函数，需要通过经验和专家知识来确定</p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241128160032.png"/>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__05-Intelligent.assets__20241128160032.webp"/>
 把人们语言中or行动中的不确定的量，转换成拥有置信度的模糊变量（input）</p>
 <h3 id="fuzzy-rules">fuzzy rules<a class="headerlink" href="#fuzzy-rules" title="anchor link to this section for reference">¶</a></h3>
 <p>我们需要建立模糊规则，来将模糊变量转换成模糊输出</p>
@@ -5689,7 +5689,7 @@ F(k) = F(k-1) + K \left[ K_p \Delta \theta (k) + \frac{T}{T_i} \theta (k) + \fra
 <li>医疗：诊断</li>
 <li>农业：病虫害诊断</li>
 </ul>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241107135524.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__05-Intelligent.assets__20241107135524.webp"/></p>
 <h3 id="_13">数据驱动<a class="headerlink" href="#_13" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <h4 id="which-parameters-are-we-tuning">which parameters are we tuning?<a class="headerlink" href="#which-parameters-are-we-tuning" title="anchor link to this section for reference">¶</a></h4>
 <p>使用经验来确定大部分的参数，使用数据来确定剩下的参数</p>
@@ -5701,7 +5701,7 @@ F(k) = F(k-1) + K \left[ K_p \Delta \theta (k) + \frac{T}{T_i} \theta (k) + \fra
 </ul>
 <p>训练的思路：先使用数据训练，然后使用获得的知识，对网络的参数进行调整，然后再进行训练</p>
 <h3 id="hw03-"><span>HW03-<span class="heti-spacing"> </span></span>模糊控制<a class="headerlink" href="#hw03-" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241128175458.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__05-Intelligent.assets__20241128175458.webp"/></p>
 <ol>
 <li>系统方程：</li>
 </ol>
@@ -5884,7 +5884,7 @@ U - K \frac{I}{X} \frac{dX}{dt} = L \frac{dI}{dt} + IR
 \hat{y}_p(k+1) = f\left[y_p(k), y_p(k-1), \cdots, y_p(k-n+1); u(k), u(k-1), \cdots, u(k-m+1)\right]
 \]</div>
 <p>可以使用<span class="heti-skip"><span class="heti-spacing"> </span>BP<span class="heti-spacing"> </span></span>算法，用于训练</p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241219141326.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__05-Intelligent.assets__20241219141326.webp"/></p>
 <h3 id="_20">神经控制的其他结构<a class="headerlink" href="#_20" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>建模、控制、优化都可以做</p>
 <ul>
@@ -5893,18 +5893,18 @@ U - K \frac{I}{X} \frac{dX}{dt} = L \frac{dI}{dt} + IR
 <li>可以做优化器</li>
 </ul>
 <p>使用神经网络作为控制器，普通控制器作为监督器
-<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241219142028.png"/></p>
+<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__05-Intelligent.assets__20241219142028.webp"/></p>
 <p>强化学习：critic</p>
 <p>评价器也需要训练
-<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241219142118.png"/></p>
+<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__05-Intelligent.assets__20241219142118.webp"/></p>
 <p>逆模（u，<span>y<span class="heti-spacing"> </span></span>反转）控制 
-<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241219142239.png"/>
+<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__05-Intelligent.assets__20241219142239.webp"/>
 问题：
 - 开环控制
 - 逆模是非因果系统，不可以物理实现</p>
 <h3 id="hw04-"><span>HW04-<span class="heti-spacing"> </span></span>神经网络辨识<a class="headerlink" href="#hw04-" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>如图所示二自由度机械臂模型（平面俯视图<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，<span><span class="arithmatex">\(q_1\)</span><span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(q_2\)</span><span class="heti-spacing"> </span></span>表示机械臂的两个关节角大小。</p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241206103243.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__05-Intelligent.assets__20241206103243.webp"/></p>
 <p>图中，<span><span class="arithmatex">\(m_i, l_i, r_i (i=1,2)\)</span><span class="heti-spacing"> </span></span>分别为两连杆的质量、连杆长度和质心到相应关节的距离。</p>
 <p>两个连杆的转动惯量分别为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(I_1\)</span><span class="heti-spacing"> </span></span>和<span><span class="heti-spacing"> </span><span class="arithmatex">\(I_2\)</span></span>。该机械臂动力学方程表示为：</p>
 <div class="arithmatex">\[
@@ -6014,7 +6014,7 @@ This browser does not support PDFs
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年7月10日 00:40:31</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年10月17日 20:24:06</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">

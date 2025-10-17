@@ -5421,12 +5421,12 @@ make
 </code></pre></div>
 </details>
 <p>正常运行后，应该显示类似如下图的结果</p>
-<p><img alt="image-20250816231533984" src="assets/NV.assets/image-20250816231533984.webp"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__NV.assets__image-20250816231533984.webp"/></p>
 <h4 id="_6">版本问题<a class="headerlink" href="#_6" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <h4 id="_7">路径问题<a class="headerlink" href="#_7" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <h4 id="gpu">无法连接<span><span class="heti-spacing"> </span>GPU</span><a class="headerlink" href="#gpu" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p>遇到的问题是<code>CUDA device 0: Unified Memory cannot be traced on devices that don't support peer-to-peer transfers.Please verify that SLI/NVLink is functioning properly.</code>且<span class="heti-skip"><span class="heti-spacing"> </span>GPU<span class="heti-spacing"> </span></span>没有抓取到信息</p>
-<p><img alt="image-20250816230828474" src="assets/NV.assets/image-20250816230828474.webp"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__NV.assets__image-20250816230828474.webp"/></p>
 <p>我的使用环境是：在<span class="heti-skip"><span class="heti-spacing"> </span>windows<span class="heti-spacing"> </span></span>上运行<span><span class="heti-spacing"> </span>Nsight System</span>，使用<span class="heti-skip"><span class="heti-spacing"> </span>ssh<span class="heti-spacing"> </span></span>连接<span class="heti-skip"><span class="heti-spacing"> </span>wsl<span class="heti-spacing"> </span></span>虚拟机，进行连接</p>
 <p>首先检查安装问题</p>
 <div class="highlight"><pre><span></span><code>nvcc<span class="w"> </span>--version
@@ -5434,7 +5434,7 @@ nsys<span class="w"> </span>--version
 nvidia-smi
 </code></pre></div>
 <p>其次检查<span class="heti-skip"><span class="heti-spacing"> </span>windows<span class="heti-spacing"> </span></span>端有没有打开</p>
-<p><a href="https://global.discourse-cdn.com/nvidia/original/4X/d/a/2/da2a85828fee97f1940e26df6c043bf8a598dbb8.png"><img alt="image" src="https://global.discourse-cdn.com/nvidia/original/4X/d/a/2/da2a85828fee97f1940e26df6c043bf8a598dbb8.png"/></a></p>
+<p><a href="https://global.discourse-cdn.com/nvidia/original/4X/d/a/2/da2a85828fee97f1940e26df6c043bf8a598dbb8.png"><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__NV.assets__da2a85828fee97f1940e26df6c043bf8a598dbb8.webp"/></a></p>
 <p>最后找到了官方论坛上关于这个问题的讨论，<a href="https://forums.developer.nvidia.com/t/nsight-system-error-unified-memory-cannot-be-traced-on-devices-that-dont-support-peer-to-peer-transfers/294742/2">Nsight system error : Unified Memory cannot be traced on devices that don't support peer-to-peer transfers  - NVIDIA Developer Forums</a></p>
 <p><a href="https://forums.developer.nvidia.com/t/segfaults-during-deep-learning-profiling-bug/273984">Segfaults during Deep Learning Profiling [BUG?] - Nsight Systems / Profiling Linux Targets - NVIDIA Developer Forums</a></p>
 <p><a href="https://forums.developer.nvidia.com/t/nsys-doesnt-show-cuda-kernel-and-memory-data/315536/9">Nsys doesn't show cuda kernel and memory data - Nsight Systems / Profiling Linux Targets - NVIDIA Developer Forums</a></p>
@@ -5489,7 +5489,7 @@ to change the paranoid level to 1.
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年9月5日 01:29:19</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年10月17日 20:24:06</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">

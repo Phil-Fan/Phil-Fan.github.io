@@ -5195,7 +5195,7 @@ tips：每组一位助教，珍惜助教hhh</p>
 <p>解决方法：因为实验室没有多余的风扇套装了，所以在淘宝购买了两个树莓派风扇。</p>
 </div>
 <h3 id="_5">动捕测试<a class="headerlink" href="#_5" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240920205747.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__Drone_experiment.assets__20240920205747.webp"/></p>
 <h2 id="_6">软件搭建<a class="headerlink" href="#_6" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <div class="admonition note">
 <p class="admonition-title">网络遇到问题</p>
@@ -5233,7 +5233,7 @@ ssh<span class="w"> </span>-p<span class="w"> </span><span class="m">1234</span>
 <p><strong>验证安装</strong>
 </p><div class="highlight"><pre><span></span><code>service<span class="w"> </span>ssh<span class="w"> </span>status
 </code></pre></div>
-<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240711175232.png"/>
+<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__Drone_experiment.assets__20240711175232.webp"/>
 <p><strong>开机自启动</strong></p>
 <div class="highlight"><pre><span></span><code>update-rc.d<span class="w"> </span>ssh<span class="w"> </span><span class="nb">enable</span>
 </code></pre></div>
@@ -5287,14 +5287,14 @@ Now try logging into the machine, with:   "ssh 'HAHA@127.0.0.1'" and check to ma
 <li><span>RosPublisher plugin(RosPublisher<span class="heti-spacing"> </span></span>插件<span><span class="heti-spacing"> </span>)</span>：使用交互式跟踪器重新发布原始<span class="heti-skip"><span class="heti-spacing"> </span>ROS<span class="heti-spacing"> </span></span>消息。</li>
 </ul>
 </details>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240920205340.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__Drone_experiment.assets__20240920205340.webp"/></p>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>ros-noetic-plotjuggler
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>roscore
 rosrun<span class="w"> </span>plotjuggler<span class="w"> </span>plotjuggler<span class="w">  </span>
 </code></pre></div>
 <p>可以看到如下界面
-<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240920205309.png"/></p>
+<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__Drone_experiment.assets__20240920205309.webp"/></p>
 <p><a href="https://blog.csdn.net/qq_39779233/article/details/106478608">教程<span class="heti-skip"><span class="heti-spacing"> </span>| PlotJuggler<span class="heti-spacing"> </span></span>绘图工具的安装使用<span class="heti-skip"><span class="heti-spacing"> </span>-CSDN<span class="heti-spacing"> </span></span>博客</a></p>
 <h3 id="vrpn">vrpn<a class="headerlink" href="#vrpn" title="anchor link to this section for reference">¶</a></h3>
 <p><a href="https://blog.csdn.net/MocapLeader/article/details/134463669"><span>Pixhawk+PX4+VRPN +NOKOV<span class="heti-spacing"> </span></span>无人机飞控平台动捕数据传输<span class="heti-skip"><span class="heti-spacing"> </span>_vrpn<span class="heti-spacing"> </span></span>服务器<span class="heti-skip"><span class="heti-spacing"> </span>-CSDN<span class="heti-spacing"> </span></span>博客</a>
@@ -5310,10 +5310,10 @@ catkin_make
 <p>查看电脑<span class="heti-skip"><span class="heti-spacing"> </span>ip<span class="heti-spacing"> </span></span>地址</p>
 <p></p><div class="highlight"><span class="filename">启动</span><pre><span></span><code>roslaunch<span class="w"> </span>vrpn_client_ros<span class="w"> </span>sample.launch<span class="w"> </span>server:<span class="o">=</span><span class="m">192</span>.168.43.195:3883
 </code></pre></div>
-<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240920210352.png"/>
+<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__Drone_experiment.assets__20240920210352.webp"/>
 <div class="highlight"><span class="filename">查看</span><pre><span></span><code>rostopic<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>/vrpn_client_node/&lt;刚体名称&gt;
 </code></pre></div>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240920210343.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__Drone_experiment.assets__20240920210343.webp"/></p>
 <h3 id="mavros">mavros<a class="headerlink" href="#mavros" title="anchor link to this section for reference">¶</a></h3>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>ros-noetic-mavros<span class="w"> </span>ros-noetic-mavros-extras<span class="w"> </span>ros-noetic-control-toolbox
 
@@ -5332,7 +5332,7 @@ sudo<span class="w"> </span>cp<span class="w"> </span>src/mavros_launch_files/px
 </p><div class="highlight"><pre><span></span><code>rostopic<span class="w"> </span>hz<span class="w"> </span>/mavros/imu/data
 </code></pre></div>
 <p>应该能得到如图所⽰的<span class="heti-skip"><span class="heti-spacing"> </span>50hz imu<span class="heti-spacing"> </span></span>数据</p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240920203808.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__Drone_experiment.assets__20240920203808.webp"/></p>
 <h2 id="_7">数学建模<a class="headerlink" href="#_7" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <h2 id="_8">仿真<a class="headerlink" href="#_8" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <h2 id="_9">代码实现<a class="headerlink" href="#_9" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
@@ -5340,7 +5340,7 @@ sudo<span class="w"> </span>cp<span class="w"> </span>src/mavros_launch_files/px
 <p>其中<code>computeDesiredCollectiveThrustSignal</code>函数⽤来根据加速度计算油门百分⽐，在实际过程中通过在线估计参数，这部分不需要同学们实现，只需要给定加速度即可。</p>
 <p>另外需要计算的是⽆⼈机的姿态<code>u.q</code>。
 程序提供了debug的接⼝，通过<code>rostopic</code>向外发送，可通过<code>run.sh</code>中最后一行注释记录<code>rosbag</code>，通过<code>plotjuggler</code>进行后续分析（详⻅ros仿真中的说明）</p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240920204728.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__Drone_experiment.assets__20240920204728.webp"/></p>
 <p>参数⽂件位于<code>real_ws/src/px4ctrl/config/ctrl_param_fpv.yaml</code>，可调节增益参数。</p>
 <h2 id="attention">attention<a class="headerlink" href="#attention" title="anchor link to this section for reference">¶</a></h2>
 <ol>
@@ -5356,10 +5356,10 @@ sudo<span class="w"> </span>cp<span class="w"> </span>src/mavros_launch_files/px
 <h3 id="_11">启动<a class="headerlink" href="#_11" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>已经将所有要启动的程序写在⼀个脚本<code>run.sh</code>中，只需要⼀键即可启动，但需要先检查各个<span class="heti-skip"><span class="heti-spacing"> </span>ros<span class="heti-spacing"> </span></span>节点的<span class="heti-skip"><span class="heti-spacing"> </span>topic<span class="heti-spacing"> </span></span>是否正确：</p>
 <p>⾸先根据在动捕中创建的刚体名称，修改<code>src/ekf_pose/launch/PX4_vicon.launch</code>中接收的位姿<span><span class="heti-spacing"> </span>topic</span></p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240920203843.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__Drone_experiment.assets__20240920203843.webp"/></p>
 <p>改节点利⽤<span class="heti-skip"><span class="heti-spacing"> </span>EKF<span class="heti-spacing"> </span></span>扩展卡尔曼滤波，对<span class="heti-skip"><span class="heti-spacing"> </span>imu<span class="heti-spacing"> </span></span>和动捕的数据进⾏融合估计，我们以此结果作为⽆⼈机的里程计信息给到控制器。</p>
 <p>随后修改<span class="heti-skip"><span class="heti-spacing"> </span>run.sh<span class="heti-spacing"> </span></span>中启动<span class="heti-skip"><span class="heti-spacing"> </span>vrpn<span class="heti-spacing"> </span></span>的<span class="heti-skip"><span class="heti-spacing"> </span>ip<span class="heti-spacing"> </span></span>为动捕主机的<span><span class="heti-spacing"> </span>ip</span></p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240920204616.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__Drone_experiment.assets__20240920204616.webp"/></p>
 <div class="highlight"><span class="filename">编译</span><pre><span></span><code>catkin_make
 <span class="nb">source</span><span class="w"> </span>devel/setup.bash
 ./run.sh
@@ -5374,14 +5374,14 @@ sudo<span class="w"> </span>cp<span class="w"> </span>src/mavros_launch_files/px
 </ul>
 <p><a class="magiclink magiclink-github magiclink-repository" href="https://github.com/facontidavide/PlotJuggler" title="GitHub Repository: facontidavide/PlotJuggler">facontidavide/PlotJuggler</a></p>
 <h2 id="_13">结果<a class="headerlink" href="#_13" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241031223517.png"/>
-</p><div class="video-container"><video alt="type:video" controls="" muted="" style="width:50%"><source src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/video/drone.mp4" type="video/mp4"/></video></div></div>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__Drone_experiment.assets__20241031223517.webp"/>
+<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/video/drone.mp4"/></p></div>
 <aside class="md-source-file">
 <span class="md-source-file__fact">
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年4月29日 20:45:50</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年10月17日 20:24:06</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">

@@ -5186,7 +5186,7 @@
 <blockquote>
 <p>引用自 <a href="https://www.zhihu.com/question/23984667">如何形象生动地解释虚功原理、虚位移原理、力之间的关系？ <span>-<span class="heti-spacing"> </span></span>知乎</a></p>
 </blockquote>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250418125747.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__8-ForceControl.assets__20250418125747.webp"/></p>
 <p>在斜面上，小球受到支持力<span class="heti-skip"><span class="heti-spacing"> </span>N<span class="heti-spacing"> </span></span>和重力<span><span class="heti-spacing"> </span>G</span>，可能位移可以沿斜面向上或者向下走，这就是虚位移，这两个力在虚位移上做的总虚功不为零，所以是不平衡状态。如果小球向上走，总虚功为负功，如果向下走，总虚功为正功，你可以理解为，功是一种能量转换形式，小球会沿着重力势能降低的方向运动，而总虚功就描述了重力势能的变化趋势。</p>
 <p>在碗底水平处，小球受到的支持力<span class="heti-skip"><span class="heti-spacing"> </span>N<span class="heti-spacing"> </span></span>和重力<span class="heti-skip"><span class="heti-spacing"> </span>G<span class="heti-spacing"> </span></span>都是竖直方向，而虚位移是水平方向，无论向左走还是向右走，总虚功都是<span><span class="heti-spacing"> </span>0</span>，所以是平衡状态。你可以理解为，这时候无论小球向左还是向右，它的重力势能变化都是<span><span class="heti-spacing"> </span>0</span>，所以它不会动。</p>
 <p>从这个角度去看小球的运动，就可以发现它的可能运动方向可能有很多，小球在不同位置的势能是不一样大的，实际总是向着势能更低的方向运动，也就是沿着势能面的最大梯度方向运动。而当小球在某个位置的势能达到了极小值，此处势能面的梯度为零，就会处于平衡状态。这就是常说的<strong>最小势能原理</strong></p>
@@ -5251,7 +5251,7 @@
 <p>但是实际过程中，传感器会有噪声的影响，所以需要对力和位置进行滤波，把反馈误差投影到位置控制和力控制的子空间当中</p>
 <div class="admonition example">
 <p class="admonition-title">轴孔装配任务中的投影矩阵</p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250418161427.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__8-ForceControl.assets__20250418161427.webp"/></p>
 <table>
 <thead>
 <tr>
@@ -5279,7 +5279,7 @@
 \]</div>
 </div>
 <p>若约束坐标系的各轴与位置和力控制回路中的方向不对齐，投射矩阵就不是对角阵。</p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250403093747.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__8-ForceControl.assets__20250403093747.webp"/></p>
 <p>位置误差<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\hat{e}_p\)</span><span class="heti-spacing"> </span></span>和力误差<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\hat{e}_f\)</span><span class="heti-spacing"> </span></span>需要从关节空间转回到笛卡尔空间当中，使用雅可比矩阵<span><span class="heti-spacing"> </span><span class="arithmatex">\(J\)</span></span></p>
 <ul>
 <li>关节空间的位置误差反馈可表示为<span><span class="heti-spacing"> </span><span class="arithmatex">\(e_q=J^{-1}\hat{e}_p\)</span></span></li>
@@ -5325,7 +5325,7 @@ F=m\ddot{x}_d+(m-M_d)\ddot{\widetilde{x}}-(B_d\dot{\widetilde{x}}+K_d\widetilde{
 <div class="arithmatex">\[
 F=m\ddot{x}_d-\frac{m}{M_d}(B_d\dot{\widetilde{x}}+K_d\widetilde{x})+\left(\frac{m}{M_d}-1\right)F_{ext}
 \]</div>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250418165730.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__8-ForceControl.assets__20250418165730.webp"/></p>
 <h3 id="_12">笛卡尔空间阻抗控制<a class="headerlink" href="#_12" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>动力学模型</p>
 <div class="arithmatex">\[
@@ -5352,7 +5352,7 @@ M(\boldsymbol{\Phi})\ddot{\boldsymbol{\Phi}}+V(\boldsymbol{\Phi},\dot{\boldsymbo
 </li>
 <li>惯性参数<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(M_d\)</span><span class="heti-spacing"> </span></span>一般不需要进行调节</li>
 </ul>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250418170635.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__8-ForceControl.assets__20250418170635.webp"/></p>
 <h2 id="_13">导纳控制<a class="headerlink" href="#_13" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p>控制器接受环境力的输入，改变期望位置</p>
 <p>如果环境力太大了，就减小期望位置；如果环境力太小了，就增大期望位置</p>
@@ -5367,7 +5367,7 @@ M(\boldsymbol{\Phi})\ddot{\boldsymbol{\Phi}}+V(\boldsymbol{\Phi},\dot{\boldsymbo
 </div>
 <h3 id="_14">导纳控制器<a class="headerlink" href="#_14" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>导纳控制的期望位置不是固定的</p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250418172201.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__8-ForceControl.assets__20250418172201.webp"/></p>
 <p>由于质量块还是要由控制力驱动，环路包括一个外环的导纳控制器和一个内环的位置控制器。在导纳控制器中，环境力<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(F_\mathrm{ext}\)</span><span class="heti-spacing"> </span></span>通过二阶导纳模型生成一个附加的运动信号，将预期的运动轨迹<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(x_d\)</span><span class="heti-spacing"> </span></span>变为新的运动轨迹<span><span class="heti-spacing"> </span><span class="arithmatex">\(x_m\)</span></span>
 $$
 M_d(ddot{x}<em ext="ext">m-ddot{x}_d)+B_ddot{widetilde{x}}+K_dwidetilde{x}=F</em>
@@ -5419,7 +5419,7 @@ e_{ss}=\frac{k}{k+k_{e}}[f_{r}+k_{e}(x_{e}-x_{d})]
 <h3 id="_18">自然约束<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>人工约束<a class="headerlink" href="#_18" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <div class="admonition note">
 <p class="admonition-title">案例<span class="heti-skip"><span class="heti-spacing"> </span>1:<span class="heti-spacing"> </span></span>轴承装配</p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250418161427.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__8-ForceControl.assets__20250418161427.webp"/></p>
 <table>
 <thead>
 <tr>
@@ -5445,7 +5445,7 @@ e_{ss}=\frac{k}{k+k_{e}}[f_{r}+k_{e}(x_{e}-x_{d})]
 <div class="admonition note">
 <p class="admonition-title">案例<span class="heti-skip"><span class="heti-spacing"> </span>2:<span class="heti-spacing"> </span></span>旋转曲柄</p>
 <p>规定约束坐标系固连在曲柄上并随曲柄运动，<span>x<span class="heti-spacing"> </span></span>方向总是指向曲柄的轴心。
-<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250418161752.png"/></p>
+<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__8-ForceControl.assets__20250418161752.webp"/></p>
 <p>解 手柄具有两个自由度，分别为绕<span class="heti-skip"><span class="heti-spacing"> </span>z<span class="heti-spacing"> </span></span>轴的转动和绕曲柄轴的转动。约束条件可以整理为下表：</p>
 <table>
 <thead>
@@ -5473,7 +5473,7 @@ e_{ss}=\frac{k}{k+k_{e}}[f_{r}+k_{e}(x_{e}-x_{d})]
 <div class="admonition note">
 <p class="admonition-title">案例<span class="heti-skip"><span class="heti-spacing"> </span>2:<span class="heti-spacing"> </span></span>拧螺丝</p>
 <p>拧螺丝任务中物理环境是螺丝表面，轴承装配任务中物理环境是装配孔</p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250419191034.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__8-ForceControl.assets__20250419191034.webp"/></p>
 <table>
 <thead>
 <tr>
@@ -5500,7 +5500,7 @@ e_{ss}=\frac{k}{k+k_{e}}[f_{r}+k_{e}(x_{e}-x_{d})]
 <div class="admonition note">
 <p class="admonition-title">案例<span class="heti-skip"><span class="heti-spacing"> </span>4:<span class="heti-spacing"> </span></span>开门</p>
 <p>铰链问题、开门、开盒子</p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250418163710.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__8-ForceControl.assets__20250418163710.webp"/></p>
 <p><span>y<span class="heti-spacing"> </span></span>方向上给速度，<span>x<span class="heti-spacing"> </span></span>方向力恒为<span><span class="heti-spacing"> </span>0</span></p>
 <table>
 <thead>
@@ -5538,7 +5538,7 @@ e_{ss}=\frac{k}{k+k_{e}}[f_{r}+k_{e}(x_{e}-x_{d})]
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年4月29日 20:45:50</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年10月17日 20:24:06</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">

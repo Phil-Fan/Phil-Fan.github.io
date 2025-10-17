@@ -5367,7 +5367,7 @@ s_{1,2}=-\frac{K_p}{2}\pm\sqrt{\frac{K_p^2}{4}-K_i}
 <div class="arithmatex">\[\
 \dot{\theta}(t)=\dot{\theta}_d(t)+K_p\theta_e(t)+K_i\int_0^t\theta_e(t)\:dt
 \]</div>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250418144504.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__7-Control.assets__20250418144504.webp"/></p>
 <blockquote>
 <p>图片来自知乎<span><span class="heti-spacing"> </span>Mr.bo</span></p>
 </blockquote>
@@ -5450,7 +5450,7 @@ T_{ei} = C_{ti} \cdot I_{mi}
 <span class="arithmatex">\(J\)</span> 转动惯量</p>
 <p>减速器：其实是扭矩放大器，代价是转速的下降 </p>
 <p>编码器：对转速进行观测</p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250401120430.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__7-Control.assets__20250401120430.webp"/></p>
 <p>电机动力学：<span class="arithmatex">\(J_{mi}\dot{\omega}_{mi}=T_{ei}-T_{li}-b_{mi}\omega_{mi}\)</span></p>
 <p>关节侧动力学： <span class="arithmatex">\(J_{ai}\dot{\omega}_{i}=T_{ai}-T_{ci}-b_{ai}\omega_{i}\)</span></p>
 <p>转速关系：<span class="arithmatex">\(\omega_i = \frac{\omega_{mi}}{\eta_i}\)</span>，转速下降，扭矩上升</p>
@@ -5461,7 +5461,7 @@ T_{ei} = C_{ti} \cdot I_{mi}
 <li>干扰输入<span><span class="heti-spacing"> </span><span class="arithmatex">\(T_{ci}\)</span></span></li>
 <li>输出<span><span class="heti-spacing"> </span><span class="arithmatex">\(\theta_i\)</span></span></li>
 </ul>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250401121056.png"/>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__7-Control.assets__20250401121056.webp"/>
 关节传递模型框图</p>
 <p><span>Laplace<span class="heti-spacing"> </span></span>变换</p>
 <div class="arithmatex">\[
@@ -5481,7 +5481,7 @@ U_{ci}(s) = k_{P_i}\widetilde{\theta}_i(s) - k_{D_i}\omega_i(s)\\
 \widetilde{\theta}_i(s) = \theta_{di}(s) - \theta_i(s)    
 \end{align*}
 \]</div>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/202504011210339.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__7-Control.assets__202504011210339.webp"/></p>
 <div class="arithmatex">\[
 \theta_{i}(s)=\frac{k_{Pi}K_{ci}}{J_{ci}s^{2}+(B_{ci}+k_{Di}K_{ci})s+k_{Pi}K_{ci}}\theta_{di}(s)-\frac{1}{J_{ci}s^{2}+(B_{ci}+k_{Di}K_{ci})s+k_{Pi}K_{ci}}T_{ci}(s)
 \]</div>
@@ -5530,13 +5530,13 @@ s_{1,2}=-\zeta\omega_{0}\pm\omega_{0}\sqrt{\zeta^{2}-1}
 <p>这里化简的时候使用梅森增益公式求解比较简单</p>
 <h3 id="pid-">阶跃输入<span class="heti-skip"><span class="heti-spacing"> </span>| PID<span class="heti-spacing"> </span></span>控制器<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>消除静差<a class="headerlink" href="#pid-" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>带一个积分环节</p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/202504011209180.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__7-Control.assets__202504011209180.webp"/></p>
 <p>阶跃扰动下，独立关节<span class="heti-skip"><span class="heti-spacing"> </span>PID<span class="heti-spacing"> </span></span>可以做到无静差</p>
 <h3 id="pid">二阶可导输入 ｜ 前馈<span><span class="heti-spacing"> </span>PID</span><a class="headerlink" href="#pid" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>阶跃输入的信号，通常用于点对点的移动，但是对于一般的轨迹规划任务，都是二阶可导的（如五次多项式轨迹）</p>
 <p>前馈的引入不改变稳定性和闭环极点</p>
 <p>消除参考输入影响</p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/202504011208914.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__7-Control.assets__202504011208914.webp"/></p>
 <h2 id="_11">转矩前馈控制<a class="headerlink" href="#_11" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p>对关节干扰进行推算，增加补偿量主动消减干扰的影响</p>
 <p>这里书上的公式有点复杂</p>
@@ -5563,7 +5563,7 @@ M(\Phi) \ddot{\Phi} + C(\Phi, \dot{\Phi}) \dot{\Phi} + L \dot{\Phi} + G(\Phi) = 
 <div class="arithmatex">\[
 \boldsymbol{\tau}_d=\boldsymbol{\Lambda}_P(\boldsymbol{\Phi}_d-\boldsymbol{\Phi})-\boldsymbol{\Lambda}_D\dot{\boldsymbol{\Phi}}+\boldsymbol{G}(\boldsymbol{\Phi})
 \]</div>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250401112408.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__7-Control.assets__20250401112408.webp"/></p>
 <div class="admonition note">
 <p class="admonition-title"><span>Lyapunov<span class="heti-spacing"> </span></span>方法证明收敛</p>
 <div class="arithmatex">\[
@@ -5673,7 +5673,7 @@ M(q)\ddot{q}+C(q)[\dot{q}^{2}]+B(q)[\dot{q}\dot{q}]+G(q)=\tau= \alpha\tau^{\prim
 <div class="arithmatex">\[
 \tau^{\prime}=\ddot{q}_{d}+k_{v}\dot{e}+k_{p}e
 \]</div>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250418151206.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__7-Control.assets__20250418151206.webp"/></p>
 <blockquote>
 <p>图片来自<a href="https://zhuanlan.zhihu.com/p/340272432">机器人学<span class="heti-skip"><span class="heti-spacing"> </span>-4-3-<span class="heti-spacing"> </span></span>线性控制<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>知乎</a></p>
 </blockquote>
@@ -5702,7 +5702,7 @@ m \ddot{x} + b \dot{x} + kx = \alpha f' + \beta
 <h3 id="_13">逆运动学控制<a class="headerlink" href="#_13" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>什么是逆运动学控制？</p>
 <p>直接根据期望的关节位移，计算出关节位置，然后使用<span class="heti-skip"><span class="heti-spacing"> </span>PD<span class="heti-spacing"> </span></span>控制器，把关节控制在想要的位置上面。</p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250418130855.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__7-Control.assets__20250418130855.webp"/></p>
 <p>在反馈中利用补偿将复杂非线性模型 化成<span class="heti-skip"><span class="heti-spacing"> </span>N<span class="heti-spacing"> </span></span>个无耦合的单变量的线性模型</p>
 <p>采用补偿：</p>
 <div class="arithmatex">\[
@@ -5716,13 +5716,13 @@ m \ddot{x} + b \dot{x} + kx = \alpha f' + \beta
 \ddot{\Phi} = \alpha_\Phi
 \]</div>
 <p>这样就变成了<span class="heti-skip"><span class="heti-spacing"> </span>N<span class="heti-spacing"> </span></span>个线性的双积分系统，可以使用带前馈的<span class="heti-skip"><span class="heti-spacing"> </span>PD<span class="heti-spacing"> </span></span>控制器等等</p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250401092616.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__7-Control.assets__20250401092616.webp"/></p>
 <p>所以控制律为</p>
 <div class="arithmatex">\[
 \alpha_{\phi}=\ddot{\boldsymbol{\Phi}}_{d}+K_{D}\dot{\widetilde{\boldsymbol{\Phi}}}+K_{P}\widetilde{\boldsymbol{\Phi}}
 \]</div>
 <p>其中，<span><span class="arithmatex">\(\ddot{\boldsymbol{\Phi}}_{d}+K_{D}\dot{\widetilde{\boldsymbol{\Phi}}}\)</span><span class="heti-spacing"> </span></span>是前馈的部分<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>即框图左上角的部分</p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/202504010926579.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__7-Control.assets__202504010926579.webp"/></p>
 <h3 id="_14">鲁棒控制 ｜ 估计参数<a class="headerlink" href="#_14" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p><span><span class="arithmatex">\(M(\boldsymbol{\Phi})\ddot{\boldsymbol{\Phi}}+C(\boldsymbol{\Phi},\dot{\boldsymbol{\Phi}})\dot{\boldsymbol{\Phi}}+L\dot{\boldsymbol{\Phi}}+G(\boldsymbol{\Phi})=\boldsymbol{\tau}_d\)</span><span class="heti-spacing"> </span></span>的参数值无法准确获取，使用估计值进行控制</p>
 <p>控制律</p>
@@ -5748,7 +5748,7 @@ m \ddot{x} + b \dot{x} + kx = \alpha f' + \beta
 <li><span><span class="arithmatex">\(K_P\)</span>,<span class="arithmatex">\(K_D\)</span><span class="heti-spacing"> </span></span>采用逆运动学控制设计，保证大范围渐进稳定</li>
 <li>正数<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\overline{m}\)</span><span class="heti-spacing"> </span></span>大于<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(M^{-1}(\boldsymbol{\Phi})\)</span><span class="heti-spacing"> </span></span>的最大奇异值和正数<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\underline{m}\)</span><span class="heti-spacing"> </span></span>小于<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(M^{-1}(\boldsymbol{\Phi})\)</span><span class="heti-spacing"> </span></span>的最小奇异值，再取<span><span class="heti-spacing"> </span><span class="arithmatex">\(\hat{M}(\boldsymbol{\Phi})=\frac2{\underline{m}+\overline{m}}\boldsymbol{I}\)</span></span>，可以保证<span><span class="heti-spacing"> </span><span class="arithmatex">\(\left\|\boldsymbol{I}-\boldsymbol{M}^{-1}(\boldsymbol{\Phi})\hat{\boldsymbol{M}}(\boldsymbol{\Phi})\right\|\leqslant\frac{\overline{m}-\underline{m}}{\underline{m}+\overline{m}}=\gamma_{3}&lt;1\)</span></span></li>
 </ul>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250401101152.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__7-Control.assets__20250401101152.webp"/></p>
 <p>又根据<span class="heti-skip"><span class="heti-spacing"> </span>Lyapunov<span class="heti-spacing"> </span></span>稳定性定理，可以证明，保证在不确定性<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\Delta\)</span><span class="heti-spacing"> </span></span>下<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\boldsymbol{\Phi}\)</span><span class="heti-spacing"> </span></span>对<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\boldsymbol{\Phi}_d\)</span><span class="heti-spacing"> </span></span>的渐近跟踪。</p>
 <h3 id="_15">自适应控制 ｜ 动态估计参数<a class="headerlink" href="#_15" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>在鲁棒控制中，参数的估计是不变的。</p>
@@ -5786,7 +5786,7 @@ m \ddot{x} + b \dot{x} + kx = \alpha f' + \beta
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年4月29日 20:45:50</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年10月17日 20:24:06</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">

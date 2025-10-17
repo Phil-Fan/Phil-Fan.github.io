@@ -5247,7 +5247,7 @@
 <p><span>GPT3<span class="heti-spacing"> </span></span>比<span class="heti-skip"><span class="heti-spacing"> </span>GPT2<span class="heti-spacing"> </span></span>数据和模型都大了一百倍，暴力出奇迹。</p>
 <p><span>GPT-3<span class="heti-spacing"> </span></span>模型更复杂，要求更高，很难复现，因此引用较少，想往强人工智能走，解决更大问题</p>
 <p><span>Bert<span class="heti-spacing"> </span></span>想把计算机视觉成熟的先训练一个预训练的模型然后再做微调出子任务的结果，然后搬到<span class="heti-skip"><span class="heti-spacing"> </span>NLP<span class="heti-spacing"> </span></span>上做好，提升技术的效果。在同样模型大小，比如是一个亿级别模型大小时候，<span>Bert<span class="heti-spacing"> </span></span>的性能要好于<span><span class="heti-spacing"> </span>GPT</span></p>
-<p><img alt="img" src="https://i2.hdslb.com/bfs/note/f1d4be3d8e495ce8be0cb94c5511e762b7b22f20.jpg@690w_!web-note"/></p>
+<p><img alt="" src="https://i2.hdslb.com/bfs/note/f1d4be3d8e495ce8be0cb94c5511e762b7b22f20.jpg@690w_!web-note"/></p>
 <h2 id="gpt2018">GPT(2018)<a class="headerlink" href="#gpt2018" title="anchor link to this section for reference">¶</a></h2>
 <p>Improving Language Understanding by Generative Pre-Training</p>
 <iframe height="450px" src="https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf" width="100%">
@@ -5401,7 +5401,7 @@ Language Models are Unsupervised Multitask Learners
 <li>在法译英任务中，<span>GPT-2<span class="heti-spacing"> </span></span>在<span class="heti-skip"><span class="heti-spacing"> </span>zero-shot<span class="heti-spacing"> </span></span>学习的基础上，超过了大多数的无监督方法，但是比有监督的<span class="heti-skip"><span class="heti-spacing"> </span>state-of-the-art<span class="heti-spacing"> </span></span>模型要差；</li>
 <li><span>GPT-2<span class="heti-spacing"> </span></span>在文本总结的表现不理想，但是它的效果也和有监督的模型非常接近。</li>
 </ul>
-<p><img alt="image-20250704205739829" src="assets/03-GPTs.assets/image-20250704205739829.webp"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Models__assets__03-GPTs.assets__image-20250704205739829.webp"/></p>
 <p><span>GPT2<span class="heti-spacing"> </span></span>在很多任务上得分并不高，更多地看起来还是在讲<span class="heti-skip"><span class="heti-spacing"> </span>Zero-Shot<span class="heti-spacing"> </span></span>的问题。</p>
 <h2 id="gpt-32020">GPT-3(2020)<a class="headerlink" href="#gpt-32020" title="anchor link to this section for reference">¶</a></h2>
 <p>language models are few-shot learners</p>
@@ -5460,7 +5460,7 @@ Generating Long Sequences with Sparse Transformers
 <li><span>GPT-3 Medium<span class="heti-spacing"> </span></span>是<span class="heti-skip"><span class="heti-spacing"> </span>BERT<span class="heti-spacing"> </span></span>规模</li>
 <li><span>GPT-3 XL<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>GPT-2<span class="heti-spacing"> </span></span>差不太多，<span>GPT3<span class="heti-spacing"> </span></span>模型偏扁</li>
 </ul>
-<p><img alt="image-20250704210923960" src="assets/03-GPTs.assets/image-20250704210923960.webp"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Models__assets__03-GPTs.assets__image-20250704210923960.webp"/></p>
 <p><span>W_E GPT3 50267<span class="heti-spacing"> </span></span>个<span><span class="heti-spacing"> </span>token</span>，每个<span class="heti-skip"><span class="heti-spacing"> </span>token<span class="heti-spacing"> </span></span>具有<span class="heti-skip"><span class="heti-spacing"> </span>12288<span class="heti-spacing"> </span></span>维度，共<span class="heti-skip"><span class="heti-spacing"> </span>6<span class="heti-spacing"> </span></span>亿左右参数，随机初始化</p>
 <h3 id="_8">数据集<a class="headerlink" href="#_8" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>多个数据集，不同采样率</p>
@@ -5468,21 +5468,21 @@ Generating Long Sequences with Sparse Transformers
 <li>过滤：爬取一部分低质量的<span class="heti-skip"><span class="heti-spacing"> </span>Common Crawl<span class="heti-spacing"> </span></span>作为负例，高质量的<span class="heti-skip"><span class="heti-spacing"> </span>Reddit<span class="heti-spacing"> </span></span>作为正例，用逻辑回归做二分类，判断质量好坏。接下来用分类器对所有<span class="heti-skip"><span class="heti-spacing"> </span>Common Crawl<span class="heti-spacing"> </span></span>进行预测，过滤掉负类的数据，留下正类的数据</li>
 <li>去重：<span>lsh<span class="heti-spacing"> </span></span>算法（局部敏感哈希<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，去掉相似的文章</li>
 </ul>
-<p><img alt="image-20250704214503237" src="assets/03-GPTs.assets/image-20250704214503237.webp"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Models__assets__03-GPTs.assets__image-20250704214503237.webp"/></p>
 <h3 id="_9">训练方法<a class="headerlink" href="#_9" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p><span>DGX-1<span class="heti-spacing"> </span></span>集群，带宽非常高</p>
 <p>使用相对比较大的批量大小，计算性能更好，每台机器的并行度更高，通讯量变低，降低批量里的噪音分布式比较好</p>
 <p>小的模型批量大小更容易过拟合一些</p>
 <p>模型越来越大的时候过拟合没有那么的严重，搜索范围更广，可能存在一个比较简单的模型架构，<span>SDG<span class="heti-spacing"> </span></span>可以帮助找到那个模型，使泛化精度更好一些</p>
 <p>模型批量大小增大学习率下降</p>
-<p><img alt="image-20250704210811422" src="assets/03-GPTs.assets/image-20250704210811422.webp" width="75%"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Models__assets__03-GPTs.assets__image-20250704210811422.webp" width="75%"/></p>
 <p>评估<span><span class="heti-spacing"> </span>GPT3</span>：</p>
 <ol>
 <li>few-shot：每个子任务提供<span class="heti-skip"><span class="heti-spacing"> </span>10-100<span class="heti-spacing"> </span></span>个训练样本；</li>
 <li>one-shot：<span>1<span class="heti-spacing"> </span></span>个样本</li>
 <li>zero-shot：<span>0<span class="heti-spacing"> </span></span>个样本</li>
 </ol>
-<p><img alt="image-20250704210853697" src="assets/03-GPTs.assets/image-20250704210853697.webp" width="75%"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Models__assets__03-GPTs.assets__image-20250704210853697.webp" width="75%"/></p>
 <ul>
 <li>分类：true/false</li>
 <li>补全：beam search</li>
@@ -5492,11 +5492,11 @@ Generating Long Sequences with Sparse Transformers
 <p>数据量指数翻倍的时候，验证精度是线性下降的</p>
 <p>使用<span class="heti-skip"><span class="heti-spacing"> </span>validation loss<span class="heti-spacing"> </span></span>是因为与子任务精度有关系</p>
 <p>power law：不需要过度训练</p>
-<p><img alt="image-20250704211124574" src="assets/03-GPTs.assets/image-20250704211124574.webp" width="50%"/></p>
-<p><img alt="image-20250704211251507" src="assets/03-GPTs.assets/image-20250704211251507.webp" width="50%"/></p>
-<p><img alt="image-20250704211310857" src="assets/03-GPTs.assets/image-20250704211310857.webp" width="50%"/></p>
-<p><img alt="image-20250704211324820" src="assets/03-GPTs.assets/image-20250704211324820.webp" width="50%"/></p>
-<p><img alt="image-20250704211436395" src="assets/03-GPTs.assets/image-20250704211436395.webp" width="50%"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Models__assets__03-GPTs.assets__image-20250704211124574.webp" width="50%"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Models__assets__03-GPTs.assets__image-20250704211251507.webp" width="50%"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Models__assets__03-GPTs.assets__image-20250704211310857.webp" width="50%"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Models__assets__03-GPTs.assets__image-20250704211324820.webp" width="50%"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Models__assets__03-GPTs.assets__image-20250704211436395.webp" width="50%"/></p>
 <h3 id="_11">局限性与负面<a class="headerlink" href="#_11" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ul>
 <li>长文本比较弱，写小说就不行。</li>
@@ -5527,8 +5527,8 @@ Generating Long Sequences with Sparse Transformers
 <li>公平性、偏见</li>
 <li>性别、种族</li>
 </ol>
-<p><img alt="image-20250704211600637" src="assets/03-GPTs.assets/image-20250704211600637.webp"/></p>
-<p><img alt="image-20250704211618437" src="assets/03-GPTs.assets/image-20250704211618437.webp"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Models__assets__03-GPTs.assets__image-20250704211600637.webp"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Models__assets__03-GPTs.assets__image-20250704211618437.webp"/></p>
 <h2 id="gpt-4">GPT-4<a class="headerlink" href="#gpt-4" title="anchor link to this section for reference">¶</a></h2>
 <ul>
 <li>对抗式的程式：给模型找茬</li>
@@ -5565,7 +5565,7 @@ Generating Long Sequences with Sparse Transformers
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年8月23日 01:47:33</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年10月17日 20:24:06</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">

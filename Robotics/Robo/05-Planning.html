@@ -5229,7 +5229,7 @@
 <p>在构建出的路标连接图中搜索一条起点到终点的路径（使用<span class="heti-skip"><span class="heti-spacing"> </span>Dijkstra<span class="heti-spacing"> </span></span>或者<span class="heti-skip"><span class="heti-spacing"> </span>A*<span class="heti-spacing"> </span></span>算法）</p>
 <p>优点：产生的<span class="heti-skip"><span class="heti-spacing"> </span>roadmap<span class="heti-spacing"> </span></span>可以被复用</p>
 <p>缺点：对于给定的起点和终点，非最短路径，效率低</p>
-<p><img alt="image-20240427143014709" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240427143014709.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__05-Planning.assets__image-20240427143014709.webp"/></p>
 <p><a href="https://zhuanlan.zhihu.com/p/133224593">基于采样的运动规划算法<span class="heti-skip"><span class="heti-spacing"> </span>-RRT(Rapidly-exploring Random Trees) -<span class="heti-spacing"> </span></span>知乎<span><span class="heti-spacing"> </span>(zhihu.com)</span></a></p>
 <h3 id="rrt-rapidly-exploring-random-tree">RRT | rapidly-exploring random tree<a class="headerlink" href="#rrt-rapidly-exploring-random-tree" title="anchor link to this section for reference">¶</a></h3>
 <ul>
@@ -5260,15 +5260,15 @@ RRT没有遗忘机制，对已知路径没有更新，对错误连接没有修�
 <li>choose parent：选择一个父节点，使得从起始点到采样点的距离最小</li>
 <li>rewire：即在采样之后与最短路径连接后，考虑在某一个定长的圆的范围内，其内的点是否可以连接到新采样的点（用到初始点的距离进行判断）</li>
 </ul>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241023183058.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__05-Planning.assets__20241023183058.webp"/></p>
 <div class="admonition note">
 <p class="admonition-title">核心：半径<span class="heti-skip"><span class="heti-spacing"> </span>R<span class="heti-spacing"> </span></span>的选择</p>
 </div>
-<p><img alt="image-20240427143031710" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240427143031710.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__05-Planning.assets__image-20240427143031710.webp"/></p>
 <h4 id="informed-rrt">informed RRT*<a class="headerlink" href="#informed-rrt" title="anchor link to this section for reference">¶</a></h4>
 <p>产生采样的启发式规则<span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span>采用一个椭圆采样方式来代替全局均匀采样
-<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241023183144.png"/></p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241023183158.png"/></p>
+<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__05-Planning.assets__20241023183144.webp"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__05-Planning.assets__20241023183158.webp"/></p>
 <p>以起点<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(x_{start}\)</span><span class="heti-spacing"> </span></span>和终点<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(x_{goal}\)</span><span class="heti-spacing"> </span></span>作为椭圆的焦点，令<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(a\)</span><span class="heti-spacing"> </span></span>等于初始路径长度的一半，即<span><span class="heti-spacing"> </span><span class="arithmatex">\(a = \frac{c_{best}}{2}\)</span></span>，则<span><span class="heti-spacing"> </span><span class="arithmatex">\(c = \frac{c_{min}}{2}\)</span></span>，<span class="arithmatex">\(b = \frac{\sqrt{c_{best}^2 - c_{min}^2}}{2}\)</span>。这样就可以得到椭圆方程的所有参数。</p>
 <p>在之后的迭代中，没找到一次更短的路径，就用这条更短路径的长度作为新的<span><span class="heti-spacing"> </span><span class="arithmatex">\(c_{best}\)</span></span>，更新采样椭圆。</p>
 <p>然后<strong>在椭圆采样区域中进行采样</strong>。</p>
@@ -5279,9 +5279,9 @@ RRT没有遗忘机制，对已知路径没有更新，对错误连接没有修�
 <p>运动动力学</p>
 <ul>
 <li><strong>控制空间采样</strong>：选择一个输入<span><span class="heti-spacing"> </span><span class="arithmatex">\(u\)</span></span>，固定一个持续时间<span><span class="heti-spacing"> </span><span class="arithmatex">\(T\)</span></span>，前向模拟系统（数值积分<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>；一般都是幂<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>矩阵
-<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241023183841.png"/></li>
+<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__05-Planning.assets__20241023183841.webp"/></li>
 <li><strong>状态空间采样</strong>：算则一个<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(s_f\)</span><span class="heti-spacing"> </span></span>找到两个状态<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(s_0\)</span><span class="heti-spacing"> </span></span>与<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(s_f\)</span><span class="heti-spacing"> </span></span>之间的连接
-<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241023183859.png"/></li>
+<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__05-Planning.assets__20241023183859.webp"/></li>
 </ul>
 <h3 id="_6">小车模型<a class="headerlink" href="#_6" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ul>
@@ -5293,7 +5293,7 @@ RRT没有遗忘机制，对已知路径没有更新，对错误连接没有修�
 <h3 id="state-lattice-search">State Lattice Search<a class="headerlink" href="#state-lattice-search" title="anchor link to this section for reference">¶</a></h3>
 <p><span>lattice:<span class="heti-spacing"> </span></span>广义的栅格</p>
 <p>构成状态和状态之间的搜索图</p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241102204243.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__05-Planning.assets__20241102204243.webp"/></p>
 <p>9-discretization &amp; 25-discretization </p>
 <p>a_x = [-a_m,0,a_m]
 a_y = [-a_m,0,a_m]
@@ -5308,7 +5308,7 @@ a_y = [-a_m,0,a_m]
 <li>相轨迹分析</li>
 <li>确定最优量</li>
 </ol>
-<p><img alt="" src="https://i-blog.csdnimg.cn/blog_migrate/b08c1999103b530af6670e6e43d34ffe.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__05-Planning.assets__b08c1999103b530af6670e6e43d34ffe.webp"/></p>
 <h3 id="_8">优化<a class="headerlink" href="#_8" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ul>
 <li>工程上一般采用轨迹库：trajectory library，只维护一层图</li>
@@ -5321,11 +5321,11 @@ a_y = [-a_m,0,a_m]
 <li>Sample a random state</li>
 <li>solve two state boundary optimal control problem</li>
 </ol>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241102204411.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__05-Planning.assets__20241102204411.webp"/></p>
 <h3 id="hybrid-a">Hybrid A*<a class="headerlink" href="#hybrid-a" title="anchor link to this section for reference">¶</a></h3>
 <p>运用<span class="heti-skip"><span class="heti-spacing"> </span>A*<span class="heti-spacing"> </span></span>对<span class="heti-skip"><span class="heti-spacing"> </span>lattice graph<span class="heti-spacing"> </span></span>进行剪枝</p>
 <p>传统的<span class="heti-skip"><span class="heti-spacing"> </span>A *<span class="heti-spacing"> </span></span>算法是在栅格地图中进行搜索，可行路径中的点，都是栅格地图的中心点，如下面的第一幅图所示，<span>lattice planner<span class="heti-spacing"> </span></span>算法是先构建一个用于搜索的<span class="heti-skip"><span class="heti-spacing"> </span>lattice<span class="heti-spacing"> </span></span>图，如下面的第二幅图所示，<span>Hybrid A*<span class="heti-spacing"> </span></span>算法结合了<span class="heti-skip"><span class="heti-spacing"> </span>A *<span class="heti-spacing"> </span></span>算法和<span class="heti-skip"><span class="heti-spacing"> </span>lattice planner<span class="heti-spacing"> </span></span>算法的思想，将栅格地图的路径搜索与<span class="heti-skip"><span class="heti-spacing"> </span>lattice<span class="heti-spacing"> </span></span>图结合起来，在搜索过程中选取不同的控制量预演一段轨迹，且保持在每个栅格中仅保留一个可行的状态，如下面的第三幅图所示
-<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241023190050.png"/></p>
+<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__05-Planning.assets__20241023190050.webp"/></p>
 <ol>
 <li>
 <p>Follow A* algorithm</p>
@@ -5337,7 +5337,7 @@ a_y = [-a_m,0,a_m]
 <p>Keep only 1 state in each grid</p>
 </li>
 </ol>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241023183547.png"/>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__05-Planning.assets__20241023183547.webp"/>
 <a href="https://blog.csdn.net/qq_44339029/article/details/132466521">动力学约束下的运动规划算法——Hybrid A*算法（附程序实现及详细解释）_pythonrobotics hybrida*-CSDN博客</a></p>
 <h2 id="_9">轨迹优化<a class="headerlink" href="#_9" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <h3 id="minimum-snap"><span>Minimum Snap<span class="heti-spacing"> </span></span>轨迹优化<a class="headerlink" href="#minimum-snap" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
@@ -5354,7 +5354,7 @@ a_y = [-a_m,0,a_m]
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年4月29日 20:45:50</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年10月17日 20:24:06</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">

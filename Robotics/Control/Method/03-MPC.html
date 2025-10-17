@@ -5569,7 +5569,7 @@ C=\begin{bmatrix}0&amp;0&amp;...&amp;0\\\vdots&amp;\vdots&amp;...&amp;\vdots\\0&
 <li>假设对象的单位阶跃响应值为<span><span class="heti-spacing"> </span><span class="arithmatex">\(a_i (i=1,2\dots N)\)</span></span>，且在<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(N\)</span><span class="heti-spacing"> </span></span>个采样周期后趋于平稳，即<span><span class="heti-spacing"> </span><span class="arithmatex">\(a_i \approx a(\infty)\)</span></span></li>
 <li>那么如果我们知道了这些阶跃响应值，就相当于知道了<strong>对象的模型参数</strong>，所有有限集合<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(a^T = [a_1,a_2,\dots,a_N]\)</span><span class="heti-spacing"> </span></span>可以完全描述系统动态特性</li>
 </ul>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250503131226.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__03-MPC.assets__20250503131226.webp"/></p>
 <ul>
 <li><span>LTI<span class="heti-spacing"> </span></span>系统有叠加性</li>
 </ul>
@@ -5802,11 +5802,11 @@ y(t) = 1 - 1.1835e^{-0.55t} \sin(6t + 1.4973)- 0.18038e^{-0.25t} \sin(15.4t - 1.
 <li>模型长度<span><span class="heti-spacing"> </span>N: 40</span></li>
 <li>优化时域<span class="heti-skip"><span class="heti-spacing"> </span>P: 6 (<span class="heti-spacing"> </span></span>使系统至少经历一个振荡周期</li>
 </ul>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250503152905.png"/></p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250503152931.png"/></p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250503152952.png"/></p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250503153025.png"/></p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/202505031530152.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__03-MPC.assets__20250503152905.webp"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__03-MPC.assets__20250503152931.webp"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__03-MPC.assets__20250503152952.webp"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__03-MPC.assets__20250503153025.webp"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__03-MPC.assets__202505031530152.webp"/></p>
 </div>
 <h3 id="_10">代码<a class="headerlink" href="#_10" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <div class="arithmatex">\[
@@ -5955,7 +5955,7 @@ G(s) = \frac{2.69(-6s + 1)e^{-1.5s}}{(20s + 1)(5s + 1)}
 <h3 id="rc">自动驾驶<span class="heti-skip"><span class="heti-spacing"> </span>&amp; RC<span class="heti-spacing"> </span></span>小车轨迹控制<a class="headerlink" href="#rc" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>有障碍物的轨迹控制
 <a href="https://github.com/alexliniger/MPCC">alexliniger/MPCC: Model Predictive Contouring Controller (MPCC) for Autonomous Racing</a></p>
-<p><img alt="" src="https://github.com/alexliniger/MPCC/raw/master/Images/MPC_sim.gif"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__03-MPC.assets__MPC_sim.gif"/></p>
 <p><a href="https://onlinelibrary.wiley.com/doi/full/10.1002/oca.2123">Optimization‐based autonomous racing of 1:43 scale RC cars - Liniger - 2015</a>
 提出了两种不同的控制方案。</p>
 <ul>
@@ -5963,7 +5963,7 @@ G(s) = \frac{2.69(-6s + 1)e^{-1.5s}}{(20s + 1)(5s + 1)}
 <li>第二个控制器将这两个任务结合在一个非线性优化问题（NLP）中，遵循轮廓控制的思想。通过线性化获得的线性时变模型用于在每个采样时间构建控制<span class="heti-skip"><span class="heti-spacing"> </span>NLP<span class="heti-spacing"> </span></span>的局部近似，形成凸二次规划（QP<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。生成的<span class="heti-skip"><span class="heti-spacing"> </span>QP<span class="heti-spacing"> </span></span>具有典型的<span class="heti-skip"><span class="heti-spacing"> </span>MPC<span class="heti-spacing"> </span></span>结构，障碍物规避通过基于动态规划的高级走廊规划器实现，该规划器根据对手的当前位置和赛道布局为控制器生成凸约束。</li>
 <li>实验平台：控制性能通过使用<span class="heti-skip"><span class="heti-spacing"> </span>1:43<span class="heti-spacing"> </span></span>比例的<span class="heti-skip"><span class="heti-spacing"> </span>RC<span class="heti-spacing"> </span></span>赛车进行实验研究，这些赛车以超过<span><span class="heti-spacing"> </span>3</span> <span>m/s<span class="heti-spacing"> </span></span>的速度行驶，并在后轮胎力饱和（漂移）的操作区域内运行。算法在嵌入式计算平台上以<span><span class="heti-spacing"> </span>50</span> <span>Hz<span class="heti-spacing"> </span></span>的采样率运行，展示了基于优化的方法在自动驾驶中的实时可行性和高性能。</li>
 </ul>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250502203924.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__03-MPC.assets__20250502203924.webp"/></p>
 <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/ioKTyc9bG4c?si=qGy-q34mUUqRq74R" title="YouTube video player" width="560"></iframe>
 <blockquote>
 <p><strong>Related links</strong>
@@ -5980,7 +5980,7 @@ G(s) = \frac{2.69(-6s + 1)e^{-1.5s}}{(20s + 1)(5s + 1)}
 </ul>
 <h3 id="_13">飞机轨迹控制<a class="headerlink" href="#_13" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p><a href="https://github.com/ZJU-FAST-Lab/CMPCC">ZJU-FAST-Lab/CMPCC: CMPCC: Corridor-based Model PredictiveContouring Control for Aggressive Drone Flight</a></p>
-<p><img alt="" src="https://github.com/ZJU-FAST-Lab/CMPCC/blob/master/figs/1.gif"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__03-MPC.assets__1.gif"/></p>
 <h3 id="_14">桨叶失效控制<a class="headerlink" href="#_14" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p><span>Fault-Tolerant MPC<span class="heti-spacing"> </span></span>问题构建<span><span class="heti-spacing"> </span>:</span></p>
 <div class="arithmatex">\[
@@ -6019,13 +6019,13 @@ q_{xy,w} &amp; q_{xy,x} &amp; q_{xy,y} &amp;0
 \end{aligned}
 \]</div>
 <h3 id="_15">飞行吊载控制<a class="headerlink" href="#_15" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250502210334.png"/></p></div>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__03-MPC.assets__20250502210334.webp"/></p></div>
 <aside class="md-source-file">
 <span class="md-source-file__fact">
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年9月25日 22:26:59</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年10月17日 20:24:06</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">

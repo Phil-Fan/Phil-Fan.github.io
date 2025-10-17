@@ -5973,7 +5973,7 @@ RIP (x86-64) 又叫PC指针</p>
 - 需要两个指针：栈指针SP，stack pointer；栈帧指针，frame pointer。
 - 提供两个元语：push &amp; pop
 - 每一次push都会减小栈指针，把值存进去</p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241227163238.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__03-pwn.assets__20241227163238.webp"/></p>
 <p>rbp : base pointer，指向栈底（最高）
 rsp: stack pointer，指向栈顶（最低）</p>
 <blockquote>
@@ -5998,7 +5998,7 @@ rsp: stack pointer，指向栈顶（最低）</p>
 <span class="nf">mov</span><span class="w"> </span><span class="no">rbp</span><span class="p">,</span><span class="w"> </span><span class="no">rsp</span><span class="w"> </span><span class="c1">; 这个时候rbp=rsp</span>
 </code></pre></div>
 <p>创建局部变量，<span>rsp<span class="heti-spacing"> </span></span>增加</p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240720010617.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__03-pwn.assets__20240720010617.webp"/></p>
 <div class="admonition note">
 <p class="admonition-title">局部变量为什么要初始化</p>
 <p>创建局部变量的时候就是基于栈的，如果不进行初始化，那么这个变量还是原来这个内存地址上的值，是不确定的。</p>
@@ -6067,11 +6067,11 @@ r
 </div>
 </div>
 </div>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241227162423.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__03-pwn.assets__20241227162423.webp"/></p>
 <h3 id="gdb_1">使用<span class="heti-skip"><span class="heti-spacing"> </span>gdb<span class="heti-spacing"> </span></span>进行修改<a class="headerlink" href="#gdb_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p></p><div class="highlight"><span class="filename">查看<span class="heti-skip"><span class="heti-spacing"> </span>puts<span class="heti-spacing"> </span></span>的地址</span><pre><span></span><code>objdump<span class="w"> </span>-R<span class="w"> </span>./test<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>puts
 </code></pre></div>
-<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241227163702.png"/>
+<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__03-pwn.assets__20241227163702.webp"/>
 <div class="highlight"><span class="filename">设置断点</span><pre><span></span><code>info<span class="w"> </span>files
 b<span class="w"> </span>overflow
 p<span class="w"> </span>backdoor
@@ -6083,7 +6083,7 @@ r
 delete<span class="w"> </span><span class="c1"># 把断点删除，防止子程序找不到对应的段</span>
 c
 </code></pre></div>
-<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241227163625.png"/>
+<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__03-pwn.assets__20241227163625.webp"/>
 <div class="highlight"><span class="filename">查看被修改的<span class="heti-skip"><span class="heti-spacing"> </span>GOT<span class="heti-spacing"> </span></span>表</span><pre><span></span><code>x/20x<span class="w"> </span>0x403480
 </code></pre></div>
 <h2 id="rop">ROP<a class="headerlink" href="#rop" title="anchor link to this section for reference">¶</a></h2>
@@ -6110,7 +6110,7 @@ c
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241216185221.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__03-pwn.assets__20241216185221.webp"/></p>
 <p>把函数断在<span class="heti-skip"><span class="heti-spacing"> </span>printf<span class="heti-spacing"> </span></span>的开头，我们可以看到第一个参数是格式化字<span><span class="heti-spacing"> </span>符</span>串<code>"%2$d %d %c %c %s %s"</code><span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>存在<code>RDI</code>寄存器中.</p>
 <p>第二个<span><span class="heti-spacing"> </span>参</span>数<code>1</code>存在<code>RSI</code>寄存器中.</p>
 <p>第三个<span><span class="heti-spacing"> </span>参</span>数<code>2</code>存在<code>rdx</code>寄存器中.</p>
@@ -6213,13 +6213,13 @@ c
 <span class="p">}</span>
 </code></pre></div>
 <p>先运行一下这个程序，我们可以发现这样的格式化字符串确实会泄露一些栈上的数据
-<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241216193509.png"/></p>
+<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__03-pwn.assets__20241216193509.webp"/></p>
 <p>使用<span class="heti-skip"><span class="heti-spacing"> </span>gdb<span class="heti-spacing"> </span></span>把断点下在<code>printf</code>函数上，然后运行程序</p>
 <div class="highlight"><pre><span></span><code>b<span class="w"> </span><span class="nb">printf</span>
 stack<span class="w"> </span><span class="m">80</span><span class="w"> </span><span class="c1"># pwndbg</span>
 telescope<span class="w"> </span>-l<span class="w"> </span><span class="m">80</span><span class="w"> </span><span class="c1"># gdb</span>
 </code></pre></div>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241216194547.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__03-pwn.assets__20241216194547.webp"/></p>
 <p>可以看到，栈上有很多我们感兴趣的地址</p>
 <p>比如说我们想把<span class="heti-skip"><span class="heti-spacing"> </span>main<span class="heti-spacing"> </span></span>函数的地址泄露出来，可以通过<code>%number$p</code><span><span class="heti-spacing"> </span>来泄露</span></p><span><span class="heti-spacing"> </span></span><p><span><span class="heti-spacing"> </span>那么</span>这个number，相当于目标地址相对于<code>printf</code>函数的偏移，如何计算呢？</p>
 <p><span>5(<span class="heti-spacing"> </span></span>有五个<span><span class="heti-spacing"> </span>参数存在寄存器上) + 0x22</span>0/8 = 73</p>
@@ -6239,7 +6239,7 @@ telescope<span class="w"> </span>-l<span class="w"> </span><span class="m">80</s
 <span class="n">log</span><span class="o">.</span><span class="n">success</span><span class="p">(</span><span class="nb">hex</span><span class="p">(</span><span class="n">leak</span><span class="p">))</span>
 <span class="n">p</span><span class="o">.</span><span class="n">interactive</span><span class="p">()</span>
 </code></pre></div>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241216195212.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__03-pwn.assets__20241216195212.webp"/></p>
 <p>如果我还想泄露<span class="heti-skip"><span class="heti-spacing"> </span>libc<span class="heti-spacing"> </span></span>的地址</p>
 <div class="highlight"><pre><span></span><code><span class="n">libc</span> <span class="o">=</span> <span class="n">ELF</span><span class="p">(</span><span class="s2">"/lib/x86_64-linux-gnu/libc.so.6"</span><span class="p">)</span>
 
@@ -6264,7 +6264,7 @@ telescope<span class="w"> </span>-l<span class="w"> </span><span class="m">80</s
 <span class="n">fmt</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">"%7$saaaa"</span> <span class="o">+</span> <span class="n">p64</span><span class="p">(</span><span class="n">binsh</span><span class="p">)</span>
 <span class="n">p</span><span class="o">.</span><span class="n">sendline</span><span class="p">(</span><span class="n">fmt</span><span class="p">)</span>
 </code></pre></div>
-<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241216220320.png"/>
+<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__03-pwn.assets__20241216220320.webp"/>
 <p>加了<code>7$</code><span><span class="heti-spacing"> </span>以</span>后需要去掉两个a</p>
 <p>这样的话<span class="heti-skip"><span class="heti-spacing"> </span>printf<span class="heti-spacing"> </span></span>就会打印出<code>/bin/sh\x00</code>，相当于我们自己把<code>/bin/sh\x00</code>的地址写到了栈上，然后再调用<span class="heti-skip"><span class="heti-spacing"> </span>printf<span class="heti-spacing"> </span></span>打印了出<span><span class="heti-spacing"> </span>来</span></p>
 <h3 id="_26">栈上任意写入<a class="headerlink" href="#_26" title="anchor link to this section for reference">¶</a></h3>
@@ -6283,8 +6283,8 @@ telescope<span class="w"> </span>-l<span class="w"> </span><span class="m">80</s
 <span class="n">p</span><span class="o">.</span><span class="n">sendline</span><span class="p">(</span><span class="n">fmt</span><span class="p">)</span>
 </code></pre></div>
 <p>比如说我们想把<span class="heti-skip"><span class="heti-spacing"> </span>12345678<span class="heti-spacing"> </span></span>写到栈上
-<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241227164025.png"/>
-<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241227163853.png"/></p>
+<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__03-pwn.assets__20241227164025.webp"/>
+<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__03-pwn.assets__20241227163853.webp"/></p>
 <div class="admonition example">
 <p class="admonition-title">写入<span class="heti-skip"><span class="heti-spacing"> </span>ABCD<span class="heti-spacing"> </span></span>四个字符</p>
 <div class="highlight"><pre><span></span><code><span class="kt">char</span><span class="w"> </span><span class="n">buf</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{};</span>
@@ -6345,7 +6345,7 @@ p.sendline(fmt)
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年6月25日 12:02:11</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年10月17日 20:24:06</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">

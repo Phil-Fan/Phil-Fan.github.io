@@ -5241,13 +5241,13 @@ pip<span class="w"> </span>install<span class="w"> </span>cbor
 <div class="admonition tip">
 <p class="admonition-title">仿真环境验证</p>
 <p>完成上述仿真环境配置后，进入<span class="heti-skip"><span class="heti-spacing"> </span>Coppeliasim<span class="heti-spacing"> </span></span>软件，右键<code>new scene</code>中的<code>Floor</code>，选择<code>Add -&gt; Associated child script -&gt; Non Threaded -&gt; Python</code></p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250303130523387.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__9-exp.assets__20250303130523387.webp"/></p>
 <p>函数<code>sysCall_init()</code>中键入代码</p>
 <div class="highlight"><pre><span></span><code><span class="n">floor</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">getObject</span><span class="p">(</span><span class="s2">"."</span><span class="p">)</span> <span class="c1"># 获取当前场景中的 . 对象，"." 代表的是 当前对象，如果是在主脚本里运行，通常指的是整个场景的地面 (floor)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">sim</span><span class="o">.</span><span class="n">getObjectPosition</span><span class="p">(</span><span class="n">floor</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span> <span class="c1"># 获取 floor 相对于 世界坐标系（-1 代表世界坐标系）的位置信息，返回的是 [x, y, z] 坐标。</span>
 </code></pre></div>
 <p>运行并得到在控制台得到结果</p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250303130627705.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__9-exp.assets__20250303130627705.webp"/></p>
 <p>为什么<span class="heti-skip"><span class="heti-spacing"> </span>Z<span class="heti-spacing"> </span></span>轴值是 <code>-0.1</code>？
 在 <code>CoppeliaSim</code> 里，默认地面 (Floor) 通常不是在 <code>z = 0</code>，而是位于 <code>z = -0.1</code>。这可能是<strong>为了避免浮动误差或保证物体接触地面时的稳定性</strong>。</p>
 <p>如果你想让地面在 <code>z = 0</code>，可以手动修改地面的<span class="heti-skip"><span class="heti-spacing"> </span>Z<span class="heti-spacing"> </span></span>轴位置，例如：</p>
@@ -5276,12 +5276,12 @@ pip<span class="w"> </span>install<span class="w"> </span>cbor
 <li>吸盘的吸附条件：吸盘与吸附中心点的<span class="heti-skip"><span class="heti-spacing"> </span>Z<span class="heti-spacing"> </span></span>轴夹角应小于<span><span class="heti-spacing"> </span><span class="arithmatex">\(5^{\circ}\)</span></span>，吸附位置应在吸附中心点为圆心、半径为<span class="heti-skip"><span class="heti-spacing"> </span>0.02m<span class="heti-spacing"> </span></span>的圆内，吸盘离物体的距离不能超过<span><span class="heti-spacing"> </span>0.005m</span>。</li>
 <li>在运行过程中、暂停时可以读取机械臂位置、速度、加速度和吸盘开关的状态，如下图所示。PS：停止会直接关闭。</li>
 </ul>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250310144640863.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__9-exp.assets__20250310144640863.webp"/></p>
 <blockquote>
 <p>图片来源于实验要求</p>
 </blockquote>
 <h3 id="robotscriptpy">Robot/Script.py<a class="headerlink" href="#robotscriptpy" title="anchor link to this section for reference">¶</a></h3>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250310144840873.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__9-exp.assets__20250310144840873.webp"/></p>
 <ul>
 <li><code>sysCall_init()</code> 完成各关节角的计算</li>
 <li><code>sysCall_actuation()</code>中将规划好的关节角通过<code>move(q, state)</code>函数传输给机械臂。</li>
@@ -5434,7 +5434,7 @@ pip<span class="w"> </span>install<span class="w"> </span>cbor
 </tr>
 </tbody>
 </table>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250310103313209.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__9-exp.assets__20250310103313209.webp"/></p>
 <blockquote>
 <p>图源课程实验要求</p>
 </blockquote>
@@ -5703,7 +5703,7 @@ pip<span class="w"> </span>install<span class="w"> </span>cbor
 <span class="k">end</span>
 </code></pre></div></td></tr></table></div>
 <p><strong>对比得到结果</strong></p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250314104911633.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__9-exp.assets__20250314104911633.webp"/></p>
 <h3 id="_9">逆运动学<a class="headerlink" href="#_9" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>这里使用<code>IK</code>库即可求解基础解</p>
 <p>但是需要注意的是，关节角度有限制，所以需要将不符合关节角度限制的解去除。这里使用了<code>np.all</code>函数加上逻辑表达式进行判断，简化了逻辑判断</p>
@@ -5781,13 +5781,13 @@ pip<span class="w"> </span>install<span class="w"> </span>cbor
 <span class="hll">        <span class="nb">print</span><span class="p">(</span><span class="n">sim</span><span class="o">.</span><span class="n">getObjectPosition</span><span class="p">(</span><span class="n">sim</span><span class="o">.</span><span class="n">getObject</span><span class="p">(</span><span class="s1">'/Robot/SuctionCup/SuctionCup_end'</span><span class="p">))</span><span class="o">+</span><span class="n">sim</span><span class="o">.</span><span class="n">getObjectOrientation</span><span class="p">(</span><span class="n">sim</span><span class="o">.</span><span class="n">getObject</span><span class="p">(</span><span class="s1">'/Robot/SuctionCup/SuctionCup_end'</span><span class="p">)))</span>
 </span>        <span class="n">sim</span><span class="o">.</span><span class="n">pauseSimulation</span><span class="p">()</span> <span class="c1"># 暂停,也可以使用stopSimulation()</span>
 </code></pre></div></td></tr></table></div>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250314102228374.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__9-exp.assets__20250314102228374.webp"/></p>
 <p>可以看到红框的部分是一致的，可以验证了逆运动学的正确性</p>
 <h2 id="2">仿真实验<span><span class="heti-spacing"> </span>2</span> ：机械臂点到点轨迹规划<a class="headerlink" href="#2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p>通过控制机械臂关节运动，将机械臂末端执行器从起点在规定时间内运动到终点</p>
 <p>注意各个关节轴的位置、速度、加速度限制，若超出限制将会停止运行！！！</p>
 <p>不限制规划方案，但是需要注意，最终的成绩与机械臂运行合理性、关节轴速度和加速度连续性等相关。</p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250310103409385.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__9-exp.assets__20250310103409385.webp"/></p>
 <p>要求：</p>
 <ol>
 <li>起点位姿<span><span class="heti-spacing"> </span><span class="arithmatex">\((0.117,0.334,0.499,-2.019,-0.058,-2.190)\)</span></span></li>
@@ -6114,7 +6114,7 @@ pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </s
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年4月29日 20:45:50</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年10月17日 20:24:06</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">

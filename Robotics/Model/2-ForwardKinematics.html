@@ -5130,7 +5130,7 @@
 <li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 连体坐标系的变换 —— 齐次变换矩阵相乘</li>
 <li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 正运动学问题：几何法、矩阵法</li>
 </ul>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250217105608273.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__2-ForwardKinematics.assets__20250217105608273.webp"/></p>
 <h2 id="_1">连体坐标系建立<a class="headerlink" href="#_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p>我觉得下面这一篇博文图片和解释比较清楚，这里要着重区别一下连杆转角和关节角</p>
 <blockquote>
@@ -5177,7 +5177,7 @@
 <p><span>Kinematics Model Identification<span class="heti-spacing"> </span></span>或<span><span class="heti-spacing"> </span>Kinematics Calibration</span>。</p>
 </div>
 <h2 id="_3">连体坐标系变换<a class="headerlink" href="#_3" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250301174641450.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__2-ForwardKinematics.assets__20250301174641450.webp"/></p>
 <p><span><span class="arithmatex">\(^{i-1}_i \!T\)</span><span class="heti-spacing"> </span></span>表示坐标系<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\{i-1\}\)</span><span class="heti-spacing"> </span></span>到坐标系<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\{i\}\)</span><span class="heti-spacing"> </span></span>的变换矩阵，<span>i<span class="heti-spacing"> </span></span>从<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>开始</p>
 <div class="arithmatex">\[
 ^{i-1}_i \!T = \begin{pmatrix}
@@ -5207,7 +5207,7 @@
 <div class="admonition tip">
 <p class="admonition-title">理解变换中的变量和不变量</p>
 <p><span><span class="arithmatex">\(a_{i-1}\)</span><span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\alpha_{i-1}\)</span><span class="heti-spacing"> </span></span>是固定不变的参数，不会随着 <strong>关节<span><span class="heti-spacing"> </span>i</span></strong> 的运动而变化（这里这里说的是关节<span class="heti-skip"><span class="heti-spacing"> </span>i<span class="heti-spacing"> </span></span>和关节<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(i-1\)</span><span class="heti-spacing"> </span></span>的关系）</p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250301190411843.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__2-ForwardKinematics.assets__20250301190411843.webp"/></p>
 <blockquote>
 <p>这样画可能可以理解关节<span class="heti-skip"><span class="heti-spacing"> </span>i<span class="heti-spacing"> </span></span>的行为不会影响之前的关节参数。
 而且要注意：<strong>关节的旋转是指绕轴进行转动，而不是轴本身进行转动，第一次看的时候在这里有误区</strong></p>
@@ -5221,7 +5221,7 @@
 <div class="admonition note">
 <p class="admonition-title">什么是关节和连杆</p>
 <p>这里可以举一个小小的例子，比如下面的图片，黑色箭头地方是关节，将关节连起来的是连杆</p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250301191114339.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__2-ForwardKinematics.assets__20250301191114339.webp"/></p>
 </div>
 <h2 id="_4">题型<a class="headerlink" href="#_4" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p><span><span class="arithmatex">\(a_i\)</span><span class="heti-spacing"> </span></span>的求解：相当于求异面直线之间的距离，可以采用</p>
@@ -5234,17 +5234,17 @@ a = \frac{|\vec{M_1M_2} \cdot (\vec{i_1} \times \vec{i_2})|}{|\vec{i_1} \times \
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>下图所示为一个<span class="heti-skip"><span class="heti-spacing"> </span>3<span class="heti-spacing"> </span></span>关节串联机械臂，该臂的末端装有吸盘作为操作工具。试在此机构上建立几何连杆、写出各连杆参数的值并列出各关节变量
-<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250301175836744.png"/></p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250301180836339.png"/></p>
+<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__2-ForwardKinematics.assets__20250301175836744.webp"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__2-ForwardKinematics.assets__20250301180836339.webp"/></p>
 </div>
 <div class="tabbed-block">
 <p>采用非标准<span class="heti-skip"><span class="heti-spacing"> </span>D-H<span class="heti-spacing"> </span></span>方法建立如图机器人的连杆联体坐标系
-<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250301180453199.png"/></p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250301180849138.png"/></p>
+<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__2-ForwardKinematics.assets__20250301180453199.webp"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__2-ForwardKinematics.assets__20250301180849138.webp"/></p>
 </div>
 <div class="tabbed-block">
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250301181505203.png"/>
-<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250301181610985.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__2-ForwardKinematics.assets__20250301181505203.webp"/>
+<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__2-ForwardKinematics.assets__20250301181610985.webp"/></p>
 <p>如果两个轴是平行的，在化简的时候可以使用和角公式进行化简（相当与把两个旋转变成一个等效的角度）</p>
 <div class="arithmatex">\[
 ^1T_2 = \begin{pmatrix}
@@ -5337,13 +5337,13 @@ c_{23} &amp; -s_{23} &amp; 0 &amp; a_2 c_2 \\
 <span class="n">T_final</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">compute_DH</span><span class="p">(</span><span class="n">DH_params</span><span class="p">);</span>
 </code></pre></div>
 <p>效果</p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250310162148977.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__2-ForwardKinematics.assets__20250310162148977.webp"/></p>
 <h2 id="_8">例题<a class="headerlink" href="#_8" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <h3 id="3-3-rpr">3-3 RPR<a class="headerlink" href="#3-3-rpr" title="anchor link to this section for reference">¶</a></h3>
 <p><span>3-3<span class="heti-spacing"> </span></span>下图所示为某<span class="heti-skip"><span class="heti-spacing"> </span>3<span class="heti-spacing"> </span></span>自由度机器人<span><span class="heti-spacing"> </span>(RPR)</span>。
 (1)试在此机器人上用非标准D-H方法建立连杆联体坐标系并写出运动学参量表
 (2)求出该机器人用齐次变换矩阵形式表示的运动学方程</p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250418202532.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__2-ForwardKinematics.assets__20250418202532.webp"/></p>
 <p>运动学参量表</p>
 <table>
 <thead>
@@ -5421,7 +5421,7 @@ c_{23} &amp; -s_{23} &amp; 0 &amp; a_2 c_2 \\
 <p><span>3-4<span class="heti-spacing"> </span></span>如图<span class="heti-skip"><span class="heti-spacing"> </span>3-19<span class="heti-spacing"> </span></span>所示的机器人，由两个转动关节与一个滑动关节组成，其各连杆的运动被约束在一个平面内。请：</p>
 <p><span>(1)<span class="heti-spacing"> </span></span>试在此机器人上用非标准<span class="heti-skip"><span class="heti-spacing"> </span>D-H<span class="heti-spacing"> </span></span>方法建立连杆联体坐标系并写出运动学参量表；</p>
 <p><span>(2)<span class="heti-spacing"> </span></span>求出该机器人用齐次变换矩阵形式表示的运动学方程。
-<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250418202210.png"/></p>
+<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__2-ForwardKinematics.assets__20250418202210.webp"/></p>
 <p>运动学参量表</p>
 <table>
 <thead>
@@ -5470,7 +5470,7 @@ c_{23} &amp; -s_{23} &amp; 0 &amp; a_2 c_2 \\
 <p><span>(1)<span class="heti-spacing"> </span></span>每个坐标系变换矩阵<span><span class="heti-spacing"> </span><span class="arithmatex">\(_i^{i-1}\boldsymbol{T},i=1,2,3,4\)</span> ;</span></p>
 <p><span>(2)<span class="heti-spacing"> </span></span>末端执行器的全局坐标；</p>
 <p><span>(3)<span class="heti-spacing"> </span></span>末端执行器的方位<span><span class="heti-spacing"> </span><span class="arithmatex">\(\varphi\)</span></span>。</p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250418201721.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__2-ForwardKinematics.assets__20250418201721.webp"/></p>
 <div class="arithmatex">\[
 {}^{0}T_{1}=\begin{bmatrix}\cos\theta_{1} &amp; -\sin\theta_{1} &amp; 0 &amp; l_{1}\cos\theta_{1} \\\sin\theta_{1} &amp; \cos\theta_{1} &amp; 0 &amp; l_{1}\sin\theta_{1} \\0 &amp; 0 &amp; 1 &amp; 0 \\0 &amp; 0 &amp; 0 &amp; 1\end{bmatrix},\quad{}^{1}T_{2}=\begin{bmatrix}\cos\theta_{2} &amp; -\sin\theta_{2} &amp; 0 &amp; l_{2}\cos\theta_{2} \\\sin\theta_{2} &amp; \cos\theta_{2} &amp; 0 &amp; l_{2}\sin\theta_{2} \\0 &amp; 0 &amp; 1 &amp; 0 \\0 &amp; 0 &amp; 0 &amp; 1\end{bmatrix}
 \]</div>
@@ -5487,7 +5487,7 @@ y=l_{1}\sin\theta_{1}+l_{2}\sin(\theta_{1}+\theta_{2})+l_{3}\sin(\theta_{1}+\the
 \varphi=\theta_{1}+\theta_{2}+\theta_{3}+\theta_{4}
 \]</div>
 <h3 id="6r">实验课机械臂<span><span class="heti-spacing"> </span>6R</span><a class="headerlink" href="#6r" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250418205120.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__2-ForwardKinematics.assets__20250418205120.webp"/></p>
 <table>
 <thead>
 <tr>
@@ -5544,7 +5544,7 @@ y=l_{1}\sin\theta_{1}+l_{2}\sin(\theta_{1}+\theta_{2})+l_{3}\sin(\theta_{1}+\the
 </tbody>
 </table>
 <h3 id="5-7-rrr">5-7 RRR<a class="headerlink" href="#5-7-rrr" title="anchor link to this section for reference">¶</a></h3>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250418214649.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__2-ForwardKinematics.assets__20250418214649.webp"/></p>
 <table>
 <thead>
 <tr>
@@ -5588,13 +5588,13 @@ y=l_{1}\sin\theta_{1}+l_{2}\sin(\theta_{1}+\theta_{2})+l_{3}\sin(\theta_{1}+\the
 \end{aligned}
 \]</div>
 <h3 id="5-9-prr">5-9 PRR<a class="headerlink" href="#5-9-prr" title="anchor link to this section for reference">¶</a></h3>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250418221914.png"/></p></div>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__2-ForwardKinematics.assets__20250418221914.webp"/></p></div>
 <aside class="md-source-file">
 <span class="md-source-file__fact">
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年4月29日 20:45:50</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年10月17日 20:24:06</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">

@@ -5040,7 +5040,7 @@ F = \frac{MS_A}{MS_E} \sim F(r-1, n-r).
 <p>其中<span><span class="heti-spacing"> </span><span class="arithmatex">\(MSA = \frac{SSA}{r-1}, MSE = \frac{SSE}{n-r}\)</span></span>。</p>
 <p>从定理<span class="heti-skip"><span class="heti-spacing"> </span>9.1.1<span class="heti-spacing"> </span></span>可以看出，无论假设<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(H_0\)</span><span class="heti-spacing"> </span></span>是不是真，<span class="arithmatex">\(E[SSE/\sigma^2(n-r)] = 1\)</span>。而对于<span><span class="heti-spacing"> </span><span class="arithmatex">\(SSA\)</span></span>，只有当假设<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(H_0\)</span><span class="heti-spacing"> </span></span>为真的时候<span><span class="heti-spacing"> </span><span class="arithmatex">\(E[SSA/\sigma^2(r-1)] = 1\)</span></span>。如果假设<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(H_0\)</span><span class="heti-spacing"> </span></span>不真，则<span><span class="heti-spacing"> </span><span class="arithmatex">\(E[SSA/\sigma^2(r-1)] &gt; 1\)</span></span>，因此，如果由样本计算得出的<span class="heti-skip"><span class="heti-spacing"> </span>F<span class="heti-spacing"> </span></span>值比较大的话，即落在<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\{F \geq c\}\)</span><span class="heti-spacing"> </span></span>的区间内，那么判定假设<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(H_0\)</span><span class="heti-spacing"> </span></span>不成立。</p>
 <p>对于给定的显著水平<span><span class="heti-spacing"> </span><span class="arithmatex">\(\alpha\)</span></span>，用<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(F_{\alpha}(r-1, n-r)\)</span><span class="heti-spacing"> </span></span>表示<span class="heti-skip"><span class="heti-spacing"> </span>F<span class="heti-spacing"> </span></span>分布的上侧<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\alpha\)</span><span class="heti-spacing"> </span></span>分位数，这个假设检验的拒绝域为<span><span class="heti-spacing"> </span><span class="arithmatex">\(W = \{F \geq F_{\alpha}(r-1, n-r)\}\)</span></span>。即当由观察值得到的<span class="heti-skip"><span class="heti-spacing"> </span>F<span class="heti-spacing"> </span></span>值落在拒绝域内，则意味着应该拒绝原假设<span><span class="heti-spacing"> </span><span class="arithmatex">\(H_0\)</span></span>，认为各总体均值（各个水平下）有差异，即因素<span class="heti-skip"><span class="heti-spacing"> </span>A<span class="heti-spacing"> </span></span>显著。或计算<span><span class="heti-spacing"> </span><span class="arithmatex">\(P = P\{F(r-1, n-r) \geq F\}\)</span></span>，当<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(P \leq \alpha\)</span><span class="heti-spacing"> </span></span>时拒绝原假设<span><span class="heti-spacing"> </span><span class="arithmatex">\(H_0\)</span></span>。通常将上述的计算归纳成表<span><span class="heti-spacing"> </span>9.1.3</span>，称为方差分析表（analysis of variance table<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。</p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241122192402.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__Statistic__assets__11-anova.assets__20241122192402.webp"/></p>
 <h3 id="sigma2"><span><span class="arithmatex">\(\sigma^2\)</span><span class="heti-spacing"> </span></span>的无偏估计<a class="headerlink" href="#sigma2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <div class="arithmatex">\[
 MS_E = \frac{SS_E}{n-r} = \frac{1}{n-r}\sum_{i=1}^r\sum_{j=1}^{n_i}(X_{ij}-\bar{X_i})^2
@@ -5105,7 +5105,7 @@ W_B &amp;= \{FB \geq F_{\alpha}((s-1), (r-1)(s-1))\}.
 \end{aligned}
 \]</div>
 <p>由观测样本计算得到<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(FA\)</span><span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(FB\)</span><span class="heti-spacing"> </span></span>的值，根据这些值是否落在拒绝域内，判断是拒绝还是接受<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(H_{01}\)</span><span class="heti-spacing"> </span></span>和<span><span class="heti-spacing"> </span><span class="arithmatex">\(H_{02}\)</span></span>。计算结果可归纳成下面的方差分析表</p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241122193211.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__Statistic__assets__11-anova.assets__20241122193211.webp"/></p>
 <div class="highlight"><span class="filename">无影响多因素使用<span><span class="heti-spacing"> </span>ols&amp;anova_lm</span></span><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.stats.anova</span><span class="w"> </span><span class="kn">import</span> <span class="n">anova_lm</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.formula.api</span><span class="w"> </span><span class="kn">import</span> <span class="n">ols</span>
 
@@ -5121,15 +5121,15 @@ C(M)       1.0  5.105843e+08  5.105843e+08  56.229001  2.837753e-09
 Residual  42.0  3.813786e+08  9.080444e+06        NaN           NaN
 </code></pre></div>
 <h2 id="_9">有相互影响的多因素<a class="headerlink" href="#_9" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241122193649.png"/></p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241122193707.png"/></p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241122193721.png"/></p></div>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__Statistic__assets__11-anova.assets__20241122193649.webp"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__Statistic__assets__11-anova.assets__20241122193707.webp"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__Statistic__assets__11-anova.assets__20241122193721.webp"/></p></div>
 <aside class="md-source-file">
 <span class="md-source-file__fact">
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年4月5日 10:16:34</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年10月17日 20:24:06</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">

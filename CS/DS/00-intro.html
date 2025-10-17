@@ -4917,8 +4917,8 @@
 <p><strong>定义<span><span class="heti-spacing"> </span>2.4:</span></strong> 如果对每一正常数<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(c\)</span><span class="heti-spacing"> </span></span>存在常数<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(m_{0}\)</span><span class="heti-spacing"> </span></span>使得当<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(N \geqslant m_{0}\)</span><span class="heti-spacing"> </span></span>时<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(T(N) \leqslant c p(N)\)</span>,<span class="heti-spacing"> </span></span>则<span><span class="heti-spacing"> </span><span class="arithmatex">\(T(N)=\)</span></span>
  <span class="arithmatex">\(o(p(N))\)</span> 。也可简述为, 如果 <span class="arithmatex">\(T(N)=O(p(N))\)</span> 且 <span class="arithmatex">\(T(N) \neq \Theta(p(N))\)</span>, 则 <span class="arithmatex">\(T(N)=o(p(N))\)</span> 。</p>
 <p><strong>定义<span><span class="heti-spacing"> </span>2.5</span>：</strong> 若存在<span class="heti-skip"><span class="heti-spacing"> </span>c&gt;0<span class="heti-spacing"> </span></span>和<span><span class="heti-spacing"> </span>n0</span>，当<span class="heti-skip"><span class="heti-spacing"> </span>N&gt;n0<span class="heti-spacing"> </span></span>时，T(N)&gt;cq(N)，则记为<span><span class="heti-spacing"> </span>T(N) = w(q(N))</span></p>
-<p><img alt="image-20230101145822408" src="https://zjushine-picgo.oss-cn-hangzhou.aliyuncs.com/img/image-20230101145822408.png"/></p>
-<p><img alt="image-20230101145831844" src="https://zjushine-picgo.oss-cn-hangzhou.aliyuncs.com/img/image-20230101145831844.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__DS__assets__00-intro.assets__image-20230101145822408.webp"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__DS__assets__00-intro.assets__image-20230101145831844.webp"/></p>
 <p><span><span class="arithmatex">\(O(1)\)</span><span class="heti-spacing"> </span></span>是指<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(f(n)\)</span><span class="heti-spacing"> </span></span>有上界</p>
 <h3 id="123"><strong>法则<span><span class="heti-spacing"> </span>1,2,3</span></strong><a class="headerlink" href="#123" title="anchor link to this section for reference">¶</a></h3>
 <div class="arithmatex">\[
@@ -4929,10 +4929,10 @@ IF \quad T_1(N) = O(f(N)) \ and \ T_2(N) O(g(N))\\
     T_1(N) * T_2(N) &amp;= O(f(N) * g(N))\\
 \end{align}
 \]</div>
-<p><img alt="image-20230101145916672" src="https://zjushine-picgo.oss-cn-hangzhou.aliyuncs.com/img/image-20230101145916672.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__DS__assets__00-intro.assets__image-20230101145916672.webp"/></p>
 <p>主要考虑 最坏可能性 与 平均可能性</p>
 <h2 id="_4">等价关系<a class="headerlink" href="#_4" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<p><img alt="image-20230101231048256" src="https://zjushine-picgo.oss-cn-hangzhou.aliyuncs.com/img/image-20230101231048256.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__DS__assets__00-intro.assets__image-20230101231048256.webp"/></p>
 <p><span>find:<span class="heti-spacing"> </span></span>返回包含给定元素的集合</p>
 <p><span>union:<span class="heti-spacing"> </span></span>把含有两个等价类合并成一个新的等价类</p>
 <p>采用森林 每个节点都只有父节点信息代表类 合并操作只要修改父节点信息即可</p>
@@ -4942,7 +4942,7 @@ IF \quad T_1(N) = O(f(N)) \ and \ T_2(N) O(g(N))\\
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年7月8日 22:48:38</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年10月17日 20:24:06</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">

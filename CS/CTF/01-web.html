@@ -5265,7 +5265,7 @@
 <li>逻辑漏洞：验证不充分、想当然的写法、条件竞争、未发现的旁门左道……
     - 程序员的傲慢可能会让他认为<code>a==1&amp;&amp;a==2</code> 一定是 false 但……</li>
 </ul>
-<p><img alt="Untitled" src="https://prod-files-secure.s3.us-west-2.amazonaws.com/158f919d-d6bc-4e6d-842d-7480f90ccecc/31d85cd7-3d28-45ce-a7ea-040e2b4003fd/Untitled.png"/></p>
+<p><img alt="" src="https://prod-files-secure.s3.us-west-2.amazonaws.com/158f919d-d6bc-4e6d-842d-7480f90ccecc/31d85cd7-3d28-45ce-a7ea-040e2b4003fd/Untitled.png"/></p>
 <ul>
 <li>任意文件读与任意代码执行
     - 例如一个Web应用允许用户上传头像，但未对上传的文件进行严格的类型和内容检查。攻击者上传一个包含恶意代码的文件，并通过文件包含漏洞执行该代码，从而控制服务器。
@@ -5305,7 +5305,7 @@
 </div>
 <h3 id="_4">直接回显的注入<a class="headerlink" href="#_4" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>存在注入<span class="heti-skip"><span class="heti-spacing"> </span>-&gt;SQL<span class="heti-spacing"> </span></span>语句可以以一种“意料之外”的方式被解析</p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240709155833.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__01-web.assets__20240709155833.webp"/></p>
 <p>传入全部各种特殊字符<span><span class="heti-spacing"> </span>'"~!@#$%^&amp;*()`</span>
 </p><div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">col_name</span><span class="p">(</span><span class="err">…</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="k">table_name</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">'"</span><span class="o">~!@#</span><span class="err">$</span><span class="o">%^&amp;*</span><span class="p">()</span><span class="o">`</span><span class="w">       </span><span class="cm">/*数字型*/</span>
 </code></pre></div>
@@ -5350,7 +5350,7 @@
 </code></pre></div>
 无论id是否为0，这个条件永远为真
 </div>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240709152231.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__01-web.assets__20240709152231.webp"/></p>
 <p>延时注入：<span>1bit<span class="heti-spacing"> </span></span>信息不足以满足要求</p>
 <p>不管返回什么值，只关心返回的时间。泛用性最广</p>
 <p><code>SUBSTR(str, pos, len)</code>可截取字符串
@@ -5408,7 +5408,7 @@ or 找 True值
 <h4 id="_8">二次注入<a class="headerlink" href="#_8" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p>对数据进行转义是为了防止<span class="heti-skip"><span class="heti-spacing"> </span>SQL<span class="heti-spacing"> </span></span>语句执行时出现问题，存储的原始数据并没有转义。
 那么，如果某个数据被存入时携带了恶意的SQL语句，由于存入操作进行了良好的转义没有造成注入，但是服务端的其他功能读取这串数据用于拼接SQL语句时没有转义，可能也会造成注入。</p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240710112244.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__01-web.assets__20240710112244.webp"/></p>
 <h3 id="sql_1"><span>SQL<span class="heti-spacing"> </span></span>注入的绕过<a class="headerlink" href="#sql_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>常见防护方法：</p>
 <ul>
@@ -5445,7 +5445,7 @@ or 找 True值
 <p>针对语义匹配
 相对难度较大，只能利用语言特性把语义检测绕晕。常见办法是嵌套注释符让其以为全部内容都被注释了。</p>
 <h3 id="sql_2">一个<span class="heti-skip"><span class="heti-spacing"> </span>SQL<span class="heti-spacing"> </span></span>注入攻击实例<a class="headerlink" href="#sql_2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240709162751.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__01-web.assets__20240709162751.webp"/></p>
 <div class="admonition note">
 <p class="admonition-title"><span>sql<span class="heti-spacing"> </span></span>注入的本质</p>
 <p><span>SQL<span class="heti-spacing"> </span></span>注入产生在服务端运行的编程语言和<span class="heti-skip"><span class="heti-spacing"> </span>SQL<span class="heti-spacing"> </span></span>服务器的边界上
@@ -5480,7 +5480,7 @@ SQL注入的本质是构造一条产生有效信息输送的信息链！</p>
 <p>本章节来源于<a href="https://segmentfault.com/a/1190000024490213"><span class="heti-skip"><span class="heti-spacing"> </span>CSRF<span class="heti-spacing"> </span></span>攻击原理和防范措施</a></p>
 <p><code>Cross-site request forgery</code>，也被称为 <code>one-click attack</code> 或者 <code>session riding</code>，通常缩写为<span class="heti-skip"><span class="heti-spacing"> </span>CSRF<span class="heti-spacing"> </span></span>或者<span><span class="heti-spacing"> </span>XSRF</span>， 是一种挟制用户在当前已登录的<span class="heti-skip"><span class="heti-spacing"> </span>Web<span class="heti-spacing"> </span></span>应用程序上执行非本意的操作的攻击方法。跟跨网站脚本（XSS）相比，<span>XSS<span class="heti-spacing"> </span></span>利用的是用户对指定网站的信任，<strong><span>CSRF<span class="heti-spacing"> </span></span>利用的是网站对用户网页浏览器的信任</strong>。</p>
 <h3 id="_10">原理<a class="headerlink" href="#_10" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240703150007.png"/>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__01-web.assets__20240703150007.webp"/>
 - 首选用户通过浏览器访问网银系统
 - 用户在网银登录后，浏览器会把用户session_id保存在浏览器Cookie中
 - 此时用户在同一个浏览器中访问了第三方网站
@@ -5573,7 +5573,7 @@ def fetch_url(url):
         return "Access Denied"
     # 继续处理请求
 </code></pre></div>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240709163411.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__01-web.assets__20240709163411.webp"/></p>
 <h2 id="_14">网站扫描<a class="headerlink" href="#_14" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <h3 id="_15">地址泄漏<a class="headerlink" href="#_15" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p><a href="https://www.cnblogs.com/endust/p/12132374.html">获取网站路径绝对路径的方法汇总<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>看不尽的尘埃<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>博客园</a></p>
@@ -5638,7 +5638,7 @@ def fetch_url(url):
 <p>需要注意的是，虽然在第二步检查的时候只剩下<code>;</code>，但最终执行的时候还是执行最开始的代码，所以这里不需要担心。</p>
 <p>最后构造<span><span class="heti-spacing"> </span>payload</span> <code>exp=highlight_file(next(array_reverse(scandir(pos(localeconv())))));</code></p>
 <p>最后得到了<span><span class="heti-spacing"> </span>flag</span>
-<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240801184746.png"/></p>
+<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__01-web.assets__20240801184746.webp"/></p>
 <p>​    </p>
 <h3 id="_17">备份文件搜索<a class="headerlink" href="#_17" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>网站备份文件的泄露一般是由于网站管理员将网站备份文件或是敏感信息文件存放在某个网站目录下，然后这个目录按照网站的默认设置是可以公开访问的。那么黑客就可通过暴力破解目录的方法获取该备份文件，导致网站敏感信息泄露。</p>
@@ -5696,7 +5696,7 @@ sql</p>
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年6月25日 12:02:11</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年10月17日 20:24:06</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">

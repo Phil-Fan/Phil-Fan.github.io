@@ -5009,7 +5009,7 @@
 <p><span>-<span class="heti-spacing"> </span></span>否则将<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(h\)</span><span class="heti-spacing"> </span></span>中<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(a_i\)</span><span class="heti-spacing"> </span></span>替换为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(x\)</span><span class="heti-spacing"> </span></span>满足的另一个更一般约束</p>
 <p><span>3)<span class="heti-spacing"> </span></span>输出假设<span><span class="heti-spacing"> </span><span class="arithmatex">\(h\)</span></span></p>
 <h3 id="_1">例子<a class="headerlink" href="#_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250108151249.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__10-ConceptLearning.assets__20250108151249.webp"/></p>
 <p>初始化最特殊假设：<span class="arithmatex">\(h \leftarrow &lt; \emptyset,  \emptyset,  \emptyset,  \emptyset,  \emptyset,  \emptyset&gt;\)</span></p>
 <p>输入正样例<span><span class="heti-spacing"> </span>1</span>，一般化假设：<span class="arithmatex">\(h \leftarrow &lt;Sunny, Warm, Normal, Strong, Warm, Same&gt;\)</span></p>
 <p>输入正样例<span><span class="heti-spacing"> </span>2</span>，一般化假设：<span class="arithmatex">\(h \leftarrow &lt;Sunny, Warm, ?, Strong, Warm, Same&gt;\)</span></p>
@@ -5032,13 +5032,13 @@
 2）对于任何实例来说，若不符合最特殊假设，除非其为正例可由其他知识逻辑推出,否则均判别为反例</p>
 <h2 id="_4">变型空间与候选消除算法<a class="headerlink" href="#_4" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p>变型空间：与训练样例一致的所有假设的集合，即变型空间中任意一个假设都能覆盖所有的正例并排斥所有的反例。变型空间一般用极大一般假设<span class="heti-skip"><span class="heti-spacing"> </span>G<span class="heti-spacing"> </span></span>和极大特殊假设<span class="heti-skip"><span class="heti-spacing"> </span>S<span class="heti-spacing"> </span></span>来表示，所有位于<span class="heti-skip"><span class="heti-spacing"> </span>G<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>S<span class="heti-spacing"> </span></span>之间的假设都在变型空间内</p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250108151427.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__10-ConceptLearning.assets__20250108151427.webp"/></p>
 <h3 id="_5">步骤<a class="headerlink" href="#_5" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p><span>1)<span class="heti-spacing"> </span></span>初始化<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(G\)</span> (<span class="heti-spacing"> </span></span>所有属性均为<span><span class="heti-spacing"> </span><span class="arithmatex">\(?\)</span> )</span>；初始化<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(S\)</span> (<span class="heti-spacing"> </span></span>所有属性均为<span><span class="heti-spacing"> </span><span class="arithmatex">\(\emptyset\)</span> )</span></p>
 <p><span>2)<span class="heti-spacing"> </span></span>对训练样例集<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(D\)</span><span class="heti-spacing"> </span></span>中的每个正样例<span><span class="heti-spacing"> </span><span class="arithmatex">\(d^+\)</span></span>：一般化<span><span class="heti-spacing"> </span><span class="arithmatex">\(S\)</span></span></p>
 <p>对训练样例集<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(D\)</span><span class="heti-spacing"> </span></span>中的每个负样例<span><span class="heti-spacing"> </span><span class="arithmatex">\(d^-\)</span></span>：特殊化<span><span class="heti-spacing"> </span><span class="arithmatex">\(G\)</span></span></p>
 <p><span>(<span class="heti-spacing"> </span></span>在更新<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(S\)</span><span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(G\)</span><span class="heti-spacing"> </span></span>时，每一步均需要保证<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(G\)</span><span class="heti-spacing"> </span></span>包含<span><span class="heti-spacing"> </span><span class="arithmatex">\(S\)</span>)</span></p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250108151728.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__10-ConceptLearning.assets__20250108151728.webp"/></p>
 <h3 id="_6">例子<a class="headerlink" href="#_6" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p><a href="https://blog.csdn.net/qq_42008628/article/details/123628770">候选消除算法<span class="heti-skip"><span class="heti-spacing"> </span>-CSDN<span class="heti-spacing"> </span></span>博客</a></p>
 <table>
@@ -5097,12 +5097,12 @@
 </tr>
 </tbody>
 </table>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250108152855.png"/></p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250108152902.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__10-ConceptLearning.assets__20250108152855.webp"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__10-ConceptLearning.assets__20250108152902.webp"/></p>
 <p>例<span><span class="heti-spacing"> </span>2</span>
 <strong>在候选消除算法中，如果训练样例按<span class="heti-skip"><span class="heti-spacing"> </span>EnjoySport<span class="heti-spacing"> </span></span>例子中的逆序出现，请分步给出<span class="heti-skip"><span class="heti-spacing"> </span>S<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>G<span class="heti-spacing"> </span></span>边界集合。</strong>
-<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250108153447.png"/>
-<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250108153506.png"/></p>
+<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__10-ConceptLearning.assets__20250108153447.webp"/>
+<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__10-ConceptLearning.assets__20250108153506.webp"/></p>
 <h3 id="_7">归纳偏置<a class="headerlink" href="#_7" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>1）假定目标概念必须在假设空间中
 2）对于任何实例来说，若不在变型空间中，除非其为正例可由其他知识逻辑推出,否则均判别为’new instance’或’don’t know’</p>
@@ -5123,7 +5123,7 @@
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年6月25日 12:02:11</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年10月17日 20:24:06</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">

@@ -5396,11 +5396,11 @@
 </ul>
 <p>所有信息都是<span class="heti-skip"><span class="heti-spacing"> </span>01<span class="heti-spacing"> </span></span>串，而<span class="heti-skip"><span class="heti-spacing"> </span>01<span class="heti-spacing"> </span></span>串之间可以发生互相的转换</p>
 <p>常见的<span class="heti-skip"><span class="heti-spacing"> </span>01<span class="heti-spacing"> </span></span>串转换方式有 编解码、加解密、哈希</p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240704135220.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__02-misc.assets__20240704135220.webp"/></p>
 <h3 id="_2">字符编码<a class="headerlink" href="#_2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p><a href="https://yuanjava.com/characters-and-encodings/">为什么会乱码？什么是编解码？ASCII、Unicode、<span>UTF-8<span class="heti-spacing"> </span></span>的实现原理是什么？本文帮你讲透！</a></p>
 <p>人类理解的字符<span class="heti-skip"><span class="heti-spacing"> </span>to<span class="heti-spacing"> </span></span>计算机理解的<span class="heti-skip"><span class="heti-spacing"> </span>01<span class="heti-spacing"> </span></span>串之间的映射</p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240704142921.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__02-misc.assets__20240704142921.webp"/></p>
 <h4 id="_3">乱码<a class="headerlink" href="#_3" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p>用一种字符编码规则解读另一种字符编码的<span class="heti-skip"><span class="heti-spacing"> </span>01<span class="heti-spacing"> </span></span>串</p>
 <ul>
@@ -5564,7 +5564,7 @@ c8 a5
 <p>（American Standard Code for Information Interchange，美国标准信息交换码<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>：总共<span class="heti-skip"><span class="heti-spacing"> </span>128<span class="heti-spacing"> </span></span>个字符，包括英文字母、数字、一些特殊符号和控制字符</p>
 <p>一共<span class="heti-skip"><span class="heti-spacing"> </span>128<span class="heti-spacing"> </span></span>个项，即每个字符可以用一个<span class="heti-skip"><span class="heti-spacing"> </span>7<span class="heti-spacing"> </span></span>位的<span class="heti-skip"><span class="heti-spacing"> </span>01<span class="heti-spacing"> </span></span>串表示（或一字节）
 00-1F：控制字符；20-7E：可见字符；7F：控制字符（DEL）</p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240704180429.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__02-misc.assets__20240704180429.webp"/></p>
 <h4 id="latin-1iso-8859-1">Latin-1（ISO-8859-1）<a class="headerlink" href="#latin-1iso-8859-1" title="anchor link to this section for reference">¶</a></h4>
 <p>扩展了<span><span class="heti-spacing"> </span>ASCII</span>，一共<span class="heti-skip"><span class="heti-spacing"> </span>256<span class="heti-spacing"> </span></span>个项
 80-9F：控制字符；A0-FF：可见字符
@@ -5607,7 +5607,7 @@ c8 a5
 <li>
 <p>字符€ (U+20AC)
 分析：字符 ‘€’的 Unicode是 U+20AC，位于 U+0800 到 U+FFFF之间，因此，需要用 3个字节表示，即1110xxxx 10xxxxxx 10xxxxxx，将“20AC”中的每个字符直接转换成二进制为：0010 0000 1010 1100，然后将它从低位往高位（从右到左）依次替换x，如下图：
-<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240704183246.png"/>
+<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__02-misc.assets__20240704183246.webp"/>
 这样得出字符 € (U+20AC)用 UTF-8编码的二进制为：11100010 10000010 10101100，转换成十六进制为：0xE2 0x82 0xAC</p>
 </li>
 </ol>
@@ -5641,7 +5641,7 @@ c8 a5
 </div>
 </div>
 </div>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240707134357.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__02-misc.assets__20240707134357.webp"/></p>
 <p>这图中展示了前文所述的几种编码在编码完成后，前<span class="heti-skip"><span class="heti-spacing"> </span>2<span class="heti-spacing"> </span></span>个<span class="heti-skip"><span class="heti-spacing"> </span>byte<span class="heti-spacing"> </span></span>的值的范围（用<span class="heti-skip"><span class="heti-spacing"> </span>16<span class="heti-spacing"> </span></span>进制表示<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。每个<span class="heti-skip"><span class="heti-spacing"> </span>byte<span class="heti-spacing"> </span></span>可以表示<span class="heti-skip"><span class="heti-spacing"> </span>00<span class="heti-spacing"> </span></span>到<span><span class="heti-spacing"> </span>FF</span>（即<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>至<span><span class="heti-spacing"> </span>255</span><heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。从图中我们可以一目了然地看到为什么<span class="heti-skip"><span class="heti-spacing"> </span>GB18030<span class="heti-spacing"> </span></span>可以兼容<span><span class="heti-spacing"> </span>GBK</span>，<span>GB2312<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>ASCII<span class="heti-spacing"> </span></span>了。他们几种编码之间前两位没有重合部分。需要注意的是<span class="heti-skip"><span class="heti-spacing"> </span>ASCII<span class="heti-spacing"> </span></span>只有<span><span class="heti-spacing"> </span>1byte</span>，所以是没有第二位的。另外<span class="heti-skip"><span class="heti-spacing"> </span>GB18030<span class="heti-spacing"> </span></span>在上图中占的面积虽然很小，但是它是<span class="heti-skip"><span class="heti-spacing"> </span>4bytes<span class="heti-spacing"> </span></span>编码，这图只展示了前两位。如果后两位也算上，<span>GB18030<span class="heti-spacing"> </span></span>的字数要远多于<span><span class="heti-spacing"> </span>GBK</span>。另外需要注意的是，由于<span class="heti-skip"><span class="heti-spacing"> </span>GBK<span class="heti-spacing"> </span></span>兼容<span><span class="heti-spacing"> </span>GB2312</span>，因此属于<span class="heti-skip"><span class="heti-spacing"> </span>GB2312<span class="heti-spacing"> </span></span>的蓝色区域其实也可以算作是<span class="heti-skip"><span class="heti-spacing"> </span>GBK<span class="heti-spacing"> </span></span>的区域。同理<span class="heti-skip"><span class="heti-spacing"> </span>GBK<span class="heti-spacing"> </span></span>的区域理论上也属于<span class="heti-skip"><span class="heti-spacing"> </span>GB18030<span class="heti-spacing"> </span></span>的区域。上表中只是展示了多出来的部分。</p>
 <p>实际生活中，我们用到的<span class="heti-skip"><span class="heti-spacing"> </span>99%<span class="heti-spacing"> </span></span>以上的汉字，其实都在<span class="heti-skip"><span class="heti-spacing"> </span>GB2312<span class="heti-spacing"> </span></span>那一块区域内。</p>
 <p><strong>GB2312</strong></p>
@@ -6209,7 +6209,7 @@ c8 a5
 - GIF 有损且只支持 256 色
 - 新兴格式如 HEIF、WebP、AVIF 等</p>
 </div>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240709191542.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__02-misc.assets__20240709191542.webp"/></p>
 <ul>
 <li>文件头 <code>89 50 4E 47 0D 0A 1A 0A | .PNG....</code>
 <strong>采用分块的方式存储数据</strong><span>,<span class="heti-spacing"> </span></span>每块的结构都是<span class="heti-skip"><span class="heti-spacing"> </span>4<span class="heti-spacing"> </span></span>字节长度<span class="heti-skip"><span class="heti-spacing"> </span>+ 4<span class="heti-spacing"> </span></span>字节类型<span class="heti-skip"><span class="heti-spacing"> </span>+<span class="heti-spacing"> </span></span>数据<span class="heti-skip"><span class="heti-spacing"> </span>+ 4<span class="heti-spacing"> </span></span>字节<span class="heti-skip"><span class="heti-spacing"> </span>CRC<span class="heti-spacing"> </span></span>校验</li>
@@ -6220,7 +6220,7 @@ c8 a5
 <div class="tabbed-set tabbed-alternate" data-tabs="8:4"><input checked="" id="__tabbed_8_1" name="__tabbed_8" type="radio"/><input id="__tabbed_8_2" name="__tabbed_8" type="radio"/><input id="__tabbed_8_3" name="__tabbed_8" type="radio"/><input id="__tabbed_8_4" name="__tabbed_8" type="radio"/><div class="tabbed-labels"><label for="__tabbed_8_1">文件结构</label><label for="__tabbed_8_2">压缩原理</label><label for="__tabbed_8_3">分类</label><label for="__tabbed_8_4">压缩原理</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240709190857.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__02-misc.assets__20240709190857.webp"/></p>
 <p><span>JPEG<span class="heti-spacing"> </span></span>使用分段的结构来进行存储，各段以<span class="heti-skip"><span class="heti-spacing"> </span>0xFF<span class="heti-spacing"> </span></span>开头，后接一个字节表示类型：
 |开始|作用|
 |—|—|
@@ -6281,7 +6281,7 @@ PNG 标准不允许 IEND 之后有数据块 结尾时<code>AE 42 60 82</code></p
 </ul>
 </div>
 <h3 id="_15">图像大小修改<a class="headerlink" href="#_15" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240709193713.png"/>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__02-misc.assets__20240709193713.webp"/>
 - PNG 图像按行进行像素数据的压缩，以及存储 / 读取
 - 当解码时已经达到了 IHDR 中规定的大小就会结束
 - 因此题目可能会故意修改 IHDR 中的高度数据，使之显示不全
@@ -6431,7 +6431,7 @@ strings mem.raw | grep "flag"
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年6月25日 12:02:11</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年10月17日 20:24:06</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">

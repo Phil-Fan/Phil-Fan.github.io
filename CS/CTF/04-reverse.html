@@ -5142,7 +5142,7 @@
 <div class="admonition note">
 <p class="admonition-title">笔记来源<span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span>短学期课程<span><span class="heti-spacing"> </span>ppt</span>，可能有转写错误，请注意鉴别</p>
 </div>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240714181857.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__04-reverse.assets__20240714181857.webp"/></p>
 <p><a href="https://interactivemeta.cmc.zju.edu.cn/#/replay?course_id=63047&amp;sub_id=1213368&amp;tenant_code=112">智云链接</a></p>
 <h2 id="_1">程序？可“执行”文件<a class="headerlink" href="#_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p>为什么计算机可以执行给定的程序呢？
@@ -5154,18 +5154,18 @@ Dword = 4 Bytes = int</p>
 <p>eax
 edx</p>
 </div>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240707201856.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__04-reverse.assets__20240707201856.webp"/></p>
 <p>AST：抽象代码树
 IR：中间表达式</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">编译执行</label><label for="__tabbed_1_2">解释执行</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>上述通过编译器<span class="heti-skip"><span class="heti-spacing"> </span>(compiler)<span class="heti-spacing"> </span></span>将代码转化为机器指令格式的程序，进而执行
-<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240707202333.png"/></p>
+<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__04-reverse.assets__20240707202333.webp"/></p>
 </div>
 <div class="tabbed-block">
 <p>通过解释器<span class="heti-skip"><span class="heti-spacing"> </span>(interpreter)<span class="heti-spacing"> </span></span>将代码转化为<span class="heti-skip"><span class="heti-spacing"> </span>VM<span class="heti-spacing"> </span></span>格式的程序（如字节码<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，进而在<span class="heti-skip"><span class="heti-spacing"> </span>VM<span class="heti-spacing"> </span></span>上执行；更安全，但更慢
-<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240707202320.png"/></p>
+<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__04-reverse.assets__20240707202320.webp"/></p>
 </div>
 </div>
 </div>
@@ -5179,7 +5179,7 @@ IR：中间表达式</p>
 </ul>
 <h2 id="elf">ELF<a class="headerlink" href="#elf" title="anchor link to this section for reference">¶</a></h2>
 <p><a href="https://www.cnblogs.com/jiqingwu/p/elf_explore_2.html"><span>ELF<span class="heti-spacing"> </span></span>文件头</a></p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20241118193116.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__04-reverse.assets__20241118193116.webp"/></p>
 <div class="highlight"><pre><span></span><code>ELF Header:
   Magic:   7f 45 4c 46 02 01 01 00 00 00 00 00 00 00 00 00
   Class:                             ELF64
@@ -5252,7 +5252,7 @@ IR：中间表达式</p>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>gcc<span class="w"> </span>-fdump-tree-all<span class="w"> </span>-S<span class="w"> </span>hello.c
 </code></pre></div>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240707210444.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__04-reverse.assets__20240707210444.webp"/></p>
 <p>Assemble</p>
 <p><strong>编译后端</strong></p>
 <ul>
@@ -5275,14 +5275,14 @@ IR：中间表达式</p>
 <h2 id="elf_1"><span>ELF<span class="heti-spacing"> </span></span>链接<a class="headerlink" href="#elf_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p>把已有的目标文件和库目标文件或别的目标文件链接在一起，生成一个可执行文件</p>
 <p>使用<code>file</code>指令查看<code>.o</code> 文件，会发现是<span><span class="heti-spacing"> </span>reallocatable</span>，是需要重定向的，需要把程序中留白的部分补充上</p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240707210812.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__04-reverse.assets__20240707210812.webp"/></p>
 <blockquote>
 <p>需要知道<span class="heti-skip"><span class="heti-spacing"> </span>printf<span class="heti-spacing"> </span></span>函数在哪里，才能正确的调用<span class="heti-skip"><span class="heti-spacing"> </span>printf<span class="heti-spacing"> </span></span>函数</p>
 </blockquote>
 <p>GNU linker
 </p><div class="highlight"><pre><span></span><code>ld hello.o -o hello
 </code></pre></div>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240707215122.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__04-reverse.assets__20240707215122.webp"/></p>
 <ul>
 <li>静态链接：处理更快，但文件更大<blockquote>
 <p>把所有需要的文件都链接到一个<span class="heti-skip"><span class="heti-spacing"> </span>elf<span class="heti-spacing"> </span></span>当中，不存在外部符号</p>
@@ -5371,7 +5371,7 @@ libc.so.6 =&gt; /lib/x86_64-linux-gnu/libc.so.6 (0x00007f9bddd66000) #libc
 </code></pre></div>
 <p>程序执行的起点和终点并不是<span class="heti-skip"><span class="heti-spacing"> </span>main<span class="heti-spacing"> </span></span>函数，<span>c++<span class="heti-spacing"> </span></span>有<span class="heti-skip"><span class="heti-spacing"> </span>construct<span class="heti-spacing"> </span></span>等特性可以在<span class="heti-skip"><span class="heti-spacing"> </span>main<span class="heti-spacing"> </span></span>之前就调用
 <a href="https://gcc.gnu.org/onlinedocs/gcc-4.1.2/gcc/Function-Attributes.html">Function Attributes - Using the GNU Compiler Collection (GCC)</a></p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240707223320.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__04-reverse.assets__20240707223320.webp"/></p>
 <p>内核以可执行文件<span class="heti-skip"><span class="heti-spacing"> </span>e_entry<span class="heti-spacing"> </span></span>位置<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>即<span class="heti-skip"><span class="heti-spacing"> </span>_start)<span class="heti-spacing"> </span></span>作为起点</p>
 <div class="admonition note">
 <p class="admonition-title">_start</p>
@@ -5451,7 +5451,7 @@ breakpoint<span class="w"> </span>*0x4005a0<span class="w"> </span><span class="
 b<span class="w"> </span>*0x4005a0
 </code></pre></div>
 <h2 id="elf_4"><span>ELF<span class="heti-spacing"> </span></span>的逆向<a class="headerlink" href="#elf_4" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240708181631.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__04-reverse.assets__20240708181631.webp"/></p>
 <ul>
 <li><span>Bad Aspect<span class="heti-spacing"> </span></span>外挂、注册机</li>
 <li>Good Aspect：未知攻，焉知防</li>
@@ -5486,7 +5486,7 @@ b<span class="w"> </span>*0x4005a0
 <div class="highlight"><pre><span></span><code>file crackme-ext
 </code></pre></div>
 <p>因为<span class="heti-skip"><span class="heti-spacing"> </span>shuffle<span class="heti-spacing"> </span></span>这个函数是一对一映射的，所以可以定向爆破</p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240715101015.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__04-reverse.assets__20240715101015.webp"/></p>
 <p>这里<span class="heti-skip"><span class="heti-spacing"> </span>call shuffle<span class="heti-spacing"> </span></span>就是调用<span class="heti-skip"><span class="heti-spacing"> </span>shuffle<span class="heti-spacing"> </span></span>函数，那么<span class="heti-skip"><span class="heti-spacing"> </span>B6E<span class="heti-spacing"> </span></span>就是<span class="heti-skip"><span class="heti-spacing"> </span>shuffle<span class="heti-spacing"> </span></span>函数的结束地址</p>
 <h2 id="ida">IDA<a class="headerlink" href="#ida" title="anchor link to this section for reference">¶</a></h2>
 <h3 id="_5">安装<a class="headerlink" href="#_5" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
@@ -5500,7 +5500,7 @@ b<span class="w"> </span>*0x4005a0
 ./software.run
 </code></pre></div>
 <h3 id="_6">窗口<a class="headerlink" href="#_6" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<p><img alt="image-20240530083905812" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240530083905812.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__04-reverse.assets__image-20240530083905812.webp"/></p>
 <p>如上图所示，左侧窗口为函数列表窗口，右侧窗口为<span class="heti-skip"><span class="heti-spacing"> </span>IDA<span class="heti-spacing"> </span></span>反汇编所得的汇编代码，最下侧窗口为文件在反汇编过程中的信息。 </p>
 <p><strong>菜单介绍</strong></p>
 <p>首先，进入<span class="heti-skip"><span class="heti-spacing"> </span>IDA<span class="heti-spacing"> </span></span>界面则可以看到如下菜单栏：</p>
@@ -5514,7 +5514,7 @@ b<span class="w"> </span>*0x4005a0
 <p>Options：可以进行一些个性化的设置</p>
 <h4 id="functions-window">函数窗口（Functions window）<a class="headerlink" href="#functions-window" title="anchor link to this section for reference">¶</a></h4>
 <p>左侧是函数窗口，会将程序中所有的函数显示出来</p>
-<p><img alt="image-20240530084316587" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240530084316587.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__04-reverse.assets__image-20240530084316587.webp"/></p>
 <p>我们分析一道题目的时候一般是先从主函数开始</p>
 <p>但是<span class="heti-skip"><span class="heti-spacing"> </span>main<span class="heti-spacing"> </span></span>一般不会显示出来，我们这时可以先搜索，用<span class="heti-skip"><span class="heti-spacing"> </span>Ctrl+F<span class="heti-spacing"> </span></span>快捷键</p>
 <p>然后点击<span><span class="heti-spacing"> </span>main</span>，即可跳转到<span class="heti-skip"><span class="heti-spacing"> </span>main<span class="heti-spacing"> </span></span>函数里</p>
@@ -5529,7 +5529,7 @@ b<span class="w"> </span>*0x4005a0
 <p>对着函数点<strong>F5</strong>即可弹出伪代码窗口</p>
 <p>是将汇编语言，变成伪代码，即展示了一些类<span class="heti-skip"><span class="heti-spacing"> </span>c<span class="heti-spacing"> </span></span>代码</p>
 <h4 id="shiftf5"><span>Shift+F5<span class="heti-spacing"> </span></span>字符串窗口<a class="headerlink" href="#shiftf5" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
-<p><img alt="在这里插入图片描述" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/49f8f206fe404029855de10cce91e1c2.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__04-reverse.assets__49f8f206fe404029855de10cce91e1c2.webp"/></p>
 <h4 id="ctrlx">Ctrl+X（交叉引用）<a class="headerlink" href="#ctrlx" title="anchor link to this section for reference">¶</a></h4>
 <p>我们可以通过这个操作，可以判断哪些函数引用了这个字符串或数据</p>
 <p>点击<span><span class="heti-spacing"> </span>ok</span>，便会跳转到相应地方</p>
@@ -5549,13 +5549,13 @@ b<span class="w"> </span>*0x4005a0
 <h3 id="r-char"><span>R |<span class="heti-spacing"> </span></span>常量标注<span><span class="heti-spacing"> </span>char</span><a class="headerlink" href="#r-char" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>可以把一些常用的可见字符标注成<code>char</code></p>
 <p>右键即可
-<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20240715100010.png"/></p></div>
+<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__04-reverse.assets__20240715100010.webp"/></p></div>
 <aside class="md-source-file">
 <span class="md-source-file__fact">
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年6月25日 12:02:11</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年10月17日 20:24:06</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">

@@ -5412,7 +5412,7 @@ And that has made all the difference.**
 <iframe allowfullscreen="true" border="0" frameborder="no" framespacing="0" height="600px" scrolling="no" src="//player.bilibili.com/player.html?isOutside=true&amp;aid=922783369&amp;bvid=BV1VT4y1s7H1&amp;cid=1382059126&amp;p=1&amp;autoplay=0" width="100%"></iframe>
 <p><a href="https://zhuanlan.zhihu.com/p/397796913">大白话谈因果系列文章（一<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>：因果推断简介及论文介绍<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>知乎</a></p>
 <p><a href="https://zhuanlan.zhihu.com/p/397974913">大白话谈因果系列文章（二）因果效应估计及论文介绍<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>知乎</a></p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250612140150.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__13-CasualInference.assets__20250612140150.webp"/></p>
 <h2 id="_1">相关与因果 —— 什么是因果推断<a class="headerlink" href="#_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p>相关性不等于因果性。</p>
 <p>最早看到因果推断是在<span class="heti-skip"><span class="heti-spacing"> </span>CC98<span class="heti-spacing"> </span></span>论坛上有一次关于军训成绩与大一成绩之间的因果讨论<a href="https://www.cc98.org/topic/5958114/1#1">军训成绩真的不重要吗？——用数据来说话<span class="heti-skip"><span class="heti-spacing"> </span>- CC98<span class="heti-spacing"> </span></span>论坛</a>，帖主错把相关性当作因果性进行分析，掀起了关于军训与绩点态度的大讨论（<a href="https://www.cc98.org/topic/5958695">十大镜像贴——为什么我认为“军训成绩重要论”是【有害的】 <span>- CC98<span class="heti-spacing"> </span></span>论坛</a><heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。这里指出了相关性不等于因果性。</p>
@@ -5427,7 +5427,7 @@ And that has made all the difference.**
 <ul>
 <li><strong>相关性≠因果性</strong>：图中是美国<span class="heti-skip"><span class="heti-spacing"> </span>1999-2009<span class="heti-spacing"> </span></span>年的<strong>自杀人数</strong>与<strong>科研经费花费</strong>的变化图。可以看到两个指标是高度相关。但是他们之间不存在因果性，即不可能因为减少科研经费而导致自杀人数急剧降低。实际上，<strong>相关性通常是对称的，因果性通常是不对称的</strong>（单向箭头<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，相关性不一定说明了因果性，但因果性一般都会在统计层面导致相关性。</li>
 </ul>
-<p><img alt="" src="https://github.com/Peyton-Chen/Picture/raw/master/casual1.1.JPG"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__13-CasualInference.assets__casual1.1.webp"/></p>
 <p>correlation is not equal to causation</p>
 <p>因果推断是一整套统计框架</p>
 <p>机器学习由模式识别转向因果推断<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>逻辑推断</p>
@@ -5462,7 +5462,7 @@ And that has made all the difference.**
 <ul>
 <li><strong>概念：在某个条件下的两组数据，分别讨论时都会满足某种性质，可是一旦合并考虑，却可能导致相反的结论。</strong>下面用一个例子来进一步说明这个问题：下面第一个表为男性在接受某种药物治疗后的康复情况，发现经过治疗后的康复率为<span><span class="heti-spacing"> </span>0.93</span>，而没有经过药物治疗的康复率为<span><span class="heti-spacing"> </span>0.86</span>。第二张表是女性的情况，在经过药物治疗后的康复率为<span><span class="heti-spacing"> </span>0.73</span>，而未经过药物治疗的康复率为<span><span class="heti-spacing"> </span>0.69</span>。由上面数据我们可以发现：<strong>无论是男性女性，药物对治疗该疾病都是有帮助的</strong>。</li>
 </ul>
-<p><img alt="" src="https://github.com/Peyton-Chen/Picture/raw/master/casual2.2.JPG"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__13-CasualInference.assets__casual2.2.webp"/></p>
 <p><strong>辛普森悖论例子</strong></p>
 <p>但是，第三个表格将男女数据全部合并，我们发现：<strong>药物对治疗该疾病是没有帮助的，反而是有害的</strong>。以上这个问题就是典型的辛普森悖论问题。</p>
 <ul>
@@ -5506,21 +5506,21 @@ And that has made all the difference.**
 <p><span class="arithmatex">\(A=①·q+③·(1-q)\)</span>
 <span class="arithmatex">\(B=②·p+④·(1-p)\)</span></p>
 <p>为了更加形象的说明问题，我们将上述的两个式子转化成如下图：</p>
-<p><img alt="" src="https://github.com/Peyton-Chen/Picture/raw/master/casual2.3.JPG"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__13-CasualInference.assets__casual2.3.webp"/></p>
 <p><strong>辛普森悖论概率论解释</strong></p>
 <p>可见<span class="heti-skip"><span class="heti-spacing"> </span>A<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>B<span class="heti-spacing"> </span></span>的取值分别由<span class="heti-skip"><span class="heti-spacing"> </span>p<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>q<span class="heti-spacing"> </span></span>取值来决定的。从上图中可以看到，出现<span class="heti-skip"><span class="heti-spacing"> </span>A&lt;B<span class="heti-spacing"> </span></span>的内在条件是：<span>1.A<span class="heti-spacing"> </span></span>点趋于③的位置（<span>q<span class="heti-spacing"> </span></span>趋向于<span><span class="heti-spacing"> </span>0</span>，即数据中的药物更多是在女性人群中使用<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>；2.Prob(③)&lt;Prob(①)（即女性用药人群要比男性用药人群更难恢复<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。将这两个条件用因素影响图来表示：</p>
-<p><img alt="" src="https://github.com/Peyton-Chen/Picture/raw/master/casual2.4.JPG"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__13-CasualInference.assets__casual2.4.webp"/></p>
 <p><strong>辛普森悖论因素影响图</strong></p>
 <p>也就是：性别会影响用药情况和人的恢复，而用药也会影响恢复。这里我们称<span class="heti-skip"><span class="heti-spacing"> </span>Sex<span class="heti-spacing"> </span></span>为<strong>混淆因素</strong>，它不仅会影响我们判断是否用药，也会影响最终的恢复情况。如果你是医生，想要判断该药是否对病情有恢复作用，就必须把<span class="heti-skip"><span class="heti-spacing"> </span>Sex<span class="heti-spacing"> </span></span>这一混淆因素去除掉。<strong>而去除混淆变量的方法很简单，我们只需要看分组数据</strong>（只看男性数据或者只看女性数据，而不是将男女数据合到一起而引入了混淆因素<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。通过上述的解读，可以得到一个结论：<strong>统计结论的反转是因为存在混淆变量，该变量同时影响着原因和结果</strong>。</p>
 <ul>
 <li>
 <p><strong>因果中间变量</strong>：相对于上述的混淆变量，这里还有一类变量：因果中间变量。下面同样以一个例子来说明。</p>
-<p><img alt="" src="https://github.com/Peyton-Chen/Picture/raw/master/casual2.5.JPG"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__13-CasualInference.assets__casual2.5.webp"/></p>
 <p><strong>因果中间变量</strong></p>
 <p>上图中有三个因素：血压，是否用药以及治疗效果。其中用药对治疗效果有副作用，而另一方面用药可以降血压进一步来提升治疗效果。这里的血压我们称之为<strong>“因果中间变量”</strong>。</p>
 </li>
 </ul>
-<p><img alt="" src="https://github.com/Peyton-Chen/Picture/raw/master/casual2.6.JPG"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__13-CasualInference.assets__casual2.6.webp"/></p>
 <p><strong>因果中间变量实例</strong></p>
 <p>上图是一组实际中的例子。第一行为低血压人群用药的治疗结果：对于没用药有<span class="heti-skip"><span class="heti-spacing"> </span>93%<span class="heti-spacing"> </span></span>治愈率，而对于用药人群只有<span class="heti-skip"><span class="heti-spacing"> </span>87%<span class="heti-spacing"> </span></span>的治愈率。第二行为高血压人群，对于没用药有<span class="heti-skip"><span class="heti-spacing"> </span>73%<span class="heti-spacing"> </span></span>治愈率，而对于用药人群只有<span class="heti-skip"><span class="heti-spacing"> </span>69%<span class="heti-spacing"> </span></span>的治愈率。通过这两行分类数据发现：无论是高血压人群还是低血压人群，药物只体现了其对康复的副作用。而第三行，将高血压和低血压人群合并，发现得到了药物对治疗有促进作用。如果你是医生，想知道药物对治疗疾病的真正效果，你会从分类角度（高血压<span class="heti-skip"><span class="heti-spacing"> </span>\<span class="heti-spacing"> </span></span>低血压独立来看）还是整体角度来看？如果从分类的角度，则只是单独考虑了药物的副作用而忽略了血压的影响，但事实上药物对治疗的影响还存在一部分是血压带来的效益。所以从分类角度来看是有问题的。所以，<strong>对于这种因果中间变量模型，我们应该从整体的角度来评估药物对治疗的效果</strong>。</p>
 <h3 id="_4">主要方法和流派<a class="headerlink" href="#_4" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
@@ -5596,17 +5596,17 @@ And that has made all the difference.**
 <ul>
 <li><strong><span>ancestor<span class="heti-spacing"> </span></span>和<span><span class="heti-spacing"> </span>descendent</span></strong>：如果两个节点被一条有向路径连接，那么第一个节点被在这条路径上称为其他节点的<span><span class="heti-spacing"> </span>ancestor</span>，而其他节点是第一个节点的<span><span class="heti-spacing"> </span>descendent</span>。具体可以见下图所示。</li>
 </ul>
-<p><img alt="" src="https://github.com/Peyton-Chen/Picture/raw/master/casual4.1.JPG"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__13-CasualInference.assets__casual4.1.webp"/></p>
 <p><strong>祖先与后代</strong></p>
 <ul>
 <li><strong>闭环图（cyclic<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>：</strong>含有闭环的有向图，如下图所示<span><span class="heti-spacing"> </span>:</span></li>
 </ul>
-<p><img alt="" src="https://github.com/Peyton-Chen/Picture/raw/master/casual4.2.JPG"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__13-CasualInference.assets__casual4.2.webp"/></p>
 <p><strong>Cyclic</strong></p>
 <ul>
 <li><strong>非闭环图（acyclic directed graph）DAG：</strong>不含闭环的有向图，如下图所示：</li>
 </ul>
-<p><img alt="" src="https://github.com/Peyton-Chen/Picture/raw/master/casual4.3.JPG"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__13-CasualInference.assets__casual4.3.webp"/></p>
 <p><strong>Cyclic</strong></p>
 <h3 id="structural-causal-model">结构因果模型（Structural Causal Model）<a class="headerlink" href="#structural-causal-model" title="anchor link to this section for reference">¶</a></h3>
 <div class="admonition note">
@@ -5618,18 +5618,18 @@ And that has made all the difference.**
 <ul>
 <li><strong>因果、<span>SCM<span class="heti-spacing"> </span></span>以及图模型关系：</strong>下面就用<span class="heti-skip"><span class="heti-spacing"> </span>3<span class="heti-spacing"> </span></span>个例子来说明现实世界中的因果如何转化成结构因果模型以及图模型。首先，是直接因果关系的情况，即只需一条有向边表示即可。</li>
 </ul>
-<p><img alt="" src="https://github.com/Peyton-Chen/Picture/raw/master/casual5.1.JPG"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__13-CasualInference.assets__casual5.1.webp"/></p>
 <p><strong>结构因果模型<span><span class="heti-spacing"> </span>1</span></strong></p>
 <p>其次是结果<span class="heti-skip"><span class="heti-spacing"> </span>Y<span class="heti-spacing"> </span></span>由两个原因<span><span class="heti-spacing"> </span>X</span>、<span>Z<span class="heti-spacing"> </span></span>共同导致的情况：</p>
-<p><img alt="" src="https://github.com/Peyton-Chen/Picture/raw/master/casual5.2.JPG"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__13-CasualInference.assets__casual5.2.webp"/></p>
 <p><strong>结构因果模型<span><span class="heti-spacing"> </span>2</span></strong></p>
 <p>最后是间接因果关系的情况，即前面提到复合函数的情况。</p>
-<p><img alt="" src="https://github.com/Peyton-Chen/Picture/raw/master/casual5.3.JPG"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__13-CasualInference.assets__casual5.3.webp"/></p>
 <p><strong>结构因果模型<span><span class="heti-spacing"> </span>3</span></strong></p>
 <ul>
 <li><strong>外生节点与内生节点：</strong>上面我们提到了<span class="heti-skip"><span class="heti-spacing"> </span>3<span class="heti-spacing"> </span></span>种比较简单的因果模型，下面我们来看一个相对复杂一点的因果图模型。如下图，原因<span class="heti-skip"><span class="heti-spacing"> </span>X<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>W<span class="heti-spacing"> </span></span>共同导致了结果<span><span class="heti-spacing"> </span>Z</span>，而结果<span class="heti-skip"><span class="heti-spacing"> </span>Z<span class="heti-spacing"> </span></span>导致了结果<span><span class="heti-spacing"> </span>Y</span>。那么我们便可以画出对应的因果图模型如下所示。在图中，<strong>我们称<span class="heti-skip"><span class="heti-spacing"> </span>X<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>W<span class="heti-spacing"> </span></span>这类没有父亲的节点为外生节点（exogenous<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，而称<span class="heti-skip"><span class="heti-spacing"> </span>Z<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>Y<span class="heti-spacing"> </span></span>这类有父亲的节点为内生节点（endogenous）</strong>。即：根节点<code>&lt;=&gt;</code>外生节点集合<span><span class="heti-spacing"> </span>U</span>，根节点的后代节点（descendent）<code>&lt;=&gt;</code>内生节点集合<span><span class="heti-spacing"> </span>V</span>，连边<code>&lt;=&gt;</code>对应的函数映射。</li>
 </ul>
-<p><img alt="" src="https://github.com/Peyton-Chen/Picture/raw/master/casual5.4.JPG"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__13-CasualInference.assets__casual5.4.webp"/></p>
 <p><strong>外生节点与内生节点</strong></p>
 <p><span>6.<span class="heti-spacing"> </span></span>因果与相关（Intransitive Case）</p>
 <ul>
@@ -5641,31 +5641,31 @@ And that has made all the difference.**
 </ul>
 <p>SCM:V={X,Y,Z},U={UX,UY,UZ},F={fx,fy,fz}fx:X=Uxfy:Y={aifX=1,Uy=1bifX=2,Uy=1cifUy=2fz:Z={iifY=c,Uz=1jifUz=2</p>
 <p>根据上述的结构因果模型可以作得对应的图模型：</p>
-<p><img alt="" src="https://github.com/Peyton-Chen/Picture/raw/master/casual6.1.JPG"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__13-CasualInference.assets__casual6.1.webp"/></p>
 <p><strong><span>Intransitive case<span class="heti-spacing"> </span></span>图模型</strong></p>
 <p>从模型中我们可以发现，<span>P(Z=i)=P(Z=i|X=1)=P(Z=i|X=2)<span class="heti-spacing"> </span></span>三者都是相等，即<span class="heti-skip"><span class="heti-spacing"> </span>Z<span class="heti-spacing"> </span></span>的取值实际上和<span class="heti-skip"><span class="heti-spacing"> </span>X<span class="heti-spacing"> </span></span>没有关系，而完全取决于<span class="heti-skip"><span class="heti-spacing"> </span>Uy<span class="heti-spacing"> </span></span>和<span><span class="heti-spacing"> </span>Uz</span>，<span>Z<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>X<span class="heti-spacing"> </span></span>之间便是独立的。因此，实际上两个还有因果关系的变量也未必存在统计相关性，这也给因果推断带来了困难。</p>
 <h3 id="chain">链式结构（Chain）<a class="headerlink" href="#chain" title="anchor link to this section for reference">¶</a></h3>
 <ul>
 <li><strong><span>V-Structure<span class="heti-spacing"> </span></span>的三种结构</strong>：①chain、②fork、③collider（所谓<span class="heti-skip"><span class="heti-spacing"> </span>V-structure<span class="heti-spacing"> </span></span>就是含有三个顶点的图，是图模型的基本组件，掌握了这三个基本组件便一通百通<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，具体对应的图模型见下图所示。</li>
 </ul>
-<p><img alt="" src="https://github.com/Peyton-Chen/Picture/raw/master/causal7_0.JPG"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__13-CasualInference.assets__causal7_0.webp"/></p>
 <p><strong>V-Structure</strong></p>
 <ul>
 <li><strong><span>Chain<span class="heti-spacing"> </span></span>上的条件独立结论：</strong>从下图（题注为：<span>Chain<span class="heti-spacing"> </span></span>的性质）中，我们发现<code>X</code>和<code>Z</code>之间存在很多的链式结构。按照前几节的内容可以得到下面结论：<code>X</code>与<code>Y1...Yn</code>都是大概率统计相关的，且<code>Z</code>与<code>Y1...Yn</code>也是大概率统计相关的。进一步可以得到<code>Z</code>和<code>X</code>也是大概率统计相关。</li>
 </ul>
-<p><img alt="" src="https://github.com/Peyton-Chen/Picture/raw/master/causal7_2.JPG"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__13-CasualInference.assets__causal7_2.webp"/></p>
 <p><strong><span>Chain<span class="heti-spacing"> </span></span>的性质</strong></p>
 <p><strong>但是如果其中的<code>Y</code>是已知条件（即<span class="heti-skip"><span class="heti-spacing"> </span>Condition<span class="heti-spacing"> </span></span>在<code>Y1..Yn</code>上所有通路<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，那么<code>X</code>和<code>Z</code>便是统计独立的（相当于<code>X</code>和<code>Z</code>间所有通路断开）——这是链式结构的重要性质。</strong></p>
 <h3 id="8fork"><span>8.<span class="heti-spacing"> </span></span>叉式结构（Fork）<a class="headerlink" href="#8fork" title="anchor link to this section for reference">¶</a></h3>
 <ul>
 <li><strong><span>Fork<span class="heti-spacing"> </span></span>上的条件独立结论：</strong>从下图（题注为：<span>Fork<span class="heti-spacing"> </span></span>的性质）中，我们发现<code>Ux</code>、<code>Uy</code>以及<code>Uz</code>为三个外生变量，而<code>X</code>、<code>Y</code>和<code>Z</code>之间构成了<span class="heti-skip"><span class="heti-spacing"> </span>Fork<span class="heti-spacing"> </span></span>结构。按照前几节的内容可以得到下面结论：<code>X</code>与<code>Y</code>都是大概率统计相关的，且<code>X</code>与<code>Z</code>也是大概率统计相关的。进一步可以得到<code>Y</code>和<code>Z</code>也是大概率统计相关。</li>
 </ul>
-<p><img alt="" src="https://github.com/Peyton-Chen/Picture/raw/master/causal8_1.JPG"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__13-CasualInference.assets__causal8_1.webp"/></p>
 <p><strong><span>Fork<span class="heti-spacing"> </span></span>的性质</strong></p>
 <p><strong>但是如果其中的<code>X</code>是已知条件（即<span class="heti-skip"><span class="heti-spacing"> </span>Condition<span class="heti-spacing"> </span></span>在<code>X</code>上<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，那么<code>Y</code>和<code>Z</code>便是统计独立的（相当于<code>Y</code>和<code>Z</code>间不存在通路）——这是叉式结构的重要性质。</strong></p>
 <h3 id="9collider"><span>9.<span class="heti-spacing"> </span></span>对撞结构（Collider）<a class="headerlink" href="#9collider" title="anchor link to this section for reference">¶</a></h3>
 <p><strong><span>Collider<span class="heti-spacing"> </span></span>上的条件独立结论：</strong>从下图（题注为：<span>Collider<span class="heti-spacing"> </span></span>的性质）中，我们发现<code>Ux</code>、<code>Uy</code>以及<code>Uz</code>为三个外生变量，而<code>X</code>、<code>Y</code>和<code>Z</code>之间构成了<span class="heti-skip"><span class="heti-spacing"> </span>Collider<span class="heti-spacing"> </span></span>结构。按照前几节的内容介绍，可以得到下面结论：<code>X</code>与<code>Z</code>都是大概率统计相关的，且<code>Y</code>与<code>Z</code>也是大概率统计相关的。而<code>X</code>和<code>Y</code>却是大概率统计独立的。</p>
-<p><img alt="" src="https://github.com/Peyton-Chen/Picture/raw/master/causal9_1.JPG"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__13-CasualInference.assets__causal9_1.webp"/></p>
 <p><strong><span>Collider<span class="heti-spacing"> </span></span>的性质</strong></p>
 <p><strong>但是如果其中的<code>Z</code>是已知条件（即<span class="heti-skip"><span class="heti-spacing"> </span>Condition<span class="heti-spacing"> </span></span>在<code>Z</code>上<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，那么<code>X</code>和<code>Y</code>便是统计相关的——这是对撞结构的重要性质。</strong></p>
 <p>注：如果<code>Z</code>还存在后代，那么<span class="heti-skip"><span class="heti-spacing"> </span>Condition<span class="heti-spacing"> </span></span>在<code>Z</code>后代上，<code>X</code>和<code>Y</code>依旧是大概率统计相关的。</p>
@@ -5717,7 +5717,7 @@ And that has made all the difference.**
 <ul>
 <li><strong>对于复杂的图，只要拆分成<span class="heti-skip"><span class="heti-spacing"> </span>V-structure<span class="heti-spacing"> </span></span>就可以用<span class="heti-skip"><span class="heti-spacing"> </span>D-Separation<span class="heti-spacing"> </span></span>理论来分析。</strong>下面是一个复杂图的<span class="heti-skip"><span class="heti-spacing"> </span>D-<span class="heti-spacing"> </span></span>分隔分析方法。其中<heti-adjacent class="heti-adjacent-quarter">，</heti-adjacent>’≡‘ 表示变量间相关，而‘⊥’ 表示变量间独立。</li>
 </ul>
-<p><img alt="" src="https://github.com/Peyton-Chen/Picture/raw/master/causal10_1.JPG"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__13-CasualInference.assets__causal10_1.webp"/></p>
 <p><strong>复杂图的<span><span class="heti-spacing"> </span>D-Separation</span></strong></p>
 <h3 id="model-testing-and-causal-search">模型检验和等价类（Model Testing and Causal Search）<a class="headerlink" href="#model-testing-and-causal-search" title="anchor link to this section for reference">¶</a></h3>
 <ul>
@@ -5740,10 +5740,10 @@ And that has made all the difference.**
 <p>P(X1,X2,…Xn)=Πni=1P(Xi|pa(Xi))</p>
 <p>其中<span class="heti-skip"><span class="heti-spacing"> </span>pa(Xi)<span class="heti-spacing"> </span></span>是变量<span class="heti-skip"><span class="heti-spacing"> </span>Xi<span class="heti-spacing"> </span></span>的所有父节点。</p>
 <p>下面用一个例子来证明该法则：</p>
-<p><img alt="" src="https://github.com/Peyton-Chen/Picture/raw/master/causal12_1.JPG"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__13-CasualInference.assets__causal12_1.webp"/></p>
 <p><strong>乘积分解法则例子</strong></p>
 <p>实际上只要证明下面的等式，而下面的等式只需要根据<span class="heti-skip"><span class="heti-spacing"> </span>D-Separation<span class="heti-spacing"> </span></span>即可得到。</p>
-<p><img alt="" src="https://github.com/Peyton-Chen/Picture/raw/master/causal12_2.JPG"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__13-CasualInference.assets__causal12_2.webp"/></p>
 <p><strong>乘积分解法则证明</strong></p>
 <h3 id="_7">如何构建因果图<a class="headerlink" href="#_7" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <h2 id="_8">度量方法<a class="headerlink" href="#_8" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
@@ -5923,7 +5923,7 @@ ATE = E(Y_{1i} - Y_{0i})
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年6月25日 12:02:11</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年10月17日 20:24:06</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">

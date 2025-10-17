@@ -5227,7 +5227,7 @@
 <li>速度约束：第一段起点速度，第二段终点速度，中间点速度相等</li>
 <li>加速度联系约束：中间点加速度相等</li>
 </ul>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250416154011.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__5-TrajectoryPlanning.assets__20250416154011.webp"/></p>
 <div class="highlight"><table class="highlighttable"><tr><th class="filename" colspan="2"><span class="filename">三次<span class="heti-skip"><span class="heti-spacing"> </span>+<span class="heti-spacing"> </span></span>两个中间点</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -5320,7 +5320,7 @@ a_{23} = -\frac{3\phi_0t_{\textrm{f2}}^2 + \phi_gt_{\textrm{f1}}^2 - \phi_vt_{\t
 <li>过渡段：抛物线段</li>
 <li>直线段：顾名思义</li>
 </ul>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250325090130.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__5-TrajectoryPlanning.assets__20250325090130.webp"/></p>
 <p>给定：起点<span><span class="heti-spacing"> </span><span class="arithmatex">\(\phi_0\)</span></span>、终点<span><span class="heti-spacing"> </span><span class="arithmatex">\(\phi_{final}\)</span></span>、总时间<span><span class="heti-spacing"> </span><span class="arithmatex">\(t_{final}\)</span></span>、加速度<span><span class="heti-spacing"> </span><span class="arithmatex">\(\ddot\phi\)</span></span>
 需要求解：<strong>过渡时间（抛物线段）<span class="arithmatex">\(t_b\)</span></strong>、速度（直线段）<span class="arithmatex">\(k_b\)</span></p>
 <div class="arithmatex">\[
@@ -5357,7 +5357,7 @@ k_b=\ddot \phi \cdot t_b
     <span class="k">return</span> <span class="n">x_angles</span>
 </code></pre></div>
 <h3 id="_7">中间点<span class="heti-skip"><span class="heti-spacing"> </span>+<span class="heti-spacing"> </span></span>抛物线过渡<a class="headerlink" href="#_7" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250325091125.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__5-TrajectoryPlanning.assets__20250325091125.webp"/></p>
 <p><strong>给定：</strong> 系列点<span><span class="heti-spacing"> </span><span class="arithmatex">\(\phi_0, \phi_1,\dots,\phi_{final}\)</span></span>、各段时间<span><span class="heti-spacing"> </span><span class="arithmatex">\(t_{dij}\)</span></span>、加速度<span><span class="heti-spacing"> </span><span class="arithmatex">\(\ddot\phi\)</span></span></p>
 <p><strong>需要求解：</strong> 各段的速度<span><span class="heti-spacing"> </span><span class="arithmatex">\(k_{ij}\)</span></span>，以及过渡段的时间<span><span class="heti-spacing"> </span><span class="arithmatex">\(t_{i}\)</span></span>，直线段的时间<span><span class="heti-spacing"> </span><span class="arithmatex">\(t_{ij}\)</span></span></p>
 <h4 id="_8">中间段计算<a class="headerlink" href="#_8" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
@@ -5386,7 +5386,7 @@ t_{jk} = t_{djk} - \frac{1}{2} t_j - \frac{1}{2} t_k
 <li>位置角：<span class="arithmatex">\(\tan \theta = \frac{y}{x} = \frac{\frac{1}{2}g\cdot t^2}{v_0\cdot t} = \frac{1}{2}\cdot \tan \alpha\)</span></li>
 </ol>
 <p>也就是说，任意给定抛物线上的点，找到位移中点，连线即可得到速度方向</p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250324205542.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__5-TrajectoryPlanning.assets__20250324205542.webp"/></p>
 </details>
 <h4 id="_9">起始段计算<a class="headerlink" href="#_9" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p><strong>过渡段<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>加速度</strong></p>
@@ -5413,7 +5413,7 @@ t_{12} = t_{d12} - t_1 - \frac{1}{2} t_2
 <div class="admonition note">
 <p class="admonition-title">这里因为抛物线对轨迹进行了圆滑处理，相当于先用直线连接起来，再用抛物线做一个圆角，所以并不能真正到达对应的点</p>
 <p>解决方案：设置两个伪关节，连线经过给定点，则可以保证经过给定点</p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250325093447.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__5-TrajectoryPlanning.assets__20250325093447.webp"/></p>
 </div>
 <h2 id="_10">笛卡尔空间规划<a class="headerlink" href="#_10" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p>旋转矩阵和欧拉角不可以插值的原因：插值得到的<span class="heti-skip"><span class="heti-spacing"> </span>R<span class="heti-spacing"> </span></span>矩阵不一定属于<span><span class="heti-spacing"> </span>SO(3)</span></p>
@@ -5436,7 +5436,7 @@ t_{12} = t_{d12} - t_1 - \frac{1}{2} t_2
 \]</div>
 <p>插值时，通常应该选择使得<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\left\|\left(\begin{array}{c} k_{0x} \\ k_{0y} \\ k_{0z} \end{array}\right)-(\theta_{1}+360n)\left(\begin{array}{c} \hat{k}_{1x} \\ \hat{k}_{1y} \\ \hat{k}_{1z} \end{array}\right)\right\|\)</span><span class="heti-spacing"> </span></span>最小的<span><span class="heti-spacing"> </span><span class="arithmatex">\(n\)</span></span>，然后对<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\left(\begin{array}{c} k_{0x} \\ k_{0y} \\ k_{0z} \end{array}\right) \text { 和 } \left(\theta_{1}+360n\right)\left(\begin{array}{c} \hat{k}_{1x} \\ \hat{k}_{1y} \\ \hat{k}_{1z} \end{array}\right)\)</span><span class="heti-spacing"> </span></span>运用前面的多项式或带抛物线过渡直线段等插值方法。</p>
 <h4 id="_12">代码实现<a class="headerlink" href="#_12" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/rotation_animation.gif"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__5-TrajectoryPlanning.assets__rotation_animation.gif"/></p>
 <details class="note">
 <summary>编程实现等效轴角的插值，并比较不同<span class="heti-skip"><span class="heti-spacing"> </span>n<span class="heti-spacing"> </span></span>下的结果</summary>
 <div class="highlight"><span class="filename">等效轴角插值</span><pre><span></span><code><span class="n">clc</span><span class="p">;</span><span class="n">clear</span><span class="p">;</span>
@@ -5566,7 +5566,7 @@ k_0 = \frac{\sin((1-t)\theta)}{\sin\theta} \quad k_1 = \frac{\sin(t\theta)}{\sin
 <div class="arithmatex">\[
 \mathbf{r}_0 \cdot \mathbf{r}_1 = \cos\theta
 \]</div>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250325102316.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__5-TrajectoryPlanning.assets__20250325102316.webp"/></p>
 <p>如图所示，将中间姿态<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\mathbf{r}_t\)</span><span class="heti-spacing"> </span></span>限制在<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\mathbf{r}_0\)</span><span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\mathbf{r}_1\)</span><span class="heti-spacing"> </span></span>确定的平面中并假设匀速旋转，可以使四元数插值问题化为一个简单的平面几何问题：<span class="arithmatex">\(\mathbf{r}_0\)</span>、<span><span class="arithmatex">\(\mathbf{r}_1\)</span><span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\mathbf{r}_t\)</span><span class="heti-spacing"> </span></span>都在平面单位圆上，<span><span class="arithmatex">\(\mathbf{r}_t\)</span><span class="heti-spacing"> </span></span>从<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\mathbf{r}_0\)</span><span class="heti-spacing"> </span></span>匀速旋转到<span><span class="heti-spacing"> </span><span class="arithmatex">\(\mathbf{r}_1\)</span></span>。</p>
 <p>由于匀速旋转，对于<span><span class="heti-spacing"> </span><span class="arithmatex">\(t \in [0, 1]\)</span></span>，<span><span class="arithmatex">\(\mathbf{r}_0\)</span><span class="heti-spacing"> </span></span>与<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\mathbf{r}_t\)</span><span class="heti-spacing"> </span></span>的夹角是<span><span class="heti-spacing"> </span><span class="arithmatex">\(t\theta\)</span></span>，<span><span class="arithmatex">\(\mathbf{r}_1\)</span><span class="heti-spacing"> </span></span>与<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\mathbf{r}_t\)</span><span class="heti-spacing"> </span></span>的夹角是<span><span class="heti-spacing"> </span><span class="arithmatex">\((1-t)\theta\)</span></span>，则由欧拉参数内积与夹角余弦值的关系，有</p>
 <div class="arithmatex">\[
@@ -5619,7 +5619,7 @@ k_0 = \frac{\sin((1-t)\theta) - k_1\sin\theta}{\sin\theta}, k_1 = \frac{\sin(t\t
     <span class="k">return</span> <span class="n">s0</span> <span class="o">*</span> <span class="n">q1</span> <span class="o">+</span> <span class="n">s1</span> <span class="o">*</span> <span class="n">q2</span>
 </code></pre></div>
 <p>需要下载<span class="heti-skip"><span class="heti-spacing"> </span>matlab<span class="heti-spacing"> </span></span>的<span class="heti-skip"><span class="heti-spacing"> </span>robotics toolbox<span class="heti-spacing"> </span></span>和
-<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/quaternion_animation.gif"/></p>
+<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__5-TrajectoryPlanning.assets__quaternion_animation.gif"/></p>
 <div class="highlight"><table class="highlighttable"><tr><th class="filename" colspan="2"><span class="filename">slerp_interpolation，<span>r0<span class="heti-spacing"> </span></span>到<span class="heti-skip"><span class="heti-spacing"> </span>r1<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>r0<span class="heti-spacing"> </span></span>到<span class="heti-skip"><span class="heti-spacing"> </span>-r1<span class="heti-spacing"> </span></span>的对比</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -5870,11 +5870,11 @@ r_t = \frac{\sin((1-x(t))\theta)}{\sin\theta}r_0 + \frac{\sin(x(t)\theta)}{\sin\
 <h2 id="_14">题型<a class="headerlink" href="#_14" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p>解方程比较麻烦</p>
 <h3 id="_15">多项式参数计算：时间、速度<a class="headerlink" href="#_15" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250325084857.png"/></p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250325084926.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__5-TrajectoryPlanning.assets__20250325084857.webp"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__5-TrajectoryPlanning.assets__20250325084926.webp"/></p>
 <h3 id="_16">抛物线过渡计算<a class="headerlink" href="#_16" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250324203708.png"/></p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250324203627.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__5-TrajectoryPlanning.assets__20250324203708.webp"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__5-TrajectoryPlanning.assets__20250324203627.webp"/></p>
 <p>已知起点角度为<span><span class="heti-spacing"> </span>138°</span>，中间点到达的点角度为<span><span class="heti-spacing"> </span>158°</span>，时间为<span><span class="heti-spacing"> </span>5.5s</span>，点角度为<span><span class="heti-spacing"> </span>10°</span>，时间为<span><span class="heti-spacing"> </span>31.5s</span>。需要计算中间点。中间点关于中点对称。采用带有抛物线过渡的线性规划来实现。过渡段（第二个中间点到第三个中间点）的持续时间为<span><span class="heti-spacing"> </span>16s</span>。</p>
 <h3 id="matlab"><span>matlab<span class="heti-spacing"> </span></span>求解方程<a class="headerlink" href="#matlab" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ul>
@@ -5885,7 +5885,7 @@ r_t = \frac{\sin((1-x(t))\theta)}{\sin\theta}r_0 + \frac{\sin(x(t)\theta)}{\sin\
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年4月29日 20:45:50</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年10月17日 20:24:06</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">

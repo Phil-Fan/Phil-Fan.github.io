@@ -5254,14 +5254,14 @@
 <li>存储器的分布，各个部分都是放什么的。<span>SFR<span class="heti-spacing"> </span></span>中的各个寄存器可以控制单片机的各种资源</li>
 <li>最后了解汇编</li>
 </ul>
-<p><img alt="思维导图" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/8051.svg"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__8051.svg"/></p>
 <h2 id="_1">简介<a class="headerlink" href="#_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <ul>
 <li>什么是单片机 </li>
 </ul>
 <p>一台能够工作的计算机要有这样几个部份构成：<strong>CPU（进行运算、控制<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>、RAM（数据存储<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>、ROM（程序存储<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>、输入<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>输出设备（例如：串行口、并行输出口等）</strong>。</p>
 <p>而在单片机中<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>这些部份全部被做到<strong>一块集成电路芯片</strong>中了<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>所以就称为单片机（单芯片）</p>
-<p><img alt="image-20240620231200675" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240620231200675.png" style="zoom:50%;"/></p>
+<p><img alt="image-20240620231200675" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240620231200675.webp" style="zoom:50%;"/></p>
 <ul>
 <li><span>8<span class="heti-spacing"> </span></span>位<span><span class="heti-spacing"> </span>CPU</span></li>
 <li><span>4K ROM<span class="heti-spacing"> </span></span>存放程序</li>
@@ -5274,13 +5274,13 @@
 <h2 id="_2">结构<a class="headerlink" href="#_2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p><a href="https://www.bilibili.com/video/BV1p54y1D7Ys">单片机应用原理篇之<span class="heti-skip"><span class="heti-spacing"> </span>80C51<span class="heti-spacing"> </span></span>的<span class="heti-skip"><span class="heti-spacing"> </span>CPU_<span class="heti-spacing"> </span></span>哔哩哔哩<span><span class="heti-spacing"> </span>_bilibili</span></a></p>
 <h3 id="_3">引脚<a class="headerlink" href="#_3" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<p><img alt="image-20240620231616616" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240620231616616.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240620231616616.webp"/></p>
 <blockquote>
 <p>缺口左侧是<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>号口</p>
 </blockquote>
 <p>单片机的<span class="heti-skip"><span class="heti-spacing"> </span>40<span class="heti-spacing"> </span></span>个引脚大致可分为<span class="heti-skip"><span class="heti-spacing"> </span>4<span class="heti-spacing"> </span></span>类：</p>
 <p><strong>电源、时钟、控制和<span class="heti-skip"><span class="heti-spacing"> </span>I/O<span class="heti-spacing"> </span></span>引脚。</strong></p>
-<p><img alt="51单片机引脚图" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240228113806275.png" style="zoom: 33%;"/></p>
+<p><img alt="51单片机引脚图" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240228113806275.webp" style="zoom: 33%;"/></p>
 <p><strong>电源引脚</strong>：<code>Vcc</code> <span>40<span class="heti-spacing"> </span></span>脚<span><span class="heti-spacing"> </span>:5V</span>；<code>Vss</code> 20 GND</p>
 <p><strong>控制引脚</strong>：<code>RST</code> <span>9<span class="heti-spacing"> </span></span>高电平复位；<code>ALE</code>；</p>
 <p><span>80C51<span class="heti-spacing"> </span></span>共有<span class="heti-skip"><span class="heti-spacing"> </span>4<span class="heti-spacing"> </span></span>个<span class="heti-skip"><span class="heti-spacing"> </span>8<span class="heti-spacing"> </span></span>位并行<span class="heti-skip"><span class="heti-spacing"> </span>I/O<span class="heti-spacing"> </span></span>端口：<strong><span>P0,P1,P2,P3<span class="heti-spacing"> </span></span>口</strong><span>,<span class="heti-spacing"> </span></span>共<span class="heti-skip"><span class="heti-spacing"> </span>32<span class="heti-spacing"> </span></span>个引脚。</p>
@@ -5288,18 +5288,18 @@
 <p><strong><span>CPU<span class="heti-spacing"> </span></span>的位数</strong>：<span>8<span class="heti-spacing"> </span></span>位</p>
 <p><strong><span>CPU<span class="heti-spacing"> </span></span>的作用</strong>：取指令，译码，执行</p>
 <p><strong><span>CPU<span class="heti-spacing"> </span></span>的构成</strong></p>
-<p><img alt="image-20240620232832045" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240620232832045.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240620232832045.webp"/></p>
 <ul>
 <li>运算器</li>
 </ul>
-<p><img alt="image-20240620232944582" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240620232944582.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240620232944582.webp"/></p>
 <p>寄存器<span><span class="heti-spacing"> </span>B</span>：乘除法</p>
 <p>累加器<span><span class="heti-spacing"> </span>A</span>：最繁忙的寄存器</p>
 <p><span>PSW<span class="heti-spacing"> </span></span>程序状态字寄存器</p>
 <ul>
 <li>控制器</li>
 </ul>
-<p><img alt="image-20240620233446761" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240620233446761.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240620233446761.webp"/></p>
 <ul>
 <li><strong>程序计数器<span><span class="heti-spacing"> </span>PC</span></strong>（<span>16<span class="heti-spacing"> </span></span>位，24K<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，控制读取的代码；一开始指向<span><span class="heti-spacing"> </span>0000H</span>，跳转到<span class="heti-skip"><span class="heti-spacing"> </span>30H<span class="heti-spacing"> </span></span>开始执行</li>
 </ul>
@@ -5316,16 +5316,16 @@ MOV C,20H
 <ul>
 <li><strong>哈佛结构</strong> <span>RAM<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>ROM<span class="heti-spacing"> </span></span>是分开的；独立结构；可以同时获得数据和代码</li>
 </ul>
-<p><img alt="image-20240620235824661" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240620235824661.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240620235824661.webp"/></p>
 <ul>
 <li><strong>冯诺依曼结构</strong> <span>RAM<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>ROM<span class="heti-spacing"> </span></span>是相邻的，统一编址（分时）</li>
 </ul>
-<p><img alt="image-20240620235816288" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240620235816288.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240620235816288.webp"/></p>
 <p><span>51<span class="heti-spacing"> </span></span>单片机是<strong>改进哈佛结构</strong>，分时复用，一套数据地址总线，通过指令的方式区分</p>
-<p><img alt="image-20240621000834024" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240621000834024.png" style="zoom:50%;"/></p>
+<p><img alt="image-20240621000834024" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240621000834024.webp" style="zoom:50%;"/></p>
 <p><span>4<span class="heti-spacing"> </span></span>个物理存储空间，实际是<span class="heti-skip"><span class="heti-spacing"> </span>3<span class="heti-spacing"> </span></span>个逻辑存储空间；
 地址总线是16位的，最大不可以超过64K</p>
-<p><img alt="image-20240621002809377" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240621002809377.png" style="zoom:50%;"/></p>
+<p><img alt="image-20240621002809377" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240621002809377.webp" style="zoom:50%;"/></p>
 <h3 id="rom-read-only-memory">程序存储器<span><span class="heti-spacing"> </span>ROM |</span><code>READ ONLY MEMORY</code><a class="headerlink" href="#rom-read-only-memory" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>在<span class="heti-skip"><span class="heti-spacing"> </span>89C51<span class="heti-spacing"> </span></span>中的<span class="heti-skip"><span class="heti-spacing"> </span>ROM<span class="heti-spacing"> </span></span>是一种电可擦除的<span class="heti-skip"><span class="heti-spacing"> </span>ROM,<span class="heti-spacing"> </span></span>称为<span><span class="heti-spacing"> </span>FLASH ROM</span></p>
 <p>存放程序、表格常数；</p>
@@ -5383,14 +5383,14 @@ MOV C,20H
 <li><span>3<span class="heti-spacing"> </span></span>用户<span class="heti-skip"><span class="heti-spacing"> </span>RAM<span class="heti-spacing"> </span></span>区</li>
 </ul>
 <p><span>1<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>3<span class="heti-spacing"> </span></span>只能字节寻址，只有<span class="heti-skip"><span class="heti-spacing"> </span>2<span class="heti-spacing"> </span></span>可以位寻址</p>
-<p><img alt="image-20240621002147037" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240621002147037.png" style="zoom:50%;"/></p>
-<p><img alt="image-20240621001638481" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240621001638481.png" style="zoom:50%;"/></p>
+<p><img alt="image-20240621002147037" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240621002147037.webp" style="zoom:50%;"/></p>
+<p><img alt="image-20240621001638481" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240621001638481.webp" style="zoom:50%;"/></p>
 <p><strong>高<span class="heti-skip"><span class="heti-spacing"> </span>128<span class="heti-spacing"> </span></span>字节 <code>SFR</code> 特殊功能寄存器 <code>80H-FFH</code></strong></p>
-<p><img alt="SFR寄存器" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240621002609930.png" style="zoom:50%;"/></p>
+<p><img alt="SFR寄存器" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240621002609930.webp" style="zoom:50%;"/></p>
 <p>以<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>或<span class="heti-skip"><span class="heti-spacing"> </span>8<span class="heti-spacing"> </span></span>结尾的可以容许位寻址</p>
 <h3 id="_5">复位<a class="headerlink" href="#_5" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>复位——使单片机回复原始默认状态的操作</p>
-<p><img alt="image-20240621190646898" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240621190646898.png" style="zoom:50%;"/></p>
+<p><img alt="image-20240621190646898" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240621190646898.webp" style="zoom:50%;"/></p>
 <p>复位<span><span class="heti-spacing"> </span>RES</span></p>
 <ul>
 <li>A = 0</li>
@@ -5419,9 +5419,9 @@ MOV C,20H
 </ol>
 <p><strong>P1</strong></p>
 <p>具有通用<span class="heti-skip"><span class="heti-spacing"> </span>IO<span class="heti-spacing"> </span></span>口的方式，可实现输出，读引脚、读锁存器三种功能</p>
-<p><img alt="image-20240621192857719" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240621192857719.png" style="zoom:50%;"/></p>
+<p><img alt="image-20240621192857719" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240621192857719.webp" style="zoom:50%;"/></p>
 <p>外部电平跟随内部总线上的电平</p>
-<p><img alt="image-20240621193410016" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240621193410016.png" style="zoom:50%;"/></p>
+<p><img alt="image-20240621193410016" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240621193410016.webp" style="zoom:50%;"/></p>
 <ul>
 <li>读取外部操作的时候，读引脚（最下边）高电平，可以读入</li>
 <li>读内部的锁存器：如对总线进行取反等操作的时候，</li>
@@ -5436,9 +5436,9 @@ MOV C,20H
 <li>准双向通用口，作为通用输入口之前应显示<span class="heti-skip"><span class="heti-spacing"> </span>P3.n<span class="heti-spacing"> </span></span>置<span><span class="heti-spacing"> </span>1</span>，通用输出口应该使第二输出端置<span><span class="heti-spacing"> </span>1</span></li>
 <li>普通<span class="heti-skip"><span class="heti-spacing"> </span>IO<span class="heti-spacing"> </span></span>第二输出为<span><span class="heti-spacing"> </span>1</span>，完全由锁存器<span class="heti-skip"><span class="heti-spacing"> </span>Q<span class="heti-spacing"> </span></span>端决定，即由内部总线决定</li>
 </ul>
-<p><img alt="image-20240619111616506" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240619111616506.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240619111616506.webp"/></p>
 <p>输入功能的时候，内部引脚也要置<span><span class="heti-spacing"> </span>1</span></p>
-<p><img alt="image-20240621195519916" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240621195519916.png" style="zoom:50%;"/></p>
+<p><img alt="image-20240621195519916" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240621195519916.webp" style="zoom:50%;"/></p>
 <p><strong>P0，P2</strong></p>
 <h2 id="_6">中断<a class="headerlink" href="#_6" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <h3 id="_7">流程<a class="headerlink" href="#_7" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
@@ -5450,7 +5450,7 @@ MOV C,20H
 正在执行的指令为RET、RETI或任何访问IE或IP寄存器的指令。即只有在这些指令后面至少再执行一条指令时才能接受中断请求。<br/>
 执行一条硬件<code>LCALL</code>指令<br/></p>
 </div>
-<p><img alt="image-20240327115545079" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240327115545079.png" style="zoom:40%;"/><img alt="image-20240508113216330" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240508113216330.png" style="zoom:50%;"/></p>
+<p><img alt="image-20240327115545079" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240327115545079.webp" style="zoom:40%;"/><img alt="image-20240508113216330" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240508113216330.webp" style="zoom:50%;"/></p>
 <p><code>RETI</code>中断函数返回<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>清除中断状态的标志位<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>否则如果来了一个小于等于当前中断优先级的中断事件不会响应</p>
 <p>具体流程可以看<a href="https://www.bilibili.com/video/BV17v41167Zw">这个视频</a>，很清楚。</p>
 <blockquote>
@@ -5522,7 +5522,7 @@ MOV C,20H
 <blockquote>
 <p><span>EA<span class="heti-spacing"> </span></span>虚线代表几个开关是联动的</p>
 </blockquote>
-<p><img alt="image-20240508114105761" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240508114105761.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240508114105761.webp"/></p>
 <h4 id="_9">中断源<a class="headerlink" href="#_9" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <table>
 <thead>
@@ -5585,7 +5585,7 @@ MOV C,20H
 <h4 id="sfr">开关（都在<span><span class="heti-spacing"> </span>SFR</span>）<a class="headerlink" href="#sfr" title="anchor link to this section for reference">¶</a></h4>
 <p><strong><code>TCON</code>（定时<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>计数器控制寄存器）</strong></p>
 <p>触发：低电平<span class="heti-skip"><span class="heti-spacing"> </span>or<span class="heti-spacing"> </span></span>下降沿</p>
-<p><img alt="image-20240508115812183" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240508115812183.png" style="zoom: 33%;"/></p>
+<p><img alt="image-20240508115812183" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240508115812183.webp" style="zoom: 33%;"/></p>
 <ul>
 <li><code>IT0（TCON.0）</code><span>,<span class="heti-spacing"> </span></span>外部中断<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>触发方式控制位。<br/>当<span class="heti-skip"><span class="heti-spacing"> </span>IT0=0<span class="heti-spacing"> </span></span>时<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>为电平触发方式。<br/>当<span class="heti-skip"><span class="heti-spacing"> </span>IT0=1<span class="heti-spacing"> </span></span>时<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>为边沿触发方式（下降沿有效<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。</li>
 </ul>
@@ -5605,9 +5605,9 @@ MOV C,20H
 <li><code>TF1（TCON.7）</code><span>,<span class="heti-spacing"> </span></span>定时<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>计数器<code>T1</code>溢出中断请求标志位。    </li>
 </ul>
 <p><strong><code>SCON</code><span>(<span class="heti-spacing"> </span></span>串行口控制寄存器<span><span class="heti-spacing"> </span>)</span></strong></p>
-<p><img alt="image-20240621212044659" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240621212044659.png" style="zoom:33%;"/></p>
+<p><img alt="image-20240621212044659" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240621212044659.webp" style="zoom:33%;"/></p>
 <p><strong><code>IP</code>（<span>2<span class="heti-spacing"> </span></span>个人为优先级）</strong></p>
-<p><img alt="image-20240621210918383" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240621210918383.png" style="zoom:33%;"/></p>
+<p><img alt="image-20240621210918383" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240621210918383.webp" style="zoom:33%;"/></p>
 <p><strong><code>IE</code>（中断使能寄存器）</strong> 
 响应需要总开关打开且子开关打开</p>
 <h3 id="_10">优先级<a class="headerlink" href="#_10" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
@@ -5633,8 +5633,8 @@ MOV C,20H
 <ul>
 <li><span>CPU<span class="heti-spacing"> </span></span>开中断（即<span><span class="heti-spacing"> </span>EA=1</span>）</li>
 </ul>
-<p><img alt="image-20240508122502143" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240508122502143.png" style="zoom:50%;"/></p>
-<p><img alt="image-20240508122506367" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240508122506367.png" style="zoom:50%;"/></p>
+<p><img alt="image-20240508122502143" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240508122502143.webp" style="zoom:50%;"/></p>
+<p><img alt="image-20240508122506367" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240508122506367.webp" style="zoom:50%;"/></p>
 <p>中断程序标准写法：</p>
 <div class="highlight"><pre><span></span><code>    ORG 0000H
 START:
@@ -5667,7 +5667,7 @@ INT0:
 <h4 id="_12">外部中断的扩展<a class="headerlink" href="#_12" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p>多外部中断源的系统示例。</p>
 <p>设有<span class="heti-skip"><span class="heti-spacing"> </span>5<span class="heti-spacing"> </span></span>个外部中断源<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>中断优先级排队顺序为：XI0、XI1、XI2、XI3、XI4。试设计它们与<span class="heti-skip"><span class="heti-spacing"> </span>80C51<span class="heti-spacing"> </span></span>单片机的接口。</p>
-<p><img alt="image-20240508133213756" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240508133213756.png" style="zoom:50%;"/></p>
+<p><img alt="image-20240508133213756" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240508133213756.webp" style="zoom:50%;"/></p>
 <div class="highlight"><pre><span></span><code>    ORG  0003H
     LJMP INSE0       ;转外部中断0服务程序入口
     ORG  0013H
@@ -5711,7 +5711,7 @@ DV4:
 <p>时序是对象（事件、信息）按照时间顺序组成的序列关系</p>
 <p>时序图最为常用。</p>
 <p>纵轴表示电平</p>
-<p><img alt="image-20240621192004419" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240621192004419.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240621192004419.webp"/></p>
 <p>晶振<code>fosc</code></p>
 <p><strong>机器周期、指令周期 、振荡周期、状态周期</strong></p>
 <p><span>1<span class="heti-spacing"> </span></span>状态<span class="heti-skip"><span class="heti-spacing"> </span>= 2<span class="heti-spacing"> </span></span>振荡</p>
@@ -5751,7 +5751,7 @@ LOOP1:
 </code></pre></div>
 </div>
 <h3 id="_15">结构<a class="headerlink" href="#_15" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<p><img alt="image-20240508135706335" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240508135706335.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240508135706335.webp"/></p>
 <p><span>2<span class="heti-spacing"> </span></span>个<span class="heti-skip"><span class="heti-spacing"> </span>16<span class="heti-spacing"> </span></span>位定时器、计数器：</p>
 <ul>
 <li><span>T0<span class="heti-spacing"> </span></span>由两个<span class="heti-skip"><span class="heti-spacing"> </span>8<span class="heti-spacing"> </span></span>位<span><span class="heti-spacing"> </span>SFR TH0</span>（high） TL0 （low）构成</li>
@@ -5768,10 +5768,10 @@ LOOP1:
 <h4 id="tcon"><strong>控制寄存器<code>TCON</code></strong><a class="headerlink" href="#tcon" title="anchor link to this section for reference">¶</a></h4>
 <p><strong><span>TR0 TR1<span class="heti-spacing"> </span></span>控制定时计数器的启动停止</strong></p>
 <p><span>TF0 TF1<span class="heti-spacing"> </span></span>溢出中断请求标志位</p>
-<p><img alt="image-20240508115812183" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240508115812183.png" style="zoom:50%;"/></p>
+<p><img alt="image-20240508115812183" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240508115812183.webp" style="zoom:50%;"/></p>
 <h4 id="tmod">工作方式寄存器<code>TMOD</code><a class="headerlink" href="#tmod" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p>低四位<span><span class="heti-spacing"> </span>T0</span>，高四位<span><span class="heti-spacing"> </span>T1</span></p>
-<p><img alt="image-20240508140054318" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240508140054318.png" style="zoom:50%;"/></p>
+<p><img alt="image-20240508140054318" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240508140054318.webp" style="zoom:50%;"/></p>
 <ul>
 <li>
 <p>M0M1 ：工作方式设置位工作在<span class="heti-skip"><span class="heti-spacing"> </span>4<span class="heti-spacing"> </span></span>种模式</p>
@@ -5815,7 +5815,7 @@ LOOP1:
 <li>GATE：启停模式</li>
 </ul>
 <h4 id="ie">中断允许控制寄存器<span><span class="heti-spacing"> </span>IE</span><a class="headerlink" href="#ie" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
-<p><img alt="image-20240511233252243" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240511233252243.png" style="zoom:33%;"/></p>
+<p><img alt="image-20240511233252243" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240511233252243.webp" style="zoom:33%;"/></p>
 <p>开启<span class="heti-skip"><span class="heti-spacing"> </span>ET1,ET0<span class="heti-spacing"> </span></span>才能中断</p>
 <h3 id="_17">工作方式<a class="headerlink" href="#_17" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>兼容<span class="heti-skip"><span class="heti-spacing"> </span>48<span class="heti-spacing"> </span></span>芯片<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>所以有<span class="heti-skip"><span class="heti-spacing"> </span>4<span class="heti-spacing"> </span></span>种工作状态</p>
@@ -5824,7 +5824,7 @@ LOOP1:
 <p>定时模式<span><span class="heti-spacing"> </span>Gate = 0,CT = 0</span></p>
 <p>Gate = 1：由<span class="heti-skip"><span class="heti-spacing"> </span>INT0<span class="heti-spacing"> </span></span>进行控制</p>
 <p>Gate = 0：或门让右侧一直是<span class="heti-skip"><span class="heti-spacing"> </span>1 ,<span class="heti-spacing"> </span></span>完全由<span class="heti-skip"><span class="heti-spacing"> </span>TR<span class="heti-spacing"> </span></span>决定</p>
-<p><img alt="image-20240511234311556" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240511234311556.png" style="zoom:50%;"/></p>
+<p><img alt="image-20240511234311556" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240511234311556.webp" style="zoom:50%;"/></p>
 <p>分析上图可以得出设置规律</p>
 <ul>
 <li>计数外部脉冲个数： <strong><span class="arithmatex">\(1～8192(2^{13})\)</span></strong></li>
@@ -5889,7 +5889,7 @@ ZCZ:
 </div>
 <h4 id="1">方式<span><span class="heti-spacing"> </span>1</span><a class="headerlink" href="#1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p><strong><span>16<span class="heti-spacing"> </span></span>位</strong>计数<span><span class="heti-spacing"> </span>65536</span></p>
-<p><img alt="image-20240622004345473" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240622004345473.png" style="zoom: 50%;"/></p>
+<p><img alt="image-20240622004345473" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240622004345473.webp" style="zoom: 50%;"/></p>
 <p><span>GATE<span class="heti-spacing"> </span></span>为<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>的时候，由<span class="heti-skip"><span class="heti-spacing"> </span>INT0<span class="heti-spacing"> </span></span>决定</p>
 <p>可以用来测量脉宽</p>
 <div class="admonition note">
@@ -5938,7 +5938,7 @@ DVT0:
 </code></pre></div>
 </div>
 <h4 id="2">方式<span><span class="heti-spacing"> </span>2</span><a class="headerlink" href="#2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
-<p><img alt="image-20240511235352718" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240511235352718.png" style="zoom:50%;"/></p>
+<p><img alt="image-20240511235352718" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240511235352718.webp" style="zoom:50%;"/></p>
 <p><strong><span>8<span class="heti-spacing"> </span></span>位自动重装定时计数器</strong></p>
 <ul>
 <li>方式<span class="heti-skip"><span class="heti-spacing"> </span>0,<span class="heti-spacing"> </span></span>方式<span class="heti-skip"><span class="heti-spacing"> </span>1,<span class="heti-spacing"> </span></span>溢出后变成<span class="heti-skip"><span class="heti-spacing"> </span>0000,<span class="heti-spacing"> </span></span>需要重新设置初始值</li>
@@ -5991,12 +5991,12 @@ HERE:	SJMP $        ;等待中断
 </code></pre></div>
 </div>
 <h4 id="3">方式<span><span class="heti-spacing"> </span>3</span><a class="headerlink" href="#3" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
-<p><img alt="image-20240512000523646" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240512000523646.png" style="zoom:50%;"/></p>
+<p><img alt="image-20240512000523646" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240512000523646.webp" style="zoom:50%;"/></p>
 <p><span>T0<span class="heti-spacing"> </span></span>分成两个<span class="heti-skip"><span class="heti-spacing"> </span>8<span class="heti-spacing"> </span></span>位定时<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>计数器<span class="heti-skip"><span class="heti-spacing"> </span>TL0<span class="heti-spacing"> </span></span>和<span><span class="heti-spacing"> </span>TH0 ;</span></p>
 <p><strong>TL0</strong>既可计数也可定时<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>是一个<span class="heti-skip"><span class="heti-spacing"> </span>8<span class="heti-spacing"> </span></span>位定时<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>计数器。占用了<span class="heti-skip"><span class="heti-spacing"> </span>T0;<span class="heti-spacing"> </span></span>所有控制位： <span>C/T,TR0,GATE,TF0<span class="heti-spacing"> </span></span>和<span><span class="heti-spacing"> </span>INT0</span>、<span>T0<span class="heti-spacing"> </span></span>引脚<span><span class="heti-spacing"> </span>;</span></p>
 <p><strong>TH0</strong>只能作为定时器<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>因为<span class="heti-skip"><span class="heti-spacing"> </span>T0<span class="heti-spacing"> </span></span>已被<span class="heti-skip"><span class="heti-spacing"> </span>TL0<span class="heti-spacing"> </span></span>占用<span class="heti-skip"><span class="heti-spacing"> </span>, TH0<span class="heti-spacing"> </span></span>用<span class="heti-skip"><span class="heti-spacing"> </span>T1<span class="heti-spacing"> </span></span>的控制位：TR1、TF1;</p>
 <p><strong>如果定时<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>计数器<span class="heti-skip"><span class="heti-spacing"> </span>T0<span class="heti-spacing"> </span></span>工作在方式<span class="heti-skip"><span class="heti-spacing"> </span>3,T1<span class="heti-spacing"> </span></span>只能工作在<span><span class="heti-spacing"> </span>0</span>、1、<span>2<span class="heti-spacing"> </span></span>方式</strong><strong>。此时由于<span class="heti-skip"><span class="heti-spacing"> </span>T1<span class="heti-spacing"> </span></span>的运行控制位<span class="heti-skip"><span class="heti-spacing"> </span>TR1<span class="heti-spacing"> </span></span>及计数溢出标志位<span class="heti-skip"><span class="heti-spacing"> </span>TF1<span class="heti-spacing"> </span></span>已被定时<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>计数器<span class="heti-skip"><span class="heti-spacing"> </span>T0<span class="heti-spacing"> </span></span>借用<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>这时<span><span class="heti-spacing"> </span>,</span></strong><strong><span>T1<span class="heti-spacing"> </span></span>作为串行口的波特率发生器使用。</strong></p>
-<p><img alt="image-20240512001740549" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240512001740549.png" style="zoom: 33%;"/></p>
+<p><img alt="image-20240512001740549" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240512001740549.webp" style="zoom: 33%;"/></p>
 <div class="admonition note">
 <p class="admonition-title">欲用<span class="heti-skip"><span class="heti-spacing"> </span>80C51<span class="heti-spacing"> </span></span>产生两个方波<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>一个周期为<span class="heti-skip"><span class="heti-spacing"> </span>200μs,<span class="heti-spacing"> </span></span>另一个周期为<span class="heti-skip"><span class="heti-spacing"> </span>400μs,<span class="heti-spacing"> </span></span>该<span class="heti-skip"><span class="heti-spacing"> </span>80C51<span class="heti-spacing"> </span></span>同时使用串行口<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>用定时器／计数器作为波特率发生器。</p>
 <p>用两个独立的定时计数器实现两个不同周期的定时</p>
@@ -6051,7 +6051,7 @@ MOV TMOD, #23H ; 设T0为方式3,T1为2
 </div>
 </div>
 <h3 id="_18">初始化<a class="headerlink" href="#_18" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<p><img alt="image-20240512001802295" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240512001802295.png" style="zoom:33%;"/></p>
+<p><img alt="image-20240512001802295" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240512001802295.webp" style="zoom:33%;"/></p>
 <p><strong>设置工作方式<span><span class="heti-spacing"> </span>TMOD</span></strong></p>
 <p>确定用<span class="heti-skip"><span class="heti-spacing"> </span>T0<span class="heti-spacing"> </span></span>还是<span><span class="heti-spacing"> </span>T1</span>：初始化<span class="heti-skip"><span class="heti-spacing"> </span>TMOD<span class="heti-spacing"> </span></span>高四位还是低四位<br/></p>
 <p>定时模式还是计数模式：CT<br/></p>
@@ -6071,7 +6071,7 @@ MOV TMOD, #23H ; 设T0为方式3,T1为2
 <p><strong>若采用中断方式<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>则应设置<span><span class="heti-spacing"> </span>IE</span></strong></p>
 <p><strong>TCON</strong></p>
 <p>启动计数器工作<span class="heti-skip"><span class="heti-spacing"> </span>TCON,<span class="heti-spacing"> </span></span>启动定时计数器使<span class="heti-skip"><span class="heti-spacing"> </span>TR0<span class="heti-spacing"> </span></span>或<span class="heti-skip"><span class="heti-spacing"> </span>TR1<span class="heti-spacing"> </span></span>置位</p>
-<p><img alt="image-20240516202857183" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240516202857183.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240516202857183.webp"/></p>
 <div class="highlight"><pre><span></span><code><span class="c1">// 设置工作方式：GATE,C/T,M1M0→TMOD</span>
 <span class="n">TMOD</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x01</span><span class="p">;</span><span class="w"> </span><span class="c1">// 定时器0工作在模式1</span>
 
@@ -6096,8 +6096,8 @@ MOV TMOD, #23H ; 设T0为方式3,T1为2
 <blockquote>
 <p>有部分内容其实是计网物理层的内容</p>
 </blockquote>
-<p><img alt="并行通信" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240622100805189.png" style="zoom:33%;"/></p>
-<p><img alt="串行通信" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240622100827823.png" style="zoom: 33%;"/></p>
+<p><img alt="并行通信" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240622100805189.webp" style="zoom:33%;"/></p>
+<p><img alt="串行通信" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240622100827823.webp" style="zoom: 33%;"/></p>
 <h4 id="_21">物理接口<a class="headerlink" href="#_21" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <blockquote>
 <p>参考<a href="https://zhuanlan.zhihu.com/p/89240672">串口、<span>COM<span class="heti-spacing"> </span></span>口、<span>UART<span class="heti-spacing"> </span></span>口<span><span class="heti-spacing"> </span>, TTL</span>、RS-232、<span>RS-485<span class="heti-spacing"> </span></span>区别详解<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>知乎<span><span class="heti-spacing"> </span>(zhihu.com)</span></a></p>
@@ -6119,7 +6119,7 @@ MOV TMOD, #23H ; 设T0为方式3,T1为2
 </div>
 </div>
 </div>
-<p><img alt="img" src="https://pic3.zhimg.com/80/v2-04217e1629bdb71c6fb0f598c1b4dd12_1440w.webp"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__v2-04217e1629bdb71c6fb0f598c1b4dd12_1440w.webp"/></p>
 </div>
 <h4 id="_22">电平标准（电信号）<a class="headerlink" href="#_22" title="anchor link to this section for reference">¶</a></h4>
 <p><strong>TTL、RS-232、<span>RS-485<span class="heti-spacing"> </span></span>是指的电平标准<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>电信号<span><span class="heti-spacing"> </span>)</span></strong></p>
@@ -6131,7 +6131,7 @@ MOV TMOD, #23H ; 设T0为方式3,T1为2
 <div class="tabbed-block">
 <p>电平：全双工（逻辑<span><span class="heti-spacing"> </span>1</span>：-15V–<span>3V<span class="heti-spacing"> </span></span>逻辑<span><span class="heti-spacing"> </span>0</span>：+3V–+15V)<br/>距离：<span>15m<span class="heti-spacing"> </span></span>左右，用<span class="heti-skip"><span class="heti-spacing"> </span>232<span class="heti-spacing"> </span></span>做中转可以做的更远；</p>
 <p>负逻辑</p>
-<p><img alt="image-20240516235636473" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240516235636473.png" style="zoom: 33%;"/></p>
+<p><img alt="image-20240516235636473" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240516235636473.webp" style="zoom: 33%;"/></p>
 <table>
 <thead>
 <tr>
@@ -6155,7 +6155,7 @@ MOV TMOD, #23H ; 设T0为方式3,T1为2
 </tbody>
 </table>
 <p>公头<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>针<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>母头<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>孔（<span>2,3<span class="heti-spacing"> </span></span>交换<span class="heti-skip"><span class="heti-spacing"> </span>,5<span class="heti-spacing"> </span></span>共地）</p>
-<p><img alt="image-20240516235207535" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240516235207535.png" style="zoom:50%;"/></p>
+<p><img alt="image-20240516235207535" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240516235207535.webp" style="zoom:50%;"/></p>
 <p><strong>不能过远的原因<span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span>距离太远，电平衰减</strong></p>
 </div>
 <div class="tabbed-block">
@@ -6175,36 +6175,36 @@ MOV TMOD, #23H ; 设T0为方式3,T1为2
 <p>对讲机</p>
 </blockquote>
 <p><strong>单工：</strong> 通信只能有一方发送到另一方<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>不能反向传输</p>
-<p><img alt="image-20240622101003848" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240622101003848.png" style="zoom: 25%;"/></p>
+<p><img alt="image-20240622101003848" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240622101003848.webp" style="zoom: 25%;"/></p>
 <h4 id="_24">同步异步<a class="headerlink" href="#_24" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p><strong>异步：</strong></p>
 <p>通信双方各自约定通信速率<span><span class="heti-spacing"> </span>,</span></p>
 <p>传输数据是以字符为单位的<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>待传送的字符串中的每个字符均加上<strong>起始位、停止位、校验位</strong>等控制信息位<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>构成一个字符帧。空闲的时候发送的是高电平<span><span class="heti-spacing"> </span>5V</span>；起始位有低电平</p>
 <p><strong>帧与帧之间的时间间隔是任意的</strong></p>
-<p><img alt="帧格式" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240622103113909.png" style="zoom:33%;"/></p>
+<p><img alt="帧格式" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240622103113909.webp" style="zoom:33%;"/></p>
 <p><strong>同步：</strong></p>
 <p>通信双方靠一根时钟线来约定通信速率</p>
-<p><img alt="image-20240516233936771" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240516233936771.png" style="zoom:50%;"/></p>
+<p><img alt="image-20240516233936771" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240516233936771.webp" style="zoom:50%;"/></p>
 <h4 id="_25">通信速率<a class="headerlink" href="#_25" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p>通信速率是以每秒传送多少个二进制位来度量的<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>这个速率称作波特率（Baud Rate）<span>,<span class="heti-spacing"> </span></span>其单位为<span><span class="heti-spacing"> </span>bps</span>（<span>bits per second,<span class="heti-spacing"> </span></span>位<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>秒）</p>
 <p>常用波特率：300,600,1200,2400,4800,9600,19200</p>
 <p>总线：连接各个设备的数据传输线路（类似于一条马路<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>把路边各住户连接起来<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>使住户可以相互交流）</p>
 <p><strong>先确定波特率，让定时器产生波特率，约定波特率再通信</strong></p>
 <h3 id="_26">结构<a class="headerlink" href="#_26" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<p><img alt="image-20240516235651266" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240516235651266.png" style="zoom:40%;"/></p>
+<p><img alt="image-20240516235651266" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240516235651266.webp" style="zoom:40%;"/></p>
 <h4 id="sbuf99h"><strong>串行数据缓冲寄存器<span><span class="heti-spacing"> </span>SBUF</span>（99H）</strong><a class="headerlink" href="#sbuf99h" title="anchor link to this section for reference">¶</a></h4>
 <p>（逻辑地址只有一个<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>两个物理地址）</p>
 <blockquote>
 <p>类似于一个教室有两个门</p>
 </blockquote>
-<p><img alt="image-20240517101614853" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240517101614853.png" style="zoom: 40%;"/></p>
-<p><img alt="image-20240519232852513" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240519232852513.png" style="zoom:50%;"/></p>
+<p><img alt="image-20240517101614853" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240517101614853.webp" style="zoom: 40%;"/></p>
+<p><img alt="image-20240519232852513" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240519232852513.webp" style="zoom:50%;"/></p>
 <p>虽然接收和发送<span class="heti-skip"><span class="heti-spacing"> </span>SBUF<span class="heti-spacing"> </span></span>使用同一个逻辑地址，但物理是两个地址</p>
 <p>接收移位寄存器<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>每收到一个位<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>就左移一个位<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>满载（8bit）以后就移到<span class="heti-skip"><span class="heti-spacing"> </span>SBUF<span class="heti-spacing"> </span></span>当中</p>
 <p>接收最多<span class="heti-skip"><span class="heti-spacing"> </span>2Byte,<span class="heti-spacing"> </span></span>主动发送最多<span><span class="heti-spacing"> </span>1Byte</span></p>
 <p>接收方有两级缓存</p>
 <h4 id="scon">串行口控制寄存器<span><span class="heti-spacing"> </span>SCON</span><a class="headerlink" href="#scon" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
-<p><img alt="image-20240517102324310" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240517102324310.png" style="zoom:50%;"/></p>
+<p><img alt="image-20240517102324310" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240517102324310.webp" style="zoom:50%;"/></p>
 <ul>
 <li>SM0、SM1——串行口工作方式选择位。</li>
 </ul>
@@ -6229,7 +6229,7 @@ MOV TMOD, #23H ; 设T0为方式3,T1为2
 <p>可以通过检验<span class="heti-skip"><span class="heti-spacing"> </span>TI RI<span class="heti-spacing"> </span></span>来判断是否接受、发送结束</p>
 <h4 id="pcon">电源控制寄存器<span><span class="heti-spacing"> </span>PCON</span><a class="headerlink" href="#pcon" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p><span>PCON<span class="heti-spacing"> </span></span>的单元地址为<span class="heti-skip"><span class="heti-spacing"> </span>87H,<span class="heti-spacing"> </span></span>其内部各位均不能进行位寻址</p>
-<p><img alt="image-20240517105934465" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240517105934465.png" style="zoom:50%;"/></p>
+<p><img alt="image-20240517105934465" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240517105934465.webp" style="zoom:50%;"/></p>
 <p><span>SMOD<span class="heti-spacing"> </span></span>为串行口波特率倍增位<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>当串行口工作在方式<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>和方式<span class="heti-skip"><span class="heti-spacing"> </span>3<span class="heti-spacing"> </span></span>时<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>其波特率可调。调节手段之一便是利用<span><span class="heti-spacing"> </span>SMOD</span>。</p>
 <p>（1）若<span class="heti-skip"><span class="heti-spacing"> </span>SMOD=0,<span class="heti-spacing"> </span></span>波特率不倍增<span><span class="heti-spacing"> </span>;</span></p>
 <p>（2）若<span class="heti-skip"><span class="heti-spacing"> </span>SMOD=1,<span class="heti-spacing"> </span></span>则选定的波特率倍频<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>倍<span><span class="heti-spacing"> </span>;</span></p>
@@ -6281,11 +6281,11 @@ MOV TMOD, #23H ; 设T0为方式3,T1为2
 <p>发送<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>接收过程：<span>SBUF<span class="heti-spacing"> </span></span>中的串行数据由<span class="heti-skip"><span class="heti-spacing"> </span>RXD<span class="heti-spacing"> </span></span>逐位移出<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>移入</p>
 <p>（<strong>低位在先<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>高位在后</strong>）<span>;TXD<span class="heti-spacing"> </span></span>输出移位时钟<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>频率<span><span class="heti-spacing"> </span>=  $frac{fosc}{12} $   ;</span></p>
 <p>每送出<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>接收<span class="heti-skip"><span class="heti-spacing"> </span>8<span class="heti-spacing"> </span></span>位数据<span class="heti-skip"><span class="heti-spacing"> </span>TI/ RI<span class="heti-spacing"> </span></span>自动置<span class="heti-skip"><span class="heti-spacing"> </span>1;<span class="heti-spacing"> </span></span>需要用软件清零<span><span class="heti-spacing"> </span>TI/ RI</span> 。</p>
-<p><img alt="image-20240517110554534" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240517110554534.png" style="zoom:50%;"/></p>
+<p><img alt="image-20240517110554534" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240517110554534.webp" style="zoom:50%;"/></p>
 <p>发送完成后<span class="heti-skip"><span class="heti-spacing"> </span>,TI<span class="heti-spacing"> </span></span>就置<span><span class="heti-spacing"> </span>1</span></p>
 <p>串行口在方式<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>下的工作并非是一种同步通信方式<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>经常配合“串入并出”“并入串出”移位寄存器一起使用<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>以达到扩展一个并行口的目的。 扩展电路如下图所示。</p>
-<p><img alt="image-20240517110640047" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240517110640047.png" style="zoom:50%;"/></p>
-<p><img alt="image-20240517110648124" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240517110648124.png" style="zoom:50%;"/></p>
+<p><img alt="image-20240517110640047" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240517110640047.webp" style="zoom:50%;"/></p>
+<p><img alt="image-20240517110648124" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240517110648124.webp" style="zoom:50%;"/></p>
 <p><span>51<span class="heti-spacing"> </span></span>的<span class="heti-skip"><span class="heti-spacing"> </span>RXD<span class="heti-spacing"> </span></span>传入有效信息位<span class="heti-skip"><span class="heti-spacing"> </span>,TXD<span class="heti-spacing"> </span></span>机械周期放到时钟，对外展示并行输出</p>
 <p>如要发送数据<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>查询方式的程序如下：</p>
 <div class="highlight"><pre><span></span><code>MOV SCON,#00H	;串行口方式0
@@ -6350,7 +6350,7 @@ LP:
     JNB	TI	LP    ;等待发送完成
     CLR	TI           ;发送完成后清TI
 </code></pre></div>
-<p><img alt="image-20240517112045860" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240517112045860.png" style="zoom:50%;"/></p>
+<p><img alt="image-20240517112045860" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240517112045860.webp" style="zoom:50%;"/></p>
 <div class="highlight"><pre><span></span><code>;接收代码
      MOV	SCON,	#50H; 串口工作在方式1,启动接收
 LP: 
@@ -6397,12 +6397,12 @@ LP:
 <p>A、首先根据要传送的<span class="heti-skip"><span class="heti-spacing"> </span>8<span class="heti-spacing"> </span></span>位数据的特征<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>如奇偶、地址<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>数据特征<span class="heti-skip"><span class="heti-spacing"> </span>)<span class="heti-spacing"> </span></span>决定第<span class="heti-skip"><span class="heti-spacing"> </span>9<span class="heti-spacing"> </span></span>个信息位的状态。</p>
 <p>B、启动串口发送（<code>MOV SBUF,A</code> 或 <code>MOV SBUF,#XXH</code><heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。按起始位、数据位<span><span class="heti-spacing"> </span>D0</span>～D7、校验位、停止位的顺序将该帧信息以规定的波特率逐一从<span class="heti-skip"><span class="heti-spacing"> </span>TXD<span class="heti-spacing"> </span></span>引脚移出。</p>
 <p>C、待发送完毕后自动将<span class="heti-skip"><span class="heti-spacing"> </span>SCON<span class="heti-spacing"> </span></span>中的<span class="heti-skip"><span class="heti-spacing"> </span>TI<span class="heti-spacing"> </span></span>位置<span class="heti-skip"><span class="heti-spacing"> </span>1,<span class="heti-spacing"> </span></span>表示发送过程结束。</p>
-<p><img alt="image-20240519143852958" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240519143852958.png" style="zoom:50%;"/></p>
+<p><img alt="image-20240519143852958" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240519143852958.webp" style="zoom:50%;"/></p>
 <p><strong>接收过程</strong></p>
 <p>A、软件将<code>REN</code>置<span class="heti-skip"><span class="heti-spacing"> </span>1,<span class="heti-spacing"> </span></span>启动串行口在方式<span class="heti-skip"><span class="heti-spacing"> </span>2<span class="heti-spacing"> </span></span>下的接收过程<span><span class="heti-spacing"> </span>;</span></p>
 <p>B、<span>UART<span class="heti-spacing"> </span></span>自动地按规定的波特率从引脚<code>RXD</code>上逐位接收信息<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>移入串口中的接收移位寄存器。</p>
 <p>C、接收完毕后<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>将接收移位寄存器中的数据位<span><span class="heti-spacing"> </span>D0</span>～<span>D7<span class="heti-spacing"> </span></span>锁入<code>SBUF</code>。同时将校验位送入<code>SCON</code>中的<code>RB8</code>位<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>自动将<code>SCON</code>中的<span class="heti-skip"><span class="heti-spacing"> </span>RI<span class="heti-spacing"> </span></span>置<span class="heti-skip"><span class="heti-spacing"> </span>1,<span class="heti-spacing"> </span></span>表示接收过程结束。编程时可通过查询和中断方式对下一步进行处理。 </p>
-<p><img alt="image-20240519144526889" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240519144526889.png" style="zoom:50%;"/></p>
+<p><img alt="image-20240519144526889" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240519144526889.webp" style="zoom:50%;"/></p>
 <p><strong>波特率设置</strong></p>
 <p>倍频：<code>SMOD = 1</code> 波特率<span><span class="heti-spacing"> </span>= <span class="arithmatex">\(\frac{2^{SMOD}\times f_{osc}}{64} = \frac{f_{osc}}{32}\)</span></span></p>
 <p>不倍频：<code>SMOD = 0</code> 波特率<span><span class="heti-spacing"> </span>= <span class="arithmatex">\(\frac{2^{SMOD}\times f_{osc}}{64} = \frac{f_{osc}}{64}\)</span></span></p>
@@ -6418,8 +6418,8 @@ LP:
 <p>方式<span class="heti-skip"><span class="heti-spacing"> </span>2<span class="heti-spacing"> </span></span>的波特率<span><span class="heti-spacing"> </span>=<span class="arithmatex">\((\frac{2^{SMOD}}{64})\cdot fosc\)</span></span> </p>
 <p>方式<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>的波特率<span><span class="heti-spacing"> </span>=<span class="arithmatex">\((2^{\frac{SMOD}{32}}) \times (T1的溢出率)\)</span></span></p>
 <p>方式<span class="heti-skip"><span class="heti-spacing"> </span>3<span class="heti-spacing"> </span></span>的波特率<span><span class="heti-spacing"> </span>=<span class="arithmatex">\((2^{\frac{SMOD}{32}}) \times (T1的溢出率)\)</span></span></p>
-<p><img alt="image-20240517113020751" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240517113020751.png" style="zoom:50%;"/></p>
-<p><img alt="8f30c5e6ea7a025457568b080915e65" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/8f30c5e6ea7a025457568b080915e65.png"/></p>
+<p><img alt="image-20240517113020751" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240517113020751.webp" style="zoom:50%;"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__8f30c5e6ea7a025457568b080915e65.webp"/></p>
 <h3 id="_29">编程<a class="headerlink" href="#_29" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <h4 id="_30">查询方式<a class="headerlink" href="#_30" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p>指令查询标志位<span class="heti-skip"><span class="heti-spacing"> </span>TI<span class="heti-spacing"> </span></span>和<span><span class="heti-spacing"> </span>RI</span> ：</p>
@@ -6427,7 +6427,7 @@ LP:
 <p><span>RI=1,<span class="heti-spacing"> </span></span>一帧数据已送到<span><span class="heti-spacing"> </span>,RI</span>≠<span>1,<span class="heti-spacing"> </span></span>没有送到</p>
 <h4 id="_31"><strong>中断方式</strong><a class="headerlink" href="#_31" title="anchor link to this section for reference">¶</a></h4>
 <p>设置中断允许<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>以<code>TI</code>和<code>RI</code>作为中断请求标志位<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span><code>TI=1</code>或<code>RI=1</code>均可引发中断。</p>
-<p><img alt="image-20240519150922105" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240519150922105.png" style="zoom:50%;"/></p>
+<p><img alt="image-20240519150922105" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240519150922105.webp" style="zoom:50%;"/></p>
 <details class="note">
 <summary>串口方式<span><span class="heti-spacing"> </span>1</span></summary>
 <p>通过<span class="heti-skip"><span class="heti-spacing"> </span>MCS-51<span class="heti-spacing"> </span></span>串行口按模式<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>发送存放在片内<code>RAM 20H～3FH</code>中的数据<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>要求传送的波特率为<code>1200bps</code>。编写有关的通信程序。 <code>fosc=11.0592MHz</code>。</p>
@@ -6482,7 +6482,7 @@ DJNZ   R7，LOOP
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年9月18日 15:27:58</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年10月17日 20:24:06</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">

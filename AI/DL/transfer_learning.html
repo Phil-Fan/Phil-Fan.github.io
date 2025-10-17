@@ -5149,7 +5149,7 @@ LORA: Low-rank Adaptation of Large Language Models
 </div>
 <p>问题<span class="heti-skip"><span class="heti-spacing"> </span>1:<span class="heti-spacing"> </span></span>我们需要找到并调整所有参数吗？</p>
 <p>问题<span class="heti-skip"><span class="heti-spacing"> </span>2:<span class="heti-spacing"> </span></span>对于微调的权重矩阵，更新在矩阵秩方面应该具有多大的表现力？更新应该如何表达</p>
-<p><img alt="image-20250705161145578" src="assets/transfer_learning.assets/image-20250705161145578.webp"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__DL__assets__transfer_learning.assets__image-20250705161145578.webp"/></p>
 <p>所以，<span>LoRA<span class="heti-spacing"> </span></span>可以视作是全量微调的简化版。只要有矩阵乘法存在的地方，我们就可以考虑使用<span><span class="heti-spacing"> </span>LoRA</span></p>
 <h3 id="_6">怎么做？<a class="headerlink" href="#_6" title="anchor link to this section for reference">¶</a></h3>
 <p>原始权重矩阵<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(W_0\)</span><span class="heti-spacing"> </span></span>很大，比如是<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(1000 \times 1000\)</span><span class="heti-spacing"> </span></span>的矩阵。我们不想直接更新它，而是假设：</p>
@@ -5169,7 +5169,7 @@ LORA: Low-rank Adaptation of Large Language Models
 <blockquote>
 <p><span>LoRA<span class="heti-spacing"> </span></span>让模型 <strong>保留原本的表达能力（<span class="arithmatex">\(W_0 x\)</span>）</strong>，同时<strong>通过<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(BAx\)</span><span class="heti-spacing"> </span></span>进行轻量级调整</strong>。</p>
 </blockquote>
-<p><img alt="image-20250705161451599" src="assets/transfer_learning.assets/image-20250705161451599.webp" width="50%"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__DL__assets__transfer_learning.assets__image-20250705161451599.webp" width="50%"/></p>
 <p>初始化策略</p>
 <ul>
 <li><span><span class="arithmatex">\(A\)</span><span class="heti-spacing"> </span></span>是随机初始化（高斯分布）</li>
@@ -5208,7 +5208,7 @@ BA = 0 \Rightarrow \text{LoRA 不会影响初始输出}
 <li>并行训练多个<span class="heti-skip"><span class="heti-spacing"> </span>LoRA<span class="heti-spacing"> </span></span>模块，每个模块执行自己的任务，共享基础模型</li>
 <li><span>LoRA<span class="heti-spacing"> </span></span>模型是可加性的，<span>model switching<span class="heti-spacing"> </span></span>变成了<span><span class="heti-spacing"> </span>tree traversal</span>。Base model is only instantiated once.</li>
 </ul>
-<p><img alt="image-20250705162108510" src="assets/transfer_learning.assets/image-20250705162108510.webp"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__DL__assets__transfer_learning.assets__image-20250705162108510.webp"/></p>
 <h2 id="sft-supervised-fine-tuning">SFT: Supervised Fine-tuning<a class="headerlink" href="#sft-supervised-fine-tuning" title="anchor link to this section for reference">¶</a></h2>
 <h2 id="p-tuning">P-tuning<a class="headerlink" href="#p-tuning" title="anchor link to this section for reference">¶</a></h2>
 <h2 id="rlhf">RLHF<a class="headerlink" href="#rlhf" title="anchor link to this section for reference">¶</a></h2>
@@ -5224,7 +5224,7 @@ BA = 0 \Rightarrow \text{LoRA 不会影响初始输出}
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年8月23日 01:47:33</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年10月17日 20:24:06</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">

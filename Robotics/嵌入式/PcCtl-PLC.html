@@ -5574,7 +5574,7 @@
 </ul>
 <p><span>AI<span class="heti-spacing"> </span></span>连接</p>
 <p><span>AI<span class="heti-spacing"> </span></span>接口接收<span><span class="heti-spacing"> </span>4</span>～<span>20mA<span class="heti-spacing"> </span></span>电流输入，如何连接</p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/202504042327077.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__PcCtl-PLC.assets__202504042327077.webp"/></p>
 <ul>
 <li><span>PLC<span class="heti-spacing"> </span></span>为每个输入分配好了独立的内存地址</li>
 </ul>
@@ -5653,7 +5653,7 @@ I0.1 true</p>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">可靠度的计算</p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250402190726.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__PcCtl-PLC.assets__20250402190726.webp"/></p>
 <p>第二个题计算的时候，可以按照中间的块是否有效进行分类讨论；</p>
 <ul>
 <li>如果有效，则可以等效为左边的块</li>
@@ -5873,7 +5873,7 @@ I0.1 true</p>
 <h3 id="_6">过程映像区<a class="headerlink" href="#_6" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>过程映像区（Process Image）是<span><span class="heti-spacing"> </span>PLC</span>（可编程逻辑控制器）中用于存储输入和输出信号状态的区域。它位于<span class="heti-skip"><span class="heti-spacing"> </span>CPU<span class="heti-spacing"> </span></span>的系统存储区中，用于在程序执行过程中提供一致的输入和输出信号状态</p>
 <p>程映像区的更新机制：过程映像区在每个扫描周期中更新一次。</p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250405092605.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__PcCtl-PLC.assets__20250405092605.webp"/></p>
 <ul>
 <li>输入、输出地址是不同的（<code>I</code><heti-adjacent class="heti-adjacent-half">、</heti-adjacent><code>Q</code><heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。模块地址在硬件配置时生成或指定。端口状态与映像区周期性自动映射。</li>
 <li>支持绝对地址访问，用 <code>%</code> 开头。非必要情况下建议优先对映像区读写。</li>
@@ -6132,7 +6132,7 @@ T     %QW416:P                 // 十进制转换结果输出到过程输出缓�
 <li><span>FB<span class="heti-spacing"> </span></span>或<span class="heti-skip"><span class="heti-spacing"> </span>FC<span class="heti-spacing"> </span></span>可以调用其他<span><span class="heti-spacing"> </span>FB</span>、FC。</li>
 <li>系统为每个优先级分配<span class="heti-skip"><span class="heti-spacing"> </span>64KB<span class="heti-spacing"> </span></span>的临时变量（<span>L<span class="heti-spacing"> </span></span>堆栈<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，供组织块、程序块使用。</li>
 <li>嵌套越深，占用<span class="heti-skip"><span class="heti-spacing"> </span>L<span class="heti-spacing"> </span></span>堆栈越多，需防止“爆栈”现象。
-<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250405001921.png"/></li>
+<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__PcCtl-PLC.assets__20250405001921.webp"/></li>
 </ul>
 <h2 id="_15">定时器<a class="headerlink" href="#_15" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <div class="admonition note">
@@ -6187,7 +6187,7 @@ T     %QW416:P                 // 十进制转换结果输出到过程输出缓�
 </tbody>
 </table>
 <h3 id="ss">SS（保持型接通延时定时器）<a class="headerlink" href="#ss" title="anchor link to this section for reference">¶</a></h3>
-<p><img alt="LAD图" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250405103721.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__PcCtl-PLC.assets__20250405103721.webp"/></p>
 <div class="highlight"><span class="filename">SDL</span><pre><span></span><code>A<span class="w">   </span>%I0.0
 L<span class="w">   </span>S5T#10s
 SP<span class="w">  </span>%T1
@@ -6466,7 +6466,7 @@ A<span class="w">   </span>%T1
 <p>控制<span class="heti-skip"><span class="heti-spacing"> </span>5<span class="heti-spacing"> </span></span>个电机的接触器记为<span><span class="heti-spacing"> </span>KM1</span>—KM5，输出信号地址分配为：%Q4.0%Q4.1%Q4.2%Q4.3%Q4.4</p>
 <p>提醒：先设计出一个电机的启停控制程序
 再设计出五个电机的启停控制程序最后设计出五个电机的关联开关程序</p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250405103721.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__PcCtl-PLC.assets__20250405103721.webp"/></p>
 <h3 id="_38">通风机的监控<a class="headerlink" href="#_38" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>工艺要求：有<span class="heti-skip"><span class="heti-spacing"> </span>3<span class="heti-spacing"> </span></span>个通风机，设计一个监控系统，监视风机的运转，要求：
 当有2个或2个以上风机运转的时候，信号灯持续发亮；
@@ -6475,14 +6475,14 @@ A<span class="w">   </span>%T1
 请设计PLC控制程序
 设计过程风机的状态（3个）—— %I0.0 %I0.1 %I0.2
 信号灯输出（1个 —— %Q4.0</p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250406145757.png"/></p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250406145821.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__PcCtl-PLC.assets__20250406145757.webp"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__PcCtl-PLC.assets__20250406145821.webp"/></p>
 <h3 id="_39">延时开关（注意设计自锁）<a class="headerlink" href="#_39" title="anchor link to this section for reference">¶</a></h3>
 <p>有一台开关泵和一台开关阀，开关阀安装与泵的出口。请设计一段控制程序，满足：
 （1）当输入信号为ON时，立即打开阀门，过3秒后启动开关泵
 （2）当输入信号为OFF时，立即关闭开关泵，过5秒后关阀</p>
 <p>（输入信号地址<span class="heti-skip"><span class="heti-spacing"> </span>%I0.4<span class="heti-spacing"> </span></span>开关阀输出地址<span class="heti-skip"><span class="heti-spacing"> </span>%Q4.4<span class="heti-spacing"> </span></span>开关泵输出地址<span><span class="heti-spacing"> </span>%Q4.5</span>）
-<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250406145933.png"/></p>
+<img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__PcCtl-PLC.assets__20250406145933.webp"/></p>
 <h3 id="_40">原料输送系统（延时开关）<a class="headerlink" href="#_40" title="anchor link to this section for reference">¶</a></h3>
 <p>某原料输送系统的控制点包括：</p>
 <ul>
@@ -6508,7 +6508,7 @@ A<span class="w">   </span>%T1
 - 当储罐A中无料时，启动电机M，10s后再打开阀V；
 - 当储罐A中料满时，关闭阀V，10s后再关闭电机M；
 3）按下停止按钮后，系统进入停机状态：并立即关闭开关阀V，经10s后再关闭输送电机M。</p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/20250406150103.png"/></p>
+<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__PcCtl-PLC.assets__20250406150103.webp"/></p>
 <h2 id="_41">实验课<a class="headerlink" href="#_41" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <h3 id="_42">硬件构成<a class="headerlink" href="#_42" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>NI、NO、AI、AO</p>
@@ -6522,7 +6522,7 @@ M：负极</p></div>
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年6月20日 07:29:20</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年10月17日 20:24:06</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">

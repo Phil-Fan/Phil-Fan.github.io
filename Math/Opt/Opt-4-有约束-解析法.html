@@ -5026,7 +5026,7 @@ L(x, \lambda) = f(x) + \lambda^T h(x) = f(x) + \sum_{i=1}^m \lambda_i h_i(x)
 <div class="arithmatex">\[
 \frac{\partial L(x, \lambda)}{\partial \lambda} \Big|_{x^*} = 0 \quad \Rightarrow \quad h_i(x^*) = 0, \quad i = 1, 2, ..., m
 \]</div>
-<p><img alt="image-20240521160859915" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240521160859915.png" style="zoom:50%;"/></p>
+<p><img alt="image-20240521160859915" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__Opt__assets__Opt-4-___-___.assets__image-20240521160859915.webp" style="zoom:50%;"/></p>
 <blockquote>
 <p>只有在相切的时候，可行域的切线和梯度才能在同一方向，相加才可能为<span><span class="heti-spacing"> </span>0</span></p>
 </blockquote>
@@ -5067,8 +5067,8 @@ g_j(x^{(0)} + \lambda p) \geq 0
 \]</div>
 <p>其中，<span><span class="arithmatex">\(J(x^*)\)</span><span class="heti-spacing"> </span></span>为起作用约束集合。</p>
 <p>几何含义：不存在与<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\nabla f(x^*)\)</span><span class="heti-spacing"> </span></span>和所有的<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\nabla g_{j \in J(x^*)}\)</span><span class="heti-spacing"> </span></span>均成锐角的方向。</p>
-<p><img alt="有行下降方向" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240521153533251.png" style="zoom:50%;"/></p>
-<p><img alt="无可行下降方向" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240521153609542.png" style="zoom:50%;"/></p>
+<p><img alt="有行下降方向" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__Opt__assets__Opt-4-___-___.assets__image-20240521153533251.webp" style="zoom:50%;"/></p>
+<p><img alt="无可行下降方向" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__Opt__assets__Opt-4-___-___.assets__image-20240521153609542.webp" style="zoom:50%;"/></p>
 <h2 id="gordan"><strong><span>Gordan<span class="heti-spacing"> </span></span>引理</strong><a class="headerlink" href="#gordan" title="anchor link to this section for reference">¶</a></h2>
 <p>设<span><span class="heti-spacing"> </span><span class="arithmatex">\(B \in R^{m\times n}\)</span></span>，则下列两个系统有且仅有一个有解：<br/>
 (I) <span class="arithmatex">\(Bx &lt; 0\)</span><br/>
@@ -5083,7 +5083,7 @@ g_j(x^{(0)} + \lambda p) \geq 0
 <li><span><span class="arithmatex">\(B^T\)</span><span class="heti-spacing"> </span></span>这组基的非负、非零线性组合可以得到原点<br/>
     换句话说，<strong>如果一组基的非负组合是一个凸锥，则等价为这组基的正组合表示不了原点，除非系数都是<span><span class="heti-spacing"> </span>0</span>。即<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(b_j\)</span><span class="heti-spacing"> </span></span>不可能分布在任何超平面的同一侧</strong><br/></li>
 </ol>
-<p><img alt="img" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/v2-995890416cc10e852566f5ff1a292f68_1440w.webp" style="zoom:50%;"/></p>
+<p><img alt="img" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__Opt__assets__Opt-4-___-___.assets__v2-995890416cc10e852566f5ff1a292f68_1440w.webp" style="zoom:50%;"/></p>
 <p>正线性相关（positive linear dependence）</p>
 <p>几何含义：<span><span class="arithmatex">\(a_j\)</span><span class="heti-spacing"> </span></span>不可能分布在任何超平面的同一侧</p>
 <p>正线性相关<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\Rightarrow\)</span><span class="heti-spacing"> </span></span>线性相关</p>
@@ -5117,7 +5117,7 @@ g_j(x^{(0)} + \lambda p) \geq 0
 \mu_j^* \ge 0 \quad j = 0, 1, ..., m\\
 \sum_{j=0}^l \mu_j^* + \sum_{i=1}^m |\gamma_i^* |\neq 0 \quad 强非负条件
 \]</div>
-<p><img alt="image-20240521161306273" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240521161306273.png" style="zoom:50%;"/></p>
+<p><img alt="image-20240521161306273" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__Opt__assets__Opt-4-___-___.assets__image-20240521161306273.webp" style="zoom:50%;"/></p>
 <blockquote>
 <ul>
 <li>对于紧致的约束条件，<span class="arithmatex">\(g(x^*) = 0\)</span>，但是<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\sum_{j=1}^l \mu_j \nabla g_j(X^*)\)</span><span class="heti-spacing"> </span></span>应该等于负梯度，<span class="arithmatex">\(\lambda_i \neq 0\)</span></li>
@@ -5133,8 +5133,8 @@ g_j(x^{(0)} + \lambda p) \geq 0
 <blockquote>
 <p>内部存在点</p>
 </blockquote>
-<p><img alt="image-20240521171945366" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240521171945366.png" style="zoom:50%;"/></p>
-<p><img alt="image-20240521175622067" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240521175622067.png" style="zoom:50%;"/></p>
+<p><img alt="image-20240521171945366" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__Opt__assets__Opt-4-___-___.assets__image-20240521171945366.webp" style="zoom:50%;"/></p>
+<p><img alt="image-20240521175622067" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__Opt__assets__Opt-4-___-___.assets__image-20240521175622067.webp" style="zoom:50%;"/></p>
 <h2 id="kkt"><span>KKT<span class="heti-spacing"> </span></span>条件——强对偶的必要条件<a class="headerlink" href="#kkt" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p>正则条件（regular condition）是指起作用约束<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\nabla g_{i^*}(x^*)\)</span><span class="heti-spacing"> </span></span>线性无关。</p>
 <p>性质：若极小值<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(x^*\)</span><span class="heti-spacing"> </span></span>满足正则条件，则<span class="heti-skip"><span class="heti-spacing"> </span>KKT<span class="heti-spacing"> </span></span>条件成立。证明：<span><span class="arithmatex">\(x^*\)</span><span class="heti-spacing"> </span></span>满足正则条件，<span>Fritz John<span class="heti-spacing"> </span></span>条件中的<span><span class="heti-spacing"> </span><span class="arithmatex">\(\mu_i&gt;0\)</span></span>。</p>
@@ -5150,10 +5150,10 @@ g_j(x^{(0)} + \lambda p) \geq 0
 <p>那如果想要不分类讨论<span><span class="heti-spacing"> </span><span class="arithmatex">\(\lambda g(X^*) = 0\)</span></span>​</p>
 <p>!!! note "<strong>能解出最优解的一定是等式，故式<span class="heti-skip"><span class="heti-spacing"> </span>(1)(2)(3)<span class="heti-spacing"> </span></span>帮我们求最优解；</strong>
 <strong>式<span class="heti-skip"><span class="heti-spacing"> </span>(4)<span class="heti-spacing"> </span></span>和式<span class="heti-skip"><span class="heti-spacing"> </span>(5)<span class="heti-spacing"> </span></span>是不等式，帮我们排除一些解，或者得到最优解的适用范围。</strong>"</p>
-<p><img alt="image-20240521172440334" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240521172440334.png" style="zoom:50%;"/></p>
+<p><img alt="image-20240521172440334" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__Opt__assets__Opt-4-___-___.assets__image-20240521172440334.webp" style="zoom:50%;"/></p>
 <p>（1）如果目标为最小化（Min）问题，那么不等式约束需要整理成“<span class="arithmatex">\(\le0\)</span>”的形式；
 （2）如果目标为最大化（Max）问题，那么不等式约束需要整理成“<span class="arithmatex">\(\ge0\)</span>”的形式；</p>
-<p><img alt="img" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/8101601f50f02cc9de347507ba01b44d.webp" style="zoom:50%;"/></p>
+<p><img alt="img" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__Opt__assets__Opt-4-___-___.assets__8101601f50f02cc9de347507ba01b44d.webp" style="zoom:50%;"/></p>
 <p><strong>梯度方向垂直于函数等值线，指向函数值增长的方向。</strong></p>
 <p>（2）画出<span class="heti-skip"><span class="heti-spacing"> </span>f(X)<span class="heti-spacing"> </span></span>的梯度方向（下图红色方向<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>：
 梯度方向是函数值增长的方向，因此指向右下方；负梯度方向是函数值下降的方向，指向左上方；
@@ -5301,7 +5301,7 @@ f(x^*) = 3.7989
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年5月12日 11:13:03</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年10月17日 20:24:06</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">
