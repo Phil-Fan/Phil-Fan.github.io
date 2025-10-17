@@ -1,4 +1,7 @@
 - "2025":
+  - "2025-10-17":
+    - function:
+        text: "将所有图片换成图床，并使用cdn上的mathjax代替本地mathjax"
   - "2025-08-27":
     - function:
         text: "增加toc hook，继承改编自[TonyCrane/note](https://github.com/TonyCrane/note/tree/master/hooks)"
