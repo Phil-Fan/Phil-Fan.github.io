@@ -4806,6 +4806,13 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#mkdocs">
+<span class="md-ellipsis">
+      Mkdocs 瘦身
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#linux-l2tp-vpn">
 <span class="md-ellipsis">
       Linux L2TP VPN 配置与网络调试
@@ -4836,6 +4843,13 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#mkdocs">
+<span class="md-ellipsis">
+      Mkdocs 瘦身
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#linux-l2tp-vpn">
 <span class="md-ellipsis">
       Linux L2TP VPN 配置与网络调试
@@ -4855,6 +4869,61 @@
 <p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约 1 个字 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间不到 1 分钟</p>
 </div></div>
 </header>
+<article class="md-post md-post--excerpt">
+<header class="md-post__header">
+<nav class="md-post__authors md-typeset">
+<span class="md-author">
+<img alt="Phil-Fan" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/202508072218866.png"/>
+</span>
+</nav>
+<div class="md-post__meta md-meta">
+<ul class="md-meta__list">
+<li class="md-meta__item">
+<time datetime="2025-10-17 00:00:00">2025年10月17日</time></li>
+<li class="md-meta__item">
+            分类于
+            
+              <a class="md-meta__link" href="settings.html">Settings</a></li>
+<li class="md-meta__item">
+            
+              需要 3 分钟阅读时间
+            
+          </li>
+</ul>
+</div>
+</header>
+<div class="md-post__content md-typeset">
+<h2 id="mkdocs"><a class="toclink" href="../2025/10/17/mkdocs-%E7%98%A6%E8%BA%AB.html"><span>Mkdocs<span class="heti-spacing"> </span></span>瘦身</a></h2>
+<h3 id="to"><a class="toclink" href="../2025/10/17/mkdocs-%E7%98%A6%E8%BA%AB.html#to">图片<span class="heti-skip"><span class="heti-spacing"> </span>to<span class="heti-spacing"> </span></span>图床</a></h3>
+<p>由于图片特别多，而且之前的图床文件又很大了，将近<span><span class="heti-spacing"> </span>800MB</span>，所以决定重新换一下</p>
+<p>可能之后图床这块的费用要大一些</p>
+<h3 id="_1"><a class="toclink" href="../2025/10/17/mkdocs-%E7%98%A6%E8%BA%AB.html#_1">一些查看命令</a></h3>
+<h4 id="_2"><a class="toclink" href="../2025/10/17/mkdocs-%E7%98%A6%E8%BA%AB.html#_2">命令（先预览，再删除）</a></h4>
+<ul>
+<li>先预览将被删除的所有 <code>assets</code> 目录：
+<div class="highlight"><pre><span></span><code>find<span class="w"> </span><span class="s2">"/Users/philfan/CodeSource/Phil-Fan.github.io/docs"</span><span class="w"> </span>-type<span class="w"> </span>d<span class="w"> </span>-name<span class="w"> </span>assets<span class="w"> </span>-print
+</code></pre></div></li>
+</ul>
+<ul>
+<li>确认无误后，执行删除：
+<div class="highlight"><pre><span></span><code>find<span class="w"> </span><span class="s2">"/Users/philfan/CodeSource/Phil-Fan.github.io/docs"</span><span class="w"> </span>-type<span class="w"> </span>d<span class="w"> </span>-name<span class="w"> </span>assets<span class="w"> </span>-exec<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span><span class="o">{}</span><span class="w"> </span>+
+</code></pre></div></li>
+</ul>
+<h4 id="macos"><a class="toclink" href="../2025/10/17/mkdocs-%E7%98%A6%E8%BA%AB.html#macos">文件大小统计并排序（macOS，按字节）</a></h4>
+<ul>
+<li>仅看最大的<span class="heti-skip"><span class="heti-spacing"> </span>20<span class="heti-spacing"> </span></span>个文件
+<div class="highlight"><pre><span></span><code>find<span class="w"> </span><span class="s2">"/Users/philfan/CodeSource/Phil-Fan.github.io"</span><span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span>-exec<span class="w"> </span>stat<span class="w"> </span>-f<span class="w"> </span><span class="s2">"%z %N"</span><span class="w"> </span><span class="o">{}</span><span class="w"> </span>+<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-n<span class="w"> </span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-20
+</code></pre></div></li>
+</ul>
+<ul>
+<li>统计指定路径下一层目录<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>文件大小并按大小排序（人类可读）
+<div class="highlight"><pre><span></span><code>du<span class="w"> </span>-h<span class="w"> </span>-d<span class="w"> </span><span class="m">1</span><span class="w"> </span>
+</code></pre></div>
+<a class="md-button" href="https://twitter.com/intent/tweet?text=Mkdocs%20%E7%98%A6%E8%BA%AB%0A&amp;url=https://www.philfan.cn/blog/2025/10/17/mkdocs-%E7%98%A6%E8%BA%AB.html">Share on <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"></path></svg></span></a>
+<a class="md-button" href="https://www.facebook.com/sharer/sharer.php?u=https://www.philfan.cn/blog/2025/10/17/mkdocs-%E7%98%A6%E8%BA%AB.html">Share on <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"></path></svg></span></a></li>
+</ul>
+</div>
+</article>
 <article class="md-post md-post--excerpt">
 <header class="md-post__header">
 <nav class="md-post__authors md-typeset">
