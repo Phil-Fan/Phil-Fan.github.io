@@ -1,0 +1,32 @@
+name: deploy
+
+on:
+  push:
+    branches:
+      - master
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0    # for mkdocs-git-revision-date-localized-plugin
+    
+      - uses: actions/setup-python@v4
+        with:
+          python-version: 3.12.4
+    
+      - run: pip install -r requirements.txt
+    
+      - name: Create CNAME file
+        run: echo "www.philfan.cn" > docs/CNAME   # Adjust the path if your configuration is different
+    
+      - name: Modify nbconvert HTML exporter
+        run: sed -i 's#https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS_CHTML-full,Safe##g' $(python -c "import nbconvert; print(nbconvert.__file__.replace('__init__.py', 'exporters/html.py'))")
+
+      - name: Deploy with MkDocs
+        run: export JUPYTER_PLATFORM_DIRS=1 && export MKDOCS_GIT_COMMITTERS_APIKEY=${{ secrets.MKDOCS_GIT_COMMITTERS_APIKEY }} && mkdocs gh-deploy --force
