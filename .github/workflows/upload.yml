@@ -1,0 +1,28 @@
+# .github/workflows/ssh-upload.yml
+# 将gh-pages分支的文件上传到服务器
+name: upload-to-server
+
+on:
+  workflow_run:
+    workflows: ["deploy"]
+    types:
+      - completed
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout gh-pages
+        uses: actions/checkout@v3
+        with:
+          ref: gh-pages
+
+      - name: Deploy to Server via SSH
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          source: "./"
+          target: ${{ secrets.SSH_UPLOAD_PATH }}   # 修改为你的服务器路径
